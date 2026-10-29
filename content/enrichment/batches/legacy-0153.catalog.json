@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000015300",
+      "title": {
+        "en": "Understanding Spitzentag in context",
+        "de": "Spitzentag im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Spitzentag as a day with exceptionally high sales or demand.",
+        "de": "Spitzentag als ein Tag mit besonders hohem Umsatz oder großer Nachfrage erkennen."
+      },
+      "objective": "Recognize Spitzentag in the specified a day with exceptionally high sales or demand sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2211 (c83ee8741be017b1a05b390d1fe80194b3cc437e2500d566fba9ac76026caf46), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2211-v1",
+          "contextKey": "legacy-0153-L2211-context-1",
+          "transferKey": "legacy-0153-L2211-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015300",
+            "type": "gap_choice",
+            "prompt": "Der Samstag vor Weihnachten war für das Geschäft ein echter ___.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The shop was especially busy and sold a lot.",
+              "de": "Das Geschäft war besonders voll und verkaufte sehr viel."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ruhetag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Spitzentag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schließtag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Urlaubstag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A very successful sales day is a Spitzentag.",
+              "de": "Ein Tag mit außergewöhnlich hohen Verkäufen ist ein Spitzentag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Samstag vor Weihnachten war für das Geschäft ein echter Spitzentag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Spitzentag\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Ruhetag\": A rest day involves no regular business, not exceptional sales. \"Schließtag\": A closing day is a day the shop is shut, not its busiest day. \"Urlaubstag\": A vacation day is time off, not a sales peak. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2211-v2",
+          "contextKey": "legacy-0153-L2211-context-2",
+          "transferKey": "legacy-0153-L2211-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015300",
+            "type": "choice",
+            "prompt": "Ein Online-Shop verzeichnet an einem Tag ungewöhnlich viele Bestellungen. Wie nennt man einen solchen Tag?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Demand is far above the usual level.",
+              "de": "Die Nachfrage liegt weit über dem normalen Niveau."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zahltag"
+              },
+              {
+                "id": "1",
+                "text": "Spitzentag"
+              },
+              {
+                "id": "2",
+                "text": "Feiertag"
+              },
+              {
+                "id": "3",
+                "text": "Schultag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "An unusually strong business day is a Spitzentag.",
+              "de": "Ein ungewöhnlich erfolgreicher Geschäftstag heißt Spitzentag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Online-Shop ist es ein Spitzentag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Spitzentag\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Zahltag\": A payday is when wages are paid, not necessarily a sales peak. \"Feiertag\": A public holiday is defined by the calendar, not order volume. \"Schultag\": A school day concerns lessons, not retail orders. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015301",
+      "title": {
+        "en": "Understanding Sportart in context",
+        "de": "Sportart im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Sportart as a particular type of sport.",
+        "de": "Sportart als eine bestimmte Art sportlicher Betätigung erkennen."
+      },
+      "objective": "Recognize Sportart in the specified a particular type of sport sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2213 (d7742c2082aa8b40f989557f9d217f4ac1ac4d56dc269927e8e60ce1fb8dd1bc), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2213-v1",
+          "contextKey": "legacy-0153-L2213-context-1",
+          "transferKey": "legacy-0153-L2213-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015301",
+            "type": "gap_choice",
+            "prompt": "Schwimmen ist eine beliebte ___.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence classifies an athletic activity.",
+              "de": "Der Satz ordnet eine sportliche Tätigkeit ein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mannschaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Sportart"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Spielregel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Sporthalle"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Swimming is a type of sport, a Sportart.",
+              "de": "Schwimmen ist eine Sportart."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Schwimmen ist eine beliebte Sportart.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Sportart\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Mannschaft\": A team is a group of people, not swimming itself. \"Spielregel\": A game rule is an instruction, not an athletic category. \"Sporthalle\": A sports hall is a place, not an activity. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2213-v2",
+          "contextKey": "legacy-0153-L2213-context-2",
+          "transferKey": "legacy-0153-L2213-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015301",
+            "type": "choice",
+            "prompt": "Fußball, Tennis und Rudern sind unterschiedliche ___.",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "These are three kinds of physical competition.",
+              "de": "Das sind drei verschiedene Arten sportlicher Betätigung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Stadien"
+              },
+              {
+                "id": "1",
+                "text": "Sportarten"
+              },
+              {
+                "id": "2",
+                "text": "Mannschaften"
+              },
+              {
+                "id": "3",
+                "text": "Wettkämpfe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Football, tennis and rowing are Sportarten.",
+              "de": "Fußball, Tennis und Rudern sind Sportarten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Fußball, Tennis und Rudern sind unterschiedliche Sportarten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Sportarten\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Stadien\": Stadiums are buildings, not sports. \"Mannschaften\": Teams are groups, not the sports themselves. \"Wettkämpfe\": Competitions are events, not categories of sport. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015303",
+      "title": {
+        "en": "Understanding Sportlerin in context",
+        "de": "Sportlerin im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Sportlerin as a female athlete.",
+        "de": "Sportlerin als eine Frau, die sportlich trainiert oder an Wettkämpfen teilnimmt erkennen."
+      },
+      "objective": "Recognize Sportlerin in the specified a female athlete sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2215 (4ed2e7055a189e021b094063f5abea35d9662af38eeecfe44f2ee39896d394fa), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2215-v1",
+          "contextKey": "legacy-0153-L2215-context-1",
+          "transferKey": "legacy-0153-L2215-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015303",
+            "type": "gap_choice",
+            "prompt": "Die ___ gewann die Goldmedaille im Hochsprung.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She competes in the athletic event.",
+              "de": "Sie nimmt selbst am sportlichen Wettkampf teil."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zuschauerin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Sportlerin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schiedsrichterin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Trainerin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The competing female athlete is a Sportlerin.",
+              "de": "Die am Wettkampf teilnehmende Frau ist eine Sportlerin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sportlerin gewann die Goldmedaille im Hochsprung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Sportlerin\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Zuschauerin\": A spectator watches and does not compete for the medal. \"Schiedsrichterin\": A referee officiates rather than competing in high jump. \"Trainerin\": A coach trains athletes rather than winning the athlete's medal. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2215-v2",
+          "contextKey": "legacy-0153-L2215-context-2",
+          "transferKey": "legacy-0153-L2215-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015303",
+            "type": "choice",
+            "prompt": "Eine Frau trainiert regelmäßig für internationale Leichtathletikwettkämpfe. Wie nennt man sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Her main activity is athletic training and competition.",
+              "de": "Ihre Tätigkeit ist sportliches Training und Wettkampf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Reporterin"
+              },
+              {
+                "id": "1",
+                "text": "Managerin"
+              },
+              {
+                "id": "2",
+                "text": "Sportlerin"
+              },
+              {
+                "id": "3",
+                "text": "Kundin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A woman competing in athletics is a Sportlerin.",
+              "de": "Eine Frau im sportlichen Wettkampf ist eine Sportlerin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Frau ist eine Sportlerin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Sportlerin\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Reporterin\": A reporter covers events rather than trains as an athlete. \"Managerin\": A manager organizes work, not necessarily athletic competition. \"Kundin\": A customer buys services, not competes in athletics. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015305",
+      "title": {
+        "en": "Understanding Sprichwort in context",
+        "de": "Sprichwort im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Sprichwort as a short traditional saying expressing general wisdom.",
+        "de": "Sprichwort als ein kurzer überlieferter Satz mit einer allgemeinen Lebensweisheit erkennen."
+      },
+      "objective": "Recognize Sprichwort in the specified a short traditional saying expressing general wisdom sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2220 (35667f8fb3d8687793a6e4995cf1c901c556b9118f6cb14e9de046184db6ebad), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2220-v1",
+          "contextKey": "legacy-0153-L2220-context-1",
+          "transferKey": "legacy-0153-L2220-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015305",
+            "type": "gap_choice",
+            "prompt": "„Übung macht den Meister“ ist ein bekanntes ___.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is a traditional saying, not a literal instruction manual.",
+              "de": "Es ist ein überlieferter Sinnspruch, keine Anleitung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rezept"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Sprichwort"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Protokoll"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Formular"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A traditional saying with a general lesson is a Sprichwort.",
+              "de": "Ein überlieferter Satz mit allgemeiner Lehre ist ein Sprichwort."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "„Übung macht den Meister“ ist ein bekanntes Sprichwort.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Sprichwort\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Rezept\": A recipe gives cooking steps, not a general life lesson. \"Protokoll\": Minutes record a meeting, not a traditional saying. \"Formular\": A form collects information, not a proverb. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2220-v2",
+          "contextKey": "legacy-0153-L2220-context-2",
+          "transferKey": "legacy-0153-L2220-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015305",
+            "type": "choice",
+            "prompt": "Eine kurze Lebensweisheit wird über Generationen in fast gleicher Form weitergegeben. Wie heißt so ein Satz?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The phrase is passed down and expresses a general lesson.",
+              "de": "Die Wendung wird überliefert und vermittelt eine allgemeine Lehre."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rechnung"
+              },
+              {
+                "id": "1",
+                "text": "Anleitung"
+              },
+              {
+                "id": "2",
+                "text": "Sprichwort"
+              },
+              {
+                "id": "3",
+                "text": "Bericht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A traditional wise saying is a Sprichwort.",
+              "de": "Ein überlieferter weiser Satz ist ein Sprichwort."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Satz ist ein Sprichwort.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Sprichwort\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Rechnung\": An invoice lists charges, not wisdom. \"Anleitung\": Instructions explain procedures, not traditional wisdom. \"Bericht\": A report describes events, not a general saying. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015306",
+      "title": {
+        "en": "Understanding Spritze in context",
+        "de": "Spritze im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Spritze as a medical syringe.",
+        "de": "Spritze als ein medizinisches Gerät mit Zylinder und Kolben erkennen."
+      },
+      "objective": "Recognize Spritze in the specified a medical syringe sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2221 (4ffdba1b04765e092ec8da8e90e831a991e984b75fb806ba71ad6e4da9ec251b), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2221-v1",
+          "contextKey": "legacy-0153-L2221-context-1",
+          "transferKey": "legacy-0153-L2221-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015306",
+            "type": "gap_choice",
+            "prompt": "Die Pflegekraft legte eine sterile ___ mit Nadel und Kolben auf das Tablett.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The device has a plunger and may hold liquid.",
+              "de": "Das Gerät besitzt einen Kolben und kann Flüssigkeit enthalten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schere"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Waage"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Spritze"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Binde"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A syringe has a barrel and plunger.",
+              "de": "Eine Spritze hat einen Zylinder und einen Kolben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Pflegekraft legte eine sterile Spritze mit Nadel und Kolben auf das Tablett.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Spritze\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Schere\": Scissors have blades, not a barrel and plunger. \"Waage\": A scale measures weight, not liquid with a plunger. \"Binde\": A bandage covers a wound, not a syringe mechanism. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2221-v2",
+          "contextKey": "legacy-0153-L2221-context-2",
+          "transferKey": "legacy-0153-L2221-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015306",
+            "type": "choice",
+            "prompt": "Ein medizinisches Gerät hat einen Zylinder und einen beweglichen Kolben, um Flüssigkeit aufzuziehen. Wie heißt es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It draws liquid into a barrel.",
+              "de": "Es zieht Flüssigkeit in einen Zylinder."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Stethoskop"
+              },
+              {
+                "id": "1",
+                "text": "Thermometer"
+              },
+              {
+                "id": "2",
+                "text": "Spritze"
+              },
+              {
+                "id": "3",
+                "text": "Pflaster"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "This medical device is a Spritze.",
+              "de": "Dieses medizinische Gerät ist eine Spritze."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gerät ist eine Spritze.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Spritze\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Stethoskop\": A stethoscope is used for listening, not drawing fluid. \"Thermometer\": A thermometer measures temperature, not draws liquid. \"Pflaster\": A plaster covers skin, not draws liquid. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015307",
+      "title": {
+        "en": "Understanding Spülmaschine in context",
+        "de": "Spülmaschine im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Spülmaschine as a machine that washes dishes automatically.",
+        "de": "Spülmaschine als ein Gerät, das Geschirr automatisch reinigt erkennen."
+      },
+      "objective": "Recognize Spülmaschine in the specified a machine that washes dishes automatically sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2222 (2095400c6adcfaeed7da6019760365b864650af040d40241e361082ebfcb5ac4), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2222-v1",
+          "contextKey": "legacy-0153-L2222-context-1",
+          "transferKey": "legacy-0153-L2222-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015307",
+            "type": "gap_choice",
+            "prompt": "Nach dem Essen stellte er die Teller in die ___.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The appliance cleans plates and cutlery.",
+              "de": "Das Gerät reinigt Teller und Besteck."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Waschmaschine"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Spülmaschine"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mikrowelle"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kaffeemaschine"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Spülmaschine washes dishes.",
+              "de": "Eine Spülmaschine reinigt Geschirr."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Essen stellte er die Teller in die Spülmaschine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Spülmaschine\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Waschmaschine\": A clothes washer cleans textiles, not plates. \"Mikrowelle\": A microwave heats food, not washes dishes. \"Kaffeemaschine\": A coffee maker brews coffee, not cleans plates. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2222-v2",
+          "contextKey": "legacy-0153-L2222-context-2",
+          "transferKey": "legacy-0153-L2222-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015307",
+            "type": "choice",
+            "prompt": "Ein Gerät reinigt automatisch Geschirr und Besteck. Wie heißt es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The items are cups, plates and forks.",
+              "de": "Es geht um Tassen, Teller und Gabeln."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Trockner"
+              },
+              {
+                "id": "1",
+                "text": "Backofen"
+              },
+              {
+                "id": "2",
+                "text": "Spülmaschine"
+              },
+              {
+                "id": "3",
+                "text": "Staubsauger"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "An automatic dishwashing appliance is a Spülmaschine.",
+              "de": "Ein Gerät zum automatischen Geschirrspülen heißt Spülmaschine."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gerät heißt Spülmaschine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Spülmaschine\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Trockner\": A dryer dries laundry, not washes dishes. \"Backofen\": An oven cooks food, not cleans cutlery. \"Staubsauger\": A vacuum cleaner removes dust, not washes dishes. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015308",
+      "title": {
+        "en": "Understanding Spur in context",
+        "de": "Spur im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Spur as a trace or track left behind.",
+        "de": "Spur als ein sichtbares Zeichen, das jemand oder etwas hinterlassen hat erkennen."
+      },
+      "objective": "Recognize Spur in the specified a trace or track left behind sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2223 (0f97afe0bb614125a53cdcf274fdc54f1201ad29d9ec109df1f3dd37bd5ff25b), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2223-v1",
+          "contextKey": "legacy-0153-L2223-context-1",
+          "transferKey": "legacy-0153-L2223-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015308",
+            "type": "gap_choice",
+            "prompt": "Im Schnee entdeckten wir eine frische ___ von einem Tier.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The animal left a visible mark as it moved.",
+              "de": "Das Tier hinterließ beim Laufen ein sichtbares Zeichen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wolke"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Spur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Melodie"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stimme"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A mark left by an animal can be a Spur.",
+              "de": "Ein vom Tier hinterlassenes Zeichen kann eine Spur sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Schnee entdeckten wir eine frische Spur von einem Tier.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Spur\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Wolke\": A cloud is in the sky, not a track in snow. \"Melodie\": A melody is sound, not a visible mark. \"Stimme\": A voice is sound, not a track in snow. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2223-v2",
+          "contextKey": "legacy-0153-L2223-context-2",
+          "transferKey": "legacy-0153-L2223-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015308",
+            "type": "choice",
+            "prompt": "Fußabdrücke zeigen, welchen Weg eine Person gegangen ist. Was bilden die Abdrücke?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The prints form a visible path.",
+              "de": "Die Abdrücke ergeben einen sichtbaren Weg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gespräch"
+              },
+              {
+                "id": "1",
+                "text": "Pause"
+              },
+              {
+                "id": "2",
+                "text": "Spur"
+              },
+              {
+                "id": "3",
+                "text": "Lärm"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Footprints form a Spur.",
+              "de": "Fußabdrücke bilden eine Spur."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fußabdrücke bilden eine Spur.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Spur\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Gespräch\": A conversation consists of speech, not footprints. \"Pause\": A break is a pause in activity, not marks. \"Lärm\": Noise is sound, not visible prints. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015309",
+      "title": {
+        "en": "Understanding Stadion in context",
+        "de": "Stadion im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Stadion as a stadium for sporting events.",
+        "de": "Stadion als eine große Sportanlage mit Spielfeld und Tribünen erkennen."
+      },
+      "objective": "Recognize Stadion in the specified a stadium for sporting events sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2224 (53dfc1c7a40803c0b6ec3cdf984d68c92ad57d48e5b3b731ebe5fe0f9b96d4f9), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2224-v1",
+          "contextKey": "legacy-0153-L2224-context-1",
+          "transferKey": "legacy-0153-L2224-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015309",
+            "type": "gap_choice",
+            "prompt": "Zehntausende Fans sahen das Fußballspiel im ___.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The venue has a field and spectator stands.",
+              "de": "Der Ort hat ein Spielfeld und Zuschauertribünen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Museum"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stadion"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bahnhof"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rathaus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A large football match is often held in a Stadion.",
+              "de": "Ein großes Fußballspiel findet oft im Stadion statt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zehntausende Fans sahen das Fußballspiel im Stadion.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Stadion\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Museum\": A museum displays exhibits, not normally league matches. \"Bahnhof\": A station serves transport, not football matches. \"Rathaus\": A town hall houses administration, not a large match. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2224-v2",
+          "contextKey": "legacy-0153-L2224-context-2",
+          "transferKey": "legacy-0153-L2224-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015309",
+            "type": "choice",
+            "prompt": "Eine große Sportanlage hat Tribünen rund um ein Spielfeld. Was ist sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Spectators sit around a sports field.",
+              "de": "Zuschauer sitzen rund um das Spielfeld."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bibliothek"
+              },
+              {
+                "id": "1",
+                "text": "Markthalle"
+              },
+              {
+                "id": "2",
+                "text": "Stadion"
+              },
+              {
+                "id": "3",
+                "text": "Kino"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A stadium has stands surrounding a playing area.",
+              "de": "Ein Stadion hat Tribünen um ein Spielfeld."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Anlage ist ein Stadion.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Stadion\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Bibliothek\": A library houses books, not sports stands. \"Markthalle\": A market hall has stalls, not a sports field. \"Kino\": A cinema has a screen, not a sports field. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015310",
+      "title": {
+        "en": "Understanding Stand in context",
+        "de": "Stand im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Stand as a booth at a trade fair.",
+        "de": "Stand als eine Ausstellungsfläche eines Unternehmens auf einer Messe erkennen."
+      },
+      "objective": "Recognize Stand in the specified a booth at a trade fair sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2227 (ccce97d6e769ca381f263ed2e42a922153f4c156a001ed17183c9a67988df13e), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2227-v1",
+          "contextKey": "legacy-0153-L2227-context-1",
+          "transferKey": "legacy-0153-L2227-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015310",
+            "type": "gap_choice",
+            "prompt": "Auf der Messe präsentierte die Firma ihre Produkte an einem eigenen ___.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The firm has a small exhibition area.",
+              "de": "Die Firma hat eine eigene Ausstellungsfläche."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bahnhof"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stand"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Stuhl"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schalter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A trade-fair booth is a Stand.",
+              "de": "Ein Messebereich eines Unternehmens ist ein Stand."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Messe präsentierte die Firma ihre Produkte an einem eigenen Stand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Stand\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Bahnhof\": A railway station is a transport hub, not a trade-fair booth. \"Stuhl\": A chair is seating, not an exhibition area. \"Schalter\": A service counter is not the firm's full exhibition booth. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2227-v2",
+          "contextKey": "legacy-0153-L2227-context-2",
+          "transferKey": "legacy-0153-L2227-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015310",
+            "type": "choice",
+            "prompt": "Ein Unternehmen mietet auf einer Fachmesse eine Fläche mit Tresen für Gespräche. Wie nennt man diesen Messebereich?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The area is used to show products and meet visitors.",
+              "de": "Dort zeigt die Firma Produkte und spricht mit Besuchern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Parkplatz"
+              },
+              {
+                "id": "1",
+                "text": "Lager"
+              },
+              {
+                "id": "2",
+                "text": "Stand"
+              },
+              {
+                "id": "3",
+                "text": "Büro"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The rented exhibition area is a Messestand, or Stand.",
+              "de": "Die gemietete Ausstellungsfläche ist ein Messestand oder Stand."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Messebereich ist ein Stand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Stand\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Parkplatz\": A parking space is for vehicles, not product presentations. \"Lager\": A warehouse stores goods, not a visitor-facing fair area. \"Büro\": An office is a workplace, not the exhibition booth described. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015311",
+      "title": {
+        "en": "Understanding Standard in context",
+        "de": "Standard im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Standard as an agreed level or norm of quality.",
+        "de": "Standard als ein festgelegtes Qualitätsniveau oder eine Norm erkennen."
+      },
+      "objective": "Recognize Standard in the specified an agreed level or norm of quality sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2228 (2cdd410ddcc081c43e6cc2df4349f67600ba1847e7a5f1cdd4f5897ec0ddca79), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2228-v1",
+          "contextKey": "legacy-0153-L2228-context-1",
+          "transferKey": "legacy-0153-L2228-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015311",
+            "type": "gap_choice",
+            "prompt": "Die Geräte erfüllen einen hohen ___ bei der Datensicherheit.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence concerns the required quality level.",
+              "de": "Es geht um das geforderte Qualitätsniveau."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeitplan"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Standard"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rabatt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Liefertermin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A high quality benchmark is a Standard.",
+              "de": "Ein hohes Qualitätsniveau ist ein Standard."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Geräte erfüllen einen hohen Standard bei der Datensicherheit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Standard\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Zeitplan\": A schedule lists times, not a quality level. \"Rabatt\": A discount reduces a price, not defines quality. \"Liefertermin\": A delivery date is a time, not a norm. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2228-v2",
+          "contextKey": "legacy-0153-L2228-context-2",
+          "transferKey": "legacy-0153-L2228-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015311",
+            "type": "choice",
+            "prompt": "Eine Firma legt fest, welches Qualitätsniveau alle Produkte erreichen müssen. Wie nennt man eine solche Vorgabe?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is a consistent benchmark for products.",
+              "de": "Es ist ein einheitlicher Maßstab für Produkte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausnahme"
+              },
+              {
+                "id": "1",
+                "text": "Gerücht"
+              },
+              {
+                "id": "2",
+                "text": "Standard"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A common required quality level is a Standard.",
+              "de": "Ein einheitlich gefordertes Qualitätsniveau ist ein Standard."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Vorgabe ist ein Standard.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Standard\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Ausnahme\": An exception deviates from a rule, not sets the norm. \"Gerücht\": A rumour is unverified information, not a binding benchmark. \"Kündigung\": Termination ends a contract, not sets product quality. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015312",
+      "title": {
+        "en": "Understanding Standdienst in context",
+        "de": "Standdienst im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Standdienst as the duty of staffing a trade-fair booth.",
+        "de": "Standdienst als die Aufgabe, einen Messestand zu betreuen erkennen."
+      },
+      "objective": "Recognize Standdienst in the specified the duty of staffing a trade-fair booth sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2229 (ffc644fbed2273e5c8ae277957e2dce8e9e3af7dff42699390aa6020e69e7c06), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2229-v1",
+          "contextKey": "legacy-0153-L2229-context-1",
+          "transferKey": "legacy-0153-L2229-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015312",
+            "type": "gap_choice",
+            "prompt": "Auf der Messe übernimmt Nina den ___ und berät Besucher am Firmenstand.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She is assigned to attend the exhibition booth.",
+              "de": "Sie ist für die Betreuung des Messestands eingeteilt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrdienst"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wachdienst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Standdienst"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Nachtdienst"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Staffing a booth at a fair is Standdienst.",
+              "de": "Die Betreuung eines Messestands heißt Standdienst."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Messe übernimmt Nina den Standdienst und berät Besucher am Firmenstand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Standdienst\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Fahrdienst\": Driving duty involves transport, not booth visitors. \"Wachdienst\": Security duty guards premises, not product advice at the booth. \"Nachtdienst\": Night duty is a shift time, not the booth assignment. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2229-v2",
+          "contextKey": "legacy-0153-L2229-context-2",
+          "transferKey": "legacy-0153-L2229-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015312",
+            "type": "choice",
+            "prompt": "Ein Mitarbeiter ist für die Betreuung des Firmenstands während einer Messe eingeteilt. Welche Aufgabe übernimmt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He stays at the booth to assist visitors.",
+              "de": "Er betreut am Stand die Besucher."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Inventur"
+              },
+              {
+                "id": "1",
+                "text": "Standdienst"
+              },
+              {
+                "id": "2",
+                "text": "Urlaubsvertretung"
+              },
+              {
+                "id": "3",
+                "text": "Lieferservice"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The assignment to staff the booth is Standdienst.",
+              "de": "Die Aufgabe der Standbetreuung ist Standdienst."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er übernimmt den Standdienst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Standdienst\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Inventur\": Inventory counts stock, not booth visitors. \"Urlaubsvertretung\": Holiday cover replaces an absent colleague, not specifically a booth duty. \"Lieferservice\": Delivery service transports goods, not staffs a fair booth. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015313",
+      "title": {
+        "en": "Understanding Standort in context",
+        "de": "Standort im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Standort as a business location or site.",
+        "de": "Standort als ein Ort, an dem ein Unternehmen tätig ist erkennen."
+      },
+      "objective": "Recognize Standort in the specified a business location or site sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2230 (544c953e78ee751221eff629b4d29c0d1be5c4c0c226062f159820d0e43a845d), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2230-v1",
+          "contextKey": "legacy-0153-L2230-context-1",
+          "transferKey": "legacy-0153-L2230-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015313",
+            "type": "gap_choice",
+            "prompt": "Das Unternehmen eröffnet einen neuen ___ in Hamburg.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company starts operating at another place.",
+              "de": "Die Firma nimmt an einem weiteren Ort ihre Arbeit auf."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Auftrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Termin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Standort"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vertrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A new operating site is a Standort.",
+              "de": "Ein neuer Betriebsort ist ein Standort."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen eröffnet einen neuen Standort in Hamburg.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Standort\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Auftrag\": An order requests work or goods, not a place. \"Termin\": An appointment is a time, not a site. \"Vertrag\": A contract is an agreement, not a physical site. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2230-v2",
+          "contextKey": "legacy-0153-L2230-context-2",
+          "transferKey": "legacy-0153-L2230-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015313",
+            "type": "choice",
+            "prompt": "Eine Firma sucht einen Ort für ihre neue Niederlassung. Welchen Begriff verwendet man für diesen Ort?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The decision concerns where the business will be based.",
+              "de": "Die Entscheidung betrifft den Ort der Niederlassung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Umsatz"
+              },
+              {
+                "id": "1",
+                "text": "Standort"
+              },
+              {
+                "id": "2",
+                "text": "Bewerber"
+              },
+              {
+                "id": "3",
+                "text": "Lagerbestand"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The place of a business branch is its Standort.",
+              "de": "Der Ort einer Niederlassung ist ihr Standort."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma sucht einen Standort.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Standort\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Umsatz\": Turnover measures revenue, not a place. \"Bewerber\": An applicant is a person, not a location. \"Lagerbestand\": Inventory is stock, not the branch's location. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015314",
+      "title": {
+        "en": "Understanding Standplatz in context",
+        "de": "Standplatz im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Standplatz as a reserved pitch for a market stall or vehicle.",
+        "de": "Standplatz als eine zugewiesene Fläche für einen Marktstand oder Verkaufswagen erkennen."
+      },
+      "objective": "Recognize Standplatz in the specified a reserved pitch for a market stall or vehicle sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2231 (365dbe5fa0556626f62fe9a2435f07523824a562236c61bac4aca79e13200601), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2231-v1",
+          "contextKey": "legacy-0153-L2231-context-1",
+          "transferKey": "legacy-0153-L2231-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015314",
+            "type": "gap_choice",
+            "prompt": "Der Händler reservierte einen ___ für seinen Verkaufswagen auf dem Markt.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He needs a designated space for his stall.",
+              "de": "Er braucht eine bestimmte Fläche für seinen Verkaufswagen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Standplatz"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kassenzettel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schichtplan"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A reserved market pitch is a Standplatz.",
+              "de": "Eine reservierte Marktfläche ist ein Standplatz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Händler reservierte einen Standplatz für seinen Verkaufswagen auf dem Markt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Standplatz\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Fahrplan\": A timetable lists times, not a market space. \"Kassenzettel\": A receipt records a purchase, not a pitch. \"Schichtplan\": A shift roster schedules workers, not stalls. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2231-v2",
+          "contextKey": "legacy-0153-L2231-context-2",
+          "transferKey": "legacy-0153-L2231-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015314",
+            "type": "choice",
+            "prompt": "Auf dem Wochenmarkt wird jedem Verkaufswagen eine feste Fläche zugeteilt. Wie nennt man diese Fläche?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is a physical pitch assigned to the vendor.",
+              "de": "Es ist eine zugewiesene Fläche für den Verkäufer."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einkaufspreis"
+              },
+              {
+                "id": "1",
+                "text": "Lieferfrist"
+              },
+              {
+                "id": "2",
+                "text": "Standplatz"
+              },
+              {
+                "id": "3",
+                "text": "Rückgaberecht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A fixed pitch at a market is a Standplatz.",
+              "de": "Ein fester Platz auf dem Markt ist ein Standplatz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fläche ist ein Standplatz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Standplatz\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Einkaufspreis\": A purchase price is money, not a physical space. \"Lieferfrist\": A delivery deadline is time, not a pitch. \"Rückgaberecht\": A right of return is a legal option, not a location. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015315",
+      "title": {
+        "en": "Understanding Standpunkt in context",
+        "de": "Standpunkt im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Standpunkt as a personal standpoint or opinion.",
+        "de": "Standpunkt als eine persönliche Sichtweise oder Position zu einem Thema erkennen."
+      },
+      "objective": "Recognize Standpunkt in the specified a personal standpoint or opinion sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2232 (d7065bb536a207bd6cfac382f5381d1c1f68d645eb4c44152222c5729722b99e), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2232-v1",
+          "contextKey": "legacy-0153-L2232-context-1",
+          "transferKey": "legacy-0153-L2232-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015315",
+            "type": "gap_choice",
+            "prompt": "Aus meinem ___ ist der Vorschlag zu teuer.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker gives a personal assessment.",
+              "de": "Die Person äußert ihre eigene Einschätzung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Standpunkt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schreibtisch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wettkampf"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Standpunkt expresses a person's point of view.",
+              "de": "Standpunkt bezeichnet eine persönliche Sichtweise."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Aus meinem Standpunkt ist der Vorschlag zu teuer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Standpunkt\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Fahrplan\": A timetable lists journeys, not an opinion. \"Schreibtisch\": A desk is furniture, not a perspective. \"Wettkampf\": A competition is an event, not a viewpoint. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2232-v2",
+          "contextKey": "legacy-0153-L2232-context-2",
+          "transferKey": "legacy-0153-L2232-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015315",
+            "type": "choice",
+            "prompt": "Zwei Kolleginnen vertreten unterschiedliche Meinungen zu einer Entscheidung. Wie nennt man ihre jeweilige Sichtweise?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The term names each person's opinion.",
+              "de": "Der Begriff bezeichnet die Meinung jeder Person."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Dienstplan"
+              },
+              {
+                "id": "1",
+                "text": "Kassenbon"
+              },
+              {
+                "id": "2",
+                "text": "Standpunkt"
+              },
+              {
+                "id": "3",
+                "text": "Schichtwechsel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A personal viewpoint is a Standpunkt.",
+              "de": "Eine persönliche Sichtweise ist ein Standpunkt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Jede Kollegin hat einen eigenen Standpunkt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Standpunkt\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Dienstplan\": A roster lists shifts, not opinions. \"Kassenbon\": A receipt documents a purchase, not a viewpoint. \"Schichtwechsel\": A shift change is a work event, not an opinion. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015316",
+      "title": {
+        "en": "Understanding Stärke in context",
+        "de": "Stärke im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Stärke as a personal or organizational strength.",
+        "de": "Stärke als eine besondere Fähigkeit oder positive Eigenschaft erkennen."
+      },
+      "objective": "Recognize Stärke in the specified a personal or organizational strength sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2234 (84584a716b4e9edc94298670b1f48299d66a0d674f4ecfdd0831dc0b1ba456c3), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2234-v1",
+          "contextKey": "legacy-0153-L2234-context-1",
+          "transferKey": "legacy-0153-L2234-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015316",
+            "type": "gap_choice",
+            "prompt": "Ihre größte ___ ist die ruhige Kommunikation in schwierigen Gesprächen.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "This is an ability she does especially well.",
+              "de": "Das ist eine Fähigkeit, die sie besonders gut beherrscht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schwäche"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Stärke"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kündigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An outstanding positive ability is a Stärke.",
+              "de": "Eine besonders gut ausgeprägte Fähigkeit ist eine Stärke."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ihre größte Stärke ist die ruhige Kommunikation in schwierigen Gesprächen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Stärke\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Schwäche\": A weakness is an area of difficulty, not a strong ability. \"Verspätung\": A delay is lateness, not a personal capability. \"Kündigung\": Termination ends employment, not a positive skill. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2234-v2",
+          "contextKey": "legacy-0153-L2234-context-2",
+          "transferKey": "legacy-0153-L2234-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015316",
+            "type": "choice",
+            "prompt": "Im Vorstellungsgespräch nennt ein Bewerber seine besondere Fähigkeit, komplexe Probleme zu lösen. Was beschreibt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He is naming something he is particularly good at.",
+              "de": "Er nennt etwas, das er besonders gut kann."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Pflicht"
+              },
+              {
+                "id": "1",
+                "text": "Frist"
+              },
+              {
+                "id": "2",
+                "text": "Stärke"
+              },
+              {
+                "id": "3",
+                "text": "Rechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A notable ability is a Stärke.",
+              "de": "Eine besondere Fähigkeit ist eine Stärke."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er beschreibt eine Stärke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Stärke\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Pflicht\": A duty is an obligation, not a special ability. \"Frist\": A deadline is a date, not a skill. \"Rechnung\": An invoice is a payment document, not an ability. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015317",
+      "title": {
+        "en": "Understanding Start in context",
+        "de": "Start im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Start as the beginning of an event or project.",
+        "de": "Start als der Beginn eines Ereignisses oder Vorhabens erkennen."
+      },
+      "objective": "Recognize Start in the specified the beginning of an event or project sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2235 (9094392abd9f742a9a1f4efe5b65805bfd88924a6003706190d12afbc63df003), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2235-v1",
+          "contextKey": "legacy-0153-L2235-context-1",
+          "transferKey": "legacy-0153-L2235-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015317",
+            "type": "gap_choice",
+            "prompt": "Der ___ des neuen Projekts ist für Montag geplant.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The project will begin on Monday.",
+              "de": "Das Projekt soll am Montag beginnen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abschluss"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fehler"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Start"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rückblick"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The beginning of a project is its Start.",
+              "de": "Der Beginn eines Projekts ist sein Start."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Start des neuen Projekts ist für Montag geplant.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Start\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Abschluss\": Completion is the end, not the beginning. \"Fehler\": An error is a mistake, not the start. \"Rückblick\": A retrospective looks back, not begins a project. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2235-v2",
+          "contextKey": "legacy-0153-L2235-context-2",
+          "transferKey": "legacy-0153-L2235-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015317",
+            "type": "choice",
+            "prompt": "Die Arbeit an einem Vorhaben beginnt heute offiziell. Wie nennt man diesen Zeitpunkt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The event marks the first day of work.",
+              "de": "Das Ereignis markiert den ersten Arbeitstag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ende"
+              },
+              {
+                "id": "1",
+                "text": "Pause"
+              },
+              {
+                "id": "2",
+                "text": "Start"
+              },
+              {
+                "id": "3",
+                "text": "Nachtrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The official beginning is the Start.",
+              "de": "Der offizielle Beginn heißt Start."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Heute ist der Start des Vorhabens.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Start\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Ende\": The end is completion, not beginning. \"Pause\": A pause interrupts activity, not initiates it. \"Nachtrag\": An addendum supplements a document, not starts a project. No human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015318",
+      "title": {
+        "en": "Understanding Startbahn in context",
+        "de": "Startbahn im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Startbahn as an airport runway for aircraft takeoff.",
+        "de": "Startbahn als eine befestigte Bahn zum Starten von Flugzeugen erkennen."
+      },
+      "objective": "Recognize Startbahn in the specified an airport runway for aircraft takeoff sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2236 (5622c8d617eedf7dd1892bb8b5420fd7e533f075d9714bacb8ae32b0e97f8da2), 2026-10-29; inherited example not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0153-L2236-v1",
+          "contextKey": "legacy-0153-L2236-context-1",
+          "transferKey": "legacy-0153-L2236-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015318",
+            "type": "gap_choice",
+            "prompt": "Das Flugzeug rollte zur ___ und beschleunigte vor dem Abheben.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The aircraft takes off from this airport surface.",
+              "de": "Das Flugzeug hebt von dieser Fläche am Flughafen ab."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bushaltestelle"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Startbahn"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Parkgarage"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Landstraße"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A plane accelerates for takeoff on a Startbahn.",
+              "de": "Ein Flugzeug beschleunigt zum Abheben auf einer Startbahn."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Flugzeug rollte zur Startbahn und beschleunigte vor dem Abheben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: independently solved as \"Startbahn\" (option 1). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Bushaltestelle\": A bus stop serves buses, not aircraft takeoff. \"Parkgarage\": A parking garage stores vehicles, not takeoff. \"Landstraße\": A country road serves road traffic, not aircraft takeoff. No human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0153-L2236-v2",
+          "contextKey": "legacy-0153-L2236-context-2",
+          "transferKey": "legacy-0153-L2236-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001530181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015318",
+            "type": "choice",
+            "prompt": "Auf welcher langen befestigten Fläche nimmt ein Flugzeug Geschwindigkeit auf, bevor es abhebt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The surface belongs to an airport.",
+              "de": "Die Fläche gehört zu einem Flughafen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bahnsteig"
+              },
+              {
+                "id": "1",
+                "text": "Rolltreppe"
+              },
+              {
+                "id": "2",
+                "text": "Startbahn"
+              },
+              {
+                "id": "3",
+                "text": "Fahrbahn"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The airport takeoff surface is a Startbahn.",
+              "de": "Die Fläche zum Starten am Flughafen ist eine Startbahn."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Flugzeug beschleunigt auf der Startbahn.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: independently solved as \"Startbahn\" (option 2). Reviewed complete German prompt and completed sentence, source CEFR, bilingual hint/explanation, objective, distinct context and unique answer. Evaluated all distractors: \"Bahnsteig\": A platform is for train passengers, not takeoff. \"Rolltreppe\": An escalator moves people, not aircraft. \"Fahrbahn\": A road carriageway is for vehicles, not designated aircraft takeoff. No human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
