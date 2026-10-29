@@ -1,0 +1,2392 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000014000",
+      "title": {
+        "en": "Understanding Prozess in context",
+        "de": "Prozess im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Prozess in its court trial sense.",
+        "de": "Prozess in der Bedeutung Gerichtsverfahren erkennen."
+      },
+      "objective": "Recognize the noun Prozess in the specified court trial sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1869 (2656fe61eb0d5dd01f51d77a0b79cd5356c417a224cc262c050501fd779b0ca2), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1869-v1",
+          "contextKey": "legacy-0140-L1869-context-1",
+          "transferKey": "legacy-0140-L1869-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014000",
+            "type": "gap_choice",
+            "prompt": "Der ___ gegen den Angeklagten beginnt am Montag vor dem Landgericht.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A defendant appears before a court.",
+              "de": "Ein Angeklagter steht vor Gericht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vortrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Antrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Prozess"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A legal Prozess is a court trial.",
+              "de": "Ein rechtlicher Prozess ist ein Gerichtsverfahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Prozess gegen den Angeklagten beginnt am Montag vor dem Landgericht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Prozess\" (option 3); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Vertrag\": A contract is an agreement, not a trial. \"Vortrag\": A lecture is not a case against a defendant. \"Antrag\": An application is a request, not a court hearing. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1869-v2",
+          "contextKey": "legacy-0140-L1869-context-2",
+          "transferKey": "legacy-0140-L1869-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014000",
+            "type": "choice",
+            "prompt": "Vor Gericht werden Zeugen gehört, bevor das Urteil fällt. Wie nennt man dieses Verfahren?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The procedure leads to a judgment.",
+              "de": "Das Verfahren führt zu einem Urteil."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "1",
+                "text": "Prozess"
+              },
+              {
+                "id": "2",
+                "text": "Abstimmung"
+              },
+              {
+                "id": "3",
+                "text": "Inspektion"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A court case is called a Prozess.",
+              "de": "Ein Gerichtsverfahren heißt Prozess."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor Gericht findet ein Prozess statt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Prozess\" (option 1); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Bewerbung\": A job application is not a trial. \"Abstimmung\": A vote is not a trial. \"Inspektion\": An inspection checks an object or condition. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014001",
+      "title": {
+        "en": "Understanding Prüfprotokoll in context",
+        "de": "Prüfprotokoll im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Prüfprotokoll in its inspection record sense.",
+        "de": "Prüfprotokoll in der Bedeutung Prüfdokumentation erkennen."
+      },
+      "objective": "Recognize the noun Prüfprotokoll in the specified inspection record sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1870 (9b5ca631c97297a1e469f5f7c8768c3ac9e4d480214de0eeaaa971d5eaa99b5d), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1870-v1",
+          "contextKey": "legacy-0140-L1870-context-1",
+          "transferKey": "legacy-0140-L1870-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014001",
+            "type": "gap_choice",
+            "prompt": "Nach der Geräteprüfung trug der Techniker die Messwerte in das ___ ein.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It records measurements from a technical test.",
+              "de": "Es hält Messwerte einer technischen Prüfung fest."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferschein"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kaufvertrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Prüfprotokoll"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stundenplan"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Prüfprotokoll records test results.",
+              "de": "Ein Prüfprotokoll dokumentiert Prüfergebnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Geräteprüfung trug der Techniker die Messwerte in das Prüfprotokoll ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Prüfprotokoll\" (option 2); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Lieferschein\": A delivery note lists goods. \"Kaufvertrag\": A purchase contract records a sale agreement. \"Stundenplan\": A timetable lists scheduled events. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1870-v2",
+          "contextKey": "legacy-0140-L1870-context-2",
+          "transferKey": "legacy-0140-L1870-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014001",
+            "type": "choice",
+            "prompt": "Ein Dokument enthält Prüfergebnis, Datum und Unterschrift der prüfenden Person. Was ist es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The document records a completed inspection.",
+              "de": "Das Dokument hält eine durchgeführte Prüfung fest."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Prüfprotokoll"
+              },
+              {
+                "id": "1",
+                "text": "Werbeprospekt"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Einladung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The document is a Prüfprotokoll.",
+              "de": "Das Dokument ist ein Prüfprotokoll."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Dokument ist ein Prüfprotokoll.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Prüfprotokoll\" (option 0); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Werbeprospekt\": A brochure advertises products. \"Rechnung\": An invoice requests payment. \"Einladung\": An invitation requests attendance. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014002",
+      "title": {
+        "en": "Understanding Prüfstück in context",
+        "de": "Prüfstück im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Prüfstück in its test specimen sense.",
+        "de": "Prüfstück in der Bedeutung Prüfstück oder Materialprobe erkennen."
+      },
+      "objective": "Recognize the noun Prüfstück in the specified test specimen sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1871 (5d1d86abe5fb5ef1f16000335718b16f77cb1c1e999c5c377e4285abb8167c09), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1871-v1",
+          "contextKey": "legacy-0140-L1871-context-1",
+          "transferKey": "legacy-0140-L1871-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014002",
+            "type": "gap_choice",
+            "prompt": "Im Labor wurde ein ___ aus Metall gezielt bis zur Bruchgrenze belastet.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A material sample is subjected to a strength test.",
+              "de": "Eine Materialprobe wird auf Festigkeit geprüft."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bedienfeld"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Prüfstück"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferschein"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Messgerät"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Prüfstück is the specimen being tested.",
+              "de": "Ein Prüfstück ist der Gegenstand einer Prüfung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Labor wurde ein Prüfstück aus Metall gezielt bis zur Bruchgrenze belastet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Prüfstück\" (option 1); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Bedienfeld\": A control panel operates equipment. \"Lieferschein\": A delivery note is a document. \"Messgerät\": A measuring device measures rather than serving as the specimen. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1871-v2",
+          "contextKey": "legacy-0140-L1871-context-2",
+          "transferKey": "legacy-0140-L1871-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014002",
+            "type": "choice",
+            "prompt": "Eine Materialprobe wird unter Zug belastet, um ihre Festigkeit zu bestimmen. Wie heißt diese Probe?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The sample was selected for a test.",
+              "de": "Die Probe wurde gezielt für eine Prüfung ausgewählt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ersatzteil"
+              },
+              {
+                "id": "1",
+                "text": "Verpackung"
+              },
+              {
+                "id": "2",
+                "text": "Werkzeug"
+              },
+              {
+                "id": "3",
+                "text": "Prüfstück"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The sample is a Prüfstück.",
+              "de": "Die Probe ist ein Prüfstück."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Probe ist ein Prüfstück.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Prüfstück\" (option 3); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Ersatzteil\": A spare part is kept for replacement. \"Verpackung\": Packaging protects goods. \"Werkzeug\": A tool is used to carry out work, not necessarily tested as the sample. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014003",
+      "title": {
+        "en": "Understanding Prüfungsformat in context",
+        "de": "Prüfungsformat im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Prüfungsformat in its examination structure sense.",
+        "de": "Prüfungsformat in der Bedeutung Aufbau einer Prüfung erkennen."
+      },
+      "objective": "Recognize the noun Prüfungsformat in the specified examination structure sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1873 (ab6b6fcefab03d8220a13215ca960393b9151b95b6937a666a7d3743815b8831), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1873-v1",
+          "contextKey": "legacy-0140-L1873-context-1",
+          "transferKey": "legacy-0140-L1873-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014003",
+            "type": "gap_choice",
+            "prompt": "Vor der Anmeldung erklärt die Schule das ___: schriftlich, mündlich oder kombiniert.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The options describe how the examination is conducted.",
+              "de": "Die Angaben beschreiben die Form der Prüfung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Prüfungsformat"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Unterrichtsfach"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schulgebäude"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zeugnisdatum"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Prüfungsformat means the form of an exam.",
+              "de": "Prüfungsformat bezeichnet die Form einer Prüfung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Anmeldung erklärt die Schule das Prüfungsformat: schriftlich, mündlich oder kombiniert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Prüfungsformat\" (option 0); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Unterrichtsfach\": A subject is what is taught. \"Schulgebäude\": A building is a location. \"Zeugnisdatum\": A certificate date is not the exam structure. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1873-v2",
+          "contextKey": "legacy-0140-L1873-context-2",
+          "transferKey": "legacy-0140-L1873-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014003",
+            "type": "choice",
+            "prompt": "Eine Sprachprüfung besteht aus einem Hörteil und einem Gespräch. Was beschreibt diese Aufteilung?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The question concerns the components of the test.",
+              "de": "Es geht um die Bestandteile der Prüfung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Prüfungsnote"
+              },
+              {
+                "id": "1",
+                "text": "Anmeldefrist"
+              },
+              {
+                "id": "2",
+                "text": "Prüfungsformat"
+              },
+              {
+                "id": "3",
+                "text": "Prüfungsort"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The division defines the Prüfungsformat.",
+              "de": "Die Aufteilung bestimmt das Prüfungsformat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Prüfungsformat umfasst einen Hörteil und ein Gespräch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Prüfungsformat\" (option 2); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Prüfungsnote\": A grade is the outcome. \"Anmeldefrist\": A deadline is a date. \"Prüfungsort\": A venue is a place. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014005",
+      "title": {
+        "en": "Understanding Psychologie in context",
+        "de": "Psychologie im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Psychologie in its psychology as a scientific discipline sense.",
+        "de": "Psychologie in der Bedeutung Wissenschaft von Erleben und Verhalten erkennen."
+      },
+      "objective": "Recognize the noun Psychologie in the specified psychology as a scientific discipline sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1875 (9a5e3851e250d1e57ea8fc6a7a68825d7628379af9a458198349177fccd5c1fc), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1875-v1",
+          "contextKey": "legacy-0140-L1875-context-1",
+          "transferKey": "legacy-0140-L1875-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014005",
+            "type": "gap_choice",
+            "prompt": "Sie studiert ___, weil sie menschliches Denken und Verhalten erforschen möchte.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The field studies thoughts and behaviour.",
+              "de": "Das Fach untersucht Gedanken und Verhalten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geologie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Astronomie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Psychologie"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Informatik"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Psychologie studies mental processes and behaviour.",
+              "de": "Psychologie untersucht Erleben und Verhalten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie studiert Psychologie, weil sie menschliches Denken und Verhalten erforschen möchte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Psychologie\" (option 2); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Geologie\": Geology studies the Earth. \"Astronomie\": Astronomy studies celestial bodies. \"Informatik\": Computer science studies computing. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1875-v2",
+          "contextKey": "legacy-0140-L1875-context-2",
+          "transferKey": "legacy-0140-L1875-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014005",
+            "type": "choice",
+            "prompt": "Ein Forschungsfach untersucht Gefühle, Wahrnehmung und Verhalten. Wie heißt es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The subject concerns mental experience.",
+              "de": "Es geht um das psychische Erleben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Psychologie"
+              },
+              {
+                "id": "1",
+                "text": "Botanik"
+              },
+              {
+                "id": "2",
+                "text": "Geometrie"
+              },
+              {
+                "id": "3",
+                "text": "Archäologie"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The field is Psychologie.",
+              "de": "Das Fach heißt Psychologie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Fach ist Psychologie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Psychologie\" (option 0); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Botanik\": Botany studies plants. \"Geometrie\": Geometry studies shapes. \"Archäologie\": Archaeology studies past societies through material remains. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014006",
+      "title": {
+        "en": "Understanding Publikum in context",
+        "de": "Publikum im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Publikum in its audience at a performance sense.",
+        "de": "Publikum in der Bedeutung Zuschauer und Zuhörer erkennen."
+      },
+      "objective": "Recognize the noun Publikum in the specified audience at a performance sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1876 (d0c33cacd846dd9e298744439e18a89890b92d1c9c1cee115e0f8e6da8829e45), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1876-v1",
+          "contextKey": "legacy-0140-L1876-context-1",
+          "transferKey": "legacy-0140-L1876-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014006",
+            "type": "gap_choice",
+            "prompt": "Nach dem Konzert applaudierte das ___ auf den Sitzplätzen minutenlang.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The listeners respond from their seats.",
+              "de": "Die Zuhörer reagieren von ihren Sitzplätzen aus."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Orchester"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Publikum"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Personal"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bühnenbild"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Publikum means the audience.",
+              "de": "Publikum bedeutet Zuschauer oder Zuhörer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Konzert applaudierte das Publikum auf den Sitzplätzen minutenlang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Publikum\" (option 1); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Orchester\": The orchestra performs on stage. \"Personal\": Staff are not the seated listeners as a group. \"Bühnenbild\": A stage set is not people. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1876-v2",
+          "contextKey": "legacy-0140-L1876-context-2",
+          "transferKey": "legacy-0140-L1876-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014006",
+            "type": "choice",
+            "prompt": "Die Menschen im Theater sehen gemeinsam ein Stück. Wie nennt man sie als Gruppe?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They watch rather than perform.",
+              "de": "Sie sehen zu und treten nicht auf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ensemble"
+              },
+              {
+                "id": "1",
+                "text": "Regie"
+              },
+              {
+                "id": "2",
+                "text": "Technikteam"
+              },
+              {
+                "id": "3",
+                "text": "Publikum"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The spectators form the Publikum.",
+              "de": "Die Zuschauer bilden das Publikum."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zuschauer bilden das Publikum.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Publikum\" (option 3); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Ensemble\": An ensemble performs. \"Regie\": Regie directs the production. \"Technikteam\": The technical team operates equipment. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014008",
+      "title": {
+        "en": "Understanding Pünktlichkeit in context",
+        "de": "Pünktlichkeit im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Pünktlichkeit in its punctuality sense.",
+        "de": "Pünktlichkeit in der Bedeutung Einhalten vereinbarter Zeiten erkennen."
+      },
+      "objective": "Recognize the noun Pünktlichkeit in the specified punctuality sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1879 (e10cd7526b9423e15166666ed60ba90f43c903d07891a0237e928887fadfa55f), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1879-v1",
+          "contextKey": "legacy-0140-L1879-context-1",
+          "transferKey": "legacy-0140-L1879-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014008",
+            "type": "gap_choice",
+            "prompt": "Weil der Zug jeden Morgen genau zur angekündigten Zeit ankommt, loben Fahrgäste seine ___.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The train keeps its scheduled arrival time.",
+              "de": "Der Zug hält die angekündigte Ankunftszeit ein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geschwindigkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Sauberkeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lautstärke"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Pünktlichkeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Pünktlichkeit is arriving on time.",
+              "de": "Pünktlichkeit bedeutet, zur vereinbarten Zeit zu kommen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil der Zug jeden Morgen genau zur angekündigten Zeit ankommt, loben Fahrgäste seine Pünktlichkeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Pünktlichkeit\" (option 3); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Geschwindigkeit\": Speed is travel rate. \"Sauberkeit\": Cleanliness concerns hygiene. \"Lautstärke\": Loudness concerns sound. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1879-v2",
+          "contextKey": "legacy-0140-L1879-context-2",
+          "transferKey": "legacy-0140-L1879-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014008",
+            "type": "choice",
+            "prompt": "Eine Mitarbeiterin erscheint immer zur vereinbarten Uhrzeit. Welche Eigenschaft zeigt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She keeps appointments exactly.",
+              "de": "Sie hält Termine genau ein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kreativität"
+              },
+              {
+                "id": "1",
+                "text": "Pünktlichkeit"
+              },
+              {
+                "id": "2",
+                "text": "Geduld"
+              },
+              {
+                "id": "3",
+                "text": "Flexibilität"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "This demonstrates Pünktlichkeit.",
+              "de": "Das zeigt Pünktlichkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitarbeiterin zeigt Pünktlichkeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Pünktlichkeit\" (option 1); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Kreativität\": Creativity produces ideas. \"Geduld\": Patience means waiting calmly. \"Flexibilität\": Flexibility means adapting to changes. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014010",
+      "title": {
+        "en": "Understanding Qualifikation in context",
+        "de": "Qualifikation im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Qualifikation in its professional qualification sense.",
+        "de": "Qualifikation in der Bedeutung berufliche Qualifikation erkennen."
+      },
+      "objective": "Recognize the noun Qualifikation in the specified professional qualification sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1882 (048781866d2f7833ab0c2d9908839f5be506d3798628a4174d8e0b66c90d953f), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1882-v1",
+          "contextKey": "legacy-0140-L1882-context-1",
+          "transferKey": "legacy-0140-L1882-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014010",
+            "type": "gap_choice",
+            "prompt": "Für die Stelle ist eine technische ___ erforderlich, zum Beispiel eine abgeschlossene Fachausbildung.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The job requires verified skills or training.",
+              "de": "Die Stelle verlangt nachgewiesene Kenntnisse oder Ausbildung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Quittung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Qualifikation"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reservierung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Qualifikation is a skill or credential relevant to a role.",
+              "de": "Eine Qualifikation ist eine beruflich relevante Fähigkeit oder Ausbildung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Stelle ist eine technische Qualifikation erforderlich, zum Beispiel eine abgeschlossene Fachausbildung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Qualifikation\" (option 1); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Quittung\": A receipt proves payment. \"Lieferung\": A delivery transports goods. \"Reservierung\": A reservation books a service. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1882-v2",
+          "contextKey": "legacy-0140-L1882-context-2",
+          "transferKey": "legacy-0140-L1882-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014010",
+            "type": "choice",
+            "prompt": "Eine Bewerberin hat einen anerkannten Abschluss und passende Fachkenntnisse. Was weist sie damit nach?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Education and skills meet job requirements.",
+              "de": "Abschluss und Kenntnisse passen zur Stelle."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Urlaubswunsch"
+              },
+              {
+                "id": "1",
+                "text": "Wohnsitz"
+              },
+              {
+                "id": "2",
+                "text": "Liefertermin"
+              },
+              {
+                "id": "3",
+                "text": "Qualifikation"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The candidate demonstrates her Qualifikation.",
+              "de": "Die Bewerberin belegt ihre Qualifikation."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bewerberin weist ihre Qualifikation nach.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Qualifikation\" (option 3); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Urlaubswunsch\": A leave request asks for time off. \"Wohnsitz\": Residence is a place of living. \"Liefertermin\": A delivery date concerns shipping. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014011",
+      "title": {
+        "en": "Understanding Qualitätserwartung in context",
+        "de": "Qualitätserwartung im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Qualitätserwartung in its quality expectation sense.",
+        "de": "Qualitätserwartung in der Bedeutung Erwartung an die Produktqualität erkennen."
+      },
+      "objective": "Recognize the noun Qualitätserwartung in the specified quality expectation sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1884 (19add8d0e82a4ffea81c067d3764167924fe5d8b0cf39e83dbb0c9f5ecfac30c), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1884-v1",
+          "contextKey": "legacy-0140-L1884-context-1",
+          "transferKey": "legacy-0140-L1884-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014011",
+            "type": "gap_choice",
+            "prompt": "Die Kundin erwartete eine lange Lebensdauer; ihre ___ wurde vom Produkt erfüllt.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She expected the product to last.",
+              "de": "Sie erwartete eine hohe Haltbarkeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Qualitätserwartung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferadresse"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Preisgrenze"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kaufquittung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Qualitätserwartung describes expected product quality.",
+              "de": "Eine Qualitätserwartung beschreibt die erwartete Qualität."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kundin erwartete eine lange Lebensdauer; ihre Qualitätserwartung wurde vom Produkt erfüllt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Qualitätserwartung\" (option 0); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Lieferadresse\": An address is a location. \"Preisgrenze\": A price limit is a budget. \"Kaufquittung\": A receipt proves a purchase. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1884-v2",
+          "contextKey": "legacy-0140-L1884-context-2",
+          "transferKey": "legacy-0140-L1884-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014011",
+            "type": "choice",
+            "prompt": "Ein Kunde setzt voraus, dass ein Werkzeug zuverlässig und langlebig ist. Was beschreibt das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "This is a standard the buyer hopes the product will meet.",
+              "de": "Das ist eine Erwartung des Kunden an das Produkt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Garantieanspruch"
+              },
+              {
+                "id": "1",
+                "text": "Bestellnummer"
+              },
+              {
+                "id": "2",
+                "text": "Qualitätserwartung"
+              },
+              {
+                "id": "3",
+                "text": "Transportweg"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The customer has a Qualitätserwartung.",
+              "de": "Der Kunde hat eine Qualitätserwartung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist die Qualitätserwartung des Kunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Qualitätserwartung\" (option 2); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Garantieanspruch\": A warranty claim is a legal issue. \"Bestellnummer\": An order number identifies a purchase. \"Transportweg\": A transport route concerns shipping. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014012",
+      "title": {
+        "en": "Understanding Qualitätskontrolle in context",
+        "de": "Qualitätskontrolle im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Qualitätskontrolle in its inspection of products for defects sense.",
+        "de": "Qualitätskontrolle in der Bedeutung Qualitätskontrolle erkennen."
+      },
+      "objective": "Recognize the noun Qualitätskontrolle in the specified inspection of products for defects sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1885 (447f5a4689ecec84df913c08b980ff63815f5b1a9c6b50bbcc7ff0395d6bb993), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1885-v1",
+          "contextKey": "legacy-0140-L1885-context-1",
+          "transferKey": "legacy-0140-L1885-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014012",
+            "type": "gap_choice",
+            "prompt": "Vor dem Verpacken prüft die ___ jedes Bauteil auf Kratzer.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Finished parts are checked for defects.",
+              "de": "Fertige Teile werden auf Mängel geprüft."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Personalabteilung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werbung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Qualitätskontrolle"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Qualitätskontrolle examines whether products meet requirements.",
+              "de": "Qualitätskontrolle prüft Produkte auf Mängel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Verpacken prüft die Qualitätskontrolle jedes Bauteil auf Kratzer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Qualitätskontrolle\" (option 3); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Personalabteilung\": Human resources manages staff. \"Buchhaltung\": Accounting handles finances. \"Werbung\": Advertising promotes products. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1885-v2",
+          "contextKey": "legacy-0140-L1885-context-2",
+          "transferKey": "legacy-0140-L1885-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014012",
+            "type": "choice",
+            "prompt": "Ein Mitarbeiter misst fertige Teile und sortiert fehlerhafte aus. Welcher Arbeitsschritt ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The work checks completed products.",
+              "de": "Es werden fertige Produkte kontrolliert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Marktforschung"
+              },
+              {
+                "id": "1",
+                "text": "Qualitätskontrolle"
+              },
+              {
+                "id": "2",
+                "text": "Produktplanung"
+              },
+              {
+                "id": "3",
+                "text": "Lagerbuchung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "This is Qualitätskontrolle.",
+              "de": "Das ist Qualitätskontrolle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mitarbeiter führt eine Qualitätskontrolle durch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Qualitätskontrolle\" (option 1); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Marktforschung\": Market research studies demand. \"Produktplanung\": Product planning designs products. \"Lagerbuchung\": Inventory booking records stock. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014013",
+      "title": {
+        "en": "Understanding Qualitätsmanagement in context",
+        "de": "Qualitätsmanagement im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Qualitätsmanagement in its organisation-wide quality management sense.",
+        "de": "Qualitätsmanagement in der Bedeutung übergreifendes Qualitätsmanagement erkennen."
+      },
+      "objective": "Recognize the noun Qualitätsmanagement in the specified organisation-wide quality management sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1886 (66ce125bd61efafd1efbf5a944e1c47b96913fc3c337246270f81bc9a524cc5e), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1886-v1",
+          "contextKey": "legacy-0140-L1886-context-1",
+          "transferKey": "legacy-0140-L1886-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014013",
+            "type": "gap_choice",
+            "prompt": "Das ___ legt fest, wie Fehler systematisch vermieden und Abläufe verbessert werden.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The activity coordinates quality across the business.",
+              "de": "Die Tätigkeit koordiniert Qualität im gesamten Betrieb."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebäudemanagement"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Marketing"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Qualitätsmanagement"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Versand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Qualitätsmanagement organises processes to improve quality.",
+              "de": "Qualitätsmanagement steuert Prozesse zur Verbesserung der Qualität."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Qualitätsmanagement legt fest, wie Fehler systematisch vermieden und Abläufe verbessert werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Qualitätsmanagement\" (option 2); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Gebäudemanagement\": Building management maintains premises. \"Marketing\": Marketing promotes goods. \"Versand\": Shipping distributes goods. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1886-v2",
+          "contextKey": "legacy-0140-L1886-context-2",
+          "transferKey": "legacy-0140-L1886-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014013",
+            "type": "choice",
+            "prompt": "Ein Unternehmen dokumentiert Prüfregeln, schult Teams und verbessert Prozesse kontinuierlich. Wie nennt man dieses übergreifende System?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It coordinates several related processes.",
+              "de": "Es verbindet mehrere qualitätsbezogene Abläufe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Qualitätsmanagement"
+              },
+              {
+                "id": "1",
+                "text": "Einzelprüfung"
+              },
+              {
+                "id": "2",
+                "text": "Preisgestaltung"
+              },
+              {
+                "id": "3",
+                "text": "Lohnabrechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The overall system is Qualitätsmanagement.",
+              "de": "Das Gesamtsystem heißt Qualitätsmanagement."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen betreibt Qualitätsmanagement.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Qualitätsmanagement\" (option 0); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Einzelprüfung\": A single test is isolated. \"Preisgestaltung\": Pricing determines prices. \"Lohnabrechnung\": Payroll calculates wages. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014014",
+      "title": {
+        "en": "Understanding Qualitätsmerkmal in context",
+        "de": "Qualitätsmerkmal im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Qualitätsmerkmal in its quality characteristic sense.",
+        "de": "Qualitätsmerkmal in der Bedeutung Merkmal zur Qualitätsbeurteilung erkennen."
+      },
+      "objective": "Recognize the noun Qualitätsmerkmal in the specified quality characteristic sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1887 (3274cd167c64eee4fb8204bafae283dc298ce9bece383ec9c39bd5bbdc78c38c), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1887-v1",
+          "contextKey": "legacy-0140-L1887-context-1",
+          "transferKey": "legacy-0140-L1887-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014014",
+            "type": "gap_choice",
+            "prompt": "Die hohe Wasserdichtigkeit ist ein wichtiges ___ dieser Outdoorjacke.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is a property indicating product performance.",
+              "de": "Es ist eine Eigenschaft, die die Leistung zeigt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferproblem"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Qualitätsmerkmal"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Sonderangebot"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werbeplakat"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Qualitätsmerkmal is a property used to judge quality.",
+              "de": "Ein Qualitätsmerkmal dient der Qualitätsbeurteilung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die hohe Wasserdichtigkeit ist ein wichtiges Qualitätsmerkmal dieser Outdoorjacke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Qualitätsmerkmal\" (option 1); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Lieferproblem\": A delivery problem concerns shipping. \"Sonderangebot\": An offer concerns price. \"Werbeplakat\": A poster is advertising. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1887-v2",
+          "contextKey": "legacy-0140-L1887-context-2",
+          "transferKey": "legacy-0140-L1887-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014014",
+            "type": "choice",
+            "prompt": "Ein Kunde bewertet einen Laptop nach Akkulaufzeit und Stabilität. Was sind diese Eigenschaften?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "These are product properties.",
+              "de": "Das sind Eigenschaften des Produkts."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kaufbelege"
+              },
+              {
+                "id": "1",
+                "text": "Liefertermine"
+              },
+              {
+                "id": "2",
+                "text": "Vertragsparteien"
+              },
+              {
+                "id": "3",
+                "text": "Qualitätsmerkmale"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Battery life and stability are Qualitätsmerkmale.",
+              "de": "Akkulaufzeit und Stabilität sind Qualitätsmerkmale."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das sind Qualitätsmerkmale des Laptops.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Qualitätsmerkmale\" (option 3); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Kaufbelege\": Receipts prove purchase. \"Liefertermine\": Delivery dates concern shipping. \"Vertragsparteien\": Contracting parties are participants in an agreement. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014016",
+      "title": {
+        "en": "Understanding Qualitätssicherung in context",
+        "de": "Qualitätssicherung im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Qualitätssicherung in its quality assurance measures sense.",
+        "de": "Qualitätssicherung in der Bedeutung vorbeugende Qualitätssicherung erkennen."
+      },
+      "objective": "Recognize the noun Qualitätssicherung in the specified quality assurance measures sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1889 (ca87665f89c67a70d297bb7ae2816af4813d5ee4a84d255c2027d09575657cd6), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1889-v1",
+          "contextKey": "legacy-0140-L1889-context-1",
+          "transferKey": "legacy-0140-L1889-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014016",
+            "type": "gap_choice",
+            "prompt": "Regelmäßige Schulungen und dokumentierte Prüfabläufe gehören zur ___ des Betriebs.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The measures aim to avoid quality problems.",
+              "de": "Die Maßnahmen sollen Qualitätsprobleme vermeiden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kundenwerbung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Reiseplanung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Büroausstattung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Qualitätssicherung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Qualitätssicherung includes preventive and checking measures.",
+              "de": "Qualitätssicherung umfasst vorbeugende und prüfende Maßnahmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Regelmäßige Schulungen und dokumentierte Prüfabläufe gehören zur Qualitätssicherung des Betriebs.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Qualitätssicherung\" (option 3); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Kundenwerbung\": Advertising promotes goods. \"Reiseplanung\": Travel planning organises journeys. \"Büroausstattung\": Office equipment consists of physical objects. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1889-v2",
+          "contextKey": "legacy-0140-L1889-context-2",
+          "transferKey": "legacy-0140-L1889-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014016",
+            "type": "choice",
+            "prompt": "Ein Betrieb führt vorbeugende Maßnahmen ein, damit Fehler möglichst gar nicht entstehen. Welchem Ziel dient das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The goal is prevention of defects.",
+              "de": "Ziel ist die Vermeidung von Mängeln."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schadensmeldung"
+              },
+              {
+                "id": "1",
+                "text": "Qualitätssicherung"
+              },
+              {
+                "id": "2",
+                "text": "Preiserhöhung"
+              },
+              {
+                "id": "3",
+                "text": "Transportoptimierung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Preventive measures serve Qualitätssicherung.",
+              "de": "Vorbeugende Maßnahmen dienen der Qualitätssicherung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Maßnahmen dienen der Qualitätssicherung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Qualitätssicherung\" (option 1); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Schadensmeldung\": A damage report records an incident. \"Preiserhöhung\": A price increase changes prices. \"Transportoptimierung\": Transport optimisation improves shipping. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014017",
+      "title": {
+        "en": "Understanding Qualitätsstandard in context",
+        "de": "Qualitätsstandard im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Qualitätsstandard in its defined quality standard sense.",
+        "de": "Qualitätsstandard in der Bedeutung festgelegter Qualitätsstandard erkennen."
+      },
+      "objective": "Recognize the noun Qualitätsstandard in the specified defined quality standard sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1890 (34d048419be112ea91a4514962a39bf85f83668adff3a89aa044449dad8b369f), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1890-v1",
+          "contextKey": "legacy-0140-L1890-context-1",
+          "transferKey": "legacy-0140-L1890-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014017",
+            "type": "gap_choice",
+            "prompt": "Der Hersteller muss einen festgelegten ___ für die Sicherheit seiner Produkte einhalten.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The business must meet a defined quality requirement.",
+              "de": "Der Betrieb muss eine festgelegte Qualitätsanforderung erfüllen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Versandtermin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rabattcode"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Qualitätsstandard"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mitarbeiterplan"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Qualitätsstandard defines a required quality level.",
+              "de": "Ein Qualitätsstandard legt Qualitätsanforderungen fest."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hersteller muss einen festgelegten Qualitätsstandard für die Sicherheit seiner Produkte einhalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Qualitätsstandard\" (option 2); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Versandtermin\": A shipping date is a time. \"Rabattcode\": A discount code concerns price. \"Mitarbeiterplan\": A staff plan assigns workers. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1890-v2",
+          "contextKey": "legacy-0140-L1890-context-2",
+          "transferKey": "legacy-0140-L1890-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014017",
+            "type": "choice",
+            "prompt": "Ein Werk verlangt, dass jedes Gerät bestimmte messbare Anforderungen erfüllt. Was legen diese Anforderungen fest?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The rules define an expected quality level.",
+              "de": "Die Vorgaben bestimmen ein gefordertes Qualitätsniveau."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Qualitätsstandard"
+              },
+              {
+                "id": "1",
+                "text": "Kundengruppe"
+              },
+              {
+                "id": "2",
+                "text": "Lieferadresse"
+              },
+              {
+                "id": "3",
+                "text": "Werbebudget"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The requirements establish a Qualitätsstandard.",
+              "de": "Die Anforderungen bilden einen Qualitätsstandard."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Anforderungen legen einen Qualitätsstandard fest.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Qualitätsstandard\" (option 0); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Kundengruppe\": A customer group is a market segment. \"Lieferadresse\": An address is a location. \"Werbebudget\": An advertising budget funds marketing. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000014019",
+      "title": {
+        "en": "Understanding Quelle in context",
+        "de": "Quelle im Kontext verstehen"
+      },
+      "description": {
+        "en": "Recognize Quelle in its source of information sense.",
+        "de": "Quelle in der Bedeutung Informationsquelle erkennen."
+      },
+      "objective": "Recognize the noun Quelle in the specified source of information sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1892 (0966e237ebf1a44210e1689ed9b5780560bbb7894ce25f82b828449ac1157b81), 2026-10-29; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial checks in variants and report; human language, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0140-L1892-v1",
+          "contextKey": "legacy-0140-L1892-context-1",
+          "transferKey": "legacy-0140-L1892-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014019",
+            "type": "gap_choice",
+            "prompt": "Im Bericht muss die ___ jeder übernommenen Statistik angegeben werden.",
+            "instruction": {
+              "en": "Choose the word that correctly completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The origin of the figures should be traceable.",
+              "de": "Die Herkunft der Zahlen soll nachvollziehbar sein."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Quelle"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Überschrift"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schriftart"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Seitenzahl"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Quelle identifies where information came from.",
+              "de": "Eine Quelle gibt die Herkunft von Informationen an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Bericht muss die Quelle jeder übernommenen Statistik angegeben werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 1: solved as \"Quelle\" (option 0); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Überschrift\": A heading names a section. \"Schriftart\": A font is visual styling. \"Seitenzahl\": A page number alone does not identify the origin of a statistic. Human linguistic, CEFR and rights approval pending."
+        },
+        {
+          "variantKey": "legacy-0140-L1892-v2",
+          "contextKey": "legacy-0140-L1892-context-2",
+          "transferKey": "legacy-0140-L1892-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001400191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000014019",
+            "type": "choice",
+            "prompt": "Eine Forscherin zitiert eine Studie und nennt Autor und Erscheinungsjahr. Was weist sie damit nach?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "A citation shows where information originated.",
+              "de": "Ein Zitat zeigt, woher eine Information stammt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ergebnis"
+              },
+              {
+                "id": "1",
+                "text": "Meinung"
+              },
+              {
+                "id": "2",
+                "text": "Quelle"
+              },
+              {
+                "id": "3",
+                "text": "Methode"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A citation identifies the Quelle.",
+              "de": "Ein Zitat nennt die Quelle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Forscherin gibt die Quelle ihrer Information an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29, variant 2: solved as \"Quelle\" (option 2); checked complete natural German sentence, bilingual instruction/hint/explanation, CEFR and objective, distinct context and each offered distractor. Rejected alternatives: \"Ergebnis\": A result is a finding. \"Meinung\": An opinion is a viewpoint. \"Methode\": A method is a procedure, not a cited source. Human linguistic, CEFR and rights approval pending."
+        }
+      ]
+    }
+  ]
+}
