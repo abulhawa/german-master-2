@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000009800",
+      "title": {
+        "en": "Using verhindern in context",
+        "de": "verhindern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verhindern: prevent something from happening, in two different situations.",
+        "de": "verhindern erkennen und verwenden: etwas verhindern, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verhindern meaning prevent something from happening, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L889 (7050f186c1aeb9a4b86d1431c7e90083e2494f3eb4413f46ad57f0ab37e4f422), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L889-v1",
+          "contextKey": "legacy-0098-L889-context-1",
+          "transferKey": "legacy-0098-L889-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009800",
+            "type": "gap_choice",
+            "prompt": "Ein Sicherheitsnetz soll schwere Stürze ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The net is intended to keep accidents from occurring.",
+              "de": "Das Netz soll Unfälle gar nicht erst entstehen lassen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "melden"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verhindern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "beschreiben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verursachen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verhindern means prevent something from happening in this context; the required form is \"verhindern\".",
+              "de": "verhindern bedeutet hier: etwas verhindern. Die passende Form lautet „verhindern“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Sicherheitsnetz soll schwere Stürze verhindern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Ein Sicherheitsnetz soll schwere Stürze verhindern.\". All four options evaluated: melden: rejected; wrong meaning, construction or inflection for the intended contextual clue; verhindern: correct verb and grammatical form in this context; beschreiben: rejected; wrong meaning, construction or inflection for the intended contextual clue; verursachen: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The net is intended to keep accidents from occurring. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L889-v2",
+          "contextKey": "legacy-0098-L889-context-2",
+          "transferKey": "legacy-0098-L889-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009800",
+            "type": "choice",
+            "prompt": "Dank der rechtzeitigen Wartung wurde ein Maschinenausfall ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The machine did not fail because maintenance happened in time.",
+              "de": "Die Maschine fiel dank der rechtzeitigen Wartung nicht aus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "untersucht"
+              },
+              {
+                "id": "1",
+                "text": "angekündigt"
+              },
+              {
+                "id": "2",
+                "text": "vergrößert"
+              },
+              {
+                "id": "3",
+                "text": "verhindert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "verhindern means prevent something from happening in this context; the required form is \"verhindert\".",
+              "de": "verhindern bedeutet hier: etwas verhindern. Die passende Form lautet „verhindert“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Dank der rechtzeitigen Wartung wurde ein Maschinenausfall verhindert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Dank der rechtzeitigen Wartung wurde ein Maschinenausfall verhindert.\". All four options evaluated: untersucht: rejected; wrong meaning, construction or inflection for the intended contextual clue; angekündigt: rejected; wrong meaning, construction or inflection for the intended contextual clue; vergrößert: rejected; wrong meaning, construction or inflection for the intended contextual clue; verhindert: correct verb and grammatical form in this context. Contextual clue: The machine did not fail because maintenance happened in time. Correct option 3; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009801",
+      "title": {
+        "en": "Using verklagen in context",
+        "de": "verklagen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verklagen: take someone to court, sue, in two different situations.",
+        "de": "verklagen erkennen und verwenden: jemanden gerichtlich verklagen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verklagen meaning take someone to court, sue, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L891 (c92a4ce91a8815076e35344d370a5662685d03c8e7235cfcde331563ec6d7fd4), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L891-v1",
+          "contextKey": "legacy-0098-L891-context-1",
+          "transferKey": "legacy-0098-L891-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009801",
+            "type": "gap_choice",
+            "prompt": "Weil der Hersteller den Schaden nicht ersetzt, will die Kundin ihn vor Gericht ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She is considering a legal claim against the manufacturer.",
+              "de": "Sie erwägt rechtliche Schritte gegen den Hersteller."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verklagen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "befördern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "loben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beraten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verklagen means take someone to court, sue in this context; the required form is \"verklagen\".",
+              "de": "verklagen bedeutet hier: jemanden gerichtlich verklagen. Die passende Form lautet „verklagen“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil der Hersteller den Schaden nicht ersetzt, will die Kundin ihn vor Gericht verklagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Weil der Hersteller den Schaden nicht ersetzt, will die Kundin ihn vor Gericht verklagen.\". All four options evaluated: verklagen: correct verb and grammatical form in this context; befördern: rejected; wrong meaning, construction or inflection for the intended contextual clue; loben: rejected; wrong meaning, construction or inflection for the intended contextual clue; beraten: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: She is considering a legal claim against the manufacturer. Correct option 0; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L891-v2",
+          "contextKey": "legacy-0098-L891-context-2",
+          "transferKey": "legacy-0098-L891-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009801",
+            "type": "choice",
+            "prompt": "Nach dem Vertragsbruch hat das Unternehmen seinen Lieferanten auf Schadensersatz ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The company has filed a claim for compensation.",
+              "de": "Das Unternehmen fordert vor Gericht Schadenersatz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eingeladen"
+              },
+              {
+                "id": "1",
+                "text": "verklagt"
+              },
+              {
+                "id": "2",
+                "text": "befragt"
+              },
+              {
+                "id": "3",
+                "text": "eingestellt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "verklagen means take someone to court, sue in this context; the required form is \"verklagt\".",
+              "de": "verklagen bedeutet hier: jemanden gerichtlich verklagen. Die passende Form lautet „verklagt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Vertragsbruch hat das Unternehmen seinen Lieferanten auf Schadensersatz verklagt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Nach dem Vertragsbruch hat das Unternehmen seinen Lieferanten auf Schadensersatz verklagt.\". All four options evaluated: eingeladen: rejected; wrong meaning, construction or inflection for the intended contextual clue; verklagt: correct verb and grammatical form in this context; befragt: rejected; wrong meaning, construction or inflection for the intended contextual clue; eingestellt: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The company has filed a claim for compensation. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009802",
+      "title": {
+        "en": "Using verlangen in context",
+        "de": "verlangen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verlangen: request or demand something, in two different situations.",
+        "de": "verlangen erkennen und verwenden: etwas fordern oder verlangen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verlangen meaning request or demand something, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L892 (94a609ffe603d21d00b793caf3497cf469fe01d6984a7a740ccebf01bc875940), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L892-v1",
+          "contextKey": "legacy-0098-L892-context-1",
+          "transferKey": "legacy-0098-L892-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009802",
+            "type": "gap_choice",
+            "prompt": "Der Vermieter darf nicht einfach eine zusätzliche Gebühr ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The landlord is asking tenants to pay extra.",
+              "de": "Der Vermieter fordert eine zusätzliche Zahlung."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "schenken"
+                  },
+                  {
+                    "id": "1",
+                    "text": "liefern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verlangen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vermeiden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verlangen means request or demand something in this context; the required form is \"verlangen\".",
+              "de": "verlangen bedeutet hier: etwas fordern oder verlangen. Die passende Form lautet „verlangen“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Vermieter darf nicht einfach eine zusätzliche Gebühr verlangen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Der Vermieter darf nicht einfach eine zusätzliche Gebühr verlangen.\". All four options evaluated: schenken: rejected; wrong meaning, construction or inflection for the intended contextual clue; liefern: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlangen: correct verb and grammatical form in this context; vermeiden: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The landlord is asking tenants to pay extra. Correct option 2; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L892-v2",
+          "contextKey": "legacy-0098-L892-context-2",
+          "transferKey": "legacy-0098-L892-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009802",
+            "type": "choice",
+            "prompt": "Die Kundin ___ vom Händler eine schriftliche Bestätigung, bevor sie bezahlt.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She insists that the seller provide written confirmation.",
+              "de": "Sie fordert vor der Zahlung eine schriftliche Zusage."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verschickt"
+              },
+              {
+                "id": "1",
+                "text": "übersetzt"
+              },
+              {
+                "id": "2",
+                "text": "versäumt"
+              },
+              {
+                "id": "3",
+                "text": "verlangt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "verlangen means request or demand something in this context; the required form is \"verlangt\".",
+              "de": "verlangen bedeutet hier: etwas fordern oder verlangen. Die passende Form lautet „verlangt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kundin verlangt vom Händler eine schriftliche Bestätigung, bevor sie bezahlt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die Kundin verlangt vom Händler eine schriftliche Bestätigung, bevor sie bezahlt.\". All four options evaluated: verschickt: rejected; wrong meaning, construction or inflection for the intended contextual clue; übersetzt: rejected; wrong meaning, construction or inflection for the intended contextual clue; versäumt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlangt: correct verb and grammatical form in this context. Contextual clue: She insists that the seller provide written confirmation. Correct option 3; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009803",
+      "title": {
+        "en": "Using verlängern in context",
+        "de": "verlängern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verlängern: extend a period or validity, in two different situations.",
+        "de": "verlängern erkennen und verwenden: eine Dauer oder Gültigkeit verlängern, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verlängern meaning extend a period or validity, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L893 (3020eb2c817eb34aa710301b36c2167a91a9876acb94c0275368997ac2fff6d7), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L893-v1",
+          "contextKey": "legacy-0098-L893-context-1",
+          "transferKey": "legacy-0098-L893-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009803",
+            "type": "gap_choice",
+            "prompt": "Mein Ausweis läuft morgen ab; ich muss ihn ___ lassen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The document should remain valid beyond tomorrow.",
+              "de": "Das Dokument soll länger gültig bleiben."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verlängern"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verlassen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "versäumen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vermissen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verlängern means extend a period or validity in this context; the required form is \"verlängern\".",
+              "de": "verlängern bedeutet hier: eine Dauer oder Gültigkeit verlängern. Die passende Form lautet „verlängern“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mein Ausweis läuft morgen ab; ich muss ihn verlängern lassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Mein Ausweis läuft morgen ab; ich muss ihn verlängern lassen.\". All four options evaluated: verlängern: correct verb and grammatical form in this context; verlassen: rejected; wrong meaning, construction or inflection for the intended contextual clue; versäumen: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermissen: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The document should remain valid beyond tomorrow. Correct option 0; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L893-v2",
+          "contextKey": "legacy-0098-L893-context-2",
+          "transferKey": "legacy-0098-L893-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009803",
+            "type": "choice",
+            "prompt": "Wegen des großen Interesses wurde die Ausstellung um zwei Wochen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Visitors can see the exhibition for two additional weeks.",
+              "de": "Die Ausstellung bleibt zwei Wochen länger geöffnet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verpackt"
+              },
+              {
+                "id": "1",
+                "text": "verlängert"
+              },
+              {
+                "id": "2",
+                "text": "verschickt"
+              },
+              {
+                "id": "3",
+                "text": "verhindert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "verlängern means extend a period or validity in this context; the required form is \"verlängert\".",
+              "de": "verlängern bedeutet hier: eine Dauer oder Gültigkeit verlängern. Die passende Form lautet „verlängert“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen des großen Interesses wurde die Ausstellung um zwei Wochen verlängert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Wegen des großen Interesses wurde die Ausstellung um zwei Wochen verlängert.\". All four options evaluated: verpackt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlängert: correct verb and grammatical form in this context; verschickt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verhindert: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: Visitors can see the exhibition for two additional weeks. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009804",
+      "title": {
+        "en": "Using verlassen in context",
+        "de": "verlassen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verlassen: leave a place, in two different situations.",
+        "de": "verlassen erkennen und verwenden: einen Ort verlassen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verlassen meaning leave a place, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L894 (6863579bb9c11fb922048f489bedfd9b9460573764c4d0725d4e6ccfb3e46bd6), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L894-v1",
+          "contextKey": "legacy-0098-L894-context-1",
+          "transferKey": "legacy-0098-L894-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009804",
+            "type": "gap_choice",
+            "prompt": "Bei Feuer müssen alle das Gebäude sofort ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Everyone needs to go outside for safety.",
+              "de": "Alle müssen aus Sicherheitsgründen nach draußen gehen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verlangen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "versäumen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verlassen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verlegen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verlassen means leave a place in this context; the required form is \"verlassen\".",
+              "de": "verlassen bedeutet hier: einen Ort verlassen. Die passende Form lautet „verlassen“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei Feuer müssen alle das Gebäude sofort verlassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Bei Feuer müssen alle das Gebäude sofort verlassen.\". All four options evaluated: verlangen: rejected; wrong meaning, construction or inflection for the intended contextual clue; versäumen: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlassen: correct verb and grammatical form in this context; verlegen: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: Everyone needs to go outside for safety. Correct option 2; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L894-v2",
+          "contextKey": "legacy-0098-L894-context-2",
+          "transferKey": "legacy-0098-L894-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009804",
+            "type": "choice",
+            "prompt": "Als der letzte Zug abfuhr, ___ sie den Bahnhof.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She went away from the station.",
+              "de": "Sie ging vom Bahnhof weg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verpackte"
+              },
+              {
+                "id": "1",
+                "text": "verhinderte"
+              },
+              {
+                "id": "2",
+                "text": "verlängerte"
+              },
+              {
+                "id": "3",
+                "text": "verließ"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "verlassen means leave a place in this context; the required form is \"verließ\".",
+              "de": "verlassen bedeutet hier: einen Ort verlassen. Die passende Form lautet „verließ“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als der letzte Zug abfuhr, verließ sie den Bahnhof.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Als der letzte Zug abfuhr, verließ sie den Bahnhof.\". All four options evaluated: verpackte: rejected; wrong meaning, construction or inflection for the intended contextual clue; verhinderte: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlängerte: rejected; wrong meaning, construction or inflection for the intended contextual clue; verließ: correct verb and grammatical form in this context. Contextual clue: She went away from the station. Correct option 3; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009805",
+      "title": {
+        "en": "Using verlaufen in context",
+        "de": "verlaufen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verlaufen: get lost (reflexive sich verlaufen), in two different situations.",
+        "de": "verlaufen erkennen und verwenden: sich verirren (sich verlaufen), in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verlaufen meaning get lost (reflexive sich verlaufen), with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L895 (5c6c3d57adca05755b0042397bc67d57a371f4133bd4a6082e54d1eeabbe58a1), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L895-v1",
+          "contextKey": "legacy-0098-L895-context-1",
+          "transferKey": "legacy-0098-L895-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009805",
+            "type": "gap_choice",
+            "prompt": "Bei der Suche nach dem Konferenzraum habe ich mich im großen Gebäude ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker could not find the way through the building.",
+              "de": "Die Person fand im Gebäude den Weg nicht."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verlaufen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verlegt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verklagt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verlangt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verlaufen means get lost (reflexive sich verlaufen) in this context; the required form is \"verlaufen\".",
+              "de": "verlaufen bedeutet hier: sich verirren (sich verlaufen). Die passende Form lautet „verlaufen“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Suche nach dem Konferenzraum habe ich mich im großen Gebäude verlaufen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Bei der Suche nach dem Konferenzraum habe ich mich im großen Gebäude verlaufen.\". All four options evaluated: verlaufen: correct verb and grammatical form in this context; verlegt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verklagt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlangt: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The speaker could not find the way through the building. Correct option 0; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L895-v2",
+          "contextKey": "legacy-0098-L895-context-2",
+          "transferKey": "legacy-0098-L895-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009805",
+            "type": "choice",
+            "prompt": "Die Kinder haben sich im Labyrinth ___ und mussten nach dem Ausgang fragen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They lost their way among the passages.",
+              "de": "Sie fanden zwischen den Gängen den Weg nicht mehr."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "veröffentlicht"
+              },
+              {
+                "id": "1",
+                "text": "verlaufen"
+              },
+              {
+                "id": "2",
+                "text": "versäumt"
+              },
+              {
+                "id": "3",
+                "text": "verschickt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "verlaufen means get lost (reflexive sich verlaufen) in this context; the required form is \"verlaufen\".",
+              "de": "verlaufen bedeutet hier: sich verirren (sich verlaufen). Die passende Form lautet „verlaufen“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kinder haben sich im Labyrinth verlaufen und mussten nach dem Ausgang fragen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die Kinder haben sich im Labyrinth verlaufen und mussten nach dem Ausgang fragen.\". All four options evaluated: veröffentlicht: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlaufen: correct verb and grammatical form in this context; versäumt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verschickt: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: They lost their way among the passages. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009806",
+      "title": {
+        "en": "Using verlegen in context",
+        "de": "verlegen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verlegen: reschedule or move an appointment, in two different situations.",
+        "de": "verlegen erkennen und verwenden: einen Termin zeitlich verlegen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verlegen meaning reschedule or move an appointment, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L896 (c441bf3f159f875d8eeb6b2967bcd9ce6721dc48af7ae5409abf47f4c931d0e9), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L896-v1",
+          "contextKey": "legacy-0098-L896-context-1",
+          "transferKey": "legacy-0098-L896-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009806",
+            "type": "gap_choice",
+            "prompt": "Wegen des Streiks müssen wir die Besprechung auf Freitag ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The meeting will take place on a different day.",
+              "de": "Die Besprechung findet an einem anderen Tag statt."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verlassen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vermitteln"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verlegen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "veröffentlichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verlegen means reschedule or move an appointment in this context; the required form is \"verlegen\".",
+              "de": "verlegen bedeutet hier: einen Termin zeitlich verlegen. Die passende Form lautet „verlegen“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen des Streiks müssen wir die Besprechung auf Freitag verlegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Wegen des Streiks müssen wir die Besprechung auf Freitag verlegen.\". All four options evaluated: verlassen: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermitteln: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlegen: correct verb and grammatical form in this context; veröffentlichen: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The meeting will take place on a different day. Correct option 2; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L896-v2",
+          "contextKey": "legacy-0098-L896-context-2",
+          "transferKey": "legacy-0098-L896-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009806",
+            "type": "choice",
+            "prompt": "Die Prüfung wurde vom Vormittag auf den Nachmittag ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The exam time was changed to later that day.",
+              "de": "Die Prüfungszeit wurde auf später geändert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verpackt"
+              },
+              {
+                "id": "1",
+                "text": "verklagt"
+              },
+              {
+                "id": "2",
+                "text": "vermutet"
+              },
+              {
+                "id": "3",
+                "text": "verlegt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "verlegen means reschedule or move an appointment in this context; the required form is \"verlegt\".",
+              "de": "verlegen bedeutet hier: einen Termin zeitlich verlegen. Die passende Form lautet „verlegt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Prüfung wurde vom Vormittag auf den Nachmittag verlegt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die Prüfung wurde vom Vormittag auf den Nachmittag verlegt.\". All four options evaluated: verpackt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verklagt: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermutet: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlegt: correct verb and grammatical form in this context. Contextual clue: The exam time was changed to later that day. Correct option 3; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009807",
+      "title": {
+        "en": "Using vermeiden in context",
+        "de": "vermeiden im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vermeiden: avoid an undesirable outcome, in two different situations.",
+        "de": "vermeiden erkennen und verwenden: etwas Unerwünschtes vermeiden, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vermeiden meaning avoid an undesirable outcome, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L900 (4fd61e6fa133e68d27ce0b9af2408e3d096c98d02849095bea879db3765751bf), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L900-v1",
+          "contextKey": "legacy-0098-L900-context-1",
+          "transferKey": "legacy-0098-L900-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009807",
+            "type": "gap_choice",
+            "prompt": "Um Missverständnisse zu ___, fasse ich die Vereinbarung schriftlich zusammen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Writing down the agreement should prevent confusion.",
+              "de": "Die schriftliche Vereinbarung soll Unklarheiten vorbeugen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vermeiden"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verlängern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verlangen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verraten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vermeiden means avoid an undesirable outcome in this context; the required form is \"vermeiden\".",
+              "de": "vermeiden bedeutet hier: etwas Unerwünschtes vermeiden. Die passende Form lautet „vermeiden“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um Missverständnisse zu vermeiden, fasse ich die Vereinbarung schriftlich zusammen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Um Missverständnisse zu vermeiden, fasse ich die Vereinbarung schriftlich zusammen.\". All four options evaluated: vermeiden: correct verb and grammatical form in this context; verlängern: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlangen: rejected; wrong meaning, construction or inflection for the intended contextual clue; verraten: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: Writing down the agreement should prevent confusion. Correct option 0; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L900-v2",
+          "contextKey": "legacy-0098-L900-context-2",
+          "transferKey": "legacy-0098-L900-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009807",
+            "type": "choice",
+            "prompt": "Mit regelmäßigen Pausen lassen sich Fehler durch Müdigkeit ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Taking breaks helps prevent fatigue-related mistakes.",
+              "de": "Pausen beugen Fehlern durch Müdigkeit vor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "veröffentlichen"
+              },
+              {
+                "id": "1",
+                "text": "vermeiden"
+              },
+              {
+                "id": "2",
+                "text": "versäumen"
+              },
+              {
+                "id": "3",
+                "text": "vermitteln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "vermeiden means avoid an undesirable outcome in this context; the required form is \"vermeiden\".",
+              "de": "vermeiden bedeutet hier: etwas Unerwünschtes vermeiden. Die passende Form lautet „vermeiden“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit regelmäßigen Pausen lassen sich Fehler durch Müdigkeit vermeiden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Mit regelmäßigen Pausen lassen sich Fehler durch Müdigkeit vermeiden.\". All four options evaluated: veröffentlichen: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermeiden: correct verb and grammatical form in this context; versäumen: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermitteln: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: Taking breaks helps prevent fatigue-related mistakes. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009808",
+      "title": {
+        "en": "Using vermissen in context",
+        "de": "vermissen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vermissen: miss someone or something absent, in two different situations.",
+        "de": "vermissen erkennen und verwenden: jemanden oder etwas vermissen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vermissen meaning miss someone or something absent, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L902 (df319d39308f655704c1879c0cead8ff733689fba4c823181187a9af237a6a5e), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L902-v1",
+          "contextKey": "legacy-0098-L902-context-1",
+          "transferKey": "legacy-0098-L902-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009808",
+            "type": "gap_choice",
+            "prompt": "Seit dem Umzug ___ ich die Gespräche mit meinen alten Nachbarn.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker feels the absence of familiar conversations.",
+              "de": "Die Gespräche fehlen der Person seit dem Umzug."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verpacke"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verlege"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vermisse"
+                  },
+                  {
+                    "id": "3",
+                    "text": "veröffentliche"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vermissen means miss someone or something absent in this context; the required form is \"vermisse\".",
+              "de": "vermissen bedeutet hier: jemanden oder etwas vermissen. Die passende Form lautet „vermisse“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seit dem Umzug vermisse ich die Gespräche mit meinen alten Nachbarn.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Seit dem Umzug vermisse ich die Gespräche mit meinen alten Nachbarn.\". All four options evaluated: verpacke: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlege: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermisse: correct verb and grammatical form in this context; veröffentliche: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The speaker feels the absence of familiar conversations. Correct option 2; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L902-v2",
+          "contextKey": "legacy-0098-L902-context-2",
+          "transferKey": "legacy-0098-L902-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009808",
+            "type": "choice",
+            "prompt": "Als sie ein Jahr im Ausland lebte, hat sie ihre Familie sehr ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She longed for her family while away.",
+              "de": "Ihre Familie fehlte ihr während des Auslandsjahres."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "versäumt"
+              },
+              {
+                "id": "1",
+                "text": "verklagt"
+              },
+              {
+                "id": "2",
+                "text": "vermittelt"
+              },
+              {
+                "id": "3",
+                "text": "vermisst"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "vermissen means miss someone or something absent in this context; the required form is \"vermisst\".",
+              "de": "vermissen bedeutet hier: jemanden oder etwas vermissen. Die passende Form lautet „vermisst“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als sie ein Jahr im Ausland lebte, hat sie ihre Familie sehr vermisst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Als sie ein Jahr im Ausland lebte, hat sie ihre Familie sehr vermisst.\". All four options evaluated: versäumt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verklagt: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermittelt: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermisst: correct verb and grammatical form in this context. Contextual clue: She longed for her family while away. Correct option 3; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009809",
+      "title": {
+        "en": "Using vermitteln in context",
+        "de": "vermitteln im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vermitteln: mediate or convey knowledge, in two different situations.",
+        "de": "vermitteln erkennen und verwenden: zwischen Parteien vermitteln oder Wissen vermitteln, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vermitteln meaning mediate or convey knowledge, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L903 (8bb9aed5dd1776f356554f6a2bfa770a8c7c7b7096ff3e3e63bb109fc86e3d3b), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L903-v1",
+          "contextKey": "legacy-0098-L903-context-1",
+          "transferKey": "legacy-0098-L903-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009809",
+            "type": "gap_choice",
+            "prompt": "Die Schlichterin versucht, zwischen Arbeitgeber und Beschäftigten zu ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A neutral person helps the two sides reach agreement.",
+              "de": "Eine neutrale Person hilft beiden Seiten, sich zu einigen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vermitteln"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verlängern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "veröffentlichen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verpacken"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vermitteln means mediate or convey knowledge in this context; the required form is \"vermitteln\".",
+              "de": "vermitteln bedeutet hier: zwischen Parteien vermitteln oder Wissen vermitteln. Die passende Form lautet „vermitteln“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schlichterin versucht, zwischen Arbeitgeber und Beschäftigten zu vermitteln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die Schlichterin versucht, zwischen Arbeitgeber und Beschäftigten zu vermitteln.\". All four options evaluated: vermitteln: correct verb and grammatical form in this context; verlängern: rejected; wrong meaning, construction or inflection for the intended contextual clue; veröffentlichen: rejected; wrong meaning, construction or inflection for the intended contextual clue; verpacken: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: A neutral person helps the two sides reach agreement. Correct option 0; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L903-v2",
+          "contextKey": "legacy-0098-L903-context-2",
+          "transferKey": "legacy-0098-L903-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009809",
+            "type": "choice",
+            "prompt": "Im Kurs werden praktische Kenntnisse zur Datensicherheit ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Participants are taught practical knowledge.",
+              "de": "Die Teilnehmenden lernen im Kurs praktische Kenntnisse."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vermisst"
+              },
+              {
+                "id": "1",
+                "text": "vermittelt"
+              },
+              {
+                "id": "2",
+                "text": "versäumt"
+              },
+              {
+                "id": "3",
+                "text": "verraten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "vermitteln means mediate or convey knowledge in this context; the required form is \"vermittelt\".",
+              "de": "vermitteln bedeutet hier: zwischen Parteien vermitteln oder Wissen vermitteln. Die passende Form lautet „vermittelt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Kurs werden praktische Kenntnisse zur Datensicherheit vermittelt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Im Kurs werden praktische Kenntnisse zur Datensicherheit vermittelt.\". All four options evaluated: vermisst: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermittelt: correct verb and grammatical form in this context; versäumt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verraten: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: Participants are taught practical knowledge. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009810",
+      "title": {
+        "en": "Using vermuten in context",
+        "de": "vermuten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use vermuten: suspect or suppose without proof, in two different situations.",
+        "de": "vermuten erkennen und verwenden: etwas ohne Gewissheit vermuten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb vermuten meaning suspect or suppose without proof, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L904 (144df5e065abbdfeb1252189d58395bdd81536bcad478e98b5da0677779c1cc2), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L904-v1",
+          "contextKey": "legacy-0098-L904-context-1",
+          "transferKey": "legacy-0098-L904-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009810",
+            "type": "gap_choice",
+            "prompt": "Da niemand ans Telefon geht, ___ ich, dass das Büro schon geschlossen ist.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker draws an uncertain conclusion from the unanswered call.",
+              "de": "Die Person schließt aus dem Anruf auf etwas, weiß es aber nicht sicher."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verlange"
+                  },
+                  {
+                    "id": "1",
+                    "text": "veröffentliche"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vermute"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verschicke"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "vermuten means suspect or suppose without proof in this context; the required form is \"vermute\".",
+              "de": "vermuten bedeutet hier: etwas ohne Gewissheit vermuten. Die passende Form lautet „vermute“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Da niemand ans Telefon geht, vermute ich, dass das Büro schon geschlossen ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Da niemand ans Telefon geht, vermute ich, dass das Büro schon geschlossen ist.\". All four options evaluated: verlange: rejected; wrong meaning, construction or inflection for the intended contextual clue; veröffentliche: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermute: correct verb and grammatical form in this context; verschicke: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The speaker draws an uncertain conclusion from the unanswered call. Correct option 2; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L904-v2",
+          "contextKey": "legacy-0098-L904-context-2",
+          "transferKey": "legacy-0098-L904-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009810",
+            "type": "choice",
+            "prompt": "Die Ermittler ___ einen technischen Defekt als Brandursache, haben aber noch keine Beweise.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Investigators have a theory, not confirmed evidence.",
+              "de": "Die Ermittler haben nur eine unbelegte Annahme."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verpacken"
+              },
+              {
+                "id": "1",
+                "text": "verlängern"
+              },
+              {
+                "id": "2",
+                "text": "vermitteln"
+              },
+              {
+                "id": "3",
+                "text": "vermuten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "vermuten means suspect or suppose without proof in this context; the required form is \"vermuten\".",
+              "de": "vermuten bedeutet hier: etwas ohne Gewissheit vermuten. Die passende Form lautet „vermuten“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ermittler vermuten einen technischen Defekt als Brandursache, haben aber noch keine Beweise.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die Ermittler vermuten einen technischen Defekt als Brandursache, haben aber noch keine Beweise.\". All four options evaluated: verpacken: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlängern: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermitteln: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermuten: correct verb and grammatical form in this context. Contextual clue: Investigators have a theory, not confirmed evidence. Correct option 3; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009811",
+      "title": {
+        "en": "Using veröffentlichen in context",
+        "de": "veröffentlichen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use veröffentlichen: publish for public access, in two different situations.",
+        "de": "veröffentlichen erkennen und verwenden: öffentlich zugänglich machen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb veröffentlichen meaning publish for public access, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L905 (4660bc8d97be84ab955c9b03c72ec858b9453f75f4bcd010dbc7b37690ab955f), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L905-v1",
+          "contextKey": "legacy-0098-L905-context-1",
+          "transferKey": "legacy-0098-L905-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009811",
+            "type": "gap_choice",
+            "prompt": "Die Stadt wird die Ergebnisse der Umfrage nächste Woche ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The results will be made available to the public.",
+              "de": "Die Ergebnisse werden der Öffentlichkeit zugänglich gemacht."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "veröffentlichen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verpacken"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vermissen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verklagen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "veröffentlichen means publish for public access in this context; the required form is \"veröffentlichen\".",
+              "de": "veröffentlichen bedeutet hier: öffentlich zugänglich machen. Die passende Form lautet „veröffentlichen“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stadt wird die Ergebnisse der Umfrage nächste Woche veröffentlichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die Stadt wird die Ergebnisse der Umfrage nächste Woche veröffentlichen.\". All four options evaluated: veröffentlichen: correct verb and grammatical form in this context; verpacken: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermissen: rejected; wrong meaning, construction or inflection for the intended contextual clue; verklagen: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The results will be made available to the public. Correct option 0; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L905-v2",
+          "contextKey": "legacy-0098-L905-context-2",
+          "transferKey": "legacy-0098-L905-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009811",
+            "type": "choice",
+            "prompt": "Die Forschungsgruppe hat ihre Studie in einer Fachzeitschrift ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The study appeared in a specialist journal.",
+              "de": "Die Studie erschien in einer Fachzeitschrift."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verlängert"
+              },
+              {
+                "id": "1",
+                "text": "veröffentlicht"
+              },
+              {
+                "id": "2",
+                "text": "verlangt"
+              },
+              {
+                "id": "3",
+                "text": "versäumt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "veröffentlichen means publish for public access in this context; the required form is \"veröffentlicht\".",
+              "de": "veröffentlichen bedeutet hier: öffentlich zugänglich machen. Die passende Form lautet „veröffentlicht“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Forschungsgruppe hat ihre Studie in einer Fachzeitschrift veröffentlicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die Forschungsgruppe hat ihre Studie in einer Fachzeitschrift veröffentlicht.\". All four options evaluated: verlängert: rejected; wrong meaning, construction or inflection for the intended contextual clue; veröffentlicht: correct verb and grammatical form in this context; verlangt: rejected; wrong meaning, construction or inflection for the intended contextual clue; versäumt: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The study appeared in a specialist journal. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009812",
+      "title": {
+        "en": "Using verpacken in context",
+        "de": "verpacken im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verpacken: pack something for transport, in two different situations.",
+        "de": "verpacken erkennen und verwenden: etwas für den Transport verpacken, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verpacken meaning pack something for transport, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L906 (66809a68b7de6286d422320dab30644af2bd65480012136f4d01c2667b127d91), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L906-v1",
+          "contextKey": "legacy-0098-L906-context-1",
+          "transferKey": "legacy-0098-L906-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009812",
+            "type": "gap_choice",
+            "prompt": "Bitte die zerbrechlichen Gläser vor dem Transport sorgfältig ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Protect fragile objects before moving them.",
+              "de": "Schütze die zerbrechlichen Gegenstände vor dem Transport."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vermuten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vermitteln"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verpacken"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verklagen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verpacken means pack something for transport in this context; the required form is \"verpacken\".",
+              "de": "verpacken bedeutet hier: etwas für den Transport verpacken. Die passende Form lautet „verpacken“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte die zerbrechlichen Gläser vor dem Transport sorgfältig verpacken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Bitte die zerbrechlichen Gläser vor dem Transport sorgfältig verpacken.\". All four options evaluated: vermuten: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermitteln: rejected; wrong meaning, construction or inflection for the intended contextual clue; verpacken: correct verb and grammatical form in this context; verklagen: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: Protect fragile objects before moving them. Correct option 2; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L906-v2",
+          "contextKey": "legacy-0098-L906-context-2",
+          "transferKey": "legacy-0098-L906-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009812",
+            "type": "choice",
+            "prompt": "Für den Versand wurden die Bücher einzeln in Kartons ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Each book was put into packaging for shipment.",
+              "de": "Jedes Buch wurde für den Versand in einen Karton gelegt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verlängert"
+              },
+              {
+                "id": "1",
+                "text": "vermisst"
+              },
+              {
+                "id": "2",
+                "text": "verraten"
+              },
+              {
+                "id": "3",
+                "text": "verpackt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "verpacken means pack something for transport in this context; the required form is \"verpackt\".",
+              "de": "verpacken bedeutet hier: etwas für den Transport verpacken. Die passende Form lautet „verpackt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Versand wurden die Bücher einzeln in Kartons verpackt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Für den Versand wurden die Bücher einzeln in Kartons verpackt.\". All four options evaluated: verlängert: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermisst: rejected; wrong meaning, construction or inflection for the intended contextual clue; verraten: rejected; wrong meaning, construction or inflection for the intended contextual clue; verpackt: correct verb and grammatical form in this context. Contextual clue: Each book was put into packaging for shipment. Correct option 3; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009813",
+      "title": {
+        "en": "Using verpflegen in context",
+        "de": "verpflegen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verpflegen: provide meals to people, in two different situations.",
+        "de": "verpflegen erkennen und verwenden: Menschen mit Essen versorgen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verpflegen meaning provide meals to people, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L908 (b2a6215f0403e97d50e2aff06a94d29eb2af8461751e17937fa638c1155f35eb), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L908-v1",
+          "contextKey": "legacy-0098-L908-context-1",
+          "transferKey": "legacy-0098-L908-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009813",
+            "type": "gap_choice",
+            "prompt": "Während der mehrtägigen Übung muss die Organisation alle Freiwilligen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The volunteers need meals during the exercise.",
+              "de": "Die Freiwilligen brauchen während der Übung Essen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verpflegen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verklagen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "versäumen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vermuten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verpflegen means provide meals to people in this context; the required form is \"verpflegen\".",
+              "de": "verpflegen bedeutet hier: Menschen mit Essen versorgen. Die passende Form lautet „verpflegen“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während der mehrtägigen Übung muss die Organisation alle Freiwilligen verpflegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Während der mehrtägigen Übung muss die Organisation alle Freiwilligen verpflegen.\". All four options evaluated: verpflegen: correct verb and grammatical form in this context; verklagen: rejected; wrong meaning, construction or inflection for the intended contextual clue; versäumen: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermuten: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The volunteers need meals during the exercise. Correct option 0; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L908-v2",
+          "contextKey": "legacy-0098-L908-context-2",
+          "transferKey": "legacy-0098-L908-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009813",
+            "type": "choice",
+            "prompt": "Die Teilnehmenden wurden auf der Hütte mit warmen Mahlzeiten ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They received food during their stay.",
+              "de": "Sie bekamen während des Aufenthalts warme Mahlzeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verlegt"
+              },
+              {
+                "id": "1",
+                "text": "verpflegt"
+              },
+              {
+                "id": "2",
+                "text": "veröffentlicht"
+              },
+              {
+                "id": "3",
+                "text": "verlängert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "verpflegen means provide meals to people in this context; the required form is \"verpflegt\".",
+              "de": "verpflegen bedeutet hier: Menschen mit Essen versorgen. Die passende Form lautet „verpflegt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Teilnehmenden wurden auf der Hütte mit warmen Mahlzeiten verpflegt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die Teilnehmenden wurden auf der Hütte mit warmen Mahlzeiten verpflegt.\". All four options evaluated: verlegt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verpflegt: correct verb and grammatical form in this context; veröffentlicht: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlängert: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: They received food during their stay. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009814",
+      "title": {
+        "en": "Using verpflichten in context",
+        "de": "verpflichten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verpflichten: oblige someone to do something, in two different situations.",
+        "de": "verpflichten erkennen und verwenden: jemanden zu etwas verpflichten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verpflichten meaning oblige someone to do something, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L909 (86602cb9d7bdf4d7adb32a2638e8bf3f81c5d3363294de1d3711b5f29fcd75aa), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L909-v1",
+          "contextKey": "legacy-0098-L909-context-1",
+          "transferKey": "legacy-0098-L909-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009814",
+            "type": "gap_choice",
+            "prompt": "Der Vertrag kann den Anbieter dazu ___, Mängel kostenlos zu beheben.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The contract can impose a duty on the provider.",
+              "de": "Der Vertrag kann dem Anbieter eine Pflicht auferlegen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vermissen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verpacken"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verpflichten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "veröffentlichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verpflichten means oblige someone to do something in this context; the required form is \"verpflichten\".",
+              "de": "verpflichten bedeutet hier: jemanden zu etwas verpflichten. Die passende Form lautet „verpflichten“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Vertrag kann den Anbieter dazu verpflichten, Mängel kostenlos zu beheben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Der Vertrag kann den Anbieter dazu verpflichten, Mängel kostenlos zu beheben.\". All four options evaluated: vermissen: rejected; wrong meaning, construction or inflection for the intended contextual clue; verpacken: rejected; wrong meaning, construction or inflection for the intended contextual clue; verpflichten: correct verb and grammatical form in this context; veröffentlichen: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The contract can impose a duty on the provider. Correct option 2; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L909-v2",
+          "contextKey": "legacy-0098-L909-context-2",
+          "transferKey": "legacy-0098-L909-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009814",
+            "type": "choice",
+            "prompt": "Mit ihrer Unterschrift hat sie sich zur Einhaltung der Regeln ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "By signing, she accepted an obligation.",
+              "de": "Mit der Unterschrift übernahm sie eine Verpflichtung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verlaufen"
+              },
+              {
+                "id": "1",
+                "text": "verschickt"
+              },
+              {
+                "id": "2",
+                "text": "verklagt"
+              },
+              {
+                "id": "3",
+                "text": "verpflichtet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "verpflichten means oblige someone to do something in this context; the required form is \"verpflichtet\".",
+              "de": "verpflichten bedeutet hier: jemanden zu etwas verpflichten. Die passende Form lautet „verpflichtet“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit ihrer Unterschrift hat sie sich zur Einhaltung der Regeln verpflichtet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Mit ihrer Unterschrift hat sie sich zur Einhaltung der Regeln verpflichtet.\". All four options evaluated: verlaufen: rejected; wrong meaning, construction or inflection for the intended contextual clue; verschickt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verklagt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verpflichtet: correct verb and grammatical form in this context. Contextual clue: By signing, she accepted an obligation. Correct option 3; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009815",
+      "title": {
+        "en": "Using verraten in context",
+        "de": "verraten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verraten: reveal a secret, in two different situations.",
+        "de": "verraten erkennen und verwenden: ein Geheimnis verraten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verraten meaning reveal a secret, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L910 (e416c4a235748cc0c36e63224dba62367a8772f9e16c92e1d70d681ae45a6bb4), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L910-v1",
+          "contextKey": "legacy-0098-L910-context-1",
+          "transferKey": "legacy-0098-L910-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009815",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ mir das Passwort nicht, auch nicht im Scherz.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A confidential password should not be disclosed.",
+              "de": "Ein geheimes Passwort soll nicht preisgegeben werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verrate"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verlange"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verlege"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vermute"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verraten means reveal a secret in this context; the required form is \"verrate\".",
+              "de": "verraten bedeutet hier: ein Geheimnis verraten. Die passende Form lautet „verrate“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte verrate mir das Passwort nicht, auch nicht im Scherz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Bitte verrate mir das Passwort nicht, auch nicht im Scherz.\". All four options evaluated: verrate: correct verb and grammatical form in this context; verlange: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlege: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermute: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: A confidential password should not be disclosed. Correct option 0; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L910-v2",
+          "contextKey": "legacy-0098-L910-context-2",
+          "transferKey": "legacy-0098-L910-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009815",
+            "type": "choice",
+            "prompt": "Er hat das Geheimnis seiner Freundin versehentlich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He accidentally disclosed information meant to stay secret.",
+              "de": "Er gab unabsichtlich vertrauliche Informationen weiter."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verpackt"
+              },
+              {
+                "id": "1",
+                "text": "verraten"
+              },
+              {
+                "id": "2",
+                "text": "versäumt"
+              },
+              {
+                "id": "3",
+                "text": "verlängert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "verraten means reveal a secret in this context; the required form is \"verraten\".",
+              "de": "verraten bedeutet hier: ein Geheimnis verraten. Die passende Form lautet „verraten“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er hat das Geheimnis seiner Freundin versehentlich verraten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Er hat das Geheimnis seiner Freundin versehentlich verraten.\". All four options evaluated: verpackt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verraten: correct verb and grammatical form in this context; versäumt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlängert: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: He accidentally disclosed information meant to stay secret. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009816",
+      "title": {
+        "en": "Using versalzen in context",
+        "de": "versalzen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use versalzen: put too much salt into food, in two different situations.",
+        "de": "versalzen erkennen und verwenden: eine Speise zu stark salzen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb versalzen meaning put too much salt into food, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L912 (f62df320478bbb3e087b6c7749f3af4c2027ccefdc840887d3589c0f4a70e76d), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L912-v1",
+          "contextKey": "legacy-0098-L912-context-1",
+          "transferKey": "legacy-0098-L912-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009816",
+            "type": "gap_choice",
+            "prompt": "Pass auf, dass du die Suppe nicht ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Too much salt would spoil the soup.",
+              "de": "Zu viel Salz würde die Suppe verderben."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verpackst"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verlässt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "versalzt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vermutest"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "versalzen means put too much salt into food in this context; the required form is \"versalzt\".",
+              "de": "versalzen bedeutet hier: eine Speise zu stark salzen. Die passende Form lautet „versalzt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Pass auf, dass du die Suppe nicht versalzt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Pass auf, dass du die Suppe nicht versalzt.\". All four options evaluated: verpackst: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlässt: rejected; wrong meaning, construction or inflection for the intended contextual clue; versalzt: correct verb and grammatical form in this context; vermutest: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: Too much salt would spoil the soup. Correct option 2; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L912-v2",
+          "contextKey": "legacy-0098-L912-context-2",
+          "transferKey": "legacy-0098-L912-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009816",
+            "type": "choice",
+            "prompt": "Beim Kochen hat er die Soße aus Versehen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He accidentally added excessive salt.",
+              "de": "Er gab versehentlich zu viel Salz in die Soße."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verlängert"
+              },
+              {
+                "id": "1",
+                "text": "vermittelt"
+              },
+              {
+                "id": "2",
+                "text": "veröffentlicht"
+              },
+              {
+                "id": "3",
+                "text": "versalzen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "versalzen means put too much salt into food in this context; the required form is \"versalzen\".",
+              "de": "versalzen bedeutet hier: eine Speise zu stark salzen. Die passende Form lautet „versalzen“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Kochen hat er die Soße aus Versehen versalzen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Beim Kochen hat er die Soße aus Versehen versalzen.\". All four options evaluated: verlängert: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermittelt: rejected; wrong meaning, construction or inflection for the intended contextual clue; veröffentlicht: rejected; wrong meaning, construction or inflection for the intended contextual clue; versalzen: correct verb and grammatical form in this context. Contextual clue: He accidentally added excessive salt. Correct option 3; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009817",
+      "title": {
+        "en": "Using versäumen in context",
+        "de": "versäumen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use versäumen: miss a deadline or fail to do something, in two different situations.",
+        "de": "versäumen erkennen und verwenden: eine Frist oder Handlung versäumen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb versäumen meaning miss a deadline or fail to do something, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L913 (99ee7dbdeb4c45db8feecfbcfb33cf47775c1e3493bc5d5180d4052b2b0d17d7), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L913-v1",
+          "contextKey": "legacy-0098-L913-context-1",
+          "transferKey": "legacy-0098-L913-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009817",
+            "type": "gap_choice",
+            "prompt": "Wer die Anmeldefrist ___, kann nicht am Kurs teilnehmen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Missing the registration deadline prevents participation.",
+              "de": "Eine verpasste Anmeldefrist verhindert die Teilnahme."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "versäumt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verlängert"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verschickt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vermisst"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "versäumen means miss a deadline or fail to do something in this context; the required form is \"versäumt\".",
+              "de": "versäumen bedeutet hier: eine Frist oder Handlung versäumen. Die passende Form lautet „versäumt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer die Anmeldefrist versäumt, kann nicht am Kurs teilnehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Wer die Anmeldefrist versäumt, kann nicht am Kurs teilnehmen.\". All four options evaluated: versäumt: correct verb and grammatical form in this context; verlängert: rejected; wrong meaning, construction or inflection for the intended contextual clue; verschickt: rejected; wrong meaning, construction or inflection for the intended contextual clue; vermisst: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: Missing the registration deadline prevents participation. Correct option 0; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L913-v2",
+          "contextKey": "legacy-0098-L913-context-2",
+          "transferKey": "legacy-0098-L913-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009817",
+            "type": "choice",
+            "prompt": "Sie hat es ___, den Antrag rechtzeitig einzureichen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She failed to submit the application on time.",
+              "de": "Sie reichte den Antrag nicht rechtzeitig ein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "veröffentlicht"
+              },
+              {
+                "id": "1",
+                "text": "versäumt"
+              },
+              {
+                "id": "2",
+                "text": "vermutet"
+              },
+              {
+                "id": "3",
+                "text": "verpackt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "versäumen means miss a deadline or fail to do something in this context; the required form is \"versäumt\".",
+              "de": "versäumen bedeutet hier: eine Frist oder Handlung versäumen. Die passende Form lautet „versäumt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat es versäumt, den Antrag rechtzeitig einzureichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Sie hat es versäumt, den Antrag rechtzeitig einzureichen.\". All four options evaluated: veröffentlicht: rejected; wrong meaning, construction or inflection for the intended contextual clue; versäumt: correct verb and grammatical form in this context; vermutet: rejected; wrong meaning, construction or inflection for the intended contextual clue; verpackt: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: She failed to submit the application on time. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009818",
+      "title": {
+        "en": "Using verschenken in context",
+        "de": "verschenken im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verschenken: give something away without payment, in two different situations.",
+        "de": "verschenken erkennen und verwenden: etwas unentgeltlich verschenken, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verschenken meaning give something away without payment, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L914 (421412089371da267fe3981b00f499dd340c1cfd9d8efb1da89426c1a0bfe204), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L914-v1",
+          "contextKey": "legacy-0098-L914-context-1",
+          "transferKey": "legacy-0098-L914-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009818",
+            "type": "gap_choice",
+            "prompt": "Die alten Kinderbücher möchten wir an die Stadtbibliothek ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The library receives the books without paying.",
+              "de": "Die Bibliothek bekommt die Bücher kostenlos."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vermuten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verklagen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verschenken"
+                  },
+                  {
+                    "id": "3",
+                    "text": "versäumen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verschenken means give something away without payment in this context; the required form is \"verschenken\".",
+              "de": "verschenken bedeutet hier: etwas unentgeltlich verschenken. Die passende Form lautet „verschenken“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die alten Kinderbücher möchten wir an die Stadtbibliothek verschenken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die alten Kinderbücher möchten wir an die Stadtbibliothek verschenken.\". All four options evaluated: vermuten: rejected; wrong meaning, construction or inflection for the intended contextual clue; verklagen: rejected; wrong meaning, construction or inflection for the intended contextual clue; verschenken: correct verb and grammatical form in this context; versäumen: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The library receives the books without paying. Correct option 2; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L914-v2",
+          "contextKey": "legacy-0098-L914-context-2",
+          "transferKey": "legacy-0098-L914-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009818",
+            "type": "choice",
+            "prompt": "Statt den Tisch wegzuwerfen, hat er ihn an seine Nachbarin ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The neighbour received the table for free.",
+              "de": "Die Nachbarin bekam den Tisch geschenkt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verpackt"
+              },
+              {
+                "id": "1",
+                "text": "verpflichtet"
+              },
+              {
+                "id": "2",
+                "text": "veröffentlicht"
+              },
+              {
+                "id": "3",
+                "text": "verschenkt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "verschenken means give something away without payment in this context; the required form is \"verschenkt\".",
+              "de": "verschenken bedeutet hier: etwas unentgeltlich verschenken. Die passende Form lautet „verschenkt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Statt den Tisch wegzuwerfen, hat er ihn an seine Nachbarin verschenkt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Statt den Tisch wegzuwerfen, hat er ihn an seine Nachbarin verschenkt.\". All four options evaluated: verpackt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verpflichtet: rejected; wrong meaning, construction or inflection for the intended contextual clue; veröffentlicht: rejected; wrong meaning, construction or inflection for the intended contextual clue; verschenkt: correct verb and grammatical form in this context. Contextual clue: The neighbour received the table for free. Correct option 3; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009819",
+      "title": {
+        "en": "Using verschicken in context",
+        "de": "verschicken im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verschicken: send items or messages out, in two different situations.",
+        "de": "verschicken erkennen und verwenden: etwas versenden oder verschicken, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verschicken meaning send items or messages out, with appropriate inflection and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L915 (e5ae82f3370c4b11633ac2855d007e8873ac221f537187c28552442c775a2c2a), 2026-10-29. No inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "GPT-6 AI editorial review recorded in batch report and variant ambiguity notes. Human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0098-L915-v1",
+          "contextKey": "legacy-0098-L915-context-1",
+          "transferKey": "legacy-0098-L915-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009819",
+            "type": "gap_choice",
+            "prompt": "Die Personalabteilung wird die Verträge morgen per E-Mail ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The contracts will be sent electronically.",
+              "de": "Die Verträge werden elektronisch versendet."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verschicken"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vermissen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verlegen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verklagen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "verschicken means send items or messages out in this context; the required form is \"verschicken\".",
+              "de": "verschicken bedeutet hier: etwas versenden oder verschicken. Die passende Form lautet „verschicken“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Personalabteilung wird die Verträge morgen per E-Mail verschicken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die Personalabteilung wird die Verträge morgen per E-Mail verschicken.\". All four options evaluated: verschicken: correct verb and grammatical form in this context; vermissen: rejected; wrong meaning, construction or inflection for the intended contextual clue; verlegen: rejected; wrong meaning, construction or inflection for the intended contextual clue; verklagen: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The contracts will be sent electronically. Correct option 0; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        },
+        {
+          "variantKey": "legacy-0098-L915-v2",
+          "contextKey": "legacy-0098-L915-context-2",
+          "transferKey": "legacy-0098-L915-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000980191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009819",
+            "type": "choice",
+            "prompt": "Die Ersatzteile wurden noch am selben Tag an die Werkstatt ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The parts were dispatched to the workshop that day.",
+              "de": "Die Teile gingen noch am selben Tag auf den Versandweg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "versäumt"
+              },
+              {
+                "id": "1",
+                "text": "verschickt"
+              },
+              {
+                "id": "2",
+                "text": "vermittelt"
+              },
+              {
+                "id": "3",
+                "text": "verraten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "verschicken means send items or messages out in this context; the required form is \"verschickt\".",
+              "de": "verschicken bedeutet hier: etwas versenden oder verschicken. Die passende Form lautet „verschickt“."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ersatzteile wurden noch am selben Tag an die Werkstatt verschickt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial pass, 2026-10-29. Full sentence: \"Die Ersatzteile wurden noch am selben Tag an die Werkstatt verschickt.\". All four options evaluated: versäumt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verschickt: correct verb and grammatical form in this context; vermittelt: rejected; wrong meaning, construction or inflection for the intended contextual clue; verraten: rejected; wrong meaning, construction or inflection for the intended contextual clue. Contextual clue: The parts were dispatched to the workshop that day. Correct option 1; no second defensible offered answer in this intended reading. Sibling variant uses a different situation and grammatical construction; human review pending."
+        }
+      ]
+    }
+  ]
+}
