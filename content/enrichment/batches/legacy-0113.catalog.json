@@ -1,0 +1,2869 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000011300",
+      "title": {
+        "en": "Using Hügel in context",
+        "de": "Hügel im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hügel: hill, in two distinct contexts.",
+        "de": "Hügel erkennen: kleiner Hügel, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Hügel meaning hill and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1136 (2c520808c6ab2b416cff2a234169b550cc8a6f65c25df02f9a211f79fac2194c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1136-v1",
+          "contextKey": "legacy-0113-L1136-context-1",
+          "transferKey": "legacy-0113-L1136-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011300",
+            "type": "gap_choice",
+            "prompt": "Der Weg führt über einen kleinen ___, nicht über einen hohen Berg.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "It is a low rise in the landscape.",
+              "de": "Es ist eine niedrige Erhebung in der Landschaft."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fluss"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tunnel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hügel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "See"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hügel means hill here; \"Hügel\" is the appropriate form.",
+              "de": "Hügel bedeutet hier kleiner Hügel; die Form „Hügel“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Weg führt über einen kleinen Hügel, nicht über einen hohen Berg.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Der Weg führt über einen kleinen Hügel, nicht über einen hohen Berg.\" checked. Each offered option considered: Fluss: rejected; does not denote hill in this context; Tunnel: rejected; does not denote hill in this context; Hügel: correct; intended meaning and form; See: rejected; does not denote hill in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1136-v2",
+          "contextKey": "legacy-0113-L1136-context-2",
+          "transferKey": "legacy-0113-L1136-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011300",
+            "type": "choice",
+            "prompt": "Vom grünen ___ hinter dem Dorf sieht man das ganze Tal.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The viewpoint is an elevated grassy landform.",
+              "de": "Der Aussichtspunkt liegt auf einer grünen Erhebung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hügel"
+              },
+              {
+                "id": "1",
+                "text": "Keller"
+              },
+              {
+                "id": "2",
+                "text": "Hafen"
+              },
+              {
+                "id": "3",
+                "text": "Parkplatz"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Hügel means hill here; \"Hügel\" is the appropriate form.",
+              "de": "Hügel bedeutet hier kleiner Hügel; die Form „Hügel“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vom grünen Hügel hinter dem Dorf sieht man das ganze Tal.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Vom grünen Hügel hinter dem Dorf sieht man das ganze Tal.\" checked. Each offered option considered: Hügel: correct; intended meaning and form; Keller: rejected; does not denote hill in this context; Hafen: rejected; does not denote hill in this context; Parkplatz: rejected; does not denote hill in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011301",
+      "title": {
+        "en": "Using Hühnchen in context",
+        "de": "Hühnchen im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hühnchen: chicken meat, in two distinct contexts.",
+        "de": "Hühnchen erkennen: Hühnchen als Geflügelfleisch, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Hühnchen meaning chicken meat and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1137 (01a2ebe422610b7f712a95ead49f3582975ba839c50ca6f3351cc42c49f667ea), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1137-v1",
+          "contextKey": "legacy-0113-L1137-context-1",
+          "transferKey": "legacy-0113-L1137-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011301",
+            "type": "gap_choice",
+            "prompt": "Für das Gericht wird Geflügelfleisch verwendet: gebratenes ___ mit Reis.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The dish uses meat from a chicken.",
+              "de": "Das Gericht enthält Fleisch vom Huhn."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rindfleisch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hühnchen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lachs"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lamm"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hühnchen means chicken meat here; \"Hühnchen\" is the appropriate form.",
+              "de": "Hühnchen bedeutet hier Hühnchen als Geflügelfleisch; die Form „Hühnchen“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für das Gericht wird Geflügelfleisch verwendet: gebratenes Hühnchen mit Reis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Für das Gericht wird Geflügelfleisch verwendet: gebratenes Hühnchen mit Reis.\" checked. Each offered option considered: Rindfleisch: rejected; does not denote chicken meat in this context; Hühnchen: correct; intended meaning and form; Lachs: rejected; does not denote chicken meat in this context; Lamm: rejected; does not denote chicken meat in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1137-v2",
+          "contextKey": "legacy-0113-L1137-context-2",
+          "transferKey": "legacy-0113-L1137-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011301",
+            "type": "choice",
+            "prompt": "Das rohe Geflügelfleisch liegt auf einem eigenen Brett; das ___ wird danach gründlich durchgegart.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The food is poultry, not bread or vegetables.",
+              "de": "Es geht um Geflügelfleisch."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Brot"
+              },
+              {
+                "id": "1",
+                "text": "Rindfleisch"
+              },
+              {
+                "id": "2",
+                "text": "Gemüse"
+              },
+              {
+                "id": "3",
+                "text": "Hühnchen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Hühnchen means chicken meat here; \"Hühnchen\" is the appropriate form.",
+              "de": "Hühnchen bedeutet hier Hühnchen als Geflügelfleisch; die Form „Hühnchen“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das rohe Geflügelfleisch liegt auf einem eigenen Brett; das Hühnchen wird danach gründlich durchgegart.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Das rohe Geflügelfleisch liegt auf einem eigenen Brett; das Hühnchen wird danach gründlich durchgegart.\" checked. Each offered option considered: Brot: rejected; does not denote chicken meat in this context; Rindfleisch: rejected; does not denote chicken meat in this context; Gemüse: rejected; does not denote chicken meat in this context; Hühnchen: correct; intended meaning and form. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011302",
+      "title": {
+        "en": "Using Humor in context",
+        "de": "Humor im Kontext"
+      },
+      "description": {
+        "en": "Recognize Humor: sense of humor, in two distinct contexts.",
+        "de": "Humor erkennen: Sinn für Humor, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Humor meaning sense of humor and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1138 (41f0a28327ccaa862bee4d338a4ac2bcc42255106e102c578477098b655fb9be), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1138-v1",
+          "contextKey": "legacy-0113-L1138-context-1",
+          "transferKey": "legacy-0113-L1138-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011302",
+            "type": "gap_choice",
+            "prompt": "Obwohl der Witz schlecht war, lachte sie: Sie hat einen guten Sinn für ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She can appreciate something funny.",
+              "de": "Sie kann über etwas Lustiges lachen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Humor"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ordnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hunger"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lärm"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Humor means sense of humor here; \"Humor\" is the appropriate form.",
+              "de": "Humor bedeutet hier Sinn für Humor; die Form „Humor“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Obwohl der Witz schlecht war, lachte sie: Sie hat einen guten Sinn für Humor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Obwohl der Witz schlecht war, lachte sie: Sie hat einen guten Sinn für Humor.\" checked. Each offered option considered: Humor: correct; intended meaning and form; Ordnung: rejected; does not denote sense of humor in this context; Hunger: rejected; does not denote sense of humor in this context; Lärm: rejected; does not denote sense of humor in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1138-v2",
+          "contextKey": "legacy-0113-L1138-context-2",
+          "transferKey": "legacy-0113-L1138-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011302",
+            "type": "choice",
+            "prompt": "Seine Rede war ernst, aber ein wenig ___ lockerte die Stimmung auf.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A funny remark can make a serious room relax.",
+              "de": "Ein lustiger Gedanke kann die Stimmung auflockern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Stress"
+              },
+              {
+                "id": "1",
+                "text": "Verkehr"
+              },
+              {
+                "id": "2",
+                "text": "Humor"
+              },
+              {
+                "id": "3",
+                "text": "Staub"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Humor means sense of humor here; \"Humor\" is the appropriate form.",
+              "de": "Humor bedeutet hier Sinn für Humor; die Form „Humor“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seine Rede war ernst, aber ein wenig Humor lockerte die Stimmung auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Seine Rede war ernst, aber ein wenig Humor lockerte die Stimmung auf.\" checked. Each offered option considered: Stress: rejected; does not denote sense of humor in this context; Verkehr: rejected; does not denote sense of humor in this context; Humor: correct; intended meaning and form; Staub: rejected; does not denote sense of humor in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011303",
+      "title": {
+        "en": "Using Husten in context",
+        "de": "Husten im Kontext"
+      },
+      "description": {
+        "en": "Recognize Husten: cough as a symptom, in two distinct contexts.",
+        "de": "Husten erkennen: Husten als Symptom, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Husten meaning cough as a symptom and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1141 (236bfef508509b96184456677798682258d7908013d86c23745b9d2b1e7a559a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1141-v1",
+          "contextKey": "legacy-0113-L1141-context-1",
+          "transferKey": "legacy-0113-L1141-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011303",
+            "type": "gap_choice",
+            "prompt": "Er musste immer wieder kräftig husten; der ___ hielt ihn nachts wach.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The repeated reflex is described by the verb husten.",
+              "de": "Das wiederholte Symptom gehört zum Verb husten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hunger"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lärm"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Durst"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Husten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Husten means cough as a symptom here; \"Husten\" is the appropriate form.",
+              "de": "Husten bedeutet hier Husten als Symptom; die Form „Husten“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er musste immer wieder kräftig husten; der Husten hielt ihn nachts wach.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Er musste immer wieder kräftig husten; der Husten hielt ihn nachts wach.\" checked. Each offered option considered: Hunger: rejected; does not denote cough as a symptom in this context; Lärm: rejected; does not denote cough as a symptom in this context; Durst: rejected; does not denote cough as a symptom in this context; Husten: correct; intended meaning and form. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1141-v2",
+          "contextKey": "legacy-0113-L1141-context-2",
+          "transferKey": "legacy-0113-L1141-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011303",
+            "type": "choice",
+            "prompt": "Seit drei Tagen hat sie trockenen ___ und trinkt viel Tee.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The adjective trocken is commonly used for this respiratory symptom.",
+              "de": "Das Adjektiv trocken beschreibt oft dieses Atemwegssymptom."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schwindel"
+              },
+              {
+                "id": "1",
+                "text": "Husten"
+              },
+              {
+                "id": "2",
+                "text": "Hunger"
+              },
+              {
+                "id": "3",
+                "text": "Durst"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Husten means cough as a symptom here; \"Husten\" is the appropriate form.",
+              "de": "Husten bedeutet hier Husten als Symptom; die Form „Husten“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seit drei Tagen hat sie trockenen Husten und trinkt viel Tee.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Seit drei Tagen hat sie trockenen Husten und trinkt viel Tee.\" checked. Each offered option considered: Schwindel: rejected; does not denote cough as a symptom in this context; Husten: correct; intended meaning and form; Hunger: rejected; does not denote cough as a symptom in this context; Durst: rejected; does not denote cough as a symptom in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011304",
+      "title": {
+        "en": "Using Hut in context",
+        "de": "Hut im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hut: hat worn on the head, in two distinct contexts.",
+        "de": "Hut erkennen: Hut als Kopfbedeckung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Hut meaning hat worn on the head and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1142 (6d4afcdddbb2f83402ca4b7c8de64c930c2a51f7ccefb4269c4dbe3e56908f29), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1142-v1",
+          "contextKey": "legacy-0113-L1142-context-1",
+          "transferKey": "legacy-0113-L1142-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011304",
+            "type": "gap_choice",
+            "prompt": "Bei der Sonne trägt er einen ___ mit breiter Krempe.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "It is a head covering with a brim.",
+              "de": "Die Kopfbedeckung hat eine Krempe."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Helm"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schal"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hut"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Handschuh"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hut means hat worn on the head here; \"Hut\" is the appropriate form.",
+              "de": "Hut bedeutet hier Hut als Kopfbedeckung; die Form „Hut“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Sonne trägt er einen Hut mit breiter Krempe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Bei der Sonne trägt er einen Hut mit breiter Krempe.\" checked. Each offered option considered: Helm: rejected; does not denote hat worn on the head in this context; Schal: rejected; does not denote hat worn on the head in this context; Hut: correct; intended meaning and form; Handschuh: rejected; does not denote hat worn on the head in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1142-v2",
+          "contextKey": "legacy-0113-L1142-context-2",
+          "transferKey": "legacy-0113-L1142-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011304",
+            "type": "choice",
+            "prompt": "Sie nahm den ___ vom Kopf, als sie das Haus betrat.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The item is worn on the head.",
+              "de": "Der Gegenstand wird auf dem Kopf getragen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hut"
+              },
+              {
+                "id": "1",
+                "text": "Mantel"
+              },
+              {
+                "id": "2",
+                "text": "Rucksack"
+              },
+              {
+                "id": "3",
+                "text": "Schuh"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Hut means hat worn on the head here; \"Hut\" is the appropriate form.",
+              "de": "Hut bedeutet hier Hut als Kopfbedeckung; die Form „Hut“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie nahm den Hut vom Kopf, als sie das Haus betrat.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Sie nahm den Hut vom Kopf, als sie das Haus betrat.\" checked. Each offered option considered: Hut: correct; intended meaning and form; Mantel: rejected; does not denote hat worn on the head in this context; Rucksack: rejected; does not denote hat worn on the head in this context; Schuh: rejected; does not denote hat worn on the head in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011305",
+      "title": {
+        "en": "Using Hütte in context",
+        "de": "Hütte im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hütte: small cabin or hut, in two distinct contexts.",
+        "de": "Hütte erkennen: kleine Hütte, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Hütte meaning small cabin or hut and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1143 (b6b89a3b6be46d4b467aea1dbc2d7213ab298316099ed707446ccf88149fa57e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1143-v1",
+          "contextKey": "legacy-0113-L1143-context-1",
+          "transferKey": "legacy-0113-L1143-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011305",
+            "type": "gap_choice",
+            "prompt": "Die Wanderer übernachteten in einer kleinen ___ am Waldrand.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "It is a small shelter where people can sleep.",
+              "de": "Es ist ein kleines Gebäude zum Übernachten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Brücke"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hütte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kreuzung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wiese"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hütte means small cabin or hut here; \"Hütte\" is the appropriate form.",
+              "de": "Hütte bedeutet hier kleine Hütte; die Form „Hütte“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Wanderer übernachteten in einer kleinen Hütte am Waldrand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Die Wanderer übernachteten in einer kleinen Hütte am Waldrand.\" checked. Each offered option considered: Brücke: rejected; does not denote small cabin or hut in this context; Hütte: correct; intended meaning and form; Kreuzung: rejected; does not denote small cabin or hut in this context; Wiese: rejected; does not denote small cabin or hut in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1143-v2",
+          "contextKey": "legacy-0113-L1143-context-2",
+          "transferKey": "legacy-0113-L1143-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011305",
+            "type": "choice",
+            "prompt": "Auf dem Berg steht eine ___ aus Holz, in der man sich bei Regen unterstellen kann.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A small wooden building offers shelter.",
+              "de": "Ein kleines Holzgebäude bietet Schutz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Straße"
+              },
+              {
+                "id": "1",
+                "text": "Wiese"
+              },
+              {
+                "id": "2",
+                "text": "Bank"
+              },
+              {
+                "id": "3",
+                "text": "Hütte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Hütte means small cabin or hut here; \"Hütte\" is the appropriate form.",
+              "de": "Hütte bedeutet hier kleine Hütte; die Form „Hütte“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Berg steht eine Hütte aus Holz, in der man sich bei Regen unterstellen kann.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Auf dem Berg steht eine Hütte aus Holz, in der man sich bei Regen unterstellen kann.\" checked. Each offered option considered: Straße: rejected; does not denote small cabin or hut in this context; Wiese: rejected; does not denote small cabin or hut in this context; Bank: rejected; does not denote small cabin or hut in this context; Hütte: correct; intended meaning and form. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011306",
+      "title": {
+        "en": "Using Hydrant in context",
+        "de": "Hydrant im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hydrant: fire hydrant, in two distinct contexts.",
+        "de": "Hydrant erkennen: Hydrant zur Wasserentnahme, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Hydrant meaning fire hydrant and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1144 (ce54f0bcb0f8b2d80426fb16632749d877f61b1753d374b25b134a8c7bdabf6e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1144-v1",
+          "contextKey": "legacy-0113-L1144-context-1",
+          "transferKey": "legacy-0113-L1144-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011306",
+            "type": "gap_choice",
+            "prompt": "Die Feuerwehr schloss den Schlauch an den ___ am Straßenrand an.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The hose connects to a water supply point.",
+              "de": "Der Schlauch wird an eine Wasserentnahmestelle angeschlossen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hydranten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Briefkasten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mülleimer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Automaten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hydrant means fire hydrant here; \"Hydranten\" is the appropriate form.",
+              "de": "Hydrant bedeutet hier Hydrant zur Wasserentnahme; die Form „Hydranten“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Feuerwehr schloss den Schlauch an den Hydranten am Straßenrand an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Die Feuerwehr schloss den Schlauch an den Hydranten am Straßenrand an.\" checked. Each offered option considered: Hydranten: correct; intended meaning and form; Briefkasten: rejected; does not denote fire hydrant in this context; Mülleimer: rejected; does not denote fire hydrant in this context; Automaten: rejected; does not denote fire hydrant in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1144-v2",
+          "contextKey": "legacy-0113-L1144-context-2",
+          "transferKey": "legacy-0113-L1144-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011306",
+            "type": "choice",
+            "prompt": "Vor dem Haus steht ein roter ___, aus dem die Feuerwehr Löschwasser entnehmen kann.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "It supplies water for firefighting.",
+              "de": "Das Gerät liefert Wasser für die Brandbekämpfung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wegweiser"
+              },
+              {
+                "id": "1",
+                "text": "Stromkasten"
+              },
+              {
+                "id": "2",
+                "text": "Hydrant"
+              },
+              {
+                "id": "3",
+                "text": "Fahrkartenautomat"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Hydrant means fire hydrant here; \"Hydrant\" is the appropriate form.",
+              "de": "Hydrant bedeutet hier Hydrant zur Wasserentnahme; die Form „Hydrant“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Haus steht ein roter Hydrant, aus dem die Feuerwehr Löschwasser entnehmen kann.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Vor dem Haus steht ein roter Hydrant, aus dem die Feuerwehr Löschwasser entnehmen kann.\" checked. Each offered option considered: Wegweiser: rejected; does not denote fire hydrant in this context; Stromkasten: rejected; does not denote fire hydrant in this context; Hydrant: correct; intended meaning and form; Fahrkartenautomat: rejected; does not denote fire hydrant in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011307",
+      "title": {
+        "en": "Using Hygiene in context",
+        "de": "Hygiene im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hygiene: hygiene and cleanliness practices, in two distinct contexts.",
+        "de": "Hygiene erkennen: Hygiene und Sauberkeitsregeln, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Hygiene meaning hygiene and cleanliness practices and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1145 (dd3d0656a2dc28a483ae3c8c14bd4173f3d1382d744325a4b1a13c3425e2af28), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1145-v1",
+          "contextKey": "legacy-0113-L1145-context-1",
+          "transferKey": "legacy-0113-L1145-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011307",
+            "type": "gap_choice",
+            "prompt": "Vor der Zubereitung von Essen ist gründliches Händewaschen ein wichtiger Teil der ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Handwashing helps prevent contamination.",
+              "de": "Händewaschen hilft, Verunreinigungen zu vermeiden."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hygiene"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hygiene means hygiene and cleanliness practices here; \"Hygiene\" is the appropriate form.",
+              "de": "Hygiene bedeutet hier Hygiene und Sauberkeitsregeln; die Form „Hygiene“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Zubereitung von Essen ist gründliches Händewaschen ein wichtiger Teil der Hygiene.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Vor der Zubereitung von Essen ist gründliches Händewaschen ein wichtiger Teil der Hygiene.\" checked. Each offered option considered: Buchhaltung: rejected; does not denote hygiene and cleanliness practices in this context; Werbung: rejected; does not denote hygiene and cleanliness practices in this context; Lieferung: rejected; does not denote hygiene and cleanliness practices in this context; Hygiene: correct; intended meaning and form. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1145-v2",
+          "contextKey": "legacy-0113-L1145-context-2",
+          "transferKey": "legacy-0113-L1145-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011307",
+            "type": "choice",
+            "prompt": "Im Labor gelten strenge Regeln für die ___, damit Proben nicht verunreinigt werden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The rules protect samples from contamination.",
+              "de": "Die Regeln schützen Proben vor Verunreinigung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Logistik"
+              },
+              {
+                "id": "1",
+                "text": "Hygiene"
+              },
+              {
+                "id": "2",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "3",
+                "text": "Lohnabrechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Hygiene means hygiene and cleanliness practices here; \"Hygiene\" is the appropriate form.",
+              "de": "Hygiene bedeutet hier Hygiene und Sauberkeitsregeln; die Form „Hygiene“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Labor gelten strenge Regeln für die Hygiene, damit Proben nicht verunreinigt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Im Labor gelten strenge Regeln für die Hygiene, damit Proben nicht verunreinigt werden.\" checked. Each offered option considered: Logistik: rejected; does not denote hygiene and cleanliness practices in this context; Hygiene: correct; intended meaning and form; Bewerbung: rejected; does not denote hygiene and cleanliness practices in this context; Lohnabrechnung: rejected; does not denote hygiene and cleanliness practices in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011309",
+      "title": {
+        "en": "Using Identifikationsnummer in context",
+        "de": "Identifikationsnummer im Kontext"
+      },
+      "description": {
+        "en": "Recognize Identifikationsnummer: unique identification number, in two distinct contexts.",
+        "de": "Identifikationsnummer erkennen: eindeutige Identifikationsnummer, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Identifikationsnummer meaning unique identification number and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1148 (293949d0c01f6ea824bdcfa6ff44b8f9e35721d520fffa9e269c15d66e60f937), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1148-v1",
+          "contextKey": "legacy-0113-L1148-context-1",
+          "transferKey": "legacy-0113-L1148-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011309",
+            "type": "gap_choice",
+            "prompt": "Jeder Datensatz erhält eine eindeutige ___, damit er nicht verwechselt wird.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A unique code distinguishes records.",
+              "de": "Eine eindeutige Nummer unterscheidet Datensätze."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferadresse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnungsbetrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Identifikationsnummer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Öffnungszeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Identifikationsnummer means unique identification number here; \"Identifikationsnummer\" is the appropriate form.",
+              "de": "Identifikationsnummer bedeutet hier eindeutige Identifikationsnummer; die Form „Identifikationsnummer“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Jeder Datensatz erhält eine eindeutige Identifikationsnummer, damit er nicht verwechselt wird.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Jeder Datensatz erhält eine eindeutige Identifikationsnummer, damit er nicht verwechselt wird.\" checked. Each offered option considered: Lieferadresse: rejected; does not denote unique identification number in this context; Rechnungsbetrag: rejected; does not denote unique identification number in this context; Identifikationsnummer: correct; intended meaning and form; Öffnungszeit: rejected; does not denote unique identification number in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1148-v2",
+          "contextKey": "legacy-0113-L1148-context-2",
+          "transferKey": "legacy-0113-L1148-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011309",
+            "type": "choice",
+            "prompt": "Bei der Anmeldung muss sie die ___ aus dem Schreiben eingeben, um ihren Vorgang zuzuordnen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The code links the form to an existing record.",
+              "de": "Die Nummer verbindet die Eingabe mit einem Vorgang."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Identifikationsnummer"
+              },
+              {
+                "id": "1",
+                "text": "Wettervorhersage"
+              },
+              {
+                "id": "2",
+                "text": "Öffnungszeit"
+              },
+              {
+                "id": "3",
+                "text": "Versandart"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Identifikationsnummer means unique identification number here; \"Identifikationsnummer\" is the appropriate form.",
+              "de": "Identifikationsnummer bedeutet hier eindeutige Identifikationsnummer; die Form „Identifikationsnummer“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Anmeldung muss sie die Identifikationsnummer aus dem Schreiben eingeben, um ihren Vorgang zuzuordnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Bei der Anmeldung muss sie die Identifikationsnummer aus dem Schreiben eingeben, um ihren Vorgang zuzuordnen.\" checked. Each offered option considered: Identifikationsnummer: correct; intended meaning and form; Wettervorhersage: rejected; does not denote unique identification number in this context; Öffnungszeit: rejected; does not denote unique identification number in this context; Versandart: rejected; does not denote unique identification number in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011310",
+      "title": {
+        "en": "Using Image in context",
+        "de": "Image im Kontext"
+      },
+      "description": {
+        "en": "Recognize Image: public reputation or image, in two distinct contexts.",
+        "de": "Image erkennen: Image als öffentlicher Ruf, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Image meaning public reputation or image and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1149 (25ff2b23b6d5b5be2b11184dc9420360ba376f2efe24c79f6f812e8bb4b88dde), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1149-v1",
+          "contextKey": "legacy-0113-L1149-context-1",
+          "transferKey": "legacy-0113-L1149-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011310",
+            "type": "gap_choice",
+            "prompt": "Nach mehreren schlechten Bewertungen wollte das Hotel sein öffentliches ___ verbessern.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The goal is to improve how people perceive the hotel.",
+              "de": "Es geht darum, wie Menschen das Hotel wahrnehmen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Inventar"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Image"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebäude"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Sortiment"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Image means public reputation or image here; \"Image\" is the appropriate form.",
+              "de": "Image bedeutet hier Image als öffentlicher Ruf; die Form „Image“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach mehreren schlechten Bewertungen wollte das Hotel sein öffentliches Image verbessern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Nach mehreren schlechten Bewertungen wollte das Hotel sein öffentliches Image verbessern.\" checked. Each offered option considered: Inventar: rejected; does not denote public reputation or image in this context; Image: correct; intended meaning and form; Gebäude: rejected; does not denote public reputation or image in this context; Sortiment: rejected; does not denote public reputation or image in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1149-v2",
+          "contextKey": "legacy-0113-L1149-context-2",
+          "transferKey": "legacy-0113-L1149-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011310",
+            "type": "choice",
+            "prompt": "Die Kampagne soll das ___ der Marke bei jungen Kunden stärken.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A marketing campaign influences public perception.",
+              "de": "Eine Werbekampagne beeinflusst die öffentliche Wahrnehmung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gewicht"
+              },
+              {
+                "id": "1",
+                "text": "Alter"
+              },
+              {
+                "id": "2",
+                "text": "Gehalt"
+              },
+              {
+                "id": "3",
+                "text": "Image"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Image means public reputation or image here; \"Image\" is the appropriate form.",
+              "de": "Image bedeutet hier Image als öffentlicher Ruf; die Form „Image“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kampagne soll das Image der Marke bei jungen Kunden stärken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Die Kampagne soll das Image der Marke bei jungen Kunden stärken.\" checked. Each offered option considered: Gewicht: rejected; does not denote public reputation or image in this context; Alter: rejected; does not denote public reputation or image in this context; Gehalt: rejected; does not denote public reputation or image in this context; Image: correct; intended meaning and form. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011311",
+      "title": {
+        "en": "Using Imbiss in context",
+        "de": "Imbiss im Kontext"
+      },
+      "description": {
+        "en": "Recognize Imbiss: small takeaway food stand, in two distinct contexts.",
+        "de": "Imbiss erkennen: Imbiss als kleiner Essensstand, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Imbiss meaning small takeaway food stand and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1150 (2a6d876d48549b56ae4079a65f4b37b0dbe28f5f5ae8e492753d2902144f8f9e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1150-v1",
+          "contextKey": "legacy-0113-L1150-context-1",
+          "transferKey": "legacy-0113-L1150-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011311",
+            "type": "gap_choice",
+            "prompt": "In der Mittagspause kaufte er am ___ an der Ecke eine Suppe.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "It is a small place selling ready-to-eat food.",
+              "de": "Dort verkauft man schnell zubereitetes Essen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Imbiss"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Friseur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Copyshop"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Blumenladen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Imbiss means small takeaway food stand here; \"Imbiss\" is the appropriate form.",
+              "de": "Imbiss bedeutet hier Imbiss als kleiner Essensstand; die Form „Imbiss“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Mittagspause kaufte er am Imbiss an der Ecke eine Suppe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"In der Mittagspause kaufte er am Imbiss an der Ecke eine Suppe.\" checked. Each offered option considered: Imbiss: correct; intended meaning and form; Friseur: rejected; does not denote small takeaway food stand in this context; Copyshop: rejected; does not denote small takeaway food stand in this context; Blumenladen: rejected; does not denote small takeaway food stand in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1150-v2",
+          "contextKey": "legacy-0113-L1150-context-2",
+          "transferKey": "legacy-0113-L1150-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011311",
+            "type": "choice",
+            "prompt": "Der kleine ___ neben dem Bahnhof verkauft belegte Brötchen und Kaffee.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The business sells quick meals.",
+              "de": "Das Geschäft verkauft kleine Mahlzeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Parkplatz"
+              },
+              {
+                "id": "1",
+                "text": "Spielplatz"
+              },
+              {
+                "id": "2",
+                "text": "Imbiss"
+              },
+              {
+                "id": "3",
+                "text": "Fahrradladen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Imbiss means small takeaway food stand here; \"Imbiss\" is the appropriate form.",
+              "de": "Imbiss bedeutet hier Imbiss als kleiner Essensstand; die Form „Imbiss“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der kleine Imbiss neben dem Bahnhof verkauft belegte Brötchen und Kaffee.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Der kleine Imbiss neben dem Bahnhof verkauft belegte Brötchen und Kaffee.\" checked. Each offered option considered: Parkplatz: rejected; does not denote small takeaway food stand in this context; Spielplatz: rejected; does not denote small takeaway food stand in this context; Imbiss: correct; intended meaning and form; Fahrradladen: rejected; does not denote small takeaway food stand in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011312",
+      "title": {
+        "en": "Using Immobilie in context",
+        "de": "Immobilie im Kontext"
+      },
+      "description": {
+        "en": "Recognize Immobilie: real-estate property, in two distinct contexts.",
+        "de": "Immobilie erkennen: Immobilie als Grundstück oder Gebäude, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Immobilie meaning real-estate property and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1151 (76b752aca7ce34b172a292ea5ab3db28e0e9afc6ac3f45717ef147cd607f3e32), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1151-v1",
+          "contextKey": "legacy-0113-L1151-context-1",
+          "transferKey": "legacy-0113-L1151-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011312",
+            "type": "gap_choice",
+            "prompt": "Die Maklerin zeigt den Interessenten eine ___ mit drei Wohnungen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A real-estate agent presents a building for sale.",
+              "de": "Eine Maklerin zeigt ein Gebäude zum Kauf."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Maschine"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrkarte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Immobilie"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Immobilie means real-estate property here; \"Immobilie\" is the appropriate form.",
+              "de": "Immobilie bedeutet hier Immobilie als Grundstück oder Gebäude; die Form „Immobilie“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Maklerin zeigt den Interessenten eine Immobilie mit drei Wohnungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Die Maklerin zeigt den Interessenten eine Immobilie mit drei Wohnungen.\" checked. Each offered option considered: Rechnung: rejected; does not denote real-estate property in this context; Maschine: rejected; does not denote real-estate property in this context; Fahrkarte: rejected; does not denote real-estate property in this context; Immobilie: correct; intended meaning and form. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1151-v2",
+          "contextKey": "legacy-0113-L1151-context-2",
+          "transferKey": "legacy-0113-L1151-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011312",
+            "type": "choice",
+            "prompt": "Vor dem Kauf der ___ ließ das Paar das Dach prüfen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The item for sale has a roof.",
+              "de": "Das Kaufobjekt ist ein Gebäude mit Dach."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Versicherung"
+              },
+              {
+                "id": "1",
+                "text": "Immobilie"
+              },
+              {
+                "id": "2",
+                "text": "Software"
+              },
+              {
+                "id": "3",
+                "text": "Eintrittskarte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Immobilie means real-estate property here; \"Immobilie\" is the appropriate form.",
+              "de": "Immobilie bedeutet hier Immobilie als Grundstück oder Gebäude; die Form „Immobilie“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Kauf der Immobilie ließ das Paar das Dach prüfen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Vor dem Kauf der Immobilie ließ das Paar das Dach prüfen.\" checked. Each offered option considered: Versicherung: rejected; does not denote real-estate property in this context; Immobilie: correct; intended meaning and form; Software: rejected; does not denote real-estate property in this context; Eintrittskarte: rejected; does not denote real-estate property in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011313",
+      "title": {
+        "en": "Using Impfung in context",
+        "de": "Impfung im Kontext"
+      },
+      "description": {
+        "en": "Recognize Impfung: vaccination, in two distinct contexts.",
+        "de": "Impfung erkennen: Impfung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Impfung meaning vaccination and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1152 (f704ba49ff188cb07f2141dd471db1603cf7d67aa24c64b99975927aa6ee66b3), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1152-v1",
+          "contextKey": "legacy-0113-L1152-context-1",
+          "transferKey": "legacy-0113-L1152-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011313",
+            "type": "gap_choice",
+            "prompt": "Vor der Reise fragte sie ihre Ärztin, welche ___ empfohlen wird.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The doctor discusses preventive immunization.",
+              "de": "Die Ärztin spricht über vorbeugenden Impfschutz."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Reparatur"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Impfung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Prüfung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Impfung means vaccination here; \"Impfung\" is the appropriate form.",
+              "de": "Impfung bedeutet hier Impfung; die Form „Impfung“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Reise fragte sie ihre Ärztin, welche Impfung empfohlen wird.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Vor der Reise fragte sie ihre Ärztin, welche Impfung empfohlen wird.\" checked. Each offered option considered: Reparatur: rejected; does not denote vaccination in this context; Buchung: rejected; does not denote vaccination in this context; Impfung: correct; intended meaning and form; Prüfung: rejected; does not denote vaccination in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1152-v2",
+          "contextKey": "legacy-0113-L1152-context-2",
+          "transferKey": "legacy-0113-L1152-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011313",
+            "type": "choice",
+            "prompt": "Nach der ___ bekam er einen Eintrag in seinen Impfpass.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The record is made in a vaccination booklet.",
+              "de": "Der Eintrag erfolgt in einem Impfpass."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Impfung"
+              },
+              {
+                "id": "1",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "2",
+                "text": "Massage"
+              },
+              {
+                "id": "3",
+                "text": "Anmeldung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Impfung means vaccination here; \"Impfung\" is the appropriate form.",
+              "de": "Impfung bedeutet hier Impfung; die Form „Impfung“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Impfung bekam er einen Eintrag in seinen Impfpass.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Nach der Impfung bekam er einen Eintrag in seinen Impfpass.\" checked. Each offered option considered: Impfung: correct; intended meaning and form; Bewerbung: rejected; does not denote vaccination in this context; Massage: rejected; does not denote vaccination in this context; Anmeldung: rejected; does not denote vaccination in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011314",
+      "title": {
+        "en": "Using Import in context",
+        "de": "Import im Kontext"
+      },
+      "description": {
+        "en": "Recognize Import: importing goods into a country, in two distinct contexts.",
+        "de": "Import erkennen: Import von Waren, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Import meaning importing goods into a country and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1153 (bfab7216eae5860f89b947baa4bea197dec8ca77acf2fc09c6ac88a513309af4), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1153-v1",
+          "contextKey": "legacy-0113-L1153-context-1",
+          "transferKey": "legacy-0113-L1153-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011314",
+            "type": "gap_choice",
+            "prompt": "Der ___ von Waren aus Nicht-EU-Ländern kann Zollformalitäten erfordern.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Goods enter the destination country from abroad.",
+              "de": "Waren kommen aus dem Ausland in ein Land."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Export"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Import"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verkauf"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verbrauch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Import means importing goods into a country here; \"Import\" is the appropriate form.",
+              "de": "Import bedeutet hier Import von Waren; die Form „Import“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Import von Waren aus Nicht-EU-Ländern kann Zollformalitäten erfordern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Der Import von Waren aus Nicht-EU-Ländern kann Zollformalitäten erfordern.\" checked. Each offered option considered: Export: rejected; does not denote importing goods into a country in this context; Import: correct; intended meaning and form; Verkauf: rejected; does not denote importing goods into a country in this context; Verbrauch: rejected; does not denote importing goods into a country in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1153-v2",
+          "contextKey": "legacy-0113-L1153-context-2",
+          "transferKey": "legacy-0113-L1153-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011314",
+            "type": "choice",
+            "prompt": "Die Firma kauft Kaffee im Ausland und organisiert den ___ nach Deutschland.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The goods are brought into Germany.",
+              "de": "Die Waren werden nach Deutschland eingeführt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Export"
+              },
+              {
+                "id": "1",
+                "text": "Abbau"
+              },
+              {
+                "id": "2",
+                "text": "Verbrauch"
+              },
+              {
+                "id": "3",
+                "text": "Import"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Import means importing goods into a country here; \"Import\" is the appropriate form.",
+              "de": "Import bedeutet hier Import von Waren; die Form „Import“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma kauft Kaffee im Ausland und organisiert den Import nach Deutschland.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Die Firma kauft Kaffee im Ausland und organisiert den Import nach Deutschland.\" checked. Each offered option considered: Export: rejected; does not denote importing goods into a country in this context; Abbau: rejected; does not denote importing goods into a country in this context; Verbrauch: rejected; does not denote importing goods into a country in this context; Import: correct; intended meaning and form. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011315",
+      "title": {
+        "en": "Using Impressum in context",
+        "de": "Impressum im Kontext"
+      },
+      "description": {
+        "en": "Recognize Impressum: website legal notice identifying the operator, in two distinct contexts.",
+        "de": "Impressum erkennen: Impressum mit Anbieterangaben, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Impressum meaning website legal notice identifying the operator and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1154 (307618b4a8f0a14286abe51041245b0deb4878f29239a427801d53f4f2037d75), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1154-v1",
+          "contextKey": "legacy-0113-L1154-context-1",
+          "transferKey": "legacy-0113-L1154-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011315",
+            "type": "gap_choice",
+            "prompt": "Im ___ der Website stehen die Angaben zum verantwortlichen Anbieter.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The section identifies the site operator.",
+              "de": "Dieser Bereich nennt den Betreiber der Website."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Impressum"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Warenkorb"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Suchfeld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kalender"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Impressum means website legal notice identifying the operator here; \"Impressum\" is the appropriate form.",
+              "de": "Impressum bedeutet hier Impressum mit Anbieterangaben; die Form „Impressum“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Impressum der Website stehen die Angaben zum verantwortlichen Anbieter.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Im Impressum der Website stehen die Angaben zum verantwortlichen Anbieter.\" checked. Each offered option considered: Impressum: correct; intended meaning and form; Warenkorb: rejected; does not denote website legal notice identifying the operator in this context; Suchfeld: rejected; does not denote website legal notice identifying the operator in this context; Kalender: rejected; does not denote website legal notice identifying the operator in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1154-v2",
+          "contextKey": "legacy-0113-L1154-context-2",
+          "transferKey": "legacy-0113-L1154-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011315",
+            "type": "choice",
+            "prompt": "Wer die Kontaktangaben des Websitebetreibers sucht, findet sie oft im ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The information is usually in a dedicated site notice.",
+              "de": "Die Angaben stehen oft in einem eigenen Bereich der Website."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Newsletter"
+              },
+              {
+                "id": "1",
+                "text": "Produktfoto"
+              },
+              {
+                "id": "2",
+                "text": "Impressum"
+              },
+              {
+                "id": "3",
+                "text": "Warenkorb"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Impressum means website legal notice identifying the operator here; \"Impressum\" is the appropriate form.",
+              "de": "Impressum bedeutet hier Impressum mit Anbieterangaben; die Form „Impressum“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer die Kontaktangaben des Websitebetreibers sucht, findet sie oft im Impressum.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Wer die Kontaktangaben des Websitebetreibers sucht, findet sie oft im Impressum.\" checked. Each offered option considered: Newsletter: rejected; does not denote website legal notice identifying the operator in this context; Produktfoto: rejected; does not denote website legal notice identifying the operator in this context; Impressum: correct; intended meaning and form; Warenkorb: rejected; does not denote website legal notice identifying the operator in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011317",
+      "title": {
+        "en": "Using Industrie in context",
+        "de": "Industrie im Kontext"
+      },
+      "description": {
+        "en": "Recognize Industrie: industrial manufacturing sector, in two distinct contexts.",
+        "de": "Industrie erkennen: Industrie als Wirtschaftszweig, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Industrie meaning industrial manufacturing sector and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1156 (d381eb22bc162719c6fa4ff66626d05cd39aa9880587d090e65203b235e16a88), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1156-v1",
+          "contextKey": "legacy-0113-L1156-context-1",
+          "transferKey": "legacy-0113-L1156-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011317",
+            "type": "gap_choice",
+            "prompt": "Die ___ stellt Maschinen und andere Waren in großen Betrieben her.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "This sector manufactures goods in factories.",
+              "de": "Dieser Wirtschaftszweig fertigt Waren in Fabriken."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Landwirtschaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gastronomie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verwaltung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Industrie"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Industrie means industrial manufacturing sector here; \"Industrie\" is the appropriate form.",
+              "de": "Industrie bedeutet hier Industrie als Wirtschaftszweig; die Form „Industrie“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Industrie stellt Maschinen und andere Waren in großen Betrieben her.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Die Industrie stellt Maschinen und andere Waren in großen Betrieben her.\" checked. Each offered option considered: Landwirtschaft: rejected; does not denote industrial manufacturing sector in this context; Gastronomie: rejected; does not denote industrial manufacturing sector in this context; Verwaltung: rejected; does not denote industrial manufacturing sector in this context; Industrie: correct; intended meaning and form. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1156-v2",
+          "contextKey": "legacy-0113-L1156-context-2",
+          "transferKey": "legacy-0113-L1156-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011317",
+            "type": "choice",
+            "prompt": "Viele Unternehmen der ___ benötigen Fachkräfte für die Fertigung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The companies produce goods in factories.",
+              "de": "Die Unternehmen stellen Waren in Fabriken her."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kultur"
+              },
+              {
+                "id": "1",
+                "text": "Industrie"
+              },
+              {
+                "id": "2",
+                "text": "Bildung"
+              },
+              {
+                "id": "3",
+                "text": "Tourismus"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Industrie means industrial manufacturing sector here; \"Industrie\" is the appropriate form.",
+              "de": "Industrie bedeutet hier Industrie als Wirtschaftszweig; die Form „Industrie“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Viele Unternehmen der Industrie benötigen Fachkräfte für die Fertigung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Viele Unternehmen der Industrie benötigen Fachkräfte für die Fertigung.\" checked. Each offered option considered: Kultur: rejected; does not denote industrial manufacturing sector in this context; Industrie: correct; intended meaning and form; Bildung: rejected; does not denote industrial manufacturing sector in this context; Tourismus: rejected; does not denote industrial manufacturing sector in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011318",
+      "title": {
+        "en": "Using Industriebetrieb in context",
+        "de": "Industriebetrieb im Kontext"
+      },
+      "description": {
+        "en": "Recognize Industriebetrieb: industrial manufacturing enterprise, in two distinct contexts.",
+        "de": "Industriebetrieb erkennen: Industriebetrieb als Produktionsunternehmen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Industriebetrieb meaning industrial manufacturing enterprise and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1157 (add7e76e3409fe8251d2c4dd22ecece8c101b5a5d9a7d71cd589d9692e295f7a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1157-v1",
+          "contextKey": "legacy-0113-L1157-context-1",
+          "transferKey": "legacy-0113-L1157-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011318",
+            "type": "gap_choice",
+            "prompt": "Der ___ produziert Metallteile in drei Schichten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "This company manufactures components on shifts.",
+              "de": "Der Betrieb fertigt Bauteile in Schichten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Supermarkt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Museum"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Industriebetrieb"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kindergarten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Industriebetrieb means industrial manufacturing enterprise here; \"Industriebetrieb\" is the appropriate form.",
+              "de": "Industriebetrieb bedeutet hier Industriebetrieb als Produktionsunternehmen; die Form „Industriebetrieb“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Industriebetrieb produziert Metallteile in drei Schichten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Der Industriebetrieb produziert Metallteile in drei Schichten.\" checked. Each offered option considered: Supermarkt: rejected; does not denote industrial manufacturing enterprise in this context; Museum: rejected; does not denote industrial manufacturing enterprise in this context; Industriebetrieb: correct; intended meaning and form; Kindergarten: rejected; does not denote industrial manufacturing enterprise in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1157-v2",
+          "contextKey": "legacy-0113-L1157-context-2",
+          "transferKey": "legacy-0113-L1157-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011318",
+            "type": "choice",
+            "prompt": "Im ___ arbeiten Fachkräfte an großen Maschinen in der Fertigungshalle.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The workplace is a manufacturing plant.",
+              "de": "Der Arbeitsplatz ist ein produzierender Betrieb."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Industriebetrieb"
+              },
+              {
+                "id": "1",
+                "text": "Rathaus"
+              },
+              {
+                "id": "2",
+                "text": "Theater"
+              },
+              {
+                "id": "3",
+                "text": "Restaurant"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Industriebetrieb means industrial manufacturing enterprise here; \"Industriebetrieb\" is the appropriate form.",
+              "de": "Industriebetrieb bedeutet hier Industriebetrieb als Produktionsunternehmen; die Form „Industriebetrieb“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Industriebetrieb arbeiten Fachkräfte an großen Maschinen in der Fertigungshalle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Im Industriebetrieb arbeiten Fachkräfte an großen Maschinen in der Fertigungshalle.\" checked. Each offered option considered: Industriebetrieb: correct; intended meaning and form; Rathaus: rejected; does not denote industrial manufacturing enterprise in this context; Theater: rejected; does not denote industrial manufacturing enterprise in this context; Restaurant: rejected; does not denote industrial manufacturing enterprise in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011319",
+      "title": {
+        "en": "Using Industriegebiet in context",
+        "de": "Industriegebiet im Kontext"
+      },
+      "description": {
+        "en": "Recognize Industriegebiet: industrial zone, in two distinct contexts.",
+        "de": "Industriegebiet erkennen: Industriegebiet als Gewerbezone für Fabriken, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize the German noun Industriegebiet meaning industrial zone and choose its appropriate form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical/grammar facts from apps/web/data/pos/nouns.jsonl:L1158 (50a8ff6e7cce957796111ac3b29a437da3672c79e91ad44ca6f157e43cde85db), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass in report and variant notes; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0113-L1158-v1",
+          "contextKey": "legacy-0113-L1158-context-1",
+          "transferKey": "legacy-0113-L1158-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011319",
+            "type": "gap_choice",
+            "prompt": "Die neue Fabrik wird im ___ am Stadtrand zwischen anderen Werkhallen gebaut.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The area is designated for factories and workshops.",
+              "de": "In diesem Gebiet stehen Fabriken und Werkhallen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wohngebiet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Industriegebiet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Naturschutzgebiet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Spielplatz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Industriegebiet means industrial zone here; \"Industriegebiet\" is the appropriate form.",
+              "de": "Industriegebiet bedeutet hier Industriegebiet als Gewerbezone für Fabriken; die Form „Industriegebiet“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Fabrik wird im Industriegebiet am Stadtrand zwischen anderen Werkhallen gebaut.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Die neue Fabrik wird im Industriegebiet am Stadtrand zwischen anderen Werkhallen gebaut.\" checked. Each offered option considered: Wohngebiet: rejected; does not denote industrial zone in this context; Industriegebiet: correct; intended meaning and form; Naturschutzgebiet: rejected; does not denote industrial zone in this context; Spielplatz: rejected; does not denote industrial zone in this context. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        },
+        {
+          "variantKey": "legacy-0113-L1158-v2",
+          "contextKey": "legacy-0113-L1158-context-2",
+          "transferKey": "legacy-0113-L1158-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001130191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011319",
+            "type": "choice",
+            "prompt": "Im ___ stehen mehrere Lagerhallen und Produktionsbetriebe nebeneinander.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The zone contains warehouses and factories.",
+              "de": "Dort befinden sich Lagerhallen und Fabriken."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kurpark"
+              },
+              {
+                "id": "1",
+                "text": "Wohnheim"
+              },
+              {
+                "id": "2",
+                "text": "Sportplatz"
+              },
+              {
+                "id": "3",
+                "text": "Industriegebiet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Industriegebiet means industrial zone here; \"Industriegebiet\" is the appropriate form.",
+              "de": "Industriegebiet bedeutet hier Industriegebiet als Gewerbezone für Fabriken; die Form „Industriegebiet“ passt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Industriegebiet stehen mehrere Lagerhallen und Produktionsbetriebe nebeneinander.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate editorial review 2026-10-29: full German sentence \"Im Industriegebiet stehen mehrere Lagerhallen und Produktionsbetriebe nebeneinander.\" checked. Each offered option considered: Kurpark: rejected; does not denote industrial zone in this context; Wohnheim: rejected; does not denote industrial zone in this context; Sportplatz: rejected; does not denote industrial zone in this context; Industriegebiet: correct; intended meaning and form. Checked bilingual feedback, hint, noun grammar and distinct sibling context; human review pending."
+        }
+      ]
+    }
+  ]
+}
