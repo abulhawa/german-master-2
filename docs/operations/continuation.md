@@ -1,5 +1,12 @@
 # Continuing German Master recovery
 
+Latest owner direction, 29 October: ignore the allowance operating thresholds and
+continue this session. Both weekly reserve and five-hour headroom are waived.
+Resume the fixed queue at 0012, one worker and durable validated slices. Preserve
+the prohibition on reset credits, purchases, paid fallback and billing changes.
+Actual service quota cannot be bypassed. The older headroom pause below is
+superseded; it must not stop resumed review or require another confirmation.
+
 29 October: supervised enrichment review has live desktop allowance telemetry.
 Owner waived the study-reserve requirement for this session and requested
 substantial review work. Keep one bounded worker; normal allowance only, no reset

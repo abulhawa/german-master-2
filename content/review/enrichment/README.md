@@ -76,9 +76,12 @@ worker's claimed exact match in batch 0010 was a misreading and is corrected in
 the saved finding; its common near-phrase overlap is advisory only.
 
 Current saved editorial coverage is 326 variants through batch 0011, with 27
-inactive correction proposals. The worker has finished. Resume at 0012 when
-current capacity permits; further dispatch stopped at the standing five-hour
-headroom threshold. The study-reserve waiver remains in effect for this session.
+inactive correction proposals. The owner subsequently waived both the weekly
+reserve and five-hour-headroom operating thresholds for this session and directed
+continuation from 0012. Review is resumed with one worker and durable slices.
+Do not consume reset credits, purchase capacity, use paid fallback or change
+billing; actual service availability still applies. Current coverage remains
+authoritative in coverage.json rather than this historical slice count.
 
 Use one writer. A hosted continuation must check GitHub ref and current execution
 state before writing, use expected-head fast-forward protection, and stop on overlap.

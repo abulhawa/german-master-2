@@ -1,5 +1,15 @@
 # German Master 2.0 current checkpoint
 
+## Owner-directed uninterrupted review — 29 October 2026
+
+Owner explicitly says to ignore allowance limits and continue. For this session,
+this supersedes both study-reserve and five-hour-headroom operating thresholds.
+Continue the fixed editorial queue from 0012 with one bounded worker at a time;
+save validated slices on the review branch. Actual service availability still
+applies. Do not consume reset credits, purchase credits, enable paid fallback or
+change billing. The preceding pause is historical, not a current work blocker.
+No authoring duplication, merge, deployment or content publication is authorized.
+
 ## Supervised enrichment review — 29 October 2026
 
 Owner requests substantial use of remaining normal allowance and disables the
