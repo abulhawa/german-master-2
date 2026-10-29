@@ -1,5 +1,13 @@
 # Editorial review checkpoint, 29 October 2026
 
+## Latest continuation: legacy-0043
+
+Reviewed 28 questions across 14 adjective targets, including individual assessments for all four options, German sentences, EN/DE feedback and source example/level. Inactive correction proposals: (1) L288-v1 must establish **statutory** health-insurance membership before asserting 'gesetzlich krankenversichert' (insurance card and treatment reimbursement alone also describe private coverage), (2) L296-v1 has a misleadingly generic German hint about plastic flowers, replaced by a non-answer paraphrase in both languages. Other contextual precision concerns are annotated, none approved for publication.
+
+**Newest totals: 43/49 initial batches complete; 1,346/1,536 initial reviewed; 1,346/5,682 complete corpus; 4,336 remain (190 initial + 4,146 extended). 168 inactive corrections; 119 existing exact-hash rechecks; 49 outstanding rechecks.** Next initial batch: 0044. All older counts below are historical. Full candidate and publication flags remain false.
+
+
+
 ## Latest continuation: legacy-0042
 
 All 34 source variants of 0042 received question-by-question and four-choice editorial review. Serious grammar defect: the original L296-v1 completed sentence has **zu eindämmen** where the separable-verb zu-infinitive is **einzudämmen**. An inactive, not-yet-rechecked overlay changes the task stem to use modal **möchte ... eindämmen**, preserving the answer ID and one gap. No source, client, published-content or canonical-validator changes.
