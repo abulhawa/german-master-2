@@ -1,5 +1,13 @@
 # Editorial review checkpoint, 29 October 2026
 
+## Latest continuation: legacy-0041
+
+Reviewed all 36 variants in batch 0041, checking the four real alternatives and the bilingual teaching text. Added three inactive corrections pending recheck: improve the idiom `hohe Bedienbarkeit` to `gute Bedienbarkeit`, scope `Bedingung` to hiring rather than merely filing an application, and improve the construction `Beihilfe zu ihren Behandlungskosten`. No original inputs, app, client or validator were changed. Exact result and CI evidence are stored in the corresponding batch artifact and overlay-validation report.
+
+At this continuation: 41 complete first-queue batches, **1,284/1,536** first-queue variants and **1,284/5,682** overall, **255** first-queue questions plus 4,146 later remain (**4,398** total); **165** inactive proposals, **119** exact-hash rechecked, **46** still awaiting recheck. Next batch: **0042**. The initial values later in this checkpoint refer to the previous 0040 commit.
+
+
+
 Sole-writer check at start: both German Master automation schedules disabled; no open review PR; branch head `473a7cb88de418efae019c918b68af275eb7ef30`. Explicit owner continuation allows this review-only slice. All changes made with expected-head fast-forward protection. Historical handoff counts in README/PROGRESS/CHATGPT-TAKEOVER are superseded by `coverage.json`.
 
 ## Completed in this checkpoint
