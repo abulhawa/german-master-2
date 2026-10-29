@@ -1,0 +1,2392 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000016300",
+      "title": {
+        "en": "Using Unternehmer accurately",
+        "de": "Unternehmer im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Unternehmer as a male owner or founder of a business.",
+        "de": "Unternehmer als einen männlichen Unternehmer erkennen."
+      },
+      "objective": "Recognize Unternehmer in the specified a male owner or founder of a business sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2481 (72a677b94244387ff6bbb2542ee9b8cc018bca5e4fe18e9fc371a4986bf857e7), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2481-v1",
+          "contextKey": "legacy-0163-L2481-context-1",
+          "transferKey": "legacy-0163-L2481-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016300",
+            "type": "gap_choice",
+            "prompt": "Der ___ gründete ein Start-up und trägt das wirtschaftliche Risiko.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He runs the business rather than simply working for it.",
+              "de": "Er führt den Betrieb und arbeitet nicht nur dort."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Angestellte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kunde"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Unternehmer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Auszubildende"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Unternehmer operates a business.",
+              "de": "Ein Unternehmer führt ein Unternehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Unternehmer gründete ein Start-up und trägt das wirtschaftliche Risiko.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Unternehmer' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Angestellte: An employee works for an employer, not necessarily owns the firm.; Kunde: A customer buys goods, not founds the business.; Unternehmer: correct in the complete context; Auszubildende: A trainee learns a profession, not the stated founder role.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2481-v2",
+          "contextKey": "legacy-0163-L2481-context-2",
+          "transferKey": "legacy-0163-L2481-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016300",
+            "type": "choice",
+            "prompt": "Ein Mann führt eine eigene Firma und entscheidet über Investitionen. Welche Rolle hat er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He is responsible for his own business.",
+              "de": "Er ist für seinen eigenen Betrieb verantwortlich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verkäufer"
+              },
+              {
+                "id": "1",
+                "text": "Kunde"
+              },
+              {
+                "id": "2",
+                "text": "Hausmeister"
+              },
+              {
+                "id": "3",
+                "text": "Unternehmer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A male business owner can be an Unternehmer.",
+              "de": "Ein männlicher Firmeninhaber kann Unternehmer heißen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann ist Unternehmer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Unternehmer' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Verkäufer: A salesperson sells goods, not necessarily owns the firm.; Kunde: A customer purchases goods, not directs investments.; Hausmeister: A caretaker maintains facilities, not the firm's ownership.; Unternehmer: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016301",
+      "title": {
+        "en": "Using Unternehmerin accurately",
+        "de": "Unternehmerin im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Unternehmerin as a female owner or founder of a business.",
+        "de": "Unternehmerin als eine Unternehmerin erkennen."
+      },
+      "objective": "Recognize Unternehmerin in the specified a female owner or founder of a business sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2482 (8adfde7185d55b5a9180eec7b0d56b0c8eb84da1fbe51563e6a6931b2d485281), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2482-v1",
+          "contextKey": "legacy-0163-L2482-context-1",
+          "transferKey": "legacy-0163-L2482-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016301",
+            "type": "gap_choice",
+            "prompt": "Die ___ eröffnete eine eigene Bäckerei und stellte Mitarbeiter ein.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She owns and runs the business.",
+              "de": "Sie besitzt und leitet den Betrieb."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kundin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Unternehmerin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Auszubildende"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferantin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Unternehmerin operates her own business.",
+              "de": "Eine Unternehmerin führt ein eigenes Unternehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Unternehmerin eröffnete eine eigene Bäckerei und stellte Mitarbeiter ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Unternehmerin' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Kundin: A customer buys goods, not establishes the bakery.; Unternehmerin: correct in the complete context; Auszubildende: A trainee learns a trade, not necessarily owns the business.; Lieferantin: A supplier delivers goods, not owns the bakery by that role.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2482-v2",
+          "contextKey": "legacy-0163-L2482-context-2",
+          "transferKey": "legacy-0163-L2482-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016301",
+            "type": "choice",
+            "prompt": "Eine Frau leitet ihr eigenes Unternehmen und investiert in neue Produkte. Wie nennt man sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She directs a business she owns.",
+              "de": "Sie führt einen Betrieb, der ihr gehört."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Angestellte"
+              },
+              {
+                "id": "1",
+                "text": "Kundin"
+              },
+              {
+                "id": "2",
+                "text": "Unternehmerin"
+              },
+              {
+                "id": "3",
+                "text": "Bewerberin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A female business owner is an Unternehmerin.",
+              "de": "Eine weibliche Firmeninhaberin ist eine Unternehmerin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Frau ist Unternehmerin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Unternehmerin' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Angestellte: An employee works for an employer, not necessarily owns the business.; Kundin: A customer purchases goods, not manages the firm.; Unternehmerin: correct in the complete context; Bewerberin: An applicant seeks a job, not leads her own company.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016303",
+      "title": {
+        "en": "Using Unterstützung accurately",
+        "de": "Unterstützung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Unterstützung as help or support from other people.",
+        "de": "Unterstützung als Unterstützung durch andere erkennen."
+      },
+      "objective": "Recognize Unterstützung in the specified help or support from other people sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2487 (7c02b81063d9e279687745648a2c5fd079ec1a3b17778c9e51e65518fead0b11), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2487-v1",
+          "contextKey": "legacy-0163-L2487-context-1",
+          "transferKey": "legacy-0163-L2487-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016303",
+            "type": "gap_choice",
+            "prompt": "Für das schwierige Projekt bat sie ihre Kolleginnen um ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She asks colleagues to help.",
+              "de": "Sie bittet ihre Kolleginnen um Hilfe."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Unterstützung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Unterstützung means help or assistance.",
+              "de": "Unterstützung bedeutet Hilfe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für das schwierige Projekt bat sie ihre Kolleginnen um Unterstützung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Unterstützung' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Kündigung: Termination ends a contract, not provides help.; Rechnung: An invoice bills money, not assists a project.; Verspätung: Lateness is a delay, not support.; Unterstützung: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2487-v2",
+          "contextKey": "legacy-0163-L2487-context-2",
+          "transferKey": "legacy-0163-L2487-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016303",
+            "type": "choice",
+            "prompt": "Ein neuer Mitarbeiter bekommt Hilfe von erfahrenen Kollegen. Was erhält er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Experienced colleagues assist him.",
+              "de": "Erfahrene Kollegen helfen ihm."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Unterstützung"
+              },
+              {
+                "id": "1",
+                "text": "Abmahnung"
+              },
+              {
+                "id": "2",
+                "text": "Kündigung"
+              },
+              {
+                "id": "3",
+                "text": "Rechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Assistance is Unterstützung.",
+              "de": "Hilfe durch andere ist Unterstützung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mitarbeiter erhält Unterstützung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Unterstützung' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Unterstützung: correct in the complete context; Abmahnung: A warning reprimands, not assists the new worker.; Kündigung: Termination ends employment, not helps him.; Rechnung: An invoice requests payment, not workplace help.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016304",
+      "title": {
+        "en": "Using Untersuchung accurately",
+        "de": "Untersuchung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Untersuchung as a medical examination.",
+        "de": "Untersuchung als eine medizinische Untersuchung erkennen."
+      },
+      "objective": "Recognize Untersuchung in the specified a medical examination sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2488 (2f079c816f82b896ed307bbfc2a052859639ac2c744394a318ca9bf60178b759), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2488-v1",
+          "contextKey": "legacy-0163-L2488-context-1",
+          "transferKey": "legacy-0163-L2488-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016304",
+            "type": "gap_choice",
+            "prompt": "Die Ärztin führte eine gründliche ___ durch, um die Beschwerden abzuklären.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The doctor examines the patient.",
+              "de": "Die Ärztin untersucht den Patienten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Untersuchung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Buchung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Untersuchung can be a medical examination.",
+              "de": "Eine Untersuchung kann eine medizinische Prüfung sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ärztin führte eine gründliche Untersuchung durch, um die Beschwerden abzuklären.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Untersuchung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Bewerbung: An application seeks a position, not examines a patient.; Lieferung: A delivery transports goods, not diagnoses complaints.; Untersuchung: correct in the complete context; Buchung: A booking reserves a service, not the examination itself.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2488-v2",
+          "contextKey": "legacy-0163-L2488-context-2",
+          "transferKey": "legacy-0163-L2488-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016304",
+            "type": "choice",
+            "prompt": "Ein Patient wird körperlich geprüft und es werden Messwerte erhoben. Wie heißt dieser medizinische Vorgang?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The clinician checks the patient's condition.",
+              "de": "Die medizinische Fachkraft prüft den Zustand des Patienten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Überweisung"
+              },
+              {
+                "id": "1",
+                "text": "Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "Anmeldung"
+              },
+              {
+                "id": "3",
+                "text": "Untersuchung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A medical check is an Untersuchung.",
+              "de": "Eine medizinische Kontrolle ist eine Untersuchung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Vorgang ist eine medizinische Untersuchung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Untersuchung' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Überweisung: A referral directs a patient to another specialist, not the physical exam itself.; Rechnung: An invoice requests payment, not the medical check.; Anmeldung: Registration records attendance, not the examination.; Untersuchung: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016305",
+      "title": {
+        "en": "Using Unterweisung accurately",
+        "de": "Unterweisung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Unterweisung as a formal workplace safety instruction.",
+        "de": "Unterweisung als eine Unterweisung zum Arbeitsschutz erkennen."
+      },
+      "objective": "Recognize Unterweisung in the specified a formal workplace safety instruction sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2489 (8fbabb85f6b6015e388a3a22f0d9b4510b9a56898ca14b460a90d14d6a78a8cf), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2489-v1",
+          "contextKey": "legacy-0163-L2489-context-1",
+          "transferKey": "legacy-0163-L2489-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016305",
+            "type": "gap_choice",
+            "prompt": "Vor der Arbeit an der Maschine erhalten alle Beschäftigten eine ___ zum Arbeitsschutz.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "They learn required safe procedures.",
+              "de": "Sie lernen die vorgeschriebenen sicheren Abläufe."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lohnabrechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Unterweisung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Unterweisung teaches required workplace procedures.",
+              "de": "Eine Unterweisung erklärt vorgeschriebene Arbeitsabläufe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Arbeit an der Maschine erhalten alle Beschäftigten eine Unterweisung zum Arbeitsschutz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Unterweisung' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Lohnabrechnung: A payslip records wages, not safety procedures.; Unterweisung: correct in the complete context; Einladung: An invitation asks someone to attend, not itself instructs on safety.; Lieferung: A delivery transports goods, not teaches machine use.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2489-v2",
+          "contextKey": "legacy-0163-L2489-context-2",
+          "transferKey": "legacy-0163-L2489-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016305",
+            "type": "choice",
+            "prompt": "Eine Fachkraft erklärt neuen Mitarbeitenden verbindlich, wie sie Geräte sicher bedienen. Wie nennt man diese Anleitung im Betrieb?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The staff receive structured safety instruction.",
+              "de": "Die Beschäftigten erhalten eine gezielte Sicherheitseinweisung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "1",
+                "text": "Gehaltsabrechnung"
+              },
+              {
+                "id": "2",
+                "text": "Unterweisung"
+              },
+              {
+                "id": "3",
+                "text": "Pausenregelung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Formal workplace instruction is Unterweisung.",
+              "de": "Eine formelle betriebliche Einweisung heißt Unterweisung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fachkraft gibt eine Unterweisung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Unterweisung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Bewerbung: An application seeks employment, not trains staff.; Gehaltsabrechnung: A payslip records earnings, not safe equipment use.; Unterweisung: correct in the complete context; Pausenregelung: A break policy sets pause times, not machine operation.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016306",
+      "title": {
+        "en": "Using Urin accurately",
+        "de": "Urin im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Urin as urine produced by the kidneys.",
+        "de": "Urin als Urin als Körperflüssigkeit erkennen."
+      },
+      "objective": "Recognize Urin in the specified urine produced by the kidneys sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2490 (51784d7206289e95204c12d8b881ca9475b41c5c9615af9cce265f4d56568977), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2490-v1",
+          "contextKey": "legacy-0163-L2490-context-1",
+          "transferKey": "legacy-0163-L2490-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016306",
+            "type": "gap_choice",
+            "prompt": "Die Nieren bilden ___, der über die Blase ausgeschieden wird.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The liquid is made by the kidneys.",
+              "de": "Die Flüssigkeit wird von den Nieren gebildet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Urin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Speichel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schweiß"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Galle"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Urin is produced in the kidneys.",
+              "de": "Urin wird in den Nieren gebildet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Nieren bilden Urin, der über die Blase ausgeschieden wird.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Urin' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Urin: correct in the complete context; Speichel: Saliva is produced by salivary glands, not kidneys.; Schweiß: Sweat is produced by sweat glands in the skin.; Galle: Bile is produced by the liver, not the kidneys.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2490-v2",
+          "contextKey": "legacy-0163-L2490-context-2",
+          "transferKey": "legacy-0163-L2490-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016306",
+            "type": "choice",
+            "prompt": "Ein Labor untersucht eine Flüssigkeit, die in den Nieren entsteht und beim Wasserlassen ausgeschieden wird. Welche?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The clue is formation in the kidneys.",
+              "de": "Entscheidend ist die Bildung in den Nieren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Blut"
+              },
+              {
+                "id": "1",
+                "text": "Urin"
+              },
+              {
+                "id": "2",
+                "text": "Speichel"
+              },
+              {
+                "id": "3",
+                "text": "Tränenflüssigkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The kidneys produce Urin.",
+              "de": "Die Nieren bilden Urin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Flüssigkeit ist Urin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Urin' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Blut: Blood circulates through vessels, not the fluid expelled by urination.; Urin: correct in the complete context; Speichel: Saliva comes from the mouth glands, not the urinary tract.; Tränenflüssigkeit: Tears come from tear glands, not kidneys.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016307",
+      "title": {
+        "en": "Using Urkunde accurately",
+        "de": "Urkunde im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Urkunde as an official certificate or document.",
+        "de": "Urkunde als eine amtliche Urkunde erkennen."
+      },
+      "objective": "Recognize Urkunde in the specified an official certificate or document sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2491 (62621144faacd9ad5b83c8172501d1c57498d850570fa23afe7437779e35eec0), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2491-v1",
+          "contextKey": "legacy-0163-L2491-context-1",
+          "transferKey": "legacy-0163-L2491-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016307",
+            "type": "gap_choice",
+            "prompt": "Nach der Preisverleihung erhielt die Siegerin eine ___ mit ihrem Namen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The paper certifies the achievement.",
+              "de": "Das Schriftstück bestätigt die Leistung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fahrkarte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Urkunde"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Urkunde can certify an achievement.",
+              "de": "Eine Urkunde kann eine Leistung bestätigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Preisverleihung erhielt die Siegerin eine Urkunde mit ihrem Namen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Urkunde' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Rechnung: An invoice requests payment, not certifies an award.; Fahrkarte: A ticket permits travel, not records the prize.; Bewerbung: An application seeks a position, not confirms achievement.; Urkunde: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2491-v2",
+          "contextKey": "legacy-0163-L2491-context-2",
+          "transferKey": "legacy-0163-L2491-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016307",
+            "type": "choice",
+            "prompt": "Eine Behörde stellt ein offizielles Schriftstück aus, das eine Eheschließung bestätigt. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The document officially certifies a fact.",
+              "de": "Das Dokument bestätigt einen Sachverhalt amtlich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Urkunde"
+              },
+              {
+                "id": "1",
+                "text": "Einladung"
+              },
+              {
+                "id": "2",
+                "text": "Lieferschein"
+              },
+              {
+                "id": "3",
+                "text": "Kassenbon"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "An official certificate is an Urkunde.",
+              "de": "Ein amtliches Zeugnis ist eine Urkunde."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Schriftstück ist eine Urkunde.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Urkunde' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Urkunde: correct in the complete context; Einladung: An invitation asks someone to attend, not certifies marriage.; Lieferschein: A delivery note records goods, not civil status.; Kassenbon: A receipt records a purchase, not an official marriage.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016308",
+      "title": {
+        "en": "Using Urlauber accurately",
+        "de": "Urlauber im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Urlauber as a male holidaymaker.",
+        "de": "Urlauber als einen männlichen Urlauber erkennen."
+      },
+      "objective": "Recognize Urlauber in the specified a male holidaymaker sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2493 (2cc93ae41b3758c8c51e5ec0bb8eda3f7ef4b5746d2a57bf0f4ab9df54ad5349), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2493-v1",
+          "contextKey": "legacy-0163-L2493-context-1",
+          "transferKey": "legacy-0163-L2493-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016308",
+            "type": "gap_choice",
+            "prompt": "Im Sommer kommen viele ___ an den See, um dort Ferien zu machen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "They visit during their holidays.",
+              "de": "Sie besuchen den Ort während ihrer Ferien."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pendler"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerber"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Urlauber"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mitarbeiter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Urlauber are people on holiday.",
+              "de": "Urlauber sind Menschen, die Ferien machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Sommer kommen viele Urlauber an den See, um dort Ferien zu machen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Urlauber' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Pendler: Commuters travel regularly to work, not primarily for vacation.; Bewerber: Applicants seek jobs, not necessarily spend holidays at the lake.; Urlauber: correct in the complete context; Mitarbeiter: Employees work, not defined by being holiday visitors.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2493-v2",
+          "contextKey": "legacy-0163-L2493-context-2",
+          "transferKey": "legacy-0163-L2493-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016308",
+            "type": "choice",
+            "prompt": "Ein Mann verbringt seine freie Zeit in einer fremden Region und besucht Sehenswürdigkeiten. Wie nennt man ihn?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He is visiting for leisure.",
+              "de": "Er besucht die Region in seiner Freizeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einwohner"
+              },
+              {
+                "id": "1",
+                "text": "Vermieter"
+              },
+              {
+                "id": "2",
+                "text": "Berufspendler"
+              },
+              {
+                "id": "3",
+                "text": "Urlauber"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A holiday visitor is an Urlauber.",
+              "de": "Ein Feriengast ist ein Urlauber."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann ist Urlauber.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Urlauber' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Einwohner: A resident lives in the area, not necessarily visits on holiday.; Vermieter: A landlord rents property, not defined by tourism.; Berufspendler: A commuter travels for work, not leisure sightseeing.; Urlauber: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016309",
+      "title": {
+        "en": "Using Urlaubsantrag accurately",
+        "de": "Urlaubsantrag im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Urlaubsantrag as a request for vacation leave.",
+        "de": "Urlaubsantrag als einen Urlaubsantrag erkennen."
+      },
+      "objective": "Recognize Urlaubsantrag in the specified a request for vacation leave sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2494 (f2b0d9a834d8a3f72ce1788dca10a669890cffdbbb5bb2e9de6ea3cc9597f5b1), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2494-v1",
+          "contextKey": "legacy-0163-L2494-context-1",
+          "transferKey": "legacy-0163-L2494-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016309",
+            "type": "gap_choice",
+            "prompt": "Vor den Ferien reichte sie einen ___ bei ihrer Vorgesetzten ein.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She asks the employer for leave.",
+              "de": "Sie beantragt freie Tage beim Arbeitgeber."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Arbeitsvertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Urlaubsantrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kassenbon"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrplan"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Urlaubsantrag requests leave.",
+              "de": "Ein Urlaubsantrag ist ein Antrag auf Urlaub."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor den Ferien reichte sie einen Urlaubsantrag bei ihrer Vorgesetzten ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Urlaubsantrag' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Arbeitsvertrag: An employment contract sets job terms, not requests specific leave.; Urlaubsantrag: correct in the complete context; Kassenbon: A receipt documents a purchase, not vacation approval.; Fahrplan: A timetable lists departures, not a leave request.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2494-v2",
+          "contextKey": "legacy-0163-L2494-context-2",
+          "transferKey": "legacy-0163-L2494-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016309",
+            "type": "choice",
+            "prompt": "Ein Mitarbeiter bittet seinen Arbeitgeber schriftlich um zwei Wochen frei. Welches Dokument stellt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The document requests time off.",
+              "de": "Das Dokument beantragt freie Zeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kündigung"
+              },
+              {
+                "id": "1",
+                "text": "Lohnabrechnung"
+              },
+              {
+                "id": "2",
+                "text": "Urlaubsantrag"
+              },
+              {
+                "id": "3",
+                "text": "Lieferung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A written leave request is an Urlaubsantrag.",
+              "de": "Ein schriftlicher Antrag auf Urlaub heißt Urlaubsantrag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mitarbeiter stellt einen Urlaubsantrag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Urlaubsantrag' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Kündigung: Termination ends employment, not asks for a holiday.; Lohnabrechnung: A payslip records wages, not leave requests.; Urlaubsantrag: correct in the complete context; Lieferung: A delivery transports goods, not requests time off.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016310",
+      "title": {
+        "en": "Using Ursache accurately",
+        "de": "Ursache im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Ursache as the cause of an event.",
+        "de": "Ursache als eine Ursache für ein Ereignis erkennen."
+      },
+      "objective": "Recognize Ursache in the specified the cause of an event sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2495 (c15122d6ad9330e31c9ee412703935fc5cd3a6b59635d36206b5b59bb9f7b9ed), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2495-v1",
+          "contextKey": "legacy-0163-L2495-context-1",
+          "transferKey": "legacy-0163-L2495-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016310",
+            "type": "gap_choice",
+            "prompt": "Die Feuerwehr sucht nach der ___ des Brandes.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "They want to know why the fire started.",
+              "de": "Sie möchte wissen, warum der Brand entstanden ist."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ursache"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Folge"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einladung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ursache means the cause of an event.",
+              "de": "Ursache bezeichnet den Grund eines Ereignisses."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Feuerwehr sucht nach der Ursache des Brandes.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Ursache' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Ursache: correct in the complete context; Folge: A consequence follows an event, not causes it.; Rechnung: An invoice bills money, not explains a fire.; Einladung: An invitation asks someone to attend, not a cause.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2495-v2",
+          "contextKey": "legacy-0163-L2495-context-2",
+          "transferKey": "legacy-0163-L2495-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016310",
+            "type": "choice",
+            "prompt": "Eine Maschine stoppt, weil die Stromversorgung ausfällt. Was ist der Stromausfall in diesem Zusammenhang?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It makes the machine stop.",
+              "de": "Er führt zum Stillstand der Maschine."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ergebnis"
+              },
+              {
+                "id": "1",
+                "text": "Ursache"
+              },
+              {
+                "id": "2",
+                "text": "Belohnung"
+              },
+              {
+                "id": "3",
+                "text": "Termin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The power outage is the Ursache.",
+              "de": "Der Stromausfall ist die Ursache."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Stromausfall ist die Ursache des Stillstands.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Ursache' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Ergebnis: A result is an effect, not the triggering failure.; Ursache: correct in the complete context; Belohnung: A reward recognizes action, not causes the breakdown.; Termin: An appointment is a scheduled time, not the reason for the stop.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016311",
+      "title": {
+        "en": "Using Urteil accurately",
+        "de": "Urteil im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Urteil as a court judgment.",
+        "de": "Urteil als ein Urteil eines Gerichts erkennen."
+      },
+      "objective": "Recognize Urteil in the specified a court judgment sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2496 (5fb486749e58b0e5454b1f52ce018e7eadee4bb0da75a07fad9c3c3b5c987e3d), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2496-v1",
+          "contextKey": "legacy-0163-L2496-context-1",
+          "transferKey": "legacy-0163-L2496-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016311",
+            "type": "gap_choice",
+            "prompt": "Das Gericht verkündete nach der Verhandlung sein ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A court announces its decision.",
+              "de": "Ein Gericht gibt seine Entscheidung bekannt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rezept"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Angebot"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Urteil"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An Urteil is a judicial judgment.",
+              "de": "Ein Urteil ist eine gerichtliche Entscheidung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Gericht verkündete nach der Verhandlung sein Urteil.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Urteil' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Fahrplan: A timetable lists departures, not a court decision.; Rezept: A prescription or recipe is not the legal judgment.; Angebot: An offer proposes terms, not a court's ruling.; Urteil: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2496-v2",
+          "contextKey": "legacy-0163-L2496-context-2",
+          "transferKey": "legacy-0163-L2496-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016311",
+            "type": "choice",
+            "prompt": "Eine Richterin entscheidet in einem Strafprozess über Schuld und Strafe. Wie nennt man die gerichtliche Entscheidung?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The decision comes from the court.",
+              "de": "Die Entscheidung wird vom Gericht getroffen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Urteil"
+              },
+              {
+                "id": "1",
+                "text": "Bewerbung"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Kaufvertrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A court decision is an Urteil.",
+              "de": "Eine gerichtliche Entscheidung heißt Urteil."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Entscheidung heißt Urteil.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Urteil' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Urteil: correct in the complete context; Bewerbung: An application seeks employment, not decides guilt.; Rechnung: An invoice requests payment, not a legal judgment.; Kaufvertrag: A sales contract is a private agreement, not a court ruling.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016314",
+      "title": {
+        "en": "Using Verabredung accurately",
+        "de": "Verabredung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verabredung as an arranged meeting with another person.",
+        "de": "Verabredung als eine Verabredung zum Treffen erkennen."
+      },
+      "objective": "Recognize Verabredung in the specified an arranged meeting with another person sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2500 (99b8c2de71b0cd63f76c487a4743af6c6201686d37e8be0d39f2180cb47f160b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2500-v1",
+          "contextKey": "legacy-0163-L2500-context-1",
+          "transferKey": "legacy-0163-L2500-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016314",
+            "type": "gap_choice",
+            "prompt": "Ich habe heute Abend eine ___ mit einer Freundin im Café.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The two people agreed to meet.",
+              "de": "Die beiden haben ein Treffen vereinbart."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verabredung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kündigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verabredung is an arrangement to meet.",
+              "de": "Eine Verabredung ist ein vereinbartes Treffen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich habe heute Abend eine Verabredung mit einer Freundin im Café.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verabredung' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Verabredung: correct in the complete context; Lieferung: A delivery transports goods, not a social meeting.; Rechnung: An invoice bills money, not a meeting.; Kündigung: Termination ends a contract, not a planned café visit.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2500-v2",
+          "contextKey": "legacy-0163-L2500-context-2",
+          "transferKey": "legacy-0163-L2500-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016314",
+            "type": "choice",
+            "prompt": "Zwei Freunde vereinbaren, sich am Samstag um 15 Uhr zu treffen. Was haben sie getroffen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They agreed on a time to meet.",
+              "de": "Sie haben einen Zeitpunkt für ein Treffen vereinbart."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Überweisung"
+              },
+              {
+                "id": "1",
+                "text": "eine Verabredung"
+              },
+              {
+                "id": "2",
+                "text": "eine Beschwerde"
+              },
+              {
+                "id": "3",
+                "text": "eine Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "An agreed meeting is eine Verabredung.",
+              "de": "Ein vereinbartes Treffen ist eine Verabredung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Freunde haben eine Verabredung getroffen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Verabredung' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Überweisung: A transfer moves money or refers a patient, not sets a social meeting.; eine Verabredung: correct in the complete context; eine Beschwerde: A complaint expresses dissatisfaction, not a meeting arrangement.; eine Kündigung: Termination ends an agreement, not creates a plan to meet.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016315",
+      "title": {
+        "en": "Using Verabschiedung accurately",
+        "de": "Verabschiedung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Verabschiedung as a farewell to a departing colleague.",
+        "de": "Verabschiedung als eine Verabschiedung erkennen."
+      },
+      "objective": "Recognize Verabschiedung in the specified a farewell to a departing colleague sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2501 (fc63062727ab1bf5c1aff614ffb4996c959e18588928c8d41d8a5a2ea39ffbc7), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2501-v1",
+          "contextKey": "legacy-0163-L2501-context-1",
+          "transferKey": "legacy-0163-L2501-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016315",
+            "type": "gap_choice",
+            "prompt": "Zur ___ der Kollegin gab es an ihrem letzten Arbeitstag einen kleinen Empfang.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The team says goodbye.",
+              "de": "Das Team sagt der Kollegin Lebewohl."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einstellung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verabschiedung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verabschiedung means saying farewell.",
+              "de": "Verabschiedung bedeutet, sich zu verabschieden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zur Verabschiedung der Kollegin gab es an ihrem letzten Arbeitstag einen kleinen Empfang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Verabschiedung' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Bewerbung: An application seeks a position, not marks departure.; Einstellung: Hiring begins employment, not ends it.; Rechnung: An invoice bills money, not a farewell.; Verabschiedung: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2501-v2",
+          "contextKey": "legacy-0163-L2501-context-2",
+          "transferKey": "legacy-0163-L2501-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016315",
+            "type": "choice",
+            "prompt": "Ein Team sagt einem Kollegen vor seinem Ruhestand offiziell Lebewohl. Wie nennt man diese Feier?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The colleague is leaving.",
+              "de": "Der Kollege verlässt das Team."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verabschiedung"
+              },
+              {
+                "id": "1",
+                "text": "Begrüßung"
+              },
+              {
+                "id": "2",
+                "text": "Einarbeitung"
+              },
+              {
+                "id": "3",
+                "text": "Beförderung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A farewell event is eine Verabschiedung.",
+              "de": "Eine Abschiedsfeier ist eine Verabschiedung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Feier ist eine Verabschiedung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Verabschiedung' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Verabschiedung: correct in the complete context; Begrüßung: A welcome greets a newcomer, not a departing colleague.; Einarbeitung: Onboarding introduces new staff, not retirement.; Beförderung: A promotion advances a role, not says goodbye.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016316",
+      "title": {
+        "en": "Using Veränderung accurately",
+        "de": "Veränderung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Veränderung as a change in an existing process.",
+        "de": "Veränderung als eine Veränderung eines Ablaufs erkennen."
+      },
+      "objective": "Recognize Veränderung in the specified a change in an existing process sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2502 (d4ce309264dcb1013ee493474882a3fc38811450c71ce81c5b8dc5529c92e3b1), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2502-v1",
+          "contextKey": "legacy-0163-L2502-context-1",
+          "transferKey": "legacy-0163-L2502-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016316",
+            "type": "gap_choice",
+            "prompt": "Die neue Software bringt eine große ___ im Arbeitsablauf mit sich.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The way of working becomes different.",
+              "de": "Die Arbeitsweise wird anders."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Veränderung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Veränderung means a change.",
+              "de": "Veränderung bedeutet, dass etwas anders wird."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Software bringt eine große Veränderung im Arbeitsablauf mit sich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Veränderung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Einladung: An invitation asks attendance, not changes a workflow.; Rechnung: An invoice bills charges, not the process change itself.; Veränderung: correct in the complete context; Lieferung: A delivery transports goods, not describes altered work.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2502-v2",
+          "contextKey": "legacy-0163-L2502-context-2",
+          "transferKey": "legacy-0163-L2502-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016316",
+            "type": "choice",
+            "prompt": "Ein Betrieb stellt seine Abläufe um und arbeitet künftig anders. Was erlebt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The process is no longer the same.",
+              "de": "Der Ablauf ist nicht mehr derselbe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Stillstand"
+              },
+              {
+                "id": "1",
+                "text": "Wiederholung"
+              },
+              {
+                "id": "2",
+                "text": "Urlaub"
+              },
+              {
+                "id": "3",
+                "text": "Veränderung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A change is eine Veränderung.",
+              "de": "Eine neue Arbeitsweise ist eine Veränderung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Betrieb erlebt eine Veränderung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Veränderung' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Stillstand: Standstill means operations stop, not necessarily change methods.; Wiederholung: Repetition means doing the same again, not changing.; Urlaub: Holiday is leave, not process redesign.; Veränderung: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000016317",
+      "title": {
+        "en": "Using Veranstalter accurately",
+        "de": "Veranstalter im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Veranstalter as a male organizer of an event.",
+        "de": "Veranstalter als einen Veranstalter erkennen."
+      },
+      "objective": "Recognize Veranstalter in the specified a male organizer of an event sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2503 (dd76c540e7cb951555a4b0315e42a8a74380239844e6649f574aaae89604b307), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0163-L2503-v1",
+          "contextKey": "legacy-0163-L2503-context-1",
+          "transferKey": "legacy-0163-L2503-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016317",
+            "type": "gap_choice",
+            "prompt": "Der ___ des Konzerts kümmert sich um Tickets und Sicherheit.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He organizes the event.",
+              "de": "Er organisiert die Veranstaltung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zuschauer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Veranstalter"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Musiker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Besucher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Veranstalter arranges an event.",
+              "de": "Ein Veranstalter organisiert eine Veranstaltung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Veranstalter des Konzerts kümmert sich um Tickets und Sicherheit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Veranstalter' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Zuschauer: A spectator watches, not manages the event.; Veranstalter: correct in the complete context; Musiker: A musician performs, not necessarily organizes the concert.; Besucher: A visitor attends, not takes responsibility for ticketing.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0163-L2503-v2",
+          "contextKey": "legacy-0163-L2503-context-2",
+          "transferKey": "legacy-0163-L2503-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001630171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000016317",
+            "type": "choice",
+            "prompt": "Ein Mann organisiert ein Festival, bucht die Bühne und trägt die Verantwortung für den Ablauf. Welche Rolle hat er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He plans and coordinates the event.",
+              "de": "Er plant und koordiniert die Veranstaltung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gast"
+              },
+              {
+                "id": "1",
+                "text": "Teilnehmer"
+              },
+              {
+                "id": "2",
+                "text": "Veranstalter"
+              },
+              {
+                "id": "3",
+                "text": "Reporter"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "An event organizer is a Veranstalter.",
+              "de": "Ein Organisator einer Veranstaltung ist ein Veranstalter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann ist Veranstalter des Festivals.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Veranstalter' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Gast: A guest attends, not organizes the event.; Teilnehmer: A participant takes part, not necessarily books the stage.; Veranstalter: correct in the complete context; Reporter: A reporter covers the festival, not plans it.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
