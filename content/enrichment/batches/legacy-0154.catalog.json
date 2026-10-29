@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000015400",
+      "title": {
+        "en": "Using Statistik accurately",
+        "de": "Statistik im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Statistik as a numerical summary of observations.",
+        "de": "Statistik als eine zahlenbasierte Zusammenfassung von Beobachtungen erkennen."
+      },
+      "objective": "Recognize Statistik in the specified a numerical summary of observations sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2238 (cc16ca6b541d244630a66d351202bd1c0fdd6ce4dc2cfd62f87445ef5a432273), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2238-v1",
+          "contextKey": "legacy-0154-L2238-context-1",
+          "transferKey": "legacy-0154-L2238-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015400",
+            "type": "gap_choice",
+            "prompt": "Die ___ vergleicht die Zahl der Radfahrer in fünf aufeinanderfolgenden Jahren.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Look for a structured comparison of numerical data.",
+              "de": "Achte auf den Vergleich von Zahlen über mehrere Jahre."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Quittung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Statistik"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Statistik presents or compares numerical data.",
+              "de": "Eine Statistik stellt Zahlen dar oder vergleicht sie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Statistik vergleicht die Zahl der Radfahrer in fünf aufeinanderfolgenden Jahren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Statistik' (option 1). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Quittung: A receipt records a transaction, not a multi-year comparison.; Statistik: correct in the complete context; Bewerbung: An application is submitted for a position, not for comparing traffic counts.; Rechnung: An invoice requests payment, not a time series.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2238-v2",
+          "contextKey": "legacy-0154-L2238-context-2",
+          "transferKey": "legacy-0154-L2238-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015400",
+            "type": "choice",
+            "prompt": "Eine Grafik fasst die Ergebnisse einer Umfrage in Prozent zusammen. Was zeigt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The key is the numerical representation of survey findings.",
+              "de": "Entscheidend ist die Darstellung der Umfrageergebnisse in Zahlen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Wegbeschreibung"
+              },
+              {
+                "id": "1",
+                "text": "eine Hausordnung"
+              },
+              {
+                "id": "2",
+                "text": "eine Statistik"
+              },
+              {
+                "id": "3",
+                "text": "eine Speisekarte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Survey percentages are statistical results.",
+              "de": "Prozentwerte einer Umfrage sind statistische Ergebnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Grafik zeigt eine Statistik zu den Umfrageergebnissen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Statistik' (option 2). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: eine Wegbeschreibung: Directions explain a route, not percentages.; eine Hausordnung: House rules set conduct, not survey results.; eine Statistik: correct in the complete context; eine Speisekarte: A menu lists dishes, not survey percentages.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015401",
+      "title": {
+        "en": "Using Stätte accurately",
+        "de": "Stätte im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stätte as a historically significant site.",
+        "de": "Stätte als eine historisch bedeutsame Stätte erkennen."
+      },
+      "objective": "Recognize Stätte in the specified a historically significant site sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2239 (71ac1878ca868b4e5ccb8be5ed03dc41192559b53f51bcb37f111bb9363ac7b4), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2239-v1",
+          "contextKey": "legacy-0154-L2239-context-1",
+          "transferKey": "legacy-0154-L2239-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015401",
+            "type": "gap_choice",
+            "prompt": "Die archäologische ___ wird nach der Ausgrabung für Besucher zugänglich gemacht.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "An excavation uncovers a place of historical significance.",
+              "de": "Bei einer Ausgrabung wird ein historisch bedeutsamer Ort untersucht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stätte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Miete"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Abfahrt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An archaeological Stätte is a site investigated for historical remains.",
+              "de": "Eine archäologische Stätte ist ein Ort, an dem historische Überreste untersucht werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die archäologische Stätte wird nach der Ausgrabung für Besucher zugänglich gemacht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stätte' (option 0). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Stätte: correct in the complete context; Miete: Rent is a payment, not an excavated place.; Abfahrt: A departure is an event, not an archaeological location.; Lieferung: A delivery is a shipment, not a site.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2239-v2",
+          "contextKey": "legacy-0154-L2239-context-2",
+          "transferKey": "legacy-0154-L2239-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015401",
+            "type": "choice",
+            "prompt": "Eine stillgelegte Fabrik wird wegen ihrer Bedeutung für die Industriegeschichte erhalten. Wie kann man diesen Ort bezeichnen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The site is preserved for its historical significance.",
+              "de": "Der Ort wird wegen seiner historischen Bedeutung erhalten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "als Lieferadresse"
+              },
+              {
+                "id": "1",
+                "text": "als historische Stätte"
+              },
+              {
+                "id": "2",
+                "text": "als Fahrkartenschalter"
+              },
+              {
+                "id": "3",
+                "text": "als Mietzahlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A preserved industrial heritage site can be called a historische Stätte.",
+              "de": "Ein erhaltener Ort der Industriegeschichte kann als historische Stätte bezeichnet werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die ehemalige Fabrik wird als historische Stätte erhalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'als historische Stätte' (option 1). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: als Lieferadresse: A delivery address specifies where goods go, not historical value.; als historische Stätte: correct in the complete context; als Fahrkartenschalter: A ticket counter sells tickets, not a heritage designation.; als Mietzahlung: Rent payment is a financial transaction, not a place.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015402",
+      "title": {
+        "en": "Using Status accurately",
+        "de": "Status im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Status as the current stage or condition of a process.",
+        "de": "Status als den aktuellen Stand eines Vorgangs erkennen."
+      },
+      "objective": "Recognize Status in the specified the current stage or condition of a process sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2240 (b6c6fee6b09ffa81d4a4cba546e2cc97a11c1157e1fdc368d8fab5e45134256f), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2240-v1",
+          "contextKey": "legacy-0154-L2240-context-1",
+          "transferKey": "legacy-0154-L2240-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015402",
+            "type": "gap_choice",
+            "prompt": "Der ___ des Antrags lautet derzeit „in Bearbeitung“.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The quoted words describe how far the process has progressed.",
+              "de": "Die Angabe beschreibt den Bearbeitungsstand."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Absender"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Betrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anhang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Status"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Status identifies the current processing stage of an application.",
+              "de": "Status bezeichnet den aktuellen Bearbeitungsstand eines Antrags."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Status des Antrags lautet derzeit „in Bearbeitung“.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Status' (option 3). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Absender: The sender identifies a person or institution, not a processing stage.; Betrag: An amount is numerical and cannot be 'in Bearbeitung'.; Anhang: An attachment is an enclosed document, not the stage of processing.; Status: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2240-v2",
+          "contextKey": "legacy-0154-L2240-context-2",
+          "transferKey": "legacy-0154-L2240-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015402",
+            "type": "choice",
+            "prompt": "Die Personalabteilung möchte wissen, ob der unterschriebene Vertrag schon eingegangen ist. Wonach fragt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The question concerns progress, not personal details.",
+              "de": "Es geht um den Bearbeitungsstand, nicht um persönliche Angaben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "nach dem Status des Vertrags"
+              },
+              {
+                "id": "1",
+                "text": "nach der Raumtemperatur"
+              },
+              {
+                "id": "2",
+                "text": "nach dem Geburtsort"
+              },
+              {
+                "id": "3",
+                "text": "nach der Postleitzahl"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The receipt stage is part of the contract's Status.",
+              "de": "Der Eingang des Vertrags gehört zu seinem Status."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie fragt nach dem Status des Vertrags.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'nach dem Status des Vertrags' (option 0). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: nach dem Status des Vertrags: correct in the complete context; nach der Raumtemperatur: Room temperature is unrelated to the contract's progress.; nach dem Geburtsort: Place of birth does not establish whether the contract arrived.; nach der Postleitzahl: Postal code is address data, not processing progress.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015403",
+      "title": {
+        "en": "Using Statussymbol accurately",
+        "de": "Statussymbol im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Statussymbol as an object used to display social prestige.",
+        "de": "Statussymbol als einen Gegenstand als Zeichen von Ansehen erkennen."
+      },
+      "objective": "Recognize Statussymbol in the specified an object used to display social prestige sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2241 (7cb2a8b644b104e98dd4c86add0a8321103c8ad2d6dbcfa0f758ff9a3501c117), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2241-v1",
+          "contextKey": "legacy-0154-L2241-context-1",
+          "transferKey": "legacy-0154-L2241-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015403",
+            "type": "gap_choice",
+            "prompt": "Für ihn ist die teure Armbanduhr weniger ein Zeitmesser als ein ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The purchase is about displaying prestige.",
+              "de": "Es geht darum, Ansehen nach außen zu zeigen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ersatzteil"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werkzeug"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Statussymbol"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrplan"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Statussymbol signals perceived wealth or prestige.",
+              "de": "Ein Statussymbol soll Wohlstand oder Ansehen zeigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für ihn ist die teure Armbanduhr weniger ein Zeitmesser als ein Statussymbol.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Statussymbol' (option 2). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Ersatzteil: A spare part replaces a broken component, not signals prestige.; Werkzeug: A tool serves a practical task, not the stated social role.; Statussymbol: correct in the complete context; Fahrplan: A timetable gives departure times, not status.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2241-v2",
+          "contextKey": "legacy-0154-L2241-context-2",
+          "transferKey": "legacy-0154-L2241-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015403",
+            "type": "choice",
+            "prompt": "Eine Person kauft ein Luxusauto vor allem, um ihren Wohlstand zu zeigen. Welche Rolle spielt das Auto für sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The intended message to others matters more than transportation.",
+              "de": "Wichtiger als die Fortbewegung ist die Wirkung auf andere."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Es ist ein öffentliches Verkehrsmittel."
+              },
+              {
+                "id": "1",
+                "text": "Es ist eine Lohnabrechnung."
+              },
+              {
+                "id": "2",
+                "text": "Es ist ein Haushaltsgerät."
+              },
+              {
+                "id": "3",
+                "text": "Es ist ein Statussymbol."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Here the car represents social prestige.",
+              "de": "Hier steht das Auto für gesellschaftliches Ansehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Auto dient ihr als Statussymbol.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Es ist ein Statussymbol.' (option 3). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Es ist ein öffentliches Verkehrsmittel.: A privately owned luxury car is not described as public transport.; Es ist eine Lohnabrechnung.: A payroll statement is a document, not a vehicle's social role.; Es ist ein Haushaltsgerät.: A household appliance does not describe the car's symbolic function.; Es ist ein Statussymbol.: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015404",
+      "title": {
+        "en": "Using Stau accurately",
+        "de": "Stau im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stau as a traffic jam on a road.",
+        "de": "Stau als einen Verkehrsstau auf einer Straße erkennen."
+      },
+      "objective": "Recognize Stau in the specified a traffic jam on a road sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2242 (b6f856095022a898aaea031af5d654ec61525155f871f300ab28efab16d30499), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2242-v1",
+          "contextKey": "legacy-0154-L2242-context-1",
+          "transferKey": "legacy-0154-L2242-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015404",
+            "type": "gap_choice",
+            "prompt": "Wegen eines Unfalls standen die Autos auf der Autobahn im ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The vehicles cannot move because traffic is backed up.",
+              "de": "Die Fahrzeuge kommen wegen des Rückstaus nicht voran."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Urlaub"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stau"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Dienst"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kurs"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Im Stau means caught in backed-up traffic.",
+              "de": "Im Stau bedeutet, dass der Verkehr stockt oder steht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen eines Unfalls standen die Autos auf der Autobahn im Stau.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stau' (option 1). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Urlaub: Being on vacation does not describe blocked traffic.; Stau: correct in the complete context; Dienst: Being on duty describes work, not a road obstruction.; Kurs: Being in a course describes instruction, not a line of cars.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2242-v2",
+          "contextKey": "legacy-0154-L2242-context-2",
+          "transferKey": "legacy-0154-L2242-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015404",
+            "type": "choice",
+            "prompt": "Die Busse kommen kaum voran, weil die Straße voller wartender Fahrzeuge ist. Was behindert sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The vehicles form a stationary queue on the road.",
+              "de": "Die Fahrzeuge bilden eine stehende Schlange auf der Straße."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ein Fahrplanwechsel"
+              },
+              {
+                "id": "1",
+                "text": "eine neue Haltestelle"
+              },
+              {
+                "id": "2",
+                "text": "ein Stau"
+              },
+              {
+                "id": "3",
+                "text": "eine Ticketkontrolle"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The obstruction is a traffic jam.",
+              "de": "Das Hindernis ist ein Verkehrsstau."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Stau behindert die Busse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'ein Stau' (option 2). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: ein Fahrplanwechsel: A timetable change changes schedules, not physically blocks the road.; eine neue Haltestelle: A new stop is infrastructure, not the queue of vehicles.; ein Stau: correct in the complete context; eine Ticketkontrolle: A ticket inspection occurs on board, not as a road-wide blockage.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015406",
+      "title": {
+        "en": "Using Steckdose accurately",
+        "de": "Steckdose im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Steckdose as an electrical socket supplying power.",
+        "de": "Steckdose als eine elektrische Steckdose als Stromanschluss erkennen."
+      },
+      "objective": "Recognize Steckdose in the specified an electrical socket supplying power sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2244 (f6bdbdec479800c4cb6c22477659be4a09c2f428dc7a62eac8ef98d77f909253), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2244-v1",
+          "contextKey": "legacy-0154-L2244-context-1",
+          "transferKey": "legacy-0154-L2244-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015406",
+            "type": "gap_choice",
+            "prompt": "Um den Laptop aufzuladen, brauche ich eine freie ___ an der Wand.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Find the fixed connection to the electrical supply.",
+              "de": "Gesucht ist der feste Anschluss an die Stromversorgung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schublade"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tastatur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fensterbank"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Steckdose"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Steckdose supplies mains electricity to a device.",
+              "de": "Eine Steckdose stellt den Anschluss ans Stromnetz bereit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um den Laptop aufzuladen, brauche ich eine freie Steckdose an der Wand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Steckdose' (option 3). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Schublade: A drawer stores objects but supplies no electricity.; Tastatur: A keyboard is an input device, not a wall power outlet.; Fensterbank: A windowsill is a surface, not a power connection.; Steckdose: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2244-v2",
+          "contextKey": "legacy-0154-L2244-context-2",
+          "transferKey": "legacy-0154-L2244-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015406",
+            "type": "choice",
+            "prompt": "Im Seminarraum soll ein Beamer mit Strom versorgt werden. Was muss in Reichweite des Kabels sein?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The projector needs an electrical connection.",
+              "de": "Der Beamer braucht einen Stromanschluss."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Steckdose"
+              },
+              {
+                "id": "1",
+                "text": "eine Pinnwand"
+              },
+              {
+                "id": "2",
+                "text": "eine Garderobe"
+              },
+              {
+                "id": "3",
+                "text": "ein Whiteboard"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A socket provides the connection for the projector's power cable.",
+              "de": "Eine Steckdose ermöglicht den Stromanschluss des Beamers."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Beamer muss eine Steckdose in Reichweite sein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Steckdose' (option 0). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: eine Steckdose: correct in the complete context; eine Pinnwand: A pinboard holds notices but cannot power a projector.; eine Garderobe: A coat rack stores coats, not electricity.; ein Whiteboard: A whiteboard is for writing, not power supply.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015407",
+      "title": {
+        "en": "Using Stecker accurately",
+        "de": "Stecker im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stecker as an electrical plug on a cable.",
+        "de": "Stecker als einen elektrischen Stecker am Kabel erkennen."
+      },
+      "objective": "Recognize Stecker in the specified an electrical plug on a cable sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2245 (b40de6d08dcd9fa67d32b1f3f7d70952ba5dab762efa1565443e3204f525cd1c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2245-v1",
+          "contextKey": "legacy-0154-L2245-context-1",
+          "transferKey": "legacy-0154-L2245-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015407",
+            "type": "gap_choice",
+            "prompt": "Bevor du die Lampe reparierst, zieh bitte den ___ aus der Steckdose.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is the detachable part inserted into the outlet.",
+              "de": "Es ist das Teil, das in die Steckdose gesteckt wird."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schalter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schlüssel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Stecker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Knopf"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The Stecker is the plug removed from the socket.",
+              "de": "Der Stecker ist das Teil, das man aus der Steckdose zieht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bevor du die Lampe reparierst, zieh bitte den Stecker aus der Steckdose.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stecker' (option 2). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Schalter: A switch can be turned off but is not pulled out of a socket.; Schlüssel: A key does not normally connect a lamp to mains power.; Stecker: correct in the complete context; Knopf: A button can be pressed, not unplugged from the wall.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2245-v2",
+          "contextKey": "legacy-0154-L2245-context-2",
+          "transferKey": "legacy-0154-L2245-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015407",
+            "type": "choice",
+            "prompt": "Das Ladekabel funktioniert, aber das Teil am Kabelende passt nicht in die Buchse. Welches Teil ist gemeint?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The problem is the connector's physical fit.",
+              "de": "Es geht um die Form des Anschlussstücks."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "die Sicherung"
+              },
+              {
+                "id": "1",
+                "text": "der Bildschirm"
+              },
+              {
+                "id": "2",
+                "text": "die Batterie"
+              },
+              {
+                "id": "3",
+                "text": "der Stecker"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A plug must fit the corresponding socket or port.",
+              "de": "Ein Stecker muss in die passende Buchse passen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Stecker passt nicht in die Buchse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'der Stecker' (option 3). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: die Sicherung: A fuse protects a circuit but is not the cable-end connector.; der Bildschirm: A screen displays images and is not at the cable end.; die Batterie: A battery stores energy but is not the plug's shape.; der Stecker: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015409",
+      "title": {
+        "en": "Using Stellenanzeige accurately",
+        "de": "Stellenanzeige im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stellenanzeige as an employer's advertisement for a vacancy.",
+        "de": "Stellenanzeige als eine Stellenanzeige für eine freie Position erkennen."
+      },
+      "objective": "Recognize Stellenanzeige in the specified an employer's advertisement for a vacancy sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2248 (b189518102902bfc291c301fbba0639efb6d63d8780b185500f404b3974d0a9b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2248-v1",
+          "contextKey": "legacy-0154-L2248-context-1",
+          "transferKey": "legacy-0154-L2248-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015409",
+            "type": "gap_choice",
+            "prompt": "Das Unternehmen veröffentlichte eine ___ für eine offene Stelle im Vertrieb.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The firm wants applicants for a vacancy.",
+              "de": "Das Unternehmen sucht Bewerber für eine freie Stelle."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stellenanzeige"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lohnabrechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Urlaubsregelung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reisekostenabrechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Stellenanzeige advertises an open position.",
+              "de": "Eine Stellenanzeige informiert über eine offene Stelle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen veröffentlichte eine Stellenanzeige für eine offene Stelle im Vertrieb.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stellenanzeige' (option 0). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Stellenanzeige: correct in the complete context; Lohnabrechnung: A payslip reports wages, not a vacancy.; Urlaubsregelung: A leave policy regulates holidays, not recruitment.; Reisekostenabrechnung: An expense statement records travel costs, not job requirements.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2248-v2",
+          "contextKey": "legacy-0154-L2248-context-2",
+          "transferKey": "legacy-0154-L2248-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015409",
+            "type": "choice",
+            "prompt": "In einer Zeitung stehen Aufgaben, Anforderungen und Bewerbungsfrist für eine freie Stelle. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The employer describes a position to fill.",
+              "de": "Der Arbeitgeber beschreibt eine zu besetzende Stelle."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ein Stellengesuch"
+              },
+              {
+                "id": "1",
+                "text": "eine Stellenanzeige"
+              },
+              {
+                "id": "2",
+                "text": "eine Kündigung"
+              },
+              {
+                "id": "3",
+                "text": "eine Gehaltsabrechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The text is an employer's vacancy advertisement.",
+              "de": "Der Text ist eine Anzeige des Arbeitgebers für eine freie Stelle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Text ist eine Stellenanzeige.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Stellenanzeige' (option 1). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: ein Stellengesuch: A Stellengesuch is placed by a job seeker, not an employer advertising a vacancy.; eine Stellenanzeige: correct in the complete context; eine Kündigung: A termination ends employment, not solicits applications.; eine Gehaltsabrechnung: A salary statement records earnings, not a recruitment deadline.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015410",
+      "title": {
+        "en": "Using Stellenbörse accurately",
+        "de": "Stellenbörse im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stellenbörse as a job board aggregating vacancies.",
+        "de": "Stellenbörse als eine Stellenbörse mit Angeboten verschiedener Arbeitgeber erkennen."
+      },
+      "objective": "Recognize Stellenbörse in the specified a job board aggregating vacancies sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2249 (bd89a3da6659951b7278deaed2bf11c7d279f035924efbca0d36dbf11056b39b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2249-v1",
+          "contextKey": "legacy-0154-L2249-context-1",
+          "transferKey": "legacy-0154-L2249-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015410",
+            "type": "gap_choice",
+            "prompt": "Auf einer ___ im Internet kann man Stellenangebote verschiedener Firmen vergleichen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It brings vacancies from multiple employers together.",
+              "de": "Hier werden freie Stellen mehrerer Arbeitgeber gesammelt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeiterfassung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lohnabrechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausordnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stellenbörse"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Stellenbörse lists vacancies for job seekers.",
+              "de": "Eine Stellenbörse bündelt Stellenangebote für Arbeitssuchende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf einer Stellenbörse im Internet kann man Stellenangebote verschiedener Firmen vergleichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stellenbörse' (option 3). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Zeiterfassung: Time tracking records working hours, not vacancies.; Lohnabrechnung: Payroll accounting handles pay, not multi-company vacancy listings.; Hausordnung: House rules set conduct, not recruitment listings.; Stellenbörse: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2249-v2",
+          "contextKey": "legacy-0154-L2249-context-2",
+          "transferKey": "legacy-0154-L2249-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015410",
+            "type": "choice",
+            "prompt": "Eine Website sammelt freie Stellen von vielen Arbeitgebern und bietet Suchfilter nach Beruf und Ort. Was ist sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The main function is searching vacancies across employers.",
+              "de": "Die Hauptfunktion ist die Suche nach freien Stellen verschiedener Firmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Stellenbörse"
+              },
+              {
+                "id": "1",
+                "text": "ein Unternehmensregister"
+              },
+              {
+                "id": "2",
+                "text": "ein Terminkalender"
+              },
+              {
+                "id": "3",
+                "text": "eine Lohnabrechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Such a multi-employer vacancy site is a Stellenbörse.",
+              "de": "Eine solche Website mit Stellenangeboten heißt Stellenbörse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Website ist eine Stellenbörse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Stellenbörse' (option 0). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: eine Stellenbörse: correct in the complete context; ein Unternehmensregister: A company register lists companies, not necessarily current vacancies.; ein Terminkalender: A calendar organizes appointments, not job advertisements.; eine Lohnabrechnung: A payslip documents remuneration, not vacancy search.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015413",
+      "title": {
+        "en": "Using Stellensuche accurately",
+        "de": "Stellensuche im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stellensuche as the process of looking for employment.",
+        "de": "Stellensuche als die Suche nach einer Arbeitsstelle erkennen."
+      },
+      "objective": "Recognize Stellensuche in the specified the process of looking for employment sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2252 (e7310a2c4789d38459cf687dedc695ece5723726d7dad84d71b3e3686085c3bc), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2252-v1",
+          "contextKey": "legacy-0154-L2252-context-1",
+          "transferKey": "legacy-0154-L2252-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015413",
+            "type": "gap_choice",
+            "prompt": "Nach dem Umzug begann sie mit der ___ in ihrer neuen Stadt.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She wants to find employment in the new city.",
+              "de": "Sie möchte in der neuen Stadt Arbeit finden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stellensuche"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Betriebsfeier"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Krankmeldung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Inventur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Stellensuche is the activity of looking for a job.",
+              "de": "Stellensuche bedeutet, nach einer Arbeitsstelle zu suchen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Umzug begann sie mit der Stellensuche in ihrer neuen Stadt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stellensuche' (option 0). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Stellensuche: correct in the complete context; Betriebsfeier: A company party is a social event, not a job search.; Krankmeldung: Sick notification concerns absence due to illness.; Inventur: Inventory is a count of stock, not employment search.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2252-v2",
+          "contextKey": "legacy-0154-L2252-context-2",
+          "transferKey": "legacy-0154-L2252-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015413",
+            "type": "choice",
+            "prompt": "Er prüft täglich Angebote und verschickt Bewerbungen, um eine neue Arbeit zu finden. Wie nennt man diesen Prozess?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He is seeking a job, not starting one.",
+              "de": "Er sucht eine Stelle und hat noch keine neue Arbeit begonnen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einarbeitung"
+              },
+              {
+                "id": "1",
+                "text": "Stellensuche"
+              },
+              {
+                "id": "2",
+                "text": "Gehaltsabrechnung"
+              },
+              {
+                "id": "3",
+                "text": "Urlaubsplanung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Reviewing vacancies and applying are steps in Stellensuche.",
+              "de": "Angebote prüfen und Bewerbungen versenden gehört zur Stellensuche."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er befindet sich auf Stellensuche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Stellensuche' (option 1). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Einarbeitung: Onboarding starts after joining a job, not before finding one.; Stellensuche: correct in the complete context; Gehaltsabrechnung: Payroll accounting records salaries, not job applications.; Urlaubsplanung: Holiday planning concerns leave, not finding work.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015414",
+      "title": {
+        "en": "Using Stellungnahme accurately",
+        "de": "Stellungnahme im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stellungnahme as a formal written statement of a position.",
+        "de": "Stellungnahme als eine formelle Stellungnahme zu einem Sachverhalt erkennen."
+      },
+      "objective": "Recognize Stellungnahme in the specified a formal written statement of a position sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2253 (b420e4f282760c94a128ca0f99147b066b94ce3283ead7c08c9bd38a1a4d57a6), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2253-v1",
+          "contextKey": "legacy-0154-L2253-context-1",
+          "transferKey": "legacy-0154-L2253-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015414",
+            "type": "gap_choice",
+            "prompt": "Der Betriebsrat veröffentlichte eine schriftliche ___ zu den geplanten Änderungen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The group publicly states its position on a proposal.",
+              "de": "Das Gremium erklärt seine Haltung zu einem Vorschlag."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Überweisung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stellungnahme"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Stellungnahme sets out an opinion or position on a matter.",
+              "de": "Eine Stellungnahme legt eine Haltung zu einem Sachverhalt dar."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Betriebsrat veröffentlichte eine schriftliche Stellungnahme zu den geplanten Änderungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stellungnahme' (option 3). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Lieferung: A delivery transports goods, not a written opinion.; Einladung: An invitation asks someone to attend, not sets out a position.; Überweisung: A bank transfer moves money, not expresses an assessment.; Stellungnahme: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2253-v2",
+          "contextKey": "legacy-0154-L2253-context-2",
+          "transferKey": "legacy-0154-L2253-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015414",
+            "type": "choice",
+            "prompt": "Eine Behörde bittet eine Firma, ihre Position zu einem Vorwurf schriftlich zu erklären. Welches Dokument soll sie einreichen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The authority requests the firm's reasoned response.",
+              "de": "Die Behörde verlangt eine begründete schriftliche Antwort."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Stellungnahme"
+              },
+              {
+                "id": "1",
+                "text": "eine Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "eine Bestellung"
+              },
+              {
+                "id": "3",
+                "text": "einen Lieferschein"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A written response stating a position is a Stellungnahme.",
+              "de": "Eine schriftliche Erklärung der eigenen Position ist eine Stellungnahme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma soll eine Stellungnahme einreichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Stellungnahme' (option 0). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: eine Stellungnahme: correct in the complete context; eine Rechnung: An invoice requests payment, not a response to allegations.; eine Bestellung: A purchase order requests goods, not an explanation.; einen Lieferschein: A delivery note documents shipped items, not a firm's position.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015415",
+      "title": {
+        "en": "Using Stempel accurately",
+        "de": "Stempel im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stempel as a stamp or stamped mark used on documents.",
+        "de": "Stempel als einen Stempel beziehungsweise Stempelabdruck auf Dokumenten erkennen."
+      },
+      "objective": "Recognize Stempel in the specified a stamp or stamped mark used on documents sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2254 (7224990504b198a22f03de5d9afd39ad761735fc1c735fd9b502e15e3990e0cf), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2254-v1",
+          "contextKey": "legacy-0154-L2254-context-1",
+          "transferKey": "legacy-0154-L2254-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015415",
+            "type": "gap_choice",
+            "prompt": "Auf dem Formular fehlt noch der offizielle ___ der Behörde.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The form needs the authority's printed mark.",
+              "de": "Das Formular braucht den Abdruck der Behörde."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schlüssel"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Umschlag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Stempel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bildschirm"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "An official Stempel can mark a document.",
+              "de": "Ein amtlicher Stempel kann ein Dokument kennzeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Formular fehlt noch der offizielle Stempel der Behörde.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stempel' (option 2). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Schlüssel: A key opens a lock, not certifies a form.; Umschlag: An envelope holds mail, not the official imprint on a form.; Stempel: correct in the complete context; Bildschirm: A screen displays information, not a physical mark on paper.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2254-v2",
+          "contextKey": "legacy-0154-L2254-context-2",
+          "transferKey": "legacy-0154-L2254-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015415",
+            "type": "choice",
+            "prompt": "Die Mitarbeiterin drückt ein Gerät auf ein Stempelkissen und danach auf Papier. Was benutzt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The device transfers an ink impression to paper.",
+              "de": "Das Gerät hinterlässt einen Abdruck mit Farbe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "einen Locher"
+              },
+              {
+                "id": "1",
+                "text": "einen Hefter"
+              },
+              {
+                "id": "2",
+                "text": "einen Radiergummi"
+              },
+              {
+                "id": "3",
+                "text": "einen Stempel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A Stempel is used to imprint a mark.",
+              "de": "Mit einem Stempel wird ein Abdruck erzeugt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitarbeiterin benutzt einen Stempel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'einen Stempel' (option 3). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: einen Locher: A hole punch makes holes, not ink impressions.; einen Hefter: A stapler joins sheets, not stamps ink.; einen Radiergummi: An eraser removes marks, not produces an ink imprint.; einen Stempel: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015416",
+      "title": {
+        "en": "Using Stern accurately",
+        "de": "Stern im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stern as a star as a celestial body.",
+        "de": "Stern als einen Stern als Himmelskörper erkennen."
+      },
+      "objective": "Recognize Stern in the specified a star as a celestial body sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2255 (4febadfe699bbdb8a51fd26e4660092de496071107c625909699884cfe6e4750), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2255-v1",
+          "contextKey": "legacy-0154-L2255-context-1",
+          "transferKey": "legacy-0154-L2255-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015416",
+            "type": "gap_choice",
+            "prompt": "Am wolkenlosen Nachthimmel leuchtete ein heller ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Think of a luminous celestial body visible at night.",
+              "de": "Denke an einen leuchtenden Himmelskörper in der Nacht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Teller"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Koffer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schuh"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Stern is a luminous celestial body.",
+              "de": "Ein Stern ist ein leuchtender Himmelskörper."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am wolkenlosen Nachthimmel leuchtete ein heller Stern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stern' (option 1). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Teller: A plate is tableware, not a luminous celestial body.; Stern: correct in the complete context; Koffer: A suitcase is luggage, not something shining in the sky.; Schuh: A shoe is footwear, not an astronomical object.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2255-v2",
+          "contextKey": "legacy-0154-L2255-context-2",
+          "transferKey": "legacy-0154-L2255-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015416",
+            "type": "choice",
+            "prompt": "Ein Kind fragt, ob die Sonne ein Planet ist. Welche Antwort ist richtig?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Consider what kind of celestial body emits its own light.",
+              "de": "Überlege, welcher Himmelskörper selbst Licht erzeugt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die Sonne ist ein Mond."
+              },
+              {
+                "id": "1",
+                "text": "Die Sonne ist ein Komet."
+              },
+              {
+                "id": "2",
+                "text": "Die Sonne ist ein Stern."
+              },
+              {
+                "id": "3",
+                "text": "Die Sonne ist ein Satellit der Erde."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The Sun is a star that emits its own light.",
+              "de": "Die Sonne ist ein Stern, der selbst Licht erzeugt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sonne ist ein Stern und kein Planet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Die Sonne ist ein Stern.' (option 2). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Die Sonne ist ein Mond.: The Sun is not a moon orbiting a planet.; Die Sonne ist ein Komet.: The Sun is not a comet made of ice and dust.; Die Sonne ist ein Stern.: correct in the complete context; Die Sonne ist ein Satellit der Erde.: The Sun is not an Earth-orbiting satellite.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015417",
+      "title": {
+        "en": "Using Steuer accurately",
+        "de": "Steuer im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Steuer as a tax collected by the state.",
+        "de": "Steuer als eine vom Staat erhobene Steuer erkennen."
+      },
+      "objective": "Recognize Steuer in the specified a tax collected by the state sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2256 (828cd1052072cb751080b8b0d4c4bcac1faee9da57c901278d5d6e4d35403169), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2256-v1",
+          "contextKey": "legacy-0154-L2256-context-1",
+          "transferKey": "legacy-0154-L2256-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015417",
+            "type": "gap_choice",
+            "prompt": "Auf ihr Einkommen muss sie eine ___ zahlen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The payment is imposed by law on earnings.",
+              "de": "Die Abgabe wird gesetzlich auf Einkommen erhoben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Steuer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Miete"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Spende"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kaution"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Steuer is a legally imposed tax.",
+              "de": "Eine Steuer ist eine gesetzlich erhobene Abgabe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf ihr Einkommen muss sie eine Steuer zahlen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Steuer' (option 0). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Steuer: correct in the complete context; Miete: Rent is paid for use of property, not imposed on income.; Spende: A donation is voluntary, unlike the stated levy.; Kaution: A deposit secures an obligation, not a tax on earnings.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2256-v2",
+          "contextKey": "legacy-0154-L2256-context-2",
+          "transferKey": "legacy-0154-L2256-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015417",
+            "type": "choice",
+            "prompt": "Der Staat erhebt auf viele Waren einen Betrag, der im Verkaufspreis enthalten ist. Wie nennt man diese Abgabe?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is a compulsory levy, not a voluntary payment.",
+              "de": "Es ist eine gesetzliche Abgabe und keine freiwillige Zahlung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ein Pfand"
+              },
+              {
+                "id": "1",
+                "text": "eine Steuer"
+              },
+              {
+                "id": "2",
+                "text": "ein Trinkgeld"
+              },
+              {
+                "id": "3",
+                "text": "einen Rabatt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Value-added tax is one kind of Steuer.",
+              "de": "Die Umsatzsteuer ist eine Art von Steuer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Betrag ist eine Steuer, zum Beispiel die Umsatzsteuer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Steuer' (option 1). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: ein Pfand: A deposit is refundable under conditions, unlike the described tax.; eine Steuer: correct in the complete context; ein Trinkgeld: A tip is voluntarily given for service.; einen Rabatt: A discount reduces a price, not adds a state levy.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015418",
+      "title": {
+        "en": "Using Steuerbüro accurately",
+        "de": "Steuerbüro im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Steuerbüro as a private office providing tax advisory services.",
+        "de": "Steuerbüro als ein privates Büro für Steuerberatung erkennen."
+      },
+      "objective": "Recognize Steuerbüro in the specified a private office providing tax advisory services sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2257 (e01e7043d4a3308370de6bda50b8a4455f65918ef59493b2c4bb8ece79b71aa6), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2257-v1",
+          "contextKey": "legacy-0154-L2257-context-1",
+          "transferKey": "legacy-0154-L2257-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015418",
+            "type": "gap_choice",
+            "prompt": "Für die komplizierte Buchhaltung beauftragte das Unternehmen ein ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company needs professional tax and accounting help.",
+              "de": "Die Firma braucht fachliche Hilfe bei Steuern und Buchhaltung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Reisebüro"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Architekturbüro"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fundbüro"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Steuerbüro"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Steuerbüro offers tax-related professional services.",
+              "de": "Ein Steuerbüro bietet fachliche Dienstleistungen rund um Steuern an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die komplizierte Buchhaltung beauftragte das Unternehmen ein Steuerbüro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Steuerbüro' (option 3). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Reisebüro: A travel agency arranges trips, not tax accounting.; Architekturbüro: An architect's office designs buildings, not tax returns.; Fundbüro: A lost-property office handles found objects, not accounting.; Steuerbüro: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2257-v2",
+          "contextKey": "legacy-0154-L2257-context-2",
+          "transferKey": "legacy-0154-L2257-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015418",
+            "type": "choice",
+            "prompt": "Eine Selbstständige sucht fachliche Hilfe bei der Erstellung ihres Jahresabschlusses und ihrer Steuererklärung. Wohin wendet sie sich?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She needs an adviser, not a government tax authority.",
+              "de": "Sie sucht Beratung und keine Behörde zur Steuerfestsetzung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "an ein Steuerbüro"
+              },
+              {
+                "id": "1",
+                "text": "an das Fundbüro"
+              },
+              {
+                "id": "2",
+                "text": "an die Fahrschule"
+              },
+              {
+                "id": "3",
+                "text": "an die Stadtbibliothek"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A Steuerbüro can advise on accounts and tax returns.",
+              "de": "Ein Steuerbüro kann bei Jahresabschluss und Steuererklärung beraten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie wendet sich an ein Steuerbüro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'an ein Steuerbüro' (option 0). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: an ein Steuerbüro: correct in the complete context; an das Fundbüro: Lost-property offices handle lost belongings.; an die Fahrschule: Driving schools teach driving, not tax accounting.; an die Stadtbibliothek: Libraries lend media, not provide professional tax preparation.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015419",
+      "title": {
+        "en": "Using Steuererklärung accurately",
+        "de": "Steuererklärung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Steuererklärung as a tax return filed with the tax authority.",
+        "de": "Steuererklärung als eine beim Finanzamt eingereichte Steuererklärung erkennen."
+      },
+      "objective": "Recognize Steuererklärung in the specified a tax return filed with the tax authority sense and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2258 (c0afd91e61ed2b718274e60ff74dff9e2ac3f2967374b8f72ff3cf74f491bc86), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial findings are in each variant and the batch report; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0154-L2258-v1",
+          "contextKey": "legacy-0154-L2258-context-1",
+          "transferKey": "legacy-0154-L2258-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015419",
+            "type": "gap_choice",
+            "prompt": "Sie sammelt Belege, bevor sie ihre ___ beim Finanzamt einreicht.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The document reports tax-relevant income and expenses.",
+              "de": "Das Dokument enthält Angaben zu steuerlich wichtigen Einnahmen und Ausgaben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrkarte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Steuererklärung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mietzahlung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Steuererklärung is a declaration submitted for taxation.",
+              "de": "Eine Steuererklärung enthält Angaben für die steuerliche Veranlagung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie sammelt Belege, bevor sie ihre Steuererklärung beim Finanzamt einreicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Steuererklärung' (option 2). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: Fahrkarte: A ticket permits travel, not tax filing.; Bewerbung: An application seeks a job, not tax assessment.; Steuererklärung: correct in the complete context; Mietzahlung: A rent payment is a transaction, not a filed tax document.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0154-L2258-v2",
+          "contextKey": "legacy-0154-L2258-context-2",
+          "transferKey": "legacy-0154-L2258-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001540191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015419",
+            "type": "choice",
+            "prompt": "Ein Selbstständiger muss dem Finanzamt seine Einkünfte und abziehbaren Ausgaben für das Jahr mitteilen. Welches Dokument erstellt er?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The document declares financial information for tax assessment.",
+              "de": "Das Dokument dient der steuerlichen Erklärung der Einkünfte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Stellenanzeige"
+              },
+              {
+                "id": "1",
+                "text": "einen Arbeitsvertrag"
+              },
+              {
+                "id": "2",
+                "text": "einen Lieferschein"
+              },
+              {
+                "id": "3",
+                "text": "eine Steuererklärung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A tax return reports income and relevant deductions.",
+              "de": "Eine Steuererklärung nennt Einkünfte und steuerlich relevante Abzüge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er erstellt eine Steuererklärung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Steuererklärung' (option 3). Reviewed the complete German prompt, completed sentence, natural inflection, source level, objective, bilingual hint/explanation, and distinct context. Every offered option: eine Stellenanzeige: A vacancy advertisement seeks employees, not reports tax data.; einen Arbeitsvertrag: An employment contract sets job terms, not yearly taxable income.; einen Lieferschein: A delivery note records shipments, not earnings.; eine Steuererklärung: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
