@@ -1,0 +1,2392 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000015900",
+      "title": {
+        "en": "Using Textilie accurately",
+        "de": "Textilie im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Textilie as a textile material or product.",
+        "de": "Textilie als eine Textilie als Stoff oder Stoffware erkennen."
+      },
+      "objective": "Recognize Textilie in the specified a textile material or product sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2376 (be15e530359ade671f0e7441205b8c45ce540567125cabbf2dd5117bf1bd6cb3), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2376-v1",
+          "contextKey": "legacy-0159-L2376-context-1",
+          "transferKey": "legacy-0159-L2376-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015900",
+            "type": "gap_choice",
+            "prompt": "Die Fabrik verarbeitet Baumwolle zu hochwertigen ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Cotton becomes fabric products.",
+              "de": "Aus Baumwolle entstehen textile Produkte."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Werkzeugen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schrauben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Textilien"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Flaschen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Textilien are products made from fibres or fabric.",
+              "de": "Textilien sind Erzeugnisse aus Fasern oder Stoff."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fabrik verarbeitet Baumwolle zu hochwertigen Textilien.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Textilien' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Werkzeugen: Tools are implements, not cotton textiles.; Schrauben: Screws are fasteners, not fabric goods.; Textilien: correct in the complete context; Flaschen: Bottles are containers, not textile products.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2376-v2",
+          "contextKey": "legacy-0159-L2376-context-2",
+          "transferKey": "legacy-0159-L2376-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015900",
+            "type": "choice",
+            "prompt": "Eine Firma produziert Stoffe für Kleidung und Heimtextilien. Zu welcher Produktgruppe gehören diese Waren?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The products are made of textile fibres.",
+              "de": "Die Produkte bestehen aus textilen Fasern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Elektrogeräte"
+              },
+              {
+                "id": "1",
+                "text": "Lebensmittel"
+              },
+              {
+                "id": "2",
+                "text": "Baustoffe"
+              },
+              {
+                "id": "3",
+                "text": "Textilien"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Fabric products are Textilien.",
+              "de": "Stoffwaren sind Textilien."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Waren gehören zu den Textilien.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Textilien' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Elektrogeräte: Electrical devices are powered equipment, not cloth goods.; Lebensmittel: Food is eaten, not used as fabric.; Baustoffe: Building materials construct buildings, not the described textile goods.; Textilien: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015901",
+      "title": {
+        "en": "Using Theorie accurately",
+        "de": "Theorie im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Theorie as a theory explaining observations.",
+        "de": "Theorie als eine Theorie zur Erklärung von Beobachtungen erkennen."
+      },
+      "objective": "Recognize Theorie in the specified a theory explaining observations sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2379 (aa834641b8d3b617c6de4a320c31299e364db1bf6d8cd38ca6cd67037c1e9ab9), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2379-v1",
+          "contextKey": "legacy-0159-L2379-context-1",
+          "transferKey": "legacy-0159-L2379-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015901",
+            "type": "gap_choice",
+            "prompt": "In der ___ klingt das Verfahren einfach, doch in der praktischen Anwendung treten Probleme auf.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The contrast is between an abstract model and practice.",
+              "de": "Es geht um den Gegensatz zwischen gedanklichem Modell und Praxis."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Theorie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Pause"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "In der Theorie refers to the conceptual explanation.",
+              "de": "In der Theorie bezieht sich auf die gedankliche Grundlage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Theorie klingt das Verfahren einfach, doch in der praktischen Anwendung treten Probleme auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Theorie' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Rechnung: An invoice is a bill, not an abstract explanation.; Theorie: correct in the complete context; Pause: A break is rest, not the conceptual side of a method.; Lieferung: A delivery is a shipment, not a theoretical model.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2379-v2",
+          "contextKey": "legacy-0159-L2379-context-2",
+          "transferKey": "legacy-0159-L2379-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015901",
+            "type": "choice",
+            "prompt": "Forschende entwickeln ein Modell, das mehrere Beobachtungen zusammenhängend erklärt. Wie nennt man einen solchen Erklärungsansatz?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The model explains observations systematically.",
+              "de": "Das Modell erklärt Beobachtungen systematisch."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Quittung"
+              },
+              {
+                "id": "1",
+                "text": "Fahrplan"
+              },
+              {
+                "id": "2",
+                "text": "Theorie"
+              },
+              {
+                "id": "3",
+                "text": "Rechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A scientific Theorie provides a coherent explanation.",
+              "de": "Eine wissenschaftliche Theorie bietet eine zusammenhängende Erklärung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Erklärungsansatz ist eine Theorie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Theorie' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Quittung: A receipt records payment, not an explanatory model.; Fahrplan: A timetable lists scheduled times, not scientific explanations.; Theorie: correct in the complete context; Rechnung: An invoice records charges, not a research framework.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015902",
+      "title": {
+        "en": "Using Therapie accurately",
+        "de": "Therapie im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Therapie as a planned medical treatment.",
+        "de": "Therapie als eine geplante medizinische Therapie erkennen."
+      },
+      "objective": "Recognize Therapie in the specified a planned medical treatment sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2380 (c9997e5a69029d4feb5c8b23eb3d8bfee1627124ea72a4d5efeff7865e1429f4), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2380-v1",
+          "contextKey": "legacy-0159-L2380-context-1",
+          "transferKey": "legacy-0159-L2380-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015902",
+            "type": "gap_choice",
+            "prompt": "Die Ärztin bespricht mit dem Patienten eine geeignete ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The conversation concerns treatment.",
+              "de": "Das Gespräch betrifft eine Behandlung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Therapie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Therapie is a course of treatment.",
+              "de": "Eine Therapie ist eine Form der Behandlung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ärztin bespricht mit dem Patienten eine geeignete Therapie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Therapie' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Therapie: correct in the complete context; Bewerbung: An application seeks a position, not treats a patient.; Lieferung: A delivery is a shipment, not medical treatment.; Rechnung: An invoice requests payment, not the treatment plan itself.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2380-v2",
+          "contextKey": "legacy-0159-L2380-context-2",
+          "transferKey": "legacy-0159-L2380-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015902",
+            "type": "choice",
+            "prompt": "Eine Patientin erhält über mehrere Wochen eine medizinische Behandlung nach einem Plan. Wie nennt man diese Behandlung?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The care follows a planned treatment course.",
+              "de": "Die Versorgung erfolgt nach einem Behandlungsplan."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kündigung"
+              },
+              {
+                "id": "1",
+                "text": "Therapie"
+              },
+              {
+                "id": "2",
+                "text": "Anmeldung"
+              },
+              {
+                "id": "3",
+                "text": "Buchung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A planned treatment can be called Therapie.",
+              "de": "Eine geplante Behandlung kann Therapie heißen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Patientin erhält eine Therapie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Therapie' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Kündigung: Termination ends a contract, not medical treatment.; Therapie: correct in the complete context; Anmeldung: Registration signs up for something, not the treatment itself.; Buchung: A booking reserves a time or service, not the therapeutic process.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015904",
+      "title": {
+        "en": "Using Tierhaltung accurately",
+        "de": "Tierhaltung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tierhaltung as keeping and caring for farm animals.",
+        "de": "Tierhaltung als die Haltung und Versorgung von Nutztieren erkennen."
+      },
+      "objective": "Recognize Tierhaltung in the specified keeping and caring for farm animals sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2384 (ca176277615df24a66120226e297e8262a89377b4f0d3a311396120d5300587d), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2384-v1",
+          "contextKey": "legacy-0159-L2384-context-1",
+          "transferKey": "legacy-0159-L2384-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015904",
+            "type": "gap_choice",
+            "prompt": "Bei der ___ auf dem Bauernhof müssen die Tiere ausreichend Platz und Pflege erhalten.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The topic is how animals are kept and cared for.",
+              "de": "Es geht um Unterbringung und Versorgung der Tiere."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lohnabrechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Tierhaltung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stellenanzeige"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Tierhaltung covers keeping and caring for animals.",
+              "de": "Tierhaltung umfasst Unterbringung und Versorgung von Tieren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Tierhaltung auf dem Bauernhof müssen die Tiere ausreichend Platz und Pflege erhalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tierhaltung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Lohnabrechnung: Payroll accounting calculates wages, not animal welfare.; Buchhaltung: Bookkeeping records finances, not animal housing.; Tierhaltung: correct in the complete context; Stellenanzeige: A job ad seeks employees, not cares for livestock.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2384-v2",
+          "contextKey": "legacy-0159-L2384-context-2",
+          "transferKey": "legacy-0159-L2384-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015904",
+            "type": "choice",
+            "prompt": "Ein Betrieb kümmert sich um Unterbringung, Fütterung und Pflege von Nutztieren. Wie nennt man diesen Bereich?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The work concerns farm animals.",
+              "de": "Die Arbeit betrifft Nutztiere."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Pflanzenbau"
+              },
+              {
+                "id": "1",
+                "text": "Metallverarbeitung"
+              },
+              {
+                "id": "2",
+                "text": "Transportlogistik"
+              },
+              {
+                "id": "3",
+                "text": "Tierhaltung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Keeping livestock is Tierhaltung.",
+              "de": "Die Haltung von Nutztieren heißt Tierhaltung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Betrieb betreibt Tierhaltung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tierhaltung' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Pflanzenbau: Crop cultivation concerns plants, not animal care.; Metallverarbeitung: Metalworking processes metal, not livestock.; Transportlogistik: Transport logistics moves goods, not ongoing animal husbandry.; Tierhaltung: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015905",
+      "title": {
+        "en": "Using Tierpark accurately",
+        "de": "Tierpark im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tierpark as an animal park where visitors observe animals.",
+        "de": "Tierpark als einen Tierpark mit Tiergehegen erkennen."
+      },
+      "objective": "Recognize Tierpark in the specified an animal park where visitors observe animals sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2385 (dd60e3fbc2d7011dd8f15b0e8c9d2e8f8cedc86ee2117a7cf54a9781ec937102), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2385-v1",
+          "contextKey": "legacy-0159-L2385-context-1",
+          "transferKey": "legacy-0159-L2385-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015905",
+            "type": "gap_choice",
+            "prompt": "Am Sonntag besuchten wir einen ___ und sahen dort Hirsche und Bären.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Visitors observe animals in enclosures.",
+              "de": "Besucher beobachten Tiere in Gehegen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Baumarkt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tierpark"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bahnhof"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Supermarkt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tierpark is a park for viewing animals.",
+              "de": "Ein Tierpark ist eine Anlage, in der Besucher Tiere beobachten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Sonntag besuchten wir einen Tierpark und sahen dort Hirsche und Bären.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tierpark' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Baumarkt: A hardware store sells tools, not displays wild animals.; Tierpark: correct in the complete context; Bahnhof: A station serves trains, not animal exhibits.; Supermarkt: A supermarket sells groceries, not keeps animals for viewing.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2385-v2",
+          "contextKey": "legacy-0159-L2385-context-2",
+          "transferKey": "legacy-0159-L2385-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015905",
+            "type": "choice",
+            "prompt": "Eine Familie möchte Tiere in großzügigen Gehegen beobachten. Wohin kann sie gehen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The destination keeps animals for visitors.",
+              "de": "Der Ort zeigt Besuchern Tiere in Gehegen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Stadtarchiv"
+              },
+              {
+                "id": "1",
+                "text": "Bürgeramt"
+              },
+              {
+                "id": "2",
+                "text": "Tierpark"
+              },
+              {
+                "id": "3",
+                "text": "Postfiliale"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A Tierpark is suitable for observing animals.",
+              "de": "In einem Tierpark kann man Tiere beobachten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Familie kann in einen Tierpark gehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tierpark' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Stadtarchiv: A city archive stores records, not animal enclosures.; Bürgeramt: A citizen office provides administration, not animal exhibits.; Tierpark: correct in the complete context; Postfiliale: A post office handles mail, not a zoo visit.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015906",
+      "title": {
+        "en": "Using Tischlerei accurately",
+        "de": "Tischlerei im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tischlerei as a woodworking or carpentry workshop.",
+        "de": "Tischlerei als eine Tischlerei für Holzarbeiten erkennen."
+      },
+      "objective": "Recognize Tischlerei in the specified a woodworking or carpentry workshop sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2388 (6d9b933553b2c696c8c4473a842e04b2f172ac15a4a8005cabc91d4a5ac2d82b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2388-v1",
+          "contextKey": "legacy-0159-L2388-context-1",
+          "transferKey": "legacy-0159-L2388-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015906",
+            "type": "gap_choice",
+            "prompt": "Die neue Einbauküche wurde in einer ___ nach Maß angefertigt.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The workshop makes custom wooden furniture.",
+              "de": "Die Werkstatt fertigt Möbel aus Holz nach Maß."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Tischlerei"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bäckerei"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Apotheke"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Druckerei"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tischlerei makes wooden fittings and furniture.",
+              "de": "Eine Tischlerei fertigt Möbel und Holzeinbauten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Einbauküche wurde in einer Tischlerei nach Maß angefertigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tischlerei' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tischlerei: correct in the complete context; Bäckerei: A bakery produces baked goods, not fitted kitchens.; Apotheke: A pharmacy dispenses medicines, not wooden furniture.; Druckerei: A print shop prints materials, not makes kitchens.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2388-v2",
+          "contextKey": "legacy-0159-L2388-context-2",
+          "transferKey": "legacy-0159-L2388-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015906",
+            "type": "choice",
+            "prompt": "Eine Werkstatt fertigt Schränke und Türen aus Holz. Wie heißt ein solcher Betrieb?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The workshop specializes in wood.",
+              "de": "Die Werkstatt verarbeitet vor allem Holz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schlosserei"
+              },
+              {
+                "id": "1",
+                "text": "Tischlerei"
+              },
+              {
+                "id": "2",
+                "text": "Autowerkstatt"
+              },
+              {
+                "id": "3",
+                "text": "Reinigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A carpentry workshop is a Tischlerei.",
+              "de": "Eine Werkstatt für Holzarbeiten heißt Tischlerei."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Betrieb ist eine Tischlerei.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tischlerei' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Schlosserei: A metalworking shop specializes in metal, not the stated wood products.; Tischlerei: correct in the complete context; Autowerkstatt: A car repair shop fixes vehicles, not cabinets.; Reinigung: A cleaning service cleans premises, not manufactures wooden doors.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015907",
+      "title": {
+        "en": "Using Tod accurately",
+        "de": "Tod im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tod as the end of a person's life.",
+        "de": "Tod als den Tod als Ende des Lebens erkennen."
+      },
+      "objective": "Recognize Tod in the specified the end of a person's life sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2391 (b0f1a9b4100daa73b5ca0d34d2f4b364fa0d07245851b260315235512266dcc1), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2391-v1",
+          "contextKey": "legacy-0159-L2391-context-1",
+          "transferKey": "legacy-0159-L2391-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015907",
+            "type": "gap_choice",
+            "prompt": "Die Familie trauerte nach dem ___ ihres Großvaters.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "They are grieving a loss of life.",
+              "de": "Die Familie trauert um einen verstorbenen Menschen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Urlaub"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Besuch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geburtstag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tod"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Tod means the end of life.",
+              "de": "Tod bedeutet das Ende des Lebens."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Familie trauerte nach dem Tod ihres Großvaters.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tod' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Urlaub: A holiday is time off, not the death being mourned.; Besuch: A visit is an event, not a loss of life.; Geburtstag: A birthday celebrates a date, not the death of a relative.; Tod: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2391-v2",
+          "contextKey": "legacy-0159-L2391-context-2",
+          "transferKey": "legacy-0159-L2391-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015907",
+            "type": "choice",
+            "prompt": "Ein Bericht sagt, dass ein Mensch gestorben ist. Welches Substantiv bezeichnet das Ende seines Lebens?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The person is no longer alive.",
+              "de": "Die Person lebt nicht mehr."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tod"
+              },
+              {
+                "id": "1",
+                "text": "Geburt"
+              },
+              {
+                "id": "2",
+                "text": "Umzug"
+              },
+              {
+                "id": "3",
+                "text": "Ankunft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The end of life is Tod.",
+              "de": "Das Lebensende heißt Tod."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Ende seines Lebens ist der Tod.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tod' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tod: correct in the complete context; Geburt: Birth is the beginning of life, not its end.; Umzug: Moving house changes residence, not life status.; Ankunft: Arrival means reaching a place, not death.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015909",
+      "title": {
+        "en": "Using Tor accurately",
+        "de": "Tor im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tor as a gate or large door for entry.",
+        "de": "Tor als ein Tor als große Durchfahrt erkennen."
+      },
+      "objective": "Recognize Tor in the specified a gate or large door for entry sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2396 (782eadbc431042eeb5f2c428f4d4df3fb82a554427c4331c73863321d83cb147), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2396-v1",
+          "contextKey": "legacy-0159-L2396-context-1",
+          "transferKey": "legacy-0159-L2396-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015909",
+            "type": "gap_choice",
+            "prompt": "Das Auto fuhr durch das geöffnete ___ in die Garage.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A vehicle passes through a large opening.",
+              "de": "Ein Fahrzeug fährt durch eine große Öffnung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fenster"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tor"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Regal"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Heft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tor can be a large gate for vehicles.",
+              "de": "Ein Tor kann eine große Durchfahrt verschließen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Auto fuhr durch das geöffnete Tor in die Garage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tor' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Fenster: A window is too small and not a normal vehicle entrance.; Tor: correct in the complete context; Regal: A shelf stores objects, not a passage.; Heft: A notebook is a paper item, not a garage opening.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2396-v2",
+          "contextKey": "legacy-0159-L2396-context-2",
+          "transferKey": "legacy-0159-L2396-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015909",
+            "type": "choice",
+            "prompt": "Am Eingang einer alten Burg gibt es eine große verschließbare Durchfahrt. Wie nennt man sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The opening can be closed with large doors.",
+              "de": "Die Durchfahrt lässt sich mit großen Flügeln verschließen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Treppe"
+              },
+              {
+                "id": "1",
+                "text": "Dach"
+              },
+              {
+                "id": "2",
+                "text": "Tor"
+              },
+              {
+                "id": "3",
+                "text": "Bank"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A castle entrance can have a Tor.",
+              "de": "Eine Burg kann ein großes Eingangstor haben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Durchfahrt ist ein Tor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tor' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Treppe: Stairs connect levels, not close a passage.; Dach: A roof covers a building, not an entrance gate.; Tor: correct in the complete context; Bank: A bench is seating, not a large doorway.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015911",
+      "title": {
+        "en": "Using Tourismus accurately",
+        "de": "Tourismus im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tourismus as tourism involving visitors and travel.",
+        "de": "Tourismus als Tourismus als Reisen und Besuche erkennen."
+      },
+      "objective": "Recognize Tourismus in the specified tourism involving visitors and travel sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2400 (7f6fa8eb1e5327fc87cb06dbdb803f81587fe076618bf2312002d891a8a13487), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2400-v1",
+          "contextKey": "legacy-0159-L2400-context-1",
+          "transferKey": "legacy-0159-L2400-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015911",
+            "type": "gap_choice",
+            "prompt": "Im Sommer leben viele Geschäfte an der Küste vom ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Visitors bring customers to the region.",
+              "de": "Reisende bringen Kundschaft in die Region."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bergbau"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Maschinenbau"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ackerbau"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tourismus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Tourismus brings visitors and related spending.",
+              "de": "Tourismus bringt Besucher und damit verbundene Ausgaben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Sommer leben viele Geschäfte an der Küste vom Tourismus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tourismus' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Bergbau: Mining extracts minerals, not visitor spending.; Maschinenbau: Mechanical engineering builds machinery, not the holiday visitor sector.; Ackerbau: Agriculture grows crops, not tourism services.; Tourismus: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2400-v2",
+          "contextKey": "legacy-0159-L2400-context-2",
+          "transferKey": "legacy-0159-L2400-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015911",
+            "type": "choice",
+            "prompt": "Viele Menschen reisen in eine Region, übernachten dort und besuchen Sehenswürdigkeiten. Welcher Wirtschaftszweig profitiert direkt davon?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The sector serves travellers and visitors.",
+              "de": "Der Bereich bietet Leistungen für Reisende und Besucher."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tourismus"
+              },
+              {
+                "id": "1",
+                "text": "Stahlproduktion"
+              },
+              {
+                "id": "2",
+                "text": "Forstwirtschaft"
+              },
+              {
+                "id": "3",
+                "text": "Bergbau"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Visitor travel is part of Tourismus.",
+              "de": "Reisen von Besuchern gehören zum Tourismus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Tourismus profitiert von diesen Reisen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tourismus' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Tourismus: correct in the complete context; Stahlproduktion: Steel production makes metal, not directly provides visitor services.; Forstwirtschaft: Forestry manages forests, not principally overnight visits.; Bergbau: Mining extracts resources, not the described travel activity.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015913",
+      "title": {
+        "en": "Using Tragfähigkeit accurately",
+        "de": "Tragfähigkeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tragfähigkeit as the maximum weight a structure can safely support.",
+        "de": "Tragfähigkeit als die Tragfähigkeit einer Konstruktion erkennen."
+      },
+      "objective": "Recognize Tragfähigkeit in the specified the maximum weight a structure can safely support sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2404 (b2addc05c485a719aa51cfa3df72a268f067ae1725b67e81f61baaa6f03a33f3), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2404-v1",
+          "contextKey": "legacy-0159-L2404-context-1",
+          "transferKey": "legacy-0159-L2404-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015913",
+            "type": "gap_choice",
+            "prompt": "Vor dem Beladen des Regals muss seine maximale ___ geprüft werden.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The shelf must safely support the load.",
+              "de": "Das Regal muss die Last sicher tragen können."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Öffnungszeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tragfähigkeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Farbe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lautstärke"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Tragfähigkeit describes how much weight something can bear.",
+              "de": "Tragfähigkeit gibt an, welche Last etwas tragen kann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Beladen des Regals muss seine maximale Tragfähigkeit geprüft werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tragfähigkeit' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Öffnungszeit: Opening hours concern time, not structural load.; Tragfähigkeit: correct in the complete context; Farbe: Colour does not specify safe load.; Lautstärke: Volume is sound intensity, not weight capacity.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2404-v2",
+          "contextKey": "legacy-0159-L2404-context-2",
+          "transferKey": "legacy-0159-L2404-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015913",
+            "type": "choice",
+            "prompt": "Eine Brücke darf nur Fahrzeuge bis zu einer bestimmten Masse tragen. Welche Eigenschaft begrenzt das Gewicht?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The bridge has a maximum safe load.",
+              "de": "Die Brücke hat eine maximale zulässige Last."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sichtweite"
+              },
+              {
+                "id": "1",
+                "text": "Geschwindigkeit"
+              },
+              {
+                "id": "2",
+                "text": "Tragfähigkeit"
+              },
+              {
+                "id": "3",
+                "text": "Temperatur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Load-bearing capacity limits the weight.",
+              "de": "Die Tragfähigkeit begrenzt die zulässige Last."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Tragfähigkeit der Brücke begrenzt das Gewicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tragfähigkeit' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Sichtweite: Visibility distance does not determine structural weight support.; Geschwindigkeit: Speed is motion rate, not the weight capacity.; Tragfähigkeit: correct in the complete context; Temperatur: Temperature is warmth, not the structural limit in the question.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015914",
+      "title": {
+        "en": "Using Trainer accurately",
+        "de": "Trainer im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Trainer as a male sports coach.",
+        "de": "Trainer als einen männlichen Trainer erkennen."
+      },
+      "objective": "Recognize Trainer in the specified a male sports coach sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2405 (fd2c0ac184b8477e116817b8ca68898f9972559b30da0c973d476ab9e6313280), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2405-v1",
+          "contextKey": "legacy-0159-L2405-context-1",
+          "transferKey": "legacy-0159-L2405-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015914",
+            "type": "gap_choice",
+            "prompt": "Der ___ erklärte der Mannschaft die neue Spielstrategie.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person plans and guides the team's training.",
+              "de": "Die Person plant und leitet das Training der Mannschaft."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Trainer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schiedsrichter"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zuschauer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reporter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Trainer coaches a team.",
+              "de": "Ein Trainer betreut und trainiert eine Mannschaft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Trainer erklärte der Mannschaft die neue Spielstrategie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Trainer' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Trainer: correct in the complete context; Schiedsrichter: A referee enforces rules, not plans a team's tactics.; Zuschauer: A spectator watches, not directs team strategy.; Reporter: A reporter covers events, not coaches the players.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2405-v2",
+          "contextKey": "legacy-0159-L2405-context-2",
+          "transferKey": "legacy-0159-L2405-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015914",
+            "type": "choice",
+            "prompt": "Ein Mann plant das Training eines Sportteams und verbessert dessen Technik. Wie nennt man ihn?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He prepares exercises for the players.",
+              "de": "Er bereitet Übungen für die Sportler vor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Torwart"
+              },
+              {
+                "id": "1",
+                "text": "Trainer"
+              },
+              {
+                "id": "2",
+                "text": "Schiedsrichter"
+              },
+              {
+                "id": "3",
+                "text": "Platzwart"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A sports coach is a Trainer.",
+              "de": "Ein Sporttrainer plant und leitet das Training."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann ist Trainer des Teams.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Trainer' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Torwart: A goalkeeper is a player, not the person organizing training.; Trainer: correct in the complete context; Schiedsrichter: A referee officiates games, not coaches the team.; Platzwart: A groundskeeper maintains the field, not trains players.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015916",
+      "title": {
+        "en": "Using Tram accurately",
+        "de": "Tram im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tram as a tram travelling on city tracks.",
+        "de": "Tram als eine Straßenbahn beziehungsweise Tram erkennen."
+      },
+      "objective": "Recognize Tram in the specified a tram travelling on city tracks sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2408 (38e49742dc7ef02911effae484eba8187e3bae6c366a190bcb5bd2cd742fbd96), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2408-v1",
+          "contextKey": "legacy-0159-L2408-context-1",
+          "transferKey": "legacy-0159-L2408-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015916",
+            "type": "gap_choice",
+            "prompt": "Die ___ hält an der Haltestelle vor dem Rathaus.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is a rail vehicle in city traffic.",
+              "de": "Es ist ein Schienenfahrzeug im Stadtverkehr."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fähre"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Flugzeug"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Tram"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Taxi"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tram is a city streetcar.",
+              "de": "Eine Tram ist eine Straßenbahn."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Tram hält an der Haltestelle vor dem Rathaus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tram' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Fähre: A ferry travels on water, not city tracks.; Flugzeug: An aircraft flies, not uses a streetcar stop.; Tram: correct in the complete context; Taxi: A taxi is a car, not a rail vehicle at a tram stop.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2408-v2",
+          "contextKey": "legacy-0159-L2408-context-2",
+          "transferKey": "legacy-0159-L2408-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015916",
+            "type": "choice",
+            "prompt": "In der Innenstadt fährt ein elektrisches Schienenfahrzeug auf Gleisen mitten auf der Straße. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The tracks run in the street.",
+              "de": "Die Gleise verlaufen auf der Straße."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "U-Bahn"
+              },
+              {
+                "id": "1",
+                "text": "Bus"
+              },
+              {
+                "id": "2",
+                "text": "Fähre"
+              },
+              {
+                "id": "3",
+                "text": "Tram"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A street-running rail vehicle is a Tram.",
+              "de": "Ein Schienenfahrzeug auf Straßenbahngleisen ist eine Tram."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Schienenfahrzeug ist eine Tram.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tram' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: U-Bahn: A subway generally uses its own rapid-transit infrastructure, not ordinary street tram tracks.; Bus: A bus uses tyres, not rails.; Fähre: A ferry moves on water, not road tracks.; Tram: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015917",
+      "title": {
+        "en": "Using Träne accurately",
+        "de": "Träne im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Träne as a tear from the eye.",
+        "de": "Träne als eine Träne aus dem Auge erkennen."
+      },
+      "objective": "Recognize Träne in the specified a tear from the eye sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2409 (665c489e3ec792a88b85a19bec28ec00248338a34f496b3a803eb0b83c397f13), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2409-v1",
+          "contextKey": "legacy-0159-L2409-context-1",
+          "transferKey": "legacy-0159-L2409-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015917",
+            "type": "gap_choice",
+            "prompt": "Vor Rührung lief ihr eine ___ über die Wange.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The liquid comes from the eye during emotion.",
+              "de": "Die Flüssigkeit kommt bei starken Gefühlen aus dem Auge."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Perle"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Träne"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schraube"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Münze"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Träne is a tear.",
+              "de": "Eine Träne ist Flüssigkeit aus dem Auge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor Rührung lief ihr eine Träne über die Wange.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Träne' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Perle: A pearl is a solid gem, not an eye tear.; Träne: correct in the complete context; Schraube: A screw is a metal fastener, not emotional fluid.; Münze: A coin is money, not a tear.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2409-v2",
+          "contextKey": "legacy-0159-L2409-context-2",
+          "transferKey": "legacy-0159-L2409-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015917",
+            "type": "choice",
+            "prompt": "Nach dem Weinen fällt ein Tropfen Flüssigkeit aus dem Auge auf die Hand. Wie heißt dieser Tropfen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The liquid is produced by the eye.",
+              "de": "Die Flüssigkeit entsteht im Auge."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Regentropfen"
+              },
+              {
+                "id": "1",
+                "text": "Schweißperle"
+              },
+              {
+                "id": "2",
+                "text": "Träne"
+              },
+              {
+                "id": "3",
+                "text": "Tintentropfen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A tear from the eye is a Träne.",
+              "de": "Ein Tropfen aus dem Auge heißt Träne."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Tropfen aus dem Auge ist eine Träne.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Träne' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Regentropfen: A raindrop falls from clouds, not the eye.; Schweißperle: A bead of sweat comes from skin, not the eye.; Träne: correct in the complete context; Tintentropfen: Ink comes from writing materials, not tear glands.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015918",
+      "title": {
+        "en": "Using Transport accurately",
+        "de": "Transport im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Transport as the movement of goods from one place to another.",
+        "de": "Transport als den Transport von Waren erkennen."
+      },
+      "objective": "Recognize Transport in the specified the movement of goods from one place to another sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2410 (d58d20f4159d0ef1c76d226e75426895634a350755188a349d22c8a9535f303c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2410-v1",
+          "contextKey": "legacy-0159-L2410-context-1",
+          "transferKey": "legacy-0159-L2410-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015918",
+            "type": "gap_choice",
+            "prompt": "Der ___ der Möbel zum neuen Büro dauert zwei Stunden.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The furniture is being moved between locations.",
+              "de": "Die Möbel werden von einem Ort zum anderen gebracht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Transport"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verkauf"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kauf"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vertrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Transport means moving goods.",
+              "de": "Transport bedeutet die Beförderung von Gütern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Transport der Möbel zum neuen Büro dauert zwei Stunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Transport' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Transport: correct in the complete context; Verkauf: A sale transfers ownership, not necessarily moves the furniture.; Kauf: A purchase acquires goods, not the movement itself.; Vertrag: A contract is an agreement, not physical transportation.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2410-v2",
+          "contextKey": "legacy-0159-L2410-context-2",
+          "transferKey": "legacy-0159-L2410-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015918",
+            "type": "choice",
+            "prompt": "Ein Unternehmen bringt Pakete mit Lastwagen vom Lager zu den Kunden. Wie nennt man diese Beförderung?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The packages change location.",
+              "de": "Die Pakete werden an einen anderen Ort gebracht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Buchhaltung"
+              },
+              {
+                "id": "1",
+                "text": "Transport"
+              },
+              {
+                "id": "2",
+                "text": "Produktion"
+              },
+              {
+                "id": "3",
+                "text": "Werbung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Moving goods is Transport.",
+              "de": "Die Beförderung von Waren heißt Transport."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Beförderung der Pakete ist ein Transport.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Transport' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Buchhaltung: Accounting records finances, not moving parcels.; Transport: correct in the complete context; Produktion: Production makes goods, not delivers them.; Werbung: Advertising promotes products, not physically transports them.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015919",
+      "title": {
+        "en": "Using Treffpunkt accurately",
+        "de": "Treffpunkt im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Treffpunkt as an agreed meeting place.",
+        "de": "Treffpunkt als einen vereinbarten Treffpunkt erkennen."
+      },
+      "objective": "Recognize Treffpunkt in the specified an agreed meeting place sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2412 (a704f8a530e42ecefba9523338b5e6655f3a82f749e78df27698ec3509ba2f6b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0159-L2412-v1",
+          "contextKey": "legacy-0159-L2412-context-1",
+          "transferKey": "legacy-0159-L2412-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015919",
+            "type": "gap_choice",
+            "prompt": "Unser ___ für die Wanderung ist der Eingang des Bahnhofs.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The group agrees where to meet.",
+              "de": "Die Gruppe vereinbart, wo sie sich trifft."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrpreis"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rückweg"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Urlaub"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Treffpunkt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Treffpunkt is an agreed meeting location.",
+              "de": "Ein Treffpunkt ist ein vereinbarter Ort zum Treffen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Unser Treffpunkt für die Wanderung ist der Eingang des Bahnhofs.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Treffpunkt' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Fahrpreis: A fare is the price of travel, not a location.; Rückweg: A return route is a path, not the meeting place.; Urlaub: A holiday is time off, not the chosen meeting location.; Treffpunkt: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0159-L2412-v2",
+          "contextKey": "legacy-0159-L2412-context-2",
+          "transferKey": "legacy-0159-L2412-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001590191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015919",
+            "type": "choice",
+            "prompt": "Zwei Freunde verabreden sich vor dem Kino. Wie nennt man den vereinbarten Ort?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The place is chosen for meeting.",
+              "de": "Der Ort wurde zum Treffen vereinbart."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Treffpunkt"
+              },
+              {
+                "id": "1",
+                "text": "Fahrplan"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Gutschein"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "An agreed meeting place is a Treffpunkt.",
+              "de": "Ein vereinbarter Ort zum Treffen heißt Treffpunkt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Ort vor dem Kino ist ihr Treffpunkt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Treffpunkt' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every option: Treffpunkt: correct in the complete context; Fahrplan: A timetable lists departures, not a meeting place.; Rechnung: An invoice lists charges, not a location.; Gutschein: A voucher grants a purchase benefit, not the place to meet.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
