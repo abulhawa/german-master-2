@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000015500",
+      "title": {
+        "en": "Using Steuerklasse accurately",
+        "de": "Steuerklasse im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Steuerklasse as a payroll tax-withholding category.",
+        "de": "Steuerklasse als eine Kategorie für den Lohnsteuerabzug erkennen."
+      },
+      "objective": "Recognize Steuerklasse in the specified a payroll tax-withholding category sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2259 (980f10d9801f4b279afe7c3dfc1b7ec5e285635270c402e499c67955aeb9eb30), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2259-v1",
+          "contextKey": "legacy-0155-L2259-context-1",
+          "transferKey": "legacy-0155-L2259-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015500",
+            "type": "gap_choice",
+            "prompt": "Für die Berechnung der Lohnsteuer wird auf der Gehaltsabrechnung die ___ angegeben.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The information affects payroll tax withholding.",
+              "de": "Die Angabe spielt beim Lohnsteuerabzug eine Rolle."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Urlaubsplanung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Dienstkleidung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Steuerklasse"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitsanweisung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Steuerklasse identifies a category relevant to wage-tax deductions.",
+              "de": "Die Steuerklasse ist eine für den Lohnsteuerabzug relevante Kategorie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Berechnung der Lohnsteuer wird auf der Gehaltsabrechnung die Steuerklasse angegeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Steuerklasse' (option 2). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Urlaubsplanung: Holiday planning schedules leave, not tax withholding.; Dienstkleidung: Work clothing does not determine payroll tax.; Steuerklasse: correct in the complete context; Arbeitsanweisung: Work instructions describe tasks, not tax categories.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2259-v2",
+          "contextKey": "legacy-0155-L2259-context-2",
+          "transferKey": "legacy-0155-L2259-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015500",
+            "type": "choice",
+            "prompt": "Zwei Beschäftigte haben gleich hohe Bruttogehälter, aber unterschiedliche Lohnsteuerabzüge. Welche Angabe kann dabei eine Rolle spielen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Consider the payroll category, not personal preferences.",
+              "de": "Es geht um eine steuerliche Kategorie und nicht um Vorlieben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "die Schuhgröße"
+              },
+              {
+                "id": "1",
+                "text": "die Büroetage"
+              },
+              {
+                "id": "2",
+                "text": "die Lieblingsfarbe"
+              },
+              {
+                "id": "3",
+                "text": "die Steuerklasse"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The tax class can affect wage-tax withholding.",
+              "de": "Die Steuerklasse kann die Höhe des Lohnsteuerabzugs beeinflussen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Steuerklasse kann den Lohnsteuerabzug beeinflussen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'die Steuerklasse' (option 3). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: die Schuhgröße: Shoe size is irrelevant to wage-tax withholding.; die Büroetage: Office floor does not determine payroll tax.; die Lieblingsfarbe: Favourite colour has no tax significance.; die Steuerklasse: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015501",
+      "title": {
+        "en": "Using Steward accurately",
+        "de": "Steward im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Steward as a male flight attendant.",
+        "de": "Steward als einen männlichen Flugbegleiter erkennen."
+      },
+      "objective": "Recognize Steward in the specified a male flight attendant sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2260 (372b64da3ffd5477ee154801a714edddabe4e914e2714a518948ed45049b9a35), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2260-v1",
+          "contextKey": "legacy-0155-L2260-context-1",
+          "transferKey": "legacy-0155-L2260-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015501",
+            "type": "gap_choice",
+            "prompt": "Während des Fluges servierte der ___ den Passagieren Getränke.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "This crew member looks after passengers in the cabin.",
+              "de": "Dieses Besatzungsmitglied betreut die Reisenden in der Kabine."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fluglotse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Steward"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mechaniker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zollbeamte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Steward can serve and assist passengers on board.",
+              "de": "Ein Steward kann Fluggäste an Bord betreuen und bedienen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während des Fluges servierte der Steward den Passagieren Getränke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Steward' (option 1). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Fluglotse: An air-traffic controller works on aircraft routing, not cabin service.; Steward: correct in the complete context; Mechaniker: A mechanic maintains aircraft, not serves drinks during flight.; Zollbeamte: A customs officer checks goods and travellers, not performs cabin service.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2260-v2",
+          "contextKey": "legacy-0155-L2260-context-2",
+          "transferKey": "legacy-0155-L2260-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015501",
+            "type": "choice",
+            "prompt": "Ein männlicher Flugbegleiter hilft Reisenden, ihr Handgepäck sicher zu verstauen. Wie kann man ihn nennen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The task takes place in the passenger cabin.",
+              "de": "Die Tätigkeit findet in der Passagierkabine statt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lokführer"
+              },
+              {
+                "id": "1",
+                "text": "Fluglotse"
+              },
+              {
+                "id": "2",
+                "text": "Steward"
+              },
+              {
+                "id": "3",
+                "text": "Kapitän"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Steward is a term for a male cabin attendant.",
+              "de": "Steward ist eine Bezeichnung für einen männlichen Flugbegleiter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Flugbegleiter ist ein Steward.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Steward' (option 2). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Lokführer: A train driver operates a train, not an aircraft cabin.; Fluglotse: An air-traffic controller guides flights from outside the cabin.; Steward: correct in the complete context; Kapitän: A captain commands the aircraft rather than being identified by cabin assistance.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015503",
+      "title": {
+        "en": "Using Stichprobe accurately",
+        "de": "Stichprobe im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stichprobe as a selected subset used for testing or research.",
+        "de": "Stichprobe als eine untersuchte Teilmenge einer größeren Gruppe erkennen."
+      },
+      "objective": "Recognize Stichprobe in the specified a selected subset used for testing or research sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2262 (5a65a4e4e348b55c909bfd189c6bf0126c39fadba5f075c4aa1f90d2607f96b3), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2262-v1",
+          "contextKey": "legacy-0155-L2262-context-1",
+          "transferKey": "legacy-0155-L2262-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015503",
+            "type": "gap_choice",
+            "prompt": "Bei der Qualitätsprüfung werden nicht alle 10.000 Teile kontrolliert, sondern nur eine ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Only some items are selected for checking.",
+              "de": "Es wird nur ein Teil der Produkte ausgewählt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Inventur"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stichprobe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Stichprobe is a subset inspected instead of the whole population.",
+              "de": "Eine Stichprobe ist eine untersuchte Auswahl aus einer größeren Menge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Qualitätsprüfung werden nicht alle 10.000 Teile kontrolliert, sondern nur eine Stichprobe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stichprobe' (option 3). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Inventur: Inventory counts stock rather than selecting a test subset.; Lieferung: A delivery is a shipment, not a selected quality sample.; Rechnung: An invoice documents payment due, not inspection.; Stichprobe: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2262-v2",
+          "contextKey": "legacy-0155-L2262-context-2",
+          "transferKey": "legacy-0155-L2262-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015503",
+            "type": "choice",
+            "prompt": "Eine Forscherin befragt 200 von insgesamt 20.000 Studierenden. Was bilden die 200 Befragten?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The surveyed people are a subset of the whole student population.",
+              "de": "Die Befragten sind nur ein Teil aller Studierenden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Stichprobe"
+              },
+              {
+                "id": "1",
+                "text": "die gesamte Grundgesamtheit"
+              },
+              {
+                "id": "2",
+                "text": "eine Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "einen Stundenplan"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The 200 participants are a sample, not all 20,000 students.",
+              "de": "Die 200 Teilnehmenden sind eine Stichprobe und nicht die gesamte Gruppe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die 200 Befragten bilden eine Stichprobe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Stichprobe' (option 0). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Stichprobe: correct in the complete context; die gesamte Grundgesamtheit: The full population includes all 20,000 students, not just 200.; eine Rechnung: An invoice is a billing document, not survey participants.; einen Stundenplan: A timetable schedules classes, not a research subset.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015506",
+      "title": {
+        "en": "Using Stiftung accurately",
+        "de": "Stiftung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stiftung as a foundation that funds charitable projects.",
+        "de": "Stiftung als eine Stiftung zur Förderung gemeinnütziger Vorhaben erkennen."
+      },
+      "objective": "Recognize Stiftung in the specified a foundation that funds charitable projects sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2267 (57f7166adadadf8313261cb7fedcc519e037421b8f78556a4f064c27dd2b7207), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2267-v1",
+          "contextKey": "legacy-0155-L2267-context-1",
+          "transferKey": "legacy-0155-L2267-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015506",
+            "type": "gap_choice",
+            "prompt": "Die gemeinnützige ___ finanziert Stipendien für Studierende.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "An institution dedicates funds to a charitable purpose.",
+              "de": "Eine Einrichtung verwendet Mittel für einen gemeinnützigen Zweck."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stiftung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Spedition"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Versicherung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gewerkschaft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Stiftung can fund scholarships from dedicated resources.",
+              "de": "Eine Stiftung kann Stipendien aus zweckgebundenen Mitteln fördern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die gemeinnützige Stiftung finanziert Stipendien für Studierende.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stiftung' (option 0). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Stiftung: correct in the complete context; Spedition: A freight company transports goods, not typically funds charitable scholarships.; Versicherung: An insurer provides insurance coverage, not the described foundation role.; Gewerkschaft: A union represents workers, not primarily an endowed charitable institution.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2267-v2",
+          "contextKey": "legacy-0155-L2267-context-2",
+          "transferKey": "legacy-0155-L2267-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015506",
+            "type": "choice",
+            "prompt": "Eine Organisation verwaltet dauerhaft gestiftetes Vermögen, um Kulturprojekte zu fördern. Welche Organisationsform passt am besten?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The assets serve a lasting, defined charitable purpose.",
+              "de": "Das Vermögen dient dauerhaft einem festgelegten Förderzweck."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Zeitarbeitsfirma"
+              },
+              {
+                "id": "1",
+                "text": "eine Stiftung"
+              },
+              {
+                "id": "2",
+                "text": "ein Reisebüro"
+              },
+              {
+                "id": "3",
+                "text": "eine Fahrschule"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A foundation can manage dedicated assets for cultural projects.",
+              "de": "Eine Stiftung kann Vermögen für einen dauerhaften Förderzweck verwalten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Organisation ist eine Stiftung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Stiftung' (option 1). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Zeitarbeitsfirma: A temporary employment agency supplies workers, not manages endowed cultural assets.; eine Stiftung: correct in the complete context; ein Reisebüro: A travel agency organizes trips, not cultural endowments.; eine Fahrschule: A driving school teaches driving, not administers donated assets.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015507",
+      "title": {
+        "en": "Using Stil accurately",
+        "de": "Stil im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stil as a distinctive way of expression or design.",
+        "de": "Stil als eine besondere Art der Gestaltung oder des Ausdrucks erkennen."
+      },
+      "objective": "Recognize Stil in the specified a distinctive way of expression or design sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2268 (025e6e9f14d5cbb4217ce9c2e9bd8b5483714d421e8acb6ffd859501ffa6f4cb), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2268-v1",
+          "contextKey": "legacy-0155-L2268-context-1",
+          "transferKey": "legacy-0155-L2268-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015507",
+            "type": "gap_choice",
+            "prompt": "Die Architektin entwarf das Haus in einem modernen ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The question concerns the way the building is designed.",
+              "de": "Es geht um die Art der Gestaltung des Gebäudes."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Termin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Preis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Beruf"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stil"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Stil describes a characteristic design approach.",
+              "de": "Stil bezeichnet eine besondere Art der Gestaltung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Architektin entwarf das Haus in einem modernen Stil.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stil' (option 3). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Termin: A date or appointment does not describe design.; Preis: A price is a cost, not a design approach.; Beruf: A profession is an occupation, not an architectural manner.; Stil: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2268-v2",
+          "contextKey": "legacy-0155-L2268-context-2",
+          "transferKey": "legacy-0155-L2268-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015507",
+            "type": "choice",
+            "prompt": "Zwei Texte behandeln dasselbe Thema. Einer ist nüchtern, der andere sehr poetisch. Worin unterscheiden sie sich vor allem?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Their manner of expression differs, not the topic.",
+              "de": "Unterschiedlich ist die Ausdrucksweise, nicht das Thema."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "im Stil"
+              },
+              {
+                "id": "1",
+                "text": "im Papiergewicht"
+              },
+              {
+                "id": "2",
+                "text": "im Erscheinungsjahr"
+              },
+              {
+                "id": "3",
+                "text": "im Seitenformat"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Writing style can be factual or poetic.",
+              "de": "Ein Schreibstil kann sachlich oder poetisch sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Texte unterscheiden sich im Stil.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'im Stil' (option 0). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: im Stil: correct in the complete context; im Papiergewicht: Paper weight is a physical property, not tone of expression.; im Erscheinungsjahr: Publication year does not explain factual versus poetic wording.; im Seitenformat: Page format concerns layout size, not writing manner.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015508",
+      "title": {
+        "en": "Using Stillschweigen accurately",
+        "de": "Stillschweigen im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stillschweigen as an agreement to keep information confidential.",
+        "de": "Stillschweigen als eine Vereinbarung über Vertraulichkeit erkennen."
+      },
+      "objective": "Recognize Stillschweigen in the specified an agreement to keep information confidential sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2269 (4727e67207b61f5d8eb3e83857ed59d0df89af582dffa92deb0bd684a001d3f1), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2269-v1",
+          "contextKey": "legacy-0155-L2269-context-1",
+          "transferKey": "legacy-0155-L2269-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015508",
+            "type": "gap_choice",
+            "prompt": "Über die vertraulichen Verhandlungen vereinbarten beide Seiten ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The parties agree not to reveal details.",
+              "de": "Die Parteien wollen keine Einzelheiten weitergeben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Urlaub"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Stillschweigen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Versand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Stillschweigen vereinbaren means agreeing to confidentiality.",
+              "de": "Stillschweigen vereinbaren bedeutet, Informationen vertraulich zu behandeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Über die vertraulichen Verhandlungen vereinbarten beide Seiten Stillschweigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stillschweigen' (option 2). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Kündigung: Termination ends an agreement, not keeps negotiations secret.; Urlaub: Holiday is leave from work, not confidentiality.; Stillschweigen: correct in the complete context; Versand: Dispatch concerns sending goods, not withholding information.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2269-v2",
+          "contextKey": "legacy-0155-L2269-context-2",
+          "transferKey": "legacy-0155-L2269-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015508",
+            "type": "choice",
+            "prompt": "Zwei Firmen verpflichten sich, interne Vertragsdetails nicht weiterzugeben. Was vereinbaren sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They promise not to disclose confidential information.",
+              "de": "Sie verpflichten sich zur Vertraulichkeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine öffentliche Pressekonferenz"
+              },
+              {
+                "id": "1",
+                "text": "eine Preiserhöhung"
+              },
+              {
+                "id": "2",
+                "text": "eine Warenlieferung"
+              },
+              {
+                "id": "3",
+                "text": "Stillschweigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The agreement is to maintain confidentiality.",
+              "de": "Die Vereinbarung betrifft die Geheimhaltung der Details."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firmen vereinbaren Stillschweigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Stillschweigen' (option 3). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine öffentliche Pressekonferenz: A public press conference discloses information, the opposite of secrecy.; eine Preiserhöhung: A price increase changes prices, not information disclosure.; eine Warenlieferung: A goods delivery concerns logistics, not confidentiality.; Stillschweigen: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015509",
+      "title": {
+        "en": "Using Stillstand accurately",
+        "de": "Stillstand im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stillstand as a complete halt in activity or production.",
+        "de": "Stillstand als einen vollständigen Stillstand eines Ablaufs erkennen."
+      },
+      "objective": "Recognize Stillstand in the specified a complete halt in activity or production sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2270 (6b8b0e458075e2f40487abc17fbfb2bb3c7f633bcdc3b3dc8176d6c478103538), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2270-v1",
+          "contextKey": "legacy-0155-L2270-context-1",
+          "transferKey": "legacy-0155-L2270-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015509",
+            "type": "gap_choice",
+            "prompt": "Nach dem Stromausfall kam die gesamte Produktion zum ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The machines stop working entirely.",
+              "de": "Die Maschinen arbeiten überhaupt nicht mehr."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verkauf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stillstand"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Anfang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Termin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zum Stillstand kommen means to stop completely.",
+              "de": "Zum Stillstand kommen bedeutet, vollständig anzuhalten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Stromausfall kam die gesamte Produktion zum Stillstand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stillstand' (option 1). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Verkauf: Sales are commercial transactions, not a total production halt.; Stillstand: correct in the complete context; Anfang: A beginning is the start, not a stoppage.; Termin: An appointment is a scheduled time, not halted production.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2270-v2",
+          "contextKey": "legacy-0155-L2270-context-2",
+          "transferKey": "legacy-0155-L2270-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015509",
+            "type": "choice",
+            "prompt": "Seit zwei Stunden bewegen sich die Maschinen nicht mehr, und es wird nichts hergestellt. Wie nennt man diesen Zustand?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "No productive activity is taking place.",
+              "de": "Es findet keine Produktion mehr statt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mehrarbeit"
+              },
+              {
+                "id": "1",
+                "text": "Wachstum"
+              },
+              {
+                "id": "2",
+                "text": "Stillstand"
+              },
+              {
+                "id": "3",
+                "text": "Schichtwechsel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The absence of operation is Stillstand.",
+              "de": "Wenn die Produktion vollständig ruht, herrscht Stillstand."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Fabrik herrscht Stillstand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Stillstand' (option 2). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Mehrarbeit: Overtime means extra work, not zero operation.; Wachstum: Growth means increase, not total cessation.; Stillstand: correct in the complete context; Schichtwechsel: A shift change swaps workers, not necessarily stops production for hours.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015510",
+      "title": {
+        "en": "Using Stimme accurately",
+        "de": "Stimme im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stimme as a person's speaking or singing voice.",
+        "de": "Stimme als die Stimme einer sprechenden oder singenden Person erkennen."
+      },
+      "objective": "Recognize Stimme in the specified a person's speaking or singing voice sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2271 (fcd309a09594be2ea71dcaca2d649a7b7b6126de6ffcdefd8c9a92225648ff11), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2271-v1",
+          "contextKey": "legacy-0155-L2271-context-1",
+          "transferKey": "legacy-0155-L2271-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015510",
+            "type": "gap_choice",
+            "prompt": "Am Telefon erkannte sie ihren Bruder sofort an seiner ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "You can identify a caller by sound.",
+              "de": "Man kann eine Person am Klang ihrer Sprache erkennen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Stimme"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Adresse"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Jacke"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Unterschrift"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Stimme refers to the sound of a person's voice.",
+              "de": "Stimme bezeichnet den Klang der menschlichen Stimme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Telefon erkannte sie ihren Bruder sofort an seiner Stimme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stimme' (option 0). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Stimme: correct in the complete context; Adresse: An address cannot be heard in the caller's sound.; Jacke: A jacket cannot be identified over an ordinary audio call.; Unterschrift: A signature is visual writing, not audible.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2271-v2",
+          "contextKey": "legacy-0155-L2271-context-2",
+          "transferKey": "legacy-0155-L2271-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015510",
+            "type": "choice",
+            "prompt": "Die Sängerin trifft die hohen Töne mühelos. Was setzt sie dabei ein?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Singing uses a human sound-producing ability.",
+              "de": "Beim Singen nutzt man den eigenen Stimmklang."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ihre Handschrift"
+              },
+              {
+                "id": "1",
+                "text": "ihre Stimme"
+              },
+              {
+                "id": "2",
+                "text": "ihren Reisepass"
+              },
+              {
+                "id": "3",
+                "text": "ihre Fahrkarte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A singer uses her Stimme to produce notes.",
+              "de": "Eine Sängerin erzeugt die Töne mit ihrer Stimme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sängerin setzt ihre Stimme ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'ihre Stimme' (option 1). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: ihre Handschrift: Handwriting produces written marks, not sung notes.; ihre Stimme: correct in the complete context; ihren Reisepass: A passport proves identity, not produces vocal tones.; ihre Fahrkarte: A ticket permits travel, not singing.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015511",
+      "title": {
+        "en": "Using Stimmung accurately",
+        "de": "Stimmung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stimmung as the mood or emotional atmosphere.",
+        "de": "Stimmung als die Stimmung als Gefühlslage oder Atmosphäre erkennen."
+      },
+      "objective": "Recognize Stimmung in the specified the mood or emotional atmosphere sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2272 (85aef8257a94088abd7cb00dc86587fff871b4598effba7a18ba8abe866e1dfd), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2272-v1",
+          "contextKey": "legacy-0155-L2272-context-1",
+          "transferKey": "legacy-0155-L2272-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015511",
+            "type": "gap_choice",
+            "prompt": "Nach der guten Nachricht war die ___ im Team sehr positiv.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The news changes how the group feels.",
+              "de": "Die Nachricht beeinflusst die Gefühle der Gruppe."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausrüstung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wartung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stimmung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Stimmung describes the emotional atmosphere.",
+              "de": "Stimmung bezeichnet die emotionale Atmosphäre."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der guten Nachricht war die Stimmung im Team sehr positiv.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stimmung' (option 3). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Rechnung: An invoice is a financial document, not a collective feeling.; Ausrüstung: Equipment consists of objects, not a mood.; Wartung: Maintenance concerns upkeep, not group emotion.; Stimmung: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2272-v2",
+          "contextKey": "legacy-0155-L2272-context-2",
+          "transferKey": "legacy-0155-L2272-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015511",
+            "type": "choice",
+            "prompt": "Bei der Feier lachen alle und unterhalten sich entspannt. Wie ist die Atmosphäre?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The social atmosphere is relaxed and cheerful.",
+              "de": "Die Atmosphäre ist entspannt und heiter."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die Stimmung ist fröhlich."
+              },
+              {
+                "id": "1",
+                "text": "Die Rechnung ist fällig."
+              },
+              {
+                "id": "2",
+                "text": "Die Sitzung ist vertagt."
+              },
+              {
+                "id": "3",
+                "text": "Die Lieferung ist verspätet."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A cheerful group atmosphere is a positive Stimmung.",
+              "de": "Eine heitere Atmosphäre ist eine gute Stimmung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stimmung bei der Feier ist fröhlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Die Stimmung ist fröhlich.' (option 0). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Die Stimmung ist fröhlich.: correct in the complete context; Die Rechnung ist fällig.: An invoice being due does not describe the guests' feelings.; Die Sitzung ist vertagt.: A meeting being adjourned does not describe the celebration's atmosphere.; Die Lieferung ist verspätet.: A late delivery is a logistics issue, not the party mood.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015513",
+      "title": {
+        "en": "Using Stolpergefahr accurately",
+        "de": "Stolpergefahr im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Stolpergefahr as a risk of tripping over an obstacle.",
+        "de": "Stolpergefahr als die Gefahr, über ein Hindernis zu stolpern erkennen."
+      },
+      "objective": "Recognize Stolpergefahr in the specified a risk of tripping over an obstacle sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2277 (35021f3adcb3a5027435860e63068b79ff3b5247a7cf145cc25212d95c600d92), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2277-v1",
+          "contextKey": "legacy-0155-L2277-context-1",
+          "transferKey": "legacy-0155-L2277-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015513",
+            "type": "gap_choice",
+            "prompt": "Die losen Kabel im Flur stellen eine erhebliche ___ dar.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "People might catch their feet on the cables.",
+              "de": "Menschen könnten mit den Füßen an den Kabeln hängen bleiben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Brandschutzübung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stolpergefahr"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Pausenregelung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitszeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Stolpergefahr is the danger of tripping.",
+              "de": "Stolpergefahr ist das Risiko, über ein Hindernis zu stolpern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die losen Kabel im Flur stellen eine erhebliche Stolpergefahr dar.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Stolpergefahr' (option 1). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Brandschutzübung: A fire drill is an exercise, not the hazard created by cables.; Stolpergefahr: correct in the complete context; Pausenregelung: A break policy regulates pauses, not floor obstacles.; Arbeitszeit: Working time is a schedule measure, not a tripping risk.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2277-v2",
+          "contextKey": "legacy-0155-L2277-context-2",
+          "transferKey": "legacy-0155-L2277-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015513",
+            "type": "choice",
+            "prompt": "Vor einer Tür liegt ein unbefestigter Teppich. Menschen könnten an seiner Kante hängen bleiben. Welches Risiko besteht?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The obstacle can cause someone to lose footing.",
+              "de": "Das Hindernis kann jemanden zu Fall bringen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lärmbelastung"
+              },
+              {
+                "id": "1",
+                "text": "Sonnenbrand"
+              },
+              {
+                "id": "2",
+                "text": "Stolpergefahr"
+              },
+              {
+                "id": "3",
+                "text": "Datenverlust"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A loose carpet edge creates a tripping hazard.",
+              "de": "Eine lose Teppichkante verursacht Stolpergefahr."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch den losen Teppich besteht Stolpergefahr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Stolpergefahr' (option 2). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Lärmbelastung: Noise exposure is caused by sound, not a loose carpet.; Sonnenbrand: Sunburn results from UV exposure, not floor edges.; Stolpergefahr: correct in the complete context; Datenverlust: Data loss concerns information, not physical obstacles.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015514",
+      "title": {
+        "en": "Using Störung accurately",
+        "de": "Störung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Störung as a technical disruption of a service.",
+        "de": "Störung als eine technische Störung eines Dienstes erkennen."
+      },
+      "objective": "Recognize Störung in the specified a technical disruption of a service sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2278 (9f51ab713f63dc2931bf5a0b01f6b6e0514775c8a16ec481a9c1a22cc4d24a9f), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2278-v1",
+          "contextKey": "legacy-0155-L2278-context-1",
+          "transferKey": "legacy-0155-L2278-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015514",
+            "type": "gap_choice",
+            "prompt": "Wegen einer technischen ___ ist das Online-Banking vorübergehend nicht erreichbar.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The digital service has stopped working normally.",
+              "de": "Der digitale Dienst funktioniert vorübergehend nicht richtig."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Störung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A technical Störung disrupts normal operation.",
+              "de": "Eine technische Störung beeinträchtigt den normalen Betrieb."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen einer technischen Störung ist das Online-Banking vorübergehend nicht erreichbar.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Störung' (option 0). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Störung: correct in the complete context; Bewerbung: An application does not explain a service outage.; Einladung: An invitation does not cause the described technical failure.; Lieferung: A delivery is a shipment, not a system fault.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2278-v2",
+          "contextKey": "legacy-0155-L2278-context-2",
+          "transferKey": "legacy-0155-L2278-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015514",
+            "type": "choice",
+            "prompt": "Die Telefonverbindung bricht immer wieder ab. Wie bezeichnet man das Problem?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The connection repeatedly fails.",
+              "de": "Die Verbindung funktioniert wiederholt nicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Verbesserung"
+              },
+              {
+                "id": "1",
+                "text": "eine Störung"
+              },
+              {
+                "id": "2",
+                "text": "eine Buchung"
+              },
+              {
+                "id": "3",
+                "text": "eine Erstattung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Repeated connection failures are a Störung.",
+              "de": "Wiederholte Verbindungsabbrüche sind eine Störung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Telefonverbindung liegt eine Störung vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Störung' (option 1). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Verbesserung: An improvement makes service better, not unstable.; eine Störung: correct in the complete context; eine Buchung: A booking reserves a service, not describes a connection fault.; eine Erstattung: A refund returns money, not diagnoses a broken connection.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015515",
+      "title": {
+        "en": "Using Strafe accurately",
+        "de": "Strafe im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Strafe as a legal punishment imposed for wrongdoing.",
+        "de": "Strafe als eine rechtliche Strafe für ein Vergehen erkennen."
+      },
+      "objective": "Recognize Strafe in the specified a legal punishment imposed for wrongdoing sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2279 (2b3af5c55c55eb3a6db2512faec537ee53c24764afb3fd19b7581faa9080afb5), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2279-v1",
+          "contextKey": "legacy-0155-L2279-context-1",
+          "transferKey": "legacy-0155-L2279-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015515",
+            "type": "gap_choice",
+            "prompt": "Wer absichtlich fremdes Eigentum beschädigt, muss unter Umständen mit einer ___ rechnen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action can have legal consequences.",
+              "de": "Die Handlung kann rechtliche Folgen haben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Beförderung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Spende"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Strafe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Strafe is a possible legal punishment.",
+              "de": "Eine Strafe kann eine rechtliche Folge einer Straftat sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer absichtlich fremdes Eigentum beschädigt, muss unter Umständen mit einer Strafe rechnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Strafe' (option 3). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Einladung: An invitation asks someone to attend, not penalizes misconduct.; Beförderung: A promotion advances a person at work, not punishes a crime.; Spende: A donation is voluntary, not a judicial sanction.; Strafe: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2279-v2",
+          "contextKey": "legacy-0155-L2279-context-2",
+          "transferKey": "legacy-0155-L2279-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015515",
+            "type": "choice",
+            "prompt": "Ein Gericht verhängt wegen einer Straftat eine Geldzahlung. Wie heißt diese Sanktion?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "A court imposes this payment as punishment.",
+              "de": "Das Gericht ordnet die Zahlung als Sanktion an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Strafe"
+              },
+              {
+                "id": "1",
+                "text": "eine Kaution"
+              },
+              {
+                "id": "2",
+                "text": "ein Rabatt"
+              },
+              {
+                "id": "3",
+                "text": "ein Gehalt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A court-imposed Geldstrafe is a type of Strafe.",
+              "de": "Eine vom Gericht verhängte Geldstrafe ist eine Strafe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Geldzahlung ist eine Strafe, genauer eine Geldstrafe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Strafe' (option 0). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Strafe: correct in the complete context; eine Kaution: Bail is security connected to proceedings, not the punishment described.; ein Rabatt: A discount reduces a price, not a judicial sanction.; ein Gehalt: Salary compensates work, not criminal wrongdoing.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015516",
+      "title": {
+        "en": "Using Strafzettel accurately",
+        "de": "Strafzettel im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Strafzettel as a colloquial ticket for a parking violation.",
+        "de": "Strafzettel als einen umgangssprachlichen Strafzettel wegen Falschparkens erkennen."
+      },
+      "objective": "Recognize Strafzettel in the specified a colloquial ticket for a parking violation sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2280 (22dcf97e4db0873e58dadfff3d2179e5bcb2a8696fa4f9cb915940c215487484), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2280-v1",
+          "contextKey": "legacy-0155-L2280-context-1",
+          "transferKey": "legacy-0155-L2280-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015516",
+            "type": "gap_choice",
+            "prompt": "Weil sie im Halteverbot geparkt hatte, fand sie einen ___ an ihrem Auto.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The notice concerns a parking violation.",
+              "de": "Die Mitteilung betrifft einen Parkverstoß."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrschein"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferschein"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Strafzettel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stundenplan"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Strafzettel is a colloquial name for a parking fine notice.",
+              "de": "Strafzettel ist eine umgangssprachliche Bezeichnung für eine Mitteilung über einen Parkverstoß."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil sie im Halteverbot geparkt hatte, fand sie einen Strafzettel an ihrem Auto.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Strafzettel' (option 2). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Fahrschein: A ticket grants travel, not penalizes parking.; Lieferschein: A delivery note lists goods, not parking violations.; Strafzettel: correct in the complete context; Stundenplan: A timetable schedules lessons, not traffic penalties.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2280-v2",
+          "contextKey": "legacy-0155-L2280-context-2",
+          "transferKey": "legacy-0155-L2280-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015516",
+            "type": "choice",
+            "prompt": "Nach einer Parkkontrolle bekommt ein Fahrer eine Zahlungsaufforderung wegen Falschparkens. Wie nennt man sie umgangssprachlich?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "This is everyday language for a parking penalty notice.",
+              "de": "Das ist ein Alltagswort für eine Mitteilung über einen Parkverstoß."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fahrkarte"
+              },
+              {
+                "id": "1",
+                "text": "Tankquittung"
+              },
+              {
+                "id": "2",
+                "text": "Mietvertrag"
+              },
+              {
+                "id": "3",
+                "text": "Strafzettel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "The everyday term is Strafzettel.",
+              "de": "Umgangssprachlich nennt man eine solche Mitteilung Strafzettel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Fahrer hat einen Strafzettel bekommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Strafzettel' (option 3). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Fahrkarte: A travel ticket permits transport, not parking violations.; Tankquittung: A fuel receipt proves a purchase, not a parking offence.; Mietvertrag: A rental agreement sets rental terms, not a traffic penalty.; Strafzettel: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015517",
+      "title": {
+        "en": "Using Straßenverkehrsordnung accurately",
+        "de": "Straßenverkehrsordnung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Straßenverkehrsordnung as Germany's road traffic rules.",
+        "de": "Straßenverkehrsordnung als die deutschen Regeln der Straßenverkehrsordnung erkennen."
+      },
+      "objective": "Recognize Straßenverkehrsordnung in the specified Germany's road traffic rules sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2284 (def82f2c8d9da810f08917d0bc24a080a979716802ba278ef2679e48485c8821), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2284-v1",
+          "contextKey": "legacy-0155-L2284-context-1",
+          "transferKey": "legacy-0155-L2284-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015517",
+            "type": "gap_choice",
+            "prompt": "Die ___ regelt in Deutschland unter anderem Vorfahrt und Verkehrszeichen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The rulebook applies to road traffic in Germany.",
+              "de": "Das Regelwerk gilt für den Straßenverkehr in Deutschland."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hausordnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Straßenverkehrsordnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Prüfungsordnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Betriebsvereinbarung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The StVO contains rules for traffic signs and right of way.",
+              "de": "Die StVO enthält Regeln zu Verkehrszeichen und Vorfahrt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Straßenverkehrsordnung regelt in Deutschland unter anderem Vorfahrt und Verkehrszeichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Straßenverkehrsordnung' (option 1). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Hausordnung: House rules apply to a building or institution, not public road priority.; Straßenverkehrsordnung: correct in the complete context; Prüfungsordnung: Exam regulations govern tests, not traffic signs.; Betriebsvereinbarung: A works agreement concerns a workplace, not road traffic law.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2284-v2",
+          "contextKey": "legacy-0155-L2284-context-2",
+          "transferKey": "legacy-0155-L2284-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015517",
+            "type": "choice",
+            "prompt": "Eine Fahrschülerin möchte nachlesen, welche Regeln an einer Kreuzung gelten. In welchem Regelwerk findet sie sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She needs the German road-traffic rulebook.",
+              "de": "Sie braucht das Regelwerk für den Straßenverkehr."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "in der Schulordnung"
+              },
+              {
+                "id": "1",
+                "text": "im Tarifvertrag"
+              },
+              {
+                "id": "2",
+                "text": "in der Straßenverkehrsordnung"
+              },
+              {
+                "id": "3",
+                "text": "in der Hausordnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Road junction rules are governed by the Straßenverkehrsordnung.",
+              "de": "Regeln an Kreuzungen stehen in der Straßenverkehrsordnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Regeln stehen in der Straßenverkehrsordnung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'in der Straßenverkehrsordnung' (option 2). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: in der Schulordnung: School rules regulate school life, not road junctions.; im Tarifvertrag: A collective agreement regulates employment terms, not traffic priority.; in der Straßenverkehrsordnung: correct in the complete context; in der Hausordnung: House rules regulate a property, not public-road crossings.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015518",
+      "title": {
+        "en": "Using Strategie accurately",
+        "de": "Strategie im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Strategie as a long-term plan for achieving a goal.",
+        "de": "Strategie als eine langfristige Strategie zur Zielerreichung erkennen."
+      },
+      "objective": "Recognize Strategie in the specified a long-term plan for achieving a goal sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2285 (5decb1489defa8cd22ac7d1825bc452de8dcb12022835bd40d9a04486b64b140), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2285-v1",
+          "contextKey": "legacy-0155-L2285-context-1",
+          "transferKey": "legacy-0155-L2285-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015518",
+            "type": "gap_choice",
+            "prompt": "Das Unternehmen entwickelte eine langfristige ___, um neue Kunden zu gewinnen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company plans how to reach a business goal.",
+              "de": "Das Unternehmen plant den Weg zu einem Geschäftsziel."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Strategie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Quittung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schicht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reparatur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Strategie coordinates actions toward a goal.",
+              "de": "Eine Strategie verbindet Maßnahmen zur Erreichung eines Ziels."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen entwickelte eine langfristige Strategie, um neue Kunden zu gewinnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Strategie' (option 0). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Strategie: correct in the complete context; Quittung: A receipt records a payment, not a long-term plan.; Schicht: A shift is a period of work, not a business approach.; Reparatur: A repair fixes a defect, not a market-growth plan.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2285-v2",
+          "contextKey": "legacy-0155-L2285-context-2",
+          "transferKey": "legacy-0155-L2285-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015518",
+            "type": "choice",
+            "prompt": "Ein Team legt fest, welche Märkte es in den nächsten drei Jahren erschließen will und mit welchen Maßnahmen. Was erarbeitet es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The plan links future goals with measures.",
+              "de": "Der Plan verbindet künftige Ziele mit konkreten Maßnahmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Rechnung"
+              },
+              {
+                "id": "1",
+                "text": "eine Strategie"
+              },
+              {
+                "id": "2",
+                "text": "einen Arbeitsvertrag"
+              },
+              {
+                "id": "3",
+                "text": "einen Lieferschein"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "This coordinated multi-year plan is a Strategie.",
+              "de": "Ein abgestimmter mehrjähriger Plan ist eine Strategie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Team erarbeitet eine Strategie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Strategie' (option 1). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Rechnung: An invoice lists charges, not future market plans.; eine Strategie: correct in the complete context; einen Arbeitsvertrag: An employment contract defines job terms, not market entry.; einen Lieferschein: A delivery note documents shipments, not strategic goals.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015519",
+      "title": {
+        "en": "Using Strecke accurately",
+        "de": "Strecke im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Strecke as a route or distance between places.",
+        "de": "Strecke als eine Strecke als Weg oder Entfernung erkennen."
+      },
+      "objective": "Recognize Strecke in the specified a route or distance between places sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2286 (d39c390bf3b77c655e8ab44581d69b125e6bfcf5a4ae3396f75a5a42dffb52c0), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0155-L2286-v1",
+          "contextKey": "legacy-0155-L2286-context-1",
+          "transferKey": "legacy-0155-L2286-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015519",
+            "type": "gap_choice",
+            "prompt": "Die ___ zwischen den beiden Städten beträgt rund 80 Kilometer.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The number describes distance between places.",
+              "de": "Die Zahl gibt die Entfernung zwischen Orten an."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Pause"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Besprechung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Strecke"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Strecke can denote a distance between places.",
+              "de": "Strecke kann die Entfernung zwischen Orten bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Strecke zwischen den beiden Städten beträgt rund 80 Kilometer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Strecke' (option 3). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: Rechnung: An invoice is a bill, not a geographical distance.; Pause: A break is a pause, not a route length.; Besprechung: A meeting is an event, not a measured distance.; Strecke: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0155-L2286-v2",
+          "contextKey": "legacy-0155-L2286-context-2",
+          "transferKey": "legacy-0155-L2286-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001550191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015519",
+            "type": "choice",
+            "prompt": "Die Radfahrer planen den Weg vom Bahnhof bis zum See und markieren ihn auf einer Karte. Was markieren sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The marked line represents their route.",
+              "de": "Die eingezeichnete Linie zeigt den geplanten Weg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eine Strecke"
+              },
+              {
+                "id": "1",
+                "text": "eine Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "eine Bewerbung"
+              },
+              {
+                "id": "3",
+                "text": "einen Termin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A marked route is a Strecke.",
+              "de": "Ein eingezeichneter Weg ist eine Strecke."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Radfahrer markieren eine Strecke auf der Karte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'eine Strecke' (option 0). Reviewed complete German sentence, inflection, source label, objective, bilingual feedback, distinct context and unique offered answer. Every option: eine Strecke: correct in the complete context; eine Rechnung: An invoice is not a route on a map.; eine Bewerbung: An application is a document, not a mapped path.; einen Termin: An appointment is a time, not a line on a map.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
