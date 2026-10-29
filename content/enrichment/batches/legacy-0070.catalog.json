@@ -1,0 +1,2869 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000007000",
+      "title": {
+        "en": "Using vergeblich in context",
+        "de": "vergeblich im Kontext"
+      },
+      "description": {
+        "en": "Recognize in vain or unsuccessful in two situations.",
+        "de": "Die Bedeutung „vergeblich oder ohne Erfolg“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize vergeblich for an attempt that fails despite effort.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L544 (202a227f085ed4fcaf836aaed1dc8951aab19472183a0e1384ffac358261fde9), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L544-v1",
+          "contextKey": "legacy-0070-L544-context-1",
+          "transferKey": "legacy-0070-L544-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007000",
+            "type": "choice",
+            "prompt": "Sie suchten stundenlang, aber ___: Der Schlüssel blieb verschwunden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The search did not succeed.",
+              "de": "Die Suche blieb ohne Erfolg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "erfolgreich"
+              },
+              {
+                "id": "1",
+                "text": "vergeblich"
+              },
+              {
+                "id": "2",
+                "text": "gründlich"
+              },
+              {
+                "id": "3",
+                "text": "rechtzeitig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vergeblich means in vain.",
+              "de": "Vergeblich bedeutet ohne Erfolg."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie suchten stundenlang, aber vergeblich: Der Schlüssel blieb verschwunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vergeblich', bilingual explanation and distinct context. Distractor review: erfolgreich means successful; gründlich means thorough; rechtzeitig means in time. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L544-v2",
+          "contextKey": "legacy-0070-L544-context-2",
+          "transferKey": "legacy-0070-L544-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007000",
+            "type": "gap_choice",
+            "prompt": "Der ___ Versuch, den Motor zu starten, endete ohne Erfolg.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The attempt failed.",
+              "de": "Der Versuch war erfolglos."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "erfolgreiche"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gelungene"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vergebliche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "rechtzeitige"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vergebliche describes an unsuccessful attempt.",
+              "de": "Vergebliche bezeichnet einen Versuch ohne Erfolg."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der vergebliche Versuch, den Motor zu starten, endete ohne Erfolg.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vergebliche', bilingual explanation and distinct context. Distractor review: erfolgreiche and gelungene mean successful; rechtzeitige means timely. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007002",
+      "title": {
+        "en": "Using vermutlich in context",
+        "de": "vermutlich im Kontext"
+      },
+      "description": {
+        "en": "Recognize presumably in two situations.",
+        "de": "Die Bedeutung „vermutlich oder wahrscheinlich“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize vermutlich for an explanation that is likely but not yet confirmed.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L546 (130f11211bcbf598636f3107fcd5a635f6017e31ccc155b0668f23b1fef590ff), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L546-v1",
+          "contextKey": "legacy-0070-L546-context-1",
+          "transferKey": "legacy-0070-L546-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007002",
+            "type": "choice",
+            "prompt": "Die Ursache ist noch nicht bewiesen; ___ liegt ein Softwarefehler vor.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The cause is suspected, not proven.",
+              "de": "Die Ursache wird vermutet, ist aber nicht bewiesen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "nachweislich"
+              },
+              {
+                "id": "1",
+                "text": "vermutlich"
+              },
+              {
+                "id": "2",
+                "text": "eindeutig"
+              },
+              {
+                "id": "3",
+                "text": "zweifellos"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vermutlich means probably or presumably.",
+              "de": "Vermutlich bedeutet wahrscheinlich, aber nicht sicher."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ursache ist noch nicht bewiesen; vermutlich liegt ein Softwarefehler vor.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vermutlich', bilingual explanation and distinct context. Distractor review: nachweislich is proven; eindeutig is unambiguous; zweifellos is beyond doubt. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L546-v2",
+          "contextKey": "legacy-0070-L546-context-2",
+          "transferKey": "legacy-0070-L546-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007002",
+            "type": "gap_choice",
+            "prompt": "Der ___ Grund für den Ausfall ist ein defektes Kabel; die Prüfung läuft noch.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The diagnosis remains provisional.",
+              "de": "Die Diagnose ist noch nicht bestätigt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bestätigte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "sichere"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vermutliche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "erwiesene"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vermutliche means presumed.",
+              "de": "Vermutliche bedeutet angenommen, noch nicht nachgewiesen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der vermutliche Grund für den Ausfall ist ein defektes Kabel; die Prüfung läuft noch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vermutliche', bilingual explanation and distinct context. Distractor review: bestätigte is confirmed; sichere is certain; erwiesene is proven. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007003",
+      "title": {
+        "en": "Using vernünftig in context",
+        "de": "vernünftig im Kontext"
+      },
+      "description": {
+        "en": "Recognize sensible in two situations.",
+        "de": "Die Bedeutung „vernünftig oder überlegt“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize vernünftig for a sensible and well-considered decision.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L547 (c42e2fad652e391f77c47a7f86585000259c4b6432b317ef7e7463a7795b487f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L547-v1",
+          "contextKey": "legacy-0070-L547-context-1",
+          "transferKey": "legacy-0070-L547-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007003",
+            "type": "choice",
+            "prompt": "Bei Glatteis langsamer zu fahren ist eine ___ Entscheidung.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "It is a cautious, sensible choice.",
+              "de": "Es ist eine vorsichtige, überlegte Entscheidung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "riskante"
+              },
+              {
+                "id": "1",
+                "text": "vernünftige"
+              },
+              {
+                "id": "2",
+                "text": "unüberlegte"
+              },
+              {
+                "id": "3",
+                "text": "gefährliche"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vernünftig means sensible.",
+              "de": "Vernünftig bedeutet sinnvoll und überlegt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei Glatteis langsamer zu fahren ist eine vernünftige Entscheidung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vernünftige', bilingual explanation and distinct context. Distractor review: riskante is risky; unüberlegte is rash; gefährliche is dangerous. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L547-v2",
+          "contextKey": "legacy-0070-L547-context-2",
+          "transferKey": "legacy-0070-L547-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007003",
+            "type": "gap_choice",
+            "prompt": "Statt sofort zu kaufen, vergleicht er die Preise; das ist ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He considers options before deciding.",
+              "de": "Er prüft Möglichkeiten vor der Entscheidung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "leichtsinnig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unklug"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vernünftig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gedankenlos"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vernünftig means acting sensibly.",
+              "de": "Vernünftig bedeutet, mit Bedacht zu handeln."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Statt sofort zu kaufen, vergleicht er die Preise; das ist vernünftig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vernünftig', bilingual explanation and distinct context. Distractor review: leichtsinnig is reckless; unklug is unwise; gedankenlos is thoughtless. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007004",
+      "title": {
+        "en": "Using verpflichtend in context",
+        "de": "verpflichtend im Kontext"
+      },
+      "description": {
+        "en": "Recognize mandatory in two situations.",
+        "de": "Die Bedeutung „verpflichtend oder vorgeschrieben“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize verpflichtend for an action required by a rule.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L548 (5091a4fd31db9bc264337897c07a760b72ed3d214afae26cc7ae80991cb74395), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L548-v1",
+          "contextKey": "legacy-0070-L548-context-1",
+          "transferKey": "legacy-0070-L548-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007004",
+            "type": "choice",
+            "prompt": "Die Sicherheitsunterweisung ist für alle neuen Beschäftigten ___; niemand darf sie auslassen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Everyone must participate.",
+              "de": "Alle müssen teilnehmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "freiwillig"
+              },
+              {
+                "id": "1",
+                "text": "verpflichtend"
+              },
+              {
+                "id": "2",
+                "text": "optional"
+              },
+              {
+                "id": "3",
+                "text": "unverbindlich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Verpflichtend means mandatory.",
+              "de": "Verpflichtend bedeutet vorgeschrieben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sicherheitsunterweisung ist für alle neuen Beschäftigten verpflichtend; niemand darf sie auslassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'verpflichtend', bilingual explanation and distinct context. Distractor review: freiwillig is voluntary; optional is optional; unverbindlich is nonbinding. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L548-v2",
+          "contextKey": "legacy-0070-L548-context-2",
+          "transferKey": "legacy-0070-L548-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007004",
+            "type": "gap_choice",
+            "prompt": "Das Tragen eines Helms ist auf der Baustelle ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The safety rule requires a helmet.",
+              "de": "Die Sicherheitsregel schreibt einen Helm vor."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "freigestellt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "freiwillig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verpflichtend"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beliebig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verpflichtend means required.",
+              "de": "Verpflichtend bedeutet, dass etwas Pflicht ist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Tragen eines Helms ist auf der Baustelle verpflichtend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'verpflichtend', bilingual explanation and distinct context. Distractor review: freigestellt means optional; freiwillig voluntary; beliebig arbitrary. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007005",
+      "title": {
+        "en": "Using versehentlich in context",
+        "de": "versehentlich im Kontext"
+      },
+      "description": {
+        "en": "Recognize accidentally in two situations.",
+        "de": "Die Bedeutung „versehentlich oder aus Versehen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize versehentlich for an unintended action.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L550 (630ec62b1696e8a9da66dd895ab52fe7296b3fb9c2304172276df5ad3d1ede8b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L550-v1",
+          "contextKey": "legacy-0070-L550-context-1",
+          "transferKey": "legacy-0070-L550-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007005",
+            "type": "choice",
+            "prompt": "Sie hat die Datei ___ gelöscht, obwohl sie sie behalten wollte.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She did not intend to delete it.",
+              "de": "Sie wollte die Datei nicht löschen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "absichtlich"
+              },
+              {
+                "id": "1",
+                "text": "versehentlich"
+              },
+              {
+                "id": "2",
+                "text": "bewusst"
+              },
+              {
+                "id": "3",
+                "text": "vorsätzlich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Versehentlich means accidentally.",
+              "de": "Versehentlich bedeutet aus Versehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat die Datei versehentlich gelöscht, obwohl sie sie behalten wollte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'versehentlich', bilingual explanation and distinct context. Distractor review: absichtlich, bewusst and vorsätzlich indicate intention. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L550-v2",
+          "contextKey": "legacy-0070-L550-context-2",
+          "transferKey": "legacy-0070-L550-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007005",
+            "type": "gap_choice",
+            "prompt": "Beim Aufräumen nahm er ___ den falschen Schlüssel mit.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He took the wrong key by mistake.",
+              "de": "Er nahm den falschen Schlüssel aus Versehen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gezielt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "bewusst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "versehentlich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "planmäßig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Versehentlich means unintentionally.",
+              "de": "Versehentlich bedeutet unbeabsichtigt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Aufräumen nahm er versehentlich den falschen Schlüssel mit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'versehentlich', bilingual explanation and distinct context. Distractor review: gezielt means deliberately; bewusst consciously; planmäßig according to plan. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007006",
+      "title": {
+        "en": "Using verständlich in context",
+        "de": "verständlich im Kontext"
+      },
+      "description": {
+        "en": "Recognize easy to understand in two situations.",
+        "de": "Die Bedeutung „verständlich oder nachvollziehbar“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize verständlich for a clear explanation that people can understand.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L551 (5b3b87ec23d807828df2cbb9b2562a477e23c3646a4ab79396c3191aedc5c447), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L551-v1",
+          "contextKey": "legacy-0070-L551-context-1",
+          "transferKey": "legacy-0070-L551-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007006",
+            "type": "choice",
+            "prompt": "Die Anleitung ist so ___ geschrieben, dass Anfänger sie sofort verstehen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Even beginners understand it.",
+              "de": "Auch Anfänger verstehen die Anleitung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verwirrend"
+              },
+              {
+                "id": "1",
+                "text": "verständlich"
+              },
+              {
+                "id": "2",
+                "text": "unklar"
+              },
+              {
+                "id": "3",
+                "text": "kompliziert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Verständlich means easy to understand.",
+              "de": "Verständlich bedeutet gut zu verstehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Anleitung ist so verständlich geschrieben, dass Anfänger sie sofort verstehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'verständlich', bilingual explanation and distinct context. Distractor review: verwirrend confuses; unklar is unclear; kompliziert is complicated. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L551-v2",
+          "contextKey": "legacy-0070-L551-context-2",
+          "transferKey": "legacy-0070-L551-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007006",
+            "type": "gap_choice",
+            "prompt": "Die Lehrerin erklärt die Regel in einfachen Worten; ihre Erklärung ist ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The explanation is clear.",
+              "de": "Die Erklärung ist klar."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unverständlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "rätselhaft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verständlich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "undeutlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verständlich means comprehensible.",
+              "de": "Verständlich bedeutet nachvollziehbar."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehrerin erklärt die Regel in einfachen Worten; ihre Erklärung ist verständlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'verständlich', bilingual explanation and distinct context. Distractor review: unverständlich is incomprehensible; rätselhaft puzzling; undeutlich unclear. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007007",
+      "title": {
+        "en": "Using verstopft in context",
+        "de": "verstopft im Kontext"
+      },
+      "description": {
+        "en": "Recognize blocked or clogged in two situations.",
+        "de": "Die Bedeutung „verstopft oder blockiert“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize verstopft for a pipe or drain blocked by material.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L552 (ac188576a37b091efb47453d6b6d3f1b1d6308445555b20a13da52045f68efcc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L552-v1",
+          "contextKey": "legacy-0070-L552-context-1",
+          "transferKey": "legacy-0070-L552-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007007",
+            "type": "choice",
+            "prompt": "Das Wasser läuft nicht ab, weil der Abfluss ___ ist.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Something blocks the drain.",
+              "de": "Etwas blockiert den Abfluss."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "frei"
+              },
+              {
+                "id": "1",
+                "text": "verstopft"
+              },
+              {
+                "id": "2",
+                "text": "offen"
+              },
+              {
+                "id": "3",
+                "text": "gereinigt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Verstopft means clogged.",
+              "de": "Verstopft bedeutet, dass etwas den Durchfluss blockiert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Wasser läuft nicht ab, weil der Abfluss verstopft ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'verstopft', bilingual explanation and distinct context. Distractor review: frei is clear; offen is open; gereinigt is cleaned. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L552-v2",
+          "contextKey": "legacy-0070-L552-context-2",
+          "transferKey": "legacy-0070-L552-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007007",
+            "type": "gap_choice",
+            "prompt": "Nach dem Sturm war das Rohr mit Laub ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Leaves blocked the pipe.",
+              "de": "Laub hat das Rohr blockiert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "durchlässig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "leer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verstopft"
+                  },
+                  {
+                    "id": "3",
+                    "text": "sauber"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verstopft means obstructed.",
+              "de": "Verstopft bedeutet, dass das Rohr blockiert ist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Sturm war das Rohr mit Laub verstopft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'verstopft', bilingual explanation and distinct context. Distractor review: durchlässig lets water through; leer is empty; sauber is clean. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007008",
+      "title": {
+        "en": "Using vertraglich in context",
+        "de": "vertraglich im Kontext"
+      },
+      "description": {
+        "en": "Recognize contractual in two situations.",
+        "de": "Die Bedeutung „vertraglich vereinbart“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize vertraglich for an obligation or rule established in a contract.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L553 (3e9d8f89e1e89cf942122871b4817866035fc917c10324ba159024b53e45d970), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L553-v1",
+          "contextKey": "legacy-0070-L553-context-1",
+          "transferKey": "legacy-0070-L553-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007008",
+            "type": "choice",
+            "prompt": "Die Arbeitszeit ist ___ geregelt; sie steht ausdrücklich im Vertrag.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The provision is written in the contract.",
+              "de": "Die Regelung steht im Vertrag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zufällig"
+              },
+              {
+                "id": "1",
+                "text": "vertraglich"
+              },
+              {
+                "id": "2",
+                "text": "mündlich"
+              },
+              {
+                "id": "3",
+                "text": "unverbindlich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vertraglich means specified by contract.",
+              "de": "Vertraglich bedeutet durch einen Vertrag geregelt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Arbeitszeit ist vertraglich geregelt; sie steht ausdrücklich im Vertrag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vertraglich', bilingual explanation and distinct context. Distractor review: zufällig is random; mündlich is oral; unverbindlich is nonbinding. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L553-v2",
+          "contextKey": "legacy-0070-L553-context-2",
+          "transferKey": "legacy-0070-L553-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007008",
+            "type": "gap_choice",
+            "prompt": "Die Firma ist ___ verpflichtet, die Ware bis Freitag zu liefern.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The duty comes from a contract.",
+              "de": "Die Pflicht ergibt sich aus dem Vertrag."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "freiwillig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zufällig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vertraglich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unverbindlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vertraglich verpflichtet means bound by contract.",
+              "de": "Vertraglich verpflichtet bedeutet durch Vertrag gebunden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma ist vertraglich verpflichtet, die Ware bis Freitag zu liefern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vertraglich', bilingual explanation and distinct context. Distractor review: freiwillig is voluntary; zufällig is random; unverbindlich is nonbinding. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007009",
+      "title": {
+        "en": "Using vertraulich in context",
+        "de": "vertraulich im Kontext"
+      },
+      "description": {
+        "en": "Recognize confidential in two situations.",
+        "de": "Die Bedeutung „vertraulich oder nicht öffentlich“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize vertraulich for information that must not be shared publicly.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L554 (a9253e57aea359cb12b9d7311697f824ddc01d82360f319b4f8b35de3f7d3dc0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L554-v1",
+          "contextKey": "legacy-0070-L554-context-1",
+          "transferKey": "legacy-0070-L554-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007009",
+            "type": "choice",
+            "prompt": "Die Personalakte enthält private Daten und muss ___ behandelt werden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Only authorized people may access it.",
+              "de": "Nur Berechtigte dürfen die Informationen sehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "öffentlich"
+              },
+              {
+                "id": "1",
+                "text": "vertraulich"
+              },
+              {
+                "id": "2",
+                "text": "offen"
+              },
+              {
+                "id": "3",
+                "text": "allgemein zugänglich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vertraulich means confidential.",
+              "de": "Vertraulich bedeutet, dass Informationen geschützt bleiben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Personalakte enthält private Daten und muss vertraulich behandelt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vertraulich', bilingual explanation and distinct context. Distractor review: öffentlich is public; offen is open; allgemein zugänglich means generally accessible. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L554-v2",
+          "contextKey": "legacy-0070-L554-context-2",
+          "transferKey": "legacy-0070-L554-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007009",
+            "type": "gap_choice",
+            "prompt": "Die Besprechung ist ___; die Inhalte dürfen nicht weitergegeben werden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The content is restricted.",
+              "de": "Der Inhalt darf nicht weitergegeben werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "öffentlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "allgemein"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vertraulich"
+                  },
+                  {
+                    "id": "3",
+                    "text": "frei zugänglich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vertraulich means not for public disclosure.",
+              "de": "Vertraulich bedeutet nicht für die Öffentlichkeit bestimmt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Besprechung ist vertraulich; die Inhalte dürfen nicht weitergegeben werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vertraulich', bilingual explanation and distinct context. Distractor review: öffentlich and allgemein mean public/general; frei zugänglich means freely accessible. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007010",
+      "title": {
+        "en": "Using verwandt in context",
+        "de": "verwandt im Kontext"
+      },
+      "description": {
+        "en": "Recognize related by family in two situations.",
+        "de": "Die Bedeutung „miteinander verwandt“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize verwandt for a family relationship.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L555 (23ebe09b7ec9f162caa561a9b67b8007133e39065b5d410cc8af8f2d851ddcaa), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L555-v1",
+          "contextKey": "legacy-0070-L555-context-1",
+          "transferKey": "legacy-0070-L555-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007010",
+            "type": "choice",
+            "prompt": "Meine Mutter und seine Mutter sind Schwestern; wir sind miteinander ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The two people share family ancestry.",
+              "de": "Die beiden Personen haben gemeinsame Vorfahren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verschwägert"
+              },
+              {
+                "id": "1",
+                "text": "verwandt"
+              },
+              {
+                "id": "2",
+                "text": "befreundet"
+              },
+              {
+                "id": "3",
+                "text": "bekannt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Verwandt means related by family.",
+              "de": "Verwandt bedeutet durch Familie verbunden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Meine Mutter und seine Mutter sind Schwestern; wir sind miteinander verwandt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'verwandt', bilingual explanation and distinct context. Distractor review: verschwägert is by marriage; befreundet is friends; bekannt is acquainted. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L555-v2",
+          "contextKey": "legacy-0070-L555-context-2",
+          "transferKey": "legacy-0070-L555-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007010",
+            "type": "gap_choice",
+            "prompt": "Die beiden Kinder haben denselben Großvater und sind daher ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They share a grandparent.",
+              "de": "Sie haben einen gemeinsamen Großvater."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "fremd"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unbeteiligt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verwandt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unbekannt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Verwandt means family-related.",
+              "de": "Verwandt bezeichnet eine familiäre Beziehung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die beiden Kinder haben denselben Großvater und sind daher verwandt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'verwandt', bilingual explanation and distinct context. Distractor review: fremd means strangers; unbeteiligt uninvolved; unbekannt unknown. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007011",
+      "title": {
+        "en": "Using vielfältig in context",
+        "de": "vielfältig im Kontext"
+      },
+      "description": {
+        "en": "Recognize diverse or varied in two situations.",
+        "de": "Die Bedeutung „vielfältig oder abwechslungsreich“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize vielfältig for a broad range of different options or experiences.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L557 (1d7c830372eb106e1e502e92739185afa232bc5d7a6d882b3ff4f9e07531b6f2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L557-v1",
+          "contextKey": "legacy-0070-L557-context-1",
+          "transferKey": "legacy-0070-L557-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007011",
+            "type": "choice",
+            "prompt": "Das Kulturprogramm bietet Konzerte, Theater und Ausstellungen; es ist sehr ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The program offers many different activities.",
+              "de": "Das Programm bietet viele unterschiedliche Angebote."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "eintönig"
+              },
+              {
+                "id": "1",
+                "text": "vielfältig"
+              },
+              {
+                "id": "2",
+                "text": "einseitig"
+              },
+              {
+                "id": "3",
+                "text": "begrenzt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vielfältig means varied or diverse.",
+              "de": "Vielfältig bedeutet abwechslungsreich und verschiedenartig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Kulturprogramm bietet Konzerte, Theater und Ausstellungen; es ist sehr vielfältig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vielfältig', bilingual explanation and distinct context. Distractor review: eintönig is monotonous; einseitig is one-sided; begrenzt is limited. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L557-v2",
+          "contextKey": "legacy-0070-L557-context-2",
+          "transferKey": "legacy-0070-L557-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007011",
+            "type": "gap_choice",
+            "prompt": "Im Team arbeiten Menschen mit ___ Erfahrungen aus Technik, Medizin und Bildung.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Their experience comes from several fields.",
+              "de": "Die Erfahrungen stammen aus verschiedenen Bereichen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "identischen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gleichen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vielfältigen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "einheitlichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vielfältigen means diverse.",
+              "de": "Vielfältigen bedeutet aus vielen unterschiedlichen Bereichen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Team arbeiten Menschen mit vielfältigen Erfahrungen aus Technik, Medizin und Bildung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vielfältigen', bilingual explanation and distinct context. Distractor review: identischen and gleichen mean identical; einheitlichen means uniform. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007012",
+      "title": {
+        "en": "Using virtuell in context",
+        "de": "virtuell im Kontext"
+      },
+      "description": {
+        "en": "Recognize virtual rather than physical in two situations.",
+        "de": "Die Bedeutung „virtuell im digitalen Raum“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize virtuell for an experience or place simulated or accessed digitally.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L558 (27e48fa0be5afd9f4891157b0cd3cb9f5e641b22869ce679c831dcfc6ce7ed71), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L558-v1",
+          "contextKey": "legacy-0070-L558-context-1",
+          "transferKey": "legacy-0070-L558-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007012",
+            "type": "choice",
+            "prompt": "Die Besucher erkunden das Museum online bei einem ___ Rundgang.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The tour takes place online.",
+              "de": "Der Rundgang findet online statt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "tatsächlichen"
+              },
+              {
+                "id": "1",
+                "text": "virtuellen"
+              },
+              {
+                "id": "2",
+                "text": "physischen"
+              },
+              {
+                "id": "3",
+                "text": "persönlichen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Virtuellen means a digital tour.",
+              "de": "Virtuellen bezeichnet einen digitalen Rundgang."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Besucher erkunden das Museum online bei einem virtuellen Rundgang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'virtuellen', bilingual explanation and distinct context. Distractor review: tatsächlichen means actual; physischen physical; persönlichen in-person. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L558-v2",
+          "contextKey": "legacy-0070-L558-context-2",
+          "transferKey": "legacy-0070-L558-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007012",
+            "type": "gap_choice",
+            "prompt": "Das Treffen findet nicht im Büro statt, sondern in einem ___ Raum im Internet.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The meeting room exists online.",
+              "de": "Der Besprechungsraum ist digital."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "realen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "physischen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "virtuellen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gemieteten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Virtuellen describes an online space.",
+              "de": "Virtuellen bezeichnet einen Raum im Internet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Treffen findet nicht im Büro statt, sondern in einem virtuellen Raum im Internet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'virtuellen', bilingual explanation and distinct context. Distractor review: realen and physischen mean physical; gemieteten means rented. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007013",
+      "title": {
+        "en": "Using visuell in context",
+        "de": "visuell im Kontext"
+      },
+      "description": {
+        "en": "Recognize visual in two situations.",
+        "de": "Die Bedeutung „visuell oder durch Bilder“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize visuell for communication through sight and images.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L559 (762273af122dcf527552ea89d453083dee50ad131ae1fabc5f4a27bef1ac617f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L559-v1",
+          "contextKey": "legacy-0070-L559-context-1",
+          "transferKey": "legacy-0070-L559-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007013",
+            "type": "choice",
+            "prompt": "Die Infografik erklärt den Prozess ___ mit Bildern statt nur mit Text.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Pictures convey the information.",
+              "de": "Bilder vermitteln die Information."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "akustisch"
+              },
+              {
+                "id": "1",
+                "text": "visuell"
+              },
+              {
+                "id": "2",
+                "text": "mündlich"
+              },
+              {
+                "id": "3",
+                "text": "telefonisch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Visuell means through sight.",
+              "de": "Visuell bedeutet durch Bilder oder Sehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Infografik erklärt den Prozess visuell mit Bildern statt nur mit Text.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'visuell', bilingual explanation and distinct context. Distractor review: akustisch is auditory; mündlich is spoken; telefonisch is by phone. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L559-v2",
+          "contextKey": "legacy-0070-L559-context-2",
+          "transferKey": "legacy-0070-L559-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007013",
+            "type": "gap_choice",
+            "prompt": "Die Ausstellung spricht Besucher ___ durch Farben und Formen an.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Colors and shapes appeal to sight.",
+              "de": "Farben und Formen sprechen den Sehsinn an."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "akustisch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "geruchlich"
+                  },
+                  {
+                    "id": "2",
+                    "text": "visuell"
+                  },
+                  {
+                    "id": "3",
+                    "text": "geschmacklich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Visuell refers to sight.",
+              "de": "Visuell bedeutet den Sehsinn betreffend."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ausstellung spricht Besucher visuell durch Farben und Formen an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'visuell', bilingual explanation and distinct context. Distractor review: akustisch is hearing; geruchlich is smell; geschmacklich is taste. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007014",
+      "title": {
+        "en": "Using völlig in context",
+        "de": "völlig im Kontext"
+      },
+      "description": {
+        "en": "Recognize completely as an intensifier in two situations.",
+        "de": "Die Bedeutung „völlig oder ganz“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize völlig for total extent or degree.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L561 (698788ff0961d5b1f7b1996dfc32c1fa15a99e685336512fe3b490634a7ebe99), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L561-v1",
+          "contextKey": "legacy-0070-L561-context-1",
+          "transferKey": "legacy-0070-L561-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007014",
+            "type": "choice",
+            "prompt": "Nach dem Stromausfall war das Gebäude ___ dunkel; kein Licht brannte.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "There was no light anywhere.",
+              "de": "Nirgendwo brannte Licht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "teilweise"
+              },
+              {
+                "id": "1",
+                "text": "völlig"
+              },
+              {
+                "id": "2",
+                "text": "kaum"
+              },
+              {
+                "id": "3",
+                "text": "ein wenig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Völlig means completely.",
+              "de": "Völlig bedeutet ganz und gar."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Stromausfall war das Gebäude völlig dunkel; kein Licht brannte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'völlig', bilingual explanation and distinct context. Distractor review: teilweise means partly; kaum hardly; ein wenig a little. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L561-v2",
+          "contextKey": "legacy-0070-L561-context-2",
+          "transferKey": "legacy-0070-L561-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007014",
+            "type": "gap_choice",
+            "prompt": "Die neue Regel ist ___ anders als die alte; nichts ist gleich geblieben.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Nothing remains the same.",
+              "de": "Nichts ist gleich geblieben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "geringfügig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "teilweise"
+                  },
+                  {
+                    "id": "2",
+                    "text": "völlig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "kaum"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Völlig emphasizes complete difference.",
+              "de": "Völlig betont einen vollständigen Unterschied."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Regel ist völlig anders als die alte; nichts ist gleich geblieben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'völlig', bilingual explanation and distinct context. Distractor review: geringfügig means slight; teilweise partly; kaum hardly. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007015",
+      "title": {
+        "en": "Using vollständig in context",
+        "de": "vollständig im Kontext"
+      },
+      "description": {
+        "en": "Recognize complete without omissions in two situations.",
+        "de": "Die Bedeutung „vollständig oder lückenlos“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize vollständig for all required parts being present.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L562 (2b08f02ba55e0e2878068d8472ea5ab674ff8710db3edfff9d19b26f45c503f7), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L562-v1",
+          "contextKey": "legacy-0070-L562-context-1",
+          "transferKey": "legacy-0070-L562-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007015",
+            "type": "choice",
+            "prompt": "Bitte reichen Sie den Antrag ___ ein; keine Seite darf fehlen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Every page must be included.",
+              "de": "Alle Seiten müssen vorhanden sein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "teilweise"
+              },
+              {
+                "id": "1",
+                "text": "vollständig"
+              },
+              {
+                "id": "2",
+                "text": "unvollständig"
+              },
+              {
+                "id": "3",
+                "text": "lückenhaft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vollständig means complete with nothing missing.",
+              "de": "Vollständig bedeutet ohne fehlende Teile."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte reichen Sie den Antrag vollständig ein; keine Seite darf fehlen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vollständig', bilingual explanation and distinct context. Distractor review: teilweise is partial; unvollständig incomplete; lückenhaft has gaps. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L562-v2",
+          "contextKey": "legacy-0070-L562-context-2",
+          "transferKey": "legacy-0070-L562-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007015",
+            "type": "gap_choice",
+            "prompt": "Die Liste ist jetzt ___; alle 25 Namen stehen darauf.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "No required name is missing.",
+              "de": "Kein Name fehlt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unvollständig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "lückenhaft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vollständig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "fragmentarisch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vollständig means all entries are present.",
+              "de": "Vollständig bedeutet, dass alle Einträge vorhanden sind."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Liste ist jetzt vollständig; alle 25 Namen stehen darauf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vollständig', bilingual explanation and distinct context. Distractor review: unvollständig incomplete; lückenhaft has gaps; fragmentarisch fragmentary. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007016",
+      "title": {
+        "en": "Using voraussichtlich in context",
+        "de": "voraussichtlich im Kontext"
+      },
+      "description": {
+        "en": "Recognize expected but not guaranteed in two situations.",
+        "de": "Die Bedeutung „voraussichtlich oder erwartet“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize voraussichtlich for an anticipated event or time that remains uncertain.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L563 (159a7fc1c9b139c154d5f257de3355e31b98c2eeeac917ceadfc54c58dd7c14c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L563-v1",
+          "contextKey": "legacy-0070-L563-context-1",
+          "transferKey": "legacy-0070-L563-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007016",
+            "type": "choice",
+            "prompt": "Der Zug kommt ___ um 18 Uhr an; die genaue Zeit ist noch nicht sicher.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The time is an estimate.",
+              "de": "Die Zeit ist nur eine Prognose."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "garantiert"
+              },
+              {
+                "id": "1",
+                "text": "voraussichtlich"
+              },
+              {
+                "id": "2",
+                "text": "sicher"
+              },
+              {
+                "id": "3",
+                "text": "nachweislich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Voraussichtlich means expected, not guaranteed.",
+              "de": "Voraussichtlich bedeutet nach aktueller Erwartung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zug kommt voraussichtlich um 18 Uhr an; die genaue Zeit ist noch nicht sicher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'voraussichtlich', bilingual explanation and distinct context. Distractor review: garantiert is guaranteed; sicher certain; nachweislich demonstrably. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L563-v2",
+          "contextKey": "legacy-0070-L563-context-2",
+          "transferKey": "legacy-0070-L563-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007016",
+            "type": "gap_choice",
+            "prompt": "Der ___ Liefertermin ist Dienstag; Änderungen sind noch möglich.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The delivery date may change.",
+              "de": "Der Liefertermin kann sich noch ändern."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "bestätigte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "endgültige"
+                  },
+                  {
+                    "id": "2",
+                    "text": "voraussichtliche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verbindliche"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Voraussichtliche means anticipated.",
+              "de": "Voraussichtliche bedeutet erwartet, aber noch nicht sicher."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der voraussichtliche Liefertermin ist Dienstag; Änderungen sind noch möglich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'voraussichtliche', bilingual explanation and distinct context. Distractor review: bestätigte confirmed; endgültige final; verbindliche binding. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007018",
+      "title": {
+        "en": "Using vorhergehend in context",
+        "de": "vorhergehend im Kontext"
+      },
+      "description": {
+        "en": "Recognize preceding in two situations.",
+        "de": "Die Bedeutung „vorhergehend oder davorliegend“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize vorhergehend for the immediately earlier section or version.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L565 (fb3ec687a84cf205db13fdff87df4f628643b7ce477404f2772e9f50fee3c055), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L565-v1",
+          "contextKey": "legacy-0070-L565-context-1",
+          "transferKey": "legacy-0070-L565-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007018",
+            "type": "choice",
+            "prompt": "Im ___ Kapitel wurden die Grundlagen erklärt; jetzt folgen die Beispiele.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The basics were explained earlier.",
+              "de": "Die Grundlagen standen im Kapitel davor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "folgenden"
+              },
+              {
+                "id": "1",
+                "text": "vorhergehenden"
+              },
+              {
+                "id": "2",
+                "text": "nächsten"
+              },
+              {
+                "id": "3",
+                "text": "kommenden"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vorhergehenden means preceding.",
+              "de": "Vorhergehenden bedeutet davorliegend."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im vorhergehenden Kapitel wurden die Grundlagen erklärt; jetzt folgen die Beispiele.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vorhergehenden', bilingual explanation and distinct context. Distractor review: folgenden, nächsten and kommenden mean following or next. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L565-v2",
+          "contextKey": "legacy-0070-L565-context-2",
+          "transferKey": "legacy-0070-L565-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007018",
+            "type": "gap_choice",
+            "prompt": "Die neue Regel ersetzt die ___ Fassung des Vertrags.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The old version is being replaced.",
+              "de": "Die ältere Fassung wird ersetzt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zukünftige"
+                  },
+                  {
+                    "id": "1",
+                    "text": "nächste"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorhergehende"
+                  },
+                  {
+                    "id": "3",
+                    "text": "geplante"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorhergehende means previous.",
+              "de": "Vorhergehende bezeichnet die frühere Fassung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Regel ersetzt die vorhergehende Fassung des Vertrags.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vorhergehende', bilingual explanation and distinct context. Distractor review: zukünftige is future; nächste is next; geplante is planned. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007019",
+      "title": {
+        "en": "Using vorläufig in context",
+        "de": "vorläufig im Kontext"
+      },
+      "description": {
+        "en": "Recognize provisional in two situations.",
+        "de": "Die Bedeutung „vorläufig oder noch nicht endgültig“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize vorläufig for a temporary decision or result pending final confirmation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts from apps/web/data/pos/adjectives.jsonl:L566 (3555f371db7917f9ae034652268dc52986aec1f8cc1bb4585e41650d4ce659de), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report and variant notes; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0070-L566-v1",
+          "contextKey": "legacy-0070-L566-context-1",
+          "transferKey": "legacy-0070-L566-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007019",
+            "type": "choice",
+            "prompt": "Die Ergebnisse sind noch ___; die endgültige Prüfung steht aus.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A final review has not happened.",
+              "de": "Die endgültige Prüfung fehlt noch."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "endgültig"
+              },
+              {
+                "id": "1",
+                "text": "vorläufig"
+              },
+              {
+                "id": "2",
+                "text": "bestätigt"
+              },
+              {
+                "id": "3",
+                "text": "abschließend"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Vorläufig means preliminary.",
+              "de": "Vorläufig bedeutet noch nicht endgültig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ergebnisse sind noch vorläufig; die endgültige Prüfung steht aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vorläufig', bilingual explanation and distinct context. Distractor review: endgültig is final; bestätigt confirmed; abschließend conclusive. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0070-L566-v2",
+          "contextKey": "legacy-0070-L566-context-2",
+          "transferKey": "legacy-0070-L566-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000700191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007019",
+            "type": "gap_choice",
+            "prompt": "Bis zur endgültigen Entscheidung gilt eine ___ Regelung.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The rule applies temporarily.",
+              "de": "Die Regel gilt nur bis zur endgültigen Entscheidung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "endgültige"
+                  },
+                  {
+                    "id": "1",
+                    "text": "dauerhafte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vorläufige"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unveränderliche"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Vorläufige means temporary or provisional.",
+              "de": "Vorläufige bezeichnet eine Übergangsregelung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bis zur endgültigen Entscheidung gilt eine vorläufige Regelung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: independently checked complete German sentence, morphology, all options and unique answer 'vorläufige', bilingual explanation and distinct context. Distractor review: endgültige final; dauerhafte permanent; unveränderliche unchangeable. Human review pending."
+        }
+      ]
+    }
+  ]
+}
