@@ -1,0 +1,2869 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000015800",
+      "title": {
+        "en": "Using Täterin accurately",
+        "de": "Täterin im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Täterin as a female perpetrator of an offence.",
+        "de": "Täterin als eine Täterin einer Straftat erkennen."
+      },
+      "objective": "Recognize Täterin in the specified a female perpetrator of an offence sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2346 (5941bde0c899670a402f8eede0dc2081efa6a5504dc198096a7208da985747e4), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2346-v1",
+          "contextKey": "legacy-0158-L2346-context-1",
+          "transferKey": "legacy-0158-L2346-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015800",
+            "type": "gap_choice",
+            "prompt": "Die Polizei nahm die ___ fest, nachdem die Kamera ihren Diebstahl aufgezeichnet hatte.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She committed the theft shown on the recording.",
+              "de": "Sie hat den aufgezeichneten Diebstahl begangen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zeugin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Täterin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verkäuferin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Richterin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Täterin is a woman who committed the act.",
+              "de": "Eine Täterin ist eine Frau, die eine Tat begangen hat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei nahm die Täterin fest, nachdem die Kamera ihren Diebstahl aufgezeichnet hatte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Täterin' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Zeugin: A witness observes an act, not commits the stated theft.; Täterin: correct in the complete context; Verkäuferin: A saleswoman's occupation does not identify the person who stole.; Richterin: A judge decides cases, not the offender in this context.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2346-v2",
+          "contextKey": "legacy-0158-L2346-context-2",
+          "transferKey": "legacy-0158-L2346-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015800",
+            "type": "choice",
+            "prompt": "Eine Frau hat nachweislich ein Fahrrad gestohlen. Wie nennt man sie im Zusammenhang mit dieser Tat?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The person carried out the offence.",
+              "de": "Die Person hat die Straftat begangen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zeugin"
+              },
+              {
+                "id": "1",
+                "text": "Geschädigte"
+              },
+              {
+                "id": "2",
+                "text": "Täterin"
+              },
+              {
+                "id": "3",
+                "text": "Ermittlerin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "The female offender is the Täterin.",
+              "de": "Die weibliche Person, die die Tat begeht, ist die Täterin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Frau ist die Täterin des Diebstahls.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Täterin' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Zeugin: A witness sees or knows about the offence, not commits it.; Geschädigte: The injured party suffers the loss, not perpetrates the theft.; Täterin: correct in the complete context; Ermittlerin: An investigator examines the offence, not commits it.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015801",
+      "title": {
+        "en": "Using Tätigkeit accurately",
+        "de": "Tätigkeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tätigkeit as a particular activity or work task.",
+        "de": "Tätigkeit als eine bestimmte Tätigkeit oder Aufgabe erkennen."
+      },
+      "objective": "Recognize Tätigkeit in the specified a particular activity or work task sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2347 (97150bd41f747035abc859fc98977bb9093bd84ee565c775c0053f0a953f83f3), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2347-v1",
+          "contextKey": "legacy-0158-L2347-context-1",
+          "transferKey": "legacy-0158-L2347-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015801",
+            "type": "gap_choice",
+            "prompt": "Die wichtigste ___ der neuen Mitarbeiterin ist die Prüfung der Rechnungen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence describes what she does at work.",
+              "de": "Der Satz beschreibt ihre berufliche Aufgabe."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Tätigkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Pause"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einladung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tätigkeit is an activity or task.",
+              "de": "Eine Tätigkeit ist eine ausgeübte Aufgabe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die wichtigste Tätigkeit der neuen Mitarbeiterin ist die Prüfung der Rechnungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tätigkeit' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Tätigkeit: correct in the complete context; Lieferung: A delivery is a shipment, not the job activity described.; Pause: A break is time off work, not the core task.; Einladung: An invitation requests attendance, not a daily work duty.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2347-v2",
+          "contextKey": "legacy-0158-L2347-context-2",
+          "transferKey": "legacy-0158-L2347-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015801",
+            "type": "choice",
+            "prompt": "Jemand beschreibt die Aufgaben, die er täglich im Beruf erledigt. Welches Wort fasst diese Arbeiten zusammen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The focus is on work performed.",
+              "de": "Es geht um ausgeführte berufliche Aufgaben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wohnorte"
+              },
+              {
+                "id": "1",
+                "text": "Tätigkeiten"
+              },
+              {
+                "id": "2",
+                "text": "Fahrkarten"
+              },
+              {
+                "id": "3",
+                "text": "Rechnungen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Work tasks can be called Tätigkeiten.",
+              "de": "Berufliche Aufgaben heißen Tätigkeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er beschreibt seine beruflichen Tätigkeiten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tätigkeiten' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Wohnorte: Places of residence are addresses, not job tasks.; Tätigkeiten: correct in the complete context; Fahrkarten: Tickets are travel documents, not work activities.; Rechnungen: Invoices are documents and may be processed, but do not name all tasks.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015802",
+      "title": {
+        "en": "Using Tatsache accurately",
+        "de": "Tatsache im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tatsache as a verifiable fact rather than an opinion.",
+        "de": "Tatsache als eine überprüfbare Tatsache erkennen."
+      },
+      "objective": "Recognize Tatsache in the specified a verifiable fact rather than an opinion sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2348 (2b5b0bb407a13ae016468fde692df43afea120b6281e591df3c204c841885047), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2348-v1",
+          "contextKey": "legacy-0158-L2348-context-1",
+          "transferKey": "legacy-0158-L2348-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015802",
+            "type": "gap_choice",
+            "prompt": "Dass das Gebäude seit gestern geschlossen ist, ist eine überprüfbare ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The statement can be checked objectively.",
+              "de": "Die Aussage lässt sich sachlich überprüfen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vermutung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Frage"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Meinung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tatsache"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Tatsache is a factual state of affairs.",
+              "de": "Eine Tatsache ist ein sachlich feststellbarer Umstand."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Dass das Gebäude seit gestern geschlossen ist, ist eine überprüfbare Tatsache.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tatsache' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Vermutung: A supposition is unverified, unlike the stated checkable fact.; Frage: A question asks for information, not asserts a fact.; Meinung: An opinion is a personal view, not necessarily objectively verifiable.; Tatsache: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2348-v2",
+          "contextKey": "legacy-0158-L2348-context-2",
+          "transferKey": "legacy-0158-L2348-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015802",
+            "type": "choice",
+            "prompt": "Ein Bericht nennt einen belegten Sachverhalt und keine persönliche Ansicht. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The information is supported by evidence.",
+              "de": "Die Angabe ist durch Belege gestützt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tatsache"
+              },
+              {
+                "id": "1",
+                "text": "Vermutung"
+              },
+              {
+                "id": "2",
+                "text": "Wunsch"
+              },
+              {
+                "id": "3",
+                "text": "Gerücht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A supported fact is a Tatsache.",
+              "de": "Ein belegter Sachverhalt ist eine Tatsache."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bericht nennt eine Tatsache.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tatsache' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Tatsache: correct in the complete context; Vermutung: A guess lacks the evidence stated.; Wunsch: A wish expresses desire, not an established condition.; Gerücht: A rumour is unverified information, not an evidenced fact.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015803",
+      "title": {
+        "en": "Using Teamfähigkeit accurately",
+        "de": "Teamfähigkeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Teamfähigkeit as the ability to cooperate in a team.",
+        "de": "Teamfähigkeit als die Fähigkeit zur Zusammenarbeit im Team erkennen."
+      },
+      "objective": "Recognize Teamfähigkeit in the specified the ability to cooperate in a team sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2351 (cb40a408d861726a2b10975fff2178f152cc03d47ee7f44d14976fc1724bf5de), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2351-v1",
+          "contextKey": "legacy-0158-L2351-context-1",
+          "transferKey": "legacy-0158-L2351-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015803",
+            "type": "gap_choice",
+            "prompt": "In der Stellenanzeige wird ___ verlangt, weil viele Aufgaben gemeinsam erledigt werden.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The job requires good cooperation.",
+              "de": "Die Stelle verlangt gute Zusammenarbeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schichtarbeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Reisekosten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Teamfähigkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Führerschein"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Teamfähigkeit is the ability to work constructively with others.",
+              "de": "Teamfähigkeit ist die Fähigkeit, gut mit anderen zusammenzuarbeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Stellenanzeige wird Teamfähigkeit verlangt, weil viele Aufgaben gemeinsam erledigt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Teamfähigkeit' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Schichtarbeit: Shift work concerns schedules, not cooperative ability.; Reisekosten: Travel costs are expenses, not interpersonal skills.; Teamfähigkeit: correct in the complete context; Führerschein: A driving licence permits driving, not teamwork.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2351-v2",
+          "contextKey": "legacy-0158-L2351-context-2",
+          "transferKey": "legacy-0158-L2351-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015803",
+            "type": "choice",
+            "prompt": "Eine Kollegin hört anderen zu, stimmt sich ab und löst Aufgaben gemeinsam. Welche Stärke zeigt sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Her behaviour supports collaborative work.",
+              "de": "Ihr Verhalten fördert die Zusammenarbeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Alleinarbeit"
+              },
+              {
+                "id": "1",
+                "text": "Unpünktlichkeit"
+              },
+              {
+                "id": "2",
+                "text": "Verschwiegenheit"
+              },
+              {
+                "id": "3",
+                "text": "Teamfähigkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Listening and coordinating are aspects of Teamfähigkeit.",
+              "de": "Zuhören und Abstimmen gehören zur Teamfähigkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kollegin zeigt Teamfähigkeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Teamfähigkeit' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Alleinarbeit: Working alone does not describe the collaboration shown.; Unpünktlichkeit: Lateness is a timekeeping problem, not a cooperative strength.; Verschwiegenheit: Discretion concerns confidentiality, not the coordination described.; Teamfähigkeit: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015804",
+      "title": {
+        "en": "Using Teamsitzung accurately",
+        "de": "Teamsitzung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Teamsitzung as a meeting of team members.",
+        "de": "Teamsitzung als eine gemeinsame Teamsitzung erkennen."
+      },
+      "objective": "Recognize Teamsitzung in the specified a meeting of team members sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2352 (967700751945d8fa6560d845d6cb23f7bcf390c87fe5fb071b544853b24caf9c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2352-v1",
+          "contextKey": "legacy-0158-L2352-context-1",
+          "transferKey": "legacy-0158-L2352-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015804",
+            "type": "gap_choice",
+            "prompt": "Jeden Montag besprechen wir unsere Projekte in der ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The team gathers to discuss its work.",
+              "de": "Das Team trifft sich, um seine Arbeit zu besprechen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Inventur"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Teamsitzung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Teamsitzung is a meeting of the team.",
+              "de": "Eine Teamsitzung ist eine Besprechung des Teams."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Jeden Montag besprechen wir unsere Projekte in der Teamsitzung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Teamsitzung' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Inventur: Inventory counts stock, not a regular project discussion.; Teamsitzung: correct in the complete context; Bewerbung: An application seeks a position, not a team meeting.; Rechnung: An invoice is a bill, not a meeting.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2352-v2",
+          "contextKey": "legacy-0158-L2352-context-2",
+          "transferKey": "legacy-0158-L2352-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015804",
+            "type": "choice",
+            "prompt": "Alle Mitglieder einer Arbeitsgruppe treffen sich, um Fortschritte und Aufgaben zu besprechen. Wie heißt das Treffen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The group discusses shared work.",
+              "de": "Die Gruppe bespricht ihre gemeinsame Arbeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Betriebsferien"
+              },
+              {
+                "id": "1",
+                "text": "Lohnabrechnung"
+              },
+              {
+                "id": "2",
+                "text": "Teamsitzung"
+              },
+              {
+                "id": "3",
+                "text": "Schichtwechsel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A team meeting is a Teamsitzung.",
+              "de": "Eine gemeinsame Teambesprechung heißt Teamsitzung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Treffen ist eine Teamsitzung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Teamsitzung' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Betriebsferien: Company holidays are time off, not a work discussion.; Lohnabrechnung: A payslip records salary, not a gathering.; Teamsitzung: correct in the complete context; Schichtwechsel: A shift change replaces workers, not necessarily a team discussion.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015805",
+      "title": {
+        "en": "Using Technik accurately",
+        "de": "Technik im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Technik as a practical method or technique.",
+        "de": "Technik als eine Technik als bestimmte Methode erkennen."
+      },
+      "objective": "Recognize Technik in the specified a practical method or technique sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2353 (9dff08e750ca485b0d5a53022dae555e63af85641d40d49f362ca95f4ebc4048), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2353-v1",
+          "contextKey": "legacy-0158-L2353-context-1",
+          "transferKey": "legacy-0158-L2353-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015805",
+            "type": "gap_choice",
+            "prompt": "Mit einer neuen ___ kann die Restauratorin alte Farbe besonders schonend entfernen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The word describes how a task is performed.",
+              "de": "Das Wort beschreibt die Methode der Arbeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Technik"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abteilung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Technik can be a practical method.",
+              "de": "Eine Technik kann eine bestimmte Arbeitsmethode sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit einer neuen Technik kann die Restauratorin alte Farbe besonders schonend entfernen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Technik' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Technik: correct in the complete context; Lieferung: A delivery transports goods, not a restoration method.; Rechnung: An invoice requests payment, not removes paint.; Abteilung: A department is an organizational unit, not a method.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2353-v2",
+          "contextKey": "legacy-0158-L2353-context-2",
+          "transferKey": "legacy-0158-L2353-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015805",
+            "type": "choice",
+            "prompt": "Eine Köchin nutzt eine besondere Methode, um Gemüse sehr dünn zu schneiden. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The focus is on the method, not an industrial invention.",
+              "de": "Es geht um eine Arbeitsmethode und nicht um eine technische Erfindung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Technologie"
+              },
+              {
+                "id": "1",
+                "text": "Technik"
+              },
+              {
+                "id": "2",
+                "text": "Abrechnung"
+              },
+              {
+                "id": "3",
+                "text": "Bestellung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A cutting method is a Technik.",
+              "de": "Eine Schneidemethode ist eine Technik."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Köchin verwendet eine besondere Technik.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Technik' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Technologie: Technology is the broader application of technical knowledge, not the specific manual cutting method.; Technik: correct in the complete context; Abrechnung: Billing records charges, not how food is cut.; Bestellung: An order requests goods, not a method.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015806",
+      "title": {
+        "en": "Using Techniker accurately",
+        "de": "Techniker im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Techniker as a technician who repairs equipment.",
+        "de": "Techniker als einen Techniker für Geräte und Anlagen erkennen."
+      },
+      "objective": "Recognize Techniker in the specified a technician who repairs equipment sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2354 (c6d2d9c5b4fb4e26ebdf6cc00baf6168cc13b0577c711784b931712b4b63a883), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2354-v1",
+          "contextKey": "legacy-0158-L2354-context-1",
+          "transferKey": "legacy-0158-L2354-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015806",
+            "type": "gap_choice",
+            "prompt": "Der ___ reparierte die defekte Klimaanlage.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person has technical repair expertise.",
+              "de": "Die Person verfügt über technische Reparaturkenntnisse."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhalter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kellner"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechtsanwalt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Techniker"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Techniker repairs or maintains technical equipment.",
+              "de": "Ein Techniker repariert oder wartet technische Geräte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Techniker reparierte die defekte Klimaanlage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Techniker' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Buchhalter: An accountant handles financial records, not air-conditioning repairs.; Kellner: A waiter serves guests, not maintains climate systems.; Rechtsanwalt: A lawyer provides legal advice, not technical repair.; Techniker: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2354-v2",
+          "contextKey": "legacy-0158-L2354-context-2",
+          "transferKey": "legacy-0158-L2354-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015806",
+            "type": "choice",
+            "prompt": "In der Firma fällt ein Server aus. Wen ruft man zur technischen Reparatur?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The task is diagnosing and fixing a device.",
+              "de": "Es geht um Fehlersuche und Reparatur eines Geräts."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Techniker"
+              },
+              {
+                "id": "1",
+                "text": "Übersetzer"
+              },
+              {
+                "id": "2",
+                "text": "Bäcker"
+              },
+              {
+                "id": "3",
+                "text": "Verkäufer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A technician can troubleshoot equipment.",
+              "de": "Ein Techniker kann technische Anlagen prüfen und reparieren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma ruft einen Techniker.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Techniker' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Techniker: correct in the complete context; Übersetzer: A translator works with languages, not server repair.; Bäcker: A baker makes baked goods, not fixes servers.; Verkäufer: A salesperson sells products, not provides the described technical repair.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015807",
+      "title": {
+        "en": "Using Technologie accurately",
+        "de": "Technologie im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Technologie as technology enabling a technical solution.",
+        "de": "Technologie als eine Technologie als technische Lösung erkennen."
+      },
+      "objective": "Recognize Technologie in the specified technology enabling a technical solution sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2355 (280138f849503d0526c1b87df3d170c38bda1678fff3991077d1271559fdbaba), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2355-v1",
+          "contextKey": "legacy-0158-L2355-context-1",
+          "transferKey": "legacy-0158-L2355-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015807",
+            "type": "gap_choice",
+            "prompt": "Die neue ___ ermöglicht es, große Datenmengen auf kleinem Raum zu speichern.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A technical innovation makes the capability possible.",
+              "de": "Eine technische Neuerung ermöglicht diese Funktion."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pause"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Technologie"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Besprechung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Technologie refers to technical methods and systems.",
+              "de": "Technologie bezeichnet technische Verfahren und Systeme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Technologie ermöglicht es, große Datenmengen auf kleinem Raum zu speichern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Technologie' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Pause: A break is rest, not an innovation.; Rechnung: An invoice records costs, not enables storage.; Technologie: correct in the complete context; Besprechung: A meeting is a discussion, not data-storage technology.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2355-v2",
+          "contextKey": "legacy-0158-L2355-context-2",
+          "transferKey": "legacy-0158-L2355-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015807",
+            "type": "choice",
+            "prompt": "Ein Unternehmen entwickelt eine neuartige technische Lösung für langlebigere Batterien. Was entwickelt es?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The invention concerns technical capabilities.",
+              "de": "Die Entwicklung betrifft technische Möglichkeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tagesordnung"
+              },
+              {
+                "id": "1",
+                "text": "Lohnabrechnung"
+              },
+              {
+                "id": "2",
+                "text": "Lieferadresse"
+              },
+              {
+                "id": "3",
+                "text": "Technologie"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A new technical solution can be a Technologie.",
+              "de": "Eine neue technische Lösung kann eine Technologie sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen entwickelt eine neue Technologie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Technologie' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Tagesordnung: An agenda lists meeting topics, not battery innovations.; Lohnabrechnung: A payslip records wages, not new battery technology.; Lieferadresse: A delivery address identifies a location, not a technical invention.; Technologie: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015808",
+      "title": {
+        "en": "Using Teilnahme accurately",
+        "de": "Teilnahme im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Teilnahme as participation in an event or activity.",
+        "de": "Teilnahme als die Teilnahme an einer Veranstaltung erkennen."
+      },
+      "objective": "Recognize Teilnahme in the specified participation in an event or activity sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2358 (237ed716127093aadb9d48eac5c48bb343a678b9d27e2d97cb65f8b2158ebcb1), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2358-v1",
+          "contextKey": "legacy-0158-L2358-context-1",
+          "transferKey": "legacy-0158-L2358-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015808",
+            "type": "gap_choice",
+            "prompt": "Die ___ am Workshop ist kostenlos, aber eine Anmeldung ist nötig.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence concerns taking part.",
+              "de": "Es geht darum, bei der Veranstaltung mitzumachen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Teilnahme"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Beförderung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kündigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Teilnahme means taking part.",
+              "de": "Teilnahme bedeutet, bei etwas mitzumachen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Teilnahme am Workshop ist kostenlos, aber eine Anmeldung ist nötig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Teilnahme' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Rechnung: An invoice is a bill, not the act of attending.; Teilnahme: correct in the complete context; Beförderung: A promotion advances an employee, not workshop attendance.; Kündigung: Termination ends an agreement, not participation.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2358-v2",
+          "contextKey": "legacy-0158-L2358-context-2",
+          "transferKey": "legacy-0158-L2358-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015808",
+            "type": "choice",
+            "prompt": "Wer bei einer Veranstaltung tatsächlich mitmacht, zeigt seine ___.",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The person is present and involved.",
+              "de": "Die Person ist dabei und macht mit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abwesenheit"
+              },
+              {
+                "id": "1",
+                "text": "Verspätung"
+              },
+              {
+                "id": "2",
+                "text": "Teilnahme"
+              },
+              {
+                "id": "3",
+                "text": "Stornierung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Taking part is Teilnahme.",
+              "de": "Das Mitmachen ist die Teilnahme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer mitmacht, zeigt seine Teilnahme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Teilnahme' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Abwesenheit: Absence means not being present, the opposite of participation.; Verspätung: Lateness concerns arrival time, not necessarily participation.; Teilnahme: correct in the complete context; Stornierung: Cancellation withdraws an event or booking, not taking part.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015809",
+      "title": {
+        "en": "Using Teilnehmer accurately",
+        "de": "Teilnehmer im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Teilnehmer as a male participant in a course or event.",
+        "de": "Teilnehmer als einen männlichen Teilnehmer erkennen."
+      },
+      "objective": "Recognize Teilnehmer in the specified a male participant in a course or event sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2359 (0ee34a7df88e079f1ed582abcfee1e09fdbc3f52408f940ae4c64d0380335f73), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2359-v1",
+          "contextKey": "legacy-0158-L2359-context-1",
+          "transferKey": "legacy-0158-L2359-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015809",
+            "type": "gap_choice",
+            "prompt": "Jeder ___ des Seminars erhält am Ende eine Teilnahmebescheinigung.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person takes part in the seminar.",
+              "de": "Die Person macht beim Seminar mit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Teilnehmer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fahrgast"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mieter"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Patient"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Teilnehmer is someone taking part.",
+              "de": "Ein Teilnehmer ist jemand, der an einer Veranstaltung teilnimmt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Jeder Teilnehmer des Seminars erhält am Ende eine Teilnahmebescheinigung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Teilnehmer' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Teilnehmer: correct in the complete context; Fahrgast: A passenger uses transport, not a seminar role.; Mieter: A tenant rents property, not a seminar role.; Patient: A patient receives medical care, not a seminar role.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2359-v2",
+          "contextKey": "legacy-0158-L2359-context-2",
+          "transferKey": "legacy-0158-L2359-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015809",
+            "type": "choice",
+            "prompt": "Ein Mann besucht einen Kurs und macht aktiv bei den Übungen mit. Wie nennt man ihn?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He attends and participates, not teaches or evaluates.",
+              "de": "Er macht mit und unterrichtet oder prüft nicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Dozent"
+              },
+              {
+                "id": "1",
+                "text": "Teilnehmer"
+              },
+              {
+                "id": "2",
+                "text": "Hausmeister"
+              },
+              {
+                "id": "3",
+                "text": "Prüfer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A male course attendee is a Teilnehmer.",
+              "de": "Ein männlicher Kursteilnehmender ist ein Teilnehmer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann ist Teilnehmer des Kurses.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Teilnehmer' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Dozent: A lecturer teaches the course, not simply attends it.; Teilnehmer: correct in the complete context; Hausmeister: A caretaker maintains the building, not the learning role.; Prüfer: An examiner assesses others, not the participant described.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015810",
+      "title": {
+        "en": "Using Teilnehmerin accurately",
+        "de": "Teilnehmerin im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Teilnehmerin as a female participant in a course or event.",
+        "de": "Teilnehmerin als eine weibliche Teilnehmerin erkennen."
+      },
+      "objective": "Recognize Teilnehmerin in the specified a female participant in a course or event sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2360 (18a3c5e5e30d1f070c7dbae37039961effaef4ae6dd5c47441a0188b5b10e117), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2360-v1",
+          "contextKey": "legacy-0158-L2360-context-1",
+          "transferKey": "legacy-0158-L2360-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015810",
+            "type": "gap_choice",
+            "prompt": "Jede ___ des Kurses bekam am Ende eine Teilnahmebescheinigung.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person attends the course.",
+              "de": "Die Person nimmt am Kurs teil."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferantin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vermieterin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Patientin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Teilnehmerin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Teilnehmerin is a female participant.",
+              "de": "Eine Teilnehmerin ist eine Frau, die an etwas teilnimmt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Jede Teilnehmerin des Kurses bekam am Ende eine Teilnahmebescheinigung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Teilnehmerin' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Lieferantin: A supplier delivers goods, not a course role.; Vermieterin: A landlady rents property, not a course role.; Patientin: A patient receives treatment, not the seminar role.; Teilnehmerin: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2360-v2",
+          "contextKey": "legacy-0158-L2360-context-2",
+          "transferKey": "legacy-0158-L2360-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015810",
+            "type": "choice",
+            "prompt": "Eine Frau besucht einen Kurs und macht bei den Übungen mit. Wie nennt man sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She attends rather than teaching or assessing.",
+              "de": "Sie nimmt teil, statt zu unterrichten oder zu prüfen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Teilnehmerin"
+              },
+              {
+                "id": "1",
+                "text": "Dozentin"
+              },
+              {
+                "id": "2",
+                "text": "Prüferin"
+              },
+              {
+                "id": "3",
+                "text": "Hausmeisterin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A female course attendee is a Teilnehmerin.",
+              "de": "Eine weibliche Kursteilnehmende ist eine Teilnehmerin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Frau ist Teilnehmerin des Kurses.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Teilnehmerin' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Teilnehmerin: correct in the complete context; Dozentin: A lecturer teaches, not merely participates.; Prüferin: An examiner evaluates, not attends as a learner.; Hausmeisterin: A caretaker manages facilities, not the course role.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015811",
+      "title": {
+        "en": "Using Teilzeit accurately",
+        "de": "Teilzeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Teilzeit as part-time employment with reduced working hours.",
+        "de": "Teilzeit als Teilzeit als Beschäftigung mit reduzierter Arbeitszeit erkennen."
+      },
+      "objective": "Recognize Teilzeit in the specified part-time employment with reduced working hours sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2361 (e5ec7cccd80a55205cc826feb419da30c9b1c87ff0b8edd5877e39bc026d0c60), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2361-v1",
+          "contextKey": "legacy-0158-L2361-context-1",
+          "transferKey": "legacy-0158-L2361-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015811",
+            "type": "gap_choice",
+            "prompt": "Er arbeitet nicht 40, sondern 20 Stunden pro Woche, also in ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "His weekly hours are reduced compared with full-time work.",
+              "de": "Seine Wochenstunden sind gegenüber Vollzeit reduziert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vollzeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Nachtschicht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Teilzeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rente"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Teilzeit means working fewer hours than a comparable full-time role.",
+              "de": "Teilzeit bedeutet eine geringere Arbeitszeit als bei vergleichbarer Vollzeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er arbeitet nicht 40, sondern 20 Stunden pro Woche, also in Teilzeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Teilzeit' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Vollzeit: Full-time describes the longer regular hours, not the reduced schedule.; Nachtschicht: Night shift describes time of day, not total weekly hours.; Teilzeit: correct in the complete context; Rente: Retirement means leaving work, not a reduced-hours job.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2361-v2",
+          "contextKey": "legacy-0158-L2361-context-2",
+          "transferKey": "legacy-0158-L2361-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015811",
+            "type": "choice",
+            "prompt": "Eine Beschäftigte reduziert ihre wöchentliche Arbeitszeit von 40 auf 25 Stunden. In welcher Beschäftigungsform arbeitet sie jetzt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She still works but for fewer hours.",
+              "de": "Sie arbeitet weiter, aber mit weniger Stunden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vollzeit"
+              },
+              {
+                "id": "1",
+                "text": "Ruhestand"
+              },
+              {
+                "id": "2",
+                "text": "Urlaub"
+              },
+              {
+                "id": "3",
+                "text": "Teilzeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Reduced weekly hours indicate Teilzeit.",
+              "de": "Weniger Wochenstunden können Teilzeit bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Beschäftigte arbeitet jetzt in Teilzeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Teilzeit' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Vollzeit: Full-time would normally retain the comparable full hours.; Ruhestand: Retirement is not continuing the same reduced-hours employment.; Urlaub: Holiday is temporary leave, not the ongoing working-hours arrangement.; Teilzeit: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015813",
+      "title": {
+        "en": "Using Teilzeitkraft accurately",
+        "de": "Teilzeitkraft im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Teilzeitkraft as a worker employed part time.",
+        "de": "Teilzeitkraft als eine Teilzeitkraft erkennen."
+      },
+      "objective": "Recognize Teilzeitkraft in the specified a worker employed part time sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2363 (f2a625ec0dc9ec9d2e7411857a500dad88ba549bbc08f0b45561b134479614c7), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2363-v1",
+          "contextKey": "legacy-0158-L2363-context-1",
+          "transferKey": "legacy-0158-L2363-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015813",
+            "type": "gap_choice",
+            "prompt": "Für den Empfang suchen wir eine ___ für 20 Stunden pro Woche.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The employer wants a person for reduced weekly hours.",
+              "de": "Gesucht wird eine Person mit reduzierter Wochenarbeitszeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Teilzeitkraft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vollzeitstelle"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Führungsebene"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abteilung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Teilzeitkraft is a part-time employee.",
+              "de": "Eine Teilzeitkraft arbeitet mit reduzierter Stundenzahl."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Empfang suchen wir eine Teilzeitkraft für 20 Stunden pro Woche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Teilzeitkraft' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Teilzeitkraft: correct in the complete context; Vollzeitstelle: A full-time position is a job category, not the part-time person requested.; Führungsebene: Management level is an organizational rank, not a worker for 20 hours.; Abteilung: A department is a unit, not an individual employee.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2363-v2",
+          "contextKey": "legacy-0158-L2363-context-2",
+          "transferKey": "legacy-0158-L2363-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015813",
+            "type": "choice",
+            "prompt": "Ein Betrieb beschäftigt eine Person nur an drei Vormittagen pro Woche. Wie kann man diese Person im Stellenkontext nennen?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The person has a reduced schedule.",
+              "de": "Die Person arbeitet nur einen Teil der üblichen Arbeitszeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vollzeitkraft"
+              },
+              {
+                "id": "1",
+                "text": "Teilzeitkraft"
+              },
+              {
+                "id": "2",
+                "text": "Betriebsleiterin"
+              },
+              {
+                "id": "3",
+                "text": "Kundin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Someone employed for reduced hours can be a Teilzeitkraft.",
+              "de": "Eine Person mit reduzierter Arbeitszeit kann Teilzeitkraft heißen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Person arbeitet als Teilzeitkraft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Teilzeitkraft' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Vollzeitkraft: A full-time worker normally works the full comparable hours.; Teilzeitkraft: correct in the complete context; Betriebsleiterin: A manager is defined by responsibility, not this schedule.; Kundin: A customer buys services, not works for the employer.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015814",
+      "title": {
+        "en": "Using Temperatur accurately",
+        "de": "Temperatur im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Temperatur as temperature measured in degrees.",
+        "de": "Temperatur als die Temperatur als Wärmegrad erkennen."
+      },
+      "objective": "Recognize Temperatur in the specified temperature measured in degrees sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2366 (bf8999d90b88e83c95379517bc9472d2b0156905113e1314b20b70a486672acd), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2366-v1",
+          "contextKey": "legacy-0158-L2366-context-1",
+          "transferKey": "legacy-0158-L2366-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015814",
+            "type": "gap_choice",
+            "prompt": "Das Thermometer zeigt eine ___ von 28 Grad an.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The instrument measures how warm something is.",
+              "de": "Das Messgerät zeigt an, wie warm etwas ist."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geschwindigkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Entfernung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lautstärke"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Temperatur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Temperatur is measured in degrees.",
+              "de": "Die Temperatur wird in Grad angegeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Thermometer zeigt eine Temperatur von 28 Grad an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Temperatur' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Geschwindigkeit: Speed is measured in distance per time, not by a thermometer.; Entfernung: Distance is length, not a thermometer reading.; Lautstärke: Volume is sound intensity, not a degree reading.; Temperatur: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2366-v2",
+          "contextKey": "legacy-0158-L2366-context-2",
+          "transferKey": "legacy-0158-L2366-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015814",
+            "type": "choice",
+            "prompt": "Im Labor wird gemessen, wie warm eine Flüssigkeit ist. Welche Größe wird bestimmt?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The measurement concerns warmth.",
+              "de": "Die Messung betrifft den Wärmegrad."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Temperatur"
+              },
+              {
+                "id": "1",
+                "text": "Masse"
+              },
+              {
+                "id": "2",
+                "text": "Länge"
+              },
+              {
+                "id": "3",
+                "text": "Spannung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Warmth is expressed as Temperatur.",
+              "de": "Der Wärmegrad wird als Temperatur angegeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Labor wird die Temperatur der Flüssigkeit bestimmt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Temperatur' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Temperatur: correct in the complete context; Masse: Mass measures amount of matter, not warmth.; Länge: Length measures spatial extent, not warmth.; Spannung: Voltage measures electrical potential, not warmth.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015815",
+      "title": {
+        "en": "Using Tempo accurately",
+        "de": "Tempo im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Tempo as speed or pace of movement.",
+        "de": "Tempo als das Tempo einer Bewegung erkennen."
+      },
+      "objective": "Recognize Tempo in the specified speed or pace of movement sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2367 (869fc907a14d9011fa9fa455a36c63811d05ec2dc3f4b0328ed108c423600b1c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2367-v1",
+          "contextKey": "legacy-0158-L2367-context-1",
+          "transferKey": "legacy-0158-L2367-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015815",
+            "type": "gap_choice",
+            "prompt": "Auf der nassen Straße sollte der Fahrer sein ___ verringern.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The vehicle should move more slowly.",
+              "de": "Das Fahrzeug soll langsamer fahren."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gepäck"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gehalt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Tempo"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gewicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Tempo describes speed or pace.",
+              "de": "Tempo bezeichnet die Geschwindigkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der nassen Straße sollte der Fahrer sein Tempo verringern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Tempo' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Gepäck: Luggage is baggage, not vehicle speed.; Gehalt: Salary is income, not driving pace.; Tempo: correct in the complete context; Gewicht: Weight is mass, not speed.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2367-v2",
+          "contextKey": "legacy-0158-L2367-context-2",
+          "transferKey": "legacy-0158-L2367-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015815",
+            "type": "choice",
+            "prompt": "Eine Läuferin wird langsamer, damit sie länger durchhält. Was reduziert sie?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She slows down her pace.",
+              "de": "Sie verringert ihre Geschwindigkeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Größe"
+              },
+              {
+                "id": "1",
+                "text": "Strecke"
+              },
+              {
+                "id": "2",
+                "text": "Alter"
+              },
+              {
+                "id": "3",
+                "text": "Tempo"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Slowing down means reducing Tempo.",
+              "de": "Langsamer werden heißt, das Tempo zu senken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Läuferin reduziert ihr Tempo.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Tempo' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Größe: Height does not change by running slower.; Strecke: Distance is the route length, not her immediate speed.; Alter: Age is not reduced by slowing down.; Tempo: correct in the complete context. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015816",
+      "title": {
+        "en": "Using Teppich accurately",
+        "de": "Teppich im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Teppich as a carpet or rug covering a floor.",
+        "de": "Teppich als einen Teppich als Bodenbelag erkennen."
+      },
+      "objective": "Recognize Teppich in the specified a carpet or rug covering a floor sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2369 (dbb64fe0aa1dbd65ec04b8f993e2d6934834a680043109349f2850958644677e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2369-v1",
+          "contextKey": "legacy-0158-L2369-context-1",
+          "transferKey": "legacy-0158-L2369-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015816",
+            "type": "gap_choice",
+            "prompt": "Im Wohnzimmer liegt ein weicher ___ auf dem Boden.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The item is a soft floor covering.",
+              "de": "Der Gegenstand ist ein weicher Bodenbelag."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schrank"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Teppich"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Tisch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vorhang"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Teppich is a carpet or rug.",
+              "de": "Ein Teppich ist ein textiler Bodenbelag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Wohnzimmer liegt ein weicher Teppich auf dem Boden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Teppich' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Schrank: A wardrobe is furniture and not normally described as a soft floor covering.; Teppich: correct in the complete context; Tisch: A table is furniture, not a soft floor textile.; Vorhang: A curtain hangs at a window, not on the floor as a covering.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2369-v2",
+          "contextKey": "legacy-0158-L2369-context-2",
+          "transferKey": "legacy-0158-L2369-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015816",
+            "type": "choice",
+            "prompt": "Das Kind spielt auf einem gewebten Bodenbelag, der lose auf dem Fußboden liegt. Was ist das?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The textile covers part of the room's floor.",
+              "de": "Der textile Gegenstand bedeckt einen Teil des Fußbodens."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tapete"
+              },
+              {
+                "id": "1",
+                "text": "Fenster"
+              },
+              {
+                "id": "2",
+                "text": "Teppich"
+              },
+              {
+                "id": "3",
+                "text": "Türmatte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A woven floor covering is a Teppich.",
+              "de": "Ein gewebter Bodenbelag ist ein Teppich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Kind spielt auf einem Teppich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Teppich' (option 2). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Tapete: Wallpaper covers walls, not the floor.; Fenster: A window is an opening, not a woven floor covering.; Teppich: correct in the complete context; Türmatte: A doormat is usually a small mat at an entrance, not the room rug described.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015817",
+      "title": {
+        "en": "Using Terminbestätigung accurately",
+        "de": "Terminbestätigung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Terminbestätigung as written confirmation of an appointment.",
+        "de": "Terminbestätigung als eine Terminbestätigung erkennen."
+      },
+      "objective": "Recognize Terminbestätigung in the specified written confirmation of an appointment sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2371 (2225462b22bef4d0bf5d89d86647d178536372a40b262fc89d5cdf6fff5e6dfa), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2371-v1",
+          "contextKey": "legacy-0158-L2371-context-1",
+          "transferKey": "legacy-0158-L2371-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015817",
+            "type": "gap_choice",
+            "prompt": "Nach der Online-Buchung erhielt sie per E-Mail eine ___ mit Datum und Uhrzeit.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The message confirms a booked appointment.",
+              "de": "Die Nachricht bestätigt einen gebuchten Termin."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Terminbestätigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Terminbestätigung confirms the agreed appointment.",
+              "de": "Eine Terminbestätigung bestätigt einen vereinbarten Termin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Online-Buchung erhielt sie per E-Mail eine Terminbestätigung mit Datum und Uhrzeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Terminbestätigung' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Terminbestätigung: correct in the complete context; Kündigung: Termination ends an agreement, not confirms an appointment.; Rechnung: An invoice may state charges but does not itself confirm the reserved time.; Bewerbung: An application requests a job, not confirms a booking.. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2371-v2",
+          "contextKey": "legacy-0158-L2371-context-2",
+          "transferKey": "legacy-0158-L2371-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015817",
+            "type": "choice",
+            "prompt": "Eine Arztpraxis schreibt: „Ihr Termin am Dienstag um 10 Uhr ist verbindlich reserviert.“ Was ist diese Nachricht?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The practice confirms the reserved time.",
+              "de": "Die Praxis bestätigt die reservierte Uhrzeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Absage"
+              },
+              {
+                "id": "1",
+                "text": "Terminbestätigung"
+              },
+              {
+                "id": "2",
+                "text": "Mahnung"
+              },
+              {
+                "id": "3",
+                "text": "Überweisung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The message confirms an appointment.",
+              "de": "Die Nachricht bestätigt einen Termin."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Nachricht ist eine Terminbestätigung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Terminbestätigung' (option 1). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Absage: A cancellation withdraws the appointment, the opposite of confirmation.; Terminbestätigung: correct in the complete context; Mahnung: A reminder requests action or payment, not merely confirms a booking.; Überweisung: A referral transfers care or a bank transfer moves money, not confirms the time.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000015818",
+      "title": {
+        "en": "Using Terminkalender accurately",
+        "de": "Terminkalender im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Terminkalender as a calendar used to record appointments.",
+        "de": "Terminkalender als einen Terminkalender für Verabredungen erkennen."
+      },
+      "objective": "Recognize Terminkalender in the specified a calendar used to record appointments sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2372 (808e6d05e84a6be54940adb86393c8ce34f5d75b944db2f6711404f32740659e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0158-L2372-v1",
+          "contextKey": "legacy-0158-L2372-context-1",
+          "transferKey": "legacy-0158-L2372-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015818",
+            "type": "gap_choice",
+            "prompt": "Trag die Besprechung bitte in deinen ___ ein.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The tool organizes personal appointments.",
+              "de": "Das Hilfsmittel ordnet persönliche Termine."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kassenbon"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Reisepass"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Arbeitsvertrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Terminkalender"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Terminkalender records appointments.",
+              "de": "Ein Terminkalender dient zum Eintragen von Terminen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Trag die Besprechung bitte in deinen Terminkalender ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Terminkalender' (option 3). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Kassenbon: A receipt documents purchases, not appointments.; Reisepass: A passport proves identity, not schedules meetings.; Arbeitsvertrag: An employment contract sets job terms, not appointments.; Terminkalender: correct in the complete context. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0158-L2372-v2",
+          "contextKey": "legacy-0158-L2372-context-2",
+          "transferKey": "legacy-0158-L2372-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001580181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000015818",
+            "type": "choice",
+            "prompt": "Jemand möchte sehen, wann nächste Woche Arzt- und Kundentermine stattfinden. Was schaut er an?",
+            "instruction": {
+              "en": "Read the German situation and choose the one correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It lists scheduled appointments by date and time.",
+              "de": "Dort stehen Termine nach Datum und Uhrzeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Terminkalender"
+              },
+              {
+                "id": "1",
+                "text": "Kontoauszug"
+              },
+              {
+                "id": "2",
+                "text": "Wetterbericht"
+              },
+              {
+                "id": "3",
+                "text": "Speisekarte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "An appointment calendar organizes upcoming meetings.",
+              "de": "Ein Terminkalender ordnet bevorstehende Termine."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Person schaut in ihren Terminkalender.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Terminkalender' (option 0). Reviewed complete German prompt and answer, inflection, source level, objective, bilingual feedback, distinct context and unique offered answer. Every offered option: Terminkalender: correct in the complete context; Kontoauszug: A bank statement lists transactions, not appointments.; Wetterbericht: A weather report forecasts conditions, not meetings.; Speisekarte: A menu lists dishes, not appointments.. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
