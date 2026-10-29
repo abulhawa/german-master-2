@@ -1,0 +1,2233 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000013301",
+      "title": {
+        "en": "Using Notarzt in context",
+        "de": "Notarzt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Notarzt: emergency physician.",
+        "de": "Notarzt erkennen und verstehen: ärztliche Fachkraft im Rettungsdienst."
+      },
+      "objective": "Recognize the German noun Notarzt (emergency physician) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1680 (3304f1c75be1a0faada6b1592120c41abc2c98815ca7134e73937ba2daa92e2b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1680-v1",
+          "contextKey": "legacy-0133-L1680-context-1",
+          "transferKey": "legacy-0133-L1680-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013301",
+            "type": "gap_choice",
+            "prompt": "Nach dem schweren Unfall wurde sofort ein ___ gerufen.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A physician is needed at the accident scene.",
+              "de": "Am Unfallort wird ärztliche Hilfe benötigt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Notarzt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Makler"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mechaniker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Monteur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Notarzt is an emergency physician.",
+              "de": "Ein Notarzt ist ein Arzt im Rettungsdienst."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem schweren Unfall wurde sofort ein Notarzt gerufen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Notarzt). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Property broker, mechanic and installer are not emergency physicians responding to a serious accident. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1680-v2",
+          "contextKey": "legacy-0133-L1680-context-2",
+          "transferKey": "legacy-0133-L1680-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013301",
+            "type": "choice",
+            "prompt": "Der Notarzt versorgte den Verletzten noch am Unfallort. Wer war dort im Einsatz?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The person provides urgent medical care.",
+              "de": "Die Person leistet ärztliche Hilfe im Notfall."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ein Arzt für medizinische Notfälle"
+              },
+              {
+                "id": "1",
+                "text": "Ein Vermittler von Wohnungen"
+              },
+              {
+                "id": "2",
+                "text": "Ein Verkäufer für Ersatzteile"
+              },
+              {
+                "id": "3",
+                "text": "Ein Fahrer für Warenlieferungen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It was an emergency doctor.",
+              "de": "Es war ein Arzt für medizinische Notfälle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Notarzt leistete am Unfallort medizinische Hilfe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Ein Arzt für medizinische Notfälle). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Broker, spare-parts salesperson and delivery driver do not provide emergency medical treatment. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013302",
+      "title": {
+        "en": "Using Notaufnahme in context",
+        "de": "Notaufnahme im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Notaufnahme: hospital emergency department.",
+        "de": "Notaufnahme erkennen und verstehen: Abteilung eines Krankenhauses für akute Fälle."
+      },
+      "objective": "Recognize the German noun Notaufnahme (hospital emergency department) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1681 (2b2e0aa01f5b8570d095fbd0022483556d7724a736871652b0f5c5f425b616d3), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1681-v1",
+          "contextKey": "legacy-0133-L1681-context-1",
+          "transferKey": "legacy-0133-L1681-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013302",
+            "type": "gap_choice",
+            "prompt": "Nach dem Sturz wurde sie in die ___ des Krankenhauses gebracht.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The hospital assesses acute injuries there.",
+              "de": "Dort werden akute Verletzungen untersucht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Notaufnahme"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bibliothek"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kantine"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verwaltung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Notaufnahme is the emergency department.",
+              "de": "Die Notaufnahme ist die Krankenhausabteilung für akute Fälle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Sturz wurde sie in die Notaufnahme des Krankenhauses gebracht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Notaufnahme). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Library, canteen and administration are not hospital emergency departments. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1681-v2",
+          "contextKey": "legacy-0133-L1681-context-2",
+          "transferKey": "legacy-0133-L1681-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013302",
+            "type": "choice",
+            "prompt": "In der Notaufnahme werden akute Verletzungen zuerst untersucht. Was ist das für ein Bereich?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "It is part of a hospital.",
+              "de": "Die Abteilung gehört zum Krankenhaus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine Abteilung für dringende medizinische Fälle"
+              },
+              {
+                "id": "1",
+                "text": "Ein Raum für Bürobesprechungen"
+              },
+              {
+                "id": "2",
+                "text": "Ein Lager für Lebensmittel"
+              },
+              {
+                "id": "3",
+                "text": "Ein Schalter für Fahrkarten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is the emergency department.",
+              "de": "Es ist eine Abteilung für akute medizinische Fälle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Notaufnahme werden dringende medizinische Fälle versorgt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine Abteilung für dringende medizinische Fälle). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Meeting room, food warehouse and ticket counter are not emergency departments. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013303",
+      "title": {
+        "en": "Using Notausgang in context",
+        "de": "Notausgang im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Notausgang: emergency exit.",
+        "de": "Notausgang erkennen und verstehen: gekennzeichneter Fluchtweg aus einem Gebäude."
+      },
+      "objective": "Recognize the German noun Notausgang (emergency exit) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1682 (f647361124aca1b7d9e60ab850eddae8e17a2545bf299988df11addf08ec1897), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1682-v1",
+          "contextKey": "legacy-0133-L1682-context-1",
+          "transferKey": "legacy-0133-L1682-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013303",
+            "type": "gap_choice",
+            "prompt": "Bei einem Brand soll der gekennzeichnete ___ frei zugänglich sein.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "People need a marked way out.",
+              "de": "Ein markierter Ausgang muss frei bleiben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Notausgang"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fahrstuhl"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Pausenraum"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kopierer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Notausgang is an emergency exit.",
+              "de": "Ein Notausgang ist ein gekennzeichneter Fluchtweg."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei einem Brand soll der gekennzeichnete Notausgang frei zugänglich sein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Notausgang). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Elevator, break room and copier are not a marked emergency exit. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1682-v2",
+          "contextKey": "legacy-0133-L1682-context-2",
+          "transferKey": "legacy-0133-L1682-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013303",
+            "type": "choice",
+            "prompt": "Der Notausgang darf nicht mit Kartons zugestellt werden. Warum muss er frei bleiben?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The route is used when leaving in an emergency.",
+              "de": "Der Weg dient zum Verlassen des Gebäudes in Gefahrensituationen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Damit Menschen das Gebäude im Notfall verlassen können"
+              },
+              {
+                "id": "1",
+                "text": "Damit mehr Waren gelagert werden können"
+              },
+              {
+                "id": "2",
+                "text": "Damit das Büro dunkler wird"
+              },
+              {
+                "id": "3",
+                "text": "Damit der Fahrstuhl schneller fährt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It must remain usable as an escape route.",
+              "de": "Der Notausgang muss als Fluchtweg frei bleiben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Notausgang bleibt frei, damit Menschen das Gebäude verlassen können.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Damit Menschen das Gebäude im Notfall verlassen können). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Storage, lighting and elevator speed do not explain why an emergency exit must be unobstructed. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013304",
+      "title": {
+        "en": "Using Notfall in context",
+        "de": "Notfall im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Notfall: emergency.",
+        "de": "Notfall erkennen und verstehen: dringende Gefahrensituation."
+      },
+      "objective": "Recognize the German noun Notfall (emergency) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1684 (584c848f968d35210ba31495e25ee90c6402538a88820a88c4f6a1ab27316067), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1684-v1",
+          "contextKey": "legacy-0133-L1684-context-1",
+          "transferKey": "legacy-0133-L1684-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013304",
+            "type": "gap_choice",
+            "prompt": "Für einen medizinischen ___ liegt ein Erste-Hilfe-Kasten bereit.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The supplies are kept for urgent situations.",
+              "de": "Die Ausrüstung ist für dringende Situationen gedacht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Notfall"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Urlaub"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Umzug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einkauf"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Notfall means emergency.",
+              "de": "Ein Notfall ist eine dringende Gefahrensituation."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für einen medizinischen Notfall liegt ein Erste-Hilfe-Kasten bereit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Notfall). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Holiday, moving house and shopping are not medical emergencies requiring first-aid supplies. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1684-v2",
+          "contextKey": "legacy-0133-L1684-context-2",
+          "transferKey": "legacy-0133-L1684-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013304",
+            "type": "choice",
+            "prompt": "Im Notfall muss schnell gehandelt werden. Was beschreibt das Wort?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The situation requires urgent attention.",
+              "de": "Die Lage ist dringend und kann Hilfe erfordern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine dringende Situation, in der Hilfe nötig sein kann"
+              },
+              {
+                "id": "1",
+                "text": "Einen gewöhnlichen freien Nachmittag"
+              },
+              {
+                "id": "2",
+                "text": "Eine planmäßige Teambesprechung"
+              },
+              {
+                "id": "3",
+                "text": "Einen normalen Einkauf"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is an emergency.",
+              "de": "Ein Notfall ist eine dringende Situation."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei einem Notfall ist rasches Handeln wichtig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine dringende Situation, in der Hilfe nötig sein kann). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Leisure time, routine meetings and ordinary shopping are not emergencies. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013306",
+      "title": {
+        "en": "Using Notruf in context",
+        "de": "Notruf im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Notruf: emergency call.",
+        "de": "Notruf erkennen und verstehen: dringender Hilferuf an eine Leitstelle."
+      },
+      "objective": "Recognize the German noun Notruf (emergency call) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1687 (2241589258bb22ad459a94ba3d009b0ea077f8aaa25bb59d297483cfacb5a1fc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1687-v1",
+          "contextKey": "legacy-0133-L1687-context-1",
+          "transferKey": "legacy-0133-L1687-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013306",
+            "type": "gap_choice",
+            "prompt": "Nach dem Verkehrsunfall setzte die Zeugin einen ___ ab.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She urgently contacted emergency services.",
+              "de": "Sie rief Hilfe wegen des Unfalls."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Notruf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kaufvertrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Stundenplan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Urlaubsantrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Notruf is an emergency call.",
+              "de": "Ein Notruf ist ein dringender Hilferuf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Verkehrsunfall setzte die Zeugin einen Notruf ab.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Notruf). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Purchase contract, timetable and leave request are not emergency calls after an accident. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1687-v2",
+          "contextKey": "legacy-0133-L1687-context-2",
+          "transferKey": "legacy-0133-L1687-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013306",
+            "type": "choice",
+            "prompt": "Der Notruf informierte die Leitstelle über den Brand. Was war geschehen?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The call reports an emergency.",
+              "de": "Der Anruf meldet eine Gefahrensituation."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Jemand hatte dringend Hilfe angefordert."
+              },
+              {
+                "id": "1",
+                "text": "Jemand hatte eine Ware bestellt."
+              },
+              {
+                "id": "2",
+                "text": "Jemand hatte eine Bewerbung verschickt."
+              },
+              {
+                "id": "3",
+                "text": "Jemand hatte einen Mietvertrag gekündigt."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "An emergency call was made.",
+              "de": "Es wurde ein Notruf abgesetzt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Jemand meldete den Brand telefonisch als Notfall.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Jemand hatte dringend Hilfe angefordert.). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Ordering goods, applying for a job and cancelling rent are not reporting a fire to emergency services. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013307",
+      "title": {
+        "en": "Using Notrufnummer in context",
+        "de": "Notrufnummer im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Notrufnummer: emergency telephone number.",
+        "de": "Notrufnummer erkennen und verstehen: Telefonnummer für dringende Hilfe."
+      },
+      "objective": "Recognize the German noun Notrufnummer (emergency telephone number) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1688 (d68513eef907c9c913c70c9c80c7b7e72be699f40314f836c3969b622dfe8479), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1688-v1",
+          "contextKey": "legacy-0133-L1688-context-1",
+          "transferKey": "legacy-0133-L1688-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013307",
+            "type": "gap_choice",
+            "prompt": "Auf dem Aushang steht die ___ für medizinische Notfälle.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It tells people which phone number to call for help.",
+              "de": "Die Nummer ist für dringende Hilfe gedacht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Notrufnummer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kundennummer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bestellnummer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Steuernummer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Notrufnummer is an emergency telephone number.",
+              "de": "Eine Notrufnummer verbindet mit einer Stelle für Notfälle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Aushang steht die Notrufnummer für medizinische Notfälle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Notrufnummer). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Customer, order and tax numbers are not emergency contact numbers. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1688-v2",
+          "contextKey": "legacy-0133-L1688-context-2",
+          "transferKey": "legacy-0133-L1688-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013307",
+            "type": "choice",
+            "prompt": "Die Notrufnummer ist gut sichtbar neben dem Telefon angebracht. Wozu dient sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The number is displayed for urgent situations.",
+              "de": "Die Nummer soll in Gefahrensituationen schnell gefunden werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Damit im Notfall schnell Hilfe gerufen werden kann"
+              },
+              {
+                "id": "1",
+                "text": "Damit Rechnungen automatisch bezahlt werden"
+              },
+              {
+                "id": "2",
+                "text": "Damit Pakete verfolgt werden können"
+              },
+              {
+                "id": "3",
+                "text": "Damit Arbeitszeiten erfasst werden"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It helps contact emergency services.",
+              "de": "Mit der Notrufnummer kann man in Notfällen Hilfe anfordern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Nummer ist sichtbar, damit man im Notfall schnell anrufen kann.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Damit im Notfall schnell Hilfe gerufen werden kann). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Automatic bill payment, parcel tracking and timekeeping are not the purpose of an emergency number. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013308",
+      "title": {
+        "en": "Using Notrufzentrale in context",
+        "de": "Notrufzentrale im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Notrufzentrale: emergency call centre.",
+        "de": "Notrufzentrale erkennen und verstehen: Stelle zur Entgegennahme und Koordination von Notrufen."
+      },
+      "objective": "Recognize the German noun Notrufzentrale (emergency call centre) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1689 (d2fb88fc412aa5b43bda2b61d3a0c1372dd61f2ee14fa12d1f126c155051353f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1689-v1",
+          "contextKey": "legacy-0133-L1689-context-1",
+          "transferKey": "legacy-0133-L1689-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013308",
+            "type": "gap_choice",
+            "prompt": "Die ___ nimmt dringende Anrufe entgegen und koordiniert Hilfe.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Staff answer emergency calls and coordinate response.",
+              "de": "Dort werden Notrufe angenommen und Hilfe organisiert."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Notrufzentrale"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchhandlung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kantine"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bäckerei"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Notrufzentrale is an emergency dispatch centre.",
+              "de": "Eine Notrufzentrale nimmt Notrufe entgegen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Notrufzentrale nimmt dringende Anrufe entgegen und koordiniert Hilfe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Notrufzentrale). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Bookshop, canteen and bakery do not coordinate emergency calls. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1689-v2",
+          "contextKey": "legacy-0133-L1689-context-2",
+          "transferKey": "legacy-0133-L1689-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013308",
+            "type": "choice",
+            "prompt": "In der Notrufzentrale wird der Standort des Unfalls erfragt. Wo findet das Gespräch statt?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The location is needed to send help.",
+              "de": "Die Stelle benötigt den Unfallort, um Hilfe zu organisieren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bei einer Stelle, die Notrufe entgegennimmt"
+              },
+              {
+                "id": "1",
+                "text": "An der Kasse eines Supermarkts"
+              },
+              {
+                "id": "2",
+                "text": "Im Lager eines Möbelhauses"
+              },
+              {
+                "id": "3",
+                "text": "In einer normalen Unterrichtsstunde"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It takes place at an emergency call centre.",
+              "de": "Die Notrufzentrale nimmt Angaben zum Unfall entgegen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Notrufzentrale erfragt den Unfallort.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Bei einer Stelle, die Notrufe entgegennimmt). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Supermarket checkout, furniture warehouse and ordinary class do not receive and dispatch emergency calls. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013309",
+      "title": {
+        "en": "Using Notwendigkeit in context",
+        "de": "Notwendigkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Notwendigkeit: necessity or need.",
+        "de": "Notwendigkeit erkennen und verstehen: Erforderlichkeit einer Handlung."
+      },
+      "objective": "Recognize the German noun Notwendigkeit (necessity or need) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1690 (323356fcb5843c5349f59bbc6c967b78ac2dcb0c4e7fa12da744685756ee5c5c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1690-v1",
+          "contextKey": "legacy-0133-L1690-context-1",
+          "transferKey": "legacy-0133-L1690-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013309",
+            "type": "gap_choice",
+            "prompt": "Die hohen Reparaturkosten zeigen die ___ einer regelmäßigen Wartung.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Maintenance is needed to prevent costly problems.",
+              "de": "Die Wartung ist erforderlich."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Notwendigkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Beliebtheit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Häufigkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Geschwindigkeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Notwendigkeit means necessity.",
+              "de": "Notwendigkeit bezeichnet, dass etwas erforderlich ist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die hohen Reparaturkosten zeigen die Notwendigkeit einer regelmäßigen Wartung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Notwendigkeit). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Popularity, frequency and speed do not express the need for maintenance indicated by repair costs. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1690-v2",
+          "contextKey": "legacy-0133-L1690-context-2",
+          "transferKey": "legacy-0133-L1690-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013309",
+            "type": "choice",
+            "prompt": "Sie sieht keine Notwendigkeit, das Gerät sofort auszutauschen. Was meint sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "She does not think replacement is needed right now.",
+              "de": "Sie hält einen sofortigen Austausch nicht für nötig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ein sofortiger Austausch ist nicht erforderlich."
+              },
+              {
+                "id": "1",
+                "text": "Das Gerät muss zwingend heute ersetzt werden."
+              },
+              {
+                "id": "2",
+                "text": "Das Gerät wurde bereits verkauft."
+              },
+              {
+                "id": "3",
+                "text": "Das Gerät darf nie wieder benutzt werden."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "She sees no urgent need.",
+              "de": "Sie hält den Austausch derzeit nicht für notwendig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie meint, dass das Gerät nicht sofort ersetzt werden muss.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Ein sofortiger Austausch ist nicht erforderlich.). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Mandatory immediate replacement, sale and permanent prohibition contradict the stated lack of necessity. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013311",
+      "title": {
+        "en": "Using Nutzen in context",
+        "de": "Nutzen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Nutzen: benefit or usefulness.",
+        "de": "Nutzen erkennen und verstehen: Vorteil oder positiver Effekt."
+      },
+      "objective": "Recognize the German noun Nutzen (benefit or usefulness) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1695 (f7bdb1428b872b6136b78cff77430a714908828ccbabc719799dd8cf4869c592), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1695-v1",
+          "contextKey": "legacy-0133-L1695-context-1",
+          "transferKey": "legacy-0133-L1695-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013311",
+            "type": "gap_choice",
+            "prompt": "Der neue Filter hat einen großen ___ für die Luftqualität.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The filter improves air quality.",
+              "de": "Der Filter bringt einen positiven Effekt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Nutzen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Nachteil"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Preis"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Termin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Nutzen means benefit.",
+              "de": "Nutzen ist ein positiver Effekt oder Vorteil."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der neue Filter hat einen großen Nutzen für die Luftqualität.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Nutzen). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Drawback, price and appointment are not the benefit to air quality delivered by a filter. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1695-v2",
+          "contextKey": "legacy-0133-L1695-context-2",
+          "transferKey": "legacy-0133-L1695-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013311",
+            "type": "choice",
+            "prompt": "Welchen Nutzen bringt die Schulung für das Team? Was wird gefragt?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The question asks about a positive outcome.",
+              "de": "Es wird nach dem positiven Effekt gefragt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Welchen Vorteil die Schulung bietet"
+              },
+              {
+                "id": "1",
+                "text": "Wie viel das Gebäude wiegt"
+              },
+              {
+                "id": "2",
+                "text": "Wann die Kantine schließt"
+              },
+              {
+                "id": "3",
+                "text": "Welche Farbe die Tische haben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It asks about the benefit.",
+              "de": "Gefragt wird nach dem Nutzen der Schulung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Frage lautet, welchen Vorteil die Schulung dem Team bringt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Welchen Vorteil die Schulung bietet). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Building weight, canteen hours and table colours are not the benefit of training. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013312",
+      "title": {
+        "en": "Using Nutzerfreundlichkeit in context",
+        "de": "Nutzerfreundlichkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Nutzerfreundlichkeit: user-friendliness or ease of use.",
+        "de": "Nutzerfreundlichkeit erkennen und verstehen: leichte und verständliche Bedienbarkeit."
+      },
+      "objective": "Recognize the German noun Nutzerfreundlichkeit (user-friendliness or ease of use) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1696 (11ed7c4ea08448712d5dc475d875ed52a101a9dbe2aa26da13a7192b2757fdf5), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1696-v1",
+          "contextKey": "legacy-0133-L1696-context-1",
+          "transferKey": "legacy-0133-L1696-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013312",
+            "type": "gap_choice",
+            "prompt": "Große Schaltflächen und klare Beschriftungen verbessern die ___ der App.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The app becomes easier to operate.",
+              "de": "Die App lässt sich einfacher bedienen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Nutzerfreundlichkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferzeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mietfläche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Steuerlast"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Nutzerfreundlichkeit is ease of use.",
+              "de": "Nutzerfreundlichkeit bedeutet eine einfache Bedienung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Große Schaltflächen und klare Beschriftungen verbessern die Nutzerfreundlichkeit der App.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Nutzerfreundlichkeit). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Delivery time, rental area and tax burden are not improved by clear interface buttons. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1696-v2",
+          "contextKey": "legacy-0133-L1696-context-2",
+          "transferKey": "legacy-0133-L1696-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013312",
+            "type": "choice",
+            "prompt": "Die Nutzerfreundlichkeit ist hoch, weil neue Personen die Software ohne Anleitung bedienen können. Was ist damit gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "New users can operate it independently.",
+              "de": "Neue Personen können die Software leicht bedienen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die Software lässt sich leicht verstehen und benutzen."
+              },
+              {
+                "id": "1",
+                "text": "Die Software benötigt besonders viel Strom."
+              },
+              {
+                "id": "2",
+                "text": "Die Software hat einen hohen Kaufpreis."
+              },
+              {
+                "id": "3",
+                "text": "Die Software kann nur von Fachleuten bedient werden."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is easy to use.",
+              "de": "Die Software ist nutzerfreundlich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Software ist auch ohne Anleitung leicht zu bedienen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Die Software lässt sich leicht verstehen und benutzen.). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: High power use, high price and expert-only operation do not describe user-friendliness. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013313",
+      "title": {
+        "en": "Using Nutzung in context",
+        "de": "Nutzung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Nutzung: use or utilization.",
+        "de": "Nutzung erkennen und verstehen: Verwendung einer Sache."
+      },
+      "objective": "Recognize the German noun Nutzung (use or utilization) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1697 (9033393309415fb428676b0a7b9c2bbdaa61faa1872be1c6dd03661a9f202dba), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1697-v1",
+          "contextKey": "legacy-0133-L1697-context-1",
+          "transferKey": "legacy-0133-L1697-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013313",
+            "type": "gap_choice",
+            "prompt": "Die private ___ des Firmenwagens ist in der Vereinbarung geregelt.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The contract sets rules for using the car privately.",
+              "de": "Die Vereinbarung regelt, wie das Auto privat verwendet wird."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Nutzung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anschaffung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Reparatur"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Herstellung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Nutzung means use.",
+              "de": "Nutzung ist die Verwendung einer Sache."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die private Nutzung des Firmenwagens ist in der Vereinbarung geregelt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Nutzung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Buying, repairing and manufacturing are not private use of a company car. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1697-v2",
+          "contextKey": "legacy-0133-L1697-context-2",
+          "transferKey": "legacy-0133-L1697-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013313",
+            "type": "choice",
+            "prompt": "Die Nutzung der Bibliothek ist während der Öffnungszeiten möglich. Was ist gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Visitors can make use of the library.",
+              "de": "Besucherinnen und Besucher können die Bibliothek verwenden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Man kann die Bibliothek benutzen."
+              },
+              {
+                "id": "1",
+                "text": "Man kann das Gebäude kaufen."
+              },
+              {
+                "id": "2",
+                "text": "Man muss dort arbeiten."
+              },
+              {
+                "id": "3",
+                "text": "Man darf nur außerhalb der Öffnungszeiten hinein."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It means using the library.",
+              "de": "Gemeint ist, dass man die Bibliothek benutzen kann."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bibliothek kann während der Öffnungszeiten genutzt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Man kann die Bibliothek benutzen.). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Buying the building, mandatory employment and entry only after hours are not using the library during opening hours. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013315",
+      "title": {
+        "en": "Using Oberarzt in context",
+        "de": "Oberarzt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Oberarzt: senior hospital physician.",
+        "de": "Oberarzt erkennen und verstehen: leitender Arzt in einer Klinikabteilung."
+      },
+      "objective": "Recognize the German noun Oberarzt (senior hospital physician) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1699 (2a977ece80eac3f2f96f8b8aad456428908cf7cd5ae11b195411e03ec7536e6d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1699-v1",
+          "contextKey": "legacy-0133-L1699-context-1",
+          "transferKey": "legacy-0133-L1699-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013315",
+            "type": "gap_choice",
+            "prompt": "Der ___ koordiniert die ärztliche Arbeit auf der Station und betreut schwierige Fälle.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is a senior physician on a hospital ward.",
+              "de": "Die Person hat eine leitende ärztliche Aufgabe."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Oberarzt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Pförtner"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verkäufer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Oberarzt is a senior hospital physician.",
+              "de": "Ein Oberarzt ist ein erfahrener Arzt mit leitenden Aufgaben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Oberarzt koordiniert die ärztliche Arbeit auf der Station und betreut schwierige Fälle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Oberarzt). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Caretaker, doorman and salesperson are not senior physicians coordinating medical work. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1699-v2",
+          "contextKey": "legacy-0133-L1699-context-2",
+          "transferKey": "legacy-0133-L1699-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013315",
+            "type": "choice",
+            "prompt": "Der Oberarzt bespricht mit dem Team die Behandlung auf der Station. Welche Funktion hat er?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "He leads medical discussions on the ward.",
+              "de": "Er übernimmt ärztliche Verantwortung auf der Station."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine leitende ärztliche Funktion im Krankenhaus"
+              },
+              {
+                "id": "1",
+                "text": "Die Verwaltung eines Supermarkts"
+              },
+              {
+                "id": "2",
+                "text": "Die Reparatur von Aufzügen"
+              },
+              {
+                "id": "3",
+                "text": "Den Verkauf von Möbeln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "He is a senior doctor.",
+              "de": "Er hat eine leitende ärztliche Funktion."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Oberarzt bespricht die Behandlung mit dem Stationsteam.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine leitende ärztliche Funktion im Krankenhaus). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Supermarket management, elevator repair and furniture sales are not the senior physician role. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013318",
+      "title": {
+        "en": "Using Öffentlichkeit in context",
+        "de": "Öffentlichkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Öffentlichkeit: the general public.",
+        "de": "Öffentlichkeit erkennen und verstehen: Allgemeinheit der Menschen."
+      },
+      "objective": "Recognize the German noun Öffentlichkeit (the general public) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1703 (bbe69defcfde44c72c9b6030b49c56947c4f0f752611869bafbc8b293d0ac8ae), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1703-v1",
+          "contextKey": "legacy-0133-L1703-context-1",
+          "transferKey": "legacy-0133-L1703-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013318",
+            "type": "gap_choice",
+            "prompt": "Die Stadt informiert die ___ über die geplante Straßensperrung.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The information is intended for the general population.",
+              "de": "Die Mitteilung richtet sich an alle Interessierten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Öffentlichkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werkstatt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Belegschaft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Öffentlichkeit means the public.",
+              "de": "Die Öffentlichkeit ist die Allgemeinheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stadt informiert die Öffentlichkeit über die geplante Straßensperrung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Öffentlichkeit). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Accounting, workshop and a company's workforce are not the broad public addressed by the city. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1703-v2",
+          "contextKey": "legacy-0133-L1703-context-2",
+          "transferKey": "legacy-0133-L1703-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013318",
+            "type": "choice",
+            "prompt": "Die Sitzung ist für die Öffentlichkeit zugänglich. Wer darf grundsätzlich teilnehmen?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The event is not limited to internal staff.",
+              "de": "Die Veranstaltung ist nicht nur für interne Personen gedacht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Interessierte Menschen aus der Allgemeinheit"
+              },
+              {
+                "id": "1",
+                "text": "Nur die Mitglieder der Geschäftsführung"
+              },
+              {
+                "id": "2",
+                "text": "Ausschließlich die Hausmeister"
+              },
+              {
+                "id": "3",
+                "text": "Nur Personen mit einem Arbeitsvertrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The general public can attend.",
+              "de": "Die Sitzung ist öffentlich zugänglich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Interessierte Menschen dürfen die öffentliche Sitzung besuchen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Interessierte Menschen aus der Allgemeinheit). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Management-only, caretakers-only and employee-only access contradict openness to the public. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013319",
+      "title": {
+        "en": "Using Öffentlichkeitsarbeit in context",
+        "de": "Öffentlichkeitsarbeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Öffentlichkeitsarbeit: public relations work.",
+        "de": "Öffentlichkeitsarbeit erkennen und verstehen: Kommunikation einer Organisation mit der Öffentlichkeit."
+      },
+      "objective": "Recognize the German noun Öffentlichkeitsarbeit (public relations work) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1704 (9b5362d57ebfc8fc3cf38d6075895a382689790a99d22bbd62b7b6f21648f370), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0133-L1704-v1",
+          "contextKey": "legacy-0133-L1704-context-1",
+          "transferKey": "legacy-0133-L1704-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013319",
+            "type": "gap_choice",
+            "prompt": "Die ___ der Universität informiert Medien und Bürger über neue Forschungsprojekte.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The university communicates its work to the public.",
+              "de": "Die Hochschule informiert die Öffentlichkeit."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Öffentlichkeitsarbeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lagerverwaltung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Personalabrechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Öffentlichkeitsarbeit is public relations.",
+              "de": "Öffentlichkeitsarbeit ist Kommunikation mit der Öffentlichkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Öffentlichkeitsarbeit der Universität informiert Medien und Bürger über neue Forschungsprojekte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Öffentlichkeitsarbeit). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Accounting, stock management and payroll do not communicate research to media and citizens. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0133-L1704-v2",
+          "contextKey": "legacy-0133-L1704-context-2",
+          "transferKey": "legacy-0133-L1704-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001330191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013319",
+            "type": "choice",
+            "prompt": "Mit Pressemitteilungen und Veranstaltungen betreibt die Firma Öffentlichkeitsarbeit. Was ist ihr Ziel?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Press releases are directed outward.",
+              "de": "Pressemitteilungen richten sich an die Öffentlichkeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die Öffentlichkeit über ihre Arbeit informieren"
+              },
+              {
+                "id": "1",
+                "text": "Maschinen regelmäßig schmieren"
+              },
+              {
+                "id": "2",
+                "text": "Lohnsteuer berechnen"
+              },
+              {
+                "id": "3",
+                "text": "Lagerbestände zählen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The aim is external communication.",
+              "de": "Die Firma möchte mit der Öffentlichkeit kommunizieren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma informiert die Öffentlichkeit durch Pressemitteilungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Die Öffentlichkeit über ihre Arbeit informieren). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Lubrication, payroll tax and stocktaking are not public-relations communication. Human review pending."
+        }
+      ]
+    }
+  ]
+}
