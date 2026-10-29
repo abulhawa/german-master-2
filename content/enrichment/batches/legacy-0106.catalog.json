@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000010600",
+      "title": {
+        "en": "Using zugehen in context",
+        "de": "zugehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zugehen: close, of a door, in two different situations.",
+        "de": "zugehen erkennen und verwenden: zugehen oder sich schließen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zugehen meaning close, of a door, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1003 (9b451472f5beec40670f345c89a8050391b0cbb535827f208fe7b5687f7d8743), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1003-v1",
+          "contextKey": "legacy-0106-L1003-context-1",
+          "transferKey": "legacy-0106-L1003-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010600",
+            "type": "gap_choice",
+            "prompt": "Bei starkem Wind ___ die Tür von selbst zu.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The door closes without being pushed.",
+              "de": "Die Tür schließt sich von allein."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gibt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "geht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "steht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "kommt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zugehen means close, of a door here; \"geht\" is the appropriate completion.",
+              "de": "zugehen bedeutet hier: zugehen oder sich schließen. Die Ergänzung „geht“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei starkem Wind geht die Tür von selbst zu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bei starkem Wind geht die Tür von selbst zu.\" checked for naturalness and grammatical construction. All four options reviewed: gibt: rejected; wrong construction, meaning or inflection for the contextual clue; geht: correct for contextual meaning and construction; steht: rejected; wrong construction, meaning or inflection for the contextual clue; kommt: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1003-v2",
+          "contextKey": "legacy-0106-L1003-context-2",
+          "transferKey": "legacy-0106-L1003-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010600",
+            "type": "choice",
+            "prompt": "Die schwere Tür ist wegen des Defekts nicht richtig ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The door failed to close properly.",
+              "de": "Die Tür hat sich nicht richtig geschlossen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugenommen"
+              },
+              {
+                "id": "1",
+                "text": "zugeordnet"
+              },
+              {
+                "id": "2",
+                "text": "zugegangen"
+              },
+              {
+                "id": "3",
+                "text": "zugestimmt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zugehen means close, of a door here; \"zugegangen\" is the appropriate completion.",
+              "de": "zugehen bedeutet hier: zugehen oder sich schließen. Die Ergänzung „zugegangen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die schwere Tür ist wegen des Defekts nicht richtig zugegangen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die schwere Tür ist wegen des Defekts nicht richtig zugegangen.\" checked for naturalness and grammatical construction. All four options reviewed: zugenommen: rejected; wrong construction, meaning or inflection for the contextual clue; zugeordnet: rejected; wrong construction, meaning or inflection for the contextual clue; zugegangen: correct for contextual meaning and construction; zugestimmt: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010601",
+      "title": {
+        "en": "Using zunehmen in context",
+        "de": "zunehmen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zunehmen: increase in number or amount, in two different situations.",
+        "de": "zunehmen erkennen und verwenden: an Zahl oder Menge zunehmen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zunehmen meaning increase in number or amount, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1006 (0d6ce1710a4fbf240f8b6f4425eea9cb044c4c85d10a6e9679d72aa13907b2a0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1006-v1",
+          "contextKey": "legacy-0106-L1006-context-1",
+          "transferKey": "legacy-0106-L1006-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010601",
+            "type": "gap_choice",
+            "prompt": "Wenn die Nachfrage steigt, kann auch der Preis ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The price may rise.",
+              "de": "Der Preis kann steigen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zunehmen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zugehen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zustimmen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zuschauen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zunehmen means increase in number or amount here; \"zunehmen\" is the appropriate completion.",
+              "de": "zunehmen bedeutet hier: an Zahl oder Menge zunehmen. Die Ergänzung „zunehmen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wenn die Nachfrage steigt, kann auch der Preis zunehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Wenn die Nachfrage steigt, kann auch der Preis zunehmen.\" checked for naturalness and grammatical construction. All four options reviewed: zunehmen: correct for contextual meaning and construction; zugehen: rejected; wrong construction, meaning or inflection for the contextual clue; zustimmen: rejected; wrong construction, meaning or inflection for the contextual clue; zuschauen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1006-v2",
+          "contextKey": "legacy-0106-L1006-context-2",
+          "transferKey": "legacy-0106-L1006-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010601",
+            "type": "choice",
+            "prompt": "Die Zahl der Anmeldungen hat im letzten Monat deutlich ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "More people registered than before.",
+              "de": "Die Zahl der Anmeldungen ist gestiegen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugeordnet"
+              },
+              {
+                "id": "1",
+                "text": "zugesagt"
+              },
+              {
+                "id": "2",
+                "text": "zugeschickt"
+              },
+              {
+                "id": "3",
+                "text": "zugenommen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zunehmen means increase in number or amount here; \"zugenommen\" is the appropriate completion.",
+              "de": "zunehmen bedeutet hier: an Zahl oder Menge zunehmen. Die Ergänzung „zugenommen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zahl der Anmeldungen hat im letzten Monat deutlich zugenommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Zahl der Anmeldungen hat im letzten Monat deutlich zugenommen.\" checked for naturalness and grammatical construction. All four options reviewed: zugeordnet: rejected; wrong construction, meaning or inflection for the contextual clue; zugesagt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeschickt: rejected; wrong construction, meaning or inflection for the contextual clue; zugenommen: correct for contextual meaning and construction. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010602",
+      "title": {
+        "en": "Using zuordnen in context",
+        "de": "zuordnen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zuordnen: assign something to a category or recipient, in two different situations.",
+        "de": "zuordnen erkennen und verwenden: etwas einer Kategorie zuordnen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zuordnen meaning assign something to a category or recipient, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1007 (71274562a5426befefbb1084a0cc9a6c2e009e3f6941e9883a30056cde865fde), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1007-v1",
+          "contextKey": "legacy-0106-L1007-context-1",
+          "transferKey": "legacy-0106-L1007-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010602",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ Sie jede Rechnung dem richtigen Projekt zu.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Each invoice belongs to a specific project.",
+              "de": "Jede Rechnung gehört zu einem bestimmten Projekt."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "sehen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ordnen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "stimmen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "nehmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zuordnen means assign something to a category or recipient here; \"ordnen\" is the appropriate completion.",
+              "de": "zuordnen bedeutet hier: etwas einer Kategorie zuordnen. Die Ergänzung „ordnen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte ordnen Sie jede Rechnung dem richtigen Projekt zu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bitte ordnen Sie jede Rechnung dem richtigen Projekt zu.\" checked for naturalness and grammatical construction. All four options reviewed: sehen: rejected; wrong construction, meaning or inflection for the contextual clue; ordnen: correct for contextual meaning and construction; stimmen: rejected; wrong construction, meaning or inflection for the contextual clue; nehmen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1007-v2",
+          "contextKey": "legacy-0106-L1007-context-2",
+          "transferKey": "legacy-0106-L1007-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010602",
+            "type": "choice",
+            "prompt": "Die Prüferin hat die Kosten den jeweiligen Abteilungen ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The costs were allocated to departments.",
+              "de": "Die Kosten wurden den Abteilungen zugewiesen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugestimmt"
+              },
+              {
+                "id": "1",
+                "text": "zugesagt"
+              },
+              {
+                "id": "2",
+                "text": "zugeordnet"
+              },
+              {
+                "id": "3",
+                "text": "zugeschickt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zuordnen means assign something to a category or recipient here; \"zugeordnet\" is the appropriate completion.",
+              "de": "zuordnen bedeutet hier: etwas einer Kategorie zuordnen. Die Ergänzung „zugeordnet“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Prüferin hat die Kosten den jeweiligen Abteilungen zugeordnet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Prüferin hat die Kosten den jeweiligen Abteilungen zugeordnet.\" checked for naturalness and grammatical construction. All four options reviewed: zugestimmt: rejected; wrong construction, meaning or inflection for the contextual clue; zugesagt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeordnet: correct for contextual meaning and construction; zugeschickt: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010603",
+      "title": {
+        "en": "Using zur Verfügung stehen in context",
+        "de": "zur Verfügung stehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zur Verfügung stehen: be available for use, in two different situations.",
+        "de": "zur Verfügung stehen erkennen und verwenden: zur Verfügung stehen und nutzbar sein, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zur Verfügung stehen meaning be available for use, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1008 (c4ba0edb2463f13cf305af65fe2732fcd03abe2f8d0430d3be1d0be5284f121a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1008-v1",
+          "contextKey": "legacy-0106-L1008-context-1",
+          "transferKey": "legacy-0106-L1008-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010603",
+            "type": "gap_choice",
+            "prompt": "Für Rückfragen ___ Ihnen unser Team jederzeit zur Verfügung.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The team is available to answer questions.",
+              "de": "Das Team ist für Fragen erreichbar."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "steht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "stellt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "nimmt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ordnet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zur Verfügung stehen means be available for use here; \"steht\" is the appropriate completion.",
+              "de": "zur Verfügung stehen bedeutet hier: zur Verfügung stehen und nutzbar sein. Die Ergänzung „steht“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für Rückfragen steht Ihnen unser Team jederzeit zur Verfügung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Für Rückfragen steht Ihnen unser Team jederzeit zur Verfügung.\" checked for naturalness and grammatical construction. All four options reviewed: steht: correct for contextual meaning and construction; stellt: rejected; wrong construction, meaning or inflection for the contextual clue; nimmt: rejected; wrong construction, meaning or inflection for the contextual clue; ordnet: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1008-v2",
+          "contextKey": "legacy-0106-L1008-context-2",
+          "transferKey": "legacy-0106-L1008-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010603",
+            "type": "choice",
+            "prompt": "Die zusätzlichen Räume haben den Mitarbeitenden während des Umbaus zur Verfügung ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Employees were able to use the extra rooms.",
+              "de": "Die zusätzlichen Räume waren nutzbar."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gestellt"
+              },
+              {
+                "id": "1",
+                "text": "genommen"
+              },
+              {
+                "id": "2",
+                "text": "zugestimmt"
+              },
+              {
+                "id": "3",
+                "text": "gestanden"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zur Verfügung stehen means be available for use here; \"gestanden\" is the appropriate completion.",
+              "de": "zur Verfügung stehen bedeutet hier: zur Verfügung stehen und nutzbar sein. Die Ergänzung „gestanden“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die zusätzlichen Räume haben den Mitarbeitenden während des Umbaus zur Verfügung gestanden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die zusätzlichen Räume haben den Mitarbeitenden während des Umbaus zur Verfügung gestanden.\" checked for naturalness and grammatical construction. All four options reviewed: gestellt: rejected; wrong construction, meaning or inflection for the contextual clue; genommen: rejected; wrong construction, meaning or inflection for the contextual clue; zugestimmt: rejected; wrong construction, meaning or inflection for the contextual clue; gestanden: correct for contextual meaning and construction. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010604",
+      "title": {
+        "en": "Using zur Verfügung stellen in context",
+        "de": "zur Verfügung stellen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zur Verfügung stellen: make something available to someone, in two different situations.",
+        "de": "zur Verfügung stellen erkennen und verwenden: etwas jemandem zur Verfügung stellen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zur Verfügung stellen meaning make something available to someone, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1009 (8dfb73df9509f507e7382b2e4abccfc7bd2d16e75f1b6a88ace3322e2ab7fcc4), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1009-v1",
+          "contextKey": "legacy-0106-L1009-context-1",
+          "transferKey": "legacy-0106-L1009-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010604",
+            "type": "gap_choice",
+            "prompt": "Die Bibliothek wird den Studierenden Laptops zur Verfügung ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The library provides laptops for students.",
+              "de": "Die Bibliothek stellt Laptops bereit."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "stehen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "stellen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gehen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "stimmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zur Verfügung stellen means make something available to someone here; \"stellen\" is the appropriate completion.",
+              "de": "zur Verfügung stellen bedeutet hier: etwas jemandem zur Verfügung stellen. Die Ergänzung „stellen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bibliothek wird den Studierenden Laptops zur Verfügung stellen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Bibliothek wird den Studierenden Laptops zur Verfügung stellen.\" checked for naturalness and grammatical construction. All four options reviewed: stehen: rejected; wrong construction, meaning or inflection for the contextual clue; stellen: correct for contextual meaning and construction; gehen: rejected; wrong construction, meaning or inflection for the contextual clue; stimmen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1009-v2",
+          "contextKey": "legacy-0106-L1009-context-2",
+          "transferKey": "legacy-0106-L1009-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010604",
+            "type": "choice",
+            "prompt": "Der Verein hat den Kindern kostenlos Sportgeräte zur Verfügung ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The association provided equipment.",
+              "de": "Der Verein stellte Sportgeräte bereit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gestanden"
+              },
+              {
+                "id": "1",
+                "text": "zugesagt"
+              },
+              {
+                "id": "2",
+                "text": "gestellt"
+              },
+              {
+                "id": "3",
+                "text": "zugeordnet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zur Verfügung stellen means make something available to someone here; \"gestellt\" is the appropriate completion.",
+              "de": "zur Verfügung stellen bedeutet hier: etwas jemandem zur Verfügung stellen. Die Ergänzung „gestellt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Verein hat den Kindern kostenlos Sportgeräte zur Verfügung gestellt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Verein hat den Kindern kostenlos Sportgeräte zur Verfügung gestellt.\" checked for naturalness and grammatical construction. All four options reviewed: gestanden: rejected; wrong construction, meaning or inflection for the contextual clue; zugesagt: rejected; wrong construction, meaning or inflection for the contextual clue; gestellt: correct for contextual meaning and construction; zugeordnet: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010605",
+      "title": {
+        "en": "Using zurechtfinden in context",
+        "de": "zurechtfinden im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zurechtfinden: find one's way around, in two different situations.",
+        "de": "zurechtfinden erkennen und verwenden: sich räumlich zurechtfinden, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zurechtfinden meaning find one's way around, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1010 (5c208fa034af9fa90913d96d7af8e134dfb8f2dd99a25eef0877b6cc11d35678), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1010-v1",
+          "contextKey": "legacy-0106-L1010-context-1",
+          "transferKey": "legacy-0106-L1010-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010605",
+            "type": "gap_choice",
+            "prompt": "In der neuen Software muss ich mich erst ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker must learn how to navigate the software.",
+              "de": "Die Person muss sich in der Software orientieren lernen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zurechtfinden"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zurückweisen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zusammenbauen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zunehmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zurechtfinden means find one's way around here; \"zurechtfinden\" is the appropriate completion.",
+              "de": "zurechtfinden bedeutet hier: sich räumlich zurechtfinden. Die Ergänzung „zurechtfinden“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der neuen Software muss ich mich erst zurechtfinden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"In der neuen Software muss ich mich erst zurechtfinden.\" checked for naturalness and grammatical construction. All four options reviewed: zurechtfinden: correct for contextual meaning and construction; zurückweisen: rejected; wrong construction, meaning or inflection for the contextual clue; zusammenbauen: rejected; wrong construction, meaning or inflection for the contextual clue; zunehmen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1010-v2",
+          "contextKey": "legacy-0106-L1010-context-2",
+          "transferKey": "legacy-0106-L1010-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010605",
+            "type": "choice",
+            "prompt": "Nach einer Woche hat sie sich in der fremden Stadt gut ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She learned to navigate the unfamiliar city.",
+              "de": "Sie konnte sich in der Stadt gut orientieren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugeordnet"
+              },
+              {
+                "id": "1",
+                "text": "zugesagt"
+              },
+              {
+                "id": "2",
+                "text": "zugenommen"
+              },
+              {
+                "id": "3",
+                "text": "zurechtgefunden"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zurechtfinden means find one's way around here; \"zurechtgefunden\" is the appropriate completion.",
+              "de": "zurechtfinden bedeutet hier: sich räumlich zurechtfinden. Die Ergänzung „zurechtgefunden“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach einer Woche hat sie sich in der fremden Stadt gut zurechtgefunden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach einer Woche hat sie sich in der fremden Stadt gut zurechtgefunden.\" checked for naturalness and grammatical construction. All four options reviewed: zugeordnet: rejected; wrong construction, meaning or inflection for the contextual clue; zugesagt: rejected; wrong construction, meaning or inflection for the contextual clue; zugenommen: rejected; wrong construction, meaning or inflection for the contextual clue; zurechtgefunden: correct for contextual meaning and construction. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010606",
+      "title": {
+        "en": "Using zurechtkommen in context",
+        "de": "zurechtkommen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zurechtkommen: cope or manage a situation, in two different situations.",
+        "de": "zurechtkommen erkennen und verwenden: mit einer Situation zurechtkommen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zurechtkommen meaning cope or manage a situation, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1011 (7dfcbe717cb5666d31238132e30ad9beac419da436bdc41ee30c3b0c01ff8341), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1011-v1",
+          "contextKey": "legacy-0106-L1011-context-1",
+          "transferKey": "legacy-0106-L1011-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010606",
+            "type": "gap_choice",
+            "prompt": "Mit dem neuen Arbeitsplan kann ich gut ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker can manage the new schedule.",
+              "de": "Die Person kommt mit dem Plan gut klar."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zurückkehren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zurechtkommen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zustimmen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zunehmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zurechtkommen means cope or manage a situation here; \"zurechtkommen\" is the appropriate completion.",
+              "de": "zurechtkommen bedeutet hier: mit einer Situation zurechtkommen. Die Ergänzung „zurechtkommen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit dem neuen Arbeitsplan kann ich gut zurechtkommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Mit dem neuen Arbeitsplan kann ich gut zurechtkommen.\" checked for naturalness and grammatical construction. All four options reviewed: zurückkehren: rejected; wrong construction, meaning or inflection for the contextual clue; zurechtkommen: correct for contextual meaning and construction; zustimmen: rejected; wrong construction, meaning or inflection for the contextual clue; zunehmen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1011-v2",
+          "contextKey": "legacy-0106-L1011-context-2",
+          "transferKey": "legacy-0106-L1011-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010606",
+            "type": "choice",
+            "prompt": "Nach kurzer Einarbeitung ist er mit der Software gut ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He can use the software without difficulty.",
+              "de": "Er kann die Software problemlos bedienen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zurückgeschlagen"
+              },
+              {
+                "id": "1",
+                "text": "zusammengebaut"
+              },
+              {
+                "id": "2",
+                "text": "zurechtgekommen"
+              },
+              {
+                "id": "3",
+                "text": "zugeschickt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zurechtkommen means cope or manage a situation here; \"zurechtgekommen\" is the appropriate completion.",
+              "de": "zurechtkommen bedeutet hier: mit einer Situation zurechtkommen. Die Ergänzung „zurechtgekommen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach kurzer Einarbeitung ist er mit der Software gut zurechtgekommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach kurzer Einarbeitung ist er mit der Software gut zurechtgekommen.\" checked for naturalness and grammatical construction. All four options reviewed: zurückgeschlagen: rejected; wrong construction, meaning or inflection for the contextual clue; zusammengebaut: rejected; wrong construction, meaning or inflection for the contextual clue; zurechtgekommen: correct for contextual meaning and construction; zugeschickt: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010607",
+      "title": {
+        "en": "Using zurückkehren in context",
+        "de": "zurückkehren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zurückkehren: return to a place, in two different situations.",
+        "de": "zurückkehren erkennen und verwenden: an einen Ort zurückkehren, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zurückkehren meaning return to a place, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1015 (e2bc2fa49f470bad3647a6e64b4d4f64d53f0764cef04c2ff432fc7c929d1dd1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1015-v1",
+          "contextKey": "legacy-0106-L1015-context-1",
+          "transferKey": "legacy-0106-L1015-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010607",
+            "type": "gap_choice",
+            "prompt": "Nach dem Urlaub möchte sie wieder an ihren Arbeitsplatz ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She intends to go back to work.",
+              "de": "Sie möchte an ihren Arbeitsplatz zurückkommen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zurückkehren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zurückweisen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zusammenfassen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zwingen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zurückkehren means return to a place here; \"zurückkehren\" is the appropriate completion.",
+              "de": "zurückkehren bedeutet hier: an einen Ort zurückkehren. Die Ergänzung „zurückkehren“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Urlaub möchte sie wieder an ihren Arbeitsplatz zurückkehren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach dem Urlaub möchte sie wieder an ihren Arbeitsplatz zurückkehren.\" checked for naturalness and grammatical construction. All four options reviewed: zurückkehren: correct for contextual meaning and construction; zurückweisen: rejected; wrong construction, meaning or inflection for the contextual clue; zusammenfassen: rejected; wrong construction, meaning or inflection for the contextual clue; zwingen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1015-v2",
+          "contextKey": "legacy-0106-L1015-context-2",
+          "transferKey": "legacy-0106-L1015-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010607",
+            "type": "choice",
+            "prompt": "Die Forscher sind gestern von der Expedition ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The researchers came back from their trip.",
+              "de": "Die Forschenden kamen von der Reise zurück."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zurückgewiesen"
+              },
+              {
+                "id": "1",
+                "text": "zusammengebaut"
+              },
+              {
+                "id": "2",
+                "text": "zugestimmt"
+              },
+              {
+                "id": "3",
+                "text": "zurückgekehrt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zurückkehren means return to a place here; \"zurückgekehrt\" is the appropriate completion.",
+              "de": "zurückkehren bedeutet hier: an einen Ort zurückkehren. Die Ergänzung „zurückgekehrt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Forscher sind gestern von der Expedition zurückgekehrt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Forscher sind gestern von der Expedition zurückgekehrt.\" checked for naturalness and grammatical construction. All four options reviewed: zurückgewiesen: rejected; wrong construction, meaning or inflection for the contextual clue; zusammengebaut: rejected; wrong construction, meaning or inflection for the contextual clue; zugestimmt: rejected; wrong construction, meaning or inflection for the contextual clue; zurückgekehrt: correct for contextual meaning and construction. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010608",
+      "title": {
+        "en": "Using zurückschlagen in context",
+        "de": "zurückschlagen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zurückschlagen: strike back or respond forcefully, in two different situations.",
+        "de": "zurückschlagen erkennen und verwenden: zurückschlagen oder sich wehren, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zurückschlagen meaning strike back or respond forcefully, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1018 (ec6f85d7ff28b07913175d1479c0fd0490e05225da0268256600639dd508cfa1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1018-v1",
+          "contextKey": "legacy-0106-L1018-context-1",
+          "transferKey": "legacy-0106-L1018-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010608",
+            "type": "gap_choice",
+            "prompt": "Nach dem frühen Rückstand konnte die Mannschaft in der zweiten Halbzeit ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The team fought back after falling behind.",
+              "de": "Die Mannschaft wehrte sich gegen den Rückstand."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zurückkehren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zurückschlagen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zurückweisen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zuschauen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zurückschlagen means strike back or respond forcefully here; \"zurückschlagen\" is the appropriate completion.",
+              "de": "zurückschlagen bedeutet hier: zurückschlagen oder sich wehren. Die Ergänzung „zurückschlagen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem frühen Rückstand konnte die Mannschaft in der zweiten Halbzeit zurückschlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach dem frühen Rückstand konnte die Mannschaft in der zweiten Halbzeit zurückschlagen.\" checked for naturalness and grammatical construction. All four options reviewed: zurückkehren: rejected; wrong construction, meaning or inflection for the contextual clue; zurückschlagen: correct for contextual meaning and construction; zurückweisen: rejected; wrong construction, meaning or inflection for the contextual clue; zuschauen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1018-v2",
+          "contextKey": "legacy-0106-L1018-context-2",
+          "transferKey": "legacy-0106-L1018-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010608",
+            "type": "choice",
+            "prompt": "Nach der scharfen Kritik hat die Sprecherin mit klaren Fakten ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She countered the criticism strongly.",
+              "de": "Sie reagierte entschieden auf die Kritik."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zurückgewiesen"
+              },
+              {
+                "id": "1",
+                "text": "zurückgekehrt"
+              },
+              {
+                "id": "2",
+                "text": "zurückgeschlagen"
+              },
+              {
+                "id": "3",
+                "text": "zugestimmt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zurückschlagen means strike back or respond forcefully here; \"zurückgeschlagen\" is the appropriate completion.",
+              "de": "zurückschlagen bedeutet hier: zurückschlagen oder sich wehren. Die Ergänzung „zurückgeschlagen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der scharfen Kritik hat die Sprecherin mit klaren Fakten zurückgeschlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach der scharfen Kritik hat die Sprecherin mit klaren Fakten zurückgeschlagen.\" checked for naturalness and grammatical construction. All four options reviewed: zurückgewiesen: rejected; wrong construction, meaning or inflection for the contextual clue; zurückgekehrt: rejected; wrong construction, meaning or inflection for the contextual clue; zurückgeschlagen: correct for contextual meaning and construction; zugestimmt: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010609",
+      "title": {
+        "en": "Using zurückweisen in context",
+        "de": "zurückweisen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zurückweisen: reject a request or objection, in two different situations.",
+        "de": "zurückweisen erkennen und verwenden: einen Antrag oder Einwand zurückweisen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zurückweisen meaning reject a request or objection, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1019 (302279aa104133b8ad0aabbcc1d5314ca78b3858ccbd4031c47369b7081c662e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1019-v1",
+          "contextKey": "legacy-0106-L1019-context-1",
+          "transferKey": "legacy-0106-L1019-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010609",
+            "type": "gap_choice",
+            "prompt": "Die Behörde musste den unvollständigen Antrag ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The authority rejected the incomplete application.",
+              "de": "Die Behörde lehnte den Antrag ab."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zurückweisen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zurückkehren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zusagen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zunehmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zurückweisen means reject a request or objection here; \"zurückweisen\" is the appropriate completion.",
+              "de": "zurückweisen bedeutet hier: einen Antrag oder Einwand zurückweisen. Die Ergänzung „zurückweisen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Behörde musste den unvollständigen Antrag zurückweisen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Behörde musste den unvollständigen Antrag zurückweisen.\" checked for naturalness and grammatical construction. All four options reviewed: zurückweisen: correct for contextual meaning and construction; zurückkehren: rejected; wrong construction, meaning or inflection for the contextual clue; zusagen: rejected; wrong construction, meaning or inflection for the contextual clue; zunehmen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1019-v2",
+          "contextKey": "legacy-0106-L1019-context-2",
+          "transferKey": "legacy-0106-L1019-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010609",
+            "type": "choice",
+            "prompt": "Die Richterin hat den unbegründeten Einspruch ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The objection was rejected.",
+              "de": "Der Einspruch wurde abgelehnt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zurückgekehrt"
+              },
+              {
+                "id": "1",
+                "text": "zugeschickt"
+              },
+              {
+                "id": "2",
+                "text": "zusammengebaut"
+              },
+              {
+                "id": "3",
+                "text": "zurückgewiesen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zurückweisen means reject a request or objection here; \"zurückgewiesen\" is the appropriate completion.",
+              "de": "zurückweisen bedeutet hier: einen Antrag oder Einwand zurückweisen. Die Ergänzung „zurückgewiesen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Richterin hat den unbegründeten Einspruch zurückgewiesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Richterin hat den unbegründeten Einspruch zurückgewiesen.\" checked for naturalness and grammatical construction. All four options reviewed: zurückgekehrt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeschickt: rejected; wrong construction, meaning or inflection for the contextual clue; zusammengebaut: rejected; wrong construction, meaning or inflection for the contextual clue; zurückgewiesen: correct for contextual meaning and construction. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010610",
+      "title": {
+        "en": "Using zusagen in context",
+        "de": "zusagen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zusagen: accept an invitation or agree to attend, in two different situations.",
+        "de": "zusagen erkennen und verwenden: eine Einladung oder einen Termin zusagen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zusagen meaning accept an invitation or agree to attend, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1020 (f9e63e12cb255765b155cec3981c99652273ac0139fee85efbb38a022a1ed10d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1020-v1",
+          "contextKey": "legacy-0106-L1020-context-1",
+          "transferKey": "legacy-0106-L1020-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010610",
+            "type": "gap_choice",
+            "prompt": "Ich habe die Einladung angenommen und für Samstag ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker confirmed attendance.",
+              "de": "Die Person hat ihre Teilnahme bestätigt."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zugestimmt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zugesagt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zugeordnet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zugenommen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zusagen means accept an invitation or agree to attend here; \"zugesagt\" is the appropriate completion.",
+              "de": "zusagen bedeutet hier: eine Einladung oder einen Termin zusagen. Die Ergänzung „zugesagt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich habe die Einladung angenommen und für Samstag zugesagt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Ich habe die Einladung angenommen und für Samstag zugesagt.\" checked for naturalness and grammatical construction. All four options reviewed: zugestimmt: rejected; wrong construction, meaning or inflection for the contextual clue; zugesagt: correct for contextual meaning and construction; zugeordnet: rejected; wrong construction, meaning or inflection for the contextual clue; zugenommen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1020-v2",
+          "contextKey": "legacy-0106-L1020-context-2",
+          "transferKey": "legacy-0106-L1020-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010610",
+            "type": "choice",
+            "prompt": "Kannst du für den Termin am Montag ___?",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The person is asked to confirm the appointment.",
+              "de": "Die Person soll den Termin bestätigen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zustimmen"
+              },
+              {
+                "id": "1",
+                "text": "zurückkehren"
+              },
+              {
+                "id": "2",
+                "text": "zusagen"
+              },
+              {
+                "id": "3",
+                "text": "zuordnen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zusagen means accept an invitation or agree to attend here; \"zusagen\" is the appropriate completion.",
+              "de": "zusagen bedeutet hier: eine Einladung oder einen Termin zusagen. Die Ergänzung „zusagen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kannst du für den Termin am Montag zusagen?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Kannst du für den Termin am Montag zusagen?\" checked for naturalness and grammatical construction. All four options reviewed: zustimmen: rejected; wrong construction, meaning or inflection for the contextual clue; zurückkehren: rejected; wrong construction, meaning or inflection for the contextual clue; zusagen: correct for contextual meaning and construction; zuordnen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010611",
+      "title": {
+        "en": "Using zusammenbauen in context",
+        "de": "zusammenbauen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zusammenbauen: assemble parts into an object, in two different situations.",
+        "de": "zusammenbauen erkennen und verwenden: Teile zusammenbauen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zusammenbauen meaning assemble parts into an object, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1021 (da19f5962d21c4278f0750394f11cbd1e6c920cf81831140221830b7e0960e25), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1021-v1",
+          "contextKey": "legacy-0106-L1021-context-1",
+          "transferKey": "legacy-0106-L1021-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010611",
+            "type": "gap_choice",
+            "prompt": "Mit der Anleitung kann man den Schreibtisch selbst ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The desk is assembled from separate pieces.",
+              "de": "Der Schreibtisch wird aus Einzelteilen montiert."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zusammenbauen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zusammenfassen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zuschicken"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zurückkehren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zusammenbauen means assemble parts into an object here; \"zusammenbauen\" is the appropriate completion.",
+              "de": "zusammenbauen bedeutet hier: Teile zusammenbauen. Die Ergänzung „zusammenbauen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit der Anleitung kann man den Schreibtisch selbst zusammenbauen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Mit der Anleitung kann man den Schreibtisch selbst zusammenbauen.\" checked for naturalness and grammatical construction. All four options reviewed: zusammenbauen: correct for contextual meaning and construction; zusammenfassen: rejected; wrong construction, meaning or inflection for the contextual clue; zuschicken: rejected; wrong construction, meaning or inflection for the contextual clue; zurückkehren: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1021-v2",
+          "contextKey": "legacy-0106-L1021-context-2",
+          "transferKey": "legacy-0106-L1021-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010611",
+            "type": "choice",
+            "prompt": "Die Monteure haben die neuen Regale vor Ort ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The shelves were assembled at the site.",
+              "de": "Die Regale wurden vor Ort montiert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zusammengefasst"
+              },
+              {
+                "id": "1",
+                "text": "zugeschickt"
+              },
+              {
+                "id": "2",
+                "text": "zugeordnet"
+              },
+              {
+                "id": "3",
+                "text": "zusammengebaut"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zusammenbauen means assemble parts into an object here; \"zusammengebaut\" is the appropriate completion.",
+              "de": "zusammenbauen bedeutet hier: Teile zusammenbauen. Die Ergänzung „zusammengebaut“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Monteure haben die neuen Regale vor Ort zusammengebaut.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Monteure haben die neuen Regale vor Ort zusammengebaut.\" checked for naturalness and grammatical construction. All four options reviewed: zusammengefasst: rejected; wrong construction, meaning or inflection for the contextual clue; zugeschickt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeordnet: rejected; wrong construction, meaning or inflection for the contextual clue; zusammengebaut: correct for contextual meaning and construction. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010612",
+      "title": {
+        "en": "Using zusammenfassen in context",
+        "de": "zusammenfassen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zusammenfassen: summarize key information, in two different situations.",
+        "de": "zusammenfassen erkennen und verwenden: Informationen zusammenfassen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zusammenfassen meaning summarize key information, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1022 (8e0ceb6739a5c0e70c3e9eef1bc934d6e7fe7a50d05e179acabfd61bbd7638e5), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1022-v1",
+          "contextKey": "legacy-0106-L1022-context-1",
+          "transferKey": "legacy-0106-L1022-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010612",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ die wichtigsten Ergebnisse in drei Sätzen zusammen.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker wants a brief summary.",
+              "de": "Die Ergebnisse sollen kurz wiedergegeben werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "baue"
+                  },
+                  {
+                    "id": "1",
+                    "text": "fasse"
+                  },
+                  {
+                    "id": "2",
+                    "text": "schicke"
+                  },
+                  {
+                    "id": "3",
+                    "text": "stimme"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zusammenfassen means summarize key information here; \"fasse\" is the appropriate completion.",
+              "de": "zusammenfassen bedeutet hier: Informationen zusammenfassen. Die Ergänzung „fasse“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte fasse die wichtigsten Ergebnisse in drei Sätzen zusammen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bitte fasse die wichtigsten Ergebnisse in drei Sätzen zusammen.\" checked for naturalness and grammatical construction. All four options reviewed: baue: rejected; wrong construction, meaning or inflection for the contextual clue; fasse: correct for contextual meaning and construction; schicke: rejected; wrong construction, meaning or inflection for the contextual clue; stimme: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1022-v2",
+          "contextKey": "legacy-0106-L1022-context-2",
+          "transferKey": "legacy-0106-L1022-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010612",
+            "type": "choice",
+            "prompt": "Am Ende hat die Moderatorin die Diskussion kurz ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She summarized the main points.",
+              "de": "Sie gab die wichtigsten Punkte kurz wieder."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zusammengebaut"
+              },
+              {
+                "id": "1",
+                "text": "zugeschickt"
+              },
+              {
+                "id": "2",
+                "text": "zusammengefasst"
+              },
+              {
+                "id": "3",
+                "text": "zurückgewiesen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zusammenfassen means summarize key information here; \"zusammengefasst\" is the appropriate completion.",
+              "de": "zusammenfassen bedeutet hier: Informationen zusammenfassen. Die Ergänzung „zusammengefasst“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Ende hat die Moderatorin die Diskussion kurz zusammengefasst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Am Ende hat die Moderatorin die Diskussion kurz zusammengefasst.\" checked for naturalness and grammatical construction. All four options reviewed: zusammengebaut: rejected; wrong construction, meaning or inflection for the contextual clue; zugeschickt: rejected; wrong construction, meaning or inflection for the contextual clue; zusammengefasst: correct for contextual meaning and construction; zurückgewiesen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010613",
+      "title": {
+        "en": "Using zuschauen in context",
+        "de": "zuschauen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zuschauen: watch an activity, in two different situations.",
+        "de": "zuschauen erkennen und verwenden: bei einer Tätigkeit zuschauen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zuschauen meaning watch an activity, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1023 (a33b4b2a8eaac37575256e47c2515aaaeef64f3f7ba3005fd1e279987d194f55), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1023-v1",
+          "contextKey": "legacy-0106-L1023-context-1",
+          "transferKey": "legacy-0106-L1023-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010613",
+            "type": "gap_choice",
+            "prompt": "Die Eltern ___ den Kindern beim Spielen zu.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The parents observe the children playing.",
+              "de": "Die Eltern beobachten das Spielen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "schauen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "bauen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ordnen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "stimmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zuschauen means watch an activity here; \"schauen\" is the appropriate completion.",
+              "de": "zuschauen bedeutet hier: bei einer Tätigkeit zuschauen. Die Ergänzung „schauen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Eltern schauen den Kindern beim Spielen zu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Eltern schauen den Kindern beim Spielen zu.\" checked for naturalness and grammatical construction. All four options reviewed: schauen: correct for contextual meaning and construction; bauen: rejected; wrong construction, meaning or inflection for the contextual clue; ordnen: rejected; wrong construction, meaning or inflection for the contextual clue; stimmen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1023-v2",
+          "contextKey": "legacy-0106-L1023-context-2",
+          "transferKey": "legacy-0106-L1023-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010613",
+            "type": "choice",
+            "prompt": "Beim Training hat die Trainerin den Anfängern aufmerksam ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The trainer watched the beginners practising.",
+              "de": "Die Trainerin beobachtete die Übenden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugestimmt"
+              },
+              {
+                "id": "1",
+                "text": "zugesagt"
+              },
+              {
+                "id": "2",
+                "text": "zugeschickt"
+              },
+              {
+                "id": "3",
+                "text": "zugeschaut"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zuschauen means watch an activity here; \"zugeschaut\" is the appropriate completion.",
+              "de": "zuschauen bedeutet hier: bei einer Tätigkeit zuschauen. Die Ergänzung „zugeschaut“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Training hat die Trainerin den Anfängern aufmerksam zugeschaut.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Beim Training hat die Trainerin den Anfängern aufmerksam zugeschaut.\" checked for naturalness and grammatical construction. All four options reviewed: zugestimmt: rejected; wrong construction, meaning or inflection for the contextual clue; zugesagt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeschickt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeschaut: correct for contextual meaning and construction. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010614",
+      "title": {
+        "en": "Using zuschicken in context",
+        "de": "zuschicken im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zuschicken: send something to someone, in two different situations.",
+        "de": "zuschicken erkennen und verwenden: jemandem etwas zuschicken, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zuschicken meaning send something to someone, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1024 (22a2a7456639a27c8217494b30d7aa6657cedd028bf5b87b5c8bcd4d2e3a725c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1024-v1",
+          "contextKey": "legacy-0106-L1024-context-1",
+          "transferKey": "legacy-0106-L1024-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010614",
+            "type": "gap_choice",
+            "prompt": "Können Sie mir die Rechnung per E-Mail ___?",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The invoice should be sent electronically.",
+              "de": "Die Rechnung soll per E-Mail gesendet werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zustimmen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zuschicken"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zusammenbauen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zurückkehren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zuschicken means send something to someone here; \"zuschicken\" is the appropriate completion.",
+              "de": "zuschicken bedeutet hier: jemandem etwas zuschicken. Die Ergänzung „zuschicken“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Können Sie mir die Rechnung per E-Mail zuschicken?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Können Sie mir die Rechnung per E-Mail zuschicken?\" checked for naturalness and grammatical construction. All four options reviewed: zustimmen: rejected; wrong construction, meaning or inflection for the contextual clue; zuschicken: correct for contextual meaning and construction; zusammenbauen: rejected; wrong construction, meaning or inflection for the contextual clue; zurückkehren: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1024-v2",
+          "contextKey": "legacy-0106-L1024-context-2",
+          "transferKey": "legacy-0106-L1024-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010614",
+            "type": "choice",
+            "prompt": "Die Personalabteilung hat uns die Verträge gestern ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The contracts were sent to us.",
+              "de": "Die Verträge wurden uns zugesandt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugesagt"
+              },
+              {
+                "id": "1",
+                "text": "zugeordnet"
+              },
+              {
+                "id": "2",
+                "text": "zugeschickt"
+              },
+              {
+                "id": "3",
+                "text": "zurückgewiesen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zuschicken means send something to someone here; \"zugeschickt\" is the appropriate completion.",
+              "de": "zuschicken bedeutet hier: jemandem etwas zuschicken. Die Ergänzung „zugeschickt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Personalabteilung hat uns die Verträge gestern zugeschickt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Personalabteilung hat uns die Verträge gestern zugeschickt.\" checked for naturalness and grammatical construction. All four options reviewed: zugesagt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeordnet: rejected; wrong construction, meaning or inflection for the contextual clue; zugeschickt: correct for contextual meaning and construction; zurückgewiesen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010615",
+      "title": {
+        "en": "Using zustehen in context",
+        "de": "zustehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zustehen: be entitled to something, in two different situations.",
+        "de": "zustehen erkennen und verwenden: jemandem zustehen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zustehen meaning be entitled to something, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1025 (d8f5d220862e3130ff3872f548354425f4016bd2f0e37d1ccd4281d15cca5b56), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1025-v1",
+          "contextKey": "legacy-0106-L1025-context-1",
+          "transferKey": "legacy-0106-L1025-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010615",
+            "type": "gap_choice",
+            "prompt": "Laut Tarifvertrag ___ ihm zusätzliche Urlaubstage zu.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The contract gives him a right to extra leave.",
+              "de": "Er hat laut Vertrag Anspruch auf zusätzliche freie Tage."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "stehen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "stimmen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gehen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "nehmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zustehen means be entitled to something here; \"stehen\" is the appropriate completion.",
+              "de": "zustehen bedeutet hier: jemandem zustehen. Die Ergänzung „stehen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Laut Tarifvertrag stehen ihm zusätzliche Urlaubstage zu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Laut Tarifvertrag stehen ihm zusätzliche Urlaubstage zu.\" checked for naturalness and grammatical construction. All four options reviewed: stehen: correct for contextual meaning and construction; stimmen: rejected; wrong construction, meaning or inflection for the contextual clue; gehen: rejected; wrong construction, meaning or inflection for the contextual clue; nehmen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1025-v2",
+          "contextKey": "legacy-0106-L1025-context-2",
+          "transferKey": "legacy-0106-L1025-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010615",
+            "type": "choice",
+            "prompt": "Diese Entschädigung steht Ihnen gesetzlich ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The law grants a right to compensation.",
+              "de": "Das Gesetz gibt Ihnen einen Anspruch auf Entschädigung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vor"
+              },
+              {
+                "id": "1",
+                "text": "an"
+              },
+              {
+                "id": "2",
+                "text": "weg"
+              },
+              {
+                "id": "3",
+                "text": "zu"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zustehen means be entitled to something here; \"zu\" is the appropriate completion.",
+              "de": "zustehen bedeutet hier: jemandem zustehen. Die Ergänzung „zu“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Diese Entschädigung steht Ihnen gesetzlich zu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Diese Entschädigung steht Ihnen gesetzlich zu.\" checked for naturalness and grammatical construction. All four options reviewed: vor: rejected; wrong construction, meaning or inflection for the contextual clue; an: rejected; wrong construction, meaning or inflection for the contextual clue; weg: rejected; wrong construction, meaning or inflection for the contextual clue; zu: correct for contextual meaning and construction. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010616",
+      "title": {
+        "en": "Using zustimmen in context",
+        "de": "zustimmen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zustimmen: agree to a proposal (dative), in two different situations.",
+        "de": "zustimmen erkennen und verwenden: einem Vorschlag zustimmen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zustimmen meaning agree to a proposal (dative), including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1026 (18b68e8d3172b03cd3a0c6eccba13426798e65aed2787d022e57f03cb890da03), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1026-v1",
+          "contextKey": "legacy-0106-L1026-context-1",
+          "transferKey": "legacy-0106-L1026-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010616",
+            "type": "gap_choice",
+            "prompt": "Ich kann deinem Vorschlag ___, weil er alle Anforderungen erfüllt.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker agrees with the proposal.",
+              "de": "Die Person ist mit dem Vorschlag einverstanden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zuschicken"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zustimmen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zuordnen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zunehmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zustimmen means agree to a proposal (dative) here; \"zustimmen\" is the appropriate completion.",
+              "de": "zustimmen bedeutet hier: einem Vorschlag zustimmen. Die Ergänzung „zustimmen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich kann deinem Vorschlag zustimmen, weil er alle Anforderungen erfüllt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Ich kann deinem Vorschlag zustimmen, weil er alle Anforderungen erfüllt.\" checked for naturalness and grammatical construction. All four options reviewed: zuschicken: rejected; wrong construction, meaning or inflection for the contextual clue; zustimmen: correct for contextual meaning and construction; zuordnen: rejected; wrong construction, meaning or inflection for the contextual clue; zunehmen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1026-v2",
+          "contextKey": "legacy-0106-L1026-context-2",
+          "transferKey": "legacy-0106-L1026-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010616",
+            "type": "choice",
+            "prompt": "Die Mehrheit hat der Änderung ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Most people agreed to the change.",
+              "de": "Die Mehrheit war mit der Änderung einverstanden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugesagt"
+              },
+              {
+                "id": "1",
+                "text": "zugeschickt"
+              },
+              {
+                "id": "2",
+                "text": "zugestimmt"
+              },
+              {
+                "id": "3",
+                "text": "zurückgewiesen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zustimmen means agree to a proposal (dative) here; \"zugestimmt\" is the appropriate completion.",
+              "de": "zustimmen bedeutet hier: einem Vorschlag zustimmen. Die Ergänzung „zugestimmt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mehrheit hat der Änderung zugestimmt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Mehrheit hat der Änderung zugestimmt.\" checked for naturalness and grammatical construction. All four options reviewed: zugesagt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeschickt: rejected; wrong construction, meaning or inflection for the contextual clue; zugestimmt: correct for contextual meaning and construction; zurückgewiesen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010617",
+      "title": {
+        "en": "Using zutreffen in context",
+        "de": "zutreffen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zutreffen: apply or be true of something, in two different situations.",
+        "de": "zutreffen erkennen und verwenden: zutreffen oder richtig sein, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zutreffen meaning apply or be true of something, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1027 (c848fec32c54541fa894a57e92876faf7c140d19a91e460f817bc81d7f7919b5), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1027-v1",
+          "contextKey": "legacy-0106-L1027-context-1",
+          "transferKey": "legacy-0106-L1027-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010617",
+            "type": "gap_choice",
+            "prompt": "Diese Beschreibung ___ auf die Situation genau zu.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The description accurately applies.",
+              "de": "Die Beschreibung passt genau."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "trifft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "stimmt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "steht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "sieht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zutreffen means apply or be true of something here; \"trifft\" is the appropriate completion.",
+              "de": "zutreffen bedeutet hier: zutreffen oder richtig sein. Die Ergänzung „trifft“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Diese Beschreibung trifft auf die Situation genau zu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Diese Beschreibung trifft auf die Situation genau zu.\" checked for naturalness and grammatical construction. All four options reviewed: trifft: correct for contextual meaning and construction; stimmt: rejected; wrong construction, meaning or inflection for the contextual clue; steht: rejected; wrong construction, meaning or inflection for the contextual clue; sieht: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1027-v2",
+          "contextKey": "legacy-0106-L1027-context-2",
+          "transferKey": "legacy-0106-L1027-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010617",
+            "type": "choice",
+            "prompt": "Die Vermutung hat am Ende nicht ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The assumption turned out not to be correct.",
+              "de": "Die Annahme war am Ende nicht richtig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugestimmt"
+              },
+              {
+                "id": "1",
+                "text": "zugesagt"
+              },
+              {
+                "id": "2",
+                "text": "zugeordnet"
+              },
+              {
+                "id": "3",
+                "text": "zugetroffen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zutreffen means apply or be true of something here; \"zugetroffen\" is the appropriate completion.",
+              "de": "zutreffen bedeutet hier: zutreffen oder richtig sein. Die Ergänzung „zugetroffen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Vermutung hat am Ende nicht zugetroffen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Vermutung hat am Ende nicht zugetroffen.\" checked for naturalness and grammatical construction. All four options reviewed: zugestimmt: rejected; wrong construction, meaning or inflection for the contextual clue; zugesagt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeordnet: rejected; wrong construction, meaning or inflection for the contextual clue; zugetroffen: correct for contextual meaning and construction. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010618",
+      "title": {
+        "en": "Using zweifeln in context",
+        "de": "zweifeln im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zweifeln: doubt something, in two different situations.",
+        "de": "zweifeln erkennen und verwenden: an etwas zweifeln, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zweifeln meaning doubt something, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1028 (efdc83fd6c08e38822c280cfa4f7f2acb65f4d904699e2fe38829b9bb7ee8adb), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1028-v1",
+          "contextKey": "legacy-0106-L1028-context-1",
+          "transferKey": "legacy-0106-L1028-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010618",
+            "type": "gap_choice",
+            "prompt": "Ich ___ an der Richtigkeit der Angaben.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The speaker is not convinced the information is correct.",
+              "de": "Die Person hält die Angaben nicht für sicher richtig."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "stimme"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zweifle"
+                  },
+                  {
+                    "id": "2",
+                    "text": "schaue"
+                  },
+                  {
+                    "id": "3",
+                    "text": "stelle"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zweifeln means doubt something here; \"zweifle\" is the appropriate completion.",
+              "de": "zweifeln bedeutet hier: an etwas zweifeln. Die Ergänzung „zweifle“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich zweifle an der Richtigkeit der Angaben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Ich zweifle an der Richtigkeit der Angaben.\" checked for naturalness and grammatical construction. All four options reviewed: stimme: rejected; wrong construction, meaning or inflection for the contextual clue; zweifle: correct for contextual meaning and construction; schaue: rejected; wrong construction, meaning or inflection for the contextual clue; stelle: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1028-v2",
+          "contextKey": "legacy-0106-L1028-context-2",
+          "transferKey": "legacy-0106-L1028-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010618",
+            "type": "choice",
+            "prompt": "Sie hat lange daran ___, ob der Plan funktionieren würde.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She was uncertain the plan would work.",
+              "de": "Sie war sich lange nicht sicher, ob der Plan klappt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugestimmt"
+              },
+              {
+                "id": "1",
+                "text": "zugeordnet"
+              },
+              {
+                "id": "2",
+                "text": "gezweifelt"
+              },
+              {
+                "id": "3",
+                "text": "zugeschickt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "zweifeln means doubt something here; \"gezweifelt\" is the appropriate completion.",
+              "de": "zweifeln bedeutet hier: an etwas zweifeln. Die Ergänzung „gezweifelt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat lange daran gezweifelt, ob der Plan funktionieren würde.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Sie hat lange daran gezweifelt, ob der Plan funktionieren würde.\" checked for naturalness and grammatical construction. All four options reviewed: zugestimmt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeordnet: rejected; wrong construction, meaning or inflection for the contextual clue; gezweifelt: correct for contextual meaning and construction; zugeschickt: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010619",
+      "title": {
+        "en": "Using zwingen in context",
+        "de": "zwingen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use zwingen: force or compel someone, in two different situations.",
+        "de": "zwingen erkennen und verwenden: jemanden zu etwas zwingen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb or fixed verbal phrase zwingen meaning force or compel someone, including appropriate construction and inflection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/verbs.jsonl:L1029 (ca8f9708e8fb5b836f74dd7c5c90d9b0c65efe3e3013e455f7de1b8cd045bd2c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0106-L1029-v1",
+          "contextKey": "legacy-0106-L1029-context-1",
+          "transferKey": "legacy-0106-L1029-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010619",
+            "type": "gap_choice",
+            "prompt": "Die neuen Regeln ___ uns, die Sicherheitsausrüstung zu tragen.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The rules leave no choice about protective equipment.",
+              "de": "Die Regeln machen die Ausrüstung verpflichtend."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zwingen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zählen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zeigen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ziehen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "zwingen means force or compel someone here; \"zwingen\" is the appropriate completion.",
+              "de": "zwingen bedeutet hier: jemanden zu etwas zwingen. Die Ergänzung „zwingen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neuen Regeln zwingen uns, die Sicherheitsausrüstung zu tragen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die neuen Regeln zwingen uns, die Sicherheitsausrüstung zu tragen.\" checked for naturalness and grammatical construction. All four options reviewed: zwingen: correct for contextual meaning and construction; zählen: rejected; wrong construction, meaning or inflection for the contextual clue; zeigen: rejected; wrong construction, meaning or inflection for the contextual clue; ziehen: rejected; wrong construction, meaning or inflection for the contextual clue. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0106-L1029-v2",
+          "contextKey": "legacy-0106-L1029-context-2",
+          "transferKey": "legacy-0106-L1029-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001060191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010619",
+            "type": "choice",
+            "prompt": "Der starke Regen hat die Wandergruppe zur Umkehr ___.",
+            "instruction": {
+              "en": "Choose the verb, phrase part or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb, den Ausdrucksteil oder die Verbform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The weather made them turn back.",
+              "de": "Wegen des Regens musste die Gruppe umkehren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugestimmt"
+              },
+              {
+                "id": "1",
+                "text": "zugeschickt"
+              },
+              {
+                "id": "2",
+                "text": "zusammengebaut"
+              },
+              {
+                "id": "3",
+                "text": "gezwungen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "zwingen means force or compel someone here; \"gezwungen\" is the appropriate completion.",
+              "de": "zwingen bedeutet hier: jemanden zu etwas zwingen. Die Ergänzung „gezwungen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der starke Regen hat die Wandergruppe zur Umkehr gezwungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der starke Regen hat die Wandergruppe zur Umkehr gezwungen.\" checked for naturalness and grammatical construction. All four options reviewed: zugestimmt: rejected; wrong construction, meaning or inflection for the contextual clue; zugeschickt: rejected; wrong construction, meaning or inflection for the contextual clue; zusammengebaut: rejected; wrong construction, meaning or inflection for the contextual clue; gezwungen: correct for contextual meaning and construction. Bilingual hint and explanation checked, sibling context distinct, no second defensible offered answer for intended reading. Human review pending."
+        }
+      ]
+    }
+  ]
+}
