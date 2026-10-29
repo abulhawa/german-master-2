@@ -10,6 +10,16 @@ applies. Do not consume reset credits, purchase credits, enable paid fallback or
 change billing. The preceding pause is historical, not a current work blocker.
 No authoring duplication, merge, deployment or content publication is authorized.
 
+Saved continuation checkpoint: 456 reviewed variants through batch 0015, with
+61 inactive correction proposals. Coordinator rechecked 51 earlier proposals:
+30 for corrected meaning/options/instruction/hint/explanation/completion and 21
+for sentence capitalization with unchanged answer identities. Exact proposal
+hashes and recheck scopes are recorded in `correction-rechecks.json`; modifying
+a rechecked proposal invalidates its evidence. Task directions belong in the
+bilingual instruction, not in the completed German sentence. All candidate and
+publication flags remain false. Continue with the first pending frozen batch
+(0016 at this checkpoint), keeping one writer and meaningful review-branch saves.
+
 ## Supervised enrichment review — 29 October 2026
 
 Owner requests substantial use of remaining normal allowance and disables the

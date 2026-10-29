@@ -27,6 +27,9 @@ for (const name of readdirSync(here).filter(n=>n.endsWith('.overlay.json')).sort
       throw Error('Patch precondition mismatch');
     const acceptedBefore=JSON.stringify(variant.rubric.acceptedAnswers);
     variant.exercise.prompt=patch.proposedPrompt;
+    if(patch.proposedInstruction) variant.exercise.instruction=patch.proposedInstruction;
+    if(patch.proposedHint) variant.exercise.hint=patch.proposedHint;
+    if(patch.proposedExplanation) variant.rubric.explanation=patch.proposedExplanation;
     if(patch.proposedOptions) {
       if(variant.exercise.type==='choice') variant.exercise.options=patch.proposedOptions;
       else if(variant.exercise.type==='gap_choice'&&variant.exercise.slots.length===1)

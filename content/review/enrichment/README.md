@@ -75,13 +75,22 @@ or infringement, and a missing match does not prove originality. The earlier
 worker's claimed exact match in batch 0010 was a misreading and is corrected in
 the saved finding; its common near-phrase overlap is advisory only.
 
-Current saved editorial coverage is 326 variants through batch 0011, with 27
+Current saved continuation coverage is 456 variants through batch 0015, with 61
 inactive correction proposals. The owner subsequently waived both the weekly
 reserve and five-hour-headroom operating thresholds for this session and directed
 continuation from 0012. Review is resumed with one worker and durable slices.
 Do not consume reset credits, purchase capacity, use paid fallback or change
 billing; actual service availability still applies. Current coverage remains
 authoritative in coverage.json rather than this historical slice count.
+
+`correction-rechecks.json` records 30 coordinator semantic proposal rechecks and
+21 scoped sentence-capitalization rechecks, all AI-assisted and inactive. Each
+entry binds the exact sorted-key JSON proposal SHA-256 and source catalog hash.
+`validate.py` rejects stale hashes or an `ai-rechecked-inactive` label without its
+matching evidence. This does not grant target, candidate or publication approval.
+Overlay fields `proposedInstruction`, `proposedHint` and `proposedExplanation`
+require both languages and are applied by the in-memory canonical validation
+probe. Task directions stay out of completed German answers.
 
 Use one writer. A hosted continuation must check GitHub ref and current execution
 state before writing, use expected-head fast-forward protection, and stop on overlap.

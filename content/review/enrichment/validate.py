@@ -32,7 +32,7 @@ def validate(sync):
     require(len(q['entries']) == len(inv['completed']) == 49, 'Frozen queue must contain 49 batches')
     require(len({e['key'] for e in q['entries']}) == 49, 'Duplicate queue keys')
     require(q['snapshot'] == inv['snapshot'], 'Queue/inventory snapshot mismatch')
-    coverage, dispositions, patches, overlays = [], Counter(), 0, []
+    coverage, dispositions, patches, overlays, proposals = [], Counter(), 0, [], {}
     for entry in q['entries']:
         batch = entry['batchId']
         require(entry['key'] == batch + ':' + entry['catalogSha256'] and entry['candidateReady'] is False,
@@ -81,8 +81,15 @@ def validate(sync):
                     _, variant = source[key]
                     e = variant['exercise']
                     require(patch['exerciseId'] == e['id'] and patch['expectedPrompt'] == e['prompt'], f'{key}: patch precondition failed')
+                    require(patch['status'] in ['proposed-needs-recheck', 'ai-rechecked-inactive'], f'{key}: invalid inactive proposal state')
+                    proposals[(batch, key)] = (entry['catalogSha256'], patch)
                     prompt, completed = patch['proposedPrompt'], patch['proposedCompletedAnswer']
                     require(prompt.strip() and completed.strip() and '___' not in completed, f'{key}: invalid completion')
+                    for field in ['proposedInstruction', 'proposedHint', 'proposedExplanation']:
+                        if field in patch:
+                            require(set(patch[field]) == {'en', 'de'} and
+                                    all(isinstance(v, str) and v.strip() for v in patch[field].values()),
+                                    f'{key}: {field} requires both language strings')
                     if '___' in e['prompt']:
                         require(prompt.count('___') == 1, f'{key}: preserve one unanswered gap')
                         choices = e.get('options') or e['slots'][0]['options']
@@ -102,6 +109,30 @@ def validate(sync):
         else:
             require(entry['state'] == state and sorted(entry['reviewedVariantKeys']) == sorted(keys), f'{batch}: queue stale; use --sync-queue')
         coverage.append({'batchId': batch, 'state': state, 'reviewedQuestions': len(keys), 'totalQuestions': len(source), 'candidateReady': False})
+    rechecked = set()
+    semantic_rechecks = 0
+    if (OUT / 'correction-rechecks.json').exists():
+        proof = load('correction-rechecks.json')
+        require(proof['snapshot'] == q['snapshot'] and proof['active'] is False and
+                proof['publicationApproved'] is False and proof['humanReview'] is False,
+                'Correction recheck must remain pinned, inactive and AI-assisted')
+        for row in proof['entries']:
+            identity = (row['batchId'], row['variantKey'])
+            require(identity in proposals and identity not in rechecked, 'Unknown or duplicate correction recheck')
+            source_hash, patch = proposals[identity]
+            actual_hash = hashlib.sha256(json.dumps(patch, ensure_ascii=False, sort_keys=True,
+                                        separators=(',', ':')).encode('utf-8')).hexdigest()
+            require(row['catalogSha256'] == source_hash and row['exerciseId'] == patch['exerciseId'] and
+                    row['proposalSha256'] == actual_hash and patch['status'] == 'ai-rechecked-inactive',
+                    f'{identity}: correction changed after AI recheck')
+            require(row['decision'] == 'supported-within-stated-task' and row['rationale'].strip(), 'Missing scoped recheck rationale')
+            semantic_rechecks += row['scope'] == 'corrected-prompt-options-instruction-hint-explanation-and-completion'
+            rechecked.add(identity)
+        require(proof['semanticProposalRechecks'] == semantic_rechecks and
+                proof['orthographyOnlyRechecks'] == len(rechecked) - semantic_rechecks,
+                'Recheck scope counts do not match their entries')
+    require(rechecked == {key for key, (_, patch) in proposals.items() if patch['status'] == 'ai-rechecked-inactive'},
+            'AI-rechecked proposal state requires exact matching recheck evidence')
     manifest = load('candidate-manifest.json')
     require(manifest['active'] is False and manifest['publicationApproved'] is False and
             manifest['candidateReadyBatches'] == [], 'Candidate must stay inactive and unapproved')
@@ -115,7 +146,10 @@ def validate(sync):
                'partialBatches': sum(c['state'] == 'partial' for c in coverage),
                'reviewedQuestions': sum(c['reviewedQuestions'] for c in coverage),
                'totalQuestions': sum(c['totalQuestions'] for c in coverage),
-               'inactiveCorrectionProposals': patches, 'dispositions': dict(dispositions), 'batches': coverage}
+               'inactiveCorrectionProposals': patches, 'aiRecheckedCorrectionProposals': len(rechecked),
+               'semanticCorrectionRechecks': semantic_rechecks,
+               'orthographyOnlyCorrectionRechecks': len(rechecked) - semantic_rechecks,
+               'dispositions': dict(dispositions), 'batches': coverage}
     if sync:
         save('queue.json', q)
         save('coverage.json', summary)

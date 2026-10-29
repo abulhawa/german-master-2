@@ -9,81 +9,121 @@
       "variantKey": "legacy-0005-L5-v1",
       "exerciseId": "81000000-0000-4000-8000-000000050000",
       "expectedPrompt": "Ich kontrolliere die Adresse, ___ ich das Paket verschicke.",
-      "proposedPrompt": "Ich kontrolliere die Adresse, ___ ich das Paket verschicke. (Drücke eine zeitliche Reihenfolge aus, keine Bedingung.)",
-      "proposedCompletedAnswer": "Ich kontrolliere die Adresse, bevor ich das Paket verschicke. (Drücke eine zeitliche Reihenfolge aus, keine Bedingung.)",
-      "status": "proposed-needs-recheck"
+      "proposedPrompt": "Ich kontrolliere die Adresse, ___ ich das Paket verschicke.",
+      "proposedCompletedAnswer": "Ich kontrolliere die Adresse, bevor ich das Paket verschicke.",
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Express the order of events, rather than a condition.",
+        "de": "Drücke die zeitliche Reihenfolge aus, keine Bedingung."
+      }
     },
     {
       "variantKey": "legacy-0005-L7-v2",
       "exerciseId": "81000000-0000-4000-8000-000000050011",
       "expectedPrompt": "Der Betrieb erklärt die Sicherheitsregeln mehrfach, ___ alle Beschäftigten sie verstehen.",
-      "proposedPrompt": "Der Betrieb erklärt die Sicherheitsregeln mehrfach, ___ alle Beschäftigten sie verstehen. (Drücke die Absicht des Betriebs aus, keine zeitliche Reihenfolge.)",
-      "proposedCompletedAnswer": "Der Betrieb erklärt die Sicherheitsregeln mehrfach, damit alle Beschäftigten sie verstehen. (Drücke die Absicht des Betriebs aus, keine zeitliche Reihenfolge.)",
-      "status": "proposed-needs-recheck"
+      "proposedPrompt": "Der Betrieb erklärt die Sicherheitsregeln mehrfach, ___ alle Beschäftigten sie verstehen.",
+      "proposedCompletedAnswer": "Der Betrieb erklärt die Sicherheitsregeln mehrfach, damit alle Beschäftigten sie verstehen.",
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Express the company’s intended purpose, rather than the order of events.",
+        "de": "Drücke die Absicht des Betriebs aus, keine zeitliche Reihenfolge."
+      }
     },
     {
       "variantKey": "legacy-0005-L13-v1",
       "exerciseId": "81000000-0000-4000-8000-000000050040",
       "expectedPrompt": "Mira hat ihre Unterlagen eingereicht; ihr Kollege hat sie ___ abgegeben.",
-      "proposedPrompt": "Mira hat ihre Unterlagen eingereicht; ihr Kollege hat sie ___ abgegeben. (Drücke aus, dass beide unabhängig voneinander dasselbe getan haben.)",
-      "proposedCompletedAnswer": "Mira hat ihre Unterlagen eingereicht; ihr Kollege hat sie ebenfalls abgegeben. (Drücke aus, dass beide unabhängig voneinander dasselbe getan haben.)",
-      "status": "proposed-needs-recheck"
+      "proposedPrompt": "Mira hat ihre Unterlagen eingereicht; ihr Kollege hat sie ___ abgegeben.",
+      "proposedCompletedAnswer": "Mira hat ihre Unterlagen eingereicht; ihr Kollege hat sie ebenfalls abgegeben.",
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Express that both people independently did the same thing.",
+        "de": "Drücke aus, dass beide unabhängig voneinander dasselbe getan haben."
+      }
     },
     {
       "variantKey": "legacy-0005-L17-v1",
       "exerciseId": "81000000-0000-4000-8000-000000050080",
       "expectedPrompt": "Die Firma senkt den Stromverbrauch, ___ sie nachts nicht benötigte Geräte ausschaltet.",
-      "proposedPrompt": "Die Firma senkt den Stromverbrauch, ___ sie nachts nicht benötigte Geräte ausschaltet. (Drücke das Mittel aus, durch das die Firma den Verbrauch senkt.)",
-      "proposedCompletedAnswer": "Die Firma senkt den Stromverbrauch, indem sie nachts nicht benötigte Geräte ausschaltet. (Drücke das Mittel aus, durch das die Firma den Verbrauch senkt.)",
-      "status": "proposed-needs-recheck"
+      "proposedPrompt": "Die Firma senkt den Stromverbrauch, ___ sie nachts nicht benötigte Geräte ausschaltet.",
+      "proposedCompletedAnswer": "Die Firma senkt den Stromverbrauch, indem sie nachts nicht benötigte Geräte ausschaltet.",
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Express the means by which the company reduces electricity use.",
+        "de": "Drücke das Mittel aus, durch das die Firma den Stromverbrauch senkt."
+      }
     },
     {
       "variantKey": "legacy-0005-L17-v2",
       "exerciseId": "81000000-0000-4000-8000-000000050081",
       "expectedPrompt": "Sie verbessert ihre Aussprache gezielt, ___ sie jeden Tag Aufnahmen mit dem Original vergleicht.",
-      "proposedPrompt": "Sie verbessert ihre Aussprache gezielt, ___ sie jeden Tag Aufnahmen mit dem Original vergleicht. (Beschreibe die Methode, keine zeitliche Abfolge.)",
-      "proposedCompletedAnswer": "Sie verbessert ihre Aussprache gezielt, indem sie jeden Tag Aufnahmen mit dem Original vergleicht. (Beschreibe die Methode, keine zeitliche Abfolge.)",
-      "status": "proposed-needs-recheck"
+      "proposedPrompt": "Sie verbessert ihre Aussprache gezielt, ___ sie jeden Tag Aufnahmen mit dem Original vergleicht.",
+      "proposedCompletedAnswer": "Sie verbessert ihre Aussprache gezielt, indem sie jeden Tag Aufnahmen mit dem Original vergleicht.",
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Describe the method, rather than the order of events.",
+        "de": "Beschreibe die Methode, keine zeitliche Abfolge."
+      }
     },
     {
       "variantKey": "legacy-0005-L19-v2",
       "exerciseId": "81000000-0000-4000-8000-000000050101",
       "expectedPrompt": "Die Wohnung ist sehr hell; ___ ist die Miete deutlich höher als geplant.",
-      "proposedPrompt": "Die Wohnung ist sehr hell; ___ ist die Miete deutlich höher als geplant. (Verbinde die Aussagen als Vorteil und Nachteil, nicht als Ursache und Folge.)",
-      "proposedCompletedAnswer": "Die Wohnung ist sehr hell; jedoch ist die Miete deutlich höher als geplant. (Verbinde die Aussagen als Vorteil und Nachteil, nicht als Ursache und Folge.)",
-      "status": "proposed-needs-recheck"
+      "proposedPrompt": "Die Wohnung ist sehr hell; ___ ist die Miete deutlich höher als geplant.",
+      "proposedCompletedAnswer": "Die Wohnung ist sehr hell; jedoch ist die Miete deutlich höher als geplant.",
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Contrast an advantage with a disadvantage, rather than expressing cause and effect.",
+        "de": "Verbinde Vorteil und Nachteil, nicht Ursache und Folge."
+      }
     },
     {
       "variantKey": "legacy-0005-L23-v1",
       "exerciseId": "81000000-0000-4000-8000-000000050140",
       "expectedPrompt": "___ der Zug zwanzig Minuten Verspätung hatte, kam Lea rechtzeitig zum Bewerbungsgespräch.",
-      "proposedPrompt": "___ der Zug zwanzig Minuten Verspätung hatte, kam Lea rechtzeitig zum Bewerbungsgespräch. (Drücke einen Gegensatz zur erwarteten Folge der Verspätung aus.)",
-      "proposedCompletedAnswer": "Obwohl der Zug zwanzig Minuten Verspätung hatte, kam Lea rechtzeitig zum Bewerbungsgespräch. (Drücke einen Gegensatz zur erwarteten Folge der Verspätung aus.)",
-      "status": "proposed-needs-recheck"
+      "proposedPrompt": "___ der Zug zwanzig Minuten Verspätung hatte, kam Lea rechtzeitig zum Bewerbungsgespräch.",
+      "proposedCompletedAnswer": "Obwohl der Zug zwanzig Minuten Verspätung hatte, kam Lea rechtzeitig zum Bewerbungsgespräch.",
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Express a contrast with the expected consequence of the delay.",
+        "de": "Drücke einen Gegensatz zur erwarteten Folge der Verspätung aus."
+      }
     },
     {
       "variantKey": "legacy-0005-L23-v2",
       "exerciseId": "81000000-0000-4000-8000-000000050141",
       "expectedPrompt": "Der Wanderer setzte die Tour fort, ___ der Wetterbericht ausdrücklich vor Sturm gewarnt hatte.",
-      "proposedPrompt": "Der Wanderer setzte die Tour fort, ___ der Wetterbericht ausdrücklich vor Sturm gewarnt hatte. (Drücke aus, dass die Fortsetzung der Tour der Warnung widerspricht.)",
-      "proposedCompletedAnswer": "Der Wanderer setzte die Tour fort, obwohl der Wetterbericht ausdrücklich vor Sturm gewarnt hatte. (Drücke aus, dass die Fortsetzung der Tour der Warnung widerspricht.)",
-      "status": "proposed-needs-recheck"
+      "proposedPrompt": "Der Wanderer setzte die Tour fort, ___ der Wetterbericht ausdrücklich vor Sturm gewarnt hatte.",
+      "proposedCompletedAnswer": "Der Wanderer setzte die Tour fort, obwohl der Wetterbericht ausdrücklich vor Sturm gewarnt hatte.",
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Express that continuing the hike goes against the warning.",
+        "de": "Drücke aus, dass die Fortsetzung der Tour der Warnung widerspricht."
+      }
     },
     {
       "variantKey": "legacy-0005-L25-v2",
       "exerciseId": "81000000-0000-4000-8000-000000050151",
       "expectedPrompt": "Der Wind wurde immer heftiger, ___ mehrere Bäume umstürzten.",
-      "proposedPrompt": "Der Wind wurde immer heftiger, ___ mehrere Bäume umstürzten. (Drücke die Folge des stärkeren Windes aus, keine bloße Gleichzeitigkeit.)",
-      "proposedCompletedAnswer": "Der Wind wurde immer heftiger, so dass mehrere Bäume umstürzten. (Drücke die Folge des stärkeren Windes aus, keine bloße Gleichzeitigkeit.)",
-      "status": "proposed-needs-recheck"
+      "proposedPrompt": "Der Wind wurde immer heftiger, ___ mehrere Bäume umstürzten.",
+      "proposedCompletedAnswer": "Der Wind wurde immer heftiger, so dass mehrere Bäume umstürzten.",
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Express the consequence of the stronger wind, rather than events happening at the same time.",
+        "de": "Drücke die Folge des stärkeren Windes aus, keine bloße Gleichzeitigkeit."
+      }
     },
     {
       "variantKey": "legacy-0005-L29-v1",
       "exerciseId": "81000000-0000-4000-8000-000000050190",
       "expectedPrompt": "___ die Baustelle besteht, bleibt diese Straße gesperrt.",
-      "proposedPrompt": "___ die Baustelle besteht, bleibt diese Straße gesperrt. (Beschreibe die gesamte Dauer der Sperrung, nicht ihren Beginn.)",
-      "proposedCompletedAnswer": "Solange die Baustelle besteht, bleibt diese Straße gesperrt. (Beschreibe die gesamte Dauer der Sperrung, nicht ihren Beginn.)",
-      "status": "proposed-needs-recheck"
+      "proposedPrompt": "___ die Baustelle besteht, bleibt diese Straße gesperrt.",
+      "proposedCompletedAnswer": "Solange die Baustelle besteht, bleibt diese Straße gesperrt.",
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Describe the whole duration of the closure, rather than its beginning.",
+        "de": "Beschreibe die gesamte Dauer der Sperrung, nicht ihren Beginn."
+      }
     }
   ]
 }
