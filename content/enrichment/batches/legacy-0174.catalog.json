@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000017400",
+      "title": {
+        "en": "Using Zollbestimmung accurately",
+        "de": "Zollbestimmung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zollbestimmung in the sense of a customs regulation governing imported goods.",
+        "de": "Zollbestimmung im Sinn von Zollbestimmung für die Einfuhr von Waren erkennen."
+      },
+      "objective": "Recognize Zollbestimmung in the specified a customs regulation governing imported goods sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2767 (b9be804c93357f68dcfa64581f18fb422d575da824b9725597b69e462e0b794c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2767-v1",
+          "contextKey": "legacy-0174-L2767-context-1",
+          "transferKey": "legacy-0174-L2767-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017400",
+            "type": "gap_choice",
+            "prompt": "Vor der Einfuhr prüft die Firma die geltenden ___ für die Ware.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The rules concern bringing goods across a border.",
+              "de": "Die Regeln betreffen Waren an der Grenze."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mietverträge"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Speisekarten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zollbestimmungen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrpläne"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zollbestimmungen regulate customs procedures.",
+              "de": "Zollbestimmungen regeln Zollverfahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Einfuhr prüft die Firma die geltenden Zollbestimmungen für die Ware.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zollbestimmungen' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Mietverträge: Rental contracts. Speisekarten: Menus. Zollbestimmungen: Correct: customs regulations. Fahrpläne: Timetables. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2767-v2",
+          "contextKey": "legacy-0174-L2767-context-2",
+          "transferKey": "legacy-0174-L2767-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017400",
+            "type": "choice",
+            "prompt": "Eine Vorschrift legt fest, welche Dokumente bei der Einfuhr bestimmter Produkte vorgelegt werden müssen. Welche Art Regel ist das?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The rule governs imports.",
+              "de": "Die Vorschrift regelt die Einfuhr."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Urlaubsregel"
+              },
+              {
+                "id": "1",
+                "text": "Zollbestimmung"
+              },
+              {
+                "id": "2",
+                "text": "Hausordnung"
+              },
+              {
+                "id": "3",
+                "text": "Verkehrsregel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zollbestimmungen regulate customs procedures.",
+              "de": "Zollbestimmungen regeln Zollverfahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist eine Zollbestimmung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zollbestimmung' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Urlaubsregel: Vacation policy. Zollbestimmung: Correct: customs rule. Hausordnung: Building rules. Verkehrsregel: Road rule. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017401",
+      "title": {
+        "en": "Using Zone accurately",
+        "de": "Zone im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zone in the sense of a defined area with special rules.",
+        "de": "Zone im Sinn von abgegrenzte Zone mit bestimmten Regeln erkennen."
+      },
+      "objective": "Recognize Zone in the specified a defined area with special rules sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2768 (6c5f0d409afc701d686939f7ed956cb7657545a881f23ef101da2317e5b4c7fd), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2768-v1",
+          "contextKey": "legacy-0174-L2768-context-1",
+          "transferKey": "legacy-0174-L2768-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017401",
+            "type": "gap_choice",
+            "prompt": "In dieser ___ dürfen nur Fahrräder und Fußgänger unterwegs sein.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It is a defined area with special rules.",
+              "de": "Es ist ein abgegrenzter Bereich mit besonderen Regeln."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wartung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zahlung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zone"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zone is a defined area.",
+              "de": "Eine Zone ist ein abgegrenzter Bereich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In dieser Zone dürfen nur Fahrräder und Fußgänger unterwegs sein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zone' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Rechnung: Invoice. Wartung: Maintenance. Zahlung: Payment. Zone: Correct: designated area. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2768-v2",
+          "contextKey": "legacy-0174-L2768-context-2",
+          "transferKey": "legacy-0174-L2768-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017401",
+            "type": "choice",
+            "prompt": "Eine Stadt kennzeichnet einen Bereich, in dem besondere Verkehrsregeln gelten. Wie nennt man diesen Bereich?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The rules apply within a marked area.",
+              "de": "Die Regeln gelten innerhalb eines markierten Bereichs."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fahrkarte"
+              },
+              {
+                "id": "1",
+                "text": "Vertrag"
+              },
+              {
+                "id": "2",
+                "text": "Zone"
+              },
+              {
+                "id": "3",
+                "text": "Einzelhaus"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Zone is a defined area.",
+              "de": "Eine Zone ist ein abgegrenzter Bereich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bereich ist eine Zone.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zone' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Fahrkarte: Ticket. Vertrag: Contract. Zone: Correct: zone. Einzelhaus: Single building. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017402",
+      "title": {
+        "en": "Using Zubereitung accurately",
+        "de": "Zubereitung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zubereitung in the sense of the preparation of food for eating.",
+        "de": "Zubereitung im Sinn von Zubereitung von Speisen erkennen."
+      },
+      "objective": "Recognize Zubereitung in the specified the preparation of food for eating sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2770 (2d6098cc506985debaf6911820be14ef64fea6166605912ac16d68ff3985c940), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2770-v1",
+          "contextKey": "legacy-0174-L2770-context-1",
+          "transferKey": "legacy-0174-L2770-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017402",
+            "type": "gap_choice",
+            "prompt": "Die ___ der Suppe dauert ungefähr zwanzig Minuten.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The soup is being cooked.",
+              "de": "Die Suppe wird gekocht."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zubereitung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verpackung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bestellung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zubereitung means preparing food.",
+              "de": "Zubereitung bedeutet, Speisen zum Essen fertigzumachen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zubereitung der Suppe dauert ungefähr zwanzig Minuten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zubereitung' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zubereitung: Correct: food preparation. Verpackung: Packaging. Lieferung: Delivery. Bestellung: Order. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2770-v2",
+          "contextKey": "legacy-0174-L2770-context-2",
+          "transferKey": "legacy-0174-L2770-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017402",
+            "type": "choice",
+            "prompt": "Eine Köchin schneidet Gemüse, erhitzt Öl und kocht ein Gericht. Wie nennt man diese Tätigkeiten zusammen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The steps make the food ready to eat.",
+              "de": "Die Schritte machen das Essen verzehrfertig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Entsorgung"
+              },
+              {
+                "id": "1",
+                "text": "Reklamation"
+              },
+              {
+                "id": "2",
+                "text": "Buchhaltung"
+              },
+              {
+                "id": "3",
+                "text": "Zubereitung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Zubereitung means preparing food.",
+              "de": "Zubereitung bedeutet, Speisen zum Essen fertigzumachen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist die Zubereitung eines Gerichts.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zubereitung' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Entsorgung: Waste disposal. Reklamation: Complaint. Buchhaltung: Accounting. Zubereitung: Correct: preparing food. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017403",
+      "title": {
+        "en": "Using Zufall accurately",
+        "de": "Zufall im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zufall in the sense of an accidental coincidence rather than a planned event.",
+        "de": "Zufall im Sinn von ungeplanter Zufall erkennen."
+      },
+      "objective": "Recognize Zufall in the specified an accidental coincidence rather than a planned event sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2772 (883264124a44e9f6fad094739c67380760b534c7a3a03b5e18f7a87f6c6cf7a1), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2772-v1",
+          "contextKey": "legacy-0174-L2772-context-1",
+          "transferKey": "legacy-0174-L2772-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017403",
+            "type": "gap_choice",
+            "prompt": "Dass beide Freunde im selben Zug saßen, war reiner ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "They did not arrange to meet.",
+              "de": "Sie hatten das Treffen nicht geplant."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zufall"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Plan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Auftrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zufall is an event not deliberately planned.",
+              "de": "Zufall ist ein nicht bewusst geplantes Ereignis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Dass beide Freunde im selben Zug saßen, war reiner Zufall.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zufall' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vertrag: Contract. Zufall: Correct: coincidence. Plan: Planned arrangement. Auftrag: Commission. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2772-v2",
+          "contextKey": "legacy-0174-L2772-context-2",
+          "transferKey": "legacy-0174-L2772-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017403",
+            "type": "choice",
+            "prompt": "Zwei ehemalige Kollegen begegnen sich unerwartet in einer fremden Stadt. Wie nennt man dieses ungeplante Zusammentreffen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "No one arranged the meeting.",
+              "de": "Niemand hat das Treffen vereinbart."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zufall"
+              },
+              {
+                "id": "1",
+                "text": "Absprache"
+              },
+              {
+                "id": "2",
+                "text": "Einladung"
+              },
+              {
+                "id": "3",
+                "text": "Verpflichtung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Zufall is an event not deliberately planned.",
+              "de": "Zufall ist ein nicht bewusst geplantes Ereignis."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Zusammentreffen ist ein Zufall.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zufall' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zufall: Correct: coincidence. Absprache: Prior agreement. Einladung: Invitation. Verpflichtung: Obligation. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017404",
+      "title": {
+        "en": "Using Zufriedenheit accurately",
+        "de": "Zufriedenheit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zufriedenheit in the sense of satisfaction with a result or situation.",
+        "de": "Zufriedenheit im Sinn von Zufriedenheit mit einem Ergebnis erkennen."
+      },
+      "objective": "Recognize Zufriedenheit in the specified satisfaction with a result or situation sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2773 (e9230903c539a268d19b4b275edee4d32f9d55ed1318119e3901952f5877e07e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2773-v1",
+          "contextKey": "legacy-0174-L2773-context-1",
+          "transferKey": "legacy-0174-L2773-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017404",
+            "type": "gap_choice",
+            "prompt": "Die hohe ___ der Kunden zeigt sich in ihren positiven Bewertungen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The customers are pleased with the service.",
+              "de": "Die Kunden sind mit dem Service zufrieden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verwechslung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zufriedenheit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verspätung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zufriedenheit means being content with something.",
+              "de": "Zufriedenheit bedeutet, mit etwas zufrieden zu sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die hohe Zufriedenheit der Kunden zeigt sich in ihren positiven Bewertungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zufriedenheit' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verwechslung: Confusion. Kündigung: Termination. Zufriedenheit: Correct: satisfaction. Verspätung: Delay. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2773-v2",
+          "contextKey": "legacy-0174-L2773-context-2",
+          "transferKey": "legacy-0174-L2773-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017404",
+            "type": "choice",
+            "prompt": "Eine Kundin findet, dass das Produkt ihre Erwartungen vollständig erfüllt. Welches Gefühl beschreibt ihre Bewertung?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Her expectations have been met.",
+              "de": "Ihre Erwartungen wurden erfüllt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ungeduld"
+              },
+              {
+                "id": "1",
+                "text": "Zufriedenheit"
+              },
+              {
+                "id": "2",
+                "text": "Enttäuschung"
+              },
+              {
+                "id": "3",
+                "text": "Misstrauen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zufriedenheit means being content with something.",
+              "de": "Zufriedenheit bedeutet, mit etwas zufrieden zu sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie empfindet Zufriedenheit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zufriedenheit' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Ungeduld: Impatience. Zufriedenheit: Correct: satisfaction. Enttäuschung: Disappointment. Misstrauen: Distrust. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017405",
+      "title": {
+        "en": "Using Zugang accurately",
+        "de": "Zugang im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zugang in the sense of permission or ability to enter or use something.",
+        "de": "Zugang im Sinn von Zugang zu einem Bereich oder System erkennen."
+      },
+      "objective": "Recognize Zugang in the specified permission or ability to enter or use something sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2775 (c8883897546d1386852f1cc79c25908218f0a33ddd52d52803b3eacddb6f5517), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2775-v1",
+          "contextKey": "legacy-0174-L2775-context-1",
+          "transferKey": "legacy-0174-L2775-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017405",
+            "type": "gap_choice",
+            "prompt": "Nur Mitarbeitende mit Ausweis haben ___ zum Serverraum.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "They are allowed to enter.",
+              "de": "Sie dürfen den Raum betreten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausgang"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Umweg"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rückweg"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zugang"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zugang means access to a place or service.",
+              "de": "Zugang bedeutet die Möglichkeit, etwas zu betreten oder zu nutzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nur Mitarbeitende mit Ausweis haben Zugang zum Serverraum.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zugang' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Ausgang: Exit. Umweg: Detour. Rückweg: Way back. Zugang: Correct: access. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2775-v2",
+          "contextKey": "legacy-0174-L2775-context-2",
+          "transferKey": "legacy-0174-L2775-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017405",
+            "type": "choice",
+            "prompt": "Ein Benutzerkonto erlaubt die Anmeldung an einem geschützten Online-Dienst. Was erhält die Person?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The account permits use of the service.",
+              "de": "Das Konto ermöglicht die Nutzung des Dienstes."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rechnung"
+              },
+              {
+                "id": "1",
+                "text": "Verspätung"
+              },
+              {
+                "id": "2",
+                "text": "Zugang"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Zugang means access to a place or service.",
+              "de": "Zugang bedeutet die Möglichkeit, etwas zu betreten oder zu nutzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Person erhält Zugang zum Dienst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zugang' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Rechnung: Invoice. Verspätung: Delay. Zugang: Correct: access. Kündigung: Termination. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017406",
+      "title": {
+        "en": "Using Zugehörigkeit accurately",
+        "de": "Zugehörigkeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zugehörigkeit in the sense of a person's membership or affiliation with a group.",
+        "de": "Zugehörigkeit im Sinn von Zugehörigkeit zu einer Gruppe erkennen."
+      },
+      "objective": "Recognize Zugehörigkeit in the specified a person's membership or affiliation with a group sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2776 (a693437c9a607a6a5ac9fc42913072c0fd915082914f1e2db035d972d324670b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2776-v1",
+          "contextKey": "legacy-0174-L2776-context-1",
+          "transferKey": "legacy-0174-L2776-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017406",
+            "type": "gap_choice",
+            "prompt": "Die ___ zu einem Verein wird durch die Mitgliedschaft bestätigt.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person belongs to the association.",
+              "de": "Die Person ist Mitglied des Vereins."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zugehörigkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zubereitung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zugehörigkeit means belonging to a group.",
+              "de": "Zugehörigkeit bedeutet, Teil einer Gruppe zu sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zugehörigkeit zu einem Verein wird durch die Mitgliedschaft bestätigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zugehörigkeit' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zugehörigkeit: Correct: affiliation. Verspätung: Delay. Lieferung: Delivery. Zubereitung: Food preparation. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2776-v2",
+          "contextKey": "legacy-0174-L2776-context-2",
+          "transferKey": "legacy-0174-L2776-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017406",
+            "type": "choice",
+            "prompt": "Eine Mitarbeiterin ist offiziell Teil eines bestimmten Teams. Welcher Begriff beschreibt diese Verbindung?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She belongs to the group.",
+              "de": "Sie gehört zu der Gruppe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Entfernung"
+              },
+              {
+                "id": "1",
+                "text": "Widerspruch"
+              },
+              {
+                "id": "2",
+                "text": "Verbot"
+              },
+              {
+                "id": "3",
+                "text": "Zugehörigkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Zugehörigkeit means belonging to a group.",
+              "de": "Zugehörigkeit bedeutet, Teil einer Gruppe zu sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist ihre Zugehörigkeit zum Team.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zugehörigkeit' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Entfernung: Distance. Widerspruch: Contradiction. Verbot: Prohibition. Zugehörigkeit: Correct: group membership. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017407",
+      "title": {
+        "en": "Using Zuhause accurately",
+        "de": "Zuhause im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zuhause in the sense of one's home or living place.",
+        "de": "Zuhause im Sinn von eigenes Zuhause erkennen."
+      },
+      "objective": "Recognize Zuhause in the specified one's home or living place sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2777 (301e090d5b1820f7f6775c9706bb861460814e0d53d0e18f5503fcca8b2b87af), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2777-v1",
+          "contextKey": "legacy-0174-L2777-context-1",
+          "transferKey": "legacy-0174-L2777-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017407",
+            "type": "gap_choice",
+            "prompt": "Nach einer langen Reise freut sie sich auf ihr ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She wants to return to where she lives.",
+              "de": "Sie möchte an ihren Wohnort zurückkehren."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lager"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zuhause"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Büro"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hotel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zuhause is the place someone feels at home.",
+              "de": "Zuhause ist der vertraute Ort, an dem man wohnt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach einer langen Reise freut sie sich auf ihr Zuhause.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zuhause' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Lager: Storage facility. Zuhause: Correct: home. Büro: Workplace. Hotel: Temporary accommodation. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2777-v2",
+          "contextKey": "legacy-0174-L2777-context-2",
+          "transferKey": "legacy-0174-L2777-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017407",
+            "type": "choice",
+            "prompt": "Ein Kind fühlt sich in der Wohnung seiner Familie sicher und geborgen. Wie nennt es diesen vertrauten Ort?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is the child's familiar home.",
+              "de": "Es ist der vertraute Wohnort des Kindes."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zuhause"
+              },
+              {
+                "id": "1",
+                "text": "Arbeitsplatz"
+              },
+              {
+                "id": "2",
+                "text": "Bahnhof"
+              },
+              {
+                "id": "3",
+                "text": "Geschäft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Zuhause is the place someone feels at home.",
+              "de": "Zuhause ist der vertraute Ort, an dem man wohnt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es nennt den Ort sein Zuhause.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zuhause' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zuhause: Correct: home. Arbeitsplatz: Workplace. Bahnhof: Railway station. Geschäft: Shop. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017409",
+      "title": {
+        "en": "Using Zuhörerin accurately",
+        "de": "Zuhörerin im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zuhörerin in the sense of a female listener at a talk.",
+        "de": "Zuhörerin im Sinn von weibliche Zuhörerin eines Vortrags erkennen."
+      },
+      "objective": "Recognize Zuhörerin in the specified a female listener at a talk sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2779 (33462f584b5b3d17bfbd37a8d0dff1f84dc692c0ec09ac283090b9c722023860), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2779-v1",
+          "contextKey": "legacy-0174-L2779-context-1",
+          "transferKey": "legacy-0174-L2779-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017409",
+            "type": "gap_choice",
+            "prompt": "Die ___ stellt nach dem Vortrag eine Frage an den Redner.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She listened to the talk.",
+              "de": "Sie hat dem Vortrag zugehört."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verkäuferin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Köchin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zuhörerin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rednerin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zuhörerin is a female person who listens.",
+              "de": "Eine Zuhörerin ist eine Frau, die zuhört."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zuhörerin stellt nach dem Vortrag eine Frage an den Redner.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zuhörerin' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verkäuferin: Saleswoman. Köchin: Cook. Zuhörerin: Correct: female listener. Rednerin: Female speaker. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2779-v2",
+          "contextKey": "legacy-0174-L2779-context-2",
+          "transferKey": "legacy-0174-L2779-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017409",
+            "type": "choice",
+            "prompt": "Eine Frau sitzt im Publikum und hört aufmerksam einer Präsentation zu. Welche Rolle hat sie?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She listens rather than presents.",
+              "de": "Sie hört zu, statt selbst vorzutragen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Technikerin"
+              },
+              {
+                "id": "1",
+                "text": "Zuhörerin"
+              },
+              {
+                "id": "2",
+                "text": "Vortragende"
+              },
+              {
+                "id": "3",
+                "text": "Moderatorin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zuhörerin is a female person who listens.",
+              "de": "Eine Zuhörerin ist eine Frau, die zuhört."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie ist eine Zuhörerin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zuhörerin' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Technikerin: Technician. Zuhörerin: Correct: listener. Vortragende: Presenter. Moderatorin: Moderator. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017410",
+      "title": {
+        "en": "Using Zukunft accurately",
+        "de": "Zukunft im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zukunft in the sense of the time that has not yet happened.",
+        "de": "Zukunft im Sinn von kommende Zeit, die Zukunft erkennen."
+      },
+      "objective": "Recognize Zukunft in the specified the time that has not yet happened sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2780 (eb9ab89025589931b0dff862ecb2a88204a4174fe54b102f10ce0e778da3b6ff), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2780-v1",
+          "contextKey": "legacy-0174-L2780-context-1",
+          "transferKey": "legacy-0174-L2780-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017410",
+            "type": "gap_choice",
+            "prompt": "Niemand kann die ___ mit völliger Sicherheit vorhersagen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It concerns events that have not happened.",
+              "de": "Es geht um Ereignisse, die noch nicht geschehen sind."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vergangenheit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gegenwart"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erinnerung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zukunft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zukunft is the time ahead.",
+              "de": "Zukunft bezeichnet die kommende Zeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Niemand kann die Zukunft mit völliger Sicherheit vorhersagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zukunft' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vergangenheit: Past. Gegenwart: Present. Erinnerung: Memory. Zukunft: Correct: future. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2780-v2",
+          "contextKey": "legacy-0174-L2780-context-2",
+          "transferKey": "legacy-0174-L2780-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017410",
+            "type": "choice",
+            "prompt": "Ein Unternehmen plant, welche Produkte es in fünf Jahren anbieten will. Auf welche Zeit richtet sich der Plan?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The plan concerns coming years.",
+              "de": "Der Plan betrifft kommende Jahre."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gegenwart"
+              },
+              {
+                "id": "1",
+                "text": "Vorwoche"
+              },
+              {
+                "id": "2",
+                "text": "Zukunft"
+              },
+              {
+                "id": "3",
+                "text": "Vergangenheit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Zukunft is the time ahead.",
+              "de": "Zukunft bezeichnet die kommende Zeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Plan richtet sich auf die Zukunft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zukunft' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Gegenwart: Present. Vorwoche: Previous week. Zukunft: Correct: future. Vergangenheit: Past. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017413",
+      "title": {
+        "en": "Using Zündholz accurately",
+        "de": "Zündholz im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zündholz in the sense of a matchstick used to light a flame.",
+        "de": "Zündholz im Sinn von Zündholz zum Entzünden einer Flamme erkennen."
+      },
+      "objective": "Recognize Zündholz in the specified a matchstick used to light a flame sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2783 (8f6b0542e79f8d04142eb2fb8ca98603c5dbee7ae428e82377c1649c2914eea4), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2783-v1",
+          "contextKey": "legacy-0174-L2783-context-1",
+          "transferKey": "legacy-0174-L2783-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017413",
+            "type": "gap_choice",
+            "prompt": "Mit einem ___ entzündet sie die Kerze.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The small stick makes a flame when struck.",
+              "de": "Das kleine Stäbchen erzeugt beim Reiben eine Flamme."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zündholz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bleistift"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lineal"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Radiergummi"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zündholz is a matchstick for lighting a flame.",
+              "de": "Ein Zündholz ist ein Stäbchen zum Anzünden einer Flamme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit einem Zündholz entzündet sie die Kerze.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zündholz' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zündholz: Correct: matchstick. Bleistift: Pencil. Lineal: Ruler. Radiergummi: Eraser. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2783-v2",
+          "contextKey": "legacy-0174-L2783-context-2",
+          "transferKey": "legacy-0174-L2783-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017413",
+            "type": "choice",
+            "prompt": "Eine Person reibt ein kleines Holzstäbchen mit Zündkopf an einer Reibfläche, um Feuer zu machen. Was benutzt sie?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The stick is designed to ignite.",
+              "de": "Das Stäbchen ist zum Anzünden gemacht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Strohhalm"
+              },
+              {
+                "id": "1",
+                "text": "Zahnstocher"
+              },
+              {
+                "id": "2",
+                "text": "Kugelschreiber"
+              },
+              {
+                "id": "3",
+                "text": "Zündholz"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Zündholz is a matchstick for lighting a flame.",
+              "de": "Ein Zündholz ist ein Stäbchen zum Anzünden einer Flamme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie benutzt ein Zündholz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zündholz' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Strohhalm: Drinking straw. Zahnstocher: Toothpick. Kugelschreiber: Ballpoint pen. Zündholz: Correct: match. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017414",
+      "title": {
+        "en": "Using Zusammenarbeit accurately",
+        "de": "Zusammenarbeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zusammenarbeit in the sense of cooperation between people working on a task.",
+        "de": "Zusammenarbeit im Sinn von Zusammenarbeit bei einer gemeinsamen Aufgabe erkennen."
+      },
+      "objective": "Recognize Zusammenarbeit in the specified cooperation between people working on a task sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2784 (c4557935390b73a21e4f63fcf96c0a8f0d18b0125fe2af4407b730283fb2a8ec), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2784-v1",
+          "contextKey": "legacy-0174-L2784-context-1",
+          "transferKey": "legacy-0174-L2784-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017414",
+            "type": "gap_choice",
+            "prompt": "Die gute ___ zwischen Entwicklung und Support verbessert den Service.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The teams coordinate their work.",
+              "de": "Die Teams stimmen ihre Arbeit aufeinander ab."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zusammenarbeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Konkurrenz"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Trennung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zusammenarbeit means working together.",
+              "de": "Zusammenarbeit bedeutet, gemeinsam an einer Aufgabe zu arbeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die gute Zusammenarbeit zwischen Entwicklung und Support verbessert den Service.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zusammenarbeit' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verspätung: Delay. Zusammenarbeit: Correct: cooperation. Konkurrenz: Competition. Trennung: Separation. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2784-v2",
+          "contextKey": "legacy-0174-L2784-context-2",
+          "transferKey": "legacy-0174-L2784-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017414",
+            "type": "choice",
+            "prompt": "Zwei Abteilungen teilen Informationen und lösen ein Problem gemeinsam. Wie nennt man diese Arbeitsweise?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They work together toward one goal.",
+              "de": "Sie arbeiten gemeinsam an einem Ziel."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zusammenarbeit"
+              },
+              {
+                "id": "1",
+                "text": "Abschottung"
+              },
+              {
+                "id": "2",
+                "text": "Streit"
+              },
+              {
+                "id": "3",
+                "text": "Stillstand"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Zusammenarbeit means working together.",
+              "de": "Zusammenarbeit bedeutet, gemeinsam an einer Aufgabe zu arbeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist Zusammenarbeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zusammenarbeit' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zusammenarbeit: Correct: collaboration. Abschottung: Isolation. Streit: Conflict. Stillstand: Stagnation. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017415",
+      "title": {
+        "en": "Using Zusammenbau accurately",
+        "de": "Zusammenbau im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zusammenbau in the sense of the assembly of parts into a complete product.",
+        "de": "Zusammenbau im Sinn von Zusammenbau von Einzelteilen erkennen."
+      },
+      "objective": "Recognize Zusammenbau in the specified the assembly of parts into a complete product sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2785 (cd95594a2eab69b53db8a6bdb32c1648b333cb2ccca5dba2395290670e00948b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2785-v1",
+          "contextKey": "legacy-0174-L2785-context-1",
+          "transferKey": "legacy-0174-L2785-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017415",
+            "type": "gap_choice",
+            "prompt": "Der ___ des Regals dauert mit der Anleitung etwa eine Stunde.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The separate parts are put together.",
+              "de": "Die Einzelteile werden zusammengesetzt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verkauf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Versand"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zusammenbau"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abbau"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zusammenbau means assembling components.",
+              "de": "Zusammenbau bedeutet, Einzelteile zusammenzusetzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zusammenbau des Regals dauert mit der Anleitung etwa eine Stunde.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zusammenbau' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verkauf: Sale. Versand: Shipping. Zusammenbau: Correct: assembly. Abbau: Dismantling. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2785-v2",
+          "contextKey": "legacy-0174-L2785-context-2",
+          "transferKey": "legacy-0174-L2785-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017415",
+            "type": "choice",
+            "prompt": "Ein Techniker verbindet alle Einzelteile zu einer funktionierenden Maschine. Wie heißt dieser Vorgang?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The components become one whole.",
+              "de": "Aus Einzelteilen entsteht ein Ganzes."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verpackung"
+              },
+              {
+                "id": "1",
+                "text": "Zusammenbau"
+              },
+              {
+                "id": "2",
+                "text": "Entsorgung"
+              },
+              {
+                "id": "3",
+                "text": "Reinigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Zusammenbau means assembling components.",
+              "de": "Zusammenbau bedeutet, Einzelteile zusammenzusetzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist der Zusammenbau der Maschine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zusammenbau' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Verpackung: Packaging. Zusammenbau: Correct: assembly. Entsorgung: Disposal. Reinigung: Cleaning. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017416",
+      "title": {
+        "en": "Using Zusammenfassung accurately",
+        "de": "Zusammenfassung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zusammenfassung in the sense of a concise summary of the main points.",
+        "de": "Zusammenfassung im Sinn von kurze Zusammenfassung der wichtigsten Punkte erkennen."
+      },
+      "objective": "Recognize Zusammenfassung in the specified a concise summary of the main points sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2786 (eb624bcd5209175351d262e96a45ec56e640c99ed56842ddbc0ea8b61d853631), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2786-v1",
+          "contextKey": "legacy-0174-L2786-context-1",
+          "transferKey": "legacy-0174-L2786-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017416",
+            "type": "gap_choice",
+            "prompt": "Am Ende des Berichts steht eine kurze ___ der wichtigsten Ergebnisse.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It gives the main points briefly.",
+              "de": "Sie nennt die wichtigsten Punkte kurz."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einleitung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Quellenliste"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zusammenfassung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zusammenfassung presents key points briefly.",
+              "de": "Eine Zusammenfassung gibt die Hauptpunkte kurz wieder."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Ende des Berichts steht eine kurze Zusammenfassung der wichtigsten Ergebnisse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zusammenfassung' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Einleitung: Introduction. Quellenliste: Bibliography. Rechnung: Invoice. Zusammenfassung: Correct: summary. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2786-v2",
+          "contextKey": "legacy-0174-L2786-context-2",
+          "transferKey": "legacy-0174-L2786-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017416",
+            "type": "choice",
+            "prompt": "Nach einer langen Besprechung nennt Mia die drei wichtigsten Entscheidungen in wenigen Sätzen. Was gibt sie?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "She condenses the main points.",
+              "de": "Sie fasst die Hauptpunkte kurz zusammen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "neue Einladung"
+              },
+              {
+                "id": "1",
+                "text": "Beschwerde"
+              },
+              {
+                "id": "2",
+                "text": "Zusammenfassung"
+              },
+              {
+                "id": "3",
+                "text": "vollständiges Wortprotokoll"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Zusammenfassung presents key points briefly.",
+              "de": "Eine Zusammenfassung gibt die Hauptpunkte kurz wieder."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mia gibt eine Zusammenfassung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zusammenfassung' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: neue Einladung: New invitation. Beschwerde: Complaint. Zusammenfassung: Correct: summary. vollständiges Wortprotokoll: Full verbatim record. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017417",
+      "title": {
+        "en": "Using Zusammenhang accurately",
+        "de": "Zusammenhang im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zusammenhang in the sense of a meaningful connection between facts.",
+        "de": "Zusammenhang im Sinn von Zusammenhang zwischen Sachverhalten erkennen."
+      },
+      "objective": "Recognize Zusammenhang in the specified a meaningful connection between facts sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2787 (abb764833ddd312f3a0c1ae7ceabbcfe0f43eff3a6b2f8e34372d7cf8a9282f6), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2787-v1",
+          "contextKey": "legacy-0174-L2787-context-1",
+          "transferKey": "legacy-0174-L2787-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017417",
+            "type": "gap_choice",
+            "prompt": "Die Studie untersucht den ___ zwischen Schlafdauer und Konzentration.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It examines whether two factors are related.",
+              "de": "Sie prüft, ob zwei Faktoren miteinander verbunden sind."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Zusammenhang"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zufall"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Zugang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zusatz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zusammenhang is a relationship between things.",
+              "de": "Zusammenhang bezeichnet eine Verbindung zwischen Sachverhalten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Studie untersucht den Zusammenhang zwischen Schlafdauer und Konzentration.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zusammenhang' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zusammenhang: Correct: relationship. Zufall: Coincidence alone. Zugang: Access. Zusatz: Addition. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2787-v2",
+          "contextKey": "legacy-0174-L2787-context-2",
+          "transferKey": "legacy-0174-L2787-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017417",
+            "type": "choice",
+            "prompt": "Zwei Messgrößen verändern sich oft gemeinsam. Welche Beziehung untersucht die Forscherin zwischen ihnen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The question concerns how the variables relate.",
+              "de": "Es geht um die Beziehung der Variablen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rechnung"
+              },
+              {
+                "id": "1",
+                "text": "Vertrag"
+              },
+              {
+                "id": "2",
+                "text": "Lieferung"
+              },
+              {
+                "id": "3",
+                "text": "Zusammenhang"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Zusammenhang is a relationship between things.",
+              "de": "Zusammenhang bezeichnet eine Verbindung zwischen Sachverhalten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie untersucht den Zusammenhang.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zusammenhang' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Rechnung: Invoice. Vertrag: Contract. Lieferung: Delivery. Zusammenhang: Correct: connection. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017419",
+      "title": {
+        "en": "Using Zusatzinfo accurately",
+        "de": "Zusatzinfo im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Zusatzinfo in the sense of extra information supplementing a message.",
+        "de": "Zusatzinfo im Sinn von zusätzliche Information zu einer Nachricht erkennen."
+      },
+      "objective": "Recognize Zusatzinfo in the specified extra information supplementing a message sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2789 (46884a1115e1001be9e1141c6aa96cbd1b19a87bf249f6927f781dfcb0eef578), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0174-L2789-v1",
+          "contextKey": "legacy-0174-L2789-context-1",
+          "transferKey": "legacy-0174-L2789-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017419",
+            "type": "gap_choice",
+            "prompt": "Im Anhang findest du eine ___ zum Ablauf der Veranstaltung.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The attachment adds details.",
+              "de": "Der Anhang ergänzt die Informationen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zusatzinfo"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mahnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Zusatzinfo is an informal short form for additional information.",
+              "de": "Zusatzinfo ist eine Kurzform für zusätzliche Information."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Anhang findest du eine Zusatzinfo zum Ablauf der Veranstaltung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Zusatzinfo' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Kündigung: Termination notice. Zusatzinfo: Correct: additional information. Mahnung: Payment reminder. Rechnung: Invoice. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0174-L2789-v2",
+          "contextKey": "legacy-0174-L2789-context-2",
+          "transferKey": "legacy-0174-L2789-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001740191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017419",
+            "type": "choice",
+            "prompt": "Eine Einladung nennt Ort und Zeit. Später folgt noch ein Hinweis zur Anreise. Wie nennt man diesen ergänzenden Hinweis kurz?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It adds details to an existing message.",
+              "de": "Er ergänzt eine vorhandene Nachricht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zusatzinfo"
+              },
+              {
+                "id": "1",
+                "text": "Widerspruch"
+              },
+              {
+                "id": "2",
+                "text": "Absage"
+              },
+              {
+                "id": "3",
+                "text": "Verbot"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Zusatzinfo is an informal short form for additional information.",
+              "de": "Zusatzinfo ist eine Kurzform für zusätzliche Information."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hinweis ist eine Zusatzinfo.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Zusatzinfo' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Zusatzinfo: Correct: extra information. Widerspruch: Contradiction. Absage: Cancellation. Verbot: Prohibition. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
