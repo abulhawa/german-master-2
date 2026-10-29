@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000008600",
+      "title": {
+        "en": "Using sich richten nach in context",
+        "de": "sich richten nach im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich richten nach (follow a rule or someone's wishes) in two distinct contexts.",
+        "de": "sich richten nach (sich nach einem Maßstab oder Wunsch richten) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich richten nach meaning follow a rule or someone's wishes, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L726 (af6dfdd7949825ed474f33ff878059b3ba91ae76ed7233743ec9c3164537f61e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L726-v1",
+          "contextKey": "legacy-0086-L726-context-1",
+          "transferKey": "legacy-0086-L726-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008600",
+            "type": "gap_choice",
+            "prompt": "Bei der Planung müssen wir uns nach dem verfügbaren Budget ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The budget determines what is possible.",
+              "de": "Das Budget dient als Maßstab für die Planung."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "erinnern"
+                  },
+                  {
+                    "id": "1",
+                    "text": "freuen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "richten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beschweren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich richten nach means follow a rule or someone's wishes. The budget determines what is possible.",
+              "de": "sich richten nach bedeutet sich nach einem Maßstab oder Wunsch richten. Das Budget dient als Maßstab für die Planung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Planung müssen wir uns nach dem verfügbaren Budget richten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Bei der Planung müssen wir uns nach dem verfügbaren Budget richten.\", verb form and reflexive/preposition construction, all four offered choices (erinnern / freuen / richten / beschweren), unique answer \"richten\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L726-v2",
+          "contextKey": "legacy-0086-L726-context-2",
+          "transferKey": "legacy-0086-L726-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008600",
+            "type": "choice",
+            "prompt": "Die Öffnungszeiten ___ sich nach der Nachfrage.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Opening hours follow customer demand.",
+              "de": "Die Nachfrage bestimmt die Öffnungszeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "erinnern"
+              },
+              {
+                "id": "1",
+                "text": "verändern"
+              },
+              {
+                "id": "2",
+                "text": "verbergen"
+              },
+              {
+                "id": "3",
+                "text": "richten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "sich richten nach means follow a rule or someone's wishes. Opening hours follow customer demand.",
+              "de": "sich richten nach bedeutet sich nach einem Maßstab oder Wunsch richten. Die Nachfrage bestimmt die Öffnungszeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Öffnungszeiten richten sich nach der Nachfrage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Öffnungszeiten richten sich nach der Nachfrage.\", verb form and reflexive/preposition construction, all four offered choices (erinnern / verändern / verbergen / richten), unique answer \"richten\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008601",
+      "title": {
+        "en": "Using sich umhören in context",
+        "de": "sich umhören im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich umhören (ask around for information) in two distinct contexts.",
+        "de": "sich umhören (bei anderen nach Informationen fragen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich umhören meaning ask around for information, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L727 (8cbc0ce138ef2bd3f5b79a0509946cd0c5a3205399da7a221456a9d224987aae), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L727-v1",
+          "contextKey": "legacy-0086-L727-context-1",
+          "transferKey": "legacy-0086-L727-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008601",
+            "type": "gap_choice",
+            "prompt": "Ich werde mich im Freundeskreis nach einer freien Wohnung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The speaker will ask people for leads.",
+              "de": "Die Person fragt Bekannte nach Hinweisen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "umkleiden"
+                  },
+                  {
+                    "id": "1",
+                    "text": "umhören"
+                  },
+                  {
+                    "id": "2",
+                    "text": "umziehen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ummelden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich umhören means ask around for information. The speaker will ask people for leads.",
+              "de": "sich umhören bedeutet bei anderen nach Informationen fragen. Die Person fragt Bekannte nach Hinweisen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich werde mich im Freundeskreis nach einer freien Wohnung umhören.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ich werde mich im Freundeskreis nach einer freien Wohnung umhören.\", verb form and reflexive/preposition construction, all four offered choices (umkleiden / umhören / umziehen / ummelden), unique answer \"umhören\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L727-v2",
+          "contextKey": "legacy-0086-L727-context-2",
+          "transferKey": "legacy-0086-L727-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008601",
+            "type": "choice",
+            "prompt": "Sie hat sich bei Kolleginnen nach einer guten Kita ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She asked coworkers for recommendations.",
+              "de": "Sie fragte Kolleginnen nach Empfehlungen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "umgesehen"
+              },
+              {
+                "id": "1",
+                "text": "umgezogen"
+              },
+              {
+                "id": "2",
+                "text": "umgehört"
+              },
+              {
+                "id": "3",
+                "text": "umgemeldet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "sich umhören means ask around for information. She asked coworkers for recommendations.",
+              "de": "sich umhören bedeutet bei anderen nach Informationen fragen. Sie fragte Kolleginnen nach Empfehlungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat sich bei Kolleginnen nach einer guten Kita umgehört.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Sie hat sich bei Kolleginnen nach einer guten Kita umgehört.\", verb form and reflexive/preposition construction, all four offered choices (umgesehen / umgezogen / umgehört / umgemeldet), unique answer \"umgehört\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008602",
+      "title": {
+        "en": "Using sich umsehen in context",
+        "de": "sich umsehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich umsehen (look around or search visually) in two distinct contexts.",
+        "de": "sich umsehen (sich etwas ansehen oder nach etwas suchen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich umsehen meaning look around or search visually, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L728 (1beb32fed0e4f2a883c821c1d1053688082cddc60de2d41b15de5463e2dad33d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L728-v1",
+          "contextKey": "legacy-0086-L728-context-1",
+          "transferKey": "legacy-0086-L728-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008602",
+            "type": "gap_choice",
+            "prompt": "Wir haben eine Stunde Zeit, um uns in der Altstadt ___ und die Gebäude anzuschauen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They want to explore the area visually.",
+              "de": "Sie möchten sich die Umgebung ansehen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "umzusehen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "umzuhören"
+                  },
+                  {
+                    "id": "2",
+                    "text": "umzuziehen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "umzumelden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich umsehen means look around or search visually. They want to explore the area visually.",
+              "de": "sich umsehen bedeutet sich etwas ansehen oder nach etwas suchen. Sie möchten sich die Umgebung ansehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir haben eine Stunde Zeit, um uns in der Altstadt umzusehen und die Gebäude anzuschauen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Wir haben eine Stunde Zeit, um uns in der Altstadt umzusehen und die Gebäude anzuschauen.\", verb form and reflexive/preposition construction, all four offered choices (umzusehen / umzuhören / umzuziehen / umzumelden), unique answer \"umzusehen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L728-v2",
+          "contextKey": "legacy-0086-L728-context-2",
+          "transferKey": "legacy-0086-L728-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008602",
+            "type": "choice",
+            "prompt": "Im Möbelhaus hat sie sich nach einem neuen Tisch ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She looked through the furniture selection.",
+              "de": "Sie sah sich das Angebot an Möbeln an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "umgehört"
+              },
+              {
+                "id": "1",
+                "text": "umgesehen"
+              },
+              {
+                "id": "2",
+                "text": "umgezogen"
+              },
+              {
+                "id": "3",
+                "text": "umgemeldet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "sich umsehen means look around or search visually. She looked through the furniture selection.",
+              "de": "sich umsehen bedeutet sich etwas ansehen oder nach etwas suchen. Sie sah sich das Angebot an Möbeln an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Möbelhaus hat sie sich nach einem neuen Tisch umgesehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Möbelhaus hat sie sich nach einem neuen Tisch umgesehen.\", verb form and reflexive/preposition construction, all four offered choices (umgehört / umgesehen / umgezogen / umgemeldet), unique answer \"umgesehen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008603",
+      "title": {
+        "en": "Using sich verpflichten zu in context",
+        "de": "sich verpflichten zu im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich verpflichten zu (make a binding commitment) in two distinct contexts.",
+        "de": "sich verpflichten zu (sich verbindlich zu etwas verpflichten) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich verpflichten zu meaning make a binding commitment, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L729 (a839a1f4fb1f388283dcbedfe4a1932a185ba68604bb8d9b846a5e9b6ac77c7a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L729-v1",
+          "contextKey": "legacy-0086-L729-context-1",
+          "transferKey": "legacy-0086-L729-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008603",
+            "type": "gap_choice",
+            "prompt": "Im Vertrag hat er sich zur Verschwiegenheit ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The agreement imposes a binding duty.",
+              "de": "Der Vertrag legt eine verbindliche Pflicht fest."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "entschuldigt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorbereitet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "beworben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verpflichtet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich verpflichten zu means make a binding commitment. The agreement imposes a binding duty.",
+              "de": "sich verpflichten zu bedeutet sich verbindlich zu etwas verpflichten. Der Vertrag legt eine verbindliche Pflicht fest."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Vertrag hat er sich zur Verschwiegenheit verpflichtet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Vertrag hat er sich zur Verschwiegenheit verpflichtet.\", verb form and reflexive/preposition construction, all four offered choices (entschuldigt / vorbereitet / beworben / verpflichtet), unique answer \"verpflichtet\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L729-v2",
+          "contextKey": "legacy-0086-L729-context-2",
+          "transferKey": "legacy-0086-L729-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008603",
+            "type": "choice",
+            "prompt": "Die Firma will sich zu einer jährlichen Prüfung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The company is agreeing to a duty.",
+              "de": "Das Unternehmen übernimmt eine verbindliche Verpflichtung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verpflichten"
+              },
+              {
+                "id": "1",
+                "text": "weigern"
+              },
+              {
+                "id": "2",
+                "text": "erinnern"
+              },
+              {
+                "id": "3",
+                "text": "beeilen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "sich verpflichten zu means make a binding commitment. The company is agreeing to a duty.",
+              "de": "sich verpflichten zu bedeutet sich verbindlich zu etwas verpflichten. Das Unternehmen übernimmt eine verbindliche Verpflichtung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma will sich zu einer jährlichen Prüfung verpflichten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Firma will sich zu einer jährlichen Prüfung verpflichten.\", verb form and reflexive/preposition construction, all four offered choices (verpflichten / weigern / erinnern / beeilen), unique answer \"verpflichten\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008604",
+      "title": {
+        "en": "Using sich verschaffen: sich einen Eindruck von in context",
+        "de": "sich verschaffen: sich einen Eindruck von im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich verschaffen: sich einen Eindruck von (gain a firsthand impression) in two distinct contexts.",
+        "de": "sich verschaffen: sich einen Eindruck von (sich selbst einen Eindruck machen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich verschaffen: sich einen Eindruck von meaning gain a firsthand impression, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L730 (6292ace5e553c5161cbb5f42620ef9a66defbf29fc1fc25c62f61909423b7d02), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L730-v1",
+          "contextKey": "legacy-0086-L730-context-1",
+          "transferKey": "legacy-0086-L730-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008604",
+            "type": "gap_choice",
+            "prompt": "Vor dem Kauf möchte ich mir einen Eindruck von der Wohnung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The buyer wants firsthand knowledge.",
+              "de": "Die kaufende Person möchte die Wohnung selbst beurteilen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorstellen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "entziehen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verschaffen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verbergen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich verschaffen: sich einen Eindruck von means gain a firsthand impression. The buyer wants firsthand knowledge.",
+              "de": "sich verschaffen: sich einen Eindruck von bedeutet sich selbst einen Eindruck machen. Die kaufende Person möchte die Wohnung selbst beurteilen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Kauf möchte ich mir einen Eindruck von der Wohnung verschaffen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Vor dem Kauf möchte ich mir einen Eindruck von der Wohnung verschaffen.\", verb form and reflexive/preposition construction, all four offered choices (vorstellen / entziehen / verschaffen / verbergen), unique answer \"verschaffen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L730-v2",
+          "contextKey": "legacy-0086-L730-context-2",
+          "transferKey": "legacy-0086-L730-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008604",
+            "type": "choice",
+            "prompt": "Bei der Besichtigung hat sie sich einen ersten Eindruck vom Betrieb ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The visit helped her form an initial view.",
+              "de": "Die Besichtigung vermittelte ihr eine erste Vorstellung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verschwiegen"
+              },
+              {
+                "id": "1",
+                "text": "verschoben"
+              },
+              {
+                "id": "2",
+                "text": "verschlechtert"
+              },
+              {
+                "id": "3",
+                "text": "verschafft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "sich verschaffen: sich einen Eindruck von means gain a firsthand impression. The visit helped her form an initial view.",
+              "de": "sich verschaffen: sich einen Eindruck von bedeutet sich selbst einen Eindruck machen. Die Besichtigung vermittelte ihr eine erste Vorstellung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Besichtigung hat sie sich einen ersten Eindruck vom Betrieb verschafft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Bei der Besichtigung hat sie sich einen ersten Eindruck vom Betrieb verschafft.\", verb form and reflexive/preposition construction, all four offered choices (verschwiegen / verschoben / verschlechtert / verschafft), unique answer \"verschafft\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008605",
+      "title": {
+        "en": "Using sich verschärfen in context",
+        "de": "sich verschärfen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich verschärfen (become more severe or acute) in two distinct contexts.",
+        "de": "sich verschärfen (an Schärfe oder Dringlichkeit zunehmen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich verschärfen meaning become more severe or acute, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L731 (ffa21d6ca04625652d0e7a9bc6df77bcd712d61e963610d0aa20d6cc6016acfb), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L731-v1",
+          "contextKey": "legacy-0086-L731-context-1",
+          "transferKey": "legacy-0086-L731-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008605",
+            "type": "gap_choice",
+            "prompt": "Ohne zusätzliche Hilfe könnte sich die Krise weiter ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The situation may become more serious.",
+              "de": "Die Lage könnte ernster werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "entspannen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verschärfen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verbessern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beruhigen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich verschärfen means become more severe or acute. The situation may become more serious.",
+              "de": "sich verschärfen bedeutet an Schärfe oder Dringlichkeit zunehmen. Die Lage könnte ernster werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne zusätzliche Hilfe könnte sich die Krise weiter verschärfen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ohne zusätzliche Hilfe könnte sich die Krise weiter verschärfen.\", verb form and reflexive/preposition construction, all four offered choices (entspannen / verschärfen / verbessern / beruhigen), unique answer \"verschärfen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L731-v2",
+          "contextKey": "legacy-0086-L731-context-2",
+          "transferKey": "legacy-0086-L731-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008605",
+            "type": "choice",
+            "prompt": "Nach dem Streit hat sich der Konflikt deutlich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The dispute became more intense.",
+              "de": "Der Streit wurde heftiger."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gelöst"
+              },
+              {
+                "id": "1",
+                "text": "entspannt"
+              },
+              {
+                "id": "2",
+                "text": "verschärft"
+              },
+              {
+                "id": "3",
+                "text": "beruhigt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "sich verschärfen means become more severe or acute. The dispute became more intense.",
+              "de": "sich verschärfen bedeutet an Schärfe oder Dringlichkeit zunehmen. Der Streit wurde heftiger."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Streit hat sich der Konflikt deutlich verschärft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach dem Streit hat sich der Konflikt deutlich verschärft.\", verb form and reflexive/preposition construction, all four offered choices (gelöst / entspannt / verschärft / beruhigt), unique answer \"verschärft\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008606",
+      "title": {
+        "en": "Using sich verschlechtern in context",
+        "de": "sich verschlechtern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich verschlechtern (deteriorate or become worse) in two distinct contexts.",
+        "de": "sich verschlechtern (an Qualität oder Zustand verlieren) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich verschlechtern meaning deteriorate or become worse, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L732 (5b03cfffaf8d9fb1339a5637ebd155ffaf8c03a31759c8bca7e2fef8a6744e89), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L732-v1",
+          "contextKey": "legacy-0086-L732-context-1",
+          "transferKey": "legacy-0086-L732-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008606",
+            "type": "gap_choice",
+            "prompt": "Ohne Wartung kann sich der Zustand der Maschine ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Lack of maintenance may cause deterioration.",
+              "de": "Fehlende Wartung kann den Zustand verschlimmern."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verschlechtern"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verbessern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "stabilisieren"
+                  },
+                  {
+                    "id": "3",
+                    "text": "erholen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich verschlechtern means deteriorate or become worse. Lack of maintenance may cause deterioration.",
+              "de": "sich verschlechtern bedeutet an Qualität oder Zustand verlieren. Fehlende Wartung kann den Zustand verschlimmern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne Wartung kann sich der Zustand der Maschine verschlechtern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ohne Wartung kann sich der Zustand der Maschine verschlechtern.\", verb form and reflexive/preposition construction, all four offered choices (verschlechtern / verbessern / stabilisieren / erholen), unique answer \"verschlechtern\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L732-v2",
+          "contextKey": "legacy-0086-L732-context-2",
+          "transferKey": "legacy-0086-L732-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008606",
+            "type": "choice",
+            "prompt": "Nach dem Unwetter hat sich die Straßenlage weiter ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Conditions became less favorable.",
+              "de": "Die Bedingungen wurden ungünstiger."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verbessert"
+              },
+              {
+                "id": "1",
+                "text": "verschlechtert"
+              },
+              {
+                "id": "2",
+                "text": "beruhigt"
+              },
+              {
+                "id": "3",
+                "text": "erholt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "sich verschlechtern means deteriorate or become worse. Conditions became less favorable.",
+              "de": "sich verschlechtern bedeutet an Qualität oder Zustand verlieren. Die Bedingungen wurden ungünstiger."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Unwetter hat sich die Straßenlage weiter verschlechtert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach dem Unwetter hat sich die Straßenlage weiter verschlechtert.\", verb form and reflexive/preposition construction, all four offered choices (verbessert / verschlechtert / beruhigt / erholt), unique answer \"verschlechtert\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008607",
+      "title": {
+        "en": "Using sich versehen in context",
+        "de": "sich versehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich versehen (make a mistake in a detail) in two distinct contexts.",
+        "de": "sich versehen (sich bei einer Angabe irren) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich versehen meaning make a mistake in a detail, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L733 (1083bb2f56b8ccc9db949e7ebbbb0130c687a4654c9302c1836fa65c4d610100), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L733-v1",
+          "contextKey": "legacy-0086-L733-context-1",
+          "transferKey": "legacy-0086-L733-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008607",
+            "type": "gap_choice",
+            "prompt": "Ich habe mich bei der Hausnummer ___ und stand vor dem falschen Gebäude.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The speaker mixed up a number.",
+              "de": "Die Person irrte sich bei einer Zahl."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "erinnert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gefreut"
+                  },
+                  {
+                    "id": "2",
+                    "text": "beworben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "versehen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich versehen means make a mistake in a detail. The speaker mixed up a number.",
+              "de": "sich versehen bedeutet sich bei einer Angabe irren. Die Person irrte sich bei einer Zahl."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich habe mich bei der Hausnummer versehen und stand vor dem falschen Gebäude.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ich habe mich bei der Hausnummer versehen und stand vor dem falschen Gebäude.\", verb form and reflexive/preposition construction, all four offered choices (erinnert / gefreut / beworben / versehen), unique answer \"versehen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L733-v2",
+          "contextKey": "legacy-0086-L733-context-2",
+          "transferKey": "legacy-0086-L733-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008607",
+            "type": "choice",
+            "prompt": "Beim Abschreiben hat sie sich in einer Ziffer ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She made an error while copying a digit.",
+              "de": "Beim Übertragen einer Zahl entstand ein Fehler."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "versehen"
+              },
+              {
+                "id": "1",
+                "text": "versteckt"
+              },
+              {
+                "id": "2",
+                "text": "verhört"
+              },
+              {
+                "id": "3",
+                "text": "verlaufen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "sich versehen means make a mistake in a detail. She made an error while copying a digit.",
+              "de": "sich versehen bedeutet sich bei einer Angabe irren. Beim Übertragen einer Zahl entstand ein Fehler."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Abschreiben hat sie sich in einer Ziffer versehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Beim Abschreiben hat sie sich in einer Ziffer versehen.\", verb form and reflexive/preposition construction, all four offered choices (versehen / versteckt / verhört / verlaufen), unique answer \"versehen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008608",
+      "title": {
+        "en": "Using sich verspäten in context",
+        "de": "sich verspäten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich verspäten (be delayed or arrive late) in two distinct contexts.",
+        "de": "sich verspäten (später als geplant kommen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich verspäten meaning be delayed or arrive late, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L734 (0620538da6092270c4c5da28196f1c01d4a865489c1abdf84200b07f1e0d0137), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L734-v1",
+          "contextKey": "legacy-0086-L734-context-1",
+          "transferKey": "legacy-0086-L734-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008608",
+            "type": "gap_choice",
+            "prompt": "Der Zug wird sich wegen der Baustelle um zehn Minuten ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The train will arrive later than scheduled.",
+              "de": "Der Zug kommt später als geplant an."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verkürzen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verändern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verspäten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verbessern"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich verspäten means be delayed or arrive late. The train will arrive later than scheduled.",
+              "de": "sich verspäten bedeutet später als geplant kommen. Der Zug kommt später als geplant an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zug wird sich wegen der Baustelle um zehn Minuten verspäten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Zug wird sich wegen der Baustelle um zehn Minuten verspäten.\", verb form and reflexive/preposition construction, all four offered choices (verkürzen / verändern / verspäten / verbessern), unique answer \"verspäten\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L734-v2",
+          "contextKey": "legacy-0086-L734-context-2",
+          "transferKey": "legacy-0086-L734-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008608",
+            "type": "choice",
+            "prompt": "Wegen des Staus hat sich die Lieferung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Traffic caused a late delivery.",
+              "de": "Der Verkehr führte zu einer verspäteten Ankunft."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verbessert"
+              },
+              {
+                "id": "1",
+                "text": "vergrößert"
+              },
+              {
+                "id": "2",
+                "text": "verändert"
+              },
+              {
+                "id": "3",
+                "text": "verspätet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "sich verspäten means be delayed or arrive late. Traffic caused a late delivery.",
+              "de": "sich verspäten bedeutet später als geplant kommen. Der Verkehr führte zu einer verspäteten Ankunft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen des Staus hat sich die Lieferung verspätet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Wegen des Staus hat sich die Lieferung verspätet.\", verb form and reflexive/preposition construction, all four offered choices (verbessert / vergrößert / verändert / verspätet), unique answer \"verspätet\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008609",
+      "title": {
+        "en": "Using sich vornehmen in context",
+        "de": "sich vornehmen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich vornehmen (set oneself an intention or goal) in two distinct contexts.",
+        "de": "sich vornehmen (sich ein Ziel setzen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich vornehmen meaning set oneself an intention or goal, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L735 (63110c9d40bfad30be0aa8e5401f41e8ac7fb37b1b8e054944ef35887fae9d9b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L735-v1",
+          "contextKey": "legacy-0086-L735-context-1",
+          "transferKey": "legacy-0086-L735-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008609",
+            "type": "gap_choice",
+            "prompt": "Für das neue Jahr hat sie sich ___, mehr Bücher zu lesen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She set a personal goal for the year.",
+              "de": "Sie setzte sich ein persönliches Jahresziel."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorbereitet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vorgenommen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "entschuldigt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "erinnert"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich vornehmen means set oneself an intention or goal. She set a personal goal for the year.",
+              "de": "sich vornehmen bedeutet sich ein Ziel setzen. Sie setzte sich ein persönliches Jahresziel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für das neue Jahr hat sie sich vorgenommen, mehr Bücher zu lesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für das neue Jahr hat sie sich vorgenommen, mehr Bücher zu lesen.\", verb form and reflexive/preposition construction, all four offered choices (vorbereitet / vorgenommen / entschuldigt / erinnert), unique answer \"vorgenommen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L735-v2",
+          "contextKey": "legacy-0086-L735-context-2",
+          "transferKey": "legacy-0086-L735-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008609",
+            "type": "choice",
+            "prompt": "Für die kommende Woche ___ ich mir vor, jeden Morgen zu üben.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The speaker makes a deliberate resolution.",
+              "de": "Die Person fasst einen festen Vorsatz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "stelle"
+              },
+              {
+                "id": "1",
+                "text": "gebe"
+              },
+              {
+                "id": "2",
+                "text": "nehme"
+              },
+              {
+                "id": "3",
+                "text": "lasse"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "sich vornehmen means set oneself an intention or goal. The speaker makes a deliberate resolution.",
+              "de": "sich vornehmen bedeutet sich ein Ziel setzen. Die Person fasst einen festen Vorsatz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die kommende Woche nehme ich mir vor, jeden Morgen zu üben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für die kommende Woche nehme ich mir vor, jeden Morgen zu üben.\", verb form and reflexive/preposition construction, all four offered choices (stelle / gebe / nehme / lasse), unique answer \"nehme\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008610",
+      "title": {
+        "en": "Using sich wehren gegen in context",
+        "de": "sich wehren gegen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich wehren gegen (defend oneself or resist) in two distinct contexts.",
+        "de": "sich wehren gegen (sich gegen etwas zur Wehr setzen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich wehren gegen meaning defend oneself or resist, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L736 (1e86993a8051ca94ab0650a18fc39694fb2d4b9394ece9a706eac79a8327fd4d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L736-v1",
+          "contextKey": "legacy-0086-L736-context-1",
+          "transferKey": "legacy-0086-L736-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008610",
+            "type": "gap_choice",
+            "prompt": "Die Beschäftigten wollen sich gegen ungerechte Vorwürfe ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They intend to resist accusations.",
+              "de": "Sie wollen sich gegen Anschuldigungen verteidigen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "wehren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "erinnern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bedanken"
+                  },
+                  {
+                    "id": "3",
+                    "text": "freuen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich wehren gegen means defend oneself or resist. They intend to resist accusations.",
+              "de": "sich wehren gegen bedeutet sich gegen etwas zur Wehr setzen. Sie wollen sich gegen Anschuldigungen verteidigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Beschäftigten wollen sich gegen ungerechte Vorwürfe wehren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Beschäftigten wollen sich gegen ungerechte Vorwürfe wehren.\", verb form and reflexive/preposition construction, all four offered choices (wehren / erinnern / bedanken / freuen), unique answer \"wehren\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L736-v2",
+          "contextKey": "legacy-0086-L736-context-2",
+          "transferKey": "legacy-0086-L736-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008610",
+            "type": "choice",
+            "prompt": "Sie hat sich erfolgreich gegen die falsche Anschuldigung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She resisted an unjust claim.",
+              "de": "Sie setzte sich gegen einen unberechtigten Vorwurf zur Wehr."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "beworben"
+              },
+              {
+                "id": "1",
+                "text": "gewehrt"
+              },
+              {
+                "id": "2",
+                "text": "entschuldigt"
+              },
+              {
+                "id": "3",
+                "text": "erholt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "sich wehren gegen means defend oneself or resist. She resisted an unjust claim.",
+              "de": "sich wehren gegen bedeutet sich gegen etwas zur Wehr setzen. Sie setzte sich gegen einen unberechtigten Vorwurf zur Wehr."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat sich erfolgreich gegen die falsche Anschuldigung gewehrt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Sie hat sich erfolgreich gegen die falsche Anschuldigung gewehrt.\", verb form and reflexive/preposition construction, all four offered choices (beworben / gewehrt / entschuldigt / erholt), unique answer \"gewehrt\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008611",
+      "title": {
+        "en": "Using sich weiterbilden in context",
+        "de": "sich weiterbilden im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich weiterbilden (pursue continuing professional education) in two distinct contexts.",
+        "de": "sich weiterbilden (zusätzliche berufliche Kenntnisse erwerben) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich weiterbilden meaning pursue continuing professional education, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L737 (22c5ca6eb9fbeed8364df815e78120da8990e9d299d08e87a8f2668f790bc682), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L737-v1",
+          "contextKey": "legacy-0086-L737-context-1",
+          "transferKey": "legacy-0086-L737-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008611",
+            "type": "gap_choice",
+            "prompt": "Um auf dem neuesten Stand zu bleiben, muss man sich regelmäßig ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Ongoing training keeps skills current.",
+              "de": "Fortbildungen halten Kenntnisse aktuell."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausruhen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beschweren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verabschieden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "weiterbilden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich weiterbilden means pursue continuing professional education. Ongoing training keeps skills current.",
+              "de": "sich weiterbilden bedeutet zusätzliche berufliche Kenntnisse erwerben. Fortbildungen halten Kenntnisse aktuell."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um auf dem neuesten Stand zu bleiben, muss man sich regelmäßig weiterbilden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Um auf dem neuesten Stand zu bleiben, muss man sich regelmäßig weiterbilden.\", verb form and reflexive/preposition construction, all four offered choices (ausruhen / beschweren / verabschieden / weiterbilden), unique answer \"weiterbilden\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L737-v2",
+          "contextKey": "legacy-0086-L737-context-2",
+          "transferKey": "legacy-0086-L737-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008611",
+            "type": "choice",
+            "prompt": "Nach dem Kurs hat sie sich beruflich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The course added to her professional skills.",
+              "de": "Der Kurs erweiterte ihre beruflichen Kenntnisse."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "weitergebildet"
+              },
+              {
+                "id": "1",
+                "text": "ausgeruht"
+              },
+              {
+                "id": "2",
+                "text": "verspätet"
+              },
+              {
+                "id": "3",
+                "text": "verabschiedet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "sich weiterbilden means pursue continuing professional education. The course added to her professional skills.",
+              "de": "sich weiterbilden bedeutet zusätzliche berufliche Kenntnisse erwerben. Der Kurs erweiterte ihre beruflichen Kenntnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Kurs hat sie sich beruflich weitergebildet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach dem Kurs hat sie sich beruflich weitergebildet.\", verb form and reflexive/preposition construction, all four offered choices (weitergebildet / ausgeruht / verspätet / verabschiedet), unique answer \"weitergebildet\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008612",
+      "title": {
+        "en": "Using sich zurückziehen in context",
+        "de": "sich zurückziehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich zurückziehen (withdraw to privacy or leave an activity) in two distinct contexts.",
+        "de": "sich zurückziehen (sich aus einer Situation zurückziehen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich zurückziehen meaning withdraw to privacy or leave an activity, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L738 (c0ca1acb015c140d9e9f8a0ab0df710450035ec947246efaf335762f04252df6), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L738-v1",
+          "contextKey": "legacy-0086-L738-context-1",
+          "transferKey": "legacy-0086-L738-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008612",
+            "type": "gap_choice",
+            "prompt": "Nach dem langen Arbeitstag möchte er sich für eine Weile ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He wants privacy and quiet for a while.",
+              "de": "Er möchte vorübergehend allein und in Ruhe sein."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vorbereiten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "beeilen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zurückziehen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "anmelden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich zurückziehen means withdraw to privacy or leave an activity. He wants privacy and quiet for a while.",
+              "de": "sich zurückziehen bedeutet sich aus einer Situation zurückziehen. Er möchte vorübergehend allein und in Ruhe sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem langen Arbeitstag möchte er sich für eine Weile zurückziehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach dem langen Arbeitstag möchte er sich für eine Weile zurückziehen.\", verb form and reflexive/preposition construction, all four offered choices (vorbereiten / beeilen / zurückziehen / anmelden), unique answer \"zurückziehen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L738-v2",
+          "contextKey": "legacy-0086-L738-context-2",
+          "transferKey": "legacy-0086-L738-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008612",
+            "type": "choice",
+            "prompt": "Die Firma hat sich aus dem umkämpften Markt ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The company left that market.",
+              "de": "Das Unternehmen verließ diesen Markt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "weitergebildet"
+              },
+              {
+                "id": "1",
+                "text": "umgesehen"
+              },
+              {
+                "id": "2",
+                "text": "registriert"
+              },
+              {
+                "id": "3",
+                "text": "zurückgezogen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "sich zurückziehen means withdraw to privacy or leave an activity. The company left that market.",
+              "de": "sich zurückziehen bedeutet sich aus einer Situation zurückziehen. Das Unternehmen verließ diesen Markt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma hat sich aus dem umkämpften Markt zurückgezogen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Firma hat sich aus dem umkämpften Markt zurückgezogen.\", verb form and reflexive/preposition construction, all four offered choices (weitergebildet / umgesehen / registriert / zurückgezogen), unique answer \"zurückgezogen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008613",
+      "title": {
+        "en": "Using sich zusammensetzen in context",
+        "de": "sich zusammensetzen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich zusammensetzen (meet to discuss something) in two distinct contexts.",
+        "de": "sich zusammensetzen (sich zu einer gemeinsamen Besprechung treffen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich zusammensetzen meaning meet to discuss something, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L739 (7f733ddec230ee09fa29627a841cb51b2f2d5a3f787127a4d24f0a9123af3801), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L739-v1",
+          "contextKey": "legacy-0086-L739-context-1",
+          "transferKey": "legacy-0086-L739-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008613",
+            "type": "gap_choice",
+            "prompt": "Wir sollten uns morgen ___, um das Problem gemeinsam zu lösen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The people need to meet for discussion.",
+              "de": "Die Personen sollen sich zu einem Gespräch treffen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "auseinandergehen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zusammensetzen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zurückziehen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "anmelden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich zusammensetzen means meet to discuss something. The people need to meet for discussion.",
+              "de": "sich zusammensetzen bedeutet sich zu einer gemeinsamen Besprechung treffen. Die Personen sollen sich zu einem Gespräch treffen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir sollten uns morgen zusammensetzen, um das Problem gemeinsam zu lösen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Wir sollten uns morgen zusammensetzen, um das Problem gemeinsam zu lösen.\", verb form and reflexive/preposition construction, all four offered choices (auseinandergehen / zusammensetzen / zurückziehen / anmelden), unique answer \"zusammensetzen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L739-v2",
+          "contextKey": "legacy-0086-L739-context-2",
+          "transferKey": "legacy-0086-L739-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008613",
+            "type": "choice",
+            "prompt": "Nach dem Streit haben sich beide Seiten wieder ___ und miteinander gesprochen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They resumed talking together.",
+              "de": "Beide Seiten trafen sich erneut zu einem Gespräch."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verabschiedet"
+              },
+              {
+                "id": "1",
+                "text": "zurückgezogen"
+              },
+              {
+                "id": "2",
+                "text": "zusammengesetzt"
+              },
+              {
+                "id": "3",
+                "text": "verspätet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "sich zusammensetzen means meet to discuss something. They resumed talking together.",
+              "de": "sich zusammensetzen bedeutet sich zu einer gemeinsamen Besprechung treffen. Beide Seiten trafen sich erneut zu einem Gespräch."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Streit haben sich beide Seiten wieder zusammengesetzt und miteinander gesprochen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach dem Streit haben sich beide Seiten wieder zusammengesetzt und miteinander gesprochen.\", verb form and reflexive/preposition construction, all four offered choices (verabschiedet / zurückgezogen / zusammengesetzt / verspätet), unique answer \"zusammengesetzt\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008614",
+      "title": {
+        "en": "Using sich zutrauen in context",
+        "de": "sich zutrauen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sich zutrauen (believe oneself capable of a task) in two distinct contexts.",
+        "de": "sich zutrauen (sich etwas selbst zutrauen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sich zutrauen meaning believe oneself capable of a task, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L740 (56e984849907048a88a648eb60834eeca0ab224d9f9c26d7d40d332e95fe51a7), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L740-v1",
+          "contextKey": "legacy-0086-L740-context-1",
+          "transferKey": "legacy-0086-L740-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008614",
+            "type": "gap_choice",
+            "prompt": "Sie ___ sich die Leitung des Projekts zu.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She believes she can lead the project.",
+              "de": "Sie hält sich selbst für fähig, das Projekt zu leiten."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "traut"
+                  },
+                  {
+                    "id": "1",
+                    "text": "nimmt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gibt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "macht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sich zutrauen means believe oneself capable of a task. She believes she can lead the project.",
+              "de": "sich zutrauen bedeutet sich etwas selbst zutrauen. Sie hält sich selbst für fähig, das Projekt zu leiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie traut sich die Leitung des Projekts zu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Sie traut sich die Leitung des Projekts zu.\", verb form and reflexive/preposition construction, all four offered choices (traut / nimmt / gibt / macht), unique answer \"traut\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L740-v2",
+          "contextKey": "legacy-0086-L740-context-2",
+          "transferKey": "legacy-0086-L740-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008614",
+            "type": "choice",
+            "prompt": "Nach der Weiterbildung hat er sich die schwierige Aufgabe ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Training increased his confidence in his abilities.",
+              "de": "Die Weiterbildung stärkte sein Vertrauen in die eigenen Fähigkeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zugelassen"
+              },
+              {
+                "id": "1",
+                "text": "zugetraut"
+              },
+              {
+                "id": "2",
+                "text": "zugeschickt"
+              },
+              {
+                "id": "3",
+                "text": "zugeteilt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "sich zutrauen means believe oneself capable of a task. Training increased his confidence in his abilities.",
+              "de": "sich zutrauen bedeutet sich etwas selbst zutrauen. Die Weiterbildung stärkte sein Vertrauen in die eigenen Fähigkeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Weiterbildung hat er sich die schwierige Aufgabe zugetraut.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach der Weiterbildung hat er sich die schwierige Aufgabe zugetraut.\", verb form and reflexive/preposition construction, all four offered choices (zugelassen / zugetraut / zugeschickt / zugeteilt), unique answer \"zugetraut\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008615",
+      "title": {
+        "en": "Using sichern in context",
+        "de": "sichern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sichern (back up data or secure a location) in two distinct contexts.",
+        "de": "sichern (Daten bewahren oder einen Ort absichern) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sichern meaning back up data or secure a location, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L741 (b024c458fdd1ba3b0200082067545ddcbfa1cf44516881553fb5377c7fce5d72), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L741-v1",
+          "contextKey": "legacy-0086-L741-context-1",
+          "transferKey": "legacy-0086-L741-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008615",
+            "type": "gap_choice",
+            "prompt": "Vor dem Update solltest du alle wichtigen Dateien ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A backup prevents data loss.",
+              "de": "Eine Sicherung verhindert Datenverlust."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "löschen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "umbenennen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verschieben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "sichern"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sichern means back up data or secure a location. A backup prevents data loss.",
+              "de": "sichern bedeutet Daten bewahren oder einen Ort absichern. Eine Sicherung verhindert Datenverlust."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Update solltest du alle wichtigen Dateien sichern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Vor dem Update solltest du alle wichtigen Dateien sichern.\", verb form and reflexive/preposition construction, all four offered choices (löschen / umbenennen / verschieben / sichern), unique answer \"sichern\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L741-v2",
+          "contextKey": "legacy-0086-L741-context-2",
+          "transferKey": "legacy-0086-L741-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008615",
+            "type": "choice",
+            "prompt": "Die Feuerwehr hat die Unfallstelle ___, bevor der Verkehr weiterlief.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The area was made safe before reopening.",
+              "de": "Der Bereich wurde vor der Freigabe abgesichert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gesichert"
+              },
+              {
+                "id": "1",
+                "text": "geöffnet"
+              },
+              {
+                "id": "2",
+                "text": "verlassen"
+              },
+              {
+                "id": "3",
+                "text": "verschoben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "sichern means back up data or secure a location. The area was made safe before reopening.",
+              "de": "sichern bedeutet Daten bewahren oder einen Ort absichern. Der Bereich wurde vor der Freigabe abgesichert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Feuerwehr hat die Unfallstelle gesichert, bevor der Verkehr weiterlief.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Feuerwehr hat die Unfallstelle gesichert, bevor der Verkehr weiterlief.\", verb form and reflexive/preposition construction, all four offered choices (gesichert / geöffnet / verlassen / verschoben), unique answer \"gesichert\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008616",
+      "title": {
+        "en": "Using sicherstellen in context",
+        "de": "sicherstellen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use sicherstellen (ensure that a condition is met) in two distinct contexts.",
+        "de": "sicherstellen (dafür sorgen, dass etwas gewährleistet ist) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression sicherstellen meaning ensure that a condition is met, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L742 (eab1bf1a5a8f02c56af6ae05b24073d8eb5513f2e00d0f4d604418f01daba456), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L742-v1",
+          "contextKey": "legacy-0086-L742-context-1",
+          "transferKey": "legacy-0086-L742-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008616",
+            "type": "gap_choice",
+            "prompt": "Wir müssen ___, dass alle Teilnehmenden informiert sind.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The organizer must guarantee that information reaches everyone.",
+              "de": "Die Information aller Beteiligten muss gewährleistet sein."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vermuten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vermeiden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "sicherstellen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vergessen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "sicherstellen means ensure that a condition is met. The organizer must guarantee that information reaches everyone.",
+              "de": "sicherstellen bedeutet dafür sorgen, dass etwas gewährleistet ist. Die Information aller Beteiligten muss gewährleistet sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir müssen sicherstellen, dass alle Teilnehmenden informiert sind.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Wir müssen sicherstellen, dass alle Teilnehmenden informiert sind.\", verb form and reflexive/preposition construction, all four offered choices (vermuten / vermeiden / sicherstellen / vergessen), unique answer \"sicherstellen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L742-v2",
+          "contextKey": "legacy-0086-L742-context-2",
+          "transferKey": "legacy-0086-L742-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008616",
+            "type": "choice",
+            "prompt": "Die Prüfung soll ___, dass das Gerät sicher funktioniert.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The test is intended to verify reliable operation.",
+              "de": "Die Prüfung soll den sicheren Betrieb gewährleisten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verhindern"
+              },
+              {
+                "id": "1",
+                "text": "verschweigen"
+              },
+              {
+                "id": "2",
+                "text": "ignorieren"
+              },
+              {
+                "id": "3",
+                "text": "sicherstellen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "sicherstellen means ensure that a condition is met. The test is intended to verify reliable operation.",
+              "de": "sicherstellen bedeutet dafür sorgen, dass etwas gewährleistet ist. Die Prüfung soll den sicheren Betrieb gewährleisten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Prüfung soll sicherstellen, dass das Gerät sicher funktioniert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Prüfung soll sicherstellen, dass das Gerät sicher funktioniert.\", verb form and reflexive/preposition construction, all four offered choices (verhindern / verschweigen / ignorieren / sicherstellen), unique answer \"sicherstellen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008617",
+      "title": {
+        "en": "Using siegen in context",
+        "de": "siegen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use siegen (win a contest) in two distinct contexts.",
+        "de": "siegen (in einem Wettkampf gewinnen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression siegen meaning win a contest, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L743 (2c005d5e30f6eb876dd6c0c934385b8661c696c8de1c48a3765970135720a97f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L743-v1",
+          "contextKey": "legacy-0086-L743-context-1",
+          "transferKey": "legacy-0086-L743-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008617",
+            "type": "gap_choice",
+            "prompt": "Im Finale konnte die Mannschaft knapp ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The team won the final.",
+              "de": "Die Mannschaft gewann das Endspiel."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verlieren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "siegen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufgeben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "scheitern"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "siegen means win a contest. The team won the final.",
+              "de": "siegen bedeutet in einem Wettkampf gewinnen. Die Mannschaft gewann das Endspiel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Finale konnte die Mannschaft knapp siegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Finale konnte die Mannschaft knapp siegen.\", verb form and reflexive/preposition construction, all four offered choices (verlieren / siegen / aufgeben / scheitern), unique answer \"siegen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L743-v2",
+          "contextKey": "legacy-0086-L743-context-2",
+          "transferKey": "legacy-0086-L743-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008617",
+            "type": "choice",
+            "prompt": "Nach drei Runden hat sie im Turnier ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She emerged as the winner.",
+              "de": "Sie ging als Siegerin hervor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verloren"
+              },
+              {
+                "id": "1",
+                "text": "aufgegeben"
+              },
+              {
+                "id": "2",
+                "text": "gesiegt"
+              },
+              {
+                "id": "3",
+                "text": "gezögert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "siegen means win a contest. She emerged as the winner.",
+              "de": "siegen bedeutet in einem Wettkampf gewinnen. Sie ging als Siegerin hervor."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach drei Runden hat sie im Turnier gesiegt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach drei Runden hat sie im Turnier gesiegt.\", verb form and reflexive/preposition construction, all four offered choices (verloren / aufgegeben / gesiegt / gezögert), unique answer \"gesiegt\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008618",
+      "title": {
+        "en": "Using siezen in context",
+        "de": "siezen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use siezen (address someone with formal Sie) in two distinct contexts.",
+        "de": "siezen (jemanden mit der Höflichkeitsform Sie ansprechen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression siezen meaning address someone with formal Sie, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L744 (cd0984d1300bc90b0416d406069c64ab2f50a9384cf341d321bee05ce17fb3de), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L744-v1",
+          "contextKey": "legacy-0086-L744-context-1",
+          "transferKey": "legacy-0086-L744-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008618",
+            "type": "gap_choice",
+            "prompt": "Im ersten Gespräch ___ wir die neue Chefin; wir verwenden die Höflichkeitsform.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The formal pronoun is used.",
+              "de": "Es wird die Höflichkeitsform verwendet."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "siezen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "duzen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ignorieren"
+                  },
+                  {
+                    "id": "3",
+                    "text": "begrüßen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "siezen means address someone with formal Sie. The formal pronoun is used.",
+              "de": "siezen bedeutet jemanden mit der Höflichkeitsform Sie ansprechen. Es wird die Höflichkeitsform verwendet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im ersten Gespräch siezen wir die neue Chefin; wir verwenden die Höflichkeitsform.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im ersten Gespräch siezen wir die neue Chefin; wir verwenden die Höflichkeitsform.\", verb form and reflexive/preposition construction, all four offered choices (siezen / duzen / ignorieren / begrüßen), unique answer \"siezen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L744-v2",
+          "contextKey": "legacy-0086-L744-context-2",
+          "transferKey": "legacy-0086-L744-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008618",
+            "type": "choice",
+            "prompt": "In der Behörde hat er die Sachbearbeiterin zunächst ___; erst später bot sie ihm das Du an.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He used the formal form of address.",
+              "de": "Er verwendete die Anrede Sie."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "geduzt"
+              },
+              {
+                "id": "1",
+                "text": "gesiezt"
+              },
+              {
+                "id": "2",
+                "text": "ignoriert"
+              },
+              {
+                "id": "3",
+                "text": "begrüßt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "siezen means address someone with formal Sie. He used the formal form of address.",
+              "de": "siezen bedeutet jemanden mit der Höflichkeitsform Sie ansprechen. Er verwendete die Anrede Sie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Behörde hat er die Sachbearbeiterin zunächst gesiezt; erst später bot sie ihm das Du an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"In der Behörde hat er die Sachbearbeiterin zunächst gesiezt; erst später bot sie ihm das Du an.\", verb form and reflexive/preposition construction, all four offered choices (geduzt / gesiezt / ignoriert / begrüßt), unique answer \"gesiezt\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008619",
+      "title": {
+        "en": "Using signalisieren in context",
+        "de": "signalisieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use signalisieren (signal or convey a message) in two distinct contexts.",
+        "de": "signalisieren (durch Zeichen oder Verhalten etwas mitteilen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the German expression signalisieren meaning signal or convey a message, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L745 (7fb54ea226a27b7f087cf8d0c2944853a68118d32e3387d46acd118201ff126d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0086-L745-v1",
+          "contextKey": "legacy-0086-L745-context-1",
+          "transferKey": "legacy-0086-L745-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008619",
+            "type": "gap_choice",
+            "prompt": "Mit einem Kopfnicken wollte sie Zustimmung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A nod communicates agreement.",
+              "de": "Ein Nicken zeigt Zustimmung."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verbergen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verhindern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "vergessen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "signalisieren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "signalisieren means signal or convey a message. A nod communicates agreement.",
+              "de": "signalisieren bedeutet durch Zeichen oder Verhalten etwas mitteilen. Ein Nicken zeigt Zustimmung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit einem Kopfnicken wollte sie Zustimmung signalisieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Mit einem Kopfnicken wollte sie Zustimmung signalisieren.\", verb form and reflexive/preposition construction, all four offered choices (verbergen / verhindern / vergessen / signalisieren), unique answer \"signalisieren\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0086-L745-v2",
+          "contextKey": "legacy-0086-L745-context-2",
+          "transferKey": "legacy-0086-L745-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000860191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008619",
+            "type": "choice",
+            "prompt": "Das rote Warnlicht hat einen Fehler ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The warning light indicated a problem.",
+              "de": "Die Warnlampe zeigte eine Störung an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "signalisiert"
+              },
+              {
+                "id": "1",
+                "text": "beseitigt"
+              },
+              {
+                "id": "2",
+                "text": "verhindert"
+              },
+              {
+                "id": "3",
+                "text": "gelöscht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "signalisieren means signal or convey a message. The warning light indicated a problem.",
+              "de": "signalisieren bedeutet durch Zeichen oder Verhalten etwas mitteilen. Die Warnlampe zeigte eine Störung an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das rote Warnlicht hat einen Fehler signalisiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das rote Warnlicht hat einen Fehler signalisiert.\", verb form and reflexive/preposition construction, all four offered choices (signalisiert / beseitigt / verhindert / gelöscht), unique answer \"signalisiert\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    }
+  ]
+}
