@@ -26,6 +26,14 @@ check found `zu abmildern` in `legacy-0002-L20-v2`; its inactive correction chan
 the prompt and all options together, retaining the answer identity. This small
 pattern list cannot rule out other grammatical errors.
 
+The scan now also flags four unqualified main-clause prefix-separation claims
+and two categorical connecting-flight contrasts. Substantive review confirms
+the needed qualifications: a modal/future infinitive stays whole, and an onward
+connecting leg can itself be nonstop or part of a return journey. Inactive
+feedback corrections preserve the valid answer identities. These pattern
+matches are triage over the original source, not additional full editorial
+coverage or a claim that all other explanations are sound.
+
 ## Mapping must precede a runtime candidate
 
 All 2,238 new targets currently use `category: vocabulary`, without explicit

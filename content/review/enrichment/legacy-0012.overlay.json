@@ -11,7 +11,7 @@
       "expectedPrompt": "Als ich anrief, hatte die Sitzung ___ begonnen.",
       "proposedPrompt": "Als ich anrief, waren alle schon mitten in der Diskussion: Die Sitzung hatte ___ begonnen.",
       "proposedCompletedAnswer": "Als ich anrief, waren alle schon mitten in der Diskussion: Die Sitzung hatte bereits begonnen.",
-      "status": "proposed-needs-recheck"
+      "status": "ai-rechecked-inactive"
     },
     {
       "variantKey": "legacy-0012-L32-v1",
@@ -19,7 +19,11 @@
       "expectedPrompt": "Es sind genau fünf Euro, nicht mehr. Ich habe ___ fünf Euro dabei.",
       "proposedPrompt": "Ich finde den Betrag viel zu klein und betone die geringe Menge: Ich habe ___ fünf Euro dabei.",
       "proposedCompletedAnswer": "Ich finde den Betrag viel zu klein und betone die geringe Menge: Ich habe bloß fünf Euro dabei.",
-      "status": "proposed-needs-recheck"
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Choose the word meaning only a limited amount, rather than a minimum or an extra amount.",
+        "de": "Wähle das Wort für nur eine geringe Menge, nicht für eine Mindestmenge oder eine zusätzliche Menge."
+      }
     },
     {
       "variantKey": "legacy-0012-L39-v2",
@@ -27,7 +31,11 @@
       "expectedPrompt": "Bei den letzten beiden Versuchen war der Code falsch. ___ hat die Anmeldung funktioniert.",
       "proposedPrompt": "Bei den letzten beiden Versuchen war der Code falsch. Der gerade abgeschlossene aktuelle Versuch war erfolgreich: ___ hat die Anmeldung funktioniert.",
       "proposedCompletedAnswer": "Bei den letzten beiden Versuchen war der Code falsch. Der gerade abgeschlossene aktuelle Versuch war erfolgreich: Diesmal hat die Anmeldung funktioniert.",
-      "status": "proposed-needs-recheck"
+      "status": "ai-rechecked-inactive",
+      "proposedInstruction": {
+        "en": "Choose the expression referring specifically to this current attempt.",
+        "de": "Wähle den Ausdruck für diesen konkreten aktuellen Versuch."
+      }
     }
   ]
 }

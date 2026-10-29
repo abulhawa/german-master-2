@@ -62,6 +62,19 @@ def inspect(snapshot):
                 if match:
                     findings.append({**ref, 'kind': 'separable-zu-infinitive-needs-review',
                                      'matchedText': match.group(), 'storedCompletion': completed})
+                explanation = rubric['explanation']
+                english_rule = re.search(r'(separat\w*[^.!?]{0,100}main clauses?|main clauses?[^.!?]{0,100}separat)',
+                                         explanation['en'], re.IGNORECASE)
+                german_rule = re.search(r'(trenn\w*[^.!?]{0,100}Haupts(?:atz|ätzen)|Haupts(?:atz|ätzen)[^.!?]{0,100}(?:trenn|getrennt))',
+                                        explanation['de'], re.IGNORECASE)
+                qualified = re.search(r'modal|infinitiv|\bfinite\b|\bfinit\w*\b',
+                                      explanation['en'] + ' ' + explanation['de'], re.IGNORECASE)
+                if (english_rule or german_rule) and not qualified:
+                    findings.append({**ref, 'kind': 'broad-main-clause-prefix-rule-needs-review',
+                                     'prompt': prompt, 'explanation': explanation})
+                if re.search(r'not (?:a )?(?:non.?stop|return)', explanation['en'], re.IGNORECASE) and 'Anschlussflug' in explanation['en']:
+                    findings.append({**ref, 'kind': 'connecting-flight-property-contrast-needs-review',
+                                     'prompt': prompt, 'explanation': explanation})
         distributions.append({'batchId': batch, 'correctOptionPositionZeroBased': dict(batch_positions),
                               'questions': sum(batch_positions.values())})
     report = {'snapshot': snapshot, 'questionsScanned': questions, 'formats': dict(formats),

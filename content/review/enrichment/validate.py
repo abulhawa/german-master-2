@@ -126,6 +126,8 @@ def validate(sync):
                     row['proposalSha256'] == actual_hash and patch['status'] == 'ai-rechecked-inactive',
                     f'{identity}: correction changed after AI recheck')
             require(row['decision'] == 'supported-within-stated-task' and row['rationale'].strip(), 'Missing scoped recheck rationale')
+            require(row['scope'] in ['corrected-prompt-options-instruction-hint-explanation-and-completion',
+                                    'sentence-capitalization-and-preserved-answer-identity'], 'Unknown recheck scope')
             semantic_rechecks += row['scope'] == 'corrected-prompt-options-instruction-hint-explanation-and-completion'
             rechecked.add(identity)
         require(proof['semanticProposalRechecks'] == semantic_rechecks and
