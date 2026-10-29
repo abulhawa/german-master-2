@@ -1,22 +1,24 @@
 """Frozen input audit. Read-only source; review output lives beside this program."""
-import collections, hashlib, json, subprocess, sys
+import collections, functools, hashlib, json, subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3]
 OUT=Path(__file__).resolve().parent
 PIN='671e9d19f4f5a61d7916ed96b3b41433b768fd39'
+@functools.lru_cache(maxsize=None)
 def raw(p): return subprocess.check_output(['git','show',f'{PIN}:{p}'],cwd=ROOT)
 def sha(b): return hashlib.sha256(b.replace(b'\r\n',b'\n')).hexdigest()
 def read(p): return json.loads(raw(p))
-def save(p,v): (OUT/p).write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
+def save(p,v): (OUT/p).write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 manifest=read('content/enrichment/SOURCE-MANIFEST.json')
 sourceChecks=[dict(path=f['path'],expected=f['sha256'],actual=sha(raw(f['path']))) for f in manifest['files']]
 assert all(x['expected']==x['actual'] for x in sourceChecks)
 plan=read('content/enrichment/plan.json'); inventory=[]; excluded=[]; errors=[]
+available=set(subprocess.check_output(['git','ls-tree','-r','--name-only',PIN,'content/enrichment/batches'],cwd=ROOT).decode().splitlines())
 seen={k:{} for k in ['exerciseId','variantKey','contextKey','transferKey','prompt','objective']}; duplicates=[]
 for b in plan['batches']:
  id=b['id']; base=f'content/enrichment/batches/{id}'
- try:r=read(base+'.report.json')
- except subprocess.CalledProcessError:continue
+ if base+'.report.json' not in available:continue
+ r=read(base+'.report.json')
  if r['state']!='ready-for-review': excluded.append({'batchId':id,'state':r['state']});continue
  c=read(base+'.catalog.json'); h=sha(raw(base+'.catalog.json')); assert h==r['catalogSha256']
  assert c['publicationApproved'] is False and c['status']=='agent-authored-draft'

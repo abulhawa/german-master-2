@@ -1,5 +1,15 @@
 # Continuing German Master recovery
 
+29 October: supervised enrichment review has live desktop allowance telemetry.
+Owner waived the study-reserve requirement for this session and requested
+substantial review work. Keep one bounded worker; normal allowance only, no reset
+credits or paid fallback. The hosted schedule paused without telemetry and is not
+restarted here. See newest PROGRESS and `content/review/enrichment/coverage.json`
+on the review branch. The fixed 49-batch editorial queue is separate from the
+structurally validated 137-batch authoring snapshot. Resume the first unfinished
+frozen batch, validate exact coverage and inactive corrections, and save meaningful
+slices. Do not edit authoring, merge to main, publish, deploy or write a live DB.
+
 28 October: owner reported Android Loading mojibake and requested fix/deploy to
 phone and web. Unicode copy is corrected; native shell tests, lint and debug
 assembly pass. See newest PROGRESS for configured-preview installation and

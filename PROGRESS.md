@@ -1,5 +1,39 @@
 # German Master 2.0 current checkpoint
 
+## Supervised enrichment review — 29 October 2026
+
+Owner requests substantial use of remaining normal allowance and disables the
+study-reserve requirement for this session. No reset credits, paid fallback or
+billing changes. The hosted reviewer paused without allowance telemetry; the
+desktop coordinator now has live telemetry and supervises one bounded worker.
+This does not restart the hosted schedule or establish unattended monitoring.
+
+Work stays on `content/enrichment-review`, separate from authoring and main.
+The fixed editorial queue is completed batches 0001–0049 at
+`671e9d19f4f5a61d7916ed96b3b41433b768fd39`. Current substantive coverage is in
+`content/review/enrichment/coverage.json`; judgments are in per-batch findings.
+Review completion does not grant candidate or publication approval.
+
+Unchanged canonical TypeScript validation passes for that 49-batch /
+1,536-question input and separate 137-batch / 4,476-question snapshot
+`206ed84bd7f36332f589e9a6e0c7bfc4671c6161`. All 15 pinned source-file hashes
+match. Deterministic scans cover all 4,476 questions; the explicit separable-verb
+check identifies `zu abmildern`. An in-memory shared-contract probe accepts those
+questions in 37 temporary level-only chunks of at most 125 and rejects 126 for
+each level. These are capacity/shape results, not an installable bundle or app
+acceptance. Canonical validators and app sources remain unchanged.
+
+Repeatable scripts and hash-bound evidence live under
+`content/review/enrichment/`. Integration findings cover unmapped `vocabulary`
+category/lexical kind, topic/context assignment, immutable release identity and
+shared queue lifecycle. Initial generated review defects were caught before
+commit; exact coverage checks and a fresh substantive pass correct them.
+
+Next: finish the bounded editorial slice, synchronize and validate coverage and
+inactive proposals, then save and push only the review branch. Resume the first
+unfinished frozen batch. No merge, deployment, live database write or Android
+publication is authorized by this review.
+
 ## Android learner-text encoding correction — 28 October 2026
 
 Owner reported a garbled Loading label and explicitly requested correction and
