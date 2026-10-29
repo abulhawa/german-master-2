@@ -1,3 +1,11 @@
+> Owner pause, 29 October 2026: wrap up the current checkpoint and stop.
+> The allowance waiver applied only to the earlier authorized session. It does
+> not carry forward to future sessions or scheduled executions. Historical
+> waiver text below is not current authorization to bypass normal reserve,
+> five-hour headroom or unavailable-telemetry requirements. Resume only after
+> renewed owner direction under the then-applicable allowance policy. The
+> review continuation is paused; the next unreviewed batch is legacy-0033.
+
 # Take over the remaining content review
 
 Owner clarification, 29 October 2026: the intended reviewer is the original
