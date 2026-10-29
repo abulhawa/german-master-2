@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000017100",
+      "title": {
+        "en": "Using Werktag accurately",
+        "de": "Werktag im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werktag in the sense of a working day as legally defined, often including Saturday.",
+        "de": "Werktag im Sinn von Werktag, häufig Montag bis Samstag außer Feiertagen erkennen."
+      },
+      "objective": "Recognize Werktag in the specified a working day as legally defined, often including Saturday sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2674 (d94537ca3ccb3c06e42778f1592353e6a873b0c12909e1ebe83454d7dcccc48d), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2674-v1",
+          "contextKey": "legacy-0171-L2674-context-1",
+          "transferKey": "legacy-0171-L2674-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017100",
+            "type": "gap_choice",
+            "prompt": "In vielen Regelungen zählt auch der Samstag als ___.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The term is not always limited to Monday through Friday.",
+              "de": "Der Begriff ist nicht immer auf Montag bis Freitag beschränkt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Feiertag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Urlaubstag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werktag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Sonntag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werktag can include Saturday, depending on the rule.",
+              "de": "Ein Werktag kann je nach Regelung auch ein Samstag sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In vielen Regelungen zählt auch der Samstag als Werktag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werktag' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Feiertag: A public holiday is generally excluded. Urlaubstag: A vacation day is personal leave. Werktag: Correct: Saturday can count as a working day. Sonntag: Sunday is a specific day, not the category. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2674-v2",
+          "contextKey": "legacy-0171-L2674-context-2",
+          "transferKey": "legacy-0171-L2674-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017100",
+            "type": "choice",
+            "prompt": "Ein Schild erlaubt das Parken nur an Sonn- und Feiertagen. Welche Kategorie kann den Samstag trotzdem einschließen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Consider the legal meaning of working day.",
+              "de": "Denke an die rechtliche Bedeutung von Werktag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Feiertage"
+              },
+              {
+                "id": "1",
+                "text": "Sonntage"
+              },
+              {
+                "id": "2",
+                "text": "Urlaubstage"
+              },
+              {
+                "id": "3",
+                "text": "Werktage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Werktag can include Saturday, depending on the rule.",
+              "de": "Ein Werktag kann je nach Regelung auch ein Samstag sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Samstage können zu den Werktagen zählen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werktage' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Feiertage: Public holidays are excluded here. Sonntage: Sunday is a separate day. Urlaubstage: Vacation days depend on individuals. Werktage: Correct: working days may include Saturday. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017101",
+      "title": {
+        "en": "Using Werkvertrag accurately",
+        "de": "Werkvertrag im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werkvertrag in the sense of a contract requiring a specified work result.",
+        "de": "Werkvertrag im Sinn von Vertrag über einen bestimmten Arbeitserfolg erkennen."
+      },
+      "objective": "Recognize Werkvertrag in the specified a contract requiring a specified work result sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2675 (6405869f40048db22910042cf125df10f8a97bc48c520a4a22ab9301c2be1249), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2675-v1",
+          "contextKey": "legacy-0171-L2675-context-1",
+          "transferKey": "legacy-0171-L2675-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017101",
+            "type": "gap_choice",
+            "prompt": "Im ___ verpflichtet sich die Firma, eine funktionierende Anlage fertigzustellen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The agreed result must be delivered.",
+              "de": "Ein bestimmtes Arbeitsergebnis ist geschuldet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mietvertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kaufvertrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Arbeitsvertrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Werkvertrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werkvertrag concerns delivery of an agreed work result.",
+              "de": "Ein Werkvertrag verpflichtet zur Herstellung eines vereinbarten Werks."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Werkvertrag verpflichtet sich die Firma, eine funktionierende Anlage fertigzustellen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werkvertrag' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Mietvertrag: Contract for use of property. Kaufvertrag: Contract for transfer of goods. Arbeitsvertrag: Employment contract for work relationship. Werkvertrag: Correct: contract for a work result. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2675-v2",
+          "contextKey": "legacy-0171-L2675-context-2",
+          "transferKey": "legacy-0171-L2675-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017101",
+            "type": "choice",
+            "prompt": "Ein Handwerksbetrieb verspricht vertraglich, ein Dach fachgerecht zu erneuern und das fertige Ergebnis abzuliefern. Welcher Vertragstyp passt?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The contractor owes a completed result.",
+              "de": "Der Betrieb schuldet ein fertiges Ergebnis."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Werkvertrag"
+              },
+              {
+                "id": "1",
+                "text": "Mietvertrag"
+              },
+              {
+                "id": "2",
+                "text": "Darlehensvertrag"
+              },
+              {
+                "id": "3",
+                "text": "Versicherungsvertrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Werkvertrag concerns delivery of an agreed work result.",
+              "de": "Ein Werkvertrag verpflichtet zur Herstellung eines vereinbarten Werks."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist ein Werkvertrag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werkvertrag' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Werkvertrag: Correct: specified work result. Mietvertrag: Renting property. Darlehensvertrag: Borrowing money. Versicherungsvertrag: Covering risks. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017102",
+      "title": {
+        "en": "Using Werkzeug accurately",
+        "de": "Werkzeug im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Werkzeug in the sense of a tool used for manual work.",
+        "de": "Werkzeug im Sinn von Werkzeug für handwerkliche Arbeiten erkennen."
+      },
+      "objective": "Recognize Werkzeug in the specified a tool used for manual work sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2676 (e3c911f8f2ec0edcfe5b835edcc636b6768c920d16b214772adb81a91dbd15dd), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2676-v1",
+          "contextKey": "legacy-0171-L2676-context-1",
+          "transferKey": "legacy-0171-L2676-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017102",
+            "type": "gap_choice",
+            "prompt": "Für die Reparatur braucht sie das richtige ___, zum Beispiel einen Schraubenschlüssel.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It helps perform manual tasks.",
+              "de": "Es hilft bei handwerklichen Tätigkeiten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Werkzeug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Material"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rezept"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Formular"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Werkzeug is an implement used to do work.",
+              "de": "Werkzeug ist ein Hilfsmittel zur Ausführung einer Arbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Reparatur braucht sie das richtige Werkzeug, zum Beispiel einen Schraubenschlüssel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Werkzeug' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Werkzeug: Correct: a wrench is a tool. Material: Material is what is worked on. Rezept: A recipe gives instructions. Formular: A form collects information. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2676-v2",
+          "contextKey": "legacy-0171-L2676-context-2",
+          "transferKey": "legacy-0171-L2676-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017102",
+            "type": "choice",
+            "prompt": "Ein Mechaniker benutzt Hammer, Zange und Schraubendreher. Wie nennt man diese Gegenstände zusammen?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They are used to perform work.",
+              "de": "Mit ihnen führt man Arbeiten aus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rechnungen"
+              },
+              {
+                "id": "1",
+                "text": "Werkzeuge"
+              },
+              {
+                "id": "2",
+                "text": "Ersatzteile"
+              },
+              {
+                "id": "3",
+                "text": "Rohstoffe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Werkzeug is an implement used to do work.",
+              "de": "Werkzeug ist ein Hilfsmittel zur Ausführung einer Arbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das sind Werkzeuge.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Werkzeuge' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Rechnungen: Bills. Werkzeuge: Correct: tools. Ersatzteile: Replacement components. Rohstoffe: Raw materials. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017103",
+      "title": {
+        "en": "Using Wert accurately",
+        "de": "Wert im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wert in the sense of the numerical value of something.",
+        "de": "Wert im Sinn von zahlenmäßig bestimmbarer Wert erkennen."
+      },
+      "objective": "Recognize Wert in the specified the numerical value of something sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2677 (40c05089ea3eb8b98d3764944b026be741646f8e71f2c5fa5e67982d9a60291f), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2677-v1",
+          "contextKey": "legacy-0171-L2677-context-1",
+          "transferKey": "legacy-0171-L2677-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017103",
+            "type": "gap_choice",
+            "prompt": "Der gemessene ___ der Temperatur beträgt 22 Grad Celsius.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A number represents the measurement.",
+              "de": "Eine Zahl gibt die Messung an."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Witz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wert"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wunsch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Weg"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wert can denote a numerical quantity.",
+              "de": "Wert kann eine zahlenmäßig bestimmte Größe bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der gemessene Wert der Temperatur beträgt 22 Grad Celsius.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wert' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Witz: A joke. Wert: Correct: measured numerical value. Wunsch: A wish. Weg: A route. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2677-v2",
+          "contextKey": "legacy-0171-L2677-context-2",
+          "transferKey": "legacy-0171-L2677-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017103",
+            "type": "choice",
+            "prompt": "Auf einem Messgerät steht 230 Volt. Wie nennt man diese angezeigte Zahl?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is the numerical result of a measurement.",
+              "de": "Es ist das zahlenmäßige Ergebnis einer Messung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vorschlag"
+              },
+              {
+                "id": "1",
+                "text": "Vorwurf"
+              },
+              {
+                "id": "2",
+                "text": "Messwert"
+              },
+              {
+                "id": "3",
+                "text": "Vermutung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Wert can denote a numerical quantity.",
+              "de": "Wert kann eine zahlenmäßig bestimmte Größe bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zahl ist ein Messwert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Messwert' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vorschlag: A proposal. Vorwurf: An accusation. Messwert: Correct: measured value. Vermutung: An assumption. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017104",
+      "title": {
+        "en": "Using Wertsache accurately",
+        "de": "Wertsache im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wertsache in the sense of a valuable personal possession.",
+        "de": "Wertsache im Sinn von wertvoller persönlicher Gegenstand erkennen."
+      },
+      "objective": "Recognize Wertsache in the specified a valuable personal possession sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2678 (1f1beeab7fedd9f102805a7a666d41857d8675f30c63914f24eb6f18db010956), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2678-v1",
+          "contextKey": "legacy-0171-L2678-context-1",
+          "transferKey": "legacy-0171-L2678-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017104",
+            "type": "gap_choice",
+            "prompt": "Im Hotel soll man teure ___ im Safe aufbewahren.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "These possessions may be costly to replace.",
+              "de": "Diese Gegenstände sind wertvoll."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Prospekte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Getränke"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wertsachen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Handtücher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wertsachen are valuable belongings.",
+              "de": "Wertsachen sind wertvolle persönliche Gegenstände."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Hotel soll man teure Wertsachen im Safe aufbewahren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wertsachen' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Prospekte: Brochures are informational leaflets. Getränke: Drinks are consumables. Wertsachen: Correct: valuable possessions. Handtücher: Towels are routine supplies. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2678-v2",
+          "contextKey": "legacy-0171-L2678-context-2",
+          "transferKey": "legacy-0171-L2678-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017104",
+            "type": "choice",
+            "prompt": "Ein Gast möchte seinen Schmuck und seine teure Uhr sicher verwahren. Wie nennt man solche Gegenstände?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "They are valuable personal items.",
+              "de": "Es sind wertvolle persönliche Gegenstände."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Reinigungsmittel"
+              },
+              {
+                "id": "1",
+                "text": "Büromaterial"
+              },
+              {
+                "id": "2",
+                "text": "Lebensmittel"
+              },
+              {
+                "id": "3",
+                "text": "Wertsachen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Wertsachen are valuable belongings.",
+              "de": "Wertsachen sind wertvolle persönliche Gegenstände."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Schmuck und Uhr sind Wertsachen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wertsachen' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Reinigungsmittel: Cleaning products. Büromaterial: Office supplies. Lebensmittel: Food. Wertsachen: Correct: valuables. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017105",
+      "title": {
+        "en": "Using Wettbewerber accurately",
+        "de": "Wettbewerber im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wettbewerber in the sense of a male business competitor.",
+        "de": "Wettbewerber im Sinn von männlicher Wettbewerber im Markt erkennen."
+      },
+      "objective": "Recognize Wettbewerber in the specified a male business competitor sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2681 (fed35132527fea0851a39d56b7c260814cfce7a356a85ecf2ede1e10e7733f2a), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2681-v1",
+          "contextKey": "legacy-0171-L2681-context-1",
+          "transferKey": "legacy-0171-L2681-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017105",
+            "type": "gap_choice",
+            "prompt": "Der neue ___ bietet ähnliche Produkte zu niedrigeren Preisen an.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Another firm competes for the same customers.",
+              "de": "Ein anderes Unternehmen wirbt um dieselben Kunden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferant"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kunde"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Buchhalter"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wettbewerber"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wettbewerber is a person or firm competing in a market.",
+              "de": "Ein Wettbewerber konkurriert mit anderen um Kunden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der neue Wettbewerber bietet ähnliche Produkte zu niedrigeren Preisen an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wettbewerber' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Lieferant: Supplies goods to a firm. Kunde: Buys products. Buchhalter: Records accounts. Wettbewerber: Correct: rival in the market. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2681-v2",
+          "contextKey": "legacy-0171-L2681-context-2",
+          "transferKey": "legacy-0171-L2681-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017105",
+            "type": "choice",
+            "prompt": "Zwei Firmen verkaufen vergleichbare Fahrräder und kämpfen um dieselben Käufer. Was ist die eine Firma für die andere?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The businesses compete in one market.",
+              "de": "Die Unternehmen konkurrieren auf demselben Markt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wettbewerber"
+              },
+              {
+                "id": "1",
+                "text": "Versicherer"
+              },
+              {
+                "id": "2",
+                "text": "Vermieter"
+              },
+              {
+                "id": "3",
+                "text": "Auftraggeber"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Wettbewerber is a person or firm competing in a market.",
+              "de": "Ein Wettbewerber konkurriert mit anderen um Kunden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie ist ein Wettbewerber.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wettbewerber' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wettbewerber: Correct: business competitor. Versicherer: Provides insurance. Vermieter: Rents out property. Auftraggeber: Commissions work. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017107",
+      "title": {
+        "en": "Using Wettervorhersage accurately",
+        "de": "Wettervorhersage im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wettervorhersage in the sense of a prediction of future weather.",
+        "de": "Wettervorhersage im Sinn von Vorhersage des künftigen Wetters erkennen."
+      },
+      "objective": "Recognize Wettervorhersage in the specified a prediction of future weather sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2684 (ddf6cd7795166de4270f4d832758f4eb4ce755efdc0b7fb7040dfdb099a09d22), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2684-v1",
+          "contextKey": "legacy-0171-L2684-context-1",
+          "transferKey": "legacy-0171-L2684-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017107",
+            "type": "gap_choice",
+            "prompt": "Laut ___ soll es morgen Nachmittag regnen.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "It predicts tomorrow's conditions.",
+              "de": "Sie sagt das Wetter für morgen voraus."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wettervorhersage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wetterrückblick"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrplan"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wettervorhersage predicts future weather.",
+              "de": "Eine Wettervorhersage sagt das kommende Wetter voraus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Laut Wettervorhersage soll es morgen Nachmittag regnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wettervorhersage' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wettervorhersage: Correct: future forecast. Wetterrückblick: Looks back at past weather. Rechnung: A bill. Fahrplan: A timetable. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2684-v2",
+          "contextKey": "legacy-0171-L2684-context-2",
+          "transferKey": "legacy-0171-L2684-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017107",
+            "type": "choice",
+            "prompt": "Ein Meteorologe sagt für das kommende Wochenende starken Wind voraus. Was erstellt er?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "He predicts future weather.",
+              "de": "Er sagt zukünftiges Wetter voraus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferschein"
+              },
+              {
+                "id": "1",
+                "text": "Wettervorhersage"
+              },
+              {
+                "id": "2",
+                "text": "Jahresabschluss"
+              },
+              {
+                "id": "3",
+                "text": "Reisebericht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Wettervorhersage predicts future weather.",
+              "de": "Eine Wettervorhersage sagt das kommende Wetter voraus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er erstellt eine Wettervorhersage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wettervorhersage' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Lieferschein: Delivery note. Wettervorhersage: Correct: forecast. Jahresabschluss: Annual financial statement. Reisebericht: Travel account. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017108",
+      "title": {
+        "en": "Using Wichtigkeit accurately",
+        "de": "Wichtigkeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wichtigkeit in the sense of the importance of a task or issue.",
+        "de": "Wichtigkeit im Sinn von Bedeutung oder Wichtigkeit einer Sache erkennen."
+      },
+      "objective": "Recognize Wichtigkeit in the specified the importance of a task or issue sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2685 (10fe0b20531211e99ba5fc38e6ab691a7da4ccea9ff5d1455a51d7cd43038789), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2685-v1",
+          "contextKey": "legacy-0171-L2685-context-1",
+          "transferKey": "legacy-0171-L2685-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017108",
+            "type": "gap_choice",
+            "prompt": "Die ___ der Sicherheitsprüfung wurde im Bericht besonders betont.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The report stresses how important the check is.",
+              "de": "Der Bericht betont die Bedeutung der Prüfung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wartung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wichtigkeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wiederholung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wichtigkeit means importance.",
+              "de": "Wichtigkeit bezeichnet die Bedeutung einer Sache."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Wichtigkeit der Sicherheitsprüfung wurde im Bericht besonders betont.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wichtigkeit' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wartung: Maintenance. Wichtigkeit: Correct: importance. Verspätung: Lateness. Wiederholung: Repetition. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2685-v2",
+          "contextKey": "legacy-0171-L2685-context-2",
+          "transferKey": "legacy-0171-L2685-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017108",
+            "type": "choice",
+            "prompt": "Eine Aufgabe hat große Bedeutung für den Erfolg des Projekts. Welche Eigenschaft wird hervorgehoben?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The task matters a great deal.",
+              "de": "Die Aufgabe ist sehr bedeutend."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gleichgültigkeit"
+              },
+              {
+                "id": "1",
+                "text": "Unklarheit"
+              },
+              {
+                "id": "2",
+                "text": "Wichtigkeit"
+              },
+              {
+                "id": "3",
+                "text": "Beliebigkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Wichtigkeit means importance.",
+              "de": "Wichtigkeit bezeichnet die Bedeutung einer Sache."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Hervorgehoben wird ihre Wichtigkeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wichtigkeit' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Gleichgültigkeit: Indifference. Unklarheit: Lack of clarity. Wichtigkeit: Correct: importance. Beliebigkeit: Arbitrariness. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017109",
+      "title": {
+        "en": "Using Wiedergabe accurately",
+        "de": "Wiedergabe im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wiedergabe in the sense of playback of recorded audio or video.",
+        "de": "Wiedergabe im Sinn von Wiedergabe einer Ton- oder Videoaufnahme erkennen."
+      },
+      "objective": "Recognize Wiedergabe in the specified playback of recorded audio or video sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2686 (a0a6a6b89484c3c36bfb6fd6195f3e224c049710197367a89850905009b231c6), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2686-v1",
+          "contextKey": "legacy-0171-L2686-context-1",
+          "transferKey": "legacy-0171-L2686-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017109",
+            "type": "gap_choice",
+            "prompt": "Bei der ___ der Aufnahme ist der Ton zu leise.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The recording is being played, not created.",
+              "de": "Die Aufnahme wird abgespielt, nicht erstellt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Löschung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bearbeitung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wiedergabe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Aufnahme"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wiedergabe means playing back recorded media.",
+              "de": "Wiedergabe bedeutet, eine Aufnahme abzuspielen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Wiedergabe der Aufnahme ist der Ton zu leise.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wiedergabe' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Löschung: Deletion removes it. Bearbeitung: Editing changes it. Wiedergabe: Correct: playback. Aufnahme: Recording creates the file. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2686-v2",
+          "contextKey": "legacy-0171-L2686-context-2",
+          "transferKey": "legacy-0171-L2686-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017109",
+            "type": "choice",
+            "prompt": "Ein bereits gespeichertes Video wird auf einem Bildschirm abgespielt. Wie heißt dieser Vorgang?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The video is played for viewing.",
+              "de": "Das Video wird zum Anschauen abgespielt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Aufzeichnung"
+              },
+              {
+                "id": "1",
+                "text": "Übertragung ins Archiv"
+              },
+              {
+                "id": "2",
+                "text": "Löschung"
+              },
+              {
+                "id": "3",
+                "text": "Wiedergabe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Wiedergabe means playing back recorded media.",
+              "de": "Wiedergabe bedeutet, eine Aufnahme abzuspielen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist die Wiedergabe des Videos.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wiedergabe' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Aufzeichnung: Recording creates a new capture. Übertragung ins Archiv: Archiving stores the file. Löschung: Deletion removes it. Wiedergabe: Correct: playback. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017110",
+      "title": {
+        "en": "Using Wiederholung accurately",
+        "de": "Wiederholung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wiederholung in the sense of the repetition of an action or lesson.",
+        "de": "Wiederholung im Sinn von Wiederholung einer Tätigkeit oder eines Lernstoffs erkennen."
+      },
+      "objective": "Recognize Wiederholung in the specified the repetition of an action or lesson sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2687 (d8dd22302d618d5f15214aa70e6f24de4136914af2d59f5ef8edf08a6068132f), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2687-v1",
+          "contextKey": "legacy-0171-L2687-context-1",
+          "transferKey": "legacy-0171-L2687-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017110",
+            "type": "gap_choice",
+            "prompt": "Zur ___ der Vokabeln liest sie die Liste am Abend erneut.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She studies the words again.",
+              "de": "Sie lernt die Wörter noch einmal."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vermeidung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verteilung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verspätung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wiederholung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wiederholung means doing something again.",
+              "de": "Wiederholung bedeutet, etwas erneut zu tun."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zur Wiederholung der Vokabeln liest sie die Liste am Abend erneut.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wiederholung' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vermeidung: Avoidance. Verteilung: Distribution. Verspätung: Delay. Wiederholung: Correct: repetition. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2687-v2",
+          "contextKey": "legacy-0171-L2687-context-2",
+          "transferKey": "legacy-0171-L2687-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017110",
+            "type": "choice",
+            "prompt": "Ein Schüler übt dieselbe Grammatikregel an drei verschiedenen Tagen erneut. Wie nennt man das erneute Üben?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The same content is practiced again.",
+              "de": "Derselbe Stoff wird erneut geübt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wiederholung"
+              },
+              {
+                "id": "1",
+                "text": "Unterbrechung"
+              },
+              {
+                "id": "2",
+                "text": "Vergessen"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Wiederholung means doing something again.",
+              "de": "Wiederholung bedeutet, etwas erneut zu tun."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das erneute Üben ist eine Wiederholung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wiederholung' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wiederholung: Correct: review and repetition. Unterbrechung: Interruption. Vergessen: Forgetting. Kündigung: Termination. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017111",
+      "title": {
+        "en": "Using Wiese accurately",
+        "de": "Wiese im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wiese in the sense of a grassy meadow.",
+        "de": "Wiese im Sinn von grasbewachsene Wiese erkennen."
+      },
+      "objective": "Recognize Wiese in the specified a grassy meadow sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2690 (799decb5488907830fdce40532463be50f005e70a56c07732538f77cc8165aea), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2690-v1",
+          "contextKey": "legacy-0171-L2690-context-1",
+          "transferKey": "legacy-0171-L2690-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017111",
+            "type": "gap_choice",
+            "prompt": "Auf der grünen ___ grasen mehrere Kühe.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The animals eat grass in an open area.",
+              "de": "Die Tiere fressen Gras auf einer offenen Fläche."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wiese"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Straße"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Brücke"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Treppe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wiese is an area covered with grass.",
+              "de": "Eine Wiese ist eine grasbewachsene Fläche."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der grünen Wiese grasen mehrere Kühe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wiese' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wiese: Correct: grassy meadow. Straße: Paved road. Brücke: Bridge. Treppe: Staircase. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2690-v2",
+          "contextKey": "legacy-0171-L2690-context-2",
+          "transferKey": "legacy-0171-L2690-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017111",
+            "type": "choice",
+            "prompt": "Kinder spielen auf einer großen Fläche mit Gras und Wildblumen. Wie heißt diese Fläche?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is covered with grass.",
+              "de": "Sie ist mit Gras bewachsen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Tunnel"
+              },
+              {
+                "id": "1",
+                "text": "Wiese"
+              },
+              {
+                "id": "2",
+                "text": "Asphaltplatz"
+              },
+              {
+                "id": "3",
+                "text": "Parkhaus"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Wiese is an area covered with grass.",
+              "de": "Eine Wiese ist eine grasbewachsene Fläche."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fläche ist eine Wiese.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wiese' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Tunnel: Underground passage. Wiese: Correct: meadow. Asphaltplatz: Paved square. Parkhaus: Parking garage. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017112",
+      "title": {
+        "en": "Using Willkommensmappe accurately",
+        "de": "Willkommensmappe im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Willkommensmappe in the sense of a folder of information for newcomers.",
+        "de": "Willkommensmappe im Sinn von Informationsmappe für neue Personen erkennen."
+      },
+      "objective": "Recognize Willkommensmappe in the specified a folder of information for newcomers sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2691 (239b61d510ce603af0de3bd419984a04e59efe4bab15036afebabd370069a7fd), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2691-v1",
+          "contextKey": "legacy-0171-L2691-context-1",
+          "transferKey": "legacy-0171-L2691-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017112",
+            "type": "gap_choice",
+            "prompt": "Am ersten Arbeitstag bekommt die neue Kollegin eine ___ mit wichtigen Kontakten.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The folder helps a newcomer get oriented.",
+              "de": "Die Mappe hilft einer neuen Person bei der Orientierung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Willkommensmappe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mahnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Willkommensmappe is a welcome folder for newcomers.",
+              "de": "Eine Willkommensmappe enthält Informationen für neue Personen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am ersten Arbeitstag bekommt die neue Kollegin eine Willkommensmappe mit wichtigen Kontakten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Willkommensmappe' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Kündigung: Termination notice. Willkommensmappe: Correct: welcome information folder. Mahnung: Payment reminder. Rechnung: Invoice. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2691-v2",
+          "contextKey": "legacy-0171-L2691-context-2",
+          "transferKey": "legacy-0171-L2691-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017112",
+            "type": "choice",
+            "prompt": "Ein Unternehmen stellt neuen Mitarbeitenden einen Ordner mit Hausregeln, Ansprechpersonen und Lageplan bereit. Wie heißt dieser Ordner?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It contains onboarding information.",
+              "de": "Er enthält Informationen für den Einstieg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Warenkorb"
+              },
+              {
+                "id": "1",
+                "text": "Vertrag"
+              },
+              {
+                "id": "2",
+                "text": "Willkommensmappe"
+              },
+              {
+                "id": "3",
+                "text": "Kassenbuch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Willkommensmappe is a welcome folder for newcomers.",
+              "de": "Eine Willkommensmappe enthält Informationen für neue Personen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Ordner ist eine Willkommensmappe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Willkommensmappe' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Warenkorb: Shopping cart. Vertrag: Legal agreement. Willkommensmappe: Correct: newcomer information pack. Kassenbuch: Cash ledger. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017113",
+      "title": {
+        "en": "Using Wirklichkeit accurately",
+        "de": "Wirklichkeit im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wirklichkeit in the sense of reality as opposed to imagination.",
+        "de": "Wirklichkeit im Sinn von Wirklichkeit im Gegensatz zur Vorstellung erkennen."
+      },
+      "objective": "Recognize Wirklichkeit in the specified reality as opposed to imagination sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2694 (ac6c4241089a5bbcf0f93dfa38c5504e845815c86ad13f5dee58e12619547db0), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2694-v1",
+          "contextKey": "legacy-0171-L2694-context-1",
+          "transferKey": "legacy-0171-L2694-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017113",
+            "type": "gap_choice",
+            "prompt": "Im Film kann der Held fliegen, aber in der ___ ist das ohne Hilfsmittel nicht möglich.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The contrast is with real life.",
+              "de": "Der Gegensatz ist das wirkliche Leben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Erzählung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Simulation"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wirklichkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fantasie"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wirklichkeit means reality rather than fiction.",
+              "de": "Wirklichkeit bezeichnet das tatsächlich Bestehende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Film kann der Held fliegen, aber in der Wirklichkeit ist das ohne Hilfsmittel nicht möglich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wirklichkeit' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Erzählung: Narrative. Simulation: Artificial model. Wirklichkeit: Correct: reality. Fantasie: Imagination. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2694-v2",
+          "contextKey": "legacy-0171-L2694-context-2",
+          "transferKey": "legacy-0171-L2694-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017113",
+            "type": "choice",
+            "prompt": "Eine Geschichte ist erfunden; die beschriebenen Ereignisse haben nie stattgefunden. Womit wird sie verglichen, wenn man fragt, was tatsächlich geschah?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "The question concerns actual events.",
+              "de": "Es geht um tatsächlich geschehene Ereignisse."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fiktion"
+              },
+              {
+                "id": "1",
+                "text": "Traum"
+              },
+              {
+                "id": "2",
+                "text": "Märchen"
+              },
+              {
+                "id": "3",
+                "text": "Wirklichkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Wirklichkeit means reality rather than fiction.",
+              "de": "Wirklichkeit bezeichnet das tatsächlich Bestehende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Man vergleicht sie mit der Wirklichkeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wirklichkeit' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Fiktion: Fiction is invented. Traum: A dream is imagined. Märchen: A fairy tale is fictional. Wirklichkeit: Correct: real events. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017114",
+      "title": {
+        "en": "Using Wirkung accurately",
+        "de": "Wirkung im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wirkung in the sense of an effect produced by a cause.",
+        "de": "Wirkung im Sinn von Wirkung einer Ursache erkennen."
+      },
+      "objective": "Recognize Wirkung in the specified an effect produced by a cause sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2695 (5cb5cab1710c3ed65774f68d30311334aa87505e88bad5cfa4b4bbb8d617ee6c), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2695-v1",
+          "contextKey": "legacy-0171-L2695-context-1",
+          "transferKey": "legacy-0171-L2695-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017114",
+            "type": "gap_choice",
+            "prompt": "Die neue Beleuchtung hat eine positive ___ auf die Konzentration.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The lighting changes an outcome.",
+              "de": "Die Beleuchtung beeinflusst das Ergebnis."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ursache"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Frage"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wirkung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wirkung is an effect caused by something.",
+              "de": "Wirkung ist eine Folge oder ein Einfluss."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Beleuchtung hat eine positive Wirkung auf die Konzentration.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wirkung' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Ursache: The cause comes before the effect. Frage: A question. Rechnung: An invoice. Wirkung: Correct: effect. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2695-v2",
+          "contextKey": "legacy-0171-L2695-context-2",
+          "transferKey": "legacy-0171-L2695-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017114",
+            "type": "choice",
+            "prompt": "Eine Maßnahme führt dazu, dass weniger Energie verbraucht wird. Wie nennt man dieses Ergebnis der Maßnahme?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "It is what the measure causes.",
+              "de": "Es ist die Folge der Maßnahme."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wirkung"
+              },
+              {
+                "id": "1",
+                "text": "Absicht"
+              },
+              {
+                "id": "2",
+                "text": "Vermutung"
+              },
+              {
+                "id": "3",
+                "text": "Voraussetzung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Wirkung is an effect caused by something.",
+              "de": "Wirkung ist eine Folge oder ein Einfluss."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das ist eine Wirkung der Maßnahme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wirkung' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wirkung: Correct: consequence or effect. Absicht: Intention is a goal. Vermutung: Assumption is unverified. Voraussetzung: Prerequisite comes beforehand. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017117",
+      "title": {
+        "en": "Using Wirtschaft accurately",
+        "de": "Wirtschaft im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wirtschaft in the sense of the economy of a region or country.",
+        "de": "Wirtschaft im Sinn von Wirtschaft eines Landes oder einer Region erkennen."
+      },
+      "objective": "Recognize Wirtschaft in the specified the economy of a region or country sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2698 (7d9ce24731138563fa280aa3e82eecba86d25e37e76b3230068ee179afb8032e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2698-v1",
+          "contextKey": "legacy-0171-L2698-context-1",
+          "transferKey": "legacy-0171-L2698-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017117",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Landes wächst, wenn mehr Waren und Dienstleistungen produziert werden.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence concerns production and economic activity.",
+              "de": "Es geht um Produktion und wirtschaftliche Tätigkeit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wirtschaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wetterlage"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wanderung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wartung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wirtschaft can mean a country's economic system.",
+              "de": "Wirtschaft kann das wirtschaftliche System eines Landes bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Wirtschaft des Landes wächst, wenn mehr Waren und Dienstleistungen produziert werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wirtschaft' (option 0). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wirtschaft: Correct: national economy. Wetterlage: Weather conditions. Wanderung: Hiking trip. Wartung: Equipment servicing. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2698-v2",
+          "contextKey": "legacy-0171-L2698-context-2",
+          "transferKey": "legacy-0171-L2698-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017117",
+            "type": "choice",
+            "prompt": "Unternehmen, Arbeitsplätze, Handel und Produktion bilden zusammen einen wichtigen Bereich des Landes. Wie heißt dieser Bereich?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "Think of production, trade and employment.",
+              "de": "Denke an Produktion, Handel und Arbeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Stadtpark"
+              },
+              {
+                "id": "1",
+                "text": "Wirtschaft"
+              },
+              {
+                "id": "2",
+                "text": "Verkehrszeichen"
+              },
+              {
+                "id": "3",
+                "text": "Kulturverein"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Wirtschaft can mean a country's economic system.",
+              "de": "Wirtschaft kann das wirtschaftliche System eines Landes bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Dieser Bereich ist die Wirtschaft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wirtschaft' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Stadtpark: Public park. Wirtschaft: Correct: economy. Verkehrszeichen: Road sign. Kulturverein: Cultural association. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017118",
+      "title": {
+        "en": "Using Wissen accurately",
+        "de": "Wissen im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wissen in the sense of knowledge acquired through learning and experience.",
+        "de": "Wissen im Sinn von Wissen aus Lernen und Erfahrung erkennen."
+      },
+      "objective": "Recognize Wissen in the specified knowledge acquired through learning and experience sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2699 (060346f6c2525f91b7eb53f87e86febd0a05b228a579f3dccc63c699ca751fc2), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2699-v1",
+          "contextKey": "legacy-0171-L2699-context-1",
+          "transferKey": "legacy-0171-L2699-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017118",
+            "type": "gap_choice",
+            "prompt": "Durch den Kurs erweitert sie ihr ___ über Datensicherheit.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She learns more facts and concepts.",
+              "de": "Sie lernt weitere Fakten und Zusammenhänge."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wohnen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wissen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Warten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wünschen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wissen is knowledge gained from learning or experience.",
+              "de": "Wissen sind Kenntnisse aus Lernen oder Erfahrung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch den Kurs erweitert sie ihr Wissen über Datensicherheit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wissen' (option 1). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Wohnen: Living in a place. Wissen: Correct: knowledge. Warten: Waiting. Wünschen: Wishing. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2699-v2",
+          "contextKey": "legacy-0171-L2699-context-2",
+          "transferKey": "legacy-0171-L2699-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017118",
+            "type": "choice",
+            "prompt": "Ein Techniker kennt die Funktionsweise einer Maschine aus Ausbildung und Erfahrung. Was besitzt er?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "His understanding is learned and established.",
+              "de": "Seine Kenntnisse beruhen auf Lernen und Erfahrung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vermutung"
+              },
+              {
+                "id": "1",
+                "text": "Zufall"
+              },
+              {
+                "id": "2",
+                "text": "Wissen"
+              },
+              {
+                "id": "3",
+                "text": "Gerücht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Wissen is knowledge gained from learning or experience.",
+              "de": "Wissen sind Kenntnisse aus Lernen oder Erfahrung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er besitzt Wissen über die Maschine.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wissen' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Vermutung: Assumption. Zufall: Chance. Wissen: Correct: knowledge. Gerücht: Unverified rumor. No independent human approval or measured transfer claimed."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000017119",
+      "title": {
+        "en": "Using Wissenschaftler accurately",
+        "de": "Wissenschaftler im Kontext richtig verwenden"
+      },
+      "description": {
+        "en": "Recognize Wissenschaftler in the sense of a male scientist conducting research.",
+        "de": "Wissenschaftler im Sinn von männlicher Wissenschaftler erkennen."
+      },
+      "objective": "Recognize Wissenschaftler in the specified a male scientist conducting research sense and select its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L2700 (4b35c90b40724e0557767222a55eb14be1f398197047f44232da3a6efa1c212e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial evidence in variants and report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0171-L2700-v1",
+          "contextKey": "legacy-0171-L2700-context-1",
+          "transferKey": "legacy-0171-L2700-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017119",
+            "type": "gap_choice",
+            "prompt": "Der ___ untersucht im Labor die Eigenschaften neuer Materialien.",
+            "instruction": {
+              "en": "Choose the option that completes the German sentence correctly.",
+              "de": "Wähle die Option, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He conducts systematic research.",
+              "de": "Er betreibt systematische Forschung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kassierer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wissenschaftler"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verkäufer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Wissenschaftler is a male person who conducts research.",
+              "de": "Ein Wissenschaftler betreibt wissenschaftliche Forschung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Wissenschaftler untersucht im Labor die Eigenschaften neuer Materialien.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 1: independently solved as 'Wissenschaftler' (option 2). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Hausmeister: Maintains buildings. Kassierer: Handles payments. Wissenschaftler: Correct: scientist. Verkäufer: Sells goods. No independent human approval or measured transfer claimed."
+        },
+        {
+          "variantKey": "legacy-0171-L2700-v2",
+          "contextKey": "legacy-0171-L2700-context-2",
+          "transferKey": "legacy-0171-L2700-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001710191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000017119",
+            "type": "choice",
+            "prompt": "Ein Mann plant Experimente, wertet Messdaten aus und veröffentlicht Forschungsergebnisse. Welchen Beruf übt er aus?",
+            "instruction": {
+              "en": "Read the German situation and select the single correct answer.",
+              "de": "Lies die deutsche Situation und wähle die einzige richtige Antwort."
+            },
+            "hint": {
+              "en": "His work is scientific research.",
+              "de": "Seine Arbeit ist wissenschaftliche Forschung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferfahrer"
+              },
+              {
+                "id": "1",
+                "text": "Koch"
+              },
+              {
+                "id": "2",
+                "text": "Buchhalter"
+              },
+              {
+                "id": "3",
+                "text": "Wissenschaftler"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Wissenschaftler is a male person who conducts research.",
+              "de": "Ein Wissenschaftler betreibt wissenschaftliche Forschung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er ist Wissenschaftler.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review, 2026-10-29, variant 2: independently solved as 'Wissenschaftler' (option 3). Reviewed full German sentence, inflection, B1/B2 objective, bilingual feedback and distinct context. Every offered option: Lieferfahrer: Delivers goods. Koch: Prepares food. Buchhalter: Records finances. Wissenschaftler: Correct: researcher. No independent human approval or measured transfer claimed."
+        }
+      ]
+    }
+  ]
+}
