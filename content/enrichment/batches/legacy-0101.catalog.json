@@ -1,0 +1,2869 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000010100",
+      "title": {
+        "en": "Using Galerie in context",
+        "de": "Galerie im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Galerie: art gallery, in two different situations.",
+        "de": "Galerie erkennen und verwenden: Kunstgalerie, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Galerie meaning art gallery, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L887 (80d81cff2fca3404b27a55b6425e63063cc606d827cf2ccd7a204473eb88953c), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L887-v1",
+          "contextKey": "legacy-0101-L887-context-1",
+          "transferKey": "legacy-0101-L887-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010100",
+            "type": "gap_choice",
+            "prompt": "Die Künstlerin stellt ihre Bilder in einer ___ aus.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "This place displays works of art.",
+              "de": "An diesem Ort werden Kunstwerke gezeigt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Garage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Galerie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gärtnerei"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gaststätte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Galerie means art gallery here; \"Galerie\" is the correct form.",
+              "de": "Galerie bedeutet hier: Kunstgalerie. Die Form „Galerie“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Künstlerin stellt ihre Bilder in einer Galerie aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Künstlerin stellt ihre Bilder in einer Galerie aus.\" checked. All four choices reviewed: Garage: rejected; different referent, construction or case/meaning in the intended context; Galerie: correct for noun form and meaning; Gärtnerei: rejected; different referent, construction or case/meaning in the intended context; Gaststätte: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L887-v2",
+          "contextKey": "legacy-0101-L887-context-2",
+          "transferKey": "legacy-0101-L887-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010100",
+            "type": "choice",
+            "prompt": "Am Sonntag besuchten wir eine ___ mit Fotografien aus den 1920er-Jahren.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The photographs were part of an art exhibition.",
+              "de": "Die Fotos waren Teil einer Kunstausstellung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebirge"
+              },
+              {
+                "id": "1",
+                "text": "Gasthaus"
+              },
+              {
+                "id": "2",
+                "text": "Galerie"
+              },
+              {
+                "id": "3",
+                "text": "Gebrauchsanweisung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Galerie means art gallery here; \"Galerie\" is the correct form.",
+              "de": "Galerie bedeutet hier: Kunstgalerie. Die Form „Galerie“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Sonntag besuchten wir eine Galerie mit Fotografien aus den 1920er-Jahren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Am Sonntag besuchten wir eine Galerie mit Fotografien aus den 1920er-Jahren.\" checked. All four choices reviewed: Gebirge: rejected; different referent, construction or case/meaning in the intended context; Gasthaus: rejected; different referent, construction or case/meaning in the intended context; Galerie: correct for noun form and meaning; Gebrauchsanweisung: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010102",
+      "title": {
+        "en": "Using Garantie in context",
+        "de": "Garantie im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Garantie: warranty or guarantee, in two different situations.",
+        "de": "Garantie erkennen und verwenden: Garantie für ein Produkt, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Garantie meaning warranty or guarantee, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L890 (a552b3c3ffa084cf63ac8293d4cff27e92b38e31946f79ee474b73a2800b2674), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L890-v1",
+          "contextKey": "legacy-0101-L890-context-1",
+          "transferKey": "legacy-0101-L890-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010102",
+            "type": "gap_choice",
+            "prompt": "Auf die Waschmaschine gibt der Hersteller zwei Jahre ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The manufacturer promises certain repairs within a period.",
+              "de": "Der Hersteller sichert bestimmte Leistungen für eine Zeit zu."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Garantie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Garderobe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gastronomie"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebrauch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Garantie means warranty or guarantee here; \"Garantie\" is the correct form.",
+              "de": "Garantie bedeutet hier: Garantie für ein Produkt. Die Form „Garantie“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf die Waschmaschine gibt der Hersteller zwei Jahre Garantie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Auf die Waschmaschine gibt der Hersteller zwei Jahre Garantie.\" checked. All four choices reviewed: Garantie: correct for noun form and meaning; Garderobe: rejected; different referent, construction or case/meaning in the intended context; Gastronomie: rejected; different referent, construction or case/meaning in the intended context; Gebrauch: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L890-v2",
+          "contextKey": "legacy-0101-L890-context-2",
+          "transferKey": "legacy-0101-L890-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010102",
+            "type": "choice",
+            "prompt": "Die ___ deckt Materialfehler ab, aber keine selbst verursachten Schäden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "This product protection covers defects.",
+              "de": "Dieser Schutz bezieht sich auf Produktmängel."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Galerie"
+              },
+              {
+                "id": "1",
+                "text": "Gaststätte"
+              },
+              {
+                "id": "2",
+                "text": "Gebirge"
+              },
+              {
+                "id": "3",
+                "text": "Garantie"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Garantie means warranty or guarantee here; \"Garantie\" is the correct form.",
+              "de": "Garantie bedeutet hier: Garantie für ein Produkt. Die Form „Garantie“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Garantie deckt Materialfehler ab, aber keine selbst verursachten Schäden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Garantie deckt Materialfehler ab, aber keine selbst verursachten Schäden.\" checked. All four choices reviewed: Galerie: rejected; different referent, construction or case/meaning in the intended context; Gaststätte: rejected; different referent, construction or case/meaning in the intended context; Gebirge: rejected; different referent, construction or case/meaning in the intended context; Garantie: correct for noun form and meaning. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010103",
+      "title": {
+        "en": "Using Garderobe in context",
+        "de": "Garderobe im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Garderobe: coat rack or place to hang coats, in two different situations.",
+        "de": "Garderobe erkennen und verwenden: Garderobe zum Aufhängen von Kleidung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Garderobe meaning coat rack or place to hang coats, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L891 (dcb55e8437daae8ae7791dea204590077bd70988889c26676d114375310b4c0a), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L891-v1",
+          "contextKey": "legacy-0101-L891-context-1",
+          "transferKey": "legacy-0101-L891-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010103",
+            "type": "gap_choice",
+            "prompt": "Im Flur hängt eine ___ für Jacken und Mäntel.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "People hang their coats there.",
+              "de": "Dort werden Jacken und Mäntel aufgehängt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Garantie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Garderobe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Galerie"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebirge"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Garderobe means coat rack or place to hang coats here; \"Garderobe\" is the correct form.",
+              "de": "Garderobe bedeutet hier: Garderobe zum Aufhängen von Kleidung. Die Form „Garderobe“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Flur hängt eine Garderobe für Jacken und Mäntel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im Flur hängt eine Garderobe für Jacken und Mäntel.\" checked. All four choices reviewed: Garantie: rejected; different referent, construction or case/meaning in the intended context; Garderobe: correct for noun form and meaning; Galerie: rejected; different referent, construction or case/meaning in the intended context; Gebirge: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L891-v2",
+          "contextKey": "legacy-0101-L891-context-2",
+          "transferKey": "legacy-0101-L891-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010103",
+            "type": "choice",
+            "prompt": "Bitte hängen Sie den Mantel an die ___ neben der Eingangstür.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The coat should be placed on the coat rack.",
+              "de": "Der Mantel soll an den Kleiderständer gehängt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fußleiste"
+              },
+              {
+                "id": "1",
+                "text": "Gaststätte"
+              },
+              {
+                "id": "2",
+                "text": "Garderobe"
+              },
+              {
+                "id": "3",
+                "text": "Gasthof"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Garderobe means coat rack or place to hang coats here; \"Garderobe\" is the correct form.",
+              "de": "Garderobe bedeutet hier: Garderobe zum Aufhängen von Kleidung. Die Form „Garderobe“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte hängen Sie den Mantel an die Garderobe neben der Eingangstür.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Bitte hängen Sie den Mantel an die Garderobe neben der Eingangstür.\" checked. All four choices reviewed: Fußleiste: rejected; different referent, construction or case/meaning in the intended context; Gaststätte: rejected; different referent, construction or case/meaning in the intended context; Garderobe: correct for noun form and meaning; Gasthof: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010104",
+      "title": {
+        "en": "Using Gas in context",
+        "de": "Gas im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gas: gas as a physical substance, in two different situations.",
+        "de": "Gas erkennen und verwenden: Gas als gasförmiger Stoff, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gas meaning gas as a physical substance, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L893 (52fb76f4b2b790dc10cd81cb5a73ece08319c7c9df7fb22a6d95c8c4190c2e61), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L893-v1",
+          "contextKey": "legacy-0101-L893-context-1",
+          "transferKey": "legacy-0101-L893-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010104",
+            "type": "gap_choice",
+            "prompt": "Wenn die Leitung beschädigt ist, kann brennbares ___ austreten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A flammable substance can escape from a pipe.",
+              "de": "Ein brennbarer Stoff kann aus der Leitung entweichen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gas"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gebäck"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebiet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebäude"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gas means gas as a physical substance here; \"Gas\" is the correct form.",
+              "de": "Gas bedeutet hier: Gas als gasförmiger Stoff. Die Form „Gas“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wenn die Leitung beschädigt ist, kann brennbares Gas austreten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Wenn die Leitung beschädigt ist, kann brennbares Gas austreten.\" checked. All four choices reviewed: Gas: correct for noun form and meaning; Gebäck: rejected; different referent, construction or case/meaning in the intended context; Gebiet: rejected; different referent, construction or case/meaning in the intended context; Gebäude: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L893-v2",
+          "contextKey": "legacy-0101-L893-context-2",
+          "transferKey": "legacy-0101-L893-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010104",
+            "type": "choice",
+            "prompt": "Beim Erhitzen wird das Wasser zu Dampf, also zu einem ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Water vapour is a gaseous state of matter.",
+              "de": "Wasserdampf ist ein gasförmiger Zustand von Wasser."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebirge"
+              },
+              {
+                "id": "1",
+                "text": "Gebot"
+              },
+              {
+                "id": "2",
+                "text": "Gerät"
+              },
+              {
+                "id": "3",
+                "text": "Gas"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gas means gas as a physical substance here; \"Gas\" is the correct form.",
+              "de": "Gas bedeutet hier: Gas als gasförmiger Stoff. Die Form „Gas“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Erhitzen wird das Wasser zu Dampf, also zu einem Gas.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Beim Erhitzen wird das Wasser zu Dampf, also zu einem Gas.\" checked. All four choices reviewed: Gebirge: rejected; different referent, construction or case/meaning in the intended context; Gebot: rejected; different referent, construction or case/meaning in the intended context; Gerät: rejected; different referent, construction or case/meaning in the intended context; Gas: correct for noun form and meaning. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010105",
+      "title": {
+        "en": "Using Gasaustritt in context",
+        "de": "Gasaustritt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gasaustritt: escape or leak of gas, in two different situations.",
+        "de": "Gasaustritt erkennen und verwenden: Austritt von Gas aus einer Anlage, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gasaustritt meaning escape or leak of gas, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L894 (ce5e2d56ca49321a2a988b28945434bf7bf04be4a605033f329329d1f4e203d7), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L894-v1",
+          "contextKey": "legacy-0101-L894-context-1",
+          "transferKey": "legacy-0101-L894-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010105",
+            "type": "gap_choice",
+            "prompt": "Wegen eines möglichen ___ mussten alle das Gebäude verlassen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "People were evacuated because gas may have escaped.",
+              "de": "Das Gebäude wurde wegen möglicherweise entweichenden Gases geräumt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebrauchs"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gasaustritts"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebirges"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebäudes"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gasaustritt means escape or leak of gas here; \"Gasaustritts\" is the correct form.",
+              "de": "Gasaustritt bedeutet hier: Austritt von Gas aus einer Anlage. Die Form „Gasaustritts“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen eines möglichen Gasaustritts mussten alle das Gebäude verlassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Wegen eines möglichen Gasaustritts mussten alle das Gebäude verlassen.\" checked. All four choices reviewed: Gebrauchs: rejected; different referent, construction or case/meaning in the intended context; Gasaustritts: correct for noun form and meaning; Gebirges: rejected; different referent, construction or case/meaning in the intended context; Gebäudes: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L894-v2",
+          "contextKey": "legacy-0101-L894-context-2",
+          "transferKey": "legacy-0101-L894-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010105",
+            "type": "choice",
+            "prompt": "Die Feuerwehr hat den ___ an der defekten Leitung gestoppt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The leak in the pipe was stopped.",
+              "de": "Das Entweichen von Gas aus der Leitung wurde gestoppt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebrauch"
+              },
+              {
+                "id": "1",
+                "text": "Gasgrill"
+              },
+              {
+                "id": "2",
+                "text": "Gasaustritt"
+              },
+              {
+                "id": "3",
+                "text": "Gastgewerbe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gasaustritt means escape or leak of gas here; \"Gasaustritt\" is the correct form.",
+              "de": "Gasaustritt bedeutet hier: Austritt von Gas aus einer Anlage. Die Form „Gasaustritt“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Feuerwehr hat den Gasaustritt an der defekten Leitung gestoppt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Feuerwehr hat den Gasaustritt an der defekten Leitung gestoppt.\" checked. All four choices reviewed: Gebrauch: rejected; different referent, construction or case/meaning in the intended context; Gasgrill: rejected; different referent, construction or case/meaning in the intended context; Gasaustritt: correct for noun form and meaning; Gastgewerbe: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010106",
+      "title": {
+        "en": "Using Gasgrill in context",
+        "de": "Gasgrill im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gasgrill: gas-powered grill, in two different situations.",
+        "de": "Gasgrill erkennen und verwenden: mit Gas betriebener Grill, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gasgrill meaning gas-powered grill, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L895 (a55ba92efe8f0da099164f8d2b133a0b380d9a886c5d5494c8e0b91a41c4d95b), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L895-v1",
+          "contextKey": "legacy-0101-L895-context-1",
+          "transferKey": "legacy-0101-L895-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010106",
+            "type": "gap_choice",
+            "prompt": "Für das Grillfest schließen wir die Gasflasche an den ___ an.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The barbecue equipment runs on bottled gas.",
+              "de": "Das Grillgerät wird mit Gas aus einer Flasche betrieben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gasgrill"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gasthof"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gasaustritt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebirge"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gasgrill means gas-powered grill here; \"Gasgrill\" is the correct form.",
+              "de": "Gasgrill bedeutet hier: mit Gas betriebener Grill. Die Form „Gasgrill“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für das Grillfest schließen wir die Gasflasche an den Gasgrill an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Für das Grillfest schließen wir die Gasflasche an den Gasgrill an.\" checked. All four choices reviewed: Gasgrill: correct for noun form and meaning; Gasthof: rejected; different referent, construction or case/meaning in the intended context; Gasaustritt: rejected; different referent, construction or case/meaning in the intended context; Gebirge: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L895-v2",
+          "contextKey": "legacy-0101-L895-context-2",
+          "transferKey": "legacy-0101-L895-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010106",
+            "type": "choice",
+            "prompt": "Der ___ wird mit einer Gasflasche betrieben, nicht mit Holzkohle.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "It is a grill fuelled by gas rather than charcoal.",
+              "de": "Es ist ein Grill, der Gas statt Holzkohle verwendet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gartenstuhl"
+              },
+              {
+                "id": "1",
+                "text": "Backofen"
+              },
+              {
+                "id": "2",
+                "text": "Kohlegrill"
+              },
+              {
+                "id": "3",
+                "text": "Gasgrill"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gasgrill means gas-powered grill here; \"Gasgrill\" is the correct form.",
+              "de": "Gasgrill bedeutet hier: mit Gas betriebener Grill. Die Form „Gasgrill“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Gasgrill wird mit einer Gasflasche betrieben, nicht mit Holzkohle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Gasgrill wird mit einer Gasflasche betrieben, nicht mit Holzkohle.\" checked. All four choices reviewed: Gartenstuhl: rejected; different referent, construction or case/meaning in the intended context; Backofen: rejected; different referent, construction or case/meaning in the intended context; Kohlegrill: rejected; different referent, construction or case/meaning in the intended context; Gasgrill: correct for noun form and meaning. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010107",
+      "title": {
+        "en": "Using Gastgeber in context",
+        "de": "Gastgeber im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gastgeber: male host, in two different situations.",
+        "de": "Gastgeber erkennen und verwenden: männlicher Gastgeber, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gastgeber meaning male host, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L897 (6012d2d0e596a7468f6855e928a1c8fa4c3c4ac763451310aa187de794aed917), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L897-v1",
+          "contextKey": "legacy-0101-L897-context-1",
+          "transferKey": "legacy-0101-L897-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010107",
+            "type": "gap_choice",
+            "prompt": "Der ___ begrüßte die eingeladenen Gäste an der Tür.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "He is receiving people he invited.",
+              "de": "Er empfängt die Menschen, die er eingeladen hat."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gast"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gastgeber"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Friseur"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fußgänger"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gastgeber means male host here; \"Gastgeber\" is the correct form.",
+              "de": "Gastgeber bedeutet hier: männlicher Gastgeber. Die Form „Gastgeber“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Gastgeber begrüßte die eingeladenen Gäste an der Tür.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Gastgeber begrüßte die eingeladenen Gäste an der Tür.\" checked. All four choices reviewed: Gast: rejected; different referent, construction or case/meaning in the intended context; Gastgeber: correct for noun form and meaning; Friseur: rejected; different referent, construction or case/meaning in the intended context; Fußgänger: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L897-v2",
+          "contextKey": "legacy-0101-L897-context-2",
+          "transferKey": "legacy-0101-L897-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010107",
+            "type": "choice",
+            "prompt": "Nach dem Abendessen bedankten wir uns beim ___ für die Einladung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The person arranged and hosted the gathering.",
+              "de": "Die Person hat die Einladung ausgesprochen und Gäste empfangen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gast"
+              },
+              {
+                "id": "1",
+                "text": "Kellner"
+              },
+              {
+                "id": "2",
+                "text": "Gastgeber"
+              },
+              {
+                "id": "3",
+                "text": "Fahrer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gastgeber means male host here; \"Gastgeber\" is the correct form.",
+              "de": "Gastgeber bedeutet hier: männlicher Gastgeber. Die Form „Gastgeber“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Abendessen bedankten wir uns beim Gastgeber für die Einladung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach dem Abendessen bedankten wir uns beim Gastgeber für die Einladung.\" checked. All four choices reviewed: Gast: rejected; different referent, construction or case/meaning in the intended context; Kellner: rejected; different referent, construction or case/meaning in the intended context; Gastgeber: correct for noun form and meaning; Fahrer: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010108",
+      "title": {
+        "en": "Using Gastgewerbe in context",
+        "de": "Gastgewerbe im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gastgewerbe: hospitality industry including lodging and food services, in two different situations.",
+        "de": "Gastgewerbe erkennen und verwenden: Gastgewerbe mit Beherbergung und Gastronomie, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gastgewerbe meaning hospitality industry including lodging and food services, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L898 (61667d67d149f576426ea2ebc5281c45024ee615a75d731c7e6785da2e664593), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L898-v1",
+          "contextKey": "legacy-0101-L898-context-1",
+          "transferKey": "legacy-0101-L898-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010108",
+            "type": "gap_choice",
+            "prompt": "Hotels und Restaurants gehören zum ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The industry includes accommodation and food services.",
+              "de": "Die Branche umfasst Hotels und Restaurants."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gastgewerbe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gebirge"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fundbüro"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Funk"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gastgewerbe means hospitality industry including lodging and food services here; \"Gastgewerbe\" is the correct form.",
+              "de": "Gastgewerbe bedeutet hier: Gastgewerbe mit Beherbergung und Gastronomie. Die Form „Gastgewerbe“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Hotels und Restaurants gehören zum Gastgewerbe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Hotels und Restaurants gehören zum Gastgewerbe.\" checked. All four choices reviewed: Gastgewerbe: correct for noun form and meaning; Gebirge: rejected; different referent, construction or case/meaning in the intended context; Fundbüro: rejected; different referent, construction or case/meaning in the intended context; Funk: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L898-v2",
+          "contextKey": "legacy-0101-L898-context-2",
+          "transferKey": "legacy-0101-L898-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010108",
+            "type": "choice",
+            "prompt": "Im ___ arbeiten viele Menschen in Hotels, Pensionen und Restaurants.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "This sector provides lodging and meals to guests.",
+              "de": "Diese Branche bietet Übernachtung und Verpflegung an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bauwesen"
+              },
+              {
+                "id": "1",
+                "text": "Gesundheitswesen"
+              },
+              {
+                "id": "2",
+                "text": "Schulwesen"
+              },
+              {
+                "id": "3",
+                "text": "Gastgewerbe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gastgewerbe means hospitality industry including lodging and food services here; \"Gastgewerbe\" is the correct form.",
+              "de": "Gastgewerbe bedeutet hier: Gastgewerbe mit Beherbergung und Gastronomie. Die Form „Gastgewerbe“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Gastgewerbe arbeiten viele Menschen in Hotels, Pensionen und Restaurants.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im Gastgewerbe arbeiten viele Menschen in Hotels, Pensionen und Restaurants.\" checked. All four choices reviewed: Bauwesen: rejected; different referent, construction or case/meaning in the intended context; Gesundheitswesen: rejected; different referent, construction or case/meaning in the intended context; Schulwesen: rejected; different referent, construction or case/meaning in the intended context; Gastgewerbe: correct for noun form and meaning. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010109",
+      "title": {
+        "en": "Using Gasthaus in context",
+        "de": "Gasthaus im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gasthaus: inn offering food and sometimes lodging, in two different situations.",
+        "de": "Gasthaus erkennen und verwenden: Gasthaus mit Essen und möglicher Übernachtung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gasthaus meaning inn offering food and sometimes lodging, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L899 (851f7390465013df3dde0465b2280d18f3df2857c3a8b0909d858d2be39d7f4b), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L899-v1",
+          "contextKey": "legacy-0101-L899-context-1",
+          "transferKey": "legacy-0101-L899-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010109",
+            "type": "gap_choice",
+            "prompt": "Im kleinen ___ am Dorfplatz bekamen wir ein warmes Abendessen und ein Zimmer.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The place offered both a meal and accommodation.",
+              "de": "Dort gab es Essen und eine Übernachtungsmöglichkeit."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fundbüro"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gasthaus"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Museum"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rathaus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gasthaus means inn offering food and sometimes lodging here; \"Gasthaus\" is the correct form.",
+              "de": "Gasthaus bedeutet hier: Gasthaus mit Essen und möglicher Übernachtung. Die Form „Gasthaus“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im kleinen Gasthaus am Dorfplatz bekamen wir ein warmes Abendessen und ein Zimmer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im kleinen Gasthaus am Dorfplatz bekamen wir ein warmes Abendessen und ein Zimmer.\" checked. All four choices reviewed: Fundbüro: rejected; different referent, construction or case/meaning in the intended context; Gasthaus: correct for noun form and meaning; Museum: rejected; different referent, construction or case/meaning in the intended context; Rathaus: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L899-v2",
+          "contextKey": "legacy-0101-L899-context-2",
+          "transferKey": "legacy-0101-L899-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010109",
+            "type": "choice",
+            "prompt": "Nach der Wanderung übernachteten wir in einem gemütlichen ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They stayed overnight at a traditional inn.",
+              "de": "Sie übernachteten in einer traditionellen Herberge."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebirge"
+              },
+              {
+                "id": "1",
+                "text": "Büro"
+              },
+              {
+                "id": "2",
+                "text": "Gasthaus"
+              },
+              {
+                "id": "3",
+                "text": "Fundbüro"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gasthaus means inn offering food and sometimes lodging here; \"Gasthaus\" is the correct form.",
+              "de": "Gasthaus bedeutet hier: Gasthaus mit Essen und möglicher Übernachtung. Die Form „Gasthaus“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Wanderung übernachteten wir in einem gemütlichen Gasthaus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach der Wanderung übernachteten wir in einem gemütlichen Gasthaus.\" checked. All four choices reviewed: Gebirge: rejected; different referent, construction or case/meaning in the intended context; Büro: rejected; different referent, construction or case/meaning in the intended context; Gasthaus: correct for noun form and meaning; Fundbüro: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010111",
+      "title": {
+        "en": "Using Gastronomie in context",
+        "de": "Gastronomie im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gastronomie: restaurant and food-service sector, in two different situations.",
+        "de": "Gastronomie erkennen und verwenden: Gastronomie als Bereich der Speisenbewirtung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gastronomie meaning restaurant and food-service sector, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L901 (a1208033a8044f3a96146ba8143b062ee723ca50bc9c2981f56c46a0ce656ff9), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L901-v1",
+          "contextKey": "legacy-0101-L901-context-1",
+          "transferKey": "legacy-0101-L901-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010111",
+            "type": "gap_choice",
+            "prompt": "Nach ihrer Ausbildung in der ___ arbeitet sie als Restaurantleiterin.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Her training concerned professional food service.",
+              "de": "Ihre Ausbildung betraf den professionellen Restaurantbetrieb."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gastronomie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geologie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Architektur"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Informatik"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gastronomie means restaurant and food-service sector here; \"Gastronomie\" is the correct form.",
+              "de": "Gastronomie bedeutet hier: Gastronomie als Bereich der Speisenbewirtung. Die Form „Gastronomie“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach ihrer Ausbildung in der Gastronomie arbeitet sie als Restaurantleiterin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach ihrer Ausbildung in der Gastronomie arbeitet sie als Restaurantleiterin.\" checked. All four choices reviewed: Gastronomie: correct for noun form and meaning; Geologie: rejected; different referent, construction or case/meaning in the intended context; Architektur: rejected; different referent, construction or case/meaning in the intended context; Informatik: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L901-v2",
+          "contextKey": "legacy-0101-L901-context-2",
+          "transferKey": "legacy-0101-L901-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010111",
+            "type": "choice",
+            "prompt": "In der ___ gelten strenge Hygienevorschriften für die Zubereitung von Speisen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The rules apply to businesses preparing food for guests.",
+              "de": "Die Vorschriften gelten für Betriebe, die Speisen für Gäste zubereiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Galerie"
+              },
+              {
+                "id": "1",
+                "text": "Gebirge"
+              },
+              {
+                "id": "2",
+                "text": "Garderobe"
+              },
+              {
+                "id": "3",
+                "text": "Gastronomie"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gastronomie means restaurant and food-service sector here; \"Gastronomie\" is the correct form.",
+              "de": "Gastronomie bedeutet hier: Gastronomie als Bereich der Speisenbewirtung. Die Form „Gastronomie“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Gastronomie gelten strenge Hygienevorschriften für die Zubereitung von Speisen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"In der Gastronomie gelten strenge Hygienevorschriften für die Zubereitung von Speisen.\" checked. All four choices reviewed: Galerie: rejected; different referent, construction or case/meaning in the intended context; Gebirge: rejected; different referent, construction or case/meaning in the intended context; Garderobe: rejected; different referent, construction or case/meaning in the intended context; Gastronomie: correct for noun form and meaning. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010112",
+      "title": {
+        "en": "Using Gaststätte in context",
+        "de": "Gaststätte im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gaststätte: restaurant or eating establishment, in two different situations.",
+        "de": "Gaststätte erkennen und verwenden: Gaststätte als Ort zum Essen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gaststätte meaning restaurant or eating establishment, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L902 (9894048310a809f9ec35b3ca17ae2a4cdfa1915fa9ce3a669446ead703f3f7b2), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L902-v1",
+          "contextKey": "legacy-0101-L902-context-1",
+          "transferKey": "legacy-0101-L902-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010112",
+            "type": "gap_choice",
+            "prompt": "Die ___ bietet mittags drei warme Gerichte an.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "This establishment serves meals at lunchtime.",
+              "de": "Dieser Betrieb bietet mittags Essen an."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Galerie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gaststätte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Garderobe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Garantie"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gaststätte means restaurant or eating establishment here; \"Gaststätte\" is the correct form.",
+              "de": "Gaststätte bedeutet hier: Gaststätte als Ort zum Essen. Die Form „Gaststätte“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gaststätte bietet mittags drei warme Gerichte an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Gaststätte bietet mittags drei warme Gerichte an.\" checked. All four choices reviewed: Galerie: rejected; different referent, construction or case/meaning in the intended context; Gaststätte: correct for noun form and meaning; Garderobe: rejected; different referent, construction or case/meaning in the intended context; Garantie: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L902-v2",
+          "contextKey": "legacy-0101-L902-context-2",
+          "transferKey": "legacy-0101-L902-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010112",
+            "type": "choice",
+            "prompt": "Wir reservierten in der ___ einen Tisch für sechs Personen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They booked a table at an eating place.",
+              "de": "Sie reservierten einen Tisch in einem Lokal."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gasaustritt"
+              },
+              {
+                "id": "1",
+                "text": "Gebirge"
+              },
+              {
+                "id": "2",
+                "text": "Gaststätte"
+              },
+              {
+                "id": "3",
+                "text": "Gebrauch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gaststätte means restaurant or eating establishment here; \"Gaststätte\" is the correct form.",
+              "de": "Gaststätte bedeutet hier: Gaststätte als Ort zum Essen. Die Form „Gaststätte“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir reservierten in der Gaststätte einen Tisch für sechs Personen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Wir reservierten in der Gaststätte einen Tisch für sechs Personen.\" checked. All four choices reviewed: Gasaustritt: rejected; different referent, construction or case/meaning in the intended context; Gebirge: rejected; different referent, construction or case/meaning in the intended context; Gaststätte: correct for noun form and meaning; Gebrauch: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010113",
+      "title": {
+        "en": "Using Gebäck in context",
+        "de": "Gebäck im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gebäck: pastries or baked goods, in two different situations.",
+        "de": "Gebäck erkennen und verwenden: Gebäck als Backwaren, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gebäck meaning pastries or baked goods, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L903 (66637ad9edc5d845189d18839251961643b7310ee5725e177a32b9fb4c923978), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L903-v1",
+          "contextKey": "legacy-0101-L903-context-1",
+          "transferKey": "legacy-0101-L903-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010113",
+            "type": "gap_choice",
+            "prompt": "In der Bäckerei duftet es nach frisch gebackenem ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The smell comes from freshly baked food.",
+              "de": "Der Duft kommt von frisch gebackenen Backwaren."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebäck"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gas"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebiet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebäude"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebäck means pastries or baked goods here; \"Gebäck\" is the correct form.",
+              "de": "Gebäck bedeutet hier: Gebäck als Backwaren. Die Form „Gebäck“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Bäckerei duftet es nach frisch gebackenem Gebäck.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"In der Bäckerei duftet es nach frisch gebackenem Gebäck.\" checked. All four choices reviewed: Gebäck: correct for noun form and meaning; Gas: rejected; different referent, construction or case/meaning in the intended context; Gebiet: rejected; different referent, construction or case/meaning in the intended context; Gebäude: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L903-v2",
+          "contextKey": "legacy-0101-L903-context-2",
+          "transferKey": "legacy-0101-L903-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010113",
+            "type": "choice",
+            "prompt": "Zum Tee servierte sie süßes ___ und frisches Obst.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She served sweet baked treats.",
+              "de": "Sie servierte süße Backwaren."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebirge"
+              },
+              {
+                "id": "1",
+                "text": "Gebot"
+              },
+              {
+                "id": "2",
+                "text": "Gebiet"
+              },
+              {
+                "id": "3",
+                "text": "Gebäck"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gebäck means pastries or baked goods here; \"Gebäck\" is the correct form.",
+              "de": "Gebäck bedeutet hier: Gebäck als Backwaren. Die Form „Gebäck“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zum Tee servierte sie süßes Gebäck und frisches Obst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Zum Tee servierte sie süßes Gebäck und frisches Obst.\" checked. All four choices reviewed: Gebirge: rejected; different referent, construction or case/meaning in the intended context; Gebot: rejected; different referent, construction or case/meaning in the intended context; Gebiet: rejected; different referent, construction or case/meaning in the intended context; Gebäck: correct for noun form and meaning. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010114",
+      "title": {
+        "en": "Using Gebäude in context",
+        "de": "Gebäude im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gebäude: building, in two different situations.",
+        "de": "Gebäude erkennen und verwenden: Gebäude als Bauwerk, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gebäude meaning building, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L904 (3be91614823f49aa821979bcf419c90b224d02004782904663eb09147661655f), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L904-v1",
+          "contextKey": "legacy-0101-L904-context-1",
+          "transferKey": "legacy-0101-L904-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010114",
+            "type": "gap_choice",
+            "prompt": "Das alte ___ wird gerade renoviert; niemand darf es betreten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The structure is being renovated.",
+              "de": "Das Bauwerk wird erneuert."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebäck"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gebäude"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebiet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebrauch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebäude means building here; \"Gebäude\" is the correct form.",
+              "de": "Gebäude bedeutet hier: Gebäude als Bauwerk. Die Form „Gebäude“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das alte Gebäude wird gerade renoviert; niemand darf es betreten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Das alte Gebäude wird gerade renoviert; niemand darf es betreten.\" checked. All four choices reviewed: Gebäck: rejected; different referent, construction or case/meaning in the intended context; Gebäude: correct for noun form and meaning; Gebiet: rejected; different referent, construction or case/meaning in the intended context; Gebrauch: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L904-v2",
+          "contextKey": "legacy-0101-L904-context-2",
+          "transferKey": "legacy-0101-L904-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010114",
+            "type": "choice",
+            "prompt": "Die Feuerwehr evakuierte das gesamte ___ wegen Rauch im Treppenhaus.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Everyone was taken out of the building.",
+              "de": "Alle mussten das Bauwerk verlassen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebirge"
+              },
+              {
+                "id": "1",
+                "text": "Gastgewerbe"
+              },
+              {
+                "id": "2",
+                "text": "Gebäude"
+              },
+              {
+                "id": "3",
+                "text": "Gebiet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gebäude means building here; \"Gebäude\" is the correct form.",
+              "de": "Gebäude bedeutet hier: Gebäude als Bauwerk. Die Form „Gebäude“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Feuerwehr evakuierte das gesamte Gebäude wegen Rauch im Treppenhaus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Feuerwehr evakuierte das gesamte Gebäude wegen Rauch im Treppenhaus.\" checked. All four choices reviewed: Gebirge: rejected; different referent, construction or case/meaning in the intended context; Gastgewerbe: rejected; different referent, construction or case/meaning in the intended context; Gebäude: correct for noun form and meaning; Gebiet: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010115",
+      "title": {
+        "en": "Using Gebiet in context",
+        "de": "Gebiet im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gebiet: geographical area or district, in two different situations.",
+        "de": "Gebiet erkennen und verwenden: Gebiet als räumlicher Bereich, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gebiet meaning geographical area or district, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L905 (54b9e90897790d92dbec99fb5969e9373cafce8b7bf5e2fd30d29cd92768adae), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L905-v1",
+          "contextKey": "legacy-0101-L905-context-1",
+          "transferKey": "legacy-0101-L905-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010115",
+            "type": "gap_choice",
+            "prompt": "Das weitläufige ___ entlang des Flusses ist wegen Hochwasser gesperrt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The restricted area stretches along the river.",
+              "de": "Der gesperrte Bereich erstreckt sich am Fluss entlang."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebiet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gebäck"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebrauch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebäude"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebiet means geographical area or district here; \"Gebiet\" is the correct form.",
+              "de": "Gebiet bedeutet hier: Gebiet als räumlicher Bereich. Die Form „Gebiet“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das weitläufige Gebiet entlang des Flusses ist wegen Hochwasser gesperrt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Das weitläufige Gebiet entlang des Flusses ist wegen Hochwasser gesperrt.\" checked. All four choices reviewed: Gebiet: correct for noun form and meaning; Gebäck: rejected; different referent, construction or case/meaning in the intended context; Gebrauch: rejected; different referent, construction or case/meaning in the intended context; Gebäude: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L905-v2",
+          "contextKey": "legacy-0101-L905-context-2",
+          "transferKey": "legacy-0101-L905-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010115",
+            "type": "choice",
+            "prompt": "Im nördlichen ___ der Stadt entstehen neue Radwege.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The cycle paths are in the northern part of the city.",
+              "de": "Die Radwege liegen im nördlichen Teil der Stadt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebäude"
+              },
+              {
+                "id": "1",
+                "text": "Gebäck"
+              },
+              {
+                "id": "2",
+                "text": "Gas"
+              },
+              {
+                "id": "3",
+                "text": "Gebiet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gebiet means geographical area or district here; \"Gebiet\" is the correct form.",
+              "de": "Gebiet bedeutet hier: Gebiet als räumlicher Bereich. Die Form „Gebiet“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im nördlichen Gebiet der Stadt entstehen neue Radwege.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im nördlichen Gebiet der Stadt entstehen neue Radwege.\" checked. All four choices reviewed: Gebäude: rejected; different referent, construction or case/meaning in the intended context; Gebäck: rejected; different referent, construction or case/meaning in the intended context; Gas: rejected; different referent, construction or case/meaning in the intended context; Gebiet: correct for noun form and meaning. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010116",
+      "title": {
+        "en": "Using Gebirge in context",
+        "de": "Gebirge im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gebirge: mountain range, in two different situations.",
+        "de": "Gebirge erkennen und verwenden: Gebirge als zusammenhängende Berglandschaft, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gebirge meaning mountain range, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L906 (2eb9ebf73b22047bb9f02c6f97b9f1e646e1ad4837f7ca3bcfd645dedd4d7768), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L906-v1",
+          "contextKey": "legacy-0101-L906-context-1",
+          "transferKey": "legacy-0101-L906-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010116",
+            "type": "gap_choice",
+            "prompt": "Im ___ liegt selbst im Mai noch Schnee auf den hohen Gipfeln.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The setting has many high mountain peaks.",
+              "de": "Dort gibt es viele hohe Berggipfel."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebäude"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gebirge"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gebiet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebäck"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebirge means mountain range here; \"Gebirge\" is the correct form.",
+              "de": "Gebirge bedeutet hier: Gebirge als zusammenhängende Berglandschaft. Die Form „Gebirge“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Gebirge liegt selbst im Mai noch Schnee auf den hohen Gipfeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Im Gebirge liegt selbst im Mai noch Schnee auf den hohen Gipfeln.\" checked. All four choices reviewed: Gebäude: rejected; different referent, construction or case/meaning in the intended context; Gebirge: correct for noun form and meaning; Gebiet: rejected; different referent, construction or case/meaning in the intended context; Gebäck: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L906-v2",
+          "contextKey": "legacy-0101-L906-context-2",
+          "transferKey": "legacy-0101-L906-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010116",
+            "type": "choice",
+            "prompt": "Die Wanderroute führt durch ein ___ mit steilen Tälern und hohen Bergen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The path crosses a mountainous region.",
+              "de": "Der Weg führt durch eine Landschaft mit hohen Bergen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gasthaus"
+              },
+              {
+                "id": "1",
+                "text": "Gastgewerbe"
+              },
+              {
+                "id": "2",
+                "text": "Gebirge"
+              },
+              {
+                "id": "3",
+                "text": "Fundbüro"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gebirge means mountain range here; \"Gebirge\" is the correct form.",
+              "de": "Gebirge bedeutet hier: Gebirge als zusammenhängende Berglandschaft. Die Form „Gebirge“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Wanderroute führt durch ein Gebirge mit steilen Tälern und hohen Bergen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Die Wanderroute führt durch ein Gebirge mit steilen Tälern und hohen Bergen.\" checked. All four choices reviewed: Gasthaus: rejected; different referent, construction or case/meaning in the intended context; Gastgewerbe: rejected; different referent, construction or case/meaning in the intended context; Gebirge: correct for noun form and meaning; Fundbüro: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010117",
+      "title": {
+        "en": "Using Gebotszeichen in context",
+        "de": "Gebotszeichen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gebotszeichen: mandatory traffic or safety sign, in two different situations.",
+        "de": "Gebotszeichen erkennen und verwenden: Gebotszeichen mit verbindlicher Anweisung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gebotszeichen meaning mandatory traffic or safety sign, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L907 (eead746465193080c01a564d51251270600854f15fd0085eb09903554fe5c988), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L907-v1",
+          "contextKey": "legacy-0101-L907-context-1",
+          "transferKey": "legacy-0101-L907-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010117",
+            "type": "gap_choice",
+            "prompt": "Das blaue ___ schreibt vor, dass Radfahrer diesen Weg benutzen müssen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The sign imposes an obligation, not just a warning.",
+              "de": "Das Schild ordnet eine bestimmte Handlung an."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebotszeichen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Warnschild"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ortsschild"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Straßennamensschild"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebotszeichen means mandatory traffic or safety sign here; \"Gebotszeichen\" is the correct form.",
+              "de": "Gebotszeichen bedeutet hier: Gebotszeichen mit verbindlicher Anweisung. Die Form „Gebotszeichen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das blaue Gebotszeichen schreibt vor, dass Radfahrer diesen Weg benutzen müssen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Das blaue Gebotszeichen schreibt vor, dass Radfahrer diesen Weg benutzen müssen.\" checked. All four choices reviewed: Gebotszeichen: correct for noun form and meaning; Warnschild: rejected; different referent, construction or case/meaning in the intended context; Ortsschild: rejected; different referent, construction or case/meaning in the intended context; Straßennamensschild: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L907-v2",
+          "contextKey": "legacy-0101-L907-context-2",
+          "transferKey": "legacy-0101-L907-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010117",
+            "type": "choice",
+            "prompt": "Ein rundes blaues ___ kann eine vorgeschriebene Fahrtrichtung anzeigen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The sign indicates a required direction.",
+              "de": "Das Schild schreibt eine Richtung verbindlich vor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verbotsschild"
+              },
+              {
+                "id": "1",
+                "text": "Werbeplakat"
+              },
+              {
+                "id": "2",
+                "text": "Preisschild"
+              },
+              {
+                "id": "3",
+                "text": "Gebotszeichen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gebotszeichen means mandatory traffic or safety sign here; \"Gebotszeichen\" is the correct form.",
+              "de": "Gebotszeichen bedeutet hier: Gebotszeichen mit verbindlicher Anweisung. Die Form „Gebotszeichen“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein rundes blaues Gebotszeichen kann eine vorgeschriebene Fahrtrichtung anzeigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Ein rundes blaues Gebotszeichen kann eine vorgeschriebene Fahrtrichtung anzeigen.\" checked. All four choices reviewed: Verbotsschild: rejected; different referent, construction or case/meaning in the intended context; Werbeplakat: rejected; different referent, construction or case/meaning in the intended context; Preisschild: rejected; different referent, construction or case/meaning in the intended context; Gebotszeichen: correct for noun form and meaning. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010118",
+      "title": {
+        "en": "Using Gebrauch in context",
+        "de": "Gebrauch im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gebrauch: use of something, in two different situations.",
+        "de": "Gebrauch erkennen und verwenden: Gebrauch im Sinne von Benutzung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gebrauch meaning use of something, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L908 (115e7cf35d8e520fde8c469936c66b86b8f290e7306101c72d2b27b0b93d6dd6), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L908-v1",
+          "contextKey": "legacy-0101-L908-context-1",
+          "transferKey": "legacy-0101-L908-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010118",
+            "type": "gap_choice",
+            "prompt": "Der ___ von Mobiltelefonen ist während der Prüfung nicht erlaubt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The rule forbids using phones during the exam.",
+              "de": "Die Regel verbietet die Benutzung von Handys."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebirge"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gebrauch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gasthof"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gastgeber"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebrauch means use of something here; \"Gebrauch\" is the correct form.",
+              "de": "Gebrauch bedeutet hier: Gebrauch im Sinne von Benutzung. Die Form „Gebrauch“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Gebrauch von Mobiltelefonen ist während der Prüfung nicht erlaubt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Der Gebrauch von Mobiltelefonen ist während der Prüfung nicht erlaubt.\" checked. All four choices reviewed: Gebirge: rejected; different referent, construction or case/meaning in the intended context; Gebrauch: correct for noun form and meaning; Gasthof: rejected; different referent, construction or case/meaning in the intended context; Gastgeber: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L908-v2",
+          "contextKey": "legacy-0101-L908-context-2",
+          "transferKey": "legacy-0101-L908-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010118",
+            "type": "choice",
+            "prompt": "Nach jahrelangem ___ zeigte das Werkzeug deutliche Abnutzung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Repeated use has worn the tool down.",
+              "de": "Das Werkzeug wurde über Jahre benutzt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gebäude"
+              },
+              {
+                "id": "1",
+                "text": "Gebäck"
+              },
+              {
+                "id": "2",
+                "text": "Gebrauch"
+              },
+              {
+                "id": "3",
+                "text": "Gebiet"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Gebrauch means use of something here; \"Gebrauch\" is the correct form.",
+              "de": "Gebrauch bedeutet hier: Gebrauch im Sinne von Benutzung. Die Form „Gebrauch“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach jahrelangem Gebrauch zeigte das Werkzeug deutliche Abnutzung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Nach jahrelangem Gebrauch zeigte das Werkzeug deutliche Abnutzung.\" checked. All four choices reviewed: Gebäude: rejected; different referent, construction or case/meaning in the intended context; Gebäck: rejected; different referent, construction or case/meaning in the intended context; Gebrauch: correct for noun form and meaning; Gebiet: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000010119",
+      "title": {
+        "en": "Using Gebrauchsanweisung in context",
+        "de": "Gebrauchsanweisung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Gebrauchsanweisung: instructions for using a product, in two different situations.",
+        "de": "Gebrauchsanweisung erkennen und verwenden: Gebrauchsanweisung für die Bedienung, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German noun Gebrauchsanweisung meaning instructions for using a product, including correct form and context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical and grammar facts from apps/web/data/pos/nouns.jsonl:L909 (331ca9e29077a91ced4b8ae9924d276966e6e50e8a296304e9397ac2b6085481), 2026-10-29. No inherited examples copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0101-L909-v1",
+          "contextKey": "legacy-0101-L909-context-1",
+          "transferKey": "legacy-0101-L909-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010119",
+            "type": "gap_choice",
+            "prompt": "Vor der ersten Benutzung solltest du die ___ lesen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The manual explains safe use of the product.",
+              "de": "Die Anleitung erklärt die sichere Benutzung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gebrauchsanweisung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Galerie"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Garderobe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gastronomie"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebrauchsanweisung means instructions for using a product here; \"Gebrauchsanweisung\" is the correct form.",
+              "de": "Gebrauchsanweisung bedeutet hier: Gebrauchsanweisung für die Bedienung. Die Form „Gebrauchsanweisung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der ersten Benutzung solltest du die Gebrauchsanweisung lesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"Vor der ersten Benutzung solltest du die Gebrauchsanweisung lesen.\" checked. All four choices reviewed: Gebrauchsanweisung: correct for noun form and meaning; Galerie: rejected; different referent, construction or case/meaning in the intended context; Garderobe: rejected; different referent, construction or case/meaning in the intended context; Gastronomie: rejected; different referent, construction or case/meaning in the intended context. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        },
+        {
+          "variantKey": "legacy-0101-L909-v2",
+          "contextKey": "legacy-0101-L909-context-2",
+          "transferKey": "legacy-0101-L909-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001010191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000010119",
+            "type": "choice",
+            "prompt": "In der ___ steht, wie man den Filter sicher austauscht.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the German sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den deutschen Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The operating instructions explain the procedure.",
+              "de": "Die Bedienungsanleitung beschreibt den Austausch."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Gaststätte"
+              },
+              {
+                "id": "1",
+                "text": "Garantie"
+              },
+              {
+                "id": "2",
+                "text": "Gebirge"
+              },
+              {
+                "id": "3",
+                "text": "Gebrauchsanweisung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Gebrauchsanweisung means instructions for using a product here; \"Gebrauchsanweisung\" is the correct form.",
+              "de": "Gebrauchsanweisung bedeutet hier: Gebrauchsanweisung für die Bedienung. Die Form „Gebrauchsanweisung“ passt in diesen Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Gebrauchsanweisung steht, wie man den Filter sicher austauscht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: full German sentence \"In der Gebrauchsanweisung steht, wie man den Filter sicher austauscht.\" checked. All four choices reviewed: Gaststätte: rejected; different referent, construction or case/meaning in the intended context; Garantie: rejected; different referent, construction or case/meaning in the intended context; Gebirge: rejected; different referent, construction or case/meaning in the intended context; Gebrauchsanweisung: correct for noun form and meaning. Bilingual hint and explanation checked; no other offered answer is defensible for the intended reading. Different situation from sibling; human review pending."
+        }
+      ]
+    }
+  ]
+}
