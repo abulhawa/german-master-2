@@ -1,5 +1,13 @@
 # Editorial review checkpoint, 29 October 2026
 
+## Latest continuation: legacy-0042
+
+All 34 source variants of 0042 received question-by-question and four-choice editorial review. Serious grammar defect: the original L296-v1 completed sentence has **zu eindämmen** where the separable-verb zu-infinitive is **einzudämmen**. An inactive, not-yet-rechecked overlay changes the task stem to use modal **möchte ... eindämmen**, preserving the answer ID and one gap. No source, client, published-content or canonical-validator changes.
+
+Latest totals: **42 of 49** original batches complete; **1,318 / 1,536** in frozen queue, **1,318 / 5,682** full corpus, **4,364 remaining** (218 first-queue plus 4,146 extension), **166 inactive proposed corrections, 119 exact-hash rechecked, 47 awaiting recheck**. Next batch **0043**. The older checkpoint figures below are historical.
+
+
+
 ## Latest continuation: legacy-0041
 
 Reviewed all 36 variants in batch 0041, checking the four real alternatives and the bilingual teaching text. Added three inactive corrections pending recheck: improve the idiom `hohe Bedienbarkeit` to `gute Bedienbarkeit`, scope `Bedingung` to hiring rather than merely filing an application, and improve the construction `Beihilfe zu ihren Behandlungskosten`. No original inputs, app, client or validator were changed. Exact result and CI evidence are stored in the corresponding batch artifact and overlay-validation report.
