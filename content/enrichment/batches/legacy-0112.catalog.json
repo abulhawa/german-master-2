@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000011200",
+      "title": {
+        "en": "Using Herstellung in context",
+        "de": "Herstellung im Kontext"
+      },
+      "description": {
+        "en": "Recognize Herstellung meaning manufacturing new goods in two situations.",
+        "de": "Herstellung erkennen: Herstellung neuer Waren, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Herstellung meaning manufacturing new goods and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1109 (6bb657e55265d3a5d8dbb15d6274b64254b063e22b868077ddff9e218e08cd55), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1109-v1",
+          "contextKey": "legacy-0112-L1109-context-1",
+          "transferKey": "legacy-0112-L1109-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011200",
+            "type": "gap_choice",
+            "prompt": "Die ___ der neuen Möbel beginnt, sobald alle Bauteile eingetroffen sind.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The parts will be assembled into new furniture.",
+              "de": "Aus Bauteilen entstehen neue Möbel."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Herstellung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bestellung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Entsorgung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Herstellung means manufacturing new goods in this context; \"Herstellung\" fits the sentence.",
+              "de": "Herstellung bedeutet hier Herstellung neuer Waren; die Form „Herstellung“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Herstellung der neuen Möbel beginnt, sobald alle Bauteile eingetroffen sind.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Die Herstellung der neuen Möbel beginnt, sobald alle Bauteile eingetroffen sind.\" checked for naturalness and agreement. All four offered choices individually considered: Lieferung: rejected; the full context describes manufacturing new goods, not this option; Herstellung: accepted; correct meaning and form; Bestellung: rejected; the full context describes manufacturing new goods, not this option; Entsorgung: rejected; the full context describes manufacturing new goods, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1109-v2",
+          "contextKey": "legacy-0112-L1109-context-2",
+          "transferKey": "legacy-0112-L1109-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011200",
+            "type": "choice",
+            "prompt": "In der Fabrik überwacht die Ingenieurin die ___ neuer Solarmodule vom ersten Bauteil bis zum fertigen Gerät.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The process creates a new product.",
+              "de": "Bei diesem Vorgang entsteht ein neues Produkt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wartung"
+              },
+              {
+                "id": "1",
+                "text": "Reparatur"
+              },
+              {
+                "id": "2",
+                "text": "Lagerung"
+              },
+              {
+                "id": "3",
+                "text": "Herstellung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Herstellung means manufacturing new goods in this context; \"Herstellung\" fits the sentence.",
+              "de": "Herstellung bedeutet hier Herstellung neuer Waren; die Form „Herstellung“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Fabrik überwacht die Ingenieurin die Herstellung neuer Solarmodule vom ersten Bauteil bis zum fertigen Gerät.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"In der Fabrik überwacht die Ingenieurin die Herstellung neuer Solarmodule vom ersten Bauteil bis zum fertigen Gerät.\" checked for naturalness and agreement. All four offered choices individually considered: Wartung: rejected; the full context describes manufacturing new goods, not this option; Reparatur: rejected; the full context describes manufacturing new goods, not this option; Lagerung: rejected; the full context describes manufacturing new goods, not this option; Herstellung: accepted; correct meaning and form. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011201",
+      "title": {
+        "en": "Using Herz in context",
+        "de": "Herz im Kontext"
+      },
+      "description": {
+        "en": "Recognize Herz meaning heart as a blood-pumping organ in two situations.",
+        "de": "Herz erkennen: Herz als Körperorgan, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Herz meaning heart as a blood-pumping organ and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1110 (d7a43e18dbaa251f1fa68ee49432ef39826c12d6e50f596075cd3cf9a24871c7), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1110-v1",
+          "contextKey": "legacy-0112-L1110-context-1",
+          "transferKey": "legacy-0112-L1110-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011201",
+            "type": "gap_choice",
+            "prompt": "Nach dem Sprint spürte sie ihr ___ kräftig in der Brust schlagen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "It is the organ whose beating is felt in the chest.",
+              "de": "Gemeint ist das schlagende Organ im Brustkorb."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Herz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Magen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Knie"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rücken"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Herz means heart as a blood-pumping organ in this context; \"Herz\" fits the sentence.",
+              "de": "Herz bedeutet hier Herz als Körperorgan; die Form „Herz“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Sprint spürte sie ihr Herz kräftig in der Brust schlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Nach dem Sprint spürte sie ihr Herz kräftig in der Brust schlagen.\" checked for naturalness and agreement. All four offered choices individually considered: Herz: accepted; correct meaning and form; Magen: rejected; the full context describes heart as a blood-pumping organ, not this option; Knie: rejected; the full context describes heart as a blood-pumping organ, not this option; Rücken: rejected; the full context describes heart as a blood-pumping organ, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1110-v2",
+          "contextKey": "legacy-0112-L1110-context-2",
+          "transferKey": "legacy-0112-L1110-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011201",
+            "type": "choice",
+            "prompt": "Der Arzt hörte mit dem Stethoskop das ___ des Patienten ab.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The doctor listens to an organ's sounds.",
+              "de": "Der Arzt hört die Geräusche eines Organs ab."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ohr"
+              },
+              {
+                "id": "1",
+                "text": "Bein"
+              },
+              {
+                "id": "2",
+                "text": "Herz"
+              },
+              {
+                "id": "3",
+                "text": "Auge"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Herz means heart as a blood-pumping organ in this context; \"Herz\" fits the sentence.",
+              "de": "Herz bedeutet hier Herz als Körperorgan; die Form „Herz“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Arzt hörte mit dem Stethoskop das Herz des Patienten ab.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Der Arzt hörte mit dem Stethoskop das Herz des Patienten ab.\" checked for naturalness and agreement. All four offered choices individually considered: Ohr: rejected; the full context describes heart as a blood-pumping organ, not this option; Bein: rejected; the full context describes heart as a blood-pumping organ, not this option; Herz: accepted; correct meaning and form; Auge: rejected; the full context describes heart as a blood-pumping organ, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011202",
+      "title": {
+        "en": "Using Herzinfarkt in context",
+        "de": "Herzinfarkt im Kontext"
+      },
+      "description": {
+        "en": "Recognize Herzinfarkt meaning heart attack in two situations.",
+        "de": "Herzinfarkt erkennen: Herzinfarkt, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Herzinfarkt meaning heart attack and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1111 (61718a4de0f69abc6061f29703a9bc7e217be66f3100edc62731ea2544f9a36c), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1111-v1",
+          "contextKey": "legacy-0112-L1111-context-1",
+          "transferKey": "legacy-0112-L1111-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011202",
+            "type": "gap_choice",
+            "prompt": "Bei anhaltenden Brustschmerzen vermutete die Ärztin einen ___ und veranlasste sofort ein EKG.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "An ECG is used when a heart problem is suspected.",
+              "de": "Bei Verdacht auf ein Herzproblem wird ein EKG geschrieben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Armbruch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Sonnenbrand"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Magen-Darm-Infekt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Herzinfarkt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Herzinfarkt means heart attack in this context; \"Herzinfarkt\" fits the sentence.",
+              "de": "Herzinfarkt bedeutet hier Herzinfarkt; die Form „Herzinfarkt“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei anhaltenden Brustschmerzen vermutete die Ärztin einen Herzinfarkt und veranlasste sofort ein EKG.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Bei anhaltenden Brustschmerzen vermutete die Ärztin einen Herzinfarkt und veranlasste sofort ein EKG.\" checked for naturalness and agreement. All four offered choices individually considered: Armbruch: rejected; the full context describes heart attack, not this option; Sonnenbrand: rejected; the full context describes heart attack, not this option; Magen-Darm-Infekt: rejected; the full context describes heart attack, not this option; Herzinfarkt: accepted; correct meaning and form. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1111-v2",
+          "contextKey": "legacy-0112-L1111-context-2",
+          "transferKey": "legacy-0112-L1111-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011202",
+            "type": "choice",
+            "prompt": "Nach dem ___ besuchte er regelmäßig die kardiologische Rehabilitation.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The rehabilitation programme focuses on the heart.",
+              "de": "Die Rehabilitation betrifft das Herz."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hörtest"
+              },
+              {
+                "id": "1",
+                "text": "Herzinfarkt"
+              },
+              {
+                "id": "2",
+                "text": "Zahnarztbesuch"
+              },
+              {
+                "id": "3",
+                "text": "Heuschnupfen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Herzinfarkt means heart attack in this context; \"Herzinfarkt\" fits the sentence.",
+              "de": "Herzinfarkt bedeutet hier Herzinfarkt; die Form „Herzinfarkt“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Herzinfarkt besuchte er regelmäßig die kardiologische Rehabilitation.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Nach dem Herzinfarkt besuchte er regelmäßig die kardiologische Rehabilitation.\" checked for naturalness and agreement. All four offered choices individually considered: Hörtest: rejected; the full context describes heart attack, not this option; Herzinfarkt: accepted; correct meaning and form; Zahnarztbesuch: rejected; the full context describes heart attack, not this option; Heuschnupfen: rejected; the full context describes heart attack, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011203",
+      "title": {
+        "en": "Using Hierarchie in context",
+        "de": "Hierarchie im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hierarchie meaning organizational hierarchy in two situations.",
+        "de": "Hierarchie erkennen: Hierarchie als Rangordnung, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Hierarchie meaning organizational hierarchy and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1112 (4c71454164249ec5f392fffeba778275c4daae74d2645fa91767607d9ea07b60), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1112-v1",
+          "contextKey": "legacy-0112-L1112-context-1",
+          "transferKey": "legacy-0112-L1112-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011203",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Betriebs ist flach: Zwischen den Teams und der Leitung gibt es nur eine Führungsebene.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Only a few management levels separate employees and leaders.",
+              "de": "Es gibt nur wenige Führungsebenen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Produktion"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hierarchie"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rechnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hierarchie means organizational hierarchy in this context; \"Hierarchie\" fits the sentence.",
+              "de": "Hierarchie bedeutet hier Hierarchie als Rangordnung; die Form „Hierarchie“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Hierarchie des Betriebs ist flach: Zwischen den Teams und der Leitung gibt es nur eine Führungsebene.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Die Hierarchie des Betriebs ist flach: Zwischen den Teams und der Leitung gibt es nur eine Führungsebene.\" checked for naturalness and agreement. All four offered choices individually considered: Produktion: rejected; the full context describes organizational hierarchy, not this option; Lieferung: rejected; the full context describes organizational hierarchy, not this option; Hierarchie: accepted; correct meaning and form; Rechnung: rejected; the full context describes organizational hierarchy, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1112-v2",
+          "contextKey": "legacy-0112-L1112-context-2",
+          "transferKey": "legacy-0112-L1112-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011203",
+            "type": "choice",
+            "prompt": "Die neue ___ zeigt, wer wem berichtet und wer Entscheidungen genehmigt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The structure concerns authority and reporting lines.",
+              "de": "Die Struktur zeigt Zuständigkeiten und Berichtslinien."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hierarchie"
+              },
+              {
+                "id": "1",
+                "text": "Inventur"
+              },
+              {
+                "id": "2",
+                "text": "Urlaubsplanung"
+              },
+              {
+                "id": "3",
+                "text": "Preisliste"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Hierarchie means organizational hierarchy in this context; \"Hierarchie\" fits the sentence.",
+              "de": "Hierarchie bedeutet hier Hierarchie als Rangordnung; die Form „Hierarchie“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Hierarchie zeigt, wer wem berichtet und wer Entscheidungen genehmigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Die neue Hierarchie zeigt, wer wem berichtet und wer Entscheidungen genehmigt.\" checked for naturalness and agreement. All four offered choices individually considered: Hierarchie: accepted; correct meaning and form; Inventur: rejected; the full context describes organizational hierarchy, not this option; Urlaubsplanung: rejected; the full context describes organizational hierarchy, not this option; Preisliste: rejected; the full context describes organizational hierarchy, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011204",
+      "title": {
+        "en": "Using Hierarchieebene in context",
+        "de": "Hierarchieebene im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hierarchieebene meaning a level in an organizational hierarchy in two situations.",
+        "de": "Hierarchieebene erkennen: eine einzelne Rangstufe, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Hierarchieebene meaning a level in an organizational hierarchy and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1113 (8516c45ccbf625e401489504dbd39b08c5d83c2211e5836386d3f024054e187d), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1113-v1",
+          "contextKey": "legacy-0112-L1113-context-1",
+          "transferKey": "legacy-0112-L1113-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011204",
+            "type": "gap_choice",
+            "prompt": "Eine Entscheidung über das Budget muss auf der höchsten ___ freigegeben werden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The approval comes from the top rank of management.",
+              "de": "Die Freigabe kommt von der obersten Führungsebene."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gehaltsstufe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hierarchieebene"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Produktionslinie"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitsschicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hierarchieebene means a level in an organizational hierarchy in this context; \"Hierarchieebene\" fits the sentence.",
+              "de": "Hierarchieebene bedeutet hier eine einzelne Rangstufe; die Form „Hierarchieebene“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine Entscheidung über das Budget muss auf der höchsten Hierarchieebene freigegeben werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Eine Entscheidung über das Budget muss auf der höchsten Hierarchieebene freigegeben werden.\" checked for naturalness and agreement. All four offered choices individually considered: Gehaltsstufe: rejected; the full context describes a level in an organizational hierarchy, not this option; Hierarchieebene: accepted; correct meaning and form; Produktionslinie: rejected; the full context describes a level in an organizational hierarchy, not this option; Arbeitsschicht: rejected; the full context describes a level in an organizational hierarchy, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1113-v2",
+          "contextKey": "legacy-0112-L1113-context-2",
+          "transferKey": "legacy-0112-L1113-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011204",
+            "type": "choice",
+            "prompt": "Im Organigramm stehen Teamleitung und Vorstand auf verschiedenen ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "An organization chart displays ranks, not locations.",
+              "de": "Ein Organigramm zeigt Rangstufen, keine Orte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lagerhallen"
+              },
+              {
+                "id": "1",
+                "text": "Dienstreisen"
+              },
+              {
+                "id": "2",
+                "text": "Werkbänken"
+              },
+              {
+                "id": "3",
+                "text": "Hierarchieebenen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Hierarchieebene means a level in an organizational hierarchy in this context; \"Hierarchieebenen\" fits the sentence.",
+              "de": "Hierarchieebene bedeutet hier eine einzelne Rangstufe; die Form „Hierarchieebenen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Organigramm stehen Teamleitung und Vorstand auf verschiedenen Hierarchieebenen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Im Organigramm stehen Teamleitung und Vorstand auf verschiedenen Hierarchieebenen.\" checked for naturalness and agreement. All four offered choices individually considered: Lagerhallen: rejected; the full context describes a level in an organizational hierarchy, not this option; Dienstreisen: rejected; the full context describes a level in an organizational hierarchy, not this option; Werkbänken: rejected; the full context describes a level in an organizational hierarchy, not this option; Hierarchieebenen: accepted; correct meaning and form. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011205",
+      "title": {
+        "en": "Using Hilfskraft in context",
+        "de": "Hilfskraft im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hilfskraft meaning support worker in two situations.",
+        "de": "Hilfskraft erkennen: unterstützende Arbeitskraft, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Hilfskraft meaning support worker and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1115 (1c4ed559d1e88cd54a7ff06ae8c554723a981b9496faa4f8df6eb1995773f872), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1115-v1",
+          "contextKey": "legacy-0112-L1115-context-1",
+          "transferKey": "legacy-0112-L1115-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011205",
+            "type": "gap_choice",
+            "prompt": "Für den Aufbau der Messe stellt der Veranstalter zusätzliche ___ ein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The organizer hires people to help set up.",
+              "de": "Für den Aufbau werden zusätzliche Personen eingestellt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hilfskräfte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Eintrittskarten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnungen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferungen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hilfskraft means support worker in this context; \"Hilfskräfte\" fits the sentence.",
+              "de": "Hilfskraft bedeutet hier unterstützende Arbeitskraft; die Form „Hilfskräfte“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Aufbau der Messe stellt der Veranstalter zusätzliche Hilfskräfte ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Für den Aufbau der Messe stellt der Veranstalter zusätzliche Hilfskräfte ein.\" checked for naturalness and agreement. All four offered choices individually considered: Hilfskräfte: accepted; correct meaning and form; Eintrittskarten: rejected; the full context describes support worker, not this option; Rechnungen: rejected; the full context describes support worker, not this option; Lieferungen: rejected; the full context describes support worker, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1115-v2",
+          "contextKey": "legacy-0112-L1115-context-2",
+          "transferKey": "legacy-0112-L1115-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011205",
+            "type": "choice",
+            "prompt": "Die studentische ___ unterstützt das Labor bei der Dateneingabe.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A student helps with routine tasks rather than teaching or managing.",
+              "de": "Eine studierende Person hilft bei Routineaufgaben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lehrkraft"
+              },
+              {
+                "id": "1",
+                "text": "Führungskraft"
+              },
+              {
+                "id": "2",
+                "text": "Hilfskraft"
+              },
+              {
+                "id": "3",
+                "text": "Kundschaft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Hilfskraft means support worker in this context; \"Hilfskraft\" fits the sentence.",
+              "de": "Hilfskraft bedeutet hier unterstützende Arbeitskraft; die Form „Hilfskraft“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die studentische Hilfskraft unterstützt das Labor bei der Dateneingabe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Die studentische Hilfskraft unterstützt das Labor bei der Dateneingabe.\" checked for naturalness and agreement. All four offered choices individually considered: Lehrkraft: rejected; the full context describes support worker, not this option; Führungskraft: rejected; the full context describes support worker, not this option; Hilfskraft: accepted; correct meaning and form; Kundschaft: rejected; the full context describes support worker, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011206",
+      "title": {
+        "en": "Using Hinweis in context",
+        "de": "Hinweis im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hinweis meaning notice drawing attention to something in two situations.",
+        "de": "Hinweis erkennen: kurze wichtige Mitteilung, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Hinweis meaning notice drawing attention to something and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1117 (a301b5b29847f1662477766bd489253227953b5f4725d868f524bce5972a9dc3), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1117-v1",
+          "contextKey": "legacy-0112-L1117-context-1",
+          "transferKey": "legacy-0112-L1117-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011206",
+            "type": "gap_choice",
+            "prompt": "Vor dem Schließen erscheint ein ___ auf dem Bildschirm: „Änderungen noch nicht gespeichert“.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The message alerts the user to unsaved work.",
+              "de": "Die Meldung macht auf ungespeicherte Änderungen aufmerksam."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vertrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Beleg"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gutschein"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hinweis"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hinweis means notice drawing attention to something in this context; \"Hinweis\" fits the sentence.",
+              "de": "Hinweis bedeutet hier kurze wichtige Mitteilung; die Form „Hinweis“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Schließen erscheint ein Hinweis auf dem Bildschirm: „Änderungen noch nicht gespeichert“.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Vor dem Schließen erscheint ein Hinweis auf dem Bildschirm: „Änderungen noch nicht gespeichert“.\" checked for naturalness and agreement. All four offered choices individually considered: Vertrag: rejected; the full context describes notice drawing attention to something, not this option; Beleg: rejected; the full context describes notice drawing attention to something, not this option; Gutschein: rejected; the full context describes notice drawing attention to something, not this option; Hinweis: accepted; correct meaning and form. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1117-v2",
+          "contextKey": "legacy-0112-L1117-context-2",
+          "transferKey": "legacy-0112-L1117-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011206",
+            "type": "choice",
+            "prompt": "Der ___ auf dem Aushang erklärt, dass die Sprechstunde heute ausfällt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A short announcement provides important information.",
+              "de": "Eine kurze Mitteilung informiert über den Ausfall."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vertrag"
+              },
+              {
+                "id": "1",
+                "text": "Hinweis"
+              },
+              {
+                "id": "2",
+                "text": "Stundenplan"
+              },
+              {
+                "id": "3",
+                "text": "Ausweis"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Hinweis means notice drawing attention to something in this context; \"Hinweis\" fits the sentence.",
+              "de": "Hinweis bedeutet hier kurze wichtige Mitteilung; die Form „Hinweis“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Hinweis auf dem Aushang erklärt, dass die Sprechstunde heute ausfällt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Der Hinweis auf dem Aushang erklärt, dass die Sprechstunde heute ausfällt.\" checked for naturalness and agreement. All four offered choices individually considered: Vertrag: rejected; the full context describes notice drawing attention to something, not this option; Hinweis: accepted; correct meaning and form; Stundenplan: rejected; the full context describes notice drawing attention to something, not this option; Ausweis: rejected; the full context describes notice drawing attention to something, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011207",
+      "title": {
+        "en": "Using Hinweisschild in context",
+        "de": "Hinweisschild im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hinweisschild meaning information or warning sign in two situations.",
+        "de": "Hinweisschild erkennen: Informations- oder Warnschild, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Hinweisschild meaning information or warning sign and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1118 (4f4445e4be075eb3fcbc027c42762c165900325e511bcd29143e16c9c20362ee), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1118-v1",
+          "contextKey": "legacy-0112-L1118-context-1",
+          "transferKey": "legacy-0112-L1118-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011207",
+            "type": "gap_choice",
+            "prompt": "Am Wanderweg zeigt ein ___ den Weg zur Berghütte.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A fixed sign shows the direction.",
+              "de": "Ein festes Schild zeigt die Richtung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rucksack"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fernglas"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hinweisschild"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wanderstock"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hinweisschild means information or warning sign in this context; \"Hinweisschild\" fits the sentence.",
+              "de": "Hinweisschild bedeutet hier Informations- oder Warnschild; die Form „Hinweisschild“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Wanderweg zeigt ein Hinweisschild den Weg zur Berghütte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Am Wanderweg zeigt ein Hinweisschild den Weg zur Berghütte.\" checked for naturalness and agreement. All four offered choices individually considered: Rucksack: rejected; the full context describes information or warning sign, not this option; Fernglas: rejected; the full context describes information or warning sign, not this option; Hinweisschild: accepted; correct meaning and form; Wanderstock: rejected; the full context describes information or warning sign, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1118-v2",
+          "contextKey": "legacy-0112-L1118-context-2",
+          "transferKey": "legacy-0112-L1118-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011207",
+            "type": "choice",
+            "prompt": "Vor der Baustelle warnt ein ___ vor herabfallenden Gegenständen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The object communicates a safety warning.",
+              "de": "Ein Schild zeigt eine Sicherheitswarnung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Hinweisschild"
+              },
+              {
+                "id": "1",
+                "text": "Preisschild"
+              },
+              {
+                "id": "2",
+                "text": "Fahrplan"
+              },
+              {
+                "id": "3",
+                "text": "Kalender"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Hinweisschild means information or warning sign in this context; \"Hinweisschild\" fits the sentence.",
+              "de": "Hinweisschild bedeutet hier Informations- oder Warnschild; die Form „Hinweisschild“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Baustelle warnt ein Hinweisschild vor herabfallenden Gegenständen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Vor der Baustelle warnt ein Hinweisschild vor herabfallenden Gegenständen.\" checked for naturalness and agreement. All four offered choices individually considered: Hinweisschild: accepted; correct meaning and form; Preisschild: rejected; the full context describes information or warning sign, not this option; Fahrplan: rejected; the full context describes information or warning sign, not this option; Kalender: rejected; the full context describes information or warning sign, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011208",
+      "title": {
+        "en": "Using Hitze in context",
+        "de": "Hitze im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hitze meaning intense heat in two situations.",
+        "de": "Hitze erkennen: starke Wärme, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Hitze meaning intense heat and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1119 (55c1c212b034c293139b940b65361744b1704febb6da6b4471af27c1e1dc9e78), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1119-v1",
+          "contextKey": "legacy-0112-L1119-context-1",
+          "transferKey": "legacy-0112-L1119-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011208",
+            "type": "gap_choice",
+            "prompt": "Bei 39 Grad im Schatten machte die ___ den Läufern zu schaffen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The high temperature makes running difficult.",
+              "de": "Die hohe Temperatur erschwert das Laufen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kälte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hitze"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Dunkelheit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Nässe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hitze means intense heat in this context; \"Hitze\" fits the sentence.",
+              "de": "Hitze bedeutet hier starke Wärme; die Form „Hitze“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei 39 Grad im Schatten machte die Hitze den Läufern zu schaffen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Bei 39 Grad im Schatten machte die Hitze den Läufern zu schaffen.\" checked for naturalness and agreement. All four offered choices individually considered: Kälte: rejected; the full context describes intense heat, not this option; Hitze: accepted; correct meaning and form; Dunkelheit: rejected; the full context describes intense heat, not this option; Nässe: rejected; the full context describes intense heat, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1119-v2",
+          "contextKey": "legacy-0112-L1119-context-2",
+          "transferKey": "legacy-0112-L1119-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011208",
+            "type": "choice",
+            "prompt": "Als sie den Backofen öffnete, schlug ihr die ___ entgegen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Hot air escapes from the oven.",
+              "de": "Heiße Luft strömt aus dem Backofen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Stille"
+              },
+              {
+                "id": "1",
+                "text": "Kälte"
+              },
+              {
+                "id": "2",
+                "text": "Finsternis"
+              },
+              {
+                "id": "3",
+                "text": "Hitze"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Hitze means intense heat in this context; \"Hitze\" fits the sentence.",
+              "de": "Hitze bedeutet hier starke Wärme; die Form „Hitze“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als sie den Backofen öffnete, schlug ihr die Hitze entgegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Als sie den Backofen öffnete, schlug ihr die Hitze entgegen.\" checked for naturalness and agreement. All four offered choices individually considered: Stille: rejected; the full context describes intense heat, not this option; Kälte: rejected; the full context describes intense heat, not this option; Finsternis: rejected; the full context describes intense heat, not this option; Hitze: accepted; correct meaning and form. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011209",
+      "title": {
+        "en": "Using Hof in context",
+        "de": "Hof im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hof meaning courtyard between buildings in two situations.",
+        "de": "Hof erkennen: Hof als Innenhof, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Hof meaning courtyard between buildings and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1122 (7fd2472c1e0bd535d81c8dbad8ca7463e6f51a82ee2c740108cf5159abed176d), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1122-v1",
+          "contextKey": "legacy-0112-L1122-context-1",
+          "transferKey": "legacy-0112-L1122-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011209",
+            "type": "gap_choice",
+            "prompt": "Die Kinder spielen im ___ zwischen den Wohnhäusern.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "They are outside in the shared open area.",
+              "de": "Sie spielen draußen auf einer freien Fläche."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Hof"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Flur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Keller"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Dachboden"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hof means courtyard between buildings in this context; \"Hof\" fits the sentence.",
+              "de": "Hof bedeutet hier Hof als Innenhof; die Form „Hof“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kinder spielen im Hof zwischen den Wohnhäusern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Die Kinder spielen im Hof zwischen den Wohnhäusern.\" checked for naturalness and agreement. All four offered choices individually considered: Hof: accepted; correct meaning and form; Flur: rejected; the full context describes courtyard between buildings, not this option; Keller: rejected; the full context describes courtyard between buildings, not this option; Dachboden: rejected; the full context describes courtyard between buildings, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1122-v2",
+          "contextKey": "legacy-0112-L1122-context-2",
+          "transferKey": "legacy-0112-L1122-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011209",
+            "type": "choice",
+            "prompt": "Der Lieferwagen fährt durch das große Tor in den ___ hinter der Werkstatt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The van enters the open area behind the building.",
+              "de": "Der Wagen fährt auf eine Freifläche hinter dem Gebäude."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Aufzug"
+              },
+              {
+                "id": "1",
+                "text": "Schrank"
+              },
+              {
+                "id": "2",
+                "text": "Hof"
+              },
+              {
+                "id": "3",
+                "text": "Flur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Hof means courtyard between buildings in this context; \"Hof\" fits the sentence.",
+              "de": "Hof bedeutet hier Hof als Innenhof; die Form „Hof“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lieferwagen fährt durch das große Tor in den Hof hinter der Werkstatt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Der Lieferwagen fährt durch das große Tor in den Hof hinter der Werkstatt.\" checked for naturalness and agreement. All four offered choices individually considered: Aufzug: rejected; the full context describes courtyard between buildings, not this option; Schrank: rejected; the full context describes courtyard between buildings, not this option; Hof: accepted; correct meaning and form; Flur: rejected; the full context describes courtyard between buildings, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011210",
+      "title": {
+        "en": "Using Hoffnung in context",
+        "de": "Hoffnung im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hoffnung meaning hope for a desired outcome in two situations.",
+        "de": "Hoffnung erkennen: Hoffnung auf eine gute Entwicklung, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Hoffnung meaning hope for a desired outcome and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1123 (54d038155a7142718497512331518680548cb04e9b347417ae0af1b16d499f94), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1123-v1",
+          "contextKey": "legacy-0112-L1123-context-1",
+          "transferKey": "legacy-0112-L1123-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011210",
+            "type": "gap_choice",
+            "prompt": "Trotz der Absage gab sie die ___ auf einen neuen Arbeitsplatz nicht auf.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She still believes a new opportunity is possible.",
+              "de": "Sie glaubt weiter an eine neue Chance."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Frist"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hoffnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hoffnung means hope for a desired outcome in this context; \"Hoffnung\" fits the sentence.",
+              "de": "Hoffnung bedeutet hier Hoffnung auf eine gute Entwicklung; die Form „Hoffnung“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Trotz der Absage gab sie die Hoffnung auf einen neuen Arbeitsplatz nicht auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Trotz der Absage gab sie die Hoffnung auf einen neuen Arbeitsplatz nicht auf.\" checked for naturalness and agreement. All four offered choices individually considered: Rechnung: rejected; the full context describes hope for a desired outcome, not this option; Einladung: rejected; the full context describes hope for a desired outcome, not this option; Frist: rejected; the full context describes hope for a desired outcome, not this option; Hoffnung: accepted; correct meaning and form. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1123-v2",
+          "contextKey": "legacy-0112-L1123-context-2",
+          "transferKey": "legacy-0112-L1123-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011210",
+            "type": "choice",
+            "prompt": "Die positiven Testergebnisse gaben der Familie neue ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Encouraging news makes improvement seem possible.",
+              "de": "Gute Nachrichten lassen eine Verbesserung möglich erscheinen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schuld"
+              },
+              {
+                "id": "1",
+                "text": "Hoffnung"
+              },
+              {
+                "id": "2",
+                "text": "Strafe"
+              },
+              {
+                "id": "3",
+                "text": "Pflicht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Hoffnung means hope for a desired outcome in this context; \"Hoffnung\" fits the sentence.",
+              "de": "Hoffnung bedeutet hier Hoffnung auf eine gute Entwicklung; die Form „Hoffnung“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die positiven Testergebnisse gaben der Familie neue Hoffnung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Die positiven Testergebnisse gaben der Familie neue Hoffnung.\" checked for naturalness and agreement. All four offered choices individually considered: Schuld: rejected; the full context describes hope for a desired outcome, not this option; Hoffnung: accepted; correct meaning and form; Strafe: rejected; the full context describes hope for a desired outcome, not this option; Pflicht: rejected; the full context describes hope for a desired outcome, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011211",
+      "title": {
+        "en": "Using Höhe in context",
+        "de": "Höhe im Kontext"
+      },
+      "description": {
+        "en": "Recognize Höhe meaning vertical height or altitude in two situations.",
+        "de": "Höhe erkennen: Höhe als vertikales Maß, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Höhe meaning vertical height or altitude and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1124 (5a60ba7e1dc035745d9b40b39921c045ac1c75d6c0116cab9415f4242bd84439), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1124-v1",
+          "contextKey": "legacy-0112-L1124-context-1",
+          "transferKey": "legacy-0112-L1124-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011211",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Regals beträgt zwei Meter; es reicht fast bis zur Decke.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The measurement runs from bottom to top.",
+              "de": "Gemessen wird von unten nach oben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Breite"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Tiefe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Höhe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Farbe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Höhe means vertical height or altitude in this context; \"Höhe\" fits the sentence.",
+              "de": "Höhe bedeutet hier Höhe als vertikales Maß; die Form „Höhe“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Höhe des Regals beträgt zwei Meter; es reicht fast bis zur Decke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Die Höhe des Regals beträgt zwei Meter; es reicht fast bis zur Decke.\" checked for naturalness and agreement. All four offered choices individually considered: Breite: rejected; the full context describes vertical height or altitude, not this option; Tiefe: rejected; the full context describes vertical height or altitude, not this option; Höhe: accepted; correct meaning and form; Farbe: rejected; the full context describes vertical height or altitude, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1124-v2",
+          "contextKey": "legacy-0112-L1124-context-2",
+          "transferKey": "legacy-0112-L1124-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011211",
+            "type": "choice",
+            "prompt": "Mit zunehmender ___ wird die Luft in den Bergen dünner.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The sentence describes increasing altitude.",
+              "de": "Es geht um eine zunehmende Höhenlage."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Höhe"
+              },
+              {
+                "id": "1",
+                "text": "Wärme"
+              },
+              {
+                "id": "2",
+                "text": "Lautstärke"
+              },
+              {
+                "id": "3",
+                "text": "Feuchtigkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Höhe means vertical height or altitude in this context; \"Höhe\" fits the sentence.",
+              "de": "Höhe bedeutet hier Höhe als vertikales Maß; die Form „Höhe“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit zunehmender Höhe wird die Luft in den Bergen dünner.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Mit zunehmender Höhe wird die Luft in den Bergen dünner.\" checked for naturalness and agreement. All four offered choices individually considered: Höhe: accepted; correct meaning and form; Wärme: rejected; the full context describes vertical height or altitude, not this option; Lautstärke: rejected; the full context describes vertical height or altitude, not this option; Feuchtigkeit: rejected; the full context describes vertical height or altitude, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011212",
+      "title": {
+        "en": "Using Holz in context",
+        "de": "Holz im Kontext"
+      },
+      "description": {
+        "en": "Recognize Holz meaning wood as a material in two situations.",
+        "de": "Holz erkennen: Holz als Werkstoff, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Holz meaning wood as a material and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1125 (dfb2521ce7baa746571c43d0ee9271b396fec4c44eab4c4f6c3b50aaf9ee6a01), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1125-v1",
+          "contextKey": "legacy-0112-L1125-context-1",
+          "transferKey": "legacy-0112-L1125-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011212",
+            "type": "gap_choice",
+            "prompt": "An der Maserung erkennt man, dass die Tischplatte aus ___ besteht.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The material has the grain of a tree.",
+              "de": "Der Werkstoff zeigt die Maserung eines Baumes."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Glas"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Holz"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Stahl"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Beton"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Holz means wood as a material in this context; \"Holz\" fits the sentence.",
+              "de": "Holz bedeutet hier Holz als Werkstoff; die Form „Holz“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "An der Maserung erkennt man, dass die Tischplatte aus Holz besteht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"An der Maserung erkennt man, dass die Tischplatte aus Holz besteht.\" checked for naturalness and agreement. All four offered choices individually considered: Glas: rejected; the full context describes wood as a material, not this option; Holz: accepted; correct meaning and form; Stahl: rejected; the full context describes wood as a material, not this option; Beton: rejected; the full context describes wood as a material, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1125-v2",
+          "contextKey": "legacy-0112-L1125-context-2",
+          "transferKey": "legacy-0112-L1125-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011212",
+            "type": "choice",
+            "prompt": "Für den Kamin stapelte er gespaltenes ___ neben dem Ofen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The pieces are split logs used as fuel.",
+              "de": "Es sind gespaltene Scheite als Brennstoff."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Papier"
+              },
+              {
+                "id": "1",
+                "text": "Plastik"
+              },
+              {
+                "id": "2",
+                "text": "Kohle"
+              },
+              {
+                "id": "3",
+                "text": "Holz"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Holz means wood as a material in this context; \"Holz\" fits the sentence.",
+              "de": "Holz bedeutet hier Holz als Werkstoff; die Form „Holz“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Kamin stapelte er gespaltenes Holz neben dem Ofen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Für den Kamin stapelte er gespaltenes Holz neben dem Ofen.\" checked for naturalness and agreement. All four offered choices individually considered: Papier: rejected; the full context describes wood as a material, not this option; Plastik: rejected; the full context describes wood as a material, not this option; Kohle: rejected; the full context describes wood as a material, not this option; Holz: accepted; correct meaning and form. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011213",
+      "title": {
+        "en": "Using Holzkohle in context",
+        "de": "Holzkohle im Kontext"
+      },
+      "description": {
+        "en": "Recognize Holzkohle meaning charcoal made from wood in two situations.",
+        "de": "Holzkohle erkennen: Holzkohle als Brennstoff, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Holzkohle meaning charcoal made from wood and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1126 (c87f43244819e80a400872488cb5e3b2bda1c005c101387b471b5badf85617e8), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1126-v1",
+          "contextKey": "legacy-0112-L1126-context-1",
+          "transferKey": "legacy-0112-L1126-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011213",
+            "type": "gap_choice",
+            "prompt": "Im Grill glüht die ___, bevor das Gemüse auf den Rost kommt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The fuel glows beneath the grill grate.",
+              "de": "Der Brennstoff glüht unter dem Grillrost."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Holzkohle"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kerze"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Pfanne"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gasflasche"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Holzkohle means charcoal made from wood in this context; \"Holzkohle\" fits the sentence.",
+              "de": "Holzkohle bedeutet hier Holzkohle als Brennstoff; die Form „Holzkohle“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Grill glüht die Holzkohle, bevor das Gemüse auf den Rost kommt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Im Grill glüht die Holzkohle, bevor das Gemüse auf den Rost kommt.\" checked for naturalness and agreement. All four offered choices individually considered: Holzkohle: accepted; correct meaning and form; Kerze: rejected; the full context describes charcoal made from wood, not this option; Pfanne: rejected; the full context describes charcoal made from wood, not this option; Gasflasche: rejected; the full context describes charcoal made from wood, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1126-v2",
+          "contextKey": "legacy-0112-L1126-context-2",
+          "transferKey": "legacy-0112-L1126-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011213",
+            "type": "choice",
+            "prompt": "Sie füllte den Grill mit ___ aus dem Sack und zündete sie an.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The substance from the sack is combustible fuel.",
+              "de": "Der Stoff aus dem Sack ist brennbarer Brennstoff."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sand"
+              },
+              {
+                "id": "1",
+                "text": "Erde"
+              },
+              {
+                "id": "2",
+                "text": "Holzkohle"
+              },
+              {
+                "id": "3",
+                "text": "Kies"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Holzkohle means charcoal made from wood in this context; \"Holzkohle\" fits the sentence.",
+              "de": "Holzkohle bedeutet hier Holzkohle als Brennstoff; die Form „Holzkohle“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie füllte den Grill mit Holzkohle aus dem Sack und zündete sie an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Sie füllte den Grill mit Holzkohle aus dem Sack und zündete sie an.\" checked for naturalness and agreement. All four offered choices individually considered: Sand: rejected; the full context describes charcoal made from wood, not this option; Erde: rejected; the full context describes charcoal made from wood, not this option; Holzkohle: accepted; correct meaning and form; Kies: rejected; the full context describes charcoal made from wood, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011214",
+      "title": {
+        "en": "Using Homeoffice in context",
+        "de": "Homeoffice im Kontext"
+      },
+      "description": {
+        "en": "Recognize Homeoffice meaning working remotely from home in two situations.",
+        "de": "Homeoffice erkennen: Arbeit von zu Hause, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Homeoffice meaning working remotely from home and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1127 (924b233fa0ebdd3f6863ab8f0726dd7c932527a59d7ab460bbadfdb2434cb279), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1127-v1",
+          "contextKey": "legacy-0112-L1127-context-1",
+          "transferKey": "legacy-0112-L1127-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011214",
+            "type": "gap_choice",
+            "prompt": "An zwei Tagen pro Woche arbeitet sie von ihrer Wohnung aus im ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "She works from home rather than at the company.",
+              "de": "Sie arbeitet von zu Hause statt im Betrieb."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lager"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Außendienst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Empfang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Homeoffice"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Homeoffice means working remotely from home in this context; \"Homeoffice\" fits the sentence.",
+              "de": "Homeoffice bedeutet hier Arbeit von zu Hause; die Form „Homeoffice“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "An zwei Tagen pro Woche arbeitet sie von ihrer Wohnung aus im Homeoffice.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"An zwei Tagen pro Woche arbeitet sie von ihrer Wohnung aus im Homeoffice.\" checked for naturalness and agreement. All four offered choices individually considered: Lager: rejected; the full context describes working remotely from home, not this option; Außendienst: rejected; the full context describes working remotely from home, not this option; Empfang: rejected; the full context describes working remotely from home, not this option; Homeoffice: accepted; correct meaning and form. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1127-v2",
+          "contextKey": "legacy-0112-L1127-context-2",
+          "transferKey": "legacy-0112-L1127-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011214",
+            "type": "choice",
+            "prompt": "Für das ___ richtete er sich zu Hause einen ruhigen Arbeitsplatz ein.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A home desk supports remote work.",
+              "de": "Ein Schreibtisch zu Hause ermöglicht mobiles Arbeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Betriebsausflug"
+              },
+              {
+                "id": "1",
+                "text": "Homeoffice"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitsweg"
+              },
+              {
+                "id": "3",
+                "text": "Nachtdienst"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Homeoffice means working remotely from home in this context; \"Homeoffice\" fits the sentence.",
+              "de": "Homeoffice bedeutet hier Arbeit von zu Hause; die Form „Homeoffice“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für das Homeoffice richtete er sich zu Hause einen ruhigen Arbeitsplatz ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Für das Homeoffice richtete er sich zu Hause einen ruhigen Arbeitsplatz ein.\" checked for naturalness and agreement. All four offered choices individually considered: Betriebsausflug: rejected; the full context describes working remotely from home, not this option; Homeoffice: accepted; correct meaning and form; Arbeitsweg: rejected; the full context describes working remotely from home, not this option; Nachtdienst: rejected; the full context describes working remotely from home, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011215",
+      "title": {
+        "en": "Using Honig in context",
+        "de": "Honig im Kontext"
+      },
+      "description": {
+        "en": "Recognize Honig meaning honey made by bees in two situations.",
+        "de": "Honig erkennen: Honig als Bienenprodukt, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Honig meaning honey made by bees and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1129 (893662c8205acf7cd5bf3a5d3c605dd9fb81016a6bd46bdd7f053ae183fcb0b5), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1129-v1",
+          "contextKey": "legacy-0112-L1129-context-1",
+          "transferKey": "legacy-0112-L1129-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011215",
+            "type": "gap_choice",
+            "prompt": "Die Bienen verarbeiten Nektar zu ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "Bees make a sweet food from nectar.",
+              "de": "Bienen stellen aus Nektar ein süßes Lebensmittel her."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Milch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Mehl"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Honig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Öl"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Honig means honey made by bees in this context; \"Honig\" fits the sentence.",
+              "de": "Honig bedeutet hier Honig als Bienenprodukt; die Form „Honig“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bienen verarbeiten Nektar zu Honig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Die Bienen verarbeiten Nektar zu Honig.\" checked for naturalness and agreement. All four offered choices individually considered: Milch: rejected; the full context describes honey made by bees, not this option; Mehl: rejected; the full context describes honey made by bees, not this option; Honig: accepted; correct meaning and form; Öl: rejected; the full context describes honey made by bees, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1129-v2",
+          "contextKey": "legacy-0112-L1129-context-2",
+          "transferKey": "legacy-0112-L1129-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011215",
+            "type": "choice",
+            "prompt": "Sie rührte einen Löffel ___ in den Tee, um ihn zu süßen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "A sweet bee product can replace sugar.",
+              "de": "Ein süßes Bienenprodukt kann Zucker ersetzen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Honig"
+              },
+              {
+                "id": "1",
+                "text": "Salz"
+              },
+              {
+                "id": "2",
+                "text": "Reis"
+              },
+              {
+                "id": "3",
+                "text": "Essig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Honig means honey made by bees in this context; \"Honig\" fits the sentence.",
+              "de": "Honig bedeutet hier Honig als Bienenprodukt; die Form „Honig“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie rührte einen Löffel Honig in den Tee, um ihn zu süßen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Sie rührte einen Löffel Honig in den Tee, um ihn zu süßen.\" checked for naturalness and agreement. All four offered choices individually considered: Honig: accepted; correct meaning and form; Salz: rejected; the full context describes honey made by bees, not this option; Reis: rejected; the full context describes honey made by bees, not this option; Essig: rejected; the full context describes honey made by bees, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000011218",
+      "title": {
+        "en": "Using Hubhöhe in context",
+        "de": "Hubhöhe im Kontext"
+      },
+      "description": {
+        "en": "Recognize Hubhöhe meaning maximum lifting height of a device in two situations.",
+        "de": "Hubhöhe erkennen: maximale Hebehöhe eines Geräts, in zwei Situationen."
+      },
+      "objective": "Recognize the German noun Hubhöhe meaning maximum lifting height of a device and select the correct noun form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises using pinned lexical and grammar facts apps/web/data/pos/nouns.jsonl:L1134 (a38200be890e1e47acf1815eb75c5114095d6d0f5c2ed0da4faf78ae4fc275a6), 2026-10-29. No inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0112-L1134-v1",
+          "contextKey": "legacy-0112-L1134-context-1",
+          "transferKey": "legacy-0112-L1134-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011218",
+            "type": "gap_choice",
+            "prompt": "Die maximale ___ des Gabelstaplers beträgt sechs Meter; höher kann er Paletten nicht anheben.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The measurement limits how high a pallet can be raised.",
+              "de": "Die Angabe begrenzt die erreichbare Hebehöhe."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Nutzlast"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hubhöhe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrgeschwindigkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bremsweg"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Hubhöhe means maximum lifting height of a device in this context; \"Hubhöhe\" fits the sentence.",
+              "de": "Hubhöhe bedeutet hier maximale Hebehöhe eines Geräts; die Form „Hubhöhe“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die maximale Hubhöhe des Gabelstaplers beträgt sechs Meter; höher kann er Paletten nicht anheben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Die maximale Hubhöhe des Gabelstaplers beträgt sechs Meter; höher kann er Paletten nicht anheben.\" checked for naturalness and agreement. All four offered choices individually considered: Nutzlast: rejected; the full context describes maximum lifting height of a device, not this option; Hubhöhe: accepted; correct meaning and form; Fahrgeschwindigkeit: rejected; the full context describes maximum lifting height of a device, not this option; Bremsweg: rejected; the full context describes maximum lifting height of a device, not this option. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0112-L1134-v2",
+          "contextKey": "legacy-0112-L1134-context-2",
+          "transferKey": "legacy-0112-L1134-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001120181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000011218",
+            "type": "choice",
+            "prompt": "Vor dem Einsatz prüft der Fahrer, ob die ___ des Staplers für das oberste Regal ausreicht.",
+            "instruction": {
+              "en": "Choose the noun or noun form that best completes the sentence.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz sinnvoll ergänzt."
+            },
+            "hint": {
+              "en": "The top shelf must be within the machine's vertical reach.",
+              "de": "Das oberste Regal muss mit dem Stapler erreichbar sein."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ladezeit"
+              },
+              {
+                "id": "1",
+                "text": "Tankgröße"
+              },
+              {
+                "id": "2",
+                "text": "Traglast"
+              },
+              {
+                "id": "3",
+                "text": "Hubhöhe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Hubhöhe means maximum lifting height of a device in this context; \"Hubhöhe\" fits the sentence.",
+              "de": "Hubhöhe bedeutet hier maximale Hebehöhe eines Geräts; die Form „Hubhöhe“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Einsatz prüft der Fahrer, ob die Hubhöhe des Staplers für das oberste Regal ausreicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: complete German sentence \"Vor dem Einsatz prüft der Fahrer, ob die Hubhöhe des Staplers für das oberste Regal ausreicht.\" checked for naturalness and agreement. All four offered choices individually considered: Ladezeit: rejected; the full context describes maximum lifting height of a device, not this option; Tankgröße: rejected; the full context describes maximum lifting height of a device, not this option; Traglast: rejected; the full context describes maximum lifting height of a device, not this option; Hubhöhe: accepted; correct meaning and form. Bilingual feedback, hint and distinct sibling context checked; no other offered answer defensible for the intended reading. Human review pending."
+        }
+      ]
+    }
+  ]
+}
