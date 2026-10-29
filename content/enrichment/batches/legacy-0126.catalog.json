@@ -1,0 +1,1915 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000012600",
+      "title": {
+        "en": "Using Luftverschmutzung in context",
+        "de": "Luftverschmutzung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Luftverschmutzung: air pollution.",
+        "de": "Luftverschmutzung erkennen und im Kontext verstehen: Belastung der Luft durch Schadstoffe."
+      },
+      "objective": "Recognize the German noun Luftverschmutzung (air pollution) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1483 (73fac156b1b831a7282839df47643d7684075b98feaf1b79d049b5b64290d3a9), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1483-v1",
+          "contextKey": "legacy-0126-L1483-context-1",
+          "transferKey": "legacy-0126-L1483-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012600",
+            "type": "gap_choice",
+            "prompt": "Wegen der hohen ___ hat die Stadt strengere Abgasregeln eingeführt.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The rules address harmful emissions.",
+              "de": "Die Regeln sollen schädliche Abgase begrenzen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Luftverschmutzung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Luftfeuchtigkeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Arbeitslosigkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lautstärke"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Luftverschmutzung refers to polluted air.",
+              "de": "Luftverschmutzung bezeichnet die Belastung der Luft durch Schadstoffe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen der hohen Luftverschmutzung hat die Stadt strengere Abgasregeln eingeführt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Luftverschmutzung). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Luftfeuchtigkeit is humidity; Arbeitslosigkeit is unemployment; Lautstärke is loudness, not the emissions problem. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1483-v2",
+          "contextKey": "legacy-0126-L1483-context-2",
+          "transferKey": "legacy-0126-L1483-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012600",
+            "type": "choice",
+            "prompt": "Die Messstation meldet erhöhte Luftverschmutzung an der viel befahrenen Straße. Was wird dort gemessen?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Think of what exhaust gases change.",
+              "de": "Denke daran, was Abgase in der Umgebung verändern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Den Anteil schädlicher Stoffe in der Luft"
+              },
+              {
+                "id": "1",
+                "text": "Den Lärm in der benachbarten Schule"
+              },
+              {
+                "id": "2",
+                "text": "Die Temperatur des Straßenbelags"
+              },
+              {
+                "id": "3",
+                "text": "Den Stromverbrauch der Straßenlampen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The station reports harmful substances in the air.",
+              "de": "Die Station erfasst Schadstoffe in der Atemluft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Messstation meldet erhöhte Schadstoffbelastung in der Luft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Den Anteil schädlicher Stoffe in der Luft). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: School noise, road-surface temperature and lamp electricity consumption are different measurements. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012601",
+      "title": {
+        "en": "Using Magazin in context",
+        "de": "Magazin im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Magazin: magazine, periodical.",
+        "de": "Magazin erkennen und im Kontext verstehen: regelmäßig erscheinende Zeitschrift."
+      },
+      "objective": "Recognize the German noun Magazin (magazine, periodical) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1487 (cd89deadb43eb0d1feada3eac68930991c62f41c298930c5cc462323f46bcc4c), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1487-v1",
+          "contextKey": "legacy-0126-L1487-context-1",
+          "transferKey": "legacy-0126-L1487-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012601",
+            "type": "gap_choice",
+            "prompt": "Die Bibliothek hat ein neues ___ über Astronomie abonniert.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A subscription brings new issues regularly.",
+              "de": "Bei einem Abonnement erscheinen regelmäßig neue Ausgaben."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Magazin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Mikroskop"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Werkzeug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Regal"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Magazin is a periodical publication.",
+              "de": "Ein Magazin ist eine regelmäßig erscheinende Zeitschrift."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bibliothek hat ein neues Magazin über Astronomie abonniert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Magazin). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: A microscope, tool and shelf are physical objects, not periodicals that can be subscribed to. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1487-v2",
+          "contextKey": "legacy-0126-L1487-context-2",
+          "transferKey": "legacy-0126-L1487-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012601",
+            "type": "choice",
+            "prompt": "Im Wartezimmer liegen mehrere Magazine zum Lesen. Was bedeutet „Magazine“ hier?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Patients can browse printed issues.",
+              "de": "Man kann darin Artikel lesen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zeitschriften"
+              },
+              {
+                "id": "1",
+                "text": "Lagerhallen"
+              },
+              {
+                "id": "2",
+                "text": "Fernsehgeräte"
+              },
+              {
+                "id": "3",
+                "text": "Aktenordner"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here Magazine means periodicals.",
+              "de": "Hier sind mit Magazinen Zeitschriften gemeint."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Wartezimmer liegen mehrere Zeitschriften zum Lesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Zeitschriften). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Warehouses, televisions and folders are not the reading material referred to here. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012602",
+      "title": {
+        "en": "Using Mahlzeit in context",
+        "de": "Mahlzeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Mahlzeit: meal.",
+        "de": "Mahlzeit erkennen und im Kontext verstehen: Essen zu einer bestimmten Tageszeit."
+      },
+      "objective": "Recognize the German noun Mahlzeit (meal) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1489 (83146499b8baba15c92688566b8a8ee92ebf2c214ae04c43815f2638bb0f4fdc), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1489-v1",
+          "contextKey": "legacy-0126-L1489-context-1",
+          "transferKey": "legacy-0126-L1489-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012602",
+            "type": "gap_choice",
+            "prompt": "Die Kantine bietet jeden Mittag eine warme ___ an.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The canteen serves food.",
+              "de": "In der Kantine wird Essen angeboten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mahlzeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schicht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Besprechung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Mahlzeit means a meal.",
+              "de": "Eine Mahlzeit ist ein Essen, zum Beispiel das Mittagessen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kantine bietet jeden Mittag eine warme Mahlzeit an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Mahlzeit). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: A shift, invoice or meeting cannot be served as a warm meal. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1489-v2",
+          "contextKey": "legacy-0126-L1489-context-2",
+          "transferKey": "legacy-0126-L1489-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012602",
+            "type": "choice",
+            "prompt": "Nach der Besprechung nehmen wir gemeinsam eine Mahlzeit ein. Was machen wir?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The phrase „eine Mahlzeit einnehmen“ describes an everyday activity.",
+              "de": "Die Wendung „eine Mahlzeit einnehmen“ hat mit Essen zu tun."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wir essen zusammen."
+              },
+              {
+                "id": "1",
+                "text": "Wir planen einen Termin."
+              },
+              {
+                "id": "2",
+                "text": "Wir schreiben ein Protokoll."
+              },
+              {
+                "id": "3",
+                "text": "Wir räumen das Lager."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The group is eating together.",
+              "de": "Die Gruppe isst gemeinsam."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Besprechung essen wir gemeinsam.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Wir essen zusammen.). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Scheduling, writing minutes and clearing a warehouse do not mean eating a meal. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012603",
+      "title": {
+        "en": "Using Mahnung in context",
+        "de": "Mahnung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Mahnung: payment reminder or warning.",
+        "de": "Mahnung erkennen und im Kontext verstehen: schriftliche Aufforderung, eine offene Zahlung zu leisten."
+      },
+      "objective": "Recognize the German noun Mahnung (payment reminder or warning) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1490 (85211fb6083dd12d3311f0904ed24e42f9b57545a8b1327e56c62fc12ba33cd8), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1490-v1",
+          "contextKey": "legacy-0126-L1490-context-1",
+          "transferKey": "legacy-0126-L1490-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012603",
+            "type": "gap_choice",
+            "prompt": "Weil die Rechnung seit sechs Wochen offen ist, verschickt die Firma eine ___.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The customer has not paid yet.",
+              "de": "Die Kundin oder der Kunde hat noch nicht bezahlt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mahnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gutschrift"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Mahnung requests payment of an overdue amount.",
+              "de": "Eine Mahnung fordert zur Begleichung einer offenen Rechnung auf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil die Rechnung seit sechs Wochen offen ist, verschickt die Firma eine Mahnung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Mahnung). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: A credit note, invitation and job application do not request payment of an overdue invoice. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1490-v2",
+          "contextKey": "legacy-0126-L1490-context-2",
+          "transferKey": "legacy-0126-L1490-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012603",
+            "type": "choice",
+            "prompt": "In der zweiten Mahnung setzt der Anbieter eine letzte Zahlungsfrist. Was will er erreichen?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "A deadline for payment is central.",
+              "de": "Eine Zahlungsfrist betrifft eine noch offene Forderung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die offene Rechnung soll bezahlt werden."
+              },
+              {
+                "id": "1",
+                "text": "Die Ware soll kostenlos zurückgeschickt werden."
+              },
+              {
+                "id": "2",
+                "text": "Die Stelle soll neu besetzt werden."
+              },
+              {
+                "id": "3",
+                "text": "Die Bestellung soll vergrößert werden."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The supplier is asking for payment.",
+              "de": "Der Anbieter verlangt die Begleichung der Rechnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der zweiten Mahnung fordert der Anbieter erneut die Zahlung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Die offene Rechnung soll bezahlt werden.). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Returning goods, filling a job and increasing an order do not match a payment reminder. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012604",
+      "title": {
+        "en": "Using Makler in context",
+        "de": "Makler im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Makler: real-estate broker.",
+        "de": "Makler erkennen und im Kontext verstehen: Vermittler von Immobilien."
+      },
+      "objective": "Recognize the German noun Makler (real-estate broker) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1494 (ff23bfdddf964819678ae8a712f7877d65008797f99bcb452f663f6b4386903f), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1494-v1",
+          "contextKey": "legacy-0126-L1494-context-1",
+          "transferKey": "legacy-0126-L1494-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012604",
+            "type": "gap_choice",
+            "prompt": "Der ___ vermittelt Wohnungen und organisiert Besichtigungen für Interessenten.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person arranges property transactions.",
+              "de": "Die Person vermittelt Immobilien."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Makler"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Elektriker"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Koch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mechaniker"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Makler brokers property.",
+              "de": "Ein Makler vermittelt zum Beispiel Wohnungen oder Häuser."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Makler vermittelt Wohnungen und organisiert Besichtigungen für Interessenten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Makler). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Electrician, cook and mechanic do not professionally broker properties. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1494-v2",
+          "contextKey": "legacy-0126-L1494-context-2",
+          "transferKey": "legacy-0126-L1494-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012604",
+            "type": "choice",
+            "prompt": "Nach dem erfolgreichen Wohnungskauf erhält der Makler eine Provision. Welche Aufgabe hatte er?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Commission is paid for brokering a transaction.",
+              "de": "Die Provision wird für eine Vermittlung gezahlt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Er hat die Immobilie vermittelt."
+              },
+              {
+                "id": "1",
+                "text": "Er hat die Heizungsanlage repariert."
+              },
+              {
+                "id": "2",
+                "text": "Er hat die Möbel hergestellt."
+              },
+              {
+                "id": "3",
+                "text": "Er hat die Grundsteuer berechnet."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The broker arranged the property deal.",
+              "de": "Der Makler hat den Immobilienkauf vermittelt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Kauf wird der Makler für die Vermittlung bezahlt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Er hat die Immobilie vermittelt.). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Repairing heating, manufacturing furniture and calculating property tax are different activities. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012608",
+      "title": {
+        "en": "Using Mangel in context",
+        "de": "Mangel im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Mangel: defect or shortage.",
+        "de": "Mangel erkennen und im Kontext verstehen: Fehler oder unzureichende Menge."
+      },
+      "objective": "Recognize the German noun Mangel (defect or shortage) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1498 (a23ca5a52d0309ad29a4179e7e3f0ab67e8029f01a6800770ad1fa258ed54d3d), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1498-v1",
+          "contextKey": "legacy-0126-L1498-context-1",
+          "transferKey": "legacy-0126-L1498-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012608",
+            "type": "gap_choice",
+            "prompt": "Bei der Prüfung wurde ein schwerer ___ an der Bremsanlage festgestellt.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The safety inspection found a defect.",
+              "de": "Bei der Prüfung wurde ein Fehler entdeckt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mangel"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rabatt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gewinn"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Auftrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Mangel here means a defect.",
+              "de": "Hier bedeutet Mangel einen technischen Fehler."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Prüfung wurde ein schwerer Mangel an der Bremsanlage festgestellt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Mangel). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: A discount, profit or order is not a safety defect found during inspection. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1498-v2",
+          "contextKey": "legacy-0126-L1498-context-2",
+          "transferKey": "legacy-0126-L1498-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012608",
+            "type": "choice",
+            "prompt": "Wegen eines Mangels an Fachkräften bleiben drei Stellen unbesetzt. Was ist das Problem?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The construction „Mangel an“ expresses insufficiency.",
+              "de": "„Mangel an“ bedeutet, dass etwas nicht ausreichend vorhanden ist."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Es gibt zu wenige qualifizierte Arbeitskräfte."
+              },
+              {
+                "id": "1",
+                "text": "Es gibt zu viele neue Mitarbeitende."
+              },
+              {
+                "id": "2",
+                "text": "Alle Stellen sind bereits besetzt."
+              },
+              {
+                "id": "3",
+                "text": "Die Löhne wurden gerade erhöht."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "There is a shortage of skilled workers.",
+              "de": "Es fehlen qualifizierte Arbeitskräfte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Drei Stellen bleiben wegen fehlender Fachkräfte unbesetzt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Es gibt zu wenige qualifizierte Arbeitskräfte.). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Excess staff, fully staffed jobs and pay increases do not explain the shortage. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012609",
+      "title": {
+        "en": "Using Mängelbeseitigung in context",
+        "de": "Mängelbeseitigung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Mängelbeseitigung: remedying defects.",
+        "de": "Mängelbeseitigung erkennen und im Kontext verstehen: Behebung festgestellter Mängel."
+      },
+      "objective": "Recognize the German noun Mängelbeseitigung (remedying defects) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1499 (1fb6a337d26947e3493111ea429bccb48269a4179b364260eaeb99227278bc13), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1499-v1",
+          "contextKey": "legacy-0126-L1499-context-1",
+          "transferKey": "legacy-0126-L1499-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012609",
+            "type": "gap_choice",
+            "prompt": "Nach der Bauabnahme verlangt der Auftraggeber die ___ der festgestellten Schäden.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The faults need to be repaired.",
+              "de": "Die festgestellten Fehler müssen behoben werden."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mängelbeseitigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Preiserhöhung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Neuvermietung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Terminabsage"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Mängelbeseitigung means correcting defects.",
+              "de": "Mängelbeseitigung ist die Behebung festgestellter Fehler."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Bauabnahme verlangt der Auftraggeber die Mängelbeseitigung der festgestellten Schäden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Mängelbeseitigung). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Price increase, re-letting and cancelling an appointment do not repair building defects. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1499-v2",
+          "contextKey": "legacy-0126-L1499-context-2",
+          "transferKey": "legacy-0126-L1499-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012609",
+            "type": "choice",
+            "prompt": "Nach der Reparatur der undichten Leitungen dokumentiert die Firma die Mängelbeseitigung. Was wurde erledigt?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Leaking pipes were repaired.",
+              "de": "Undichte Leitungen wurden repariert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die festgestellten Defekte wurden behoben."
+              },
+              {
+                "id": "1",
+                "text": "Ein neuer Mietvertrag wurde geschlossen."
+              },
+              {
+                "id": "2",
+                "text": "Die Materialpreise wurden erhöht."
+              },
+              {
+                "id": "3",
+                "text": "Ein Wartungsvertrag wurde gekündigt."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The documented work was the remedying of faults.",
+              "de": "Dokumentiert wurde die Behebung der Mängel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Reparatur dokumentiert die Firma, dass die Mängel behoben wurden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Die festgestellten Defekte wurden behoben.). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: A lease, price rise and contract cancellation do not describe repairing the leaks. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012611",
+      "title": {
+        "en": "Using Märchen in context",
+        "de": "Märchen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Märchen: fairy tale.",
+        "de": "Märchen erkennen und im Kontext verstehen: fantastische, meist erfundene Erzählung."
+      },
+      "objective": "Recognize the German noun Märchen (fairy tale) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1504 (8e50111d6b32e79bb5320581f18cacc2388ccab05b454f93653fb977b9ac8b75), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1504-v1",
+          "contextKey": "legacy-0126-L1504-context-1",
+          "transferKey": "legacy-0126-L1504-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012611",
+            "type": "gap_choice",
+            "prompt": "Vor dem Einschlafen hören die Kinder ein ___ von einem verzauberten Schloss.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The story has magical elements.",
+              "de": "Die Geschichte enthält etwas Zauberhaftes."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Märchen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Protokoll"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gutachten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Märchen is a fairy tale.",
+              "de": "Ein Märchen ist eine fantastische Erzählung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Einschlafen hören die Kinder ein Märchen von einem verzauberten Schloss.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Märchen). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Meeting minutes, timetables and expert reports are not stories about enchanted castles. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1504-v2",
+          "contextKey": "legacy-0126-L1504-context-2",
+          "transferKey": "legacy-0126-L1504-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012611",
+            "type": "choice",
+            "prompt": "Im Märchen kann ein Tier plötzlich sprechen. Was für eine Textsorte ist gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Talking animals belong to an imaginative narrative.",
+              "de": "Sprechende Tiere gehören zu erfundenen Geschichten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine fantastische Erzählung"
+              },
+              {
+                "id": "1",
+                "text": "Ein amtliches Prüfprotokoll"
+              },
+              {
+                "id": "2",
+                "text": "Eine technische Anleitung"
+              },
+              {
+                "id": "3",
+                "text": "Eine wissenschaftliche Messreihe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The text is a fairy tale.",
+              "de": "Gemeint ist eine fantastische, meist erfundene Geschichte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In einem Märchen können Tiere sprechen und andere wunderbare Dinge geschehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Eine fantastische Erzählung). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Official reports, manuals and measurement series do not feature magical speaking animals as a genre convention. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012614",
+      "title": {
+        "en": "Using Marke in context",
+        "de": "Marke im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Marke: brand or trademark.",
+        "de": "Marke erkennen und im Kontext verstehen: Kennzeichen einer Firma oder ihrer Produkte."
+      },
+      "objective": "Recognize the German noun Marke (brand or trademark) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1507 (ef4dd0f81d48c05a06a6dc6e0dd9258b8d0694098c25069d850f1e1bc362a46f), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1507-v1",
+          "contextKey": "legacy-0126-L1507-context-1",
+          "transferKey": "legacy-0126-L1507-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012614",
+            "type": "gap_choice",
+            "prompt": "Die Firma lässt ihre neue ___ schützen, damit Wettbewerber den Namen nicht einfach übernehmen.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company wants to protect its product identity.",
+              "de": "Das Unternehmen schützt die Kennzeichnung seiner Produkte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Marke"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schicht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abteilung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Marke means brand or trademark here.",
+              "de": "Eine Marke kennzeichnet Produkte oder Dienstleistungen eines Unternehmens."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma lässt ihre neue Marke schützen, damit Wettbewerber den Namen nicht einfach übernehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Marke). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: A shift, delivery or department is not a product name protected as a brand. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1507-v2",
+          "contextKey": "legacy-0126-L1507-context-2",
+          "transferKey": "legacy-0126-L1507-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012614",
+            "type": "choice",
+            "prompt": "Auf der Verpackung steht die Marke des Herstellers. Welche Information liefert sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "A brand identifies a producer or product line.",
+              "de": "Eine Marke hilft bei der Wiedererkennung eines Herstellers."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Von welcher Firma das Produkt stammt"
+              },
+              {
+                "id": "1",
+                "text": "Wie schwer die Verpackung ist"
+              },
+              {
+                "id": "2",
+                "text": "Wann das Produkt abläuft"
+              },
+              {
+                "id": "3",
+                "text": "Wie hoch die Mehrwertsteuer ist"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It identifies the product's brand or company.",
+              "de": "Die Marke kennzeichnet den Hersteller oder das Produkt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Marke auf der Verpackung zeigt, zu welcher Firma das Produkt gehört.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Von welcher Firma das Produkt stammt). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Weight, expiry date and tax rate are separate package information, not the brand. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012615",
+      "title": {
+        "en": "Using Marketing in context",
+        "de": "Marketing im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Marketing: marketing.",
+        "de": "Marketing erkennen und im Kontext verstehen: Vermarktung und Werbung für Produkte oder Dienstleistungen."
+      },
+      "objective": "Recognize the German noun Marketing (marketing) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1508 (a1d44af19855cf4d0a1dbbd62410bf85a480cc05a572ac6a3b57c3c3df81460e), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1508-v1",
+          "contextKey": "legacy-0126-L1508-context-1",
+          "transferKey": "legacy-0126-L1508-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012615",
+            "type": "gap_choice",
+            "prompt": "Das ___ plant eine Werbekampagne, um neue Kundinnen und Kunden zu erreichen.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The task is to attract customers through advertising.",
+              "de": "Die Abteilung möchte mit Werbung neue Kundschaft gewinnen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Marketing"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lager"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Controlling"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Personalbüro"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Marketing plans activities to promote products.",
+              "de": "Marketing umfasst Maßnahmen zur Vermarktung von Produkten und Dienstleistungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Marketing plant eine Werbekampagne, um neue Kundinnen und Kunden zu erreichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Marketing). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Warehouse, controlling and personnel office do not normally lead product advertising campaigns. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1508-v2",
+          "contextKey": "legacy-0126-L1508-context-2",
+          "transferKey": "legacy-0126-L1508-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012615",
+            "type": "choice",
+            "prompt": "Für das Marketing testet das Team zwei Werbebotschaften mit einer Zielgruppe. Welchem Zweck dient die Arbeit?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The team is testing advertising messages.",
+              "de": "Das Team prüft, wie Werbung bei einer Zielgruppe ankommt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Produkte bei Kundinnen und Kunden bekannt machen"
+              },
+              {
+                "id": "1",
+                "text": "Maschinen regelmäßig warten"
+              },
+              {
+                "id": "2",
+                "text": "Lohnsteuer für Beschäftigte berechnen"
+              },
+              {
+                "id": "3",
+                "text": "Ersatzteile an Werkstätten ausliefern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The work supports product promotion.",
+              "de": "Die Arbeit dient dazu, Produkte oder Dienstleistungen zu vermarkten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Team prüft Werbebotschaften, um Produkte besser zu vermarkten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Produkte bei Kundinnen und Kunden bekannt machen). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Machine maintenance, payroll tax and parts delivery are not the purpose of testing ad messages. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012616",
+      "title": {
+        "en": "Using Marktuntersuchung in context",
+        "de": "Marktuntersuchung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Marktuntersuchung: market research or market study.",
+        "de": "Marktuntersuchung erkennen und im Kontext verstehen: systematische Untersuchung von Markt und Nachfrage."
+      },
+      "objective": "Recognize the German noun Marktuntersuchung (market research or market study) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1510 (d35afd40b3e4fc96fcc9856b3a1fd8ed08ab63a7a36043da579b2aac255e2030), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1510-v1",
+          "contextKey": "legacy-0126-L1510-context-1",
+          "transferKey": "legacy-0126-L1510-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012616",
+            "type": "gap_choice",
+            "prompt": "Vor der Einführung des Produkts führt die Firma eine ___ durch, um Kundenwünsche zu ermitteln.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The company wants evidence about customer needs.",
+              "de": "Das Unternehmen untersucht die Nachfrage."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Marktuntersuchung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Inventur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Reparatur"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Betriebsfeier"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Marktuntersuchung examines a market and its customers.",
+              "de": "Eine Marktuntersuchung analysiert den Markt und die Nachfrage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Einführung des Produkts führt die Firma eine Marktuntersuchung durch, um Kundenwünsche zu ermitteln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Marktuntersuchung). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Stocktaking, repair and staff celebration do not investigate customer demand. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1510-v2",
+          "contextKey": "legacy-0126-L1510-context-2",
+          "transferKey": "legacy-0126-L1510-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012616",
+            "type": "choice",
+            "prompt": "Die Marktuntersuchung zeigt, dass viele Kunden lieber online bestellen. Was hat die Firma untersucht?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The result concerns how customers shop.",
+              "de": "Das Ergebnis beschreibt das Verhalten von Kundinnen und Kunden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kaufverhalten und Nachfrage"
+              },
+              {
+                "id": "1",
+                "text": "Elektrische Leitungen im Lager"
+              },
+              {
+                "id": "2",
+                "text": "Arbeitszeiten im Büro"
+              },
+              {
+                "id": "3",
+                "text": "Bestände im Ersatzteillager"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It studied customer behaviour and demand.",
+              "de": "Untersucht wurden Kaufverhalten und Nachfrage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma hat das Kaufverhalten ihrer Kundschaft untersucht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (Kaufverhalten und Nachfrage). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Electrical wiring, office hours and warehouse stock are not customer purchasing behaviour. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012618",
+      "title": {
+        "en": "Using Maschinenbau in context",
+        "de": "Maschinenbau im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Maschinenbau: mechanical engineering.",
+        "de": "Maschinenbau erkennen und im Kontext verstehen: Ingenieurfachgebiet zur Entwicklung von Maschinen."
+      },
+      "objective": "Recognize the German noun Maschinenbau (mechanical engineering) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 draft based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1514 (f84dfbc4e34fc80f17c9a0b5770add3caca9756d485833a6785b99fab8b4bfda), 2026-10-29; no inherited examples reused.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human linguistic, CEFR and rights reviews pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0126-L1514-v1",
+          "contextKey": "legacy-0126-L1514-context-1",
+          "transferKey": "legacy-0126-L1514-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012618",
+            "type": "gap_choice",
+            "prompt": "Im Studiengang ___ lernen Studierende, technische Anlagen zu konstruieren.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The degree concerns designing mechanical systems.",
+              "de": "Im Studium geht es um Konstruktion und Technik."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Maschinenbau"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Literaturwissenschaft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Sozialpädagogik"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kunstgeschichte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Maschinenbau is mechanical engineering.",
+              "de": "Maschinenbau befasst sich mit der Entwicklung und Konstruktion von Maschinen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Studiengang Maschinenbau lernen Studierende, technische Anlagen zu konstruieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 1: independently solved as option 0 (Maschinenbau). Checked full German completed sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Literary studies, social pedagogy and art history do not focus on designing technical machinery. Bilingual instructions, hints and explanations checked. No human approval."
+        },
+        {
+          "variantKey": "legacy-0126-L1514-v2",
+          "contextKey": "legacy-0126-L1514-context-2",
+          "transferKey": "legacy-0126-L1514-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001260181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012618",
+            "type": "choice",
+            "prompt": "Nach dem Maschinenbaustudium entwickelt sie Antriebe für Industrieanlagen. In welchem Fachgebiet arbeitet sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The job involves engineering industrial drives.",
+              "de": "Die Person entwickelt technische Antriebe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "In der Entwicklung von Maschinen und technischen Anlagen"
+              },
+              {
+                "id": "1",
+                "text": "In der Erforschung alter Sprachen"
+              },
+              {
+                "id": "2",
+                "text": "In der Gestaltung von Werbeplakaten"
+              },
+              {
+                "id": "3",
+                "text": "In der Betreuung von Vorschulkindern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "She works in mechanical engineering.",
+              "de": "Sie arbeitet im Maschinenbau und entwickelt technische Anlagen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie entwickelt als Maschinenbauingenieurin Antriebe für Industrieanlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29, variant 2: independently solved as option 0 (In der Entwicklung von Maschinen und technischen Anlagen). Checked full German prompt and answer sentence for naturalness, grammar, context and single defensible choice. Other options checked individually: Historical languages, graphic advertising and preschool care are unrelated fields. Bilingual instructions, hints and explanations checked. No human approval."
+        }
+      ]
+    }
+  ]
+}
