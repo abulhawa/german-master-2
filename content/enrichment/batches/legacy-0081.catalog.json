@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000008100",
+      "title": {
+        "en": "Using Einzelhandel in context",
+        "de": "Einzelhandel im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einzelhandel (retail trade selling directly to consumers) in two distinct situations.",
+        "de": "Einzelhandel (Verkauf von Waren an Endkundinnen und Endkunden) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einzelhandel meaning retail trade selling directly to consumers, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L622 (22698eaf1130abab0f73d920f85001159d98aad8c435668a8dfe6f68a19b2ddc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L622-v1",
+          "contextKey": "legacy-0081-L622-context-1",
+          "transferKey": "legacy-0081-L622-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008100",
+            "type": "gap_choice",
+            "prompt": "Kleine Geschäfte in der Innenstadt gehören zum ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "These shops sell goods directly to individual customers.",
+              "de": "Diese Läden verkaufen Waren direkt an Privatkunden."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einzelhandel"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Großhandel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Außenhandel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zwischenhandel"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einzelhandel means retail trade selling directly to consumers. These shops sell goods directly to individual customers.",
+              "de": "Einzelhandel bedeutet Verkauf von Waren an Endkundinnen und Endkunden. Diese Läden verkaufen Waren direkt an Privatkunden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kleine Geschäfte in der Innenstadt gehören zum Einzelhandel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Kleine Geschäfte in der Innenstadt gehören zum Einzelhandel.\", noun case/number, all offered choices (Einzelhandel / Großhandel / Außenhandel / Zwischenhandel), unique accepted answer \"Einzelhandel\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L622-v2",
+          "contextKey": "legacy-0081-L622-context-2",
+          "transferKey": "legacy-0081-L622-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008100",
+            "type": "choice",
+            "prompt": "Im ___ werden Waren direkt an Endkunden verkauft.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The customers are final consumers, not resellers.",
+              "de": "Die Käufer sind Endverbraucher und keine Wiederverkäufer."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Großhandel"
+              },
+              {
+                "id": "1",
+                "text": "Einzelhandel"
+              },
+              {
+                "id": "2",
+                "text": "Zwischenhandel"
+              },
+              {
+                "id": "3",
+                "text": "Außenhandel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einzelhandel means retail trade selling directly to consumers. The customers are final consumers, not resellers.",
+              "de": "Einzelhandel bedeutet Verkauf von Waren an Endkundinnen und Endkunden. Die Käufer sind Endverbraucher und keine Wiederverkäufer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Einzelhandel werden Waren direkt an Endkunden verkauft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Im Einzelhandel werden Waren direkt an Endkunden verkauft.\", noun case/number, all offered choices (Großhandel / Einzelhandel / Zwischenhandel / Außenhandel), unique accepted answer \"Einzelhandel\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008101",
+      "title": {
+        "en": "Using Einzelheit in context",
+        "de": "Einzelheit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einzelheit (specific detail) in two distinct situations.",
+        "de": "Einzelheit (ein bestimmtes Detail) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einzelheit meaning specific detail, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L623 (92bb9b1b173b9ba9d717c5d04a28ccd6d860ad76daf0dc50340eb0c93e9dc90d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L623-v1",
+          "contextKey": "legacy-0081-L623-context-1",
+          "transferKey": "legacy-0081-L623-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008101",
+            "type": "gap_choice",
+            "prompt": "Bitte nennen Sie alle ___ des Vorfalls.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The speaker wants the specific facts of what happened.",
+              "de": "Gefragt sind die genauen Angaben zum Vorfall."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Überschriften"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Vermutungen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Meinungen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einzelheiten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einzelheit means specific detail. The speaker wants the specific facts of what happened.",
+              "de": "Einzelheit bedeutet ein bestimmtes Detail. Gefragt sind die genauen Angaben zum Vorfall."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte nennen Sie alle Einzelheiten des Vorfalls.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Bitte nennen Sie alle Einzelheiten des Vorfalls.\", noun case/number, all offered choices (Überschriften / Vermutungen / Meinungen / Einzelheiten), unique accepted answer \"Einzelheiten\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L623-v2",
+          "contextKey": "legacy-0081-L623-context-2",
+          "transferKey": "legacy-0081-L623-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008101",
+            "type": "choice",
+            "prompt": "Eine wichtige ___ im Vertrag wurde zunächst übersehen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "One small but important point was missed.",
+              "de": "Ein einzelner wichtiger Punkt blieb unbemerkt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einzelheit"
+              },
+              {
+                "id": "1",
+                "text": "Entscheidung"
+              },
+              {
+                "id": "2",
+                "text": "Einrichtung"
+              },
+              {
+                "id": "3",
+                "text": "Einzahlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Einzelheit means specific detail. One small but important point was missed.",
+              "de": "Einzelheit bedeutet ein bestimmtes Detail. Ein einzelner wichtiger Punkt blieb unbemerkt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine wichtige Einzelheit im Vertrag wurde zunächst übersehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Eine wichtige Einzelheit im Vertrag wurde zunächst übersehen.\", noun case/number, all offered choices (Einzelheit / Entscheidung / Einrichtung / Einzahlung), unique accepted answer \"Einzelheit\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008102",
+      "title": {
+        "en": "Using Einzug in context",
+        "de": "Einzug im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einzug (moving into a new place) in two distinct situations.",
+        "de": "Einzug (Beziehen einer neuen Wohnung oder eines Gebäudes) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einzug meaning moving into a new place, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L625 (4d1c1a3836b9ee7522723441951fe1c6268e3a6a0e13cb43ec81b32025b892b0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L625-v1",
+          "contextKey": "legacy-0081-L625-context-1",
+          "transferKey": "legacy-0081-L625-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008102",
+            "type": "gap_choice",
+            "prompt": "Der ___ in die neue Wohnung ist für Samstag geplant.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The person is beginning to live in the new home.",
+              "de": "Die Person beginnt, in der neuen Wohnung zu wohnen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Auszug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einbruch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einzug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Rückzug"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einzug means moving into a new place. The person is beginning to live in the new home.",
+              "de": "Einzug bedeutet Beziehen einer neuen Wohnung oder eines Gebäudes. Die Person beginnt, in der neuen Wohnung zu wohnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Einzug in die neue Wohnung ist für Samstag geplant.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Der Einzug in die neue Wohnung ist für Samstag geplant.\", noun case/number, all offered choices (Auszug / Einbruch / Einzug / Rückzug), unique accepted answer \"Einzug\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L625-v2",
+          "contextKey": "legacy-0081-L625-context-2",
+          "transferKey": "legacy-0081-L625-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008102",
+            "type": "choice",
+            "prompt": "Nach der Schlüsselübergabe begann der ___ der neuen Mieter.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The tenants are arriving to occupy their new home.",
+              "de": "Die neuen Mieter beziehen ihre Wohnung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Auszug"
+              },
+              {
+                "id": "1",
+                "text": "Rückzug"
+              },
+              {
+                "id": "2",
+                "text": "Abzug"
+              },
+              {
+                "id": "3",
+                "text": "Einzug"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Einzug means moving into a new place. The tenants are arriving to occupy their new home.",
+              "de": "Einzug bedeutet Beziehen einer neuen Wohnung oder eines Gebäudes. Die neuen Mieter beziehen ihre Wohnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Schlüsselübergabe begann der Einzug der neuen Mieter.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Nach der Schlüsselübergabe begann der Einzug der neuen Mieter.\", noun case/number, all offered choices (Auszug / Rückzug / Abzug / Einzug), unique accepted answer \"Einzug\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008103",
+      "title": {
+        "en": "Using Eisbrecher in context",
+        "de": "Eisbrecher im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Eisbrecher (icebreaker, figurative or literal) in two distinct situations.",
+        "de": "Eisbrecher (Mittel zum Gesprächseinstieg oder Schiff, das Eis bricht) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Eisbrecher meaning icebreaker, figurative or literal, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L627 (54ac92eed4f5150e354de140ce8d2576524090bbe3dcd30c339fa39c3ca50acf), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L627-v1",
+          "contextKey": "legacy-0081-L627-context-1",
+          "transferKey": "legacy-0081-L627-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008103",
+            "type": "gap_choice",
+            "prompt": "Zu Beginn des Workshops stellte sie eine lustige Frage als ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The question helps strangers start talking.",
+              "de": "Die Frage erleichtert den ersten Kontakt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fragebogen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Eisbrecher"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ablaufplan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Zeitmesser"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eisbrecher means icebreaker, figurative or literal. The question helps strangers start talking.",
+              "de": "Eisbrecher bedeutet Mittel zum Gesprächseinstieg oder Schiff, das Eis bricht. Die Frage erleichtert den ersten Kontakt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zu Beginn des Workshops stellte sie eine lustige Frage als Eisbrecher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Zu Beginn des Workshops stellte sie eine lustige Frage als Eisbrecher.\", noun case/number, all offered choices (Fragebogen / Eisbrecher / Ablaufplan / Zeitmesser), unique accepted answer \"Eisbrecher\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L627-v2",
+          "contextKey": "legacy-0081-L627-context-2",
+          "transferKey": "legacy-0081-L627-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008103",
+            "type": "choice",
+            "prompt": "Das Schiff brach eine Fahrrinne durch das gefrorene Meer. Es war ein ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This vessel is designed to break ice.",
+              "de": "Dieses Schiff kann eine Eisdecke durchbrechen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Frachter"
+              },
+              {
+                "id": "1",
+                "text": "Segler"
+              },
+              {
+                "id": "2",
+                "text": "Eisbrecher"
+              },
+              {
+                "id": "3",
+                "text": "Tanker"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Eisbrecher means icebreaker, figurative or literal. This vessel is designed to break ice.",
+              "de": "Eisbrecher bedeutet Mittel zum Gesprächseinstieg oder Schiff, das Eis bricht. Dieses Schiff kann eine Eisdecke durchbrechen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Schiff brach eine Fahrrinne durch das gefrorene Meer. Es war ein Eisbrecher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Das Schiff brach eine Fahrrinne durch das gefrorene Meer. Es war ein Eisbrecher.\", noun case/number, all offered choices (Frachter / Segler / Eisbrecher / Tanker), unique accepted answer \"Eisbrecher\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008104",
+      "title": {
+        "en": "Using Eisenbahn in context",
+        "de": "Eisenbahn im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Eisenbahn (railway transport system) in two distinct situations.",
+        "de": "Eisenbahn (Verkehrssystem mit Zügen auf Schienen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Eisenbahn meaning railway transport system, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L628 (d2b250c1a2914a9cf447183db6bdd4d3c31246bc7e2505051836d7089997994e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L628-v1",
+          "contextKey": "legacy-0081-L628-context-1",
+          "transferKey": "legacy-0081-L628-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008104",
+            "type": "gap_choice",
+            "prompt": "Die ___ verbindet weit entfernte Städte über Schienen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The transport system uses trains over long distances.",
+              "de": "Das Verkehrssystem nutzt Züge für längere Strecken."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Eisenbahn"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Straßenbahn"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Seilbahn"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Autobahn"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eisenbahn means railway transport system. The transport system uses trains over long distances.",
+              "de": "Eisenbahn bedeutet Verkehrssystem mit Zügen auf Schienen. Das Verkehrssystem nutzt Züge für längere Strecken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Eisenbahn verbindet weit entfernte Städte über Schienen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Die Eisenbahn verbindet weit entfernte Städte über Schienen.\", noun case/number, all offered choices (Eisenbahn / Straßenbahn / Seilbahn / Autobahn), unique accepted answer \"Eisenbahn\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L628-v2",
+          "contextKey": "legacy-0081-L628-context-2",
+          "transferKey": "legacy-0081-L628-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008104",
+            "type": "choice",
+            "prompt": "Früher transportierte die ___ Kohle und Reisende zwischen den Regionen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The historic transport system used trains on rails.",
+              "de": "Das historische Verkehrssystem nutzte Züge auf Schienen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Fluggesellschaft"
+              },
+              {
+                "id": "1",
+                "text": "Eisenbahn"
+              },
+              {
+                "id": "2",
+                "text": "Reederei"
+              },
+              {
+                "id": "3",
+                "text": "Spedition"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Eisenbahn means railway transport system. The historic transport system used trains on rails.",
+              "de": "Eisenbahn bedeutet Verkehrssystem mit Zügen auf Schienen. Das historische Verkehrssystem nutzte Züge auf Schienen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Früher transportierte die Eisenbahn Kohle und Reisende zwischen den Regionen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Früher transportierte die Eisenbahn Kohle und Reisende zwischen den Regionen.\", noun case/number, all offered choices (Fluggesellschaft / Eisenbahn / Reederei / Spedition), unique accepted answer \"Eisenbahn\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008105",
+      "title": {
+        "en": "Using Eisenbahnnetz in context",
+        "de": "Eisenbahnnetz im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Eisenbahnnetz (network of railway lines) in two distinct situations.",
+        "de": "Eisenbahnnetz (Gesamtheit miteinander verbundener Bahnstrecken) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Eisenbahnnetz meaning network of railway lines, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L629 (9d4e804c28c206a81343b431ace3f305c658d1aad665e0e749ff0405de1a73be), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L629-v1",
+          "contextKey": "legacy-0081-L629-context-1",
+          "transferKey": "legacy-0081-L629-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008105",
+            "type": "gap_choice",
+            "prompt": "Viele Strecken und Bahnhöfe bilden zusammen das nationale ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The system consists of connected rail routes.",
+              "de": "Das System besteht aus miteinander verbundenen Bahnstrecken."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Straßennetz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stromnetz"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Datennetz"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Eisenbahnnetz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eisenbahnnetz means network of railway lines. The system consists of connected rail routes.",
+              "de": "Eisenbahnnetz bedeutet Gesamtheit miteinander verbundener Bahnstrecken. Das System besteht aus miteinander verbundenen Bahnstrecken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Viele Strecken und Bahnhöfe bilden zusammen das nationale Eisenbahnnetz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Viele Strecken und Bahnhöfe bilden zusammen das nationale Eisenbahnnetz.\", noun case/number, all offered choices (Straßennetz / Stromnetz / Datennetz / Eisenbahnnetz), unique accepted answer \"Eisenbahnnetz\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L629-v2",
+          "contextKey": "legacy-0081-L629-context-2",
+          "transferKey": "legacy-0081-L629-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008105",
+            "type": "choice",
+            "prompt": "Der Ausbau des ___ soll neue Zugverbindungen ermöglichen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "New train connections require more rail infrastructure.",
+              "de": "Neue Zugverbindungen brauchen zusätzliche Bahninfrastruktur."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eisenbahnnetzes"
+              },
+              {
+                "id": "1",
+                "text": "Straßennetzes"
+              },
+              {
+                "id": "2",
+                "text": "Stromnetzes"
+              },
+              {
+                "id": "3",
+                "text": "Datennetzes"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Eisenbahnnetz means network of railway lines. New train connections require more rail infrastructure.",
+              "de": "Eisenbahnnetz bedeutet Gesamtheit miteinander verbundener Bahnstrecken. Neue Zugverbindungen brauchen zusätzliche Bahninfrastruktur."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Ausbau des Eisenbahnnetzes soll neue Zugverbindungen ermöglichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Der Ausbau des Eisenbahnnetzes soll neue Zugverbindungen ermöglichen.\", noun case/number, all offered choices (Eisenbahnnetzes / Straßennetzes / Stromnetzes / Datennetzes), unique accepted answer \"Eisenbahnnetzes\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008106",
+      "title": {
+        "en": "Using Elektroauto in context",
+        "de": "Elektroauto im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Elektroauto (battery-powered electric car) in two distinct situations.",
+        "de": "Elektroauto (Auto mit elektrischem Antrieb) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Elektroauto meaning battery-powered electric car, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L630 (77dbb050a7e30e3981ee8001666ef93f6b20a01f882dce722899cf89156633ec), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L630-v1",
+          "contextKey": "legacy-0081-L630-context-1",
+          "transferKey": "legacy-0081-L630-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008106",
+            "type": "gap_choice",
+            "prompt": "Der viertürige Wagen fährt mit Batteriestrom statt mit Benzin. Es ist ein ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The vehicle is a car powered by electricity.",
+              "de": "Das Fahrzeug ist ein Auto mit elektrischem Antrieb."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Dieselfahrzeug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Segelboot"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Elektroauto"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrrad"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Elektroauto means battery-powered electric car. The vehicle is a car powered by electricity.",
+              "de": "Elektroauto bedeutet Auto mit elektrischem Antrieb. Das Fahrzeug ist ein Auto mit elektrischem Antrieb."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der viertürige Wagen fährt mit Batteriestrom statt mit Benzin. Es ist ein Elektroauto.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Der viertürige Wagen fährt mit Batteriestrom statt mit Benzin. Es ist ein Elektroauto.\", noun case/number, all offered choices (Dieselfahrzeug / Segelboot / Elektroauto / Fahrrad), unique accepted answer \"Elektroauto\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L630-v2",
+          "contextKey": "legacy-0081-L630-context-2",
+          "transferKey": "legacy-0081-L630-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008106",
+            "type": "choice",
+            "prompt": "An der Ladesäule lädt sie ihr ___ für die nächste Fahrt.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The vehicle takes electricity from a charging station.",
+              "de": "Das Fahrzeug wird an einer Ladesäule mit Strom versorgt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Benzinauto"
+              },
+              {
+                "id": "1",
+                "text": "Dieselauto"
+              },
+              {
+                "id": "2",
+                "text": "Motorboot"
+              },
+              {
+                "id": "3",
+                "text": "Elektroauto"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Elektroauto means battery-powered electric car. The vehicle takes electricity from a charging station.",
+              "de": "Elektroauto bedeutet Auto mit elektrischem Antrieb. Das Fahrzeug wird an einer Ladesäule mit Strom versorgt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "An der Ladesäule lädt sie ihr Elektroauto für die nächste Fahrt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"An der Ladesäule lädt sie ihr Elektroauto für die nächste Fahrt.\", noun case/number, all offered choices (Benzinauto / Dieselauto / Motorboot / Elektroauto), unique accepted answer \"Elektroauto\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008107",
+      "title": {
+        "en": "Using Elektrobackofen in context",
+        "de": "Elektrobackofen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Elektrobackofen (electric oven) in two distinct situations.",
+        "de": "Elektrobackofen (Backofen, der mit Strom heizt) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Elektrobackofen meaning electric oven, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L631 (7eada6af80c16c338693843621e28065bef8335ad4ae3c7829d3cfd1faf53235), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L631-v1",
+          "contextKey": "legacy-0081-L631-context-1",
+          "transferKey": "legacy-0081-L631-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008107",
+            "type": "gap_choice",
+            "prompt": "Die Pizza wird im ___ mit Ober- und Unterhitze gebacken.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This kitchen appliance bakes food using heat.",
+              "de": "Dieses Küchengerät backt Speisen mit Hitze."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kühlschrank"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Elektrobackofen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Geschirrspüler"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gefrierschrank"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Elektrobackofen means electric oven. This kitchen appliance bakes food using heat.",
+              "de": "Elektrobackofen bedeutet Backofen, der mit Strom heizt. Dieses Küchengerät backt Speisen mit Hitze."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Pizza wird im Elektrobackofen mit Ober- und Unterhitze gebacken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Die Pizza wird im Elektrobackofen mit Ober- und Unterhitze gebacken.\", noun case/number, all offered choices (Kühlschrank / Elektrobackofen / Geschirrspüler / Gefrierschrank), unique accepted answer \"Elektrobackofen\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L631-v2",
+          "contextKey": "legacy-0081-L631-context-2",
+          "transferKey": "legacy-0081-L631-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008107",
+            "type": "choice",
+            "prompt": "Nach dem Anschluss an die Steckdose heizte der neue ___ auf 200 Grad.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The appliance reaches typical baking temperatures.",
+              "de": "Das Gerät erreicht die Temperatur zum Backen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Wasserkocher"
+              },
+              {
+                "id": "1",
+                "text": "Kühlschrank"
+              },
+              {
+                "id": "2",
+                "text": "Elektrobackofen"
+              },
+              {
+                "id": "3",
+                "text": "Ventilator"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Elektrobackofen means electric oven. The appliance reaches typical baking temperatures.",
+              "de": "Elektrobackofen bedeutet Backofen, der mit Strom heizt. Das Gerät erreicht die Temperatur zum Backen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Anschluss an die Steckdose heizte der neue Elektrobackofen auf 200 Grad.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Nach dem Anschluss an die Steckdose heizte der neue Elektrobackofen auf 200 Grad.\", noun case/number, all offered choices (Wasserkocher / Kühlschrank / Elektrobackofen / Ventilator), unique accepted answer \"Elektrobackofen\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008108",
+      "title": {
+        "en": "Using Elektrogrill in context",
+        "de": "Elektrogrill im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Elektrogrill (electric-powered grill) in two distinct situations.",
+        "de": "Elektrogrill (Grill, der mit Strom statt Brennstoff heizt) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Elektrogrill meaning electric-powered grill, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L632 (b23e67ddd3477e8801c603c3fbaa7adb70293fb58c4ea9c0fcb6ad963d4d4d5a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L632-v1",
+          "contextKey": "legacy-0081-L632-context-1",
+          "transferKey": "legacy-0081-L632-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008108",
+            "type": "gap_choice",
+            "prompt": "Auf dem Balkon ist offenes Feuer verboten; wir verwenden einen ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The appliance must work without an open flame.",
+              "de": "Das Gerät darf keine offene Flamme benötigen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Elektrogrill"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Holzkohlegrill"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gasgrill"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kaminofen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Elektrogrill means electric-powered grill. The appliance must work without an open flame.",
+              "de": "Elektrogrill bedeutet Grill, der mit Strom statt Brennstoff heizt. Das Gerät darf keine offene Flamme benötigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Balkon ist offenes Feuer verboten; wir verwenden einen Elektrogrill.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Auf dem Balkon ist offenes Feuer verboten; wir verwenden einen Elektrogrill.\", noun case/number, all offered choices (Elektrogrill / Holzkohlegrill / Gasgrill / Kaminofen), unique accepted answer \"Elektrogrill\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L632-v2",
+          "contextKey": "legacy-0081-L632-context-2",
+          "transferKey": "legacy-0081-L632-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008108",
+            "type": "choice",
+            "prompt": "Der ___ wird an die Steckdose angeschlossen und braucht keine Kohle.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "It is powered by a wall socket.",
+              "de": "Das Gerät wird über eine Steckdose betrieben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kohlegrill"
+              },
+              {
+                "id": "1",
+                "text": "Elektrogrill"
+              },
+              {
+                "id": "2",
+                "text": "Holzofen"
+              },
+              {
+                "id": "3",
+                "text": "Gasherd"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Elektrogrill means electric-powered grill. It is powered by a wall socket.",
+              "de": "Elektrogrill bedeutet Grill, der mit Strom statt Brennstoff heizt. Das Gerät wird über eine Steckdose betrieben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Elektrogrill wird an die Steckdose angeschlossen und braucht keine Kohle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Der Elektrogrill wird an die Steckdose angeschlossen und braucht keine Kohle.\", noun case/number, all offered choices (Kohlegrill / Elektrogrill / Holzofen / Gasherd), unique accepted answer \"Elektrogrill\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008109",
+      "title": {
+        "en": "Using Elektromarkt in context",
+        "de": "Elektromarkt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Elektromarkt (retail shop selling electronic appliances) in two distinct situations.",
+        "de": "Elektromarkt (Geschäft für elektrische und elektronische Geräte) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Elektromarkt meaning retail shop selling electronic appliances, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L633 (f84b3ab66a023a80ec872d991d72fd18c012d4ee463beb77b83949bb66fef7c7), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L633-v1",
+          "contextKey": "legacy-0081-L633-context-1",
+          "transferKey": "legacy-0081-L633-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008109",
+            "type": "gap_choice",
+            "prompt": "Für einen neuen Fernseher gingen wir in den ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This store specializes in electrical appliances.",
+              "de": "Dieses Geschäft verkauft vor allem Elektrogeräte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Supermarkt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Baumarkt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Blumenladen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Elektromarkt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Elektromarkt means retail shop selling electronic appliances. This store specializes in electrical appliances.",
+              "de": "Elektromarkt bedeutet Geschäft für elektrische und elektronische Geräte. Dieses Geschäft verkauft vor allem Elektrogeräte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für einen neuen Fernseher gingen wir in den Elektromarkt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Für einen neuen Fernseher gingen wir in den Elektromarkt.\", noun case/number, all offered choices (Supermarkt / Baumarkt / Blumenladen / Elektromarkt), unique accepted answer \"Elektromarkt\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L633-v2",
+          "contextKey": "legacy-0081-L633-context-2",
+          "transferKey": "legacy-0081-L633-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008109",
+            "type": "choice",
+            "prompt": "Im ___ verglich sie mehrere Waschmaschinen und Kühlschränke.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The shop sells household appliances.",
+              "de": "Das Geschäft bietet elektrische Haushaltsgeräte an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Elektromarkt"
+              },
+              {
+                "id": "1",
+                "text": "Buchladen"
+              },
+              {
+                "id": "2",
+                "text": "Schuhladen"
+              },
+              {
+                "id": "3",
+                "text": "Drogeriemarkt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Elektromarkt means retail shop selling electronic appliances. The shop sells household appliances.",
+              "de": "Elektromarkt bedeutet Geschäft für elektrische und elektronische Geräte. Das Geschäft bietet elektrische Haushaltsgeräte an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Elektromarkt verglich sie mehrere Waschmaschinen und Kühlschränke.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Im Elektromarkt verglich sie mehrere Waschmaschinen und Kühlschränke.\", noun case/number, all offered choices (Elektromarkt / Buchladen / Schuhladen / Drogeriemarkt), unique accepted answer \"Elektromarkt\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008110",
+      "title": {
+        "en": "Using Elektromobilität in context",
+        "de": "Elektromobilität im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Elektromobilität (electric-powered transportation) in two distinct situations.",
+        "de": "Elektromobilität (Fortbewegung mit elektrisch angetriebenen Fahrzeugen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Elektromobilität meaning electric-powered transportation, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L634 (c45b1b739f59ade843603969cbd549a63845b20cbaf69616bb6847b010780393), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L634-v1",
+          "contextKey": "legacy-0081-L634-context-1",
+          "transferKey": "legacy-0081-L634-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008110",
+            "type": "gap_choice",
+            "prompt": "Mehr Ladestationen sollen die ___ fördern.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Charging infrastructure supports electric transport.",
+              "de": "Ladeinfrastruktur unterstützt elektrisch angetriebene Fahrzeuge."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Landwirtschaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Luftfahrt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Elektromobilität"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schifffahrt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Elektromobilität means electric-powered transportation. Charging infrastructure supports electric transport.",
+              "de": "Elektromobilität bedeutet Fortbewegung mit elektrisch angetriebenen Fahrzeugen. Ladeinfrastruktur unterstützt elektrisch angetriebene Fahrzeuge."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mehr Ladestationen sollen die Elektromobilität fördern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Mehr Ladestationen sollen die Elektromobilität fördern.\", noun case/number, all offered choices (Landwirtschaft / Luftfahrt / Elektromobilität / Schifffahrt), unique accepted answer \"Elektromobilität\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L634-v2",
+          "contextKey": "legacy-0081-L634-context-2",
+          "transferKey": "legacy-0081-L634-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008110",
+            "type": "choice",
+            "prompt": "Die Stadt investiert in elektrische Busse und Carsharing; sie setzt auf ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The city is expanding electric transport options.",
+              "de": "Die Stadt baut elektrische Verkehrsmöglichkeiten aus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kohleförderung"
+              },
+              {
+                "id": "1",
+                "text": "Schwerindustrie"
+              },
+              {
+                "id": "2",
+                "text": "Forstwirtschaft"
+              },
+              {
+                "id": "3",
+                "text": "Elektromobilität"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Elektromobilität means electric-powered transportation. The city is expanding electric transport options.",
+              "de": "Elektromobilität bedeutet Fortbewegung mit elektrisch angetriebenen Fahrzeugen. Die Stadt baut elektrische Verkehrsmöglichkeiten aus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stadt investiert in elektrische Busse und Carsharing; sie setzt auf Elektromobilität.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Die Stadt investiert in elektrische Busse und Carsharing; sie setzt auf Elektromobilität.\", noun case/number, all offered choices (Kohleförderung / Schwerindustrie / Forstwirtschaft / Elektromobilität), unique accepted answer \"Elektromobilität\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008111",
+      "title": {
+        "en": "Using Elektromotor in context",
+        "de": "Elektromotor im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Elektromotor (motor converting electricity into movement) in two distinct situations.",
+        "de": "Elektromotor (Motor, der Strom in Bewegung umwandelt) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Elektromotor meaning motor converting electricity into movement, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L635 (671c79a36c1760a2335d4668ec1330c42844f474815b875ecfc4c41d1bd395c4), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L635-v1",
+          "contextKey": "legacy-0081-L635-context-1",
+          "transferKey": "legacy-0081-L635-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008111",
+            "type": "gap_choice",
+            "prompt": "Der ___ treibt die Pumpe an und benötigt dafür Strom.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This drive uses electrical power.",
+              "de": "Dieser Antrieb arbeitet mit elektrischer Energie."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Dieselmotor"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Elektromotor"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verbrennungsmotor"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Dampfmotor"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Elektromotor means motor converting electricity into movement. This drive uses electrical power.",
+              "de": "Elektromotor bedeutet Motor, der Strom in Bewegung umwandelt. Dieser Antrieb arbeitet mit elektrischer Energie."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Elektromotor treibt die Pumpe an und benötigt dafür Strom.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Der Elektromotor treibt die Pumpe an und benötigt dafür Strom.\", noun case/number, all offered choices (Dieselmotor / Elektromotor / Verbrennungsmotor / Dampfmotor), unique accepted answer \"Elektromotor\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L635-v2",
+          "contextKey": "legacy-0081-L635-context-2",
+          "transferKey": "legacy-0081-L635-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008111",
+            "type": "choice",
+            "prompt": "In der Maschine wandelt ein ___ elektrische Energie in Bewegung um.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The device turns electrical power into mechanical motion.",
+              "de": "Das Gerät wandelt Strom in mechanische Bewegung um."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Generator"
+              },
+              {
+                "id": "1",
+                "text": "Transformator"
+              },
+              {
+                "id": "2",
+                "text": "Elektromotor"
+              },
+              {
+                "id": "3",
+                "text": "Heizkörper"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Elektromotor means motor converting electricity into movement. The device turns electrical power into mechanical motion.",
+              "de": "Elektromotor bedeutet Motor, der Strom in Bewegung umwandelt. Das Gerät wandelt Strom in mechanische Bewegung um."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Maschine wandelt ein Elektromotor elektrische Energie in Bewegung um.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"In der Maschine wandelt ein Elektromotor elektrische Energie in Bewegung um.\", noun case/number, all offered choices (Generator / Transformator / Elektromotor / Heizkörper), unique accepted answer \"Elektromotor\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008112",
+      "title": {
+        "en": "Using Elektronik in context",
+        "de": "Elektronik im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Elektronik (electronic circuits and components) in two distinct situations.",
+        "de": "Elektronik (elektronische Schaltungen und Bauteile) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Elektronik meaning electronic circuits and components, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L636 (06a261c6f3eb57300dfb7576857cd3eca4c2b53c1fecea4786ae004979359953), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L636-v1",
+          "contextKey": "legacy-0081-L636-context-1",
+          "transferKey": "legacy-0081-L636-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008112",
+            "type": "gap_choice",
+            "prompt": "Bei der Reparatur der Platine muss die empfindliche ___ geschützt werden.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The circuit board contains sensitive components.",
+              "de": "Die Leiterplatte enthält empfindliche elektronische Bauteile."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Elektronik"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Mechanik"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verpackung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verkleidung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Elektronik means electronic circuits and components. The circuit board contains sensitive components.",
+              "de": "Elektronik bedeutet elektronische Schaltungen und Bauteile. Die Leiterplatte enthält empfindliche elektronische Bauteile."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Reparatur der Platine muss die empfindliche Elektronik geschützt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Bei der Reparatur der Platine muss die empfindliche Elektronik geschützt werden.\", noun case/number, all offered choices (Elektronik / Mechanik / Verpackung / Verkleidung), unique accepted answer \"Elektronik\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L636-v2",
+          "contextKey": "legacy-0081-L636-context-2",
+          "transferKey": "legacy-0081-L636-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008112",
+            "type": "choice",
+            "prompt": "Er studiert ___, weil ihn Schaltungen und Halbleiter interessieren.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "His interest is in circuits and semiconductors.",
+              "de": "Er interessiert sich für Schaltungen und Halbleiter."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Biologie"
+              },
+              {
+                "id": "1",
+                "text": "Elektronik"
+              },
+              {
+                "id": "2",
+                "text": "Geschichte"
+              },
+              {
+                "id": "3",
+                "text": "Literatur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Elektronik means electronic circuits and components. His interest is in circuits and semiconductors.",
+              "de": "Elektronik bedeutet elektronische Schaltungen und Bauteile. Er interessiert sich für Schaltungen und Halbleiter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er studiert Elektronik, weil ihn Schaltungen und Halbleiter interessieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Er studiert Elektronik, weil ihn Schaltungen und Halbleiter interessieren.\", noun case/number, all offered choices (Biologie / Elektronik / Geschichte / Literatur), unique accepted answer \"Elektronik\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008113",
+      "title": {
+        "en": "Using Elektronikmodul in context",
+        "de": "Elektronikmodul im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Elektronikmodul (electronic control module) in two distinct situations.",
+        "de": "Elektronikmodul (elektronische Baugruppe mit bestimmter Funktion) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Elektronikmodul meaning electronic control module, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L637 (6c5847884b980c6154b17de968161018ffc76d92c29b445e952081d0bba06765), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L637-v1",
+          "contextKey": "legacy-0081-L637-context-1",
+          "transferKey": "legacy-0081-L637-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008113",
+            "type": "gap_choice",
+            "prompt": "Die Steuerplatine ist defekt. Das ___ muss ausgetauscht werden.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The faulty part is an electronic assembly.",
+              "de": "Defekt ist eine elektronische Baugruppe."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gehäuse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kabel"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ventil"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Elektronikmodul"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Elektronikmodul means electronic control module. The faulty part is an electronic assembly.",
+              "de": "Elektronikmodul bedeutet elektronische Baugruppe mit bestimmter Funktion. Defekt ist eine elektronische Baugruppe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Steuerplatine ist defekt. Das Elektronikmodul muss ausgetauscht werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Die Steuerplatine ist defekt. Das Elektronikmodul muss ausgetauscht werden.\", noun case/number, all offered choices (Gehäuse / Kabel / Ventil / Elektronikmodul), unique accepted answer \"Elektronikmodul\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L637-v2",
+          "contextKey": "legacy-0081-L637-context-2",
+          "transferKey": "legacy-0081-L637-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008113",
+            "type": "choice",
+            "prompt": "Ein kleines ___ übernimmt die Regelung der Temperatur im Gerät.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The part contains control electronics.",
+              "de": "Das Bauteil enthält Elektronik zur Steuerung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Elektronikmodul"
+              },
+              {
+                "id": "1",
+                "text": "Heizrohr"
+              },
+              {
+                "id": "2",
+                "text": "Gehäuse"
+              },
+              {
+                "id": "3",
+                "text": "Kabel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Elektronikmodul means electronic control module. The part contains control electronics.",
+              "de": "Elektronikmodul bedeutet elektronische Baugruppe mit bestimmter Funktion. Das Bauteil enthält Elektronik zur Steuerung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein kleines Elektronikmodul übernimmt die Regelung der Temperatur im Gerät.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Ein kleines Elektronikmodul übernimmt die Regelung der Temperatur im Gerät.\", noun case/number, all offered choices (Elektronikmodul / Heizrohr / Gehäuse / Kabel), unique accepted answer \"Elektronikmodul\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008114",
+      "title": {
+        "en": "Using Elterngeld in context",
+        "de": "Elterngeld im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Elterngeld (parental income-replacement benefit) in two distinct situations.",
+        "de": "Elterngeld (staatliche Leistung zum teilweisen Ersatz von Einkommen nach Geburt) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Elterngeld meaning parental income-replacement benefit, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L639 (caf2f99beeed6687b74dc98097d80c97b215768ae460695be41d647671b46e2b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L639-v1",
+          "contextKey": "legacy-0081-L639-context-1",
+          "transferKey": "legacy-0081-L639-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008114",
+            "type": "gap_choice",
+            "prompt": "Weil sie nach der Geburt weniger arbeitete, beantragte sie ___ als Einkommensersatz.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This benefit partly replaces earnings lost during early parenthood.",
+              "de": "Diese Leistung ersetzt einen Teil des entfallenden Einkommens nach der Geburt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kindergeld"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wohngeld"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Elterngeld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Arbeitslosengeld"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Elterngeld means parental income-replacement benefit. This benefit partly replaces earnings lost during early parenthood.",
+              "de": "Elterngeld bedeutet staatliche Leistung zum teilweisen Ersatz von Einkommen nach Geburt. Diese Leistung ersetzt einen Teil des entfallenden Einkommens nach der Geburt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil sie nach der Geburt weniger arbeitete, beantragte sie Elterngeld als Einkommensersatz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Weil sie nach der Geburt weniger arbeitete, beantragte sie Elterngeld als Einkommensersatz.\", noun case/number, all offered choices (Kindergeld / Wohngeld / Elterngeld / Arbeitslosengeld), unique accepted answer \"Elterngeld\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L639-v2",
+          "contextKey": "legacy-0081-L639-context-2",
+          "transferKey": "legacy-0081-L639-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008114",
+            "type": "choice",
+            "prompt": "Die Leistung ersetzt einen Teil des wegfallenden Einkommens nach der Geburt. Sie heißt ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "It compensates for reduced work income after a child's birth.",
+              "de": "Die Leistung gleicht geringere Erwerbseinnahmen nach der Geburt teilweise aus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kindergeld"
+              },
+              {
+                "id": "1",
+                "text": "Wohngeld"
+              },
+              {
+                "id": "2",
+                "text": "Bürgergeld"
+              },
+              {
+                "id": "3",
+                "text": "Elterngeld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Elterngeld means parental income-replacement benefit. It compensates for reduced work income after a child's birth.",
+              "de": "Elterngeld bedeutet staatliche Leistung zum teilweisen Ersatz von Einkommen nach Geburt. Die Leistung gleicht geringere Erwerbseinnahmen nach der Geburt teilweise aus."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Leistung ersetzt einen Teil des wegfallenden Einkommens nach der Geburt. Sie heißt Elterngeld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Die Leistung ersetzt einen Teil des wegfallenden Einkommens nach der Geburt. Sie heißt Elterngeld.\", noun case/number, all offered choices (Kindergeld / Wohngeld / Bürgergeld / Elterngeld), unique accepted answer \"Elterngeld\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008115",
+      "title": {
+        "en": "Using Elternzeit in context",
+        "de": "Elternzeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Elternzeit (protected parental leave from work) in two distinct situations.",
+        "de": "Elternzeit (gesetzlich geregelte Auszeit vom Beruf für Eltern) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Elternzeit meaning protected parental leave from work, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L640 (1581e2e09f81337ca38d59a78168a8a4e1a729b099371fabaf75e1014cb5f800), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L640-v1",
+          "contextKey": "legacy-0081-L640-context-1",
+          "transferKey": "legacy-0081-L640-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008115",
+            "type": "gap_choice",
+            "prompt": "Nach der Geburt ihres Kindes nimmt er sechs Monate ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A parent temporarily takes leave from employment.",
+              "de": "Ein Elternteil nimmt vorübergehend eine Auszeit vom Beruf."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Probezeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Elternzeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Arbeitszeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Freizeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Elternzeit means protected parental leave from work. A parent temporarily takes leave from employment.",
+              "de": "Elternzeit bedeutet gesetzlich geregelte Auszeit vom Beruf für Eltern. Ein Elternteil nimmt vorübergehend eine Auszeit vom Beruf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Geburt ihres Kindes nimmt er sechs Monate Elternzeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Nach der Geburt ihres Kindes nimmt er sechs Monate Elternzeit.\", noun case/number, all offered choices (Probezeit / Elternzeit / Arbeitszeit / Freizeit), unique accepted answer \"Elternzeit\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L640-v2",
+          "contextKey": "legacy-0081-L640-context-2",
+          "transferKey": "legacy-0081-L640-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008115",
+            "type": "choice",
+            "prompt": "Während der ___ bleibt das Arbeitsverhältnis bestehen, obwohl die Person vorübergehend nicht arbeitet.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Employment continues during this protected family leave.",
+              "de": "Das Arbeitsverhältnis bleibt während der Familienauszeit bestehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kündigungsfrist"
+              },
+              {
+                "id": "1",
+                "text": "Probezeit"
+              },
+              {
+                "id": "2",
+                "text": "Elternzeit"
+              },
+              {
+                "id": "3",
+                "text": "Schichtarbeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Elternzeit means protected parental leave from work. Employment continues during this protected family leave.",
+              "de": "Elternzeit bedeutet gesetzlich geregelte Auszeit vom Beruf für Eltern. Das Arbeitsverhältnis bleibt während der Familienauszeit bestehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während der Elternzeit bleibt das Arbeitsverhältnis bestehen, obwohl die Person vorübergehend nicht arbeitet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Während der Elternzeit bleibt das Arbeitsverhältnis bestehen, obwohl die Person vorübergehend nicht arbeitet.\", noun case/number, all offered choices (Kündigungsfrist / Probezeit / Elternzeit / Schichtarbeit), unique accepted answer \"Elternzeit\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008116",
+      "title": {
+        "en": "Using Empfang in context",
+        "de": "Empfang im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Empfang (reception desk or welcome) in two distinct situations.",
+        "de": "Empfang (Anmeldung oder Begrüßung beim Ankommen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Empfang meaning reception desk or welcome, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L641 (d42a1c6b19dc859e682e263067c69c7b79268ffa143c1a814557f9f52adce75c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L641-v1",
+          "contextKey": "legacy-0081-L641-context-1",
+          "transferKey": "legacy-0081-L641-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008116",
+            "type": "gap_choice",
+            "prompt": "Am ___ des Hotels meldeten wir uns an.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Guests check in at this desk.",
+              "de": "Hotelgäste melden sich an dieser Stelle an."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Empfang"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausgang"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Eingang"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Aufzug"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Empfang means reception desk or welcome. Guests check in at this desk.",
+              "de": "Empfang bedeutet Anmeldung oder Begrüßung beim Ankommen. Hotelgäste melden sich an dieser Stelle an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Empfang des Hotels meldeten wir uns an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Am Empfang des Hotels meldeten wir uns an.\", noun case/number, all offered choices (Empfang / Ausgang / Eingang / Aufzug), unique accepted answer \"Empfang\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L641-v2",
+          "contextKey": "legacy-0081-L641-context-2",
+          "transferKey": "legacy-0081-L641-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008116",
+            "type": "choice",
+            "prompt": "Der freundliche ___ durch die Gastgeber gab uns sofort das Gefühl, willkommen zu sein.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The hosts welcomed the visitors warmly.",
+              "de": "Die Gastgeber begrüßten ihre Gäste freundlich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abschied"
+              },
+              {
+                "id": "1",
+                "text": "Empfang"
+              },
+              {
+                "id": "2",
+                "text": "Streit"
+              },
+              {
+                "id": "3",
+                "text": "Lärm"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Empfang means reception desk or welcome. The hosts welcomed the visitors warmly.",
+              "de": "Empfang bedeutet Anmeldung oder Begrüßung beim Ankommen. Die Gastgeber begrüßten ihre Gäste freundlich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der freundliche Empfang durch die Gastgeber gab uns sofort das Gefühl, willkommen zu sein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Der freundliche Empfang durch die Gastgeber gab uns sofort das Gefühl, willkommen zu sein.\", noun case/number, all offered choices (Abschied / Empfang / Streit / Lärm), unique accepted answer \"Empfang\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008117",
+      "title": {
+        "en": "Using Empfehlung in context",
+        "de": "Empfehlung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Empfehlung (recommendation or advice) in two distinct situations.",
+        "de": "Empfehlung (Rat oder Vorschlag) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Empfehlung meaning recommendation or advice, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L643 (dfa455b6fab9148ed56477acbf07cb6bd2f895cc4b1a9ac13e9cc2b9a8eb9f7d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L643-v1",
+          "contextKey": "legacy-0081-L643-context-1",
+          "transferKey": "legacy-0081-L643-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008117",
+            "type": "gap_choice",
+            "prompt": "Kannst du mir eine ___ für ein gutes Restaurant geben?",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The speaker wants a suggestion, not a bill.",
+              "de": "Gesucht ist ein Rat und keine Rechnung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Erlaubnis"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Entschuldigung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Empfehlung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Empfehlung means recommendation or advice. The speaker wants a suggestion, not a bill.",
+              "de": "Empfehlung bedeutet Rat oder Vorschlag. Gesucht ist ein Rat und keine Rechnung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kannst du mir eine Empfehlung für ein gutes Restaurant geben?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Kannst du mir eine Empfehlung für ein gutes Restaurant geben?\", noun case/number, all offered choices (Rechnung / Erlaubnis / Entschuldigung / Empfehlung), unique accepted answer \"Empfehlung\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L643-v2",
+          "contextKey": "legacy-0081-L643-context-2",
+          "transferKey": "legacy-0081-L643-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008117",
+            "type": "choice",
+            "prompt": "Die Ärztin sprach eine klare ___ für mehr Bewegung aus.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The doctor advised a beneficial action.",
+              "de": "Die Ärztin rät zu einer gesunden Maßnahme."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Empfehlung"
+              },
+              {
+                "id": "1",
+                "text": "Beschwerde"
+              },
+              {
+                "id": "2",
+                "text": "Warnung"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Empfehlung means recommendation or advice. The doctor advised a beneficial action.",
+              "de": "Empfehlung bedeutet Rat oder Vorschlag. Die Ärztin rät zu einer gesunden Maßnahme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ärztin sprach eine klare Empfehlung für mehr Bewegung aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Die Ärztin sprach eine klare Empfehlung für mehr Bewegung aus.\", noun case/number, all offered choices (Empfehlung / Beschwerde / Warnung / Kündigung), unique accepted answer \"Empfehlung\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008118",
+      "title": {
+        "en": "Using Energie in context",
+        "de": "Energie im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Energie (energy needed for work or activity) in two distinct situations.",
+        "de": "Energie (Fähigkeit, Arbeit zu verrichten oder etwas anzutreiben) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Energie meaning energy needed for work or activity, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L645 (aa25c2a4295ac62828e10e57cdf504f438894c7f42da84c4ed14751af863155b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L645-v1",
+          "contextKey": "legacy-0081-L645-context-1",
+          "transferKey": "legacy-0081-L645-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008118",
+            "type": "gap_choice",
+            "prompt": "Der Akku speichert elektrische ___ für später.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A battery can later supply electricity to a device.",
+              "de": "Ein Akku kann später ein Gerät mit Strom versorgen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Nahrung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Erfahrung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Energie"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hoffnung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Energie means energy. A battery can later supply electricity to a device.",
+              "de": "Energie bezeichnet hier die gespeicherte elektrische Energie. Ein Akku kann später ein Gerät mit Strom versorgen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Akku speichert elektrische Energie für später.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Der Akku speichert elektrische Energie für später.\", noun case/number, all offered choices (Nahrung / Erfahrung / Energie / Hoffnung), unique accepted answer \"Energie\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L645-v2",
+          "contextKey": "legacy-0081-L645-context-2",
+          "transferKey": "legacy-0081-L645-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008118",
+            "type": "choice",
+            "prompt": "Der Motor benötigt ___, um die Maschine anzutreiben.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A motor needs power to do work.",
+              "de": "Ein Motor braucht eine Energiequelle zum Arbeiten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geduld"
+              },
+              {
+                "id": "1",
+                "text": "Hoffnung"
+              },
+              {
+                "id": "2",
+                "text": "Erlaubnis"
+              },
+              {
+                "id": "3",
+                "text": "Energie"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Energie means energy needed for work or activity. A motor needs power to do work.",
+              "de": "Energie bedeutet Fähigkeit, Arbeit zu verrichten oder etwas anzutreiben. Ein Motor braucht eine Energiequelle zum Arbeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Motor benötigt Energie, um die Maschine anzutreiben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Der Motor benötigt Energie, um die Maschine anzutreiben.\", noun case/number, all offered choices (Geduld / Hoffnung / Erlaubnis / Energie), unique accepted answer \"Energie\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008119",
+      "title": {
+        "en": "Using Energieeinsparung in context",
+        "de": "Energieeinsparung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Energieeinsparung (reduction in energy consumption) in two distinct situations.",
+        "de": "Energieeinsparung (Verringerung des Energieverbrauchs) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Energieeinsparung meaning reduction in energy consumption, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L646 (3a2faf11bcd44940dbaf87d12b806c9ae7b7927f42f6d28b3adc7657c2cce89b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0081-L646-v1",
+          "contextKey": "legacy-0081-L646-context-1",
+          "transferKey": "legacy-0081-L646-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008119",
+            "type": "gap_choice",
+            "prompt": "Die bessere Dämmung führte zu einer deutlichen ___ beim Heizen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Insulation reduces heating demand.",
+              "de": "Dämmung senkt den Energiebedarf beim Heizen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Energieverschwendung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Energieeinsparung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Energieerhöhung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Energieversorgung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Energieeinsparung means reduction in energy consumption. Insulation reduces heating demand.",
+              "de": "Energieeinsparung bedeutet Verringerung des Energieverbrauchs. Dämmung senkt den Energiebedarf beim Heizen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die bessere Dämmung führte zu einer deutlichen Energieeinsparung beim Heizen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Die bessere Dämmung führte zu einer deutlichen Energieeinsparung beim Heizen.\", noun case/number, all offered choices (Energieverschwendung / Energieeinsparung / Energieerhöhung / Energieversorgung), unique accepted answer \"Energieeinsparung\", bilingual hint/explanation and different sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0081-L646-v2",
+          "contextKey": "legacy-0081-L646-context-2",
+          "transferKey": "legacy-0081-L646-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000810191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008119",
+            "type": "choice",
+            "prompt": "Durch sparsame Geräte erreichte der Haushalt eine jährliche ___ von 15 Prozent.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The household used less energy than before.",
+              "de": "Der Haushalt verbrauchte weniger Energie als zuvor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kostensteigerung"
+              },
+              {
+                "id": "1",
+                "text": "Stromsperre"
+              },
+              {
+                "id": "2",
+                "text": "Energieeinsparung"
+              },
+              {
+                "id": "3",
+                "text": "Preiserhöhung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Energieeinsparung means reduction in energy consumption. The household used less energy than before.",
+              "de": "Energieeinsparung bedeutet Verringerung des Energieverbrauchs. Der Haushalt verbrauchte weniger Energie als zuvor."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch sparsame Geräte erreichte der Haushalt eine jährliche Energieeinsparung von 15 Prozent.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked complete sentence \"Durch sparsame Geräte erreichte der Haushalt eine jährliche Energieeinsparung von 15 Prozent.\", noun case/number, all offered choices (Kostensteigerung / Stromsperre / Energieeinsparung / Preiserhöhung), unique accepted answer \"Energieeinsparung\", bilingual hint/explanation and different sibling context. Human review pending."
+        }
+      ]
+    }
+  ]
+}
