@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000008700",
+      "title": {
+        "en": "Using Erstattung in context",
+        "de": "Erstattung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erstattung (refund or reimbursement) in two distinct situations.",
+        "de": "Erstattung (Rückzahlung oder Kostenersatz) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erstattung meaning refund or reimbursement, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L693 (a3bcddc76002fb9107adc8632b0a221e081aeea448c090f48b1d2d6e84a09a27), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L693-v1",
+          "contextKey": "legacy-0087-L693-context-1",
+          "transferKey": "legacy-0087-L693-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008700",
+            "type": "gap_choice",
+            "prompt": "Für die ___ der Reisekosten reichte sie die Belege ein.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Receipts support reimbursement of expenses.",
+              "de": "Quittungen dienen als Nachweis für die Rückzahlung von Kosten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Erhöhung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Entlassung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Eröffnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Erstattung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erstattung means refund or reimbursement. Receipts support reimbursement of expenses.",
+              "de": "Erstattung bedeutet Rückzahlung oder Kostenersatz. Quittungen dienen als Nachweis für die Rückzahlung von Kosten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Erstattung der Reisekosten reichte sie die Belege ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für die Erstattung der Reisekosten reichte sie die Belege ein.\", noun case/number, all offered choices (Erhöhung / Entlassung / Eröffnung / Erstattung), unique accepted answer \"Erstattung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L693-v2",
+          "contextKey": "legacy-0087-L693-context-2",
+          "transferKey": "legacy-0087-L693-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008700",
+            "type": "choice",
+            "prompt": "Nach der Rückgabe des defekten Geräts erhielt er eine ___ des Kaufpreises.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The purchase price was paid back.",
+              "de": "Der Kaufpreis wurde zurückgezahlt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Erstattung"
+              },
+              {
+                "id": "1",
+                "text": "Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "Mahnung"
+              },
+              {
+                "id": "3",
+                "text": "Gebühr"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Erstattung means refund or reimbursement. The purchase price was paid back.",
+              "de": "Erstattung bedeutet Rückzahlung oder Kostenersatz. Der Kaufpreis wurde zurückgezahlt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Rückgabe des defekten Geräts erhielt er eine Erstattung des Kaufpreises.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach der Rückgabe des defekten Geräts erhielt er eine Erstattung des Kaufpreises.\", noun case/number, all offered choices (Erstattung / Rechnung / Mahnung / Gebühr), unique accepted answer \"Erstattung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008701",
+      "title": {
+        "en": "Using Erstauftrag in context",
+        "de": "Erstauftrag im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erstauftrag (first order from a new customer) in two distinct situations.",
+        "de": "Erstauftrag (erste Bestellung eines Kunden) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erstauftrag meaning first order from a new customer, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L694 (612c3a07c1fa6116f3d3ecf2e23b396a0b08a42d588b547295b8e4da4e832d82), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L694-v1",
+          "contextKey": "legacy-0087-L694-context-1",
+          "transferKey": "legacy-0087-L694-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008701",
+            "type": "gap_choice",
+            "prompt": "Der neue Kunde hat seinen ersten Auftrag erteilt. Dieser ___ ist für uns wichtig.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "It is the customer's initial order.",
+              "de": "Es handelt sich um die erste Bestellung des Kunden."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Folgeauftrag"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Dauerauftrag"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erstauftrag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Wiederholungsauftrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erstauftrag means first order from a new customer. It is the customer's initial order.",
+              "de": "Erstauftrag bedeutet erste Bestellung eines Kunden. Es handelt sich um die erste Bestellung des Kunden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der neue Kunde hat seinen ersten Auftrag erteilt. Dieser Erstauftrag ist für uns wichtig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der neue Kunde hat seinen ersten Auftrag erteilt. Dieser Erstauftrag ist für uns wichtig.\", noun case/number, all offered choices (Folgeauftrag / Dauerauftrag / Erstauftrag / Wiederholungsauftrag), unique accepted answer \"Erstauftrag\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L694-v2",
+          "contextKey": "legacy-0087-L694-context-2",
+          "transferKey": "legacy-0087-L694-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008701",
+            "type": "choice",
+            "prompt": "Nach der Messe ging zum ersten Mal eine Bestellung des neuen Geschäftspartners ein. Das war sein ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The company received its first order from this partner.",
+              "de": "Das Unternehmen erhielt die erste Bestellung dieses Partners."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rücktritt"
+              },
+              {
+                "id": "1",
+                "text": "Mahnbescheid"
+              },
+              {
+                "id": "2",
+                "text": "Kaufvertrag"
+              },
+              {
+                "id": "3",
+                "text": "Erstauftrag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Erstauftrag means first order from a new customer. The company received its first order from this partner.",
+              "de": "Erstauftrag bedeutet erste Bestellung eines Kunden. Das Unternehmen erhielt die erste Bestellung dieses Partners."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Messe ging zum ersten Mal eine Bestellung des neuen Geschäftspartners ein. Das war sein Erstauftrag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach der Messe ging zum ersten Mal eine Bestellung des neuen Geschäftspartners ein. Das war sein Erstauftrag.\", noun case/number, all offered choices (Rücktritt / Mahnbescheid / Kaufvertrag / Erstauftrag), unique accepted answer \"Erstauftrag\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008702",
+      "title": {
+        "en": "Using Erste-Hilfe-Kurs in context",
+        "de": "Erste-Hilfe-Kurs im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erste-Hilfe-Kurs (first aid training course) in two distinct situations.",
+        "de": "Erste-Hilfe-Kurs (Lehrgang für grundlegende Hilfe im Notfall) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erste-Hilfe-Kurs meaning first aid training course, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L695 (84721b61587e2dfddb1f380fb963d70f08f46c79e1bc0ce50937d4017b1c676f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L695-v1",
+          "contextKey": "legacy-0087-L695-context-1",
+          "transferKey": "legacy-0087-L695-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008702",
+            "type": "gap_choice",
+            "prompt": "Für den Führerschein meldete er sich zu einem ___ an.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This training is part of driving-license preparation.",
+              "de": "Dieser Lehrgang gehört zur Vorbereitung auf den Führerschein."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kochkurs"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Erste-Hilfe-Kurs"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Sprachkurs"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tanzkurs"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erste-Hilfe-Kurs means first aid training course. This training is part of driving-license preparation.",
+              "de": "Erste-Hilfe-Kurs bedeutet Lehrgang für grundlegende Hilfe im Notfall. Dieser Lehrgang gehört zur Vorbereitung auf den Führerschein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Führerschein meldete er sich zu einem Erste-Hilfe-Kurs an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für den Führerschein meldete er sich zu einem Erste-Hilfe-Kurs an.\", noun case/number, all offered choices (Kochkurs / Erste-Hilfe-Kurs / Sprachkurs / Tanzkurs), unique accepted answer \"Erste-Hilfe-Kurs\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L695-v2",
+          "contextKey": "legacy-0087-L695-context-2",
+          "transferKey": "legacy-0087-L695-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008702",
+            "type": "choice",
+            "prompt": "Im ___ übten die Teilnehmenden, wie man im Notfall Hilfe ruft.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The course teaches emergency response basics.",
+              "de": "Der Kurs vermittelt Grundlagen für Notfälle."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Yogakurs"
+              },
+              {
+                "id": "1",
+                "text": "Malkurs"
+              },
+              {
+                "id": "2",
+                "text": "Erste-Hilfe-Kurs"
+              },
+              {
+                "id": "3",
+                "text": "Fotokurs"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Erste-Hilfe-Kurs means first aid training course. The course teaches emergency response basics.",
+              "de": "Erste-Hilfe-Kurs bedeutet Lehrgang für grundlegende Hilfe im Notfall. Der Kurs vermittelt Grundlagen für Notfälle."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Erste-Hilfe-Kurs übten die Teilnehmenden, wie man im Notfall Hilfe ruft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Erste-Hilfe-Kurs übten die Teilnehmenden, wie man im Notfall Hilfe ruft.\", noun case/number, all offered choices (Yogakurs / Malkurs / Erste-Hilfe-Kurs / Fotokurs), unique accepted answer \"Erste-Hilfe-Kurs\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008703",
+      "title": {
+        "en": "Using Erstellung in context",
+        "de": "Erstellung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erstellung (creation or preparation of something) in two distinct situations.",
+        "de": "Erstellung (Anfertigung oder Ausarbeitung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erstellung meaning creation or preparation of something, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L696 (c3e356cd306a881617e94f126170b912b4ec2721ab04bbbaf953c5e86c5ea4aa), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L696-v1",
+          "contextKey": "legacy-0087-L696-context-1",
+          "transferKey": "legacy-0087-L696-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008703",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Jahresberichts dauerte mehrere Wochen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The report had to be prepared and written.",
+              "de": "Der Bericht musste ausgearbeitet werden."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Erstellung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Entlassung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erhöhung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Erholung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erstellung means creation or preparation of something. The report had to be prepared and written.",
+              "de": "Erstellung bedeutet Anfertigung oder Ausarbeitung. Der Bericht musste ausgearbeitet werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Erstellung des Jahresberichts dauerte mehrere Wochen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Erstellung des Jahresberichts dauerte mehrere Wochen.\", noun case/number, all offered choices (Erstellung / Entlassung / Erhöhung / Erholung), unique accepted answer \"Erstellung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L696-v2",
+          "contextKey": "legacy-0087-L696-context-2",
+          "transferKey": "legacy-0087-L696-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008703",
+            "type": "choice",
+            "prompt": "Für die ___ der Webseite beauftragte sie eine Agentur.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "An agency was hired to build the website.",
+              "de": "Eine Agentur sollte die Webseite anfertigen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kündigung"
+              },
+              {
+                "id": "1",
+                "text": "Erstellung"
+              },
+              {
+                "id": "2",
+                "text": "Erstattung"
+              },
+              {
+                "id": "3",
+                "text": "Entschuldigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Erstellung means creation or preparation of something. An agency was hired to build the website.",
+              "de": "Erstellung bedeutet Anfertigung oder Ausarbeitung. Eine Agentur sollte die Webseite anfertigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Erstellung der Webseite beauftragte sie eine Agentur.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für die Erstellung der Webseite beauftragte sie eine Agentur.\", noun case/number, all offered choices (Kündigung / Erstellung / Erstattung / Entschuldigung), unique accepted answer \"Erstellung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008704",
+      "title": {
+        "en": "Using Erwachsenenbildung in context",
+        "de": "Erwachsenenbildung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erwachsenenbildung (education for adults) in two distinct situations.",
+        "de": "Erwachsenenbildung (Bildungsangebote für Erwachsene) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erwachsenenbildung meaning education for adults, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L698 (eb31f87cb1a949573d8e210f08d79878dc9db5e179740f4c953826f56253a4cb), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L698-v1",
+          "contextKey": "legacy-0087-L698-context-1",
+          "transferKey": "legacy-0087-L698-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008704",
+            "type": "gap_choice",
+            "prompt": "Die Volkshochschule bietet Kurse im Bereich der ___ an.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The courses are intended for adult learners.",
+              "de": "Die Kurse richten sich an erwachsene Lernende."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kinderbetreuung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Berufsausbildung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Frühförderung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Erwachsenenbildung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erwachsenenbildung means education for adults. The courses are intended for adult learners.",
+              "de": "Erwachsenenbildung bedeutet Bildungsangebote für Erwachsene. Die Kurse richten sich an erwachsene Lernende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Volkshochschule bietet Kurse im Bereich der Erwachsenenbildung an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Volkshochschule bietet Kurse im Bereich der Erwachsenenbildung an.\", noun case/number, all offered choices (Kinderbetreuung / Berufsausbildung / Frühförderung / Erwachsenenbildung), unique accepted answer \"Erwachsenenbildung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L698-v2",
+          "contextKey": "legacy-0087-L698-context-2",
+          "transferKey": "legacy-0087-L698-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008704",
+            "type": "choice",
+            "prompt": "Wer als Erwachsener noch eine Sprache lernen möchte, findet Angebote in der ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The learner is no longer a child.",
+              "de": "Die lernende Person ist erwachsen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Erwachsenenbildung"
+              },
+              {
+                "id": "1",
+                "text": "Grundschule"
+              },
+              {
+                "id": "2",
+                "text": "Kita"
+              },
+              {
+                "id": "3",
+                "text": "Vorschule"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Erwachsenenbildung means education for adults. The learner is no longer a child.",
+              "de": "Erwachsenenbildung bedeutet Bildungsangebote für Erwachsene. Die lernende Person ist erwachsen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer als Erwachsener noch eine Sprache lernen möchte, findet Angebote in der Erwachsenenbildung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Wer als Erwachsener noch eine Sprache lernen möchte, findet Angebote in der Erwachsenenbildung.\", noun case/number, all offered choices (Erwachsenenbildung / Grundschule / Kita / Vorschule), unique accepted answer \"Erwachsenenbildung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008705",
+      "title": {
+        "en": "Using Erwartung in context",
+        "de": "Erwartung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erwartung (expectation about a future outcome) in two distinct situations.",
+        "de": "Erwartung (Vorstellung davon, was eintreten soll) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erwartung meaning expectation about a future outcome, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L699 (50f671ce535c1fabda9117d9b879e07b6b26924869522398c29fd963feae7e2c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L699-v1",
+          "contextKey": "legacy-0087-L699-context-1",
+          "transferKey": "legacy-0087-L699-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008705",
+            "type": "gap_choice",
+            "prompt": "Das Ergebnis übertraf unsere ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The outcome was better than anticipated.",
+              "de": "Das Ergebnis war besser als erwartet."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnungen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Erstattungen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erwartungen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Entlassungen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erwartung means expectation about a future outcome. The outcome was better than anticipated.",
+              "de": "Erwartung bedeutet Vorstellung davon, was eintreten soll. Das Ergebnis war besser als erwartet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Ergebnis übertraf unsere Erwartungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Ergebnis übertraf unsere Erwartungen.\", noun case/number, all offered choices (Rechnungen / Erstattungen / Erwartungen / Entlassungen), unique accepted answer \"Erwartungen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L699-v2",
+          "contextKey": "legacy-0087-L699-context-2",
+          "transferKey": "legacy-0087-L699-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008705",
+            "type": "choice",
+            "prompt": "Sie hatte die ___, dass der neue Job mehr Flexibilität bietet.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She anticipated a particular benefit.",
+              "de": "Sie rechnete mit einem bestimmten Vorteil."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Erinnerung"
+              },
+              {
+                "id": "1",
+                "text": "Entschuldigung"
+              },
+              {
+                "id": "2",
+                "text": "Entscheidung"
+              },
+              {
+                "id": "3",
+                "text": "Erwartung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Erwartung means expectation about a future outcome. She anticipated a particular benefit.",
+              "de": "Erwartung bedeutet Vorstellung davon, was eintreten soll. Sie rechnete mit einem bestimmten Vorteil."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hatte die Erwartung, dass der neue Job mehr Flexibilität bietet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Sie hatte die Erwartung, dass der neue Job mehr Flexibilität bietet.\", noun case/number, all offered choices (Erinnerung / Entschuldigung / Entscheidung / Erwartung), unique accepted answer \"Erwartung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008706",
+      "title": {
+        "en": "Using Erweiterung in context",
+        "de": "Erweiterung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erweiterung (expansion or extension) in two distinct situations.",
+        "de": "Erweiterung (Vergrößerung oder Hinzufügen von Funktionen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erweiterung meaning expansion or extension, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L700 (324d6e797b10a12025b212e6e1aa552248f188ab0a540271b6a6c41151b27396), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L700-v1",
+          "contextKey": "legacy-0087-L700-context-1",
+          "transferKey": "legacy-0087-L700-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008706",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Gebäudes schafft Platz für 20 neue Arbeitsplätze.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The building is being made larger.",
+              "de": "Das Gebäude wird vergrößert."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schließung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Erweiterung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verkleinerung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Entlassung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erweiterung means expansion or extension. The building is being made larger.",
+              "de": "Erweiterung bedeutet Vergrößerung oder Hinzufügen von Funktionen. Das Gebäude wird vergrößert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Erweiterung des Gebäudes schafft Platz für 20 neue Arbeitsplätze.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Erweiterung des Gebäudes schafft Platz für 20 neue Arbeitsplätze.\", noun case/number, all offered choices (Schließung / Erweiterung / Verkleinerung / Entlassung), unique accepted answer \"Erweiterung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L700-v2",
+          "contextKey": "legacy-0087-L700-context-2",
+          "transferKey": "legacy-0087-L700-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008706",
+            "type": "choice",
+            "prompt": "Mit einer ___ erhält die App zusätzliche Funktionen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "New features are added to existing software.",
+              "de": "Zur bestehenden Software kommen neue Funktionen hinzu."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kündigung"
+              },
+              {
+                "id": "1",
+                "text": "Erstattung"
+              },
+              {
+                "id": "2",
+                "text": "Erweiterung"
+              },
+              {
+                "id": "3",
+                "text": "Erkrankung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Erweiterung means expansion or extension. New features are added to existing software.",
+              "de": "Erweiterung bedeutet Vergrößerung oder Hinzufügen von Funktionen. Zur bestehenden Software kommen neue Funktionen hinzu."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit einer Erweiterung erhält die App zusätzliche Funktionen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Mit einer Erweiterung erhält die App zusätzliche Funktionen.\", noun case/number, all offered choices (Kündigung / Erstattung / Erweiterung / Erkrankung), unique accepted answer \"Erweiterung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008707",
+      "title": {
+        "en": "Using Erwerbstätiger in context",
+        "de": "Erwerbstätiger im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erwerbstätiger (employed or economically active person) in two distinct situations.",
+        "de": "Erwerbstätiger (Person, die einer Erwerbsarbeit nachgeht) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erwerbstätiger meaning employed or economically active person, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L701 (9a849f39f35d886dcd9a26f3c14235cdd7214698cc82f455d2e73a106a69527e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L701-v1",
+          "contextKey": "legacy-0087-L701-context-1",
+          "transferKey": "legacy-0087-L701-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008707",
+            "type": "gap_choice",
+            "prompt": "Ein ___ verdient seinen Lebensunterhalt durch Arbeit.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The person earns money through employment.",
+              "de": "Die Person verdient Geld durch Erwerbsarbeit."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Erwerbstätiger"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rentner"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schüler"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Säugling"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erwerbstätiger means employed or economically active person. The person earns money through employment.",
+              "de": "Erwerbstätiger bedeutet Person, die einer Erwerbsarbeit nachgeht. Die Person verdient Geld durch Erwerbsarbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Erwerbstätiger verdient seinen Lebensunterhalt durch Arbeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ein Erwerbstätiger verdient seinen Lebensunterhalt durch Arbeit.\", noun case/number, all offered choices (Erwerbstätiger / Rentner / Schüler / Säugling), unique accepted answer \"Erwerbstätiger\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L701-v2",
+          "contextKey": "legacy-0087-L701-context-2",
+          "transferKey": "legacy-0087-L701-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008707",
+            "type": "choice",
+            "prompt": "Die Zahl der ___ in der Region ist gestiegen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The statistic counts people in paid employment.",
+              "de": "Die Statistik zählt Menschen mit Erwerbsarbeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Rentner"
+              },
+              {
+                "id": "1",
+                "text": "Erwerbstätigen"
+              },
+              {
+                "id": "2",
+                "text": "Schüler"
+              },
+              {
+                "id": "3",
+                "text": "Touristen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Erwerbstätiger means employed or economically active person. The statistic counts people in paid employment.",
+              "de": "Erwerbstätiger bedeutet Person, die einer Erwerbsarbeit nachgeht. Die Statistik zählt Menschen mit Erwerbsarbeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zahl der Erwerbstätigen in der Region ist gestiegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Zahl der Erwerbstätigen in der Region ist gestiegen.\", noun case/number, all offered choices (Rentner / Erwerbstätigen / Schüler / Touristen), unique accepted answer \"Erwerbstätigen\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008708",
+      "title": {
+        "en": "Using Erwerbstätigkeit in context",
+        "de": "Erwerbstätigkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erwerbstätigkeit (paid employment or work) in two distinct situations.",
+        "de": "Erwerbstätigkeit (Tätigkeit zum Erwerb von Einkommen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erwerbstätigkeit meaning paid employment or work, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L702 (c865bb8696d3863c5a7e5391d00344bc1f980373976140a7a29203529b95b651), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L702-v1",
+          "contextKey": "legacy-0087-L702-context-1",
+          "transferKey": "legacy-0087-L702-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008708",
+            "type": "gap_choice",
+            "prompt": "Nach der Elternzeit nahm sie ihre ___ wieder auf.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She returned to paid work.",
+              "de": "Sie nahm ihre bezahlte Arbeit wieder auf."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Freizeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Erkrankung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erholung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Erwerbstätigkeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erwerbstätigkeit means paid employment or work. She returned to paid work.",
+              "de": "Erwerbstätigkeit bedeutet Tätigkeit zum Erwerb von Einkommen. Sie nahm ihre bezahlte Arbeit wieder auf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Elternzeit nahm sie ihre Erwerbstätigkeit wieder auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach der Elternzeit nahm sie ihre Erwerbstätigkeit wieder auf.\", noun case/number, all offered choices (Freizeit / Erkrankung / Erholung / Erwerbstätigkeit), unique accepted answer \"Erwerbstätigkeit\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L702-v2",
+          "contextKey": "legacy-0087-L702-context-2",
+          "transferKey": "legacy-0087-L702-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008708",
+            "type": "choice",
+            "prompt": "Im Formular wird nach der aktuellen ___ gefragt.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The form asks about the person's work status.",
+              "de": "Das Formular fragt nach der beruflichen Tätigkeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Erwerbstätigkeit"
+              },
+              {
+                "id": "1",
+                "text": "Erinnerung"
+              },
+              {
+                "id": "2",
+                "text": "Ernte"
+              },
+              {
+                "id": "3",
+                "text": "Enttäuschung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Erwerbstätigkeit means paid employment or work. The form asks about the person's work status.",
+              "de": "Erwerbstätigkeit bedeutet Tätigkeit zum Erwerb von Einkommen. Das Formular fragt nach der beruflichen Tätigkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Formular wird nach der aktuellen Erwerbstätigkeit gefragt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Formular wird nach der aktuellen Erwerbstätigkeit gefragt.\", noun case/number, all offered choices (Erwerbstätigkeit / Erinnerung / Ernte / Enttäuschung), unique accepted answer \"Erwerbstätigkeit\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008709",
+      "title": {
+        "en": "Using Erzählung in context",
+        "de": "Erzählung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erzählung (story or narration) in two distinct situations.",
+        "de": "Erzählung (erzählte Geschichte) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erzählung meaning story or narration, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L703 (951af3414bb575d7244a26d6799e6f6daa1ba06e931365149bbf6af14cd982a4), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L703-v1",
+          "contextKey": "legacy-0087-L703-context-1",
+          "transferKey": "legacy-0087-L703-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008709",
+            "type": "gap_choice",
+            "prompt": "Die Autorin veröffentlichte eine kurze ___ über ihre Kindheit.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The text tells a personal story.",
+              "de": "Der Text erzählt eine Geschichte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Anleitung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erzählung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einladung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erzählung means story or narration. The text tells a personal story.",
+              "de": "Erzählung bedeutet erzählte Geschichte. Der Text erzählt eine Geschichte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Autorin veröffentlichte eine kurze Erzählung über ihre Kindheit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Autorin veröffentlichte eine kurze Erzählung über ihre Kindheit.\", noun case/number, all offered choices (Rechnung / Anleitung / Erzählung / Einladung), unique accepted answer \"Erzählung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L703-v2",
+          "contextKey": "legacy-0087-L703-context-2",
+          "transferKey": "legacy-0087-L703-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008709",
+            "type": "choice",
+            "prompt": "Die Kinder hörten gespannt der ___ ihrer Großmutter zu.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The grandmother is telling a story.",
+              "de": "Die Großmutter erzählt eine Geschichte."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Erhöhung"
+              },
+              {
+                "id": "1",
+                "text": "Entlassung"
+              },
+              {
+                "id": "2",
+                "text": "Erstattung"
+              },
+              {
+                "id": "3",
+                "text": "Erzählung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Erzählung means story or narration. The grandmother is telling a story.",
+              "de": "Erzählung bedeutet erzählte Geschichte. Die Großmutter erzählt eine Geschichte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kinder hörten gespannt der Erzählung ihrer Großmutter zu.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Kinder hörten gespannt der Erzählung ihrer Großmutter zu.\", noun case/number, all offered choices (Erhöhung / Entlassung / Erstattung / Erzählung), unique accepted answer \"Erzählung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008710",
+      "title": {
+        "en": "Using Erzieher in context",
+        "de": "Erzieher im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erzieher (male childcare educator) in two distinct situations.",
+        "de": "Erzieher (männliche Fachkraft für Betreuung und Erziehung von Kindern) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erzieher meaning male childcare educator, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L704 (27ca799af184af0de241db94ea3da0cece3055417bfaf378c0f583b6b5635cf9), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L704-v1",
+          "contextKey": "legacy-0087-L704-context-1",
+          "transferKey": "legacy-0087-L704-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008710",
+            "type": "gap_choice",
+            "prompt": "Der ___ betreut Kinder in der Kita.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This professional works in childcare.",
+              "de": "Diese Fachkraft arbeitet in der Kinderbetreuung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhalter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Erzieher"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mechaniker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erzieher means male childcare educator. This professional works in childcare.",
+              "de": "Erzieher bedeutet männliche Fachkraft für Betreuung und Erziehung von Kindern. Diese Fachkraft arbeitet in der Kinderbetreuung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Erzieher betreut Kinder in der Kita.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Erzieher betreut Kinder in der Kita.\", noun case/number, all offered choices (Buchhalter / Erzieher / Mechaniker / Fahrer), unique accepted answer \"Erzieher\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L704-v2",
+          "contextKey": "legacy-0087-L704-context-2",
+          "transferKey": "legacy-0087-L704-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008710",
+            "type": "choice",
+            "prompt": "Für die Betreuung der Vorschulkinder sucht die Einrichtung einen erfahrenen ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The role requires childcare expertise.",
+              "de": "Die Stelle erfordert Kenntnisse in der Kinderbetreuung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Elektriker"
+              },
+              {
+                "id": "1",
+                "text": "Koch"
+              },
+              {
+                "id": "2",
+                "text": "Erzieher"
+              },
+              {
+                "id": "3",
+                "text": "Verkäufer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Erzieher means male childcare educator. The role requires childcare expertise.",
+              "de": "Erzieher bedeutet männliche Fachkraft für Betreuung und Erziehung von Kindern. Die Stelle erfordert Kenntnisse in der Kinderbetreuung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Betreuung der Vorschulkinder sucht die Einrichtung einen erfahrenen Erzieher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für die Betreuung der Vorschulkinder sucht die Einrichtung einen erfahrenen Erzieher.\", noun case/number, all offered choices (Elektriker / Koch / Erzieher / Verkäufer), unique accepted answer \"Erzieher\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008711",
+      "title": {
+        "en": "Using Erziehung in context",
+        "de": "Erziehung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Erziehung (upbringing of children) in two distinct situations.",
+        "de": "Erziehung (Begleitung und Vermittlung von Werten und Regeln an Kinder) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Erziehung meaning upbringing of children, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L705 (0f4721115ecad50fa9de00a2e2067333a6628860af4316b3020f93c85311299e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L705-v1",
+          "contextKey": "legacy-0087-L705-context-1",
+          "transferKey": "legacy-0087-L705-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008711",
+            "type": "gap_choice",
+            "prompt": "Die ___ von Kindern erfordert Geduld und klare Regeln.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This concerns guiding children's behavior and values.",
+              "de": "Es geht um die Begleitung und Wertevermittlung an Kinder."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Erziehung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ernte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Erstattung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Erhöhung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Erziehung means upbringing of children. This concerns guiding children's behavior and values.",
+              "de": "Erziehung bedeutet Begleitung und Vermittlung von Werten und Regeln an Kinder. Es geht um die Begleitung und Wertevermittlung an Kinder."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Erziehung von Kindern erfordert Geduld und klare Regeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Erziehung von Kindern erfordert Geduld und klare Regeln.\", noun case/number, all offered choices (Erziehung / Ernte / Erstattung / Erhöhung), unique accepted answer \"Erziehung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L705-v2",
+          "contextKey": "legacy-0087-L705-context-2",
+          "transferKey": "legacy-0087-L705-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008711",
+            "type": "choice",
+            "prompt": "Bei der ___ ihrer Tochter legen die Eltern Wert auf Respekt.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The parents are shaping how their child grows up.",
+              "de": "Die Eltern begleiten die Entwicklung ihres Kindes."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eröffnung"
+              },
+              {
+                "id": "1",
+                "text": "Erziehung"
+              },
+              {
+                "id": "2",
+                "text": "Erweiterung"
+              },
+              {
+                "id": "3",
+                "text": "Erkrankung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Erziehung means upbringing of children. The parents are shaping how their child grows up.",
+              "de": "Erziehung bedeutet Begleitung und Vermittlung von Werten und Regeln an Kinder. Die Eltern begleiten die Entwicklung ihres Kindes."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Erziehung ihrer Tochter legen die Eltern Wert auf Respekt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Bei der Erziehung ihrer Tochter legen die Eltern Wert auf Respekt.\", noun case/number, all offered choices (Eröffnung / Erziehung / Erweiterung / Erkrankung), unique accepted answer \"Erziehung\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008712",
+      "title": {
+        "en": "Using Essig in context",
+        "de": "Essig im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Essig (vinegar) in two distinct situations.",
+        "de": "Essig (saure Flüssigkeit zum Würzen oder Reinigen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Essig meaning vinegar, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L707 (f4a3905d03442ba2643e1f8687b57b791808587cef1299a723b5b09ed826b8dc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L707-v1",
+          "contextKey": "legacy-0087-L707-context-1",
+          "transferKey": "legacy-0087-L707-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008712",
+            "type": "gap_choice",
+            "prompt": "Für das saure Salatdressing mischt sie Öl und ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This acidic ingredient flavors salad dressing.",
+              "de": "Die saure Zutat gibt dem Dressing Geschmack."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Milch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kakao"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Honig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Essig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Essig means vinegar. This acidic ingredient flavors salad dressing.",
+              "de": "Essig bedeutet saure Flüssigkeit zum Würzen oder Reinigen. Die saure Zutat gibt dem Dressing Geschmack."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für das saure Salatdressing mischt sie Öl und Essig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für das saure Salatdressing mischt sie Öl und Essig.\", noun case/number, all offered choices (Milch / Kakao / Honig / Essig), unique accepted answer \"Essig\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L707-v2",
+          "contextKey": "legacy-0087-L707-context-2",
+          "transferKey": "legacy-0087-L707-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008712",
+            "type": "choice",
+            "prompt": "Zum Entkalken verwendete er verdünnten ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A mild acid can dissolve mineral deposits.",
+              "de": "Eine saure Flüssigkeit kann Kalkablagerungen lösen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Essig"
+              },
+              {
+                "id": "1",
+                "text": "Honig"
+              },
+              {
+                "id": "2",
+                "text": "Kakao"
+              },
+              {
+                "id": "3",
+                "text": "Joghurt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Essig means vinegar. A mild acid can dissolve mineral deposits.",
+              "de": "Essig bedeutet saure Flüssigkeit zum Würzen oder Reinigen. Eine saure Flüssigkeit kann Kalkablagerungen lösen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zum Entkalken verwendete er verdünnten Essig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Zum Entkalken verwendete er verdünnten Essig.\", noun case/number, all offered choices (Essig / Honig / Kakao / Joghurt), unique accepted answer \"Essig\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008713",
+      "title": {
+        "en": "Using Etage in context",
+        "de": "Etage im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Etage (floor or storey of a building) in two distinct situations.",
+        "de": "Etage (Stockwerk eines Gebäudes) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Etage meaning floor or storey of a building, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L708 (0904f0e38ac6f0a8ede05e33ef19fb89083bd8c7f85f4af55eb6d9464f445a29), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L708-v1",
+          "contextKey": "legacy-0087-L708-context-1",
+          "transferKey": "legacy-0087-L708-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008713",
+            "type": "gap_choice",
+            "prompt": "Unsere Wohnung liegt in der vierten ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This specifies a building level.",
+              "de": "Die Angabe bezeichnet ein Stockwerk."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Straße"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stadt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Etage"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tür"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Etage means floor or storey of a building. This specifies a building level.",
+              "de": "Etage bedeutet Stockwerk eines Gebäudes. Die Angabe bezeichnet ein Stockwerk."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Unsere Wohnung liegt in der vierten Etage.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Unsere Wohnung liegt in der vierten Etage.\", noun case/number, all offered choices (Straße / Stadt / Etage / Tür), unique accepted answer \"Etage\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L708-v2",
+          "contextKey": "legacy-0087-L708-context-2",
+          "transferKey": "legacy-0087-L708-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008713",
+            "type": "choice",
+            "prompt": "Der Aufzug hält auf jeder ___ des Bürogebäudes.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The lift stops at each building level.",
+              "de": "Der Aufzug fährt die Stockwerke an."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einfahrt"
+              },
+              {
+                "id": "1",
+                "text": "Kreuzung"
+              },
+              {
+                "id": "2",
+                "text": "Haltestelle"
+              },
+              {
+                "id": "3",
+                "text": "Etage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Etage means floor or storey of a building. The lift stops at each building level.",
+              "de": "Etage bedeutet Stockwerk eines Gebäudes. Der Aufzug fährt die Stockwerke an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Aufzug hält auf jeder Etage des Bürogebäudes.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Aufzug hält auf jeder Etage des Bürogebäudes.\", noun case/number, all offered choices (Einfahrt / Kreuzung / Haltestelle / Etage), unique accepted answer \"Etage\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008714",
+      "title": {
+        "en": "Using Existenzminimum in context",
+        "de": "Existenzminimum im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Existenzminimum (minimum resources for basic living needs) in two distinct situations.",
+        "de": "Existenzminimum (Mittel für grundlegende Lebensbedürfnisse) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Existenzminimum meaning minimum resources for basic living needs, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L711 (df60032dfdd27511548f1b334f4d7b78eea758f072844fa49f1701494889a5f5), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L711-v1",
+          "contextKey": "legacy-0087-L711-context-1",
+          "transferKey": "legacy-0087-L711-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008714",
+            "type": "gap_choice",
+            "prompt": "Das ___ bezeichnet die Mittel für grundlegende Lebensbedürfnisse.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "It concerns the resources needed for basic survival.",
+              "de": "Es geht um Mittel für grundlegende Bedürfnisse."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Luxusbudget"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Existenzminimum"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Reisebudget"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Taschengeld"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Existenzminimum means minimum resources for basic living needs. It concerns the resources needed for basic survival.",
+              "de": "Existenzminimum bedeutet Mittel für grundlegende Lebensbedürfnisse. Es geht um Mittel für grundlegende Bedürfnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Existenzminimum bezeichnet die Mittel für grundlegende Lebensbedürfnisse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Existenzminimum bezeichnet die Mittel für grundlegende Lebensbedürfnisse.\", noun case/number, all offered choices (Luxusbudget / Existenzminimum / Reisebudget / Taschengeld), unique accepted answer \"Existenzminimum\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L711-v2",
+          "contextKey": "legacy-0087-L711-context-2",
+          "transferKey": "legacy-0087-L711-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008714",
+            "type": "choice",
+            "prompt": "Das niedrige Einkommen lag kaum über dem ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The income was only slightly above basic subsistence.",
+              "de": "Das Einkommen lag nur wenig über dem grundlegenden Bedarf."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Höchstpreis"
+              },
+              {
+                "id": "1",
+                "text": "Kaufpreis"
+              },
+              {
+                "id": "2",
+                "text": "Existenzminimum"
+              },
+              {
+                "id": "3",
+                "text": "Marktwert"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Existenzminimum means minimum resources for basic living needs. The income was only slightly above basic subsistence.",
+              "de": "Existenzminimum bedeutet Mittel für grundlegende Lebensbedürfnisse. Das Einkommen lag nur wenig über dem grundlegenden Bedarf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das niedrige Einkommen lag kaum über dem Existenzminimum.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das niedrige Einkommen lag kaum über dem Existenzminimum.\", noun case/number, all offered choices (Höchstpreis / Kaufpreis / Existenzminimum / Marktwert), unique accepted answer \"Existenzminimum\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008715",
+      "title": {
+        "en": "Using Experiment in context",
+        "de": "Experiment im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Experiment (controlled test or experiment) in two distinct situations.",
+        "de": "Experiment (Versuch zur Prüfung einer Vermutung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Experiment meaning controlled test or experiment, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L712 (5e03a6f316b1908b1ba4e8583158b83b760c73dba32a4b13eb2bc3c1d8e82e29), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L712-v1",
+          "contextKey": "legacy-0087-L712-context-1",
+          "transferKey": "legacy-0087-L712-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008715",
+            "type": "gap_choice",
+            "prompt": "Im Labor führten die Forschenden ein ___ durch, um ihre Hypothese zu prüfen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The researchers tested a hypothesis.",
+              "de": "Die Forschenden prüften eine Vermutung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Experiment"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Training"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Praktikum"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Seminar"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Experiment means controlled test or experiment. The researchers tested a hypothesis.",
+              "de": "Experiment bedeutet Versuch zur Prüfung einer Vermutung. Die Forschenden prüften eine Vermutung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Labor führten die Forschenden ein Experiment durch, um ihre Hypothese zu prüfen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Labor führten die Forschenden ein Experiment durch, um ihre Hypothese zu prüfen.\", noun case/number, all offered choices (Experiment / Training / Praktikum / Seminar), unique accepted answer \"Experiment\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L712-v2",
+          "contextKey": "legacy-0087-L712-context-2",
+          "transferKey": "legacy-0087-L712-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008715",
+            "type": "choice",
+            "prompt": "Die Klasse prüfte eine Vermutung mit einem einfachen ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A practical test was used to investigate an idea.",
+              "de": "Eine Vermutung wurde durch einen Versuch geprüft."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Referat"
+              },
+              {
+                "id": "1",
+                "text": "Experiment"
+              },
+              {
+                "id": "2",
+                "text": "Diktat"
+              },
+              {
+                "id": "3",
+                "text": "Gedicht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Experiment means controlled test or experiment. A practical test was used to investigate an idea.",
+              "de": "Experiment bedeutet Versuch zur Prüfung einer Vermutung. Eine Vermutung wurde durch einen Versuch geprüft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Klasse prüfte eine Vermutung mit einem einfachen Experiment.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Klasse prüfte eine Vermutung mit einem einfachen Experiment.\", noun case/number, all offered choices (Referat / Experiment / Diktat / Gedicht), unique accepted answer \"Experiment\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008716",
+      "title": {
+        "en": "Using Experte in context",
+        "de": "Experte im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Experte (person with specialist knowledge) in two distinct situations.",
+        "de": "Experte (Person mit besonderen Fachkenntnissen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Experte meaning person with specialist knowledge, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L713 (495b0442aaac60e516346d17e2b2ca63166f661638750ab8efbea94d4d4051ac), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L713-v1",
+          "contextKey": "legacy-0087-L713-context-1",
+          "transferKey": "legacy-0087-L713-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008716",
+            "type": "gap_choice",
+            "prompt": "Für die Sicherheitsprüfung wurde ein ___ für IT-Systeme hinzugezogen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The task requires specialist knowledge.",
+              "de": "Die Aufgabe verlangt besondere Fachkenntnisse."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Verkäufer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fahrer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Experte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Experte means person with specialist knowledge. The task requires specialist knowledge.",
+              "de": "Experte bedeutet Person mit besonderen Fachkenntnissen. Die Aufgabe verlangt besondere Fachkenntnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Sicherheitsprüfung wurde ein Experte für IT-Systeme hinzugezogen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für die Sicherheitsprüfung wurde ein Experte für IT-Systeme hinzugezogen.\", noun case/number, all offered choices (Verkäufer / Fahrer / Hausmeister / Experte), unique accepted answer \"Experte\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L713-v2",
+          "contextKey": "legacy-0087-L713-context-2",
+          "transferKey": "legacy-0087-L713-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008716",
+            "type": "choice",
+            "prompt": "Der ___ erklärte dem Team die komplizierte Steuerregel.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The explanation comes from a knowledgeable specialist.",
+              "de": "Die Erklärung stammt von einer fachkundigen Person."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Experte"
+              },
+              {
+                "id": "1",
+                "text": "Anfänger"
+              },
+              {
+                "id": "2",
+                "text": "Besucher"
+              },
+              {
+                "id": "3",
+                "text": "Patient"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Experte means person with specialist knowledge. The explanation comes from a knowledgeable specialist.",
+              "de": "Experte bedeutet Person mit besonderen Fachkenntnissen. Die Erklärung stammt von einer fachkundigen Person."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Experte erklärte dem Team die komplizierte Steuerregel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Experte erklärte dem Team die komplizierte Steuerregel.\", noun case/number, all offered choices (Experte / Anfänger / Besucher / Patient), unique accepted answer \"Experte\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008717",
+      "title": {
+        "en": "Using Export in context",
+        "de": "Export im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Export (sale or shipment of goods abroad) in two distinct situations.",
+        "de": "Export (Ausfuhr von Waren ins Ausland) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Export meaning sale or shipment of goods abroad, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L714 (8f7015c0300c3ff04c6892bc87cb33ea66adeae13c429e19323a8195cfb20d3f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L714-v1",
+          "contextKey": "legacy-0087-L714-context-1",
+          "transferKey": "legacy-0087-L714-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008717",
+            "type": "gap_choice",
+            "prompt": "Der ___ von Maschinen ins Ausland ist gestiegen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Goods are being sold or sent out of the country.",
+              "de": "Waren werden ins Ausland ausgeführt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Import"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rückzug"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Export"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verbleib"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Export means sale or shipment of goods abroad. Goods are being sold or sent out of the country.",
+              "de": "Export bedeutet Ausfuhr von Waren ins Ausland. Waren werden ins Ausland ausgeführt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Export von Maschinen ins Ausland ist gestiegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Der Export von Maschinen ins Ausland ist gestiegen.\", noun case/number, all offered choices (Import / Rückzug / Export / Verbleib), unique accepted answer \"Export\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L714-v2",
+          "contextKey": "legacy-0087-L714-context-2",
+          "transferKey": "legacy-0087-L714-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008717",
+            "type": "choice",
+            "prompt": "Die Firma verkauft ihre Produkte vor allem außerhalb Deutschlands. Der ___ macht einen Großteil des Umsatzes aus.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Foreign sales are central to the business.",
+              "de": "Verkäufe ins Ausland sind für die Firma wichtig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Import"
+              },
+              {
+                "id": "1",
+                "text": "Rückzug"
+              },
+              {
+                "id": "2",
+                "text": "Stillstand"
+              },
+              {
+                "id": "3",
+                "text": "Export"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Export means sale or shipment of goods abroad. Foreign sales are central to the business.",
+              "de": "Export bedeutet Ausfuhr von Waren ins Ausland. Verkäufe ins Ausland sind für die Firma wichtig."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma verkauft ihre Produkte vor allem außerhalb Deutschlands. Der Export macht einen Großteil des Umsatzes aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Firma verkauft ihre Produkte vor allem außerhalb Deutschlands. Der Export macht einen Großteil des Umsatzes aus.\", noun case/number, all offered choices (Import / Rückzug / Stillstand / Export), unique accepted answer \"Export\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008718",
+      "title": {
+        "en": "Using Fabrik in context",
+        "de": "Fabrik im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fabrik (industrial production facility) in two distinct situations.",
+        "de": "Fabrik (Gebäude oder Betrieb zur Herstellung von Waren) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fabrik meaning industrial production facility, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L715 (a8be5376455bd39978ed4dae163249b4437cdd550270a435d0cffd7f0b96d4c8), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L715-v1",
+          "contextKey": "legacy-0087-L715-context-1",
+          "transferKey": "legacy-0087-L715-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008718",
+            "type": "gap_choice",
+            "prompt": "In der ___ werden täglich Tausende Schrauben hergestellt.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The place is used for manufacturing.",
+              "de": "An diesem Ort werden Waren produziert."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bibliothek"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Fabrik"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schule"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Klinik"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fabrik means industrial production facility. The place is used for manufacturing.",
+              "de": "Fabrik bedeutet Gebäude oder Betrieb zur Herstellung von Waren. An diesem Ort werden Waren produziert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Fabrik werden täglich Tausende Schrauben hergestellt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"In der Fabrik werden täglich Tausende Schrauben hergestellt.\", noun case/number, all offered choices (Bibliothek / Fabrik / Schule / Klinik), unique accepted answer \"Fabrik\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L715-v2",
+          "contextKey": "legacy-0087-L715-context-2",
+          "transferKey": "legacy-0087-L715-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008718",
+            "type": "choice",
+            "prompt": "Die neue ___ hat drei Produktionshallen und beschäftigt 500 Menschen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "It is a large industrial production site.",
+              "de": "Es handelt sich um einen großen Produktionsbetrieb."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schule"
+              },
+              {
+                "id": "1",
+                "text": "Bibliothek"
+              },
+              {
+                "id": "2",
+                "text": "Fabrik"
+              },
+              {
+                "id": "3",
+                "text": "Klinik"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Fabrik means industrial production facility. It is a large industrial production site.",
+              "de": "Fabrik bedeutet Gebäude oder Betrieb zur Herstellung von Waren. Es handelt sich um einen großen Produktionsbetrieb."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Fabrik hat drei Produktionshallen und beschäftigt 500 Menschen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die neue Fabrik hat drei Produktionshallen und beschäftigt 500 Menschen.\", noun case/number, all offered choices (Schule / Bibliothek / Fabrik / Klinik), unique accepted answer \"Fabrik\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000008719",
+      "title": {
+        "en": "Using Fachberater in context",
+        "de": "Fachberater im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Fachberater (specialist adviser) in two distinct situations.",
+        "de": "Fachberater (Person mit fachlicher Beratungskompetenz) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Fachberater meaning specialist adviser, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L717 (4dcbeda75cb2c631d076206ac7a1ba47b9cd5492ac961da912bb938d1778c24e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0087-L717-v1",
+          "contextKey": "legacy-0087-L717-context-1",
+          "transferKey": "legacy-0087-L717-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008719",
+            "type": "gap_choice",
+            "prompt": "Im Baumarkt half uns ein ___ bei der Auswahl der passenden Farbe.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The person gives specialized product advice.",
+              "de": "Die Person berät fachkundig bei der Produktauswahl."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fachberater"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kassierer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Fachberater means specialist adviser. The person gives specialized product advice.",
+              "de": "Fachberater bedeutet Person mit fachlicher Beratungskompetenz. Die Person berät fachkundig bei der Produktauswahl."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Baumarkt half uns ein Fachberater bei der Auswahl der passenden Farbe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Baumarkt half uns ein Fachberater bei der Auswahl der passenden Farbe.\", noun case/number, all offered choices (Fachberater / Hausmeister / Fahrer / Kassierer), unique accepted answer \"Fachberater\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0087-L717-v2",
+          "contextKey": "legacy-0087-L717-context-2",
+          "transferKey": "legacy-0087-L717-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000870191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000008719",
+            "type": "choice",
+            "prompt": "Die Bank stellte uns einen ___ für Baufinanzierung zur Seite.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The customer receives expert financial guidance.",
+              "de": "Der Kunde erhält fachkundige Beratung zur Finanzierung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferant"
+              },
+              {
+                "id": "1",
+                "text": "Fachberater"
+              },
+              {
+                "id": "2",
+                "text": "Mechaniker"
+              },
+              {
+                "id": "3",
+                "text": "Koch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Fachberater means specialist adviser. The customer receives expert financial guidance.",
+              "de": "Fachberater bedeutet Person mit fachlicher Beratungskompetenz. Der Kunde erhält fachkundige Beratung zur Finanzierung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bank stellte uns einen Fachberater für Baufinanzierung zur Seite.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Bank stellte uns einen Fachberater für Baufinanzierung zur Seite.\", noun case/number, all offered choices (Lieferant / Fachberater / Mechaniker / Koch), unique accepted answer \"Fachberater\", bilingual hint/explanation and distinct sibling context. Human review pending."
+        }
+      ]
+    }
+  ]
+}
