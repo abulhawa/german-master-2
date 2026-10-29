@@ -1,0 +1,1438 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000013601",
+      "title": {
+        "en": "Using Personalverantwortlicher in context",
+        "de": "Personalverantwortlicher im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Personalverantwortlicher: person responsible for human resources.",
+        "de": "Personalverantwortlicher erkennen und verstehen: Person mit Verantwortung für Personalfragen."
+      },
+      "objective": "Recognize the German noun Personalverantwortlicher (person responsible for human resources) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1768 (957eb8596c414767d35f3d134337c452b2c3b1fe7c9b6c1066d6e11dca97fbb2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0136-L1768-v1",
+          "contextKey": "legacy-0136-L1768-context-1",
+          "transferKey": "legacy-0136-L1768-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013601",
+            "type": "gap_choice",
+            "prompt": "Ein ___ führt die Bewerbungsgespräche und entscheidet mit über Neueinstellungen.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The role handles recruitment decisions.",
+              "de": "Die Person ist für Personalfragen zuständig."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Personalverantwortlicher"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lagerarbeiter"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Monteur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Personalverantwortlicher is an HR decision-maker.",
+              "de": "Ein Personalverantwortlicher betreut Personalangelegenheiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Personalverantwortlicher führt die Bewerbungsgespräche und entscheidet mit über Neueinstellungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Personalverantwortlicher). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Warehouse worker, caretaker and installer do not normally lead hiring interviews and decisions. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0136-L1768-v2",
+          "contextKey": "legacy-0136-L1768-context-2",
+          "transferKey": "legacy-0136-L1768-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013601",
+            "type": "choice",
+            "prompt": "Der Personalverantwortliche bespricht die Stellenbesetzung mit der Geschäftsführung. Wofür ist er zuständig?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The discussion concerns filling positions.",
+              "de": "Es geht um die Besetzung von Stellen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Für Fragen rund um Beschäftigte und Neueinstellungen"
+              },
+              {
+                "id": "1",
+                "text": "Für die Wartung von Heizungsanlagen"
+              },
+              {
+                "id": "2",
+                "text": "Für die Auslieferung von Paketen"
+              },
+              {
+                "id": "3",
+                "text": "Für die Zubereitung des Mittagessens"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "He is responsible for personnel matters.",
+              "de": "Er trägt Verantwortung für Personalfragen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Personalverantwortliche plant mit der Leitung die Stellenbesetzung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Für Fragen rund um Beschäftigte und Neueinstellungen). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Heating, parcel delivery and cooking are not the HR responsibility described. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013603",
+      "title": {
+        "en": "Using Persönlichkeitstest in context",
+        "de": "Persönlichkeitstest im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Persönlichkeitstest: personality test.",
+        "de": "Persönlichkeitstest erkennen und verstehen: Test zur Erfassung von Persönlichkeitseigenschaften."
+      },
+      "objective": "Recognize the German noun Persönlichkeitstest (personality test) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1770 (6ccbe3f276181d0a2bc29dd0837430b8e909ea936781e588d89054d999d6145e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0136-L1770-v1",
+          "contextKey": "legacy-0136-L1770-context-1",
+          "transferKey": "legacy-0136-L1770-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013603",
+            "type": "gap_choice",
+            "prompt": "Im Auswahlverfahren beantwortet sie Fragen in einem ___, der typische Verhaltensweisen erfassen soll.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The questionnaire asks about behavioural tendencies.",
+              "de": "Die Fragen beziehen sich auf typische Verhaltensweisen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Persönlichkeitstest"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Sehtest"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Sprachkurs"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrplan"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Persönlichkeitstest assesses personality traits.",
+              "de": "Ein Persönlichkeitstest soll Eigenschaften und Verhaltensweisen erfassen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Auswahlverfahren beantwortet sie Fragen in einem Persönlichkeitstest, der typische Verhaltensweisen erfassen soll.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Persönlichkeitstest). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Eye test, language course and timetable do not ask about personality tendencies in a selection process. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0136-L1770-v2",
+          "contextKey": "legacy-0136-L1770-context-2",
+          "transferKey": "legacy-0136-L1770-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013603",
+            "type": "choice",
+            "prompt": "Der Persönlichkeitstest fragt nach Vorlieben und Reaktionen in Alltagssituationen. Was soll er untersuchen?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The questions concern how someone usually reacts.",
+              "de": "Es geht darum, wie sich eine Person typischerweise verhält."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Typische Eigenschaften und Verhaltensweisen"
+              },
+              {
+                "id": "1",
+                "text": "Die Sehstärke einer Person"
+              },
+              {
+                "id": "2",
+                "text": "Die Temperatur eines Raums"
+              },
+              {
+                "id": "3",
+                "text": "Die Geschwindigkeit eines Fahrzeugs"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It explores personality characteristics.",
+              "de": "Der Test erfasst Angaben zu Persönlichkeitseigenschaften."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Test untersucht typische Reaktionen und Vorlieben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Typische Eigenschaften und Verhaltensweisen). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Eyesight, room temperature and vehicle speed are not personality characteristics. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013604",
+      "title": {
+        "en": "Using Perspektive in context",
+        "de": "Perspektive im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Perspektive: point of view or perspective.",
+        "de": "Perspektive erkennen und verstehen: Blickwinkel oder Sichtweise."
+      },
+      "objective": "Recognize the German noun Perspektive (point of view or perspective) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1771 (c9c89b4fbe3856a13235841531cf6565210906f279579fdb71f338f6566a77d7), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0136-L1771-v1",
+          "contextKey": "legacy-0136-L1771-context-1",
+          "transferKey": "legacy-0136-L1771-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013604",
+            "type": "gap_choice",
+            "prompt": "Aus meiner ___ ist die vorgeschlagene Lösung zu teuer.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker states a personal viewpoint.",
+              "de": "Die Person äußert ihre Sichtweise."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Perspektive"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Perspektive means point of view.",
+              "de": "Perspektive bezeichnet hier einen Blickwinkel."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Aus meiner Perspektive ist die vorgeschlagene Lösung zu teuer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Perspektive). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Delivery, invoice and work shift are not personal viewpoints on a proposal. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0136-L1771-v2",
+          "contextKey": "legacy-0136-L1771-context-2",
+          "transferKey": "legacy-0136-L1771-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013604",
+            "type": "choice",
+            "prompt": "Die beiden betrachten das Problem aus unterschiedlichen Perspektiven. Was unterscheidet sich?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "They interpret the same issue differently.",
+              "de": "Sie sehen dieselbe Sache unterschiedlich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ihre Sichtweisen auf das Problem"
+              },
+              {
+                "id": "1",
+                "text": "Ihre Körpergrößen"
+              },
+              {
+                "id": "2",
+                "text": "Die Farbe ihrer Bürostühle"
+              },
+              {
+                "id": "3",
+                "text": "Die Länge ihrer Arbeitsverträge"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "They have different perspectives.",
+              "de": "Sie haben verschiedene Sichtweisen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beide sehen das Problem aus unterschiedlichen Blickwinkeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Ihre Sichtweisen auf das Problem). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Height, chair colour and contract length are not the perspectives being compared. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013609",
+      "title": {
+        "en": "Using Pflege in context",
+        "de": "Pflege im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Pflege: care or maintenance.",
+        "de": "Pflege erkennen und verstehen: regelmäßige Wartung und Erhaltung."
+      },
+      "objective": "Recognize the German noun Pflege (care or maintenance) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1778 (0ddc07d665eb641590ae4e5dd0bea13340b229af18f267e2f33ebdc752494d99), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0136-L1778-v1",
+          "contextKey": "legacy-0136-L1778-context-1",
+          "transferKey": "legacy-0136-L1778-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013609",
+            "type": "gap_choice",
+            "prompt": "Die regelmäßige ___ der Maschinen verlängert ihre Lebensdauer.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Maintenance keeps machines in good condition.",
+              "de": "Die Maschinen werden regelmäßig gewartet."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pflege"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Entsorgung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verpackung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Pflege can mean maintenance.",
+              "de": "Pflege bedeutet hier regelmäßige Wartung und Erhaltung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die regelmäßige Pflege der Maschinen verlängert ihre Lebensdauer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Pflege). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Disposal, packaging and delivery do not prolong a machine's life through regular maintenance. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0136-L1778-v2",
+          "contextKey": "legacy-0136-L1778-context-2",
+          "transferKey": "legacy-0136-L1778-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013609",
+            "type": "choice",
+            "prompt": "Zur Pflege der Holzoberfläche wird sie regelmäßig gereinigt und geölt. Was bedeutet „Pflege“ hier?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Cleaning and oiling preserve the surface.",
+              "de": "Reinigen und Ölen erhalten die Oberfläche."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Erhaltung und Wartung des Materials"
+              },
+              {
+                "id": "1",
+                "text": "Der Verkauf der Möbel"
+              },
+              {
+                "id": "2",
+                "text": "Die Berechnung der Mehrwertsteuer"
+              },
+              {
+                "id": "3",
+                "text": "Die Lieferung einer neuen Tür"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It refers to maintaining the material.",
+              "de": "Pflege bedeutet hier die Erhaltung des Materials."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Holzoberfläche wird durch Reinigung und Öl gepflegt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Erhaltung und Wartung des Materials). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Selling, tax calculation and delivering a door are not surface maintenance. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013611",
+      "title": {
+        "en": "Using Pflegedienst in context",
+        "de": "Pflegedienst im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Pflegedienst: nursing or home-care service.",
+        "de": "Pflegedienst erkennen und verstehen: Dienst zur pflegerischen Betreuung."
+      },
+      "objective": "Recognize the German noun Pflegedienst (nursing or home-care service) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1780 (29fd25c6ba5e748d1193433af1db96d7ffd9cc39bb19718f8c1e0b5217028e2c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0136-L1780-v1",
+          "contextKey": "legacy-0136-L1780-context-1",
+          "transferKey": "legacy-0136-L1780-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013611",
+            "type": "gap_choice",
+            "prompt": "Der ambulante ___ unterstützt die Patientin morgens bei der Körperpflege.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The service provides personal care at home.",
+              "de": "Ein Dienst unterstützt Menschen bei der Pflege."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pflegedienst"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferdienst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrdienst"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Pflegedienst is a care service.",
+              "de": "Ein Pflegedienst bietet pflegerische Unterstützung an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der ambulante Pflegedienst unterstützt die Patientin morgens bei der Körperpflege.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Pflegedienst). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Delivery service, caretaker and transport service do not provide the personal care described. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0136-L1780-v2",
+          "contextKey": "legacy-0136-L1780-context-2",
+          "transferKey": "legacy-0136-L1780-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013611",
+            "type": "choice",
+            "prompt": "Der Pflegedienst besucht Menschen mit Pflegebedarf zu Hause. Was für eine Leistung bietet er?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The visits provide care.",
+              "de": "Die Besuche dienen der Betreuung und Pflege."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Pflegerische Unterstützung"
+              },
+              {
+                "id": "1",
+                "text": "Die Reparatur von Autos"
+              },
+              {
+                "id": "2",
+                "text": "Die Lieferung von Büromöbeln"
+              },
+              {
+                "id": "3",
+                "text": "Die Vermittlung von Wohnungen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It provides nursing care.",
+              "de": "Der Pflegedienst unterstützt bei der Pflege."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Pflegedienst bietet Betreuung zu Hause an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Pflegerische Unterstützung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Car repair, office furniture delivery and property brokerage are not nursing care. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013612",
+      "title": {
+        "en": "Using Pflegedienstleitung in context",
+        "de": "Pflegedienstleitung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Pflegedienstleitung: nursing service management.",
+        "de": "Pflegedienstleitung erkennen und verstehen: Leitung und Organisation des Pflegepersonals."
+      },
+      "objective": "Recognize the German noun Pflegedienstleitung (nursing service management) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1781 (16e4b78aa4cc0f5c7c88395d16a39506427e81257e8b781dba26ccd3cda04dc8), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0136-L1781-v1",
+          "contextKey": "legacy-0136-L1781-context-1",
+          "transferKey": "legacy-0136-L1781-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013612",
+            "type": "gap_choice",
+            "prompt": "Die ___ erstellt Dienstpläne und koordiniert das Pflegepersonal.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The role manages care staff schedules.",
+              "de": "Die Leitung organisiert die Einsätze des Pflegepersonals."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pflegedienstleitung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Warenannahme"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hausverwaltung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Pflegedienstleitung is nursing management.",
+              "de": "Die Pflegedienstleitung organisiert und leitet den Pflegebereich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Pflegedienstleitung erstellt Dienstpläne und koordiniert das Pflegepersonal.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Pflegedienstleitung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Goods receiving, accounting and property management do not coordinate nursing staff rosters. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0136-L1781-v2",
+          "contextKey": "legacy-0136-L1781-context-2",
+          "transferKey": "legacy-0136-L1781-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013612",
+            "type": "choice",
+            "prompt": "Die Pflegedienstleitung bespricht die Personalplanung mit den Stationen. Welche Aufgabe hat sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The discussion concerns staffing on wards.",
+              "de": "Es geht um die Einsatzplanung des Pflegepersonals."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die Organisation des Pflegepersonals"
+              },
+              {
+                "id": "1",
+                "text": "Die Reparatur der Krankenhausküche"
+              },
+              {
+                "id": "2",
+                "text": "Die Verwaltung von Mietwohnungen"
+              },
+              {
+                "id": "3",
+                "text": "Den Verkauf medizinischer Geräte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is responsible for nursing service management.",
+              "de": "Die Pflegedienstleitung koordiniert den Pflegebereich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Pflegedienstleitung plant den Personaleinsatz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Die Organisation des Pflegepersonals). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Kitchen repair, housing administration and device sales are not nursing workforce management. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013613",
+      "title": {
+        "en": "Using Pflegeeinrichtung in context",
+        "de": "Pflegeeinrichtung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Pflegeeinrichtung: care facility.",
+        "de": "Pflegeeinrichtung erkennen und verstehen: Einrichtung zur Betreuung pflegebedürftiger Menschen."
+      },
+      "objective": "Recognize the German noun Pflegeeinrichtung (care facility) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1782 (ae4c61f67750ddfac0058bca3365a9c7adc40ddefbe08c40b134000bf1cd4956), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0136-L1782-v1",
+          "contextKey": "legacy-0136-L1782-context-1",
+          "transferKey": "legacy-0136-L1782-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013613",
+            "type": "gap_choice",
+            "prompt": "In der ___ werden Menschen mit Unterstützungsbedarf betreut.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The institution provides care.",
+              "de": "Die Einrichtung bietet pflegerische Betreuung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pflegeeinrichtung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Autowerkstatt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bibliothek"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Druckerei"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Pflegeeinrichtung is a care facility.",
+              "de": "Eine Pflegeeinrichtung bietet Betreuung und Pflege an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Pflegeeinrichtung werden Menschen mit Unterstützungsbedarf betreut.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Pflegeeinrichtung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Car workshop, library and print shop do not provide institutional nursing care. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0136-L1782-v2",
+          "contextKey": "legacy-0136-L1782-context-2",
+          "transferKey": "legacy-0136-L1782-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013613",
+            "type": "choice",
+            "prompt": "Die Pflegeeinrichtung beschäftigt Fachkräfte für die Betreuung ihrer Bewohner. Was ist sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The staff care for residents.",
+              "de": "Die Beschäftigten unterstützen Menschen bei der Pflege."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine Einrichtung für Pflege und Betreuung"
+              },
+              {
+                "id": "1",
+                "text": "Ein Geschäft für Haushaltsgeräte"
+              },
+              {
+                "id": "2",
+                "text": "Ein Lager für Ersatzteile"
+              },
+              {
+                "id": "3",
+                "text": "Eine Schule für Fahrunterricht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is a care institution.",
+              "de": "Die Einrichtung dient der pflegerischen Betreuung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Pflegeeinrichtung bietet ihren Bewohnern Betreuung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine Einrichtung für Pflege und Betreuung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Appliance shop, spare-parts warehouse and driving school are not residential care institutions. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013616",
+      "title": {
+        "en": "Using Pflegeheim in context",
+        "de": "Pflegeheim im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Pflegeheim: residential nursing home.",
+        "de": "Pflegeheim erkennen und verstehen: Wohn- und Pflegeeinrichtung für Menschen mit Pflegebedarf."
+      },
+      "objective": "Recognize the German noun Pflegeheim (residential nursing home) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1785 (0e816069ae29b5f37506438674f90c0c375dcfeaeab3b0af53e7ccfca1fcdc4b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0136-L1785-v1",
+          "contextKey": "legacy-0136-L1785-context-1",
+          "transferKey": "legacy-0136-L1785-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013616",
+            "type": "gap_choice",
+            "prompt": "Im ___ erhalten die Bewohnerinnen und Bewohner Unterstützung im Alltag und bei der Pflege.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Residents live in a place that provides care.",
+              "de": "Die Bewohner leben dort und erhalten pflegerische Unterstützung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pflegeheim"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Möbelhaus"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Rathaus"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kaufhaus"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Pflegeheim is a residential care home.",
+              "de": "Ein Pflegeheim bietet Wohnen und pflegerische Betreuung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Pflegeheim erhalten die Bewohnerinnen und Bewohner Unterstützung im Alltag und bei der Pflege.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Pflegeheim). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Furniture store, town hall and department store do not house residents with ongoing nursing support. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0136-L1785-v2",
+          "contextKey": "legacy-0136-L1785-context-2",
+          "transferKey": "legacy-0136-L1785-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013616",
+            "type": "choice",
+            "prompt": "Das Pflegeheim bietet Zimmer und regelmäßige pflegerische Betreuung. Was ist damit gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "People live there and receive care.",
+              "de": "Die Einrichtung bietet Unterkunft und Pflege."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine Wohn- und Pflegeeinrichtung"
+              },
+              {
+                "id": "1",
+                "text": "Ein Geschäft für Pflegeprodukte"
+              },
+              {
+                "id": "2",
+                "text": "Ein Büro für Steuerberatung"
+              },
+              {
+                "id": "3",
+                "text": "Ein Fahrzeug für Notfälle"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is a nursing home.",
+              "de": "Es handelt sich um ein Heim mit pflegerischer Betreuung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Pflegeheim wohnen Menschen, die Unterstützung bei der Pflege erhalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine Wohn- und Pflegeeinrichtung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Retail shop, tax office and emergency vehicle are not residential nursing homes. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013618",
+      "title": {
+        "en": "Using Pflegekraft in context",
+        "de": "Pflegekraft im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Pflegekraft: nursing or care worker.",
+        "de": "Pflegekraft erkennen und verstehen: Fachkraft oder Beschäftigte in der Pflege."
+      },
+      "objective": "Recognize the German noun Pflegekraft (nursing or care worker) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1787 (6c0a7a76ad403bd26a0c972935571283142d2ffb5fc71eb5eb079be73b03d72f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0136-L1787-v1",
+          "contextKey": "legacy-0136-L1787-context-1",
+          "transferKey": "legacy-0136-L1787-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013618",
+            "type": "gap_choice",
+            "prompt": "Die ___ hilft dem Patienten beim Aufstehen und dokumentiert die Betreuung.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person provides direct care.",
+              "de": "Die Person unterstützt den Patienten bei der Pflege."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pflegekraft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kassiererin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Maklerin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mechanikerin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Pflegekraft is a care worker.",
+              "de": "Eine Pflegekraft betreut Menschen mit Pflegebedarf."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Pflegekraft hilft dem Patienten beim Aufstehen und dokumentiert die Betreuung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Pflegekraft). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Cashier, property broker and mechanic do not provide patient care as their described role. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0136-L1787-v2",
+          "contextKey": "legacy-0136-L1787-context-2",
+          "transferKey": "legacy-0136-L1787-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001360181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013618",
+            "type": "choice",
+            "prompt": "Die Pflegekraft arbeitet im Krankenhaus und unterstützt Menschen bei der Versorgung. Welchen Beruf übt sie aus?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The work involves caring for patients.",
+              "de": "Die Person arbeitet in der pflegerischen Betreuung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine Tätigkeit in der Pflege"
+              },
+              {
+                "id": "1",
+                "text": "Eine Tätigkeit im Immobilienverkauf"
+              },
+              {
+                "id": "2",
+                "text": "Eine Tätigkeit in der Buchhaltung"
+              },
+              {
+                "id": "3",
+                "text": "Eine Tätigkeit in der Autoreparatur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "She works in nursing or care.",
+              "de": "Sie arbeitet in der Pflege."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Pflegekraft unterstützt Menschen bei der pflegerischen Versorgung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine Tätigkeit in der Pflege). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Property sales, accounting and car repair are not nursing care. Human review pending."
+        }
+      ]
+    }
+  ]
+}
