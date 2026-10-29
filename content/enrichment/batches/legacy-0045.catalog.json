@@ -2,5 +2,2709 @@
   "schemaVersion": 1,
   "status": "agent-authored-draft",
   "publicationApproved": false,
-  "targets": []
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000004500",
+      "title": {
+        "de": "Jemandem fällt etwas ein",
+        "en": "Something comes to mind"
+      },
+      "description": {
+        "de": "Einen spontanen Gedanken oder eine Erinnerung ausdrücken.",
+        "en": "To express a spontaneous thought or recollection."
+      },
+      "objective": "Recognize einfallen in two distinct situations: To express a spontaneous thought or recollection.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L298 (55749eace5c5319dc9c5f1602f63e9c94e944f5c82bbbb72425d0e304a5f1c1a), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L298-v1",
+          "contextKey": "legacy-0045-L298-context-1",
+          "transferKey": "legacy-0045-L298-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004500",
+            "type": "choice",
+            "prompt": "Mir ___ gerade keine Lösung ein.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An idea comes to the person's mind.",
+              "de": "Eine Idee kommt der Person in den Sinn."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "fährt"
+              },
+              {
+                "id": "1",
+                "text": "fällt"
+              },
+              {
+                "id": "2",
+                "text": "läuft"
+              },
+              {
+                "id": "3",
+                "text": "schläft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To express a spontaneous thought or recollection.",
+              "de": "Einen spontanen Gedanken oder eine Erinnerung ausdrücken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mir fällt gerade keine Lösung ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (fährt, fällt, läuft, schläft), accepted answer (fällt), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L298-v2",
+          "contextKey": "legacy-0045-L298-context-2",
+          "transferKey": "legacy-0045-L298-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004500",
+            "type": "gap_choice",
+            "prompt": "Als sie den Namen hörte, ___ ihr plötzlich die Adresse ein.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She suddenly recalls the address.",
+              "de": "Sie erinnert sich plötzlich an die Adresse."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ging"
+                  },
+                  {
+                    "id": "1",
+                    "text": "stand"
+                  },
+                  {
+                    "id": "2",
+                    "text": "fiel"
+                  },
+                  {
+                    "id": "3",
+                    "text": "saß"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To express a spontaneous thought or recollection.",
+              "de": "Einen spontanen Gedanken oder eine Erinnerung ausdrücken."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als sie den Namen hörte, fiel ihr plötzlich die Adresse ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (ging, stand, fiel, saß), accepted answer (fiel), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004502",
+      "title": {
+        "de": "Etwas einfügen",
+        "en": "Inserting content"
+      },
+      "description": {
+        "de": "Ein Element an einer bestimmten Stelle ergänzen.",
+        "en": "To insert an element at a specific location."
+      },
+      "objective": "Recognize einfügen in two distinct situations: To insert an element at a specific location.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L300 (6e85f5e7f547991fd91ce21dc1fe48e0f5d1c3aec889a872b30f544d88be14ac), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L300-v1",
+          "contextKey": "legacy-0045-L300-context-1",
+          "transferKey": "legacy-0045-L300-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004502",
+            "type": "choice",
+            "prompt": "Der Bericht enthält noch keine Tabelle. Bitte ___ sie an der markierten Stelle ein.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The table should be added.",
+              "de": "Die Tabelle soll ergänzt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "lösche"
+              },
+              {
+                "id": "1",
+                "text": "füge"
+              },
+              {
+                "id": "2",
+                "text": "drucke"
+              },
+              {
+                "id": "3",
+                "text": "schließe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To insert an element at a specific location.",
+              "de": "Ein Element an einer bestimmten Stelle ergänzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bericht enthält noch keine Tabelle. Bitte füge sie an der markierten Stelle ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (lösche, füge, drucke, schließe), accepted answer (füge), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L300-v2",
+          "contextKey": "legacy-0045-L300-context-2",
+          "transferKey": "legacy-0045-L300-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004502",
+            "type": "gap_choice",
+            "prompt": "Die Grafikerin hat das Logo in die Präsentation ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The logo was added to the presentation.",
+              "de": "Das Logo wurde der Präsentation hinzugefügt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "entfernt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gelöscht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "eingefügt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verschoben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To insert an element at a specific location.",
+              "de": "Ein Element an einer bestimmten Stelle ergänzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Grafikerin hat das Logo in die Präsentation eingefügt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (entfernt, gelöscht, eingefügt, verschoben), accepted answer (eingefügt), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004503",
+      "title": {
+        "de": "Etwas Neues einführen",
+        "en": "Introducing a new system"
+      },
+      "description": {
+        "de": "Eine neue Regel oder Methode in Gebrauch nehmen.",
+        "en": "To introduce a new rule or method."
+      },
+      "objective": "Recognize einführen in two distinct situations: To introduce a new rule or method.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L301 (c07df09f07e84c52e2b4e8a2c250296f0f2e963fe2e2a169c72f3db1116ec0d0), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L301-v1",
+          "contextKey": "legacy-0045-L301-context-1",
+          "transferKey": "legacy-0045-L301-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004503",
+            "type": "choice",
+            "prompt": "Die Stadt will ab Januar neue Parkregeln ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The rules are to take effect.",
+              "de": "Die Regeln sollen neu gelten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abschaffen"
+              },
+              {
+                "id": "1",
+                "text": "einführen"
+              },
+              {
+                "id": "2",
+                "text": "ignorieren"
+              },
+              {
+                "id": "3",
+                "text": "verwerfen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To introduce a new rule or method.",
+              "de": "Eine neue Regel oder Methode in Gebrauch nehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stadt will ab Januar neue Parkregeln einführen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (abschaffen, einführen, ignorieren, verwerfen), accepted answer (einführen), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L301-v2",
+          "contextKey": "legacy-0045-L301-context-2",
+          "transferKey": "legacy-0045-L301-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004503",
+            "type": "gap_choice",
+            "prompt": "Das Unternehmen hat ein neues Verfahren zur Qualitätskontrolle ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The procedure is now in use.",
+              "de": "Das Verfahren wird nun verwendet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "eingestellt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verworfen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "eingeführt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vergessen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To introduce a new rule or method.",
+              "de": "Eine neue Regel oder Methode in Gebrauch nehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen hat ein neues Verfahren zur Qualitätskontrolle eingeführt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (eingestellt, verworfen, eingeführt, vergessen), accepted answer (eingeführt), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004505",
+      "title": {
+        "de": "Regeln einhalten",
+        "en": "Complying with rules"
+      },
+      "description": {
+        "de": "Fristen oder verbindliche Regeln beachten.",
+        "en": "To comply with deadlines or binding rules."
+      },
+      "objective": "Recognize einhalten in two distinct situations: To comply with deadlines or binding rules.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L303 (ff307287780add95d92c6bc31407c8bdec28e76ab8cc32dc1a9fa1ee83c13561), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L303-v1",
+          "contextKey": "legacy-0045-L303-context-1",
+          "transferKey": "legacy-0045-L303-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004505",
+            "type": "choice",
+            "prompt": "Bitte ___ Sie die Frist bis Freitag ein.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The deadline must be met.",
+              "de": "Die Frist muss beachtet werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "geben"
+              },
+              {
+                "id": "1",
+                "text": "halten"
+              },
+              {
+                "id": "2",
+                "text": "nehmen"
+              },
+              {
+                "id": "3",
+                "text": "bringen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To comply with deadlines or binding rules.",
+              "de": "Fristen oder verbindliche Regeln beachten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte halten Sie die Frist bis Freitag ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (geben, halten, nehmen, bringen), accepted answer (halten), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L303-v2",
+          "contextKey": "legacy-0045-L303-context-2",
+          "transferKey": "legacy-0045-L303-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004505",
+            "type": "gap_choice",
+            "prompt": "Alle Mitarbeitenden müssen die Sicherheitsregeln ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The rules must be followed.",
+              "de": "Die Regeln sind verbindlich."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "brechen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ignorieren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "einhalten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "missachten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To comply with deadlines or binding rules.",
+              "de": "Fristen oder verbindliche Regeln beachten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Alle Mitarbeitenden müssen die Sicherheitsregeln einhalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (brechen, ignorieren, einhalten, missachten), accepted answer (einhalten), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004506",
+      "title": {
+        "de": "Etwas einholen",
+        "en": "Obtaining something"
+      },
+      "description": {
+        "de": "Eine Genehmigung, Auskunft oder ein Angebot anfordern und erhalten.",
+        "en": "To obtain permission, information or a quotation."
+      },
+      "objective": "Recognize einholen in two distinct situations: To obtain permission, information or a quotation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L304 (1f35ea1106c6a4b04ba34b2764b2911e7b0828350fb11433758ed0ecbce6aeed), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L304-v1",
+          "contextKey": "legacy-0045-L304-context-1",
+          "transferKey": "legacy-0045-L304-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004506",
+            "type": "choice",
+            "prompt": "Bevor die Firma baut, muss sie eine Genehmigung ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The permit must be obtained from the authority.",
+              "de": "Die Genehmigung wird bei der zuständigen Stelle angefordert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ablehnen"
+              },
+              {
+                "id": "1",
+                "text": "einholen"
+              },
+              {
+                "id": "2",
+                "text": "verlieren"
+              },
+              {
+                "id": "3",
+                "text": "verbergen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To obtain permission, information or a quotation.",
+              "de": "Eine Genehmigung, Auskunft oder ein Angebot anfordern und erhalten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bevor die Firma baut, muss sie eine Genehmigung einholen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (ablehnen, einholen, verlieren, verbergen), accepted answer (einholen), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L304-v2",
+          "contextKey": "legacy-0045-L304-context-2",
+          "transferKey": "legacy-0045-L304-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004506",
+            "type": "gap_choice",
+            "prompt": "Für die Entscheidung sollen drei Angebote von verschiedenen Firmen ___ werden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The quotations need to be requested.",
+              "de": "Die Angebote müssen erst angefordert werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abgelehnt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gelöscht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "eingeholt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verschwiegen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To obtain permission, information or a quotation.",
+              "de": "Eine Genehmigung, Auskunft oder ein Angebot anfordern und erhalten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Entscheidung sollen drei Angebote von verschiedenen Firmen eingeholt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (abgelehnt, gelöscht, eingeholt, verschwiegen), accepted answer (eingeholt), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004507",
+      "title": {
+        "de": "Sich auf etwas einigen",
+        "en": "Reaching an agreement"
+      },
+      "description": {
+        "de": "Nach Verhandlungen zu einer gemeinsamen Lösung kommen.",
+        "en": "To reach a shared decision after negotiation."
+      },
+      "objective": "Recognize einigen in two distinct situations: To reach a shared decision after negotiation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L305 (630070d5f640d06408e7af08a5b77e7d765a8417416bdebf9a9490a8901715d3), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L305-v1",
+          "contextKey": "legacy-0045-L305-context-1",
+          "transferKey": "legacy-0045-L305-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004507",
+            "type": "choice",
+            "prompt": "Nach langen Verhandlungen konnten sich beide Seiten auf einen Preis ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Both parties accept the same price.",
+              "de": "Beide Seiten akzeptieren denselben Preis."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "streiten"
+              },
+              {
+                "id": "1",
+                "text": "einigen"
+              },
+              {
+                "id": "2",
+                "text": "weigern"
+              },
+              {
+                "id": "3",
+                "text": "trennen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To reach a shared decision after negotiation.",
+              "de": "Nach Verhandlungen zu einer gemeinsamen Lösung kommen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach langen Verhandlungen konnten sich beide Seiten auf einen Preis einigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (streiten, einigen, weigern, trennen), accepted answer (einigen), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L305-v2",
+          "contextKey": "legacy-0045-L305-context-2",
+          "transferKey": "legacy-0045-L305-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004507",
+            "type": "gap_choice",
+            "prompt": "Die Parteien haben sich auf einen gemeinsamen Text ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Both parties agree on the text.",
+              "de": "Beide Parteien stimmen dem Text zu."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gestritten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verzichtet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "geeinigt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "getrennt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To reach a shared decision after negotiation.",
+              "de": "Nach Verhandlungen zu einer gemeinsamen Lösung kommen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Parteien haben sich auf einen gemeinsamen Text geeinigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (gestritten, verzichtet, geeinigt, getrennt), accepted answer (geeinigt), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004508",
+      "title": {
+        "de": "Etwas einkalkulieren",
+        "en": "Factoring something in"
+      },
+      "description": {
+        "de": "Mögliche Kosten oder Risiken in eine Planung einrechnen.",
+        "en": "To factor potential costs or risks into a plan."
+      },
+      "objective": "Recognize einkalkulieren in two distinct situations: To factor potential costs or risks into a plan.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L306 (2638b2809ea68b2480137186230ad8d936b75d050e83ba091df047e080020a8b), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L306-v1",
+          "contextKey": "legacy-0045-L306-context-1",
+          "transferKey": "legacy-0045-L306-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004508",
+            "type": "choice",
+            "prompt": "Bei der Budgetplanung muss man unerwartete Reparaturen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A cost allowance should be included.",
+              "de": "Ein Kostenpuffer soll berücksichtigt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ignorieren"
+              },
+              {
+                "id": "1",
+                "text": "einkalkulieren"
+              },
+              {
+                "id": "2",
+                "text": "ausblenden"
+              },
+              {
+                "id": "3",
+                "text": "vergessen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To factor potential costs or risks into a plan.",
+              "de": "Mögliche Kosten oder Risiken in eine Planung einrechnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Budgetplanung muss man unerwartete Reparaturen einkalkulieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (ignorieren, einkalkulieren, ausblenden, vergessen), accepted answer (einkalkulieren), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L306-v2",
+          "contextKey": "legacy-0045-L306-context-2",
+          "transferKey": "legacy-0045-L306-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004508",
+            "type": "gap_choice",
+            "prompt": "Die Organisatorin hat zusätzliche Fahrtzeit wegen des Verkehrs ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She allows for possible delays.",
+              "de": "Sie rechnet mit möglichen Verzögerungen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verboten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gelöscht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "einkalkuliert"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verschwendet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To factor potential costs or risks into a plan.",
+              "de": "Mögliche Kosten oder Risiken in eine Planung einrechnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Organisatorin hat zusätzliche Fahrtzeit wegen des Verkehrs einkalkuliert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (verboten, gelöscht, einkalkuliert, verschwendet), accepted answer (einkalkuliert), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004509",
+      "title": {
+        "de": "Etwas einlagern",
+        "en": "Putting something into storage"
+      },
+      "description": {
+        "de": "Gegenstände für eine bestimmte Zeit sicher aufbewahren.",
+        "en": "To place items in storage for a period."
+      },
+      "objective": "Recognize einlagern in two distinct situations: To place items in storage for a period.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L309 (7ee4ef33aff8d5d09c3cb48f23b8658e3f1d117f4dc0e4b0eca9ad7a8b6fdc81), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L309-v1",
+          "contextKey": "legacy-0045-L309-context-1",
+          "transferKey": "legacy-0045-L309-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004509",
+            "type": "choice",
+            "prompt": "Während der Renovierung werden die Möbel trocken in einer Halle ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The furniture is stored safely for a while.",
+              "de": "Die Möbel bleiben dort vorübergehend geschützt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "entsorgt"
+              },
+              {
+                "id": "1",
+                "text": "eingelagert"
+              },
+              {
+                "id": "2",
+                "text": "verkauft"
+              },
+              {
+                "id": "3",
+                "text": "verbrannt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To place items in storage for a period.",
+              "de": "Gegenstände für eine bestimmte Zeit sicher aufbewahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während der Renovierung werden die Möbel trocken in einer Halle eingelagert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (entsorgt, eingelagert, verkauft, verbrannt), accepted answer (eingelagert), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L309-v2",
+          "contextKey": "legacy-0045-L309-context-2",
+          "transferKey": "legacy-0045-L309-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004509",
+            "type": "gap_choice",
+            "prompt": "Das Museum möchte die empfindlichen Bilder bis zum Ende der Bauarbeiten sicher ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The pictures need temporary safe storage.",
+              "de": "Die Bilder werden vorübergehend geschützt aufbewahrt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausstellen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "versteigern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "einlagern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zerstören"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To place items in storage for a period.",
+              "de": "Gegenstände für eine bestimmte Zeit sicher aufbewahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Museum möchte die empfindlichen Bilder bis zum Ende der Bauarbeiten sicher einlagern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (ausstellen, versteigern, einlagern, zerstören), accepted answer (einlagern), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004510",
+      "title": {
+        "de": "Einen Platz einnehmen",
+        "en": "Occupying a position or space"
+      },
+      "description": {
+        "de": "Eine Position oder einen räumlichen Bereich besetzen.",
+        "en": "To occupy a position or physical space."
+      },
+      "objective": "Recognize einnehmen in two distinct situations: To occupy a position or physical space.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L310 (0d5e7add2943724ae8dc9ba04d3e263dbf655e09dc24afef6f31747b24c31a32), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L310-v1",
+          "contextKey": "legacy-0045-L310-context-1",
+          "transferKey": "legacy-0045-L310-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004510",
+            "type": "choice",
+            "prompt": "Nach dem Sieg hat die Mannschaft den ersten Platz in der Tabelle ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The team now occupies the top position.",
+              "de": "Die Mannschaft steht nun an der Spitze."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verloren"
+              },
+              {
+                "id": "1",
+                "text": "eingenommen"
+              },
+              {
+                "id": "2",
+                "text": "abgelehnt"
+              },
+              {
+                "id": "3",
+                "text": "verkauft"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To occupy a position or physical space.",
+              "de": "Eine Position oder einen räumlichen Bereich besetzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Sieg hat die Mannschaft den ersten Platz in der Tabelle eingenommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (verloren, eingenommen, abgelehnt, verkauft), accepted answer (eingenommen), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L310-v2",
+          "contextKey": "legacy-0045-L310-context-2",
+          "transferKey": "legacy-0045-L310-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004510",
+            "type": "gap_choice",
+            "prompt": "Der neue Schrank ___ fast die gesamte Wand ein.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The cabinet occupies a lot of space.",
+              "de": "Der Schrank beansprucht viel Platz."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gibt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "stellt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "nimmt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "fällt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To occupy a position or physical space.",
+              "de": "Eine Position oder einen räumlichen Bereich besetzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der neue Schrank nimmt fast die gesamte Wand ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (gibt, stellt, nimmt, fällt), accepted answer (nimmt), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004511",
+      "title": {
+        "de": "Zeit oder Kosten einplanen",
+        "en": "Allocating time or costs"
+      },
+      "description": {
+        "de": "Zeit oder Ressourcen bewusst in eine Planung aufnehmen.",
+        "en": "To allocate time or resources in advance."
+      },
+      "objective": "Recognize einplanen in two distinct situations: To allocate time or resources in advance.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L312 (67dfd32c96094838b4141aa671a4b73fbb9e15f438d5005276d874510381b32e), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L312-v1",
+          "contextKey": "legacy-0045-L312-context-1",
+          "transferKey": "legacy-0045-L312-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004511",
+            "type": "choice",
+            "prompt": "Für die Fahrt zum Flughafen sollte man wegen des Verkehrs mehr Zeit ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Extra time should be allowed.",
+              "de": "Ein Zeitpuffer wird benötigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vergessen"
+              },
+              {
+                "id": "1",
+                "text": "einplanen"
+              },
+              {
+                "id": "2",
+                "text": "versäumen"
+              },
+              {
+                "id": "3",
+                "text": "streichen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To allocate time or resources in advance.",
+              "de": "Zeit oder Ressourcen bewusst in eine Planung aufnehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Fahrt zum Flughafen sollte man wegen des Verkehrs mehr Zeit einplanen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (vergessen, einplanen, versäumen, streichen), accepted answer (einplanen), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L312-v2",
+          "contextKey": "legacy-0045-L312-context-2",
+          "transferKey": "legacy-0045-L312-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004511",
+            "type": "gap_choice",
+            "prompt": "Im Projektbudget wurden vorsorglich zusätzliche Kosten für Tests ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The additional costs are budgeted.",
+              "de": "Die zusätzlichen Kosten sind im Budget vorgesehen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verheimlicht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verloren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "eingeplant"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gestrichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To allocate time or resources in advance.",
+              "de": "Zeit oder Ressourcen bewusst in eine Planung aufnehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Projektbudget wurden vorsorglich zusätzliche Kosten für Tests eingeplant.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (verheimlicht, verloren, eingeplant, gestrichen), accepted answer (eingeplant), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004512",
+      "title": {
+        "de": "Unterlagen einreichen",
+        "en": "Submitting documents"
+      },
+      "description": {
+        "de": "Unterlagen formell bei einer zuständigen Stelle abgeben.",
+        "en": "To formally submit documents to an authority or organization."
+      },
+      "objective": "Recognize einreichen in two distinct situations: To formally submit documents to an authority or organization.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L313 (18a5bb197bf5f669c1e4ca1a0fb3d7562c5d7f4897a19a54a8bd739636890288), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L313-v1",
+          "contextKey": "legacy-0045-L313-context-1",
+          "transferKey": "legacy-0045-L313-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004512",
+            "type": "choice",
+            "prompt": "Die Bewerber müssen ihre Unterlagen bis Montag ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The documents must be submitted on time.",
+              "de": "Die Unterlagen sollen fristgerecht abgegeben werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "vernichten"
+              },
+              {
+                "id": "1",
+                "text": "einreichen"
+              },
+              {
+                "id": "2",
+                "text": "verlieren"
+              },
+              {
+                "id": "3",
+                "text": "zurückhalten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To formally submit documents to an authority or organization.",
+              "de": "Unterlagen formell bei einer zuständigen Stelle abgeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bewerber müssen ihre Unterlagen bis Montag einreichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (vernichten, einreichen, verlieren, zurückhalten), accepted answer (einreichen), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L313-v2",
+          "contextKey": "legacy-0045-L313-context-2",
+          "transferKey": "legacy-0045-L313-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004512",
+            "type": "gap_choice",
+            "prompt": "Sie hat den Antrag online bei der Behörde ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The application was officially submitted.",
+              "de": "Der Antrag wurde offiziell übermittelt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gelöscht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abgelehnt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "eingereicht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ignoriert"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To formally submit documents to an authority or organization.",
+              "de": "Unterlagen formell bei einer zuständigen Stelle abgeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat den Antrag online bei der Behörde eingereicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (gelöscht, abgelehnt, eingereicht, ignoriert), accepted answer (eingereicht), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004513",
+      "title": {
+        "de": "Etwas einrichten",
+        "en": "Setting something up"
+      },
+      "description": {
+        "de": "Einen Arbeitsplatz oder Zugang nutzbar vorbereiten.",
+        "en": "To set up a workspace or access for use."
+      },
+      "objective": "Recognize einrichten in two distinct situations: To set up a workspace or access for use.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L314 (5ac18ed219734aae45965e118e81f4a8304d37ece1f5c77fd4a2a7654d3ca859), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L314-v1",
+          "contextKey": "legacy-0045-L314-context-1",
+          "transferKey": "legacy-0045-L314-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004513",
+            "type": "choice",
+            "prompt": "Vor dem ersten Arbeitstag muss die IT für die neue Kollegin ein Benutzerkonto ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The access account must be created.",
+              "de": "Der Zugang muss erst erstellt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "sperren"
+              },
+              {
+                "id": "1",
+                "text": "einrichten"
+              },
+              {
+                "id": "2",
+                "text": "löschen"
+              },
+              {
+                "id": "3",
+                "text": "vergessen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To set up a workspace or access for use.",
+              "de": "Einen Arbeitsplatz oder Zugang nutzbar vorbereiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem ersten Arbeitstag muss die IT für die neue Kollegin ein Benutzerkonto einrichten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (sperren, einrichten, löschen, vergessen), accepted answer (einrichten), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L314-v2",
+          "contextKey": "legacy-0045-L314-context-2",
+          "transferKey": "legacy-0045-L314-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004513",
+            "type": "gap_choice",
+            "prompt": "Die Familie hat im Keller einen kleinen Arbeitsplatz ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The space was set up for working.",
+              "de": "Der Raum wurde für die Arbeit vorbereitet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abgerissen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verkauft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "eingerichtet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verlassen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To set up a workspace or access for use.",
+              "de": "Einen Arbeitsplatz oder Zugang nutzbar vorbereiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Familie hat im Keller einen kleinen Arbeitsplatz eingerichtet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (abgerissen, verkauft, eingerichtet, verlassen), accepted answer (eingerichtet), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004514",
+      "title": {
+        "de": "Eine Fachperson einschalten",
+        "en": "Involving an expert"
+      },
+      "description": {
+        "de": "Eine weitere Person zur Lösung eines Problems hinzuziehen.",
+        "en": "To bring another person into a problem-solving process."
+      },
+      "objective": "Recognize einschalten in two distinct situations: To bring another person into a problem-solving process.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L315 (1de08120c18740f715972553922fee07a839e74811d40b3cfb1b1af225098027), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L315-v1",
+          "contextKey": "legacy-0045-L315-context-1",
+          "transferKey": "legacy-0045-L315-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004514",
+            "type": "choice",
+            "prompt": "Als die Verhandlungen stockten, ___ beide Seiten eine Vermittlerin ein.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A mediator is brought in.",
+              "de": "Eine Vermittlerin wird hinzugezogen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "schlossen"
+              },
+              {
+                "id": "1",
+                "text": "schalteten"
+              },
+              {
+                "id": "2",
+                "text": "schrieben"
+              },
+              {
+                "id": "3",
+                "text": "trugen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To bring another person into a problem-solving process.",
+              "de": "Eine weitere Person zur Lösung eines Problems hinzuziehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als die Verhandlungen stockten, schalteten beide Seiten eine Vermittlerin ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (schlossen, schalteten, schrieben, trugen), accepted answer (schalteten), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L315-v2",
+          "contextKey": "legacy-0045-L315-context-2",
+          "transferKey": "legacy-0045-L315-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004514",
+            "type": "gap_choice",
+            "prompt": "Bei rechtlichen Problemen sollte man frühzeitig eine Anwältin ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Professional legal help is sought.",
+              "de": "Fachlicher Rat wird hinzugezogen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausschalten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "vergessen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "einschalten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "übersehen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To bring another person into a problem-solving process.",
+              "de": "Eine weitere Person zur Lösung eines Problems hinzuziehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei rechtlichen Problemen sollte man frühzeitig eine Anwältin einschalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (ausschalten, vergessen, einschalten, übersehen), accepted answer (einschalten), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004515",
+      "title": {
+        "de": "Einen neuen Weg einschlagen",
+        "en": "Taking a new direction"
+      },
+      "description": {
+        "de": "Eine neue Richtung oder Vorgehensweise wählen.",
+        "en": "To choose a new direction or course of action."
+      },
+      "objective": "Recognize einschlagen in two distinct situations: To choose a new direction or course of action.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L316 (6cdefb3ba0d97e486fff92814db7dc74b04c80bfb7e3e109d42447c270afa73d), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L316-v1",
+          "contextKey": "legacy-0045-L316-context-1",
+          "transferKey": "legacy-0045-L316-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004515",
+            "type": "choice",
+            "prompt": "Nach dem Studium entschied sie sich, einen neuen Berufsweg ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She chooses a new career path.",
+              "de": "Sie wählt eine andere berufliche Richtung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zu schließen"
+              },
+              {
+                "id": "1",
+                "text": "einzuschlagen"
+              },
+              {
+                "id": "2",
+                "text": "zu verkaufen"
+              },
+              {
+                "id": "3",
+                "text": "zu verschieben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To choose a new direction or course of action.",
+              "de": "Eine neue Richtung oder Vorgehensweise wählen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Studium entschied sie sich, einen neuen Berufsweg einzuschlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (zu schließen, einzuschlagen, zu verkaufen, zu verschieben), accepted answer (einzuschlagen), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L316-v2",
+          "contextKey": "legacy-0045-L316-context-2",
+          "transferKey": "legacy-0045-L316-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004515",
+            "type": "gap_choice",
+            "prompt": "Nach dem Scheitern der ersten Idee ___ das Team eine andere Richtung ein.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The team takes a different direction.",
+              "de": "Das Team wählt einen anderen Weg."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "nahm"
+                  },
+                  {
+                    "id": "1",
+                    "text": "machte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "schlug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "stellte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To choose a new direction or course of action.",
+              "de": "Eine neue Richtung oder Vorgehensweise wählen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Scheitern der ersten Idee schlug das Team eine andere Richtung ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (nahm, machte, schlug, stellte), accepted answer (schlug), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004517",
+      "title": {
+        "de": "Etwas oder jemanden einsetzen",
+        "en": "Deploying people or resources"
+      },
+      "description": {
+        "de": "Personen oder Mittel für eine Aufgabe bestimmen und verwenden.",
+        "en": "To assign people or deploy resources for a task."
+      },
+      "objective": "Recognize einsetzen in two distinct situations: To assign people or deploy resources for a task.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L318 (31b167516078a59a61d23df8bde9d8be81fa7b4b87ec768e456a412e955aa134), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L318-v1",
+          "contextKey": "legacy-0045-L318-context-1",
+          "transferKey": "legacy-0045-L318-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004517",
+            "type": "choice",
+            "prompt": "Die Schule möchte eine erfahrene Lehrerin als neue Schulleiterin ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She is to take on the leadership role.",
+              "de": "Sie soll die Leitungsaufgabe übernehmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "entlassen"
+              },
+              {
+                "id": "1",
+                "text": "einsetzen"
+              },
+              {
+                "id": "2",
+                "text": "übergehen"
+              },
+              {
+                "id": "3",
+                "text": "kündigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To assign people or deploy resources for a task.",
+              "de": "Personen oder Mittel für eine Aufgabe bestimmen und verwenden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schule möchte eine erfahrene Lehrerin als neue Schulleiterin einsetzen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (entlassen, einsetzen, übergehen, kündigen), accepted answer (einsetzen), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L318-v2",
+          "contextKey": "legacy-0045-L318-context-2",
+          "transferKey": "legacy-0045-L318-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004517",
+            "type": "gap_choice",
+            "prompt": "Die Stadt hat zusätzliche Busse während der Messe ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Extra vehicles are deployed.",
+              "de": "Zusätzliche Fahrzeuge werden für den Verkehr verwendet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abgebaut"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verkauft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "eingesetzt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "vergessen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To assign people or deploy resources for a task.",
+              "de": "Personen oder Mittel für eine Aufgabe bestimmen und verwenden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stadt hat zusätzliche Busse während der Messe eingesetzt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (abgebaut, verkauft, eingesetzt, vergessen), accepted answer (eingesetzt), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004518",
+      "title": {
+        "de": "Personal einstellen",
+        "en": "Hiring employees"
+      },
+      "description": {
+        "de": "Eine Person neu in einem Unternehmen beschäftigen.",
+        "en": "To hire a person into employment."
+      },
+      "objective": "Recognize einstellen in two distinct situations: To hire a person into employment.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L320 (a9ee3167b7b14ebbafa48a896cf05c780238b0248043f67fdbcd2527f7aec158), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L320-v1",
+          "contextKey": "legacy-0045-L320-context-1",
+          "transferKey": "legacy-0045-L320-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004518",
+            "type": "choice",
+            "prompt": "Die Firma wächst und will zehn neue Mitarbeitende ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The workforce is to grow.",
+              "de": "Die Belegschaft soll größer werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "entlassen"
+              },
+              {
+                "id": "1",
+                "text": "einstellen"
+              },
+              {
+                "id": "2",
+                "text": "versetzen"
+              },
+              {
+                "id": "3",
+                "text": "kündigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To hire a person into employment.",
+              "de": "Eine Person neu in einem Unternehmen beschäftigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Firma wächst und will zehn neue Mitarbeitende einstellen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (entlassen, einstellen, versetzen, kündigen), accepted answer (einstellen), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L320-v2",
+          "contextKey": "legacy-0045-L320-context-2",
+          "transferKey": "legacy-0045-L320-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004518",
+            "type": "gap_choice",
+            "prompt": "Nach dem Vorstellungsgespräch wurde sie als Ingenieurin ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "She was hired for the job.",
+              "de": "Sie hat die Stelle bekommen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "entlassen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abgelehnt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "eingestellt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abgemeldet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To hire a person into employment.",
+              "de": "Eine Person neu in einem Unternehmen beschäftigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Vorstellungsgespräch wurde sie als Ingenieurin eingestellt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (entlassen, abgelehnt, eingestellt, abgemeldet), accepted answer (eingestellt), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000004519",
+      "title": {
+        "de": "An einem Ort eintreffen",
+        "en": "Arriving at a destination"
+      },
+      "description": {
+        "de": "Das Ankommen von Menschen oder Lieferungen benennen.",
+        "en": "To describe the arrival of people or deliveries."
+      },
+      "objective": "Recognize eintreffen in two distinct situations: To describe the arrival of people or deliveries.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L322 (0b51ab73b4ea10c6a0c535f9d3f1fe3d55c104714fd1efa99b3964c8973d5e04), 2026-10-29; inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; independent human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0045-L322-v1",
+          "contextKey": "legacy-0045-L322-context-1",
+          "transferKey": "legacy-0045-L322-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004519",
+            "type": "choice",
+            "prompt": "Die Lieferung soll laut Sendungsverfolgung morgen früh ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The goods are expected tomorrow.",
+              "de": "Die Ware wird morgen erwartet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ausfallen"
+              },
+              {
+                "id": "1",
+                "text": "eintreffen"
+              },
+              {
+                "id": "2",
+                "text": "verschwinden"
+              },
+              {
+                "id": "3",
+                "text": "zurückkehren"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "To describe the arrival of people or deliveries.",
+              "de": "Das Ankommen von Menschen oder Lieferungen benennen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lieferung soll laut Sendungsverfolgung morgen früh eintreffen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (ausfallen, eintreffen, verschwinden, zurückkehren), accepted answer (eintreffen), bilingual hint/explanation and distinct contexts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0045-L322-v2",
+          "contextKey": "legacy-0045-L322-context-2",
+          "transferKey": "legacy-0045-L322-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000450191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000004519",
+            "type": "gap_choice",
+            "prompt": "Als die Gäste am Bahnhof ___, wartete der Fahrer schon, um sie abzuholen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The driver waits for their arrival.",
+              "de": "Der Fahrer wartet auf ihre Ankunft."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abreisten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verschwanden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "eintrafen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "umkehrten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "To describe the arrival of people or deliveries.",
+              "de": "Das Ankommen von Menschen oder Lieferungen benennen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als die Gäste am Bahnhof eintrafen, wartete der Fahrer schon, um sie abzuholen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, separability and reflexive grammar, all four options (abreisten, verschwanden, eintrafen, umkehrten), accepted answer (eintrafen), bilingual hint/explanation and distinct contexts. Human review pending."
+        }
+      ]
+    }
+  ]
 }
