@@ -1,0 +1,2869 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000009400",
+      "title": {
+        "en": "Using umdrehen in context",
+        "de": "umdrehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use umdrehen: turn an object over or turn oneself around, in two distinct contexts.",
+        "de": "umdrehen erkennen und verwenden: etwas wenden oder sich umdrehen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb umdrehen meaning turn an object over or turn oneself around, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L837 (752703d3bf48205d64fd383bb6058399bccf7ed181c7bd9b70cdc2034a76037b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L837-v1",
+          "contextKey": "legacy-0094-L837-context-1",
+          "transferKey": "legacy-0094-L837-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009400",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ Sie die Karte um, damit Sie die Rückseite sehen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Use the polite imperative with Sie.",
+              "de": "Verwende die höfliche Aufforderung mit Sie."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "dreht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "drehst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "drehte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "drehen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, umdrehen means turn an object over or turn oneself around; \"drehen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umdrehen: etwas wenden oder sich umdrehen. Die Verbform „drehen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte drehen Sie die Karte um, damit Sie die Rückseite sehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Bitte drehen Sie die Karte um, damit Sie die Rückseite sehen.\" checked for grammar, separability and naturalness. All offered choices reviewed: dreht: rejected; does not express turn an object over or turn oneself around in this context or has the wrong verb form; drehst: rejected; does not express turn an object over or turn oneself around in this context or has the wrong verb form; drehte: rejected; does not express turn an object over or turn oneself around in this context or has the wrong verb form; drehen: correct for intended meaning and grammar. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L837-v2",
+          "contextKey": "legacy-0094-L837-context-2",
+          "transferKey": "legacy-0094-L837-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009400",
+            "type": "choice",
+            "prompt": "Als sie ihren Namen hörte, ___ sie sich sofort um.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The subject is singular and the event is in the past.",
+              "de": "Das Subjekt steht im Singular, und das Ereignis liegt in der Vergangenheit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "dreht"
+              },
+              {
+                "id": "1",
+                "text": "drehen"
+              },
+              {
+                "id": "2",
+                "text": "drehte"
+              },
+              {
+                "id": "3",
+                "text": "drehten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Here, umdrehen means turn an object over or turn oneself around; \"drehte\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umdrehen: etwas wenden oder sich umdrehen. Die Verbform „drehte“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als sie ihren Namen hörte, drehte sie sich sofort um.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Als sie ihren Namen hörte, drehte sie sich sofort um.\" checked for grammar, separability and naturalness. All offered choices reviewed: dreht: rejected; does not express turn an object over or turn oneself around in this context or has the wrong verb form; drehen: rejected; does not express turn an object over or turn oneself around in this context or has the wrong verb form; drehte: correct for intended meaning and grammar; drehten: rejected; does not express turn an object over or turn oneself around in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009401",
+      "title": {
+        "en": "Using umfassen in context",
+        "de": "umfassen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use umfassen: include or comprise several parts, in two distinct contexts.",
+        "de": "umfassen erkennen und verwenden: mehrere Teile einschließen oder umfassen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb umfassen meaning include or comprise several parts, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L838 (752ed1323319a049942805fbbecac72e6311bcfd1049085358e0aa63f99a3bdf), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L838-v1",
+          "contextKey": "legacy-0094-L838-context-1",
+          "transferKey": "legacy-0094-L838-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009401",
+            "type": "gap_choice",
+            "prompt": "Das Fortbildungsprogramm soll fünf Module ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The program consists of several modules.",
+              "de": "Das Programm besteht aus mehreren Modulen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterbrechen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unterstreichen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "umfassen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterlassen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, umfassen means include or comprise several parts; \"umfassen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umfassen: mehrere Teile einschließen oder umfassen. Die Verbform „umfassen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Fortbildungsprogramm soll fünf Module umfassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Das Fortbildungsprogramm soll fünf Module umfassen.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterbrechen: rejected; does not express include or comprise several parts in this context or has the wrong verb form; unterstreichen: rejected; does not express include or comprise several parts in this context or has the wrong verb form; umfassen: correct for intended meaning and grammar; unterlassen: rejected; does not express include or comprise several parts in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L838-v2",
+          "contextKey": "legacy-0094-L838-context-2",
+          "transferKey": "legacy-0094-L838-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009401",
+            "type": "choice",
+            "prompt": "Der Vertrag ___ auch die Wartung der Geräte.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The maintenance is part of the agreement.",
+              "de": "Die Wartung ist Bestandteil des Vertrags."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterstützt"
+              },
+              {
+                "id": "1",
+                "text": "umfasst"
+              },
+              {
+                "id": "2",
+                "text": "unterlässt"
+              },
+              {
+                "id": "3",
+                "text": "unterbricht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Here, umfassen means include or comprise several parts; \"umfasst\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umfassen: mehrere Teile einschließen oder umfassen. Die Verbform „umfasst“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Vertrag umfasst auch die Wartung der Geräte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Der Vertrag umfasst auch die Wartung der Geräte.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterstützt: rejected; does not express include or comprise several parts in this context or has the wrong verb form; umfasst: correct for intended meaning and grammar; unterlässt: rejected; does not express include or comprise several parts in this context or has the wrong verb form; unterbricht: rejected; does not express include or comprise several parts in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009402",
+      "title": {
+        "en": "Using umgehen in context",
+        "de": "umgehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use umgehen: bypass or avoid an obstacle or restriction, in two distinct contexts.",
+        "de": "umgehen erkennen und verwenden: ein Hindernis oder eine Regel umgehen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb umgehen meaning bypass or avoid an obstacle or restriction, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L839 (c7bba64c9c60ffd1487347556fb20e9db69d2aeadad2e3a1acc9ca379759a751), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L839-v1",
+          "contextKey": "legacy-0094-L839-context-1",
+          "transferKey": "legacy-0094-L839-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009402",
+            "type": "gap_choice",
+            "prompt": "Um den Stau zu vermeiden, wollen wir die Innenstadt ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "They take a route around the city centre.",
+              "de": "Sie wählen einen Weg um die Innenstadt herum."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterteilen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "umgehen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterrichten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterlassen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, umgehen means bypass or avoid an obstacle or restriction; \"umgehen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umgehen: ein Hindernis oder eine Regel umgehen. Die Verbform „umgehen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um den Stau zu vermeiden, wollen wir die Innenstadt umgehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Um den Stau zu vermeiden, wollen wir die Innenstadt umgehen.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterteilen: rejected; does not express bypass or avoid an obstacle or restriction in this context or has the wrong verb form; umgehen: correct for intended meaning and grammar; unterrichten: rejected; does not express bypass or avoid an obstacle or restriction in this context or has the wrong verb form; unterlassen: rejected; does not express bypass or avoid an obstacle or restriction in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L839-v2",
+          "contextKey": "legacy-0094-L839-context-2",
+          "transferKey": "legacy-0094-L839-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009402",
+            "type": "choice",
+            "prompt": "Die neue Regel soll verhindern, dass Firmen die Sicherheitskontrollen ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The companies should not evade required checks.",
+              "de": "Die Unternehmen sollen sich den vorgeschriebenen Kontrollen nicht entziehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "umgehen"
+              },
+              {
+                "id": "1",
+                "text": "unterstützen"
+              },
+              {
+                "id": "2",
+                "text": "unterstreichen"
+              },
+              {
+                "id": "3",
+                "text": "unterrichten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here, umgehen means bypass or avoid an obstacle or restriction; \"umgehen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umgehen: ein Hindernis oder eine Regel umgehen. Die Verbform „umgehen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Regel soll verhindern, dass Firmen die Sicherheitskontrollen umgehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Die neue Regel soll verhindern, dass Firmen die Sicherheitskontrollen umgehen.\" checked for grammar, separability and naturalness. All offered choices reviewed: umgehen: correct for intended meaning and grammar; unterstützen: rejected; does not express bypass or avoid an obstacle or restriction in this context or has the wrong verb form; unterstreichen: rejected; does not express bypass or avoid an obstacle or restriction in this context or has the wrong verb form; unterrichten: rejected; does not express bypass or avoid an obstacle or restriction in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009403",
+      "title": {
+        "en": "Using umschreiben in context",
+        "de": "umschreiben im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use umschreiben: rewrite or rephrase a text, in two distinct contexts.",
+        "de": "umschreiben erkennen und verwenden: einen Text neu formulieren, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb umschreiben meaning rewrite or rephrase a text, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L840 (b9fb4688d6da9d4ecbcf17d78085a129374a3044f208e36f9fd11a2943f65539), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L840-v1",
+          "contextKey": "legacy-0094-L840-context-1",
+          "transferKey": "legacy-0094-L840-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009403",
+            "type": "gap_choice",
+            "prompt": "Der Text ist zu kompliziert; bitte ___ Sie den Absatz in einfachen Worten.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The wording needs to be simpler.",
+              "de": "Der Text soll einfacher formuliert werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "umschreiben"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unterteilen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterrichten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterlassen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, umschreiben means rewrite or rephrase a text; \"umschreiben\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umschreiben: einen Text neu formulieren. Die Verbform „umschreiben“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Text ist zu kompliziert; bitte umschreiben Sie den Absatz in einfachen Worten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Der Text ist zu kompliziert; bitte umschreiben Sie den Absatz in einfachen Worten.\" checked for grammar, separability and naturalness. All offered choices reviewed: umschreiben: correct for intended meaning and grammar; unterteilen: rejected; does not express rewrite or rephrase a text in this context or has the wrong verb form; unterrichten: rejected; does not express rewrite or rephrase a text in this context or has the wrong verb form; unterlassen: rejected; does not express rewrite or rephrase a text in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L840-v2",
+          "contextKey": "legacy-0094-L840-context-2",
+          "transferKey": "legacy-0094-L840-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009403",
+            "type": "choice",
+            "prompt": "Für die neue Zielgruppe hat sie die Einleitung vollständig ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She changed the wording of the introduction.",
+              "de": "Sie hat die Formulierung der Einleitung verändert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterbrochen"
+              },
+              {
+                "id": "1",
+                "text": "unterstützt"
+              },
+              {
+                "id": "2",
+                "text": "unterstrichen"
+              },
+              {
+                "id": "3",
+                "text": "umgeschrieben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Here, umschreiben means rewrite or rephrase a text; \"umgeschrieben\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umschreiben: einen Text neu formulieren. Die Verbform „umgeschrieben“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die neue Zielgruppe hat sie die Einleitung vollständig umgeschrieben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Für die neue Zielgruppe hat sie die Einleitung vollständig umgeschrieben.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterbrochen: rejected; does not express rewrite or rephrase a text in this context or has the wrong verb form; unterstützt: rejected; does not express rewrite or rephrase a text in this context or has the wrong verb form; unterstrichen: rejected; does not express rewrite or rephrase a text in this context or has the wrong verb form; umgeschrieben: correct for intended meaning and grammar. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009404",
+      "title": {
+        "en": "Using umsetzen in context",
+        "de": "umsetzen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use umsetzen: implement a plan or measure, in two distinct contexts.",
+        "de": "umsetzen erkennen und verwenden: einen Plan oder eine Maßnahme verwirklichen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb umsetzen meaning implement a plan or measure, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L841 (555ca527d55409c65482da5940ef0afa1e7210e60d8cb84778ec4e94903b1f5e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L841-v1",
+          "contextKey": "legacy-0094-L841-context-1",
+          "transferKey": "legacy-0094-L841-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009404",
+            "type": "gap_choice",
+            "prompt": "Das Team muss die beschlossenen Maßnahmen bis Freitag ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The measures need to be put into practice.",
+              "de": "Die Maßnahmen sollen in die Praxis umgesetzt werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterlassen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "umtauschen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "umfassen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "umsetzen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, umsetzen means implement a plan or measure; \"umsetzen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umsetzen: einen Plan oder eine Maßnahme verwirklichen. Die Verbform „umsetzen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Team muss die beschlossenen Maßnahmen bis Freitag umsetzen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Das Team muss die beschlossenen Maßnahmen bis Freitag umsetzen.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterlassen: rejected; does not express implement a plan or measure in this context or has the wrong verb form; umtauschen: rejected; does not express implement a plan or measure in this context or has the wrong verb form; umfassen: rejected; does not express implement a plan or measure in this context or has the wrong verb form; umsetzen: correct for intended meaning and grammar. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L841-v2",
+          "contextKey": "legacy-0094-L841-context-2",
+          "transferKey": "legacy-0094-L841-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009404",
+            "type": "choice",
+            "prompt": "Nach dem Workshop im vergangenen Jahr ___ die Abteilung die Vorschläge sofort um.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The separable particle is already at the end, and the event is past.",
+              "de": "Die abtrennbare Vorsilbe steht am Satzende, und die Handlung liegt in der Vergangenheit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "setzen"
+              },
+              {
+                "id": "1",
+                "text": "setzten"
+              },
+              {
+                "id": "2",
+                "text": "setzte"
+              },
+              {
+                "id": "3",
+                "text": "setzt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Here, umsetzen means implement a plan or measure; \"setzte\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umsetzen: einen Plan oder eine Maßnahme verwirklichen. Die Verbform „setzte“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Workshop im vergangenen Jahr setzte die Abteilung die Vorschläge sofort um.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Nach dem Workshop im vergangenen Jahr setzte die Abteilung die Vorschläge sofort um.\" checked for grammar, separability and naturalness. All offered choices reviewed: setzen: rejected; does not express implement a plan or measure in this context or has the wrong verb form; setzten: rejected; does not express implement a plan or measure in this context or has the wrong verb form; setzte: correct for intended meaning and grammar; setzt: rejected; does not express implement a plan or measure in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009405",
+      "title": {
+        "en": "Using umstellen in context",
+        "de": "umstellen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use umstellen: switch or convert a system or process, in two distinct contexts.",
+        "de": "umstellen erkennen und verwenden: ein System oder einen Ablauf auf etwas anderes umstellen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb umstellen meaning switch or convert a system or process, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L843 (f5ca4c1c56740eb49f38e24c131613c3ccfdaa42da8773e60d454e7ade263664), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L843-v1",
+          "contextKey": "legacy-0094-L843-context-1",
+          "transferKey": "legacy-0094-L843-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009405",
+            "type": "gap_choice",
+            "prompt": "Die Fabrik will die Produktion auf erneuerbare Energie ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The production process will use a different energy source.",
+              "de": "Die Produktion soll eine andere Energiequelle verwenden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterlassen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "umstellen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "umtauschen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterbrechen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, umstellen means switch or convert a system or process; \"umstellen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umstellen: ein System oder einen Ablauf auf etwas anderes umstellen. Die Verbform „umstellen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fabrik will die Produktion auf erneuerbare Energie umstellen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Die Fabrik will die Produktion auf erneuerbare Energie umstellen.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterlassen: rejected; does not express switch or convert a system or process in this context or has the wrong verb form; umstellen: correct for intended meaning and grammar; umtauschen: rejected; does not express switch or convert a system or process in this context or has the wrong verb form; unterbrechen: rejected; does not express switch or convert a system or process in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L843-v2",
+          "contextKey": "legacy-0094-L843-context-2",
+          "transferKey": "legacy-0094-L843-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009405",
+            "type": "choice",
+            "prompt": "Nach der Softwaremigration haben wir alle Arbeitsplätze auf das neue System ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The workstations now use the replacement system.",
+              "de": "Die Arbeitsplätze nutzen jetzt das neue System."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "umgestellt"
+              },
+              {
+                "id": "1",
+                "text": "unterstellt"
+              },
+              {
+                "id": "2",
+                "text": "unterbrochen"
+              },
+              {
+                "id": "3",
+                "text": "unterlassen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here, umstellen means switch or convert a system or process; \"umgestellt\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umstellen: ein System oder einen Ablauf auf etwas anderes umstellen. Die Verbform „umgestellt“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Softwaremigration haben wir alle Arbeitsplätze auf das neue System umgestellt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Nach der Softwaremigration haben wir alle Arbeitsplätze auf das neue System umgestellt.\" checked for grammar, separability and naturalness. All offered choices reviewed: umgestellt: correct for intended meaning and grammar; unterstellt: rejected; does not express switch or convert a system or process in this context or has the wrong verb form; unterbrochen: rejected; does not express switch or convert a system or process in this context or has the wrong verb form; unterlassen: rejected; does not express switch or convert a system or process in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009406",
+      "title": {
+        "en": "Using umtauschen in context",
+        "de": "umtauschen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use umtauschen: exchange a purchased item for another, in two distinct contexts.",
+        "de": "umtauschen erkennen und verwenden: eine gekaufte Ware gegen eine andere umtauschen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb umtauschen meaning exchange a purchased item for another, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L844 (fbfb52782837488e882ea08773945cf529d4fc0dbda8166b897da8857ebe9f7a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L844-v1",
+          "contextKey": "legacy-0094-L844-context-1",
+          "transferKey": "legacy-0094-L844-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009406",
+            "type": "gap_choice",
+            "prompt": "Die Jacke ist zu klein; ich möchte sie gegen eine größere ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The customer wants a different size instead.",
+              "de": "Die Kundin möchte stattdessen eine andere Größe."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "umtauschen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "umsetzen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "umstellen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterlassen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, umtauschen means exchange a purchased item for another; \"umtauschen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umtauschen: eine gekaufte Ware gegen eine andere umtauschen. Die Verbform „umtauschen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Jacke ist zu klein; ich möchte sie gegen eine größere umtauschen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Die Jacke ist zu klein; ich möchte sie gegen eine größere umtauschen.\" checked for grammar, separability and naturalness. All offered choices reviewed: umtauschen: correct for intended meaning and grammar; umsetzen: rejected; does not express exchange a purchased item for another in this context or has the wrong verb form; umstellen: rejected; does not express exchange a purchased item for another in this context or has the wrong verb form; unterlassen: rejected; does not express exchange a purchased item for another in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L844-v2",
+          "contextKey": "legacy-0094-L844-context-2",
+          "transferKey": "legacy-0094-L844-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009406",
+            "type": "choice",
+            "prompt": "Der Kunde hat die defekte Lampe gegen eine neue ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The shop replaced the defective product.",
+              "de": "Das Geschäft hat das defekte Produkt ersetzt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "umgestellt"
+              },
+              {
+                "id": "1",
+                "text": "unterbrochen"
+              },
+              {
+                "id": "2",
+                "text": "umgesetzt"
+              },
+              {
+                "id": "3",
+                "text": "umgetauscht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Here, umtauschen means exchange a purchased item for another; \"umgetauscht\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet umtauschen: eine gekaufte Ware gegen eine andere umtauschen. Die Verbform „umgetauscht“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kunde hat die defekte Lampe gegen eine neue umgetauscht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Der Kunde hat die defekte Lampe gegen eine neue umgetauscht.\" checked for grammar, separability and naturalness. All offered choices reviewed: umgestellt: rejected; does not express exchange a purchased item for another in this context or has the wrong verb form; unterbrochen: rejected; does not express exchange a purchased item for another in this context or has the wrong verb form; umgesetzt: rejected; does not express exchange a purchased item for another in this context or has the wrong verb form; umgetauscht: correct for intended meaning and grammar. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009408",
+      "title": {
+        "en": "Using unterbrechen in context",
+        "de": "unterbrechen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use unterbrechen: interrupt an activity or speaker, in two distinct contexts.",
+        "de": "unterbrechen erkennen und verwenden: eine Tätigkeit oder eine sprechende Person unterbrechen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb unterbrechen meaning interrupt an activity or speaker, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L847 (44823eecaa4b864e23ac62740b9af57a1207398fe03acaf478f477cd2c2e7a2b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L847-v1",
+          "contextKey": "legacy-0094-L847-context-1",
+          "transferKey": "legacy-0094-L847-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009408",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ Sie mich nicht, solange ich den Bericht vorstelle.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker asks not to be interrupted.",
+              "de": "Die sprechende Person möchte ausreden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "umfassen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unterbrechen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterstützen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterteilen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterbrechen means interrupt an activity or speaker; \"unterbrechen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterbrechen: eine Tätigkeit oder eine sprechende Person unterbrechen. Die Verbform „unterbrechen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte unterbrechen Sie mich nicht, solange ich den Bericht vorstelle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Bitte unterbrechen Sie mich nicht, solange ich den Bericht vorstelle.\" checked for grammar, separability and naturalness. All offered choices reviewed: umfassen: rejected; does not express interrupt an activity or speaker in this context or has the wrong verb form; unterbrechen: correct for intended meaning and grammar; unterstützen: rejected; does not express interrupt an activity or speaker in this context or has the wrong verb form; unterteilen: rejected; does not express interrupt an activity or speaker in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L847-v2",
+          "contextKey": "legacy-0094-L847-context-2",
+          "transferKey": "legacy-0094-L847-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009408",
+            "type": "choice",
+            "prompt": "Ein Stromausfall hat die Videokonferenz plötzlich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The meeting stopped unexpectedly.",
+              "de": "Die Besprechung wurde unerwartet gestoppt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterbrochen"
+              },
+              {
+                "id": "1",
+                "text": "unterstrichen"
+              },
+              {
+                "id": "2",
+                "text": "unterrichtet"
+              },
+              {
+                "id": "3",
+                "text": "umgestellt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterbrechen means interrupt an activity or speaker; \"unterbrochen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterbrechen: eine Tätigkeit oder eine sprechende Person unterbrechen. Die Verbform „unterbrochen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Stromausfall hat die Videokonferenz plötzlich unterbrochen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Ein Stromausfall hat die Videokonferenz plötzlich unterbrochen.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterbrochen: correct for intended meaning and grammar; unterstrichen: rejected; does not express interrupt an activity or speaker in this context or has the wrong verb form; unterrichtet: rejected; does not express interrupt an activity or speaker in this context or has the wrong verb form; umgestellt: rejected; does not express interrupt an activity or speaker in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009409",
+      "title": {
+        "en": "Using unterdrücken in context",
+        "de": "unterdrücken im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use unterdrücken: suppress a reaction or message, in two distinct contexts.",
+        "de": "unterdrücken erkennen und verwenden: eine Reaktion oder Meldung zurückhalten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb unterdrücken meaning suppress a reaction or message, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L848 (23027d3d43de319e012a1ff4ddecd35d92917201f8ceb0d2157e3ecaee62bc12), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L848-v1",
+          "contextKey": "legacy-0094-L848-context-1",
+          "transferKey": "legacy-0094-L848-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009409",
+            "type": "gap_choice",
+            "prompt": "Sie versuchte, ein Lachen während der ernsten Rede zu ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She tries not to show her reaction.",
+              "de": "Sie möchte ihre Reaktion nicht zeigen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterdrücken"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unterrichten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterteilen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "umtauschen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterdrücken means suppress a reaction or message; \"unterdrücken\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterdrücken: eine Reaktion oder Meldung zurückhalten. Die Verbform „unterdrücken“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie versuchte, ein Lachen während der ernsten Rede zu unterdrücken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Sie versuchte, ein Lachen während der ernsten Rede zu unterdrücken.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterdrücken: correct for intended meaning and grammar; unterrichten: rejected; does not express suppress a reaction or message in this context or has the wrong verb form; unterteilen: rejected; does not express suppress a reaction or message in this context or has the wrong verb form; umtauschen: rejected; does not express suppress a reaction or message in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L848-v2",
+          "contextKey": "legacy-0094-L848-context-2",
+          "transferKey": "legacy-0094-L848-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009409",
+            "type": "choice",
+            "prompt": "Das System hat wiederholte Fehlermeldungen automatisch ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Repeated messages are hidden rather than displayed.",
+              "de": "Wiederholte Meldungen werden nicht mehr angezeigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterstützt"
+              },
+              {
+                "id": "1",
+                "text": "unterstrichen"
+              },
+              {
+                "id": "2",
+                "text": "unterbrochen"
+              },
+              {
+                "id": "3",
+                "text": "unterdrückt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterdrücken means suppress a reaction or message; \"unterdrückt\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterdrücken: eine Reaktion oder Meldung zurückhalten. Die Verbform „unterdrückt“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das System hat wiederholte Fehlermeldungen automatisch unterdrückt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Das System hat wiederholte Fehlermeldungen automatisch unterdrückt.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterstützt: rejected; does not express suppress a reaction or message in this context or has the wrong verb form; unterstrichen: rejected; does not express suppress a reaction or message in this context or has the wrong verb form; unterbrochen: rejected; does not express suppress a reaction or message in this context or has the wrong verb form; unterdrückt: correct for intended meaning and grammar. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009410",
+      "title": {
+        "en": "Using untergliedern in context",
+        "de": "untergliedern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use untergliedern: subdivide a document or result into sections, in two distinct contexts.",
+        "de": "untergliedern erkennen und verwenden: etwas in übersichtliche Teile gliedern, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb untergliedern meaning subdivide a document or result into sections, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L849 (b4d7c3ccce947f1fed645c2f33467aab8f97d4e982142fc29802aea25a9bc01f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L849-v1",
+          "contextKey": "legacy-0094-L849-context-1",
+          "transferKey": "legacy-0094-L849-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009410",
+            "type": "gap_choice",
+            "prompt": "Die Studie lässt sich in drei Themenbereiche ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The study can be organized into sections.",
+              "de": "Die Studie lässt sich in Abschnitte gliedern."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterlassen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "umtauschen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterrichten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "untergliedern"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, untergliedern means subdivide a document or result into sections; \"untergliedern\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet untergliedern: etwas in übersichtliche Teile gliedern. Die Verbform „untergliedern“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Studie lässt sich in drei Themenbereiche untergliedern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Die Studie lässt sich in drei Themenbereiche untergliedern.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterlassen: rejected; does not express subdivide a document or result into sections in this context or has the wrong verb form; umtauschen: rejected; does not express subdivide a document or result into sections in this context or has the wrong verb form; unterrichten: rejected; does not express subdivide a document or result into sections in this context or has the wrong verb form; untergliedern: correct for intended meaning and grammar. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L849-v2",
+          "contextKey": "legacy-0094-L849-context-2",
+          "transferKey": "legacy-0094-L849-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009410",
+            "type": "choice",
+            "prompt": "Für den Bericht ___ sie die Ergebnisse in mehrere Kategorien.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She organized the results into subgroups.",
+              "de": "Sie ordnete die Ergebnisse in Untergruppen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterstützte"
+              },
+              {
+                "id": "1",
+                "text": "unterbrach"
+              },
+              {
+                "id": "2",
+                "text": "untergliederte"
+              },
+              {
+                "id": "3",
+                "text": "unterstrich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Here, untergliedern means subdivide a document or result into sections; \"untergliederte\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet untergliedern: etwas in übersichtliche Teile gliedern. Die Verbform „untergliederte“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Bericht untergliederte sie die Ergebnisse in mehrere Kategorien.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Für den Bericht untergliederte sie die Ergebnisse in mehrere Kategorien.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterstützte: rejected; does not express subdivide a document or result into sections in this context or has the wrong verb form; unterbrach: rejected; does not express subdivide a document or result into sections in this context or has the wrong verb form; untergliederte: correct for intended meaning and grammar; unterstrich: rejected; does not express subdivide a document or result into sections in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009411",
+      "title": {
+        "en": "Using unterlassen in context",
+        "de": "unterlassen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use unterlassen: refrain from or omit an action, in two distinct contexts.",
+        "de": "unterlassen erkennen und verwenden: eine Handlung bewusst nicht ausführen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb unterlassen meaning refrain from or omit an action, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L851 (45357d861e441400ae57e8424f658b776493e4bff4f77b5fb512664988651f0f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L851-v1",
+          "contextKey": "legacy-0094-L851-context-1",
+          "transferKey": "legacy-0094-L851-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009411",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ Sie während der Prüfung jede Kommunikation mit anderen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The instruction prohibits talking to others.",
+              "de": "Die Anweisung fordert dazu auf, nicht mit anderen zu sprechen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterteilen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unterlassen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterstützen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterstreichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterlassen means refrain from or omit an action; \"unterlassen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterlassen: eine Handlung bewusst nicht ausführen. Die Verbform „unterlassen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte unterlassen Sie während der Prüfung jede Kommunikation mit anderen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Bitte unterlassen Sie während der Prüfung jede Kommunikation mit anderen.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterteilen: rejected; does not express refrain from or omit an action in this context or has the wrong verb form; unterlassen: correct for intended meaning and grammar; unterstützen: rejected; does not express refrain from or omit an action in this context or has the wrong verb form; unterstreichen: rejected; does not express refrain from or omit an action in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L851-v2",
+          "contextKey": "legacy-0094-L851-context-2",
+          "transferKey": "legacy-0094-L851-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009411",
+            "type": "choice",
+            "prompt": "Auf Anraten der Ärztin ___ er vorerst anstrengenden Sport.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He deliberately avoided strenuous exercise.",
+              "de": "Er verzichtete bewusst auf anstrengenden Sport."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterließ"
+              },
+              {
+                "id": "1",
+                "text": "unterstützte"
+              },
+              {
+                "id": "2",
+                "text": "unterstrich"
+              },
+              {
+                "id": "3",
+                "text": "unterrichtete"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterlassen means refrain from or omit an action; \"unterließ\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterlassen: eine Handlung bewusst nicht ausführen. Die Verbform „unterließ“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf Anraten der Ärztin unterließ er vorerst anstrengenden Sport.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Auf Anraten der Ärztin unterließ er vorerst anstrengenden Sport.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterließ: correct for intended meaning and grammar; unterstützte: rejected; does not express refrain from or omit an action in this context or has the wrong verb form; unterstrich: rejected; does not express refrain from or omit an action in this context or has the wrong verb form; unterrichtete: rejected; does not express refrain from or omit an action in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009412",
+      "title": {
+        "en": "Using unterrichten in context",
+        "de": "unterrichten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use unterrichten: teach students or a group, in two distinct contexts.",
+        "de": "unterrichten erkennen und verwenden: Lernende in einem Fach unterrichten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb unterrichten meaning teach students or a group, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L853 (8309c1bca26283e52ee33aef5ac0449c3c0e940e64158702f808a0cdac792f35), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L853-v1",
+          "contextKey": "legacy-0094-L853-context-1",
+          "transferKey": "legacy-0094-L853-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009412",
+            "type": "gap_choice",
+            "prompt": "Seit zehn Jahren ___ sie Deutsch an einer Berufsschule.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She works as a teacher.",
+              "de": "Sie arbeitet als Lehrerin."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterbricht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unterstreicht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterlässt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterrichtet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterrichten means teach students or a group; \"unterrichtet\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterrichten: Lernende in einem Fach unterrichten. Die Verbform „unterrichtet“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seit zehn Jahren unterrichtet sie Deutsch an einer Berufsschule.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Seit zehn Jahren unterrichtet sie Deutsch an einer Berufsschule.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterbricht: rejected; does not express teach students or a group in this context or has the wrong verb form; unterstreicht: rejected; does not express teach students or a group in this context or has the wrong verb form; unterlässt: rejected; does not express teach students or a group in this context or has the wrong verb form; unterrichtet: correct for intended meaning and grammar. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L853-v2",
+          "contextKey": "legacy-0094-L853-context-2",
+          "transferKey": "legacy-0094-L853-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009412",
+            "type": "choice",
+            "prompt": "Während des Praktikums durfte er eine kleine Gruppe von Auszubildenden ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He was allowed to teach a group.",
+              "de": "Er durfte einer Gruppe Unterricht geben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterlassen"
+              },
+              {
+                "id": "1",
+                "text": "umtauschen"
+              },
+              {
+                "id": "2",
+                "text": "unterrichten"
+              },
+              {
+                "id": "3",
+                "text": "unterteilen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterrichten means teach students or a group; \"unterrichten\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterrichten: Lernende in einem Fach unterrichten. Die Verbform „unterrichten“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während des Praktikums durfte er eine kleine Gruppe von Auszubildenden unterrichten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Während des Praktikums durfte er eine kleine Gruppe von Auszubildenden unterrichten.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterlassen: rejected; does not express teach students or a group in this context or has the wrong verb form; umtauschen: rejected; does not express teach students or a group in this context or has the wrong verb form; unterrichten: correct for intended meaning and grammar; unterteilen: rejected; does not express teach students or a group in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009413",
+      "title": {
+        "en": "Using untersagen in context",
+        "de": "untersagen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use untersagen: formally prohibit an activity, in two distinct contexts.",
+        "de": "untersagen erkennen und verwenden: eine Handlung ausdrücklich verbieten, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb untersagen meaning formally prohibit an activity, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L854 (3dac4c950bbe24abfb970f831966871a36acb4ecefb00b38eec1aea601268567), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L854-v1",
+          "contextKey": "legacy-0094-L854-context-1",
+          "transferKey": "legacy-0094-L854-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009413",
+            "type": "gap_choice",
+            "prompt": "Die Hausordnung kann das Rauchen im Treppenhaus ausdrücklich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The house rules may formally forbid smoking.",
+              "de": "Die Hausordnung kann das Rauchen offiziell verbieten."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterstützen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unterteilen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "untersagen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterrichten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, untersagen means formally prohibit an activity; \"untersagen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet untersagen: eine Handlung ausdrücklich verbieten. Die Verbform „untersagen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Hausordnung kann das Rauchen im Treppenhaus ausdrücklich untersagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Die Hausordnung kann das Rauchen im Treppenhaus ausdrücklich untersagen.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterstützen: rejected; does not express formally prohibit an activity in this context or has the wrong verb form; unterteilen: rejected; does not express formally prohibit an activity in this context or has the wrong verb form; untersagen: correct for intended meaning and grammar; unterrichten: rejected; does not express formally prohibit an activity in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L854-v2",
+          "contextKey": "legacy-0094-L854-context-2",
+          "transferKey": "legacy-0094-L854-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009413",
+            "type": "choice",
+            "prompt": "Der Zutritt zur Baustelle ist Unbefugten streng ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Unauthorized people are not allowed to enter.",
+              "de": "Unbefugte dürfen die Baustelle nicht betreten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterbrochen"
+              },
+              {
+                "id": "1",
+                "text": "untersagt"
+              },
+              {
+                "id": "2",
+                "text": "unterstrichen"
+              },
+              {
+                "id": "3",
+                "text": "unterstützt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Here, untersagen means formally prohibit an activity; \"untersagt\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet untersagen: eine Handlung ausdrücklich verbieten. Die Verbform „untersagt“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Zutritt zur Baustelle ist Unbefugten streng untersagt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Der Zutritt zur Baustelle ist Unbefugten streng untersagt.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterbrochen: rejected; does not express formally prohibit an activity in this context or has the wrong verb form; untersagt: correct for intended meaning and grammar; unterstrichen: rejected; does not express formally prohibit an activity in this context or has the wrong verb form; unterstützt: rejected; does not express formally prohibit an activity in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009414",
+      "title": {
+        "en": "Using unterscheiden in context",
+        "de": "unterscheiden im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use unterscheiden: distinguish one thing from another, in two distinct contexts.",
+        "de": "unterscheiden erkennen und verwenden: Unterschiede zwischen Dingen erkennen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb unterscheiden meaning distinguish one thing from another, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L855 (25c824e2b1b7f9126ae6a859b07aac65b42a9461a2610120b8ca5f36360893fb), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L855-v1",
+          "contextKey": "legacy-0094-L855-context-1",
+          "transferKey": "legacy-0094-L855-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009414",
+            "type": "gap_choice",
+            "prompt": "Man muss zwischen einer Vermutung und einer Tatsache ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "These two categories are not the same.",
+              "de": "Diese beiden Kategorien sind nicht gleich."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterteilen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unterscheiden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterlassen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterrichten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterscheiden means distinguish one thing from another; \"unterscheiden\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterscheiden: Unterschiede zwischen Dingen erkennen. Die Verbform „unterscheiden“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Man muss zwischen einer Vermutung und einer Tatsache unterscheiden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Man muss zwischen einer Vermutung und einer Tatsache unterscheiden.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterteilen: rejected; does not express distinguish one thing from another in this context or has the wrong verb form; unterscheiden: correct for intended meaning and grammar; unterlassen: rejected; does not express distinguish one thing from another in this context or has the wrong verb form; unterrichten: rejected; does not express distinguish one thing from another in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L855-v2",
+          "contextKey": "legacy-0094-L855-context-2",
+          "transferKey": "legacy-0094-L855-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009414",
+            "type": "choice",
+            "prompt": "Sie ___ die beiden Koffer anhand der Etiketten.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The labels helped her tell the bags apart.",
+              "de": "An den Etiketten erkannte sie die Unterschiede."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterschied"
+              },
+              {
+                "id": "1",
+                "text": "unterstützte"
+              },
+              {
+                "id": "2",
+                "text": "unterrichtete"
+              },
+              {
+                "id": "3",
+                "text": "unterbrach"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterscheiden means distinguish one thing from another; \"unterschied\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterscheiden: Unterschiede zwischen Dingen erkennen. Die Verbform „unterschied“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie unterschied die beiden Koffer anhand der Etiketten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Sie unterschied die beiden Koffer anhand der Etiketten.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterschied: correct for intended meaning and grammar; unterstützte: rejected; does not express distinguish one thing from another in this context or has the wrong verb form; unterrichtete: rejected; does not express distinguish one thing from another in this context or has the wrong verb form; unterbrach: rejected; does not express distinguish one thing from another in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009415",
+      "title": {
+        "en": "Using unterstreichen in context",
+        "de": "unterstreichen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use unterstreichen: underline text or emphasize a point, in two distinct contexts.",
+        "de": "unterstreichen erkennen und verwenden: Text markieren oder eine Aussage betonen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb unterstreichen meaning underline text or emphasize a point, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L857 (5c5b9b22ff939b94aa9ca2308bea6194714835995f4901375bfa886db6a87080), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L857-v1",
+          "contextKey": "legacy-0094-L857-context-1",
+          "transferKey": "legacy-0094-L857-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009415",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ Sie die wichtigsten Begriffe im Text mit einem Stift.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Draw a line under the words.",
+              "de": "Ziehe eine Linie unter die Wörter."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterrichten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unterlassen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "umtauschen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterstreichen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterstreichen means underline text or emphasize a point; \"unterstreichen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterstreichen: Text markieren oder eine Aussage betonen. Die Verbform „unterstreichen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte unterstreichen Sie die wichtigsten Begriffe im Text mit einem Stift.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Bitte unterstreichen Sie die wichtigsten Begriffe im Text mit einem Stift.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterrichten: rejected; does not express underline text or emphasize a point in this context or has the wrong verb form; unterlassen: rejected; does not express underline text or emphasize a point in this context or has the wrong verb form; umtauschen: rejected; does not express underline text or emphasize a point in this context or has the wrong verb form; unterstreichen: correct for intended meaning and grammar. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L857-v2",
+          "contextKey": "legacy-0094-L857-context-2",
+          "transferKey": "legacy-0094-L857-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009415",
+            "type": "choice",
+            "prompt": "Mit zusätzlichen Daten wollte die Forscherin ihre Aussage ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The evidence should make her point stronger.",
+              "de": "Die Belege sollen ihre Aussage bekräftigen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterteilen"
+              },
+              {
+                "id": "1",
+                "text": "unterdrücken"
+              },
+              {
+                "id": "2",
+                "text": "unterstreichen"
+              },
+              {
+                "id": "3",
+                "text": "unterbrechen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterstreichen means underline text or emphasize a point; \"unterstreichen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterstreichen: Text markieren oder eine Aussage betonen. Die Verbform „unterstreichen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit zusätzlichen Daten wollte die Forscherin ihre Aussage unterstreichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Mit zusätzlichen Daten wollte die Forscherin ihre Aussage unterstreichen.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterteilen: rejected; does not express underline text or emphasize a point in this context or has the wrong verb form; unterdrücken: rejected; does not express underline text or emphasize a point in this context or has the wrong verb form; unterstreichen: correct for intended meaning and grammar; unterbrechen: rejected; does not express underline text or emphasize a point in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009416",
+      "title": {
+        "en": "Using unterstützen in context",
+        "de": "unterstützen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use unterstützen: support or assist someone or a process, in two distinct contexts.",
+        "de": "unterstützen erkennen und verwenden: jemandem oder etwas helfen, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb unterstützen meaning support or assist someone or a process, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L858 (1ff780ec8e0df3d947249b5dc47e8d6493947e4891801e7728c05ad7ea910194), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L858-v1",
+          "contextKey": "legacy-0094-L858-context-1",
+          "transferKey": "legacy-0094-L858-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009416",
+            "type": "gap_choice",
+            "prompt": "Die Freiwilligen wollen die Familien nach dem Hochwasser ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The volunteers provide help after the flood.",
+              "de": "Die Freiwilligen helfen nach der Überschwemmung."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unterbrechen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "umtauschen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterstützen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterlassen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterstützen means support or assist someone or a process; \"unterstützen\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterstützen: jemandem oder etwas helfen. Die Verbform „unterstützen“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Freiwilligen wollen die Familien nach dem Hochwasser unterstützen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Die Freiwilligen wollen die Familien nach dem Hochwasser unterstützen.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterbrechen: rejected; does not express support or assist someone or a process in this context or has the wrong verb form; umtauschen: rejected; does not express support or assist someone or a process in this context or has the wrong verb form; unterstützen: correct for intended meaning and grammar; unterlassen: rejected; does not express support or assist someone or a process in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L858-v2",
+          "contextKey": "legacy-0094-L858-context-2",
+          "transferKey": "legacy-0094-L858-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009416",
+            "type": "choice",
+            "prompt": "Die neue Software ___ das Team bei der Planung.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The tool makes planning easier.",
+              "de": "Das Programm erleichtert die Planung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "untersagt"
+              },
+              {
+                "id": "1",
+                "text": "unterstützt"
+              },
+              {
+                "id": "2",
+                "text": "unterdrückt"
+              },
+              {
+                "id": "3",
+                "text": "unterstreicht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Here, unterstützen means support or assist someone or a process; \"unterstützt\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet unterstützen: jemandem oder etwas helfen. Die Verbform „unterstützt“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die neue Software unterstützt das Team bei der Planung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Die neue Software unterstützt das Team bei der Planung.\" checked for grammar, separability and naturalness. All offered choices reviewed: untersagt: rejected; does not express support or assist someone or a process in this context or has the wrong verb form; unterstützt: correct for intended meaning and grammar; unterdrückt: rejected; does not express support or assist someone or a process in this context or has the wrong verb form; unterstreicht: rejected; does not express support or assist someone or a process in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009418",
+      "title": {
+        "en": "Using variieren in context",
+        "de": "variieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use variieren: vary or differ depending on conditions, in two distinct contexts.",
+        "de": "variieren erkennen und verwenden: je nach Bedingungen unterschiedlich sein oder etwas verändern, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb variieren meaning vary or differ depending on conditions, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L861 (290329dd3aafdde9e91c0652ab7fdc66148f51c8f1e3f6f48c73f17ab8d24fde), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L861-v1",
+          "contextKey": "legacy-0094-L861-context-1",
+          "transferKey": "legacy-0094-L861-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009418",
+            "type": "gap_choice",
+            "prompt": "Die Öffnungszeiten können je nach Saison ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Hours are not identical in every season.",
+              "de": "Die Zeiten sind nicht in jeder Jahreszeit gleich."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verabschieden"
+                  },
+                  {
+                    "id": "1",
+                    "text": "unterlassen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterstreichen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "variieren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, variieren means vary or differ depending on conditions; \"variieren\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet variieren: je nach Bedingungen unterschiedlich sein oder etwas verändern. Die Verbform „variieren“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Öffnungszeiten können je nach Saison variieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Die Öffnungszeiten können je nach Saison variieren.\" checked for grammar, separability and naturalness. All offered choices reviewed: verabschieden: rejected; does not express vary or differ depending on conditions in this context or has the wrong verb form; unterlassen: rejected; does not express vary or differ depending on conditions in this context or has the wrong verb form; unterstreichen: rejected; does not express vary or differ depending on conditions in this context or has the wrong verb form; variieren: correct for intended meaning and grammar. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L861-v2",
+          "contextKey": "legacy-0094-L861-context-2",
+          "transferKey": "legacy-0094-L861-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009418",
+            "type": "choice",
+            "prompt": "Die Lehrerin ___ die Aufgaben, damit die Lernenden verschiedene Beispiele üben.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She changes the exercises to provide variety.",
+              "de": "Sie verändert die Aufgaben für mehr Abwechslung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unterlässt"
+              },
+              {
+                "id": "1",
+                "text": "verabschiedet"
+              },
+              {
+                "id": "2",
+                "text": "variiert"
+              },
+              {
+                "id": "3",
+                "text": "unterbricht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Here, variieren means vary or differ depending on conditions; \"variiert\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet variieren: je nach Bedingungen unterschiedlich sein oder etwas verändern. Die Verbform „variiert“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehrerin variiert die Aufgaben, damit die Lernenden verschiedene Beispiele üben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Die Lehrerin variiert die Aufgaben, damit die Lernenden verschiedene Beispiele üben.\" checked for grammar, separability and naturalness. All offered choices reviewed: unterlässt: rejected; does not express vary or differ depending on conditions in this context or has the wrong verb form; verabschiedet: rejected; does not express vary or differ depending on conditions in this context or has the wrong verb form; variiert: correct for intended meaning and grammar; unterbricht: rejected; does not express vary or differ depending on conditions in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000009419",
+      "title": {
+        "en": "Using verabschieden in context",
+        "de": "verabschieden im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use verabschieden: say goodbye or take leave of someone, in two distinct contexts.",
+        "de": "verabschieden erkennen und verwenden: sich von jemandem verabschieden, in zwei unterschiedlichen Situationen."
+      },
+      "objective": "Recognize and use the German verb verabschieden meaning say goodbye or take leave of someone, with appropriate inflection and construction.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical/grammar facts from apps/web/data/pos/verbs.jsonl:L863 (2f2490b52b1ba994387ae52806b1bfaf94b04eda15d80167793162624553b955), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0094-L863-v1",
+          "contextKey": "legacy-0094-L863-context-1",
+          "transferKey": "legacy-0094-L863-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009419",
+            "type": "gap_choice",
+            "prompt": "Am Bahnhof wollten sie sich von ihren Freunden ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "They are leaving their friends at the station.",
+              "de": "Sie sagen ihren Freunden am Bahnhof auf Wiedersehen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "umtauschen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verabschieden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unterrichten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unterteilen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Here, verabschieden means say goodbye or take leave of someone; \"verabschieden\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet verabschieden: sich von jemandem verabschieden. Die Verbform „verabschieden“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Bahnhof wollten sie sich von ihren Freunden verabschieden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Am Bahnhof wollten sie sich von ihren Freunden verabschieden.\" checked for grammar, separability and naturalness. All offered choices reviewed: umtauschen: rejected; does not express say goodbye or take leave of someone in this context or has the wrong verb form; verabschieden: correct for intended meaning and grammar; unterrichten: rejected; does not express say goodbye or take leave of someone in this context or has the wrong verb form; unterteilen: rejected; does not express say goodbye or take leave of someone in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0094-L863-v2",
+          "contextKey": "legacy-0094-L863-context-2",
+          "transferKey": "legacy-0094-L863-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000940191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000009419",
+            "type": "choice",
+            "prompt": "Nach der letzten Besprechung ___ sich der Chef persönlich von allen Mitarbeitenden.",
+            "instruction": {
+              "en": "Choose the verb or verb form that correctly completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The manager said goodbye after the meeting.",
+              "de": "Der Chef sagte nach der Besprechung persönlich auf Wiedersehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verabschiedete"
+              },
+              {
+                "id": "1",
+                "text": "unterstützte"
+              },
+              {
+                "id": "2",
+                "text": "unterstrich"
+              },
+              {
+                "id": "3",
+                "text": "variierte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Here, verabschieden means say goodbye or take leave of someone; \"verabschiedete\" is the correct verb form for the sentence.",
+              "de": "Hier bedeutet verabschieden: sich von jemandem verabschieden. Die Verbform „verabschiedete“ passt zum Satz."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der letzten Besprechung verabschiedete sich der Chef persönlich von allen Mitarbeitenden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: complete sentence \"Nach der letzten Besprechung verabschiedete sich der Chef persönlich von allen Mitarbeitenden.\" checked for grammar, separability and naturalness. All offered choices reviewed: verabschiedete: correct for intended meaning and grammar; unterstützte: rejected; does not express say goodbye or take leave of someone in this context or has the wrong verb form; unterstrich: rejected; does not express say goodbye or take leave of someone in this context or has the wrong verb form; variierte: rejected; does not express say goodbye or take leave of someone in this context or has the wrong verb form. Unique offered answer in the intended context. Bilingual hint and explanation reviewed; sibling variant has a different communicative situation, not measured transfer. Human review pending."
+        }
+      ]
+    }
+  ]
+}
