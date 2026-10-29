@@ -67,6 +67,19 @@ with the unchanged canonical validator. `overlay-validation.json` binds results
 to exact overlay hashes. No corrected original catalogs, runtime bundles or SQL
 are written by that command.
 
+`provenance-signals.py --snapshot <full-commit>` finds literal linked-source
+example overlap after whitespace normalization (case/punctuation retained;
+at least five words and 25 characters). The 137-batch snapshot has three matches,
+documented with exact source hashes. This does not establish copying, ownership
+or infringement, and a missing match does not prove originality. The earlier
+worker's claimed exact match in batch 0010 was a misreading and is corrected in
+the saved finding; its common near-phrase overlap is advisory only.
+
+Current saved editorial coverage is 326 variants through batch 0011, with 27
+inactive correction proposals. The worker has finished. Resume at 0012 when
+current capacity permits; further dispatch stopped at the standing five-hour
+headroom threshold. The study-reserve waiver remains in effect for this session.
+
 Use one writer. A hosted continuation must check GitHub ref and current execution
 state before writing, use expected-head fast-forward protection, and stop on overlap.
 If reliable single-execution ownership cannot be established, do not write. Quiet

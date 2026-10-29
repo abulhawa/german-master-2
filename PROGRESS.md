@@ -29,17 +29,26 @@ category/lexical kind, topic/context assignment, immutable release identity and
 shared queue lifecycle. Initial generated review defects were caught before
 commit; exact coverage checks and a fresh substantive pass correct them.
 
-First saved editorial slice: batches 0001–0007 cover 210 exact source variants;
-23 inactive correction proposals pass source preconditions and canonical
+Saved editorial coverage: batches 0001–0011 cover 326 exact source variants;
+27 inactive correction proposals pass source preconditions and canonical
 exercise/rubric conformance. Optional precision/style and sentence-initial
 typography findings are distinct from genuine competing answers and grammar
 errors. The initial positional-template defects were independently rechecked.
 All 49 frozen completed catalogs/reports are unchanged in the 137-batch snapshot,
 so current findings apply to those same authoring inputs without duplicating work.
 
-Next: continue at frozen batch 0008, synchronize/validate each meaningful slice
-and push only the review branch. No merge, deployment, live database write or
-Android publication is authorized by this review.
+Literal linked-source example triage scans all 4,476 questions and identifies
+three exact overlaps after whitespace normalization (batches 0030, 0084, 0109).
+This does not prove copying or infringement. A worker's claimed exact match in
+0010 was incorrect (different subject wording) and is corrected to optional
+near-phrase provenance precision in the saved finding.
+
+Current worker is finished. Further dispatch paused at the standing five-hour
+headroom threshold; the study-reserve requirement remains waived for this
+session. Reset credits and paid fallback were not used. Next: resume frozen
+batch 0012 when current capacity permits, synchronize/validate each meaningful
+slice and push only the review branch. No merge, deployment, live database write
+or Android publication is authorized by this review.
 
 ## Android learner-text encoding correction — 28 October 2026
 

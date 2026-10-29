@@ -64,6 +64,9 @@ def validate(sync):
                     assessments = row.get('optionAssessments', [])
                     require(len(assessments) == len(choices) and all(isinstance(a, str) and a.strip() for a in assessments),
                             f'{key}: assess every offered choice')
+                    require(all(a.strip().casefold().startswith(o['text'].casefold())
+                                for o, a in zip(choices, assessments)),
+                            f'{key}: assessment labels must match the actual option text/order')
                     dispositions[row['disposition']] += 1
                 require(state != 'complete' or keys == set(source),
                         f'{batch}: incomplete review marked complete; missing {sorted(set(source)-keys)}')

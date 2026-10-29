@@ -9,6 +9,10 @@ on the review branch. The fixed 49-batch editorial queue is separate from the
 structurally validated 137-batch authoring snapshot. Resume the first unfinished
 frozen batch, validate exact coverage and inactive corrections, and save meaningful
 slices. Do not edit authoring, merge to main, publish, deploy or write a live DB.
+Saved coverage is 326 questions through batch 0011, with 27 inactive corrections.
+The current worker has finished; further dispatch stopped at the five-hour
+headroom threshold. Resume at 0012 with current capacity telemetry. Study reserve
+is waived for this session; reset credits remain prohibited.
 
 28 October: owner reported Android Loading mojibake and requested fix/deploy to
 phone and web. Unicode copy is corrected; native shell tests, lint and debug

@@ -80,6 +80,15 @@ retry payloads and unfinished work; and supply equivalent web/Android behavior.
 The capacity proof does not verify those lifecycle requirements. Do not stuff the
 whole catalog into one saved/adopted round or increase the bound as a shortcut.
 
+Source inspection makes the concrete integration gap clear: web `begin()` in
+`apps/web/client/src/renovation/guest-starter.tsx` concatenates all eligible pack
+questions and calls `SessionSchema.parse` on that one session. Native `start()` in
+`apps/android/app/src/main/java/com/germanverbmaster/android/learner/NativeGuestEntry.kt`
+also concatenates all eligible pack questions into a single saved session. Merely
+splitting a larger bundle into more pack files would therefore not solve the
+saved-session bound; the entry/queue selection must change on both clients.
+No oversized production bundle was installed to demonstrate a runtime failure.
+
 ## Review quality controls and next action
 
 An initial worker generated incomplete coverage and reused positional option
