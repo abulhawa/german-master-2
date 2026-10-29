@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "batchId": "legacy-0099",
+  "state": "ready-for-review",
+  "catalogSha256": "85bae21c02f73fc4f7b7ef1ccb6c65b149945ef7b4c9e96e644d15b0fdd7f6e1",
+  "aiReviewer": "GPT-6",
+  "reviewedAt": "2026-10-29",
+  "reviewNotes": "Separate GPT-6 AI editorial review of 30 original noun questions: all full German sentences, 120 offered options, naturalness, grammatical forms, contextual uniqueness and bilingual hints/explanations. Compared objectives in production, initial, B2, workplace and general-expansion catalogs. Deferred overlapping Friede/Frieden and Friseur/Frisör variants, Swiss Führerausweis and specialized Funkausstellung/Funktionsraum; corrected Friseur and Fußgänger genders, Funk sense, and incomplete plural metadata. Human linguistic, CEFR, rights and publication approvals pending.",
+  "rows": [
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L858",
+      "sourceHash": "d05e33d719058306f712efa40907a479abbefd33b5673e868957976a3e9a0cef",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "Friede is a variant of Frieden and often restricted to fixed/poetic expressions; requires explicit mapping to the existing Frieden concept rather than a redundant target.",
+      "corrections": "Do not assume source plural Frieden or ordinary modern usage is verified.",
+      "rightsBasis": "Only source lexical facts inspected; no inherited sentence or translation reused. Human linguistic, rights and mapping review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L859",
+      "sourceHash": "608dde90695c1557a0f3ca61f9abdbbf7a9f21e453b3a7ff711331b095884356",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009901"
+      ],
+      "notes": "Two original B1 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Source Friede/Frieden variant overlap considered; use standard Frieden and avoid unverified plural claim.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L860",
+      "sourceHash": "6c94a7d1c0bf2c8184ee5aac3c4053d5afc9d60c9b12c3295edb7f7a83b769bc",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009902"
+      ],
+      "notes": "Two original B1 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Inherited noun gender 'die' is incorrect for Friseur; correct masculine der Friseur. No source example copied.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L861",
+      "sourceHash": "3a40e8e2918b91e286b959bfd1dc2e2437caed4757d25cd823d574a68c0e0144",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "Frisör is an alternative spelling of Friseur; do not duplicate the same learning objective in the same batch or reference an unapproved target as existing.",
+      "corrections": "The spelling variant can be handled after human editorial mapping.",
+      "rightsBasis": "Only source lexical facts inspected; no inherited sentence or translation reused. Human linguistic, rights and mapping review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L862",
+      "sourceHash": "6a09ea1e1dc8f68f216d8cfb600220858a43bade1e43dac9d70858be41900f2a",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009904"
+      ],
+      "notes": "Two original B1 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Existing 'Meet a deadline' phrase target reviewed; new objective concerns recognizing Frist as a time limit, not reusing the same phrase.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L863",
+      "sourceHash": "e7fcb375bcad3ff0ab0ac7814efe6be0fbe86b276f07ca635f588e46b473d45d",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009905"
+      ],
+      "notes": "Two original B1 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Reviewed source gender, meaning and usage; no inherited example copied.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L864",
+      "sourceHash": "ff96beae97c34eb8d58a29f8d14bf415a198768948bae09b8b4e02952e4be331",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009906"
+      ],
+      "notes": "Two original B2 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Frostschutzmittel is a technical substance; avoid claiming all products require the same dilution. In the second question, dilution is explicitly bottle-specific.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L865",
+      "sourceHash": "b3ef2264a98882b8b33238a192bef2d034a3d064dcfa7263a4acff98b0d31cc3",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009907"
+      ],
+      "notes": "Two original B1 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Use botanical Frucht, not an unqualified synonym for all Obst.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L868",
+      "sourceHash": "f052780255e17740dcba048876ad162b1ac6e039895372fa0e9128fb61ceb73d",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009908"
+      ],
+      "notes": "Two original B2 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Distinguish Frühschicht from Nachtschicht and Spätschicht.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L870",
+      "sourceHash": "eab94c2edf202db213ccf7637d34d64f8d09fb38d8238556cf80a72d4ff9e745",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "Führerausweis is regionally Swiss; B1 Germany-focused context and jurisdiction-specific terminology require review.",
+      "corrections": "Use Führerschein for standard German usage in Germany; do not silently rewrite the source lemma.",
+      "rightsBasis": "Only source lexical facts inspected; no inherited sentence or translation reused. Human linguistic, rights and mapping review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L873",
+      "sourceHash": "95ad94b1a690cdbeb47b9be7c84ca021602ba2d1d5d70be65727e0998a92531a",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009910"
+      ],
+      "notes": "Two original B2 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Inherited plural shorthand '-ä-e' is malformed; the standard plural is Führungskräfte. No plural tested.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L874",
+      "sourceHash": "c6a52804e380a937199d20f3bb9080c46423c8d515bd33f59265946a93fa93e9",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009911"
+      ],
+      "notes": "Two original B1 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Reviewed source gender, meaning and usage; no inherited example copied.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L876",
+      "sourceHash": "4b5bd01bc8975ff26be5e88c59acf0df88b3b6bb6590daa70fc0c80341f51e69",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009912"
+      ],
+      "notes": "Two original B2 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Inherited 'Radio' gloss is too broad; Funk here means wireless radio communication, not the radio receiver.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L877",
+      "sourceHash": "509c22ba13914806c065ea5a04cdacb80ee099e11914e1e84bcb6e6ea96ca94c",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "Funkausstellung is a specialized historical/event term and inherited 'radio exhibition' gloss does not settle current meaning or B2 relevance.",
+      "corrections": "Defer for domain and rights review rather than fabricate a generic objective.",
+      "rightsBasis": "Only source lexical facts inspected; no inherited sentence or translation reused. Human linguistic, rights and mapping review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L878",
+      "sourceHash": "7b8704bd1202b429cbc0abd16eb313571a397f3fc0e9b22ed87dfd671e1c5b0f",
+      "decision": "deferred",
+      "targetIds": [],
+      "notes": "Funktionsraum is context-dependent (e.g. medical procedural room) and the inherited 'functional space' gloss plus plural shorthand are insufficiently precise.",
+      "corrections": "Require domain-specific target definition and morphology review.",
+      "rightsBasis": "Only source lexical facts inspected; no inherited sentence or translation reused. Human linguistic, rights and mapping review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L881",
+      "sourceHash": "0e0ec0c5a5e015f12a5596e8b4ce4994efa4045e78b013a0f163be3b62353c47",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009915"
+      ],
+      "notes": "Two original B2 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Inherited plural '-ö-' is incomplete; standard plural Fußböden. No plural tested.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L882",
+      "sourceHash": "64115b0365fe40bc2c83d48965470c2af4e4cf8a746cd8e50b0247189e8808b5",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009916"
+      ],
+      "notes": "Two original B1 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Inherited noun gender 'die' is wrong for singular Fußgänger; correct masculine der Fußgänger.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L883",
+      "sourceHash": "ebdeb3215c9fcd418a3456a3d386c149b2d6d081a6d5cf7840bba1e15e9c7bdf",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009917"
+      ],
+      "notes": "Two original B1 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "The feminine Fußgängerin is a pedestrian role, not an occupation; explicit on-foot context.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L884",
+      "sourceHash": "2e0029f986f00d827a5e2df02bd92ccee06aea6a85f969fef145756600364277",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009918"
+      ],
+      "notes": "Two original B1 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "Normal private-car restrictions in Fußgängerzonen may have delivery/access exceptions; use normally rather than absolutely.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    },
+    {
+      "sourceId": "apps/web/data/pos/nouns.jsonl:L885",
+      "sourceHash": "3f896808749838272a827a2cf8ea55637845015e17d573c4bcde2a16e708988e",
+      "decision": "authored",
+      "targetIds": [
+        "80000000-0000-4000-8000-000000009919"
+      ],
+      "notes": "Two original B2 noun questions, both separately reviewed by GPT-6 for full German sentence, all options, case/gender, bilingual feedback and distinct situations.",
+      "corrections": "A Fußleiste is a baseboard at the wall/floor junction, not an arbitrary floor strip.",
+      "rightsBasis": "Only pinned lexical and grammar facts used; original prompts, choices, hints and explanations. Human rights review pending."
+    }
+  ]
+}
