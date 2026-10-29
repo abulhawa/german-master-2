@@ -473,14 +473,14 @@
       "variantKey": "legacy-0030-L187-v2",
       "exerciseId": "81000000-0000-4000-8000-000000300181",
       "targetId": "80000000-0000-4000-8000-000000003018",
-      "disposition": "needs-explanation-correction",
+      "disposition": "needs-context-and-explanation-correction",
       "optionAssessments": [
-        "beobachten: Permanently observing a vulnerability is coherent as an activity, but does not constitute the stated solution/removal goal provided by the task context.",
+        "beobachten: A monitoring solution can aim to observe a vulnerability permanently. The original solution-purpose wording does not itself require removal; this is a real competing completion.",
         "beheben: Correct intended remedy of the vulnerability.",
         "begrüßen: Welcoming a vulnerability is contrary to the ordinary security-solution context.",
         "befürchten: Fearing a vulnerability permanently is not finding a way to remedy it."
       ],
-      "finding": "The task intends a remedy; dauerhaft in the prompt explicitly adds the desired lasting effect, but that extra meaning should not be built into the verb's general definition.",
+      "finding": "A solution for permanent monitoring can fit beobachten, so require remedying/removing the vulnerability in the scored instruction. Separately, dauerhaft in the original prompt adds a lasting-effect aim; it should not be built into the general definition of beheben.",
       "rubricAndLanguage": "Accepted option 1 (beheben) exactly reconstructs 'Das Team sucht eine Lösung, um die Sicherheitslücke dauerhaft zu beheben.'. Um die Sicherheitslücke dauerhaft zu beheben is grammatical infinitive purpose. Both-language remove-fault hints and English definition align; clarify the German meaning without claiming a verified security fix. Both standard instruction languages were examined; a finding requires a specific scored instruction wherever the generic accurate-completion task is insufficient.",
       "provenance": "Lemma beheben; exact pinned source apps/web/data/pos/verbs.jsonl:L187, SHA-256 87805845f36eabf7f097fa3510f7f382fdab8f301d0efa6a2efa3a8ab7c2cb1e. Source record and target provenance examined; original source remains immutable. Source gloss/examples are evidence rather than approval, and any contrary gloss is discussed in the linguistic finding. Author originality and source approved flags are unverified claims, not human or rights clearance.",
       "levelAndIdentity": "Objective: Recognize beheben for fixing a technical fault or vulnerability. The variant tests the stated sense in its particular context. Inherited B2 placement is provisional practice classification, not CEFR certification. Exercise revision, target 80000000-0000-4000-8000-000000003018 and variant/context/transfer identities are retained; full cross-corpus semantic duplicate clearance remains outstanding."
