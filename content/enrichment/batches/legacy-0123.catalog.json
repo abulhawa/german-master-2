@@ -1,0 +1,2233 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000012300",
+      "title": {
+        "en": "Using Länge in context",
+        "de": "Länge im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Länge: length or extent from one end to another.",
+        "de": "Länge erkennen und verwenden: Länge, Ausdehnung zwischen zwei Endpunkten."
+      },
+      "objective": "Recognize the German noun Länge (length or extent from one end to another) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1409 (9bc4bb3377c633c56e6a6dbd32f57dfb8d7c91dc8102edcc4c6c65a2b1f4f357), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1409-v1",
+          "contextKey": "legacy-0123-L1409-context-1",
+          "transferKey": "legacy-0123-L1409-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012300",
+            "type": "gap_choice",
+            "prompt": "Die Strecke vom Start bis zum Ziel hat eine ___ von zwölf Kilometern.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The measurement follows the route from start to finish.",
+              "de": "Gemessen wird vom Anfang bis zum Ende der Strecke."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Länge"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Breite"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Höhe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tiefe"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Länge measures how far something extends from end to end.",
+              "de": "Länge beschreibt die Ausdehnung von einem Ende zum anderen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Strecke vom Start bis zum Ziel hat eine Länge von zwölf Kilometern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Die Strecke vom Start bis zum Ziel hat eine Länge von zwölf Kilometern.\", German grammar, B1/B2 objective, and defensible unique key 0 (Länge). All distractors individually assessed: Breite is side-to-side width; Höhe is vertical height; Tiefe is depth, none measures distance along the route. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1409-v2",
+          "contextKey": "legacy-0123-L1409-context-2",
+          "transferKey": "legacy-0123-L1409-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012300",
+            "type": "choice",
+            "prompt": "Die Schneiderin misst die ___ des Ärmels von der Schulter bis zum Handgelenk.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The measurement runs along the arm.",
+              "de": "Gemessen wird entlang des Ärmels, nicht quer darüber."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Dicke"
+              },
+              {
+                "id": "1",
+                "text": "Länge"
+              },
+              {
+                "id": "2",
+                "text": "Breite"
+              },
+              {
+                "id": "3",
+                "text": "Höhe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The sleeve's length runs from shoulder to wrist.",
+              "de": "Die Ärmellänge reicht von der Schulter bis zum Handgelenk."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schneiderin misst die Länge des Ärmels von der Schulter bis zum Handgelenk.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Die Schneiderin misst die Länge des Ärmels von der Schulter bis zum Handgelenk.\", German grammar, B1/B2 objective, and defensible unique key 1 (Länge). All distractors individually assessed: Dicke is thickness; Breite is width across the sleeve; Höhe is vertical elevation, not the shoulder-to-wrist extent. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012301",
+      "title": {
+        "en": "Using Langeweile in context",
+        "de": "Langeweile im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Langeweile: boredom caused by lack of interest or activity.",
+        "de": "Langeweile erkennen und verwenden: Langeweile, Gefühl bei fehlender Beschäftigung."
+      },
+      "objective": "Recognize the German noun Langeweile (boredom caused by lack of interest or activity) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1410 (8dd81b407663acce74660fd7edc036315d110cad020a47a869bc20668ae8ff83), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1410-v1",
+          "contextKey": "legacy-0123-L1410-context-1",
+          "transferKey": "legacy-0123-L1410-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012301",
+            "type": "gap_choice",
+            "prompt": "Weil der Zug stundenlang stillstand und niemand etwas zu tun hatte, breitete sich ___ aus.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "People have nothing interesting to do.",
+              "de": "Niemand ist beschäftigt, und die Zeit vergeht langsam."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Vorfreude"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Erleichterung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Begeisterung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Langeweile"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Langeweile is the feeling of being bored.",
+              "de": "Langeweile entsteht, wenn man nichts Interessantes zu tun hat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Weil der Zug stundenlang stillstand und niemand etwas zu tun hatte, breitete sich Langeweile aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Weil der Zug stundenlang stillstand und niemand etwas zu tun hatte, breitete sich Langeweile aus.\", German grammar, B1/B2 objective, and defensible unique key 3 (Langeweile). All distractors individually assessed: Vorfreude is anticipation of a positive event; Erleichterung follows relief; Begeisterung is excitement, not inactivity-induced boredom. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1410-v2",
+          "contextKey": "legacy-0123-L1410-context-2",
+          "transferKey": "legacy-0123-L1410-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012301",
+            "type": "choice",
+            "prompt": "Er konnte vor ___ kaum stillsitzen, weil der Vortrag so eintönig war.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The monotonous talk holds no interest.",
+              "de": "Der Vortrag ist so monoton, dass er sich langweilt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Langeweile"
+              },
+              {
+                "id": "1",
+                "text": "Freude"
+              },
+              {
+                "id": "2",
+                "text": "Hunger"
+              },
+              {
+                "id": "3",
+                "text": "Angst"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The monotonous lecture causes boredom.",
+              "de": "Ein eintöniger Vortrag kann Langeweile auslösen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er konnte vor Langeweile kaum stillsitzen, weil der Vortrag so eintönig war.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Er konnte vor Langeweile kaum stillsitzen, weil der Vortrag so eintönig war.\", German grammar, B1/B2 objective, and defensible unique key 0 (Langeweile). All distractors individually assessed: Freude is joy, not caused by monotony; Hunger is physical need for food; Angst is fear, not the intended response to an uneventful talk. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012303",
+      "title": {
+        "en": "Using Lärm in context",
+        "de": "Lärm im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lärm: disturbing loud noise.",
+        "de": "Lärm erkennen und verwenden: Lärm, störender lauter Schall."
+      },
+      "objective": "Recognize the German noun Lärm (disturbing loud noise) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1413 (dd4d21582799b8e5ded5d49e6f8ca6823a1774ca6f9974128342c0e327f000d3), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1413-v1",
+          "contextKey": "legacy-0123-L1413-context-1",
+          "transferKey": "legacy-0123-L1413-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012303",
+            "type": "gap_choice",
+            "prompt": "Der ___ der Presslufthämmer machte ein Gespräch auf der Baustelle unmöglich.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "It was too loud to hear one another.",
+              "de": "Die lauten Maschinen übertönen die Stimmen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Duft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lärm"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Staub"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Dampf"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lärm is disturbing noise.",
+              "de": "Lärm ist störender, lauter Schall."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lärm der Presslufthämmer machte ein Gespräch auf der Baustelle unmöglich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Der Lärm der Presslufthämmer machte ein Gespräch auf der Baustelle unmöglich.\", German grammar, B1/B2 objective, and defensible unique key 1 (Lärm). All distractors individually assessed: Duft is a smell, not a sound; Staub is airborne particles; Dampf is vapour, neither masks speech acoustically. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1413-v2",
+          "contextKey": "legacy-0123-L1413-context-2",
+          "transferKey": "legacy-0123-L1413-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012303",
+            "type": "choice",
+            "prompt": "Sie setzte Ohrstöpsel ein, um sich vor dem ___ der Maschinen zu schützen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Earplugs protect hearing.",
+              "de": "Ohrstöpsel schützen vor lauten Geräuschen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Staub"
+              },
+              {
+                "id": "1",
+                "text": "Licht"
+              },
+              {
+                "id": "2",
+                "text": "Lärm"
+              },
+              {
+                "id": "3",
+                "text": "Wärme"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Earplugs reduce exposure to noise.",
+              "de": "Ohrstöpsel schützen vor Lärm."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie setzte Ohrstöpsel ein, um sich vor dem Lärm der Maschinen zu schützen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Sie setzte Ohrstöpsel ein, um sich vor dem Lärm der Maschinen zu schützen.\", German grammar, B1/B2 objective, and defensible unique key 2 (Lärm). All distractors individually assessed: Staub requires respiratory protection; Licht requires eye protection; Wärme requires thermal protection, not earplugs. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012304",
+      "title": {
+        "en": "Using Lärmbelästigung in context",
+        "de": "Lärmbelästigung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lärmbelästigung: nuisance or disturbance from excessive noise.",
+        "de": "Lärmbelästigung erkennen und verwenden: Lärmbelästigung, Beeinträchtigung durch Geräusche."
+      },
+      "objective": "Recognize the German noun Lärmbelästigung (nuisance or disturbance from excessive noise) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1414 (13f95fd9d0c88eef4ff473480ab8b01705fbc2b081092608900c197237f34937), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1414-v1",
+          "contextKey": "legacy-0123-L1414-context-1",
+          "transferKey": "legacy-0123-L1414-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012304",
+            "type": "gap_choice",
+            "prompt": "Die Anwohner meldeten die nächtliche ___ durch laute Musik beim Ordnungsamt.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The complaint is about unwanted loud sounds.",
+              "de": "Laute Musik in der Nacht stört die Nachbarschaft."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lärmbelästigung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Straßenreinigung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Wasserversorgung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mülltrennung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Lärmbelästigung means disturbance by unwanted noise.",
+              "de": "Lärmbelästigung ist eine Störung durch Geräusche."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Anwohner meldeten die nächtliche Lärmbelästigung durch laute Musik beim Ordnungsamt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Die Anwohner meldeten die nächtliche Lärmbelästigung durch laute Musik beim Ordnungsamt.\", German grammar, B1/B2 objective, and defensible unique key 0 (Lärmbelästigung). All distractors individually assessed: Straßenreinigung is street cleaning; Wasserversorgung is water supply; Mülltrennung is waste sorting, not a noise complaint. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1414-v2",
+          "contextKey": "legacy-0123-L1414-context-2",
+          "transferKey": "legacy-0123-L1414-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012304",
+            "type": "choice",
+            "prompt": "Um die ___ zu verringern, montierte die Werkstatt schalldämmende Wände.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Soundproofing reduces the disturbance.",
+              "de": "Schalldämmende Wände senken die Geräuschbelastung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Stromrechnung"
+              },
+              {
+                "id": "1",
+                "text": "Lärmbelästigung"
+              },
+              {
+                "id": "2",
+                "text": "Lieferzeit"
+              },
+              {
+                "id": "3",
+                "text": "Beleuchtung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Soundproof walls reduce noise nuisance.",
+              "de": "Schallschutzwände verringern die Lärmbelästigung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um die Lärmbelästigung zu verringern, montierte die Werkstatt schalldämmende Wände.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Um die Lärmbelästigung zu verringern, montierte die Werkstatt schalldämmende Wände.\", German grammar, B1/B2 objective, and defensible unique key 1 (Lärmbelästigung). All distractors individually assessed: Stromrechnung is an electricity bill; Lieferzeit is delivery time; Beleuchtung is lighting, none is directly reduced by sound insulation. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012307",
+      "title": {
+        "en": "Using Laufzeit in context",
+        "de": "Laufzeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Laufzeit: contract term or duration.",
+        "de": "Laufzeit erkennen und verwenden: Laufzeit, vereinbarte Vertragsdauer."
+      },
+      "objective": "Recognize the German noun Laufzeit (contract term or duration) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1417 (6e18aef03181d5ebf850457a18ba9274c6fef63edead5ec8f0a4f7ac211abf8f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1417-v1",
+          "contextKey": "legacy-0123-L1417-context-1",
+          "transferKey": "legacy-0123-L1417-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012307",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Mietvertrags endet am 31. Dezember.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The contract is valid until a particular date.",
+              "de": "Es geht um die Dauer, für die der Vertrag gilt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Wohnfläche"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Laufzeit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kaution"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Nebenkosten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Laufzeit is the period for which a contract remains valid.",
+              "de": "Die Laufzeit ist die Gültigkeitsdauer eines Vertrags."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Laufzeit des Mietvertrags endet am 31. Dezember.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Die Laufzeit des Mietvertrags endet am 31. Dezember.\", German grammar, B1/B2 objective, and defensible unique key 1 (Laufzeit). All distractors individually assessed: Wohnfläche is floor area; Kaution is a deposit; Nebenkosten are additional charges, none ends on a date as the contract term does. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1417-v2",
+          "contextKey": "legacy-0123-L1417-context-2",
+          "transferKey": "legacy-0123-L1417-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012307",
+            "type": "choice",
+            "prompt": "Bei einer ___ von 24 Monaten wird das Gerät für zwei Jahre geleast.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The number of months states how long the lease lasts.",
+              "de": "Die Angabe in Monaten beschreibt die Vertragsdauer."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anzahlung"
+              },
+              {
+                "id": "1",
+                "text": "Rückgabe"
+              },
+              {
+                "id": "2",
+                "text": "Laufzeit"
+              },
+              {
+                "id": "3",
+                "text": "Rechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "A lease term can be specified in months.",
+              "de": "Die Laufzeit eines Leasingvertrags wird oft in Monaten angegeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei einer Laufzeit von 24 Monaten wird das Gerät für zwei Jahre geleast.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Bei einer Laufzeit von 24 Monaten wird das Gerät für zwei Jahre geleast.\", German grammar, B1/B2 objective, and defensible unique key 2 (Laufzeit). All distractors individually assessed: Anzahlung is an upfront payment; Rückgabe is returning an item; Rechnung is an invoice, not the two-year contract duration. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012308",
+      "title": {
+        "en": "Using Laune in context",
+        "de": "Laune im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Laune: mood, especially good or bad spirits.",
+        "de": "Laune erkennen und verwenden: Laune, aktuelle Stimmung einer Person."
+      },
+      "objective": "Recognize the German noun Laune (mood, especially good or bad spirits) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1418 (983131d7ec46102c8f723ff13db0253dbe009c53680dc7964325e42561f1a3d1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1418-v1",
+          "contextKey": "legacy-0123-L1418-context-1",
+          "transferKey": "legacy-0123-L1418-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012308",
+            "type": "gap_choice",
+            "prompt": "Als sie die Zusage für den Studienplatz erhielt, bekam sie sofort gute ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The good news improves her mood.",
+              "de": "Die erfreuliche Nachricht hebt ihre Stimmung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Laune"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Geduld"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Sorge"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Eile"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gute Laune means being in a good mood.",
+              "de": "Gute Laune bezeichnet eine positive Stimmung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als sie die Zusage für den Studienplatz erhielt, bekam sie sofort gute Laune.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Als sie die Zusage für den Studienplatz erhielt, bekam sie sofort gute Laune.\", German grammar, B1/B2 objective, and defensible unique key 0 (Laune). All distractors individually assessed: Geduld is patience, not typically bekommen gute Geduld; Sorge is worry, not positive; Eile is haste, not a cheerful mood. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1418-v2",
+          "contextKey": "legacy-0123-L1418-context-2",
+          "transferKey": "legacy-0123-L1418-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012308",
+            "type": "choice",
+            "prompt": "Seine schlechte ___ besserte sich, als er die gute Nachricht hörte.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The message changes his emotional state.",
+              "de": "Seine Stimmung wird durch die Nachricht besser."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Adresse"
+              },
+              {
+                "id": "1",
+                "text": "Laune"
+              },
+              {
+                "id": "2",
+                "text": "Rechnung"
+              },
+              {
+                "id": "3",
+                "text": "Erinnerung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Laune can describe a bad mood that improves.",
+              "de": "Eine schlechte Laune kann sich wieder bessern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Seine schlechte Laune besserte sich, als er die gute Nachricht hörte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Seine schlechte Laune besserte sich, als er die gute Nachricht hörte.\", German grammar, B1/B2 objective, and defensible unique key 1 (Laune). All distractors individually assessed: Adresse is a location detail; Rechnung is a bill; Erinnerung is a memory, none is a current mood in this sentence. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012309",
+      "title": {
+        "en": "Using Lautsprecher in context",
+        "de": "Lautsprecher im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lautsprecher: loudspeaker that reproduces sound.",
+        "de": "Lautsprecher erkennen und verwenden: Lautsprecher, Gerät zur Wiedergabe von Ton."
+      },
+      "objective": "Recognize the German noun Lautsprecher (loudspeaker that reproduces sound) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1419 (819c9eb758720e31c8dd8ad5b4242d8f8d91748ec9b1a9788714b1adf19ebb4c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1419-v1",
+          "contextKey": "legacy-0123-L1419-context-1",
+          "transferKey": "legacy-0123-L1419-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012309",
+            "type": "gap_choice",
+            "prompt": "Der ___ auf dem Schreibtisch gibt den Ton des Computers wieder.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The device outputs audio.",
+              "de": "Gesucht ist das Gerät, aus dem man den Ton hört."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Drucker"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Router"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Scanner"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lautsprecher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Lautsprecher reproduces sound.",
+              "de": "Ein Lautsprecher gibt Ton wieder."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lautsprecher auf dem Schreibtisch gibt den Ton des Computers wieder.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Der Lautsprecher auf dem Schreibtisch gibt den Ton des Computers wieder.\", German grammar, B1/B2 objective, and defensible unique key 3 (Lautsprecher). All distractors individually assessed: Drucker prints documents; Router routes network data; Scanner captures images, none is primarily an audio output device. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1419-v2",
+          "contextKey": "legacy-0123-L1419-context-2",
+          "transferKey": "legacy-0123-L1419-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012309",
+            "type": "choice",
+            "prompt": "Damit auch die hinteren Reihen die Musik hören konnten, stellte die Band zusätzliche ___ auf.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "These devices amplify sound for listeners.",
+              "de": "Das Publikum soll die Musik lauter hören können."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lautsprecher"
+              },
+              {
+                "id": "1",
+                "text": "Mikrofone"
+              },
+              {
+                "id": "2",
+                "text": "Scheinwerfer"
+              },
+              {
+                "id": "3",
+                "text": "Monitore"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Additional speakers carry music to the audience.",
+              "de": "Zusätzliche Lautsprecher verteilen den Ton im Raum."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Damit auch die hinteren Reihen die Musik hören konnten, stellte die Band zusätzliche Lautsprecher auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Damit auch die hinteren Reihen die Musik hören konnten, stellte die Band zusätzliche Lautsprecher auf.\", German grammar, B1/B2 objective, and defensible unique key 0 (Lautsprecher). All distractors individually assessed: Mikrofone capture sound; Scheinwerfer provide light; Monitore display images, not audience sound amplification. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012310",
+      "title": {
+        "en": "Using Lautsprecheranlage in context",
+        "de": "Lautsprecheranlage im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lautsprecheranlage: installed public-address or speaker system.",
+        "de": "Lautsprecheranlage erkennen und verwenden: Lautsprecheranlage, System zur Beschallung."
+      },
+      "objective": "Recognize the German noun Lautsprecheranlage (installed public-address or speaker system) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1420 (e79e652d5a5234bb7069ccb1e2cb16bf6e763a17b48827d4e898ad2ffde12221), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1420-v1",
+          "contextKey": "legacy-0123-L1420-context-1",
+          "transferKey": "legacy-0123-L1420-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012310",
+            "type": "gap_choice",
+            "prompt": "Die Sicherheitsdurchsage wurde über die ___ im gesamten Gebäude übertragen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "A voice announcement must be audible throughout the building.",
+              "de": "Eine Durchsage wird über ein Beschallungssystem verbreitet."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Klimaanlage"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Telefonanlage"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lautsprecheranlage"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Beleuchtungsanlage"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Lautsprecheranlage distributes audio announcements.",
+              "de": "Eine Lautsprecheranlage überträgt Durchsagen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sicherheitsdurchsage wurde über die Lautsprecheranlage im gesamten Gebäude übertragen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Die Sicherheitsdurchsage wurde über die Lautsprecheranlage im gesamten Gebäude übertragen.\", German grammar, B1/B2 objective, and defensible unique key 2 (Lautsprecheranlage). All distractors individually assessed: Klimaanlage controls air; Telefonanlage routes calls; Beleuchtungsanlage provides light, none is the public-address system. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1420-v2",
+          "contextKey": "legacy-0123-L1420-context-2",
+          "transferKey": "legacy-0123-L1420-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012310",
+            "type": "choice",
+            "prompt": "Für die Konferenz mietete der Veranstalter eine ___, damit alle im Saal die Redner hören konnten.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The audience needs amplified speech.",
+              "de": "Gesucht ist die Technik für gut hörbare Vorträge."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lichtanlage"
+              },
+              {
+                "id": "1",
+                "text": "Heizungsanlage"
+              },
+              {
+                "id": "2",
+                "text": "Videoanlage"
+              },
+              {
+                "id": "3",
+                "text": "Lautsprecheranlage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A speaker system amplifies voices for an audience.",
+              "de": "Eine Lautsprecheranlage verstärkt die Stimmen der Redner."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Konferenz mietete der Veranstalter eine Lautsprecheranlage, damit alle im Saal die Redner hören konnten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Für die Konferenz mietete der Veranstalter eine Lautsprecheranlage, damit alle im Saal die Redner hören konnten.\", German grammar, B1/B2 objective, and defensible unique key 3 (Lautsprecheranlage). All distractors individually assessed: Lichtanlage lights the venue; Heizungsanlage heats it; Videoanlage handles images, not speech amplification. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012311",
+      "title": {
+        "en": "Using Layout in context",
+        "de": "Layout im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Layout: visual arrangement of text and images on a page.",
+        "de": "Layout erkennen und verwenden: Layout, Gestaltung und Anordnung einer Seite."
+      },
+      "objective": "Recognize the German noun Layout (visual arrangement of text and images on a page) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1421 (8c50fd9c1170d4fe1fe84b03975a844f67ebdec8f401b80225045f125b13dcc1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1421-v1",
+          "contextKey": "legacy-0123-L1421-context-1",
+          "transferKey": "legacy-0123-L1421-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012311",
+            "type": "gap_choice",
+            "prompt": "Die Designerin änderte das ___ der Broschüre, damit Überschriften und Bilder übersichtlicher angeordnet waren.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The change concerns placement of visual elements.",
+              "de": "Es geht um die Anordnung von Text und Bildern."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Honorar"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Layout"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Papier"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Thema"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Layout is the arrangement of elements on a page.",
+              "de": "Layout bezeichnet die Anordnung von Text und Bildern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Designerin änderte das Layout der Broschüre, damit Überschriften und Bilder übersichtlicher angeordnet waren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Die Designerin änderte das Layout der Broschüre, damit Überschriften und Bilder übersichtlicher angeordnet waren.\", German grammar, B1/B2 objective, and defensible unique key 1 (Layout). All distractors individually assessed: Honorar is payment; Papier is material; Thema is the subject, none determines page element placement. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1421-v2",
+          "contextKey": "legacy-0123-L1421-context-2",
+          "transferKey": "legacy-0123-L1421-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012311",
+            "type": "choice",
+            "prompt": "Vor dem Druck prüfte die Redaktion das ___ jeder Seite auf gleichmäßige Abstände.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "Margins and spacing belong to page design.",
+              "de": "Abstände und Seitenaufbau werden kontrolliert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Inhaltsverzeichnis"
+              },
+              {
+                "id": "1",
+                "text": "Impressum"
+              },
+              {
+                "id": "2",
+                "text": "Layout"
+              },
+              {
+                "id": "3",
+                "text": "Titelbild"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Page layout includes spacing and margins.",
+              "de": "Zum Layout gehören Abstände und die Seitengestaltung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Druck prüfte die Redaktion das Layout jeder Seite auf gleichmäßige Abstände.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Vor dem Druck prüfte die Redaktion das Layout jeder Seite auf gleichmäßige Abstände.\", German grammar, B1/B2 objective, and defensible unique key 2 (Layout). All distractors individually assessed: Inhaltsverzeichnis lists sections; Impressum names responsible parties; Titelbild is the cover image, not each page's spacing. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012312",
+      "title": {
+        "en": "Using Lebenslauf in context",
+        "de": "Lebenslauf im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lebenslauf: curriculum vitae or résumé.",
+        "de": "Lebenslauf erkennen und verwenden: Lebenslauf, Übersicht über Ausbildung und Beruf."
+      },
+      "objective": "Recognize the German noun Lebenslauf (curriculum vitae or résumé) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1423 (1789f88ff30df394073fc2186da05b20e11de1b878eac2b365d3f91ae16c10cb), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1423-v1",
+          "contextKey": "legacy-0123-L1423-context-1",
+          "transferKey": "legacy-0123-L1423-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012312",
+            "type": "gap_choice",
+            "prompt": "Für die Bewerbung schickte sie einen ___ mit Angaben zu Ausbildung und Berufserfahrung.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The employer needs a summary of qualifications.",
+              "de": "Die Unterlagen enthalten Stationen der Ausbildung und Arbeit."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Lebenslauf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Stundenplan"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferschein"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reisepass"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Lebenslauf summarises education and work experience.",
+              "de": "Ein Lebenslauf fasst Ausbildung und Berufserfahrung zusammen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Bewerbung schickte sie einen Lebenslauf mit Angaben zu Ausbildung und Berufserfahrung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Für die Bewerbung schickte sie einen Lebenslauf mit Angaben zu Ausbildung und Berufserfahrung.\", German grammar, B1/B2 objective, and defensible unique key 0 (Lebenslauf). All distractors individually assessed: Stundenplan is a timetable; Lieferschein lists delivered goods; Reisepass proves identity, not professional history. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1423-v2",
+          "contextKey": "legacy-0123-L1423-context-2",
+          "transferKey": "legacy-0123-L1423-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012312",
+            "type": "choice",
+            "prompt": "Im ___ fehlten die Angaben zu seiner letzten Arbeitsstelle.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "This document should list previous jobs.",
+              "de": "Die beruflichen Stationen gehören in dieses Dokument."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mietvertrag"
+              },
+              {
+                "id": "1",
+                "text": "Lebenslauf"
+              },
+              {
+                "id": "2",
+                "text": "Ausweis"
+              },
+              {
+                "id": "3",
+                "text": "Fahrplan"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The CV should include previous employment.",
+              "de": "Im Lebenslauf stehen frühere Arbeitsstellen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Lebenslauf fehlten die Angaben zu seiner letzten Arbeitsstelle.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Im Lebenslauf fehlten die Angaben zu seiner letzten Arbeitsstelle.\", German grammar, B1/B2 objective, and defensible unique key 1 (Lebenslauf). All distractors individually assessed: Mietvertrag concerns housing; Ausweis proves identity; Fahrplan lists transport times, none documents employment history. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012313",
+      "title": {
+        "en": "Using Leder in context",
+        "de": "Leder im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Leder: leather material made from animal hide.",
+        "de": "Leder erkennen und verwenden: Leder, Material aus gegerbter Tierhaut."
+      },
+      "objective": "Recognize the German noun Leder (leather material made from animal hide) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1425 (0eb9bd06ad007fcf02777b8d1d46f2c494516a333a67134c540f5936e1ce6002), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1425-v1",
+          "contextKey": "legacy-0123-L1425-context-1",
+          "transferKey": "legacy-0123-L1425-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012313",
+            "type": "gap_choice",
+            "prompt": "Die Tasche besteht aus echtem ___ und muss regelmäßig gepflegt werden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The material is tanned animal hide.",
+              "de": "Das Material wird aus Tierhaut hergestellt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Plastik"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Metall"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Papier"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Leder"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Leder is a material made from tanned animal hide.",
+              "de": "Leder wird aus gegerbter Tierhaut hergestellt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Tasche besteht aus echtem Leder und muss regelmäßig gepflegt werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Die Tasche besteht aus echtem Leder und muss regelmäßig gepflegt werden.\", German grammar, B1/B2 objective, and defensible unique key 3 (Leder). All distractors individually assessed: Plastik is synthetic polymer; Metall is metal; Papier is paper, none is animal hide. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1425-v2",
+          "contextKey": "legacy-0123-L1425-context-2",
+          "transferKey": "legacy-0123-L1425-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012313",
+            "type": "choice",
+            "prompt": "Der Sattler reparierte den Pferdesattel mit einem neuen Stück ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "A traditional saddle is made of flexible hide.",
+              "de": "Gesucht ist ein biegsames Material für Sättel."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Leder"
+              },
+              {
+                "id": "1",
+                "text": "Glas"
+              },
+              {
+                "id": "2",
+                "text": "Beton"
+              },
+              {
+                "id": "3",
+                "text": "Keramik"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Leather is commonly used for saddles.",
+              "de": "Leder wird häufig für Sättel verwendet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Sattler reparierte den Pferdesattel mit einem neuen Stück Leder.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Der Sattler reparierte den Pferdesattel mit einem neuen Stück Leder.\", German grammar, B1/B2 objective, and defensible unique key 0 (Leder). All distractors individually assessed: Glas is brittle; Beton is rigid building material; Keramik is hard and brittle, none is suitable saddle leather. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012314",
+      "title": {
+        "en": "Using Lehrbuchverlag in context",
+        "de": "Lehrbuchverlag im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lehrbuchverlag: publisher specialising in textbooks.",
+        "de": "Lehrbuchverlag erkennen und verwenden: Lehrbuchverlag, Verlag für Lehrbücher."
+      },
+      "objective": "Recognize the German noun Lehrbuchverlag (publisher specialising in textbooks) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1426 (42355d15659ae0355b51aa531aabbe6d0556f57f8579ba1d4a32062b2406ec7e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1426-v1",
+          "contextKey": "legacy-0123-L1426-context-1",
+          "transferKey": "legacy-0123-L1426-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012314",
+            "type": "gap_choice",
+            "prompt": "Der ___ veröffentlicht neue Mathematikbücher für Schulen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The organisation publishes educational books.",
+              "de": "Gesucht ist ein Verlag für Schul- und Lehrbücher."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Reiseveranstalter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Musikstudio"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lehrbuchverlag"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Sportverein"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Lehrbuchverlag publishes textbooks.",
+              "de": "Ein Lehrbuchverlag veröffentlicht Lehrbücher."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lehrbuchverlag veröffentlicht neue Mathematikbücher für Schulen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Der Lehrbuchverlag veröffentlicht neue Mathematikbücher für Schulen.\", German grammar, B1/B2 objective, and defensible unique key 2 (Lehrbuchverlag). All distractors individually assessed: Reiseveranstalter organises trips; Musikstudio records music; Sportverein organises sport, none publishes textbooks as its function. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1426-v2",
+          "contextKey": "legacy-0123-L1426-context-2",
+          "transferKey": "legacy-0123-L1426-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012314",
+            "type": "choice",
+            "prompt": "Die Autorin schickte ihr Manuskript für ein Schulbuch an einen ___.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The manuscript needs a specialist publisher.",
+              "de": "Ein Schulbuchmanuskript geht an einen passenden Verlag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bauunternehmer"
+              },
+              {
+                "id": "1",
+                "text": "Lebensmittelhändler"
+              },
+              {
+                "id": "2",
+                "text": "Kfz-Betrieb"
+              },
+              {
+                "id": "3",
+                "text": "Lehrbuchverlag"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "A textbook manuscript is sent to a textbook publisher.",
+              "de": "Ein Schulbuchmanuskript wird an einen Lehrbuchverlag geschickt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Autorin schickte ihr Manuskript für ein Schulbuch an einen Lehrbuchverlag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Die Autorin schickte ihr Manuskript für ein Schulbuch an einen Lehrbuchverlag.\", German grammar, B1/B2 objective, and defensible unique key 3 (Lehrbuchverlag). All distractors individually assessed: Bauunternehmer builds; Lebensmittelhändler sells food; Kfz-Betrieb services vehicles, not textbook manuscripts. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012315",
+      "title": {
+        "en": "Using Lehre in context",
+        "de": "Lehre im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lehre: lesson or principle learned from experience.",
+        "de": "Lehre erkennen und verwenden: Lehre, Erkenntnis aus einer Erfahrung."
+      },
+      "objective": "Recognize the German noun Lehre (lesson or principle learned from experience) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1427 (828dda3a4215443886a972048042ffe94ee42a36da86f54b1c35e5dd698530ae), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1427-v1",
+          "contextKey": "legacy-0123-L1427-context-1",
+          "transferKey": "legacy-0123-L1427-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012315",
+            "type": "gap_choice",
+            "prompt": "Aus dem gescheiterten Projekt zog das Team eine wichtige ___ für die Zukunft.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The team learns something from failure.",
+              "de": "Aus dem Fehler entsteht eine wichtige Erkenntnis."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lehre"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Pause"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gebühr"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eine Lehre is a lesson drawn from experience.",
+              "de": "Eine Lehre kann eine Erkenntnis aus einem Fehler sein."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Aus dem gescheiterten Projekt zog das Team eine wichtige Lehre für die Zukunft.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Aus dem gescheiterten Projekt zog das Team eine wichtige Lehre für die Zukunft.\", German grammar, B1/B2 objective, and defensible unique key 1 (Lehre). All distractors individually assessed: Rechnung is a bill, not a lesson drawn; Pause is a break; Gebühr is a fee, none is what the team learns from failure. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1427-v2",
+          "contextKey": "legacy-0123-L1427-context-2",
+          "transferKey": "legacy-0123-L1427-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012315",
+            "type": "choice",
+            "prompt": "Die ___ aus dem Unfall lautet: Sicherheitsregeln dürfen nie ignoriert werden.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The sentence states what people should learn.",
+              "de": "Gesucht ist die Erkenntnis, die man aus dem Vorfall gewinnt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ursache"
+              },
+              {
+                "id": "1",
+                "text": "Meldung"
+              },
+              {
+                "id": "2",
+                "text": "Lehre"
+              },
+              {
+                "id": "3",
+                "text": "Reparatur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Lehre here means a lesson learned from an incident.",
+              "de": "Lehre bedeutet hier eine Erkenntnis aus einem Vorfall."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehre aus dem Unfall lautet: Sicherheitsregeln dürfen nie ignoriert werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Die Lehre aus dem Unfall lautet: Sicherheitsregeln dürfen nie ignoriert werden.\", German grammar, B1/B2 objective, and defensible unique key 2 (Lehre). All distractors individually assessed: Ursache is a cause, not the resulting lesson; Meldung is a report; Reparatur is a repair, none expresses the moral learned. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000012319",
+      "title": {
+        "en": "Using Lehrling in context",
+        "de": "Lehrling im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use Lehrling: apprentice learning a trade.",
+        "de": "Lehrling erkennen und verwenden: Lehrling, Person in einer Berufsausbildung."
+      },
+      "objective": "Recognize the German noun Lehrling (apprentice learning a trade) and choose its appropriate meaning or form in context.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on pinned lexical facts apps/web/data/pos/nouns.jsonl:L1432 (da7f84a37d0dc7b1ef6215c54213349d24d93f2636606c32adfea901f7f0657d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "Separate AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0123-L1432-v1",
+          "contextKey": "legacy-0123-L1432-context-1",
+          "transferKey": "legacy-0123-L1432-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012319",
+            "type": "gap_choice",
+            "prompt": "Der ___ lernt im Betrieb, wie man elektrische Anlagen installiert.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "This person is training for a trade.",
+              "de": "Die Person erlernt einen Beruf direkt im Betrieb."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Form",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Kunde"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lehrling"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferant"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Prüfer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Lehrling is an apprentice learning a trade.",
+              "de": "Ein Lehrling lernt einen Beruf im Ausbildungsbetrieb."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lehrling lernt im Betrieb, wie man elektrische Anlagen installiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Der Lehrling lernt im Betrieb, wie man elektrische Anlagen installiert.\", German grammar, B1/B2 objective, and defensible unique key 1 (Lehrling). All distractors individually assessed: Kunde purchases services; Lieferant supplies goods; Prüfer assesses work, none is necessarily the trainee. Bilingual instruction, hint and explanation checked. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0123-L1432-v2",
+          "contextKey": "legacy-0123-L1432-context-2",
+          "transferKey": "legacy-0123-L1432-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001230191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000012319",
+            "type": "choice",
+            "prompt": "Im zweiten Ausbildungsjahr durfte der ___ bereits kleinere Reparaturen selbst übernehmen.",
+            "instruction": {
+              "en": "Choose the noun or noun form that makes the sentence correct in context.",
+              "de": "Wähle das Nomen oder die Nomenform, die den Satz im Kontext richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is still in vocational training.",
+              "de": "Die Person befindet sich im zweiten Jahr der Ausbildung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Meister"
+              },
+              {
+                "id": "1",
+                "text": "Geschäftsführer"
+              },
+              {
+                "id": "2",
+                "text": "Lehrling"
+              },
+              {
+                "id": "3",
+                "text": "Besucher"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "An apprentice can gain responsibility during training.",
+              "de": "Ein Lehrling übernimmt mit der Zeit selbstständig Aufgaben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im zweiten Ausbildungsjahr durfte der Lehrling bereits kleinere Reparaturen selbst übernehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial pass 2026-10-29: checked full natural sentence \"Im zweiten Ausbildungsjahr durfte der Lehrling bereits kleinere Reparaturen selbst übernehmen.\", German grammar, B1/B2 objective, and defensible unique key 2 (Lehrling). All distractors individually assessed: Meister is a qualified master; Geschäftsführer manages a company; Besucher is a visitor, none is defined by being in the second apprenticeship year. Bilingual instruction, hint and explanation checked. Human review pending."
+        }
+      ]
+    }
+  ]
+}
