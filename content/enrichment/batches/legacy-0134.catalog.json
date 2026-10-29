@@ -1,0 +1,1597 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000013401",
+      "title": {
+        "en": "Using Ölstand in context",
+        "de": "Ölstand im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Ölstand: oil level.",
+        "de": "Ölstand erkennen und verstehen: Füllstand des Motoröls."
+      },
+      "objective": "Recognize the German noun Ölstand (oil level) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1709 (36829c341b7d7f7301756931bc8ffcb7077f2a1c886669ac4491f77cae66c7f2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0134-L1709-v1",
+          "contextKey": "legacy-0134-L1709-context-1",
+          "transferKey": "legacy-0134-L1709-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013401",
+            "type": "gap_choice",
+            "prompt": "Vor der langen Fahrt kontrolliert sie den ___ des Motors.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She checks how much oil is in the engine.",
+              "de": "Sie prüft, wie viel Öl im Motor ist."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ölstand"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Reifendruck"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Fahrplan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kontostand"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ölstand is the oil level.",
+              "de": "Der Ölstand zeigt die Menge des Motoröls an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der langen Fahrt kontrolliert sie den Ölstand des Motors.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Ölstand). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Tyre pressure, timetable and bank balance are not the amount of oil in the engine. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0134-L1709-v2",
+          "contextKey": "legacy-0134-L1709-context-2",
+          "transferKey": "legacy-0134-L1709-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013401",
+            "type": "choice",
+            "prompt": "Der Ölstand ist zu niedrig, deshalb muss Öl nachgefüllt werden. Was wurde festgestellt?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "More oil is needed.",
+              "de": "Es muss Motoröl ergänzt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Es ist zu wenig Öl vorhanden."
+              },
+              {
+                "id": "1",
+                "text": "Der Motor hat zu viel Kühlwasser."
+              },
+              {
+                "id": "2",
+                "text": "Die Reifen haben zu wenig Luft."
+              },
+              {
+                "id": "3",
+                "text": "Die Batterie ist vollständig geladen."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The oil level is low.",
+              "de": "Im Motor ist zu wenig Öl."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Motor enthält zu wenig Öl.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Es ist zu wenig Öl vorhanden.). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Coolant, tyre air and battery charge are different conditions. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013403",
+      "title": {
+        "en": "Using Oper in context",
+        "de": "Oper im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Oper: opera as a musical stage work.",
+        "de": "Oper erkennen und verstehen: Musiktheaterwerk mit Gesang und Handlung."
+      },
+      "objective": "Recognize the German noun Oper (opera as a musical stage work) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1713 (1f8d8515428e2c01477b2720f3a7a28db02dea2df0bcf8977d3e1ea78addeb1e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0134-L1713-v1",
+          "contextKey": "legacy-0134-L1713-context-1",
+          "transferKey": "legacy-0134-L1713-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013403",
+            "type": "gap_choice",
+            "prompt": "Die Sängerinnen und Sänger proben eine ___ mit Orchester und Bühnenbild.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Singers rehearse a theatrical musical work.",
+              "de": "Gesang und Bühnenhandlung gehören zusammen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Oper"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reparatur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Oper is a staged musical drama.",
+              "de": "Eine Oper verbindet Musik, Gesang und eine Bühnenhandlung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sängerinnen und Sänger proben eine Oper mit Orchester und Bühnenbild.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Oper). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Invoice, application and repair are not musical stage works rehearsed with orchestra and scenery. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0134-L1713-v2",
+          "contextKey": "legacy-0134-L1713-context-2",
+          "transferKey": "legacy-0134-L1713-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013403",
+            "type": "choice",
+            "prompt": "Die Oper erzählt durch Gesang und Musik eine dramatische Geschichte. Was für ein Werk ist gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "It is performed on a stage with music.",
+              "de": "Das Werk wird mit Gesang und Musik aufgeführt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ein Musiktheaterstück"
+              },
+              {
+                "id": "1",
+                "text": "Ein technisches Handbuch"
+              },
+              {
+                "id": "2",
+                "text": "Ein schriftlicher Mietvertrag"
+              },
+              {
+                "id": "3",
+                "text": "Ein Fahrplan für Züge"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is an opera.",
+              "de": "Eine Oper ist ein Musiktheaterwerk."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Oper ist ein Bühnenwerk mit Gesang und Musik.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Ein Musiktheaterstück). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Manual, lease and train timetable are not staged musical dramas. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013404",
+      "title": {
+        "en": "Using Operation in context",
+        "de": "Operation im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Operation: surgical operation.",
+        "de": "Operation erkennen und verstehen: medizinischer Eingriff."
+      },
+      "objective": "Recognize the German noun Operation (surgical operation) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1714 (be48708231483292daf13c3e43d74d87c7e93f64e6ebb3d206b187fd1800eb71), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0134-L1714-v1",
+          "contextKey": "legacy-0134-L1714-context-1",
+          "transferKey": "legacy-0134-L1714-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013404",
+            "type": "gap_choice",
+            "prompt": "Nach der Untersuchung empfahl die Ärztin eine ___ am Knie.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The doctor recommends a medical procedure.",
+              "de": "Die Ärztin rät zu einem medizinischen Eingriff."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Operation"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Schulung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Operation means surgery here.",
+              "de": "Eine Operation ist ein medizinischer Eingriff."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Untersuchung empfahl die Ärztin eine Operation am Knie.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Operation). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Invoice, training and delivery are not surgical interventions on a knee. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0134-L1714-v2",
+          "contextKey": "legacy-0134-L1714-context-2",
+          "transferKey": "legacy-0134-L1714-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013404",
+            "type": "choice",
+            "prompt": "Die Operation fand im Krankenhaus unter Narkose statt. Was wurde durchgeführt?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Anaesthesia is used during surgery.",
+              "de": "Die Narkose gehört zu einem medizinischen Eingriff."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ein chirurgischer Eingriff"
+              },
+              {
+                "id": "1",
+                "text": "Eine Buchhaltungsprüfung"
+              },
+              {
+                "id": "2",
+                "text": "Eine Werbekampagne"
+              },
+              {
+                "id": "3",
+                "text": "Ein Transport von Möbeln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It was a surgical procedure.",
+              "de": "Es wurde ein chirurgischer Eingriff durchgeführt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Krankenhaus wurde eine Operation unter Narkose durchgeführt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Ein chirurgischer Eingriff). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Accounting audit, advertising and furniture transport are not procedures performed under anaesthesia. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013410",
+      "title": {
+        "en": "Using Ordner in context",
+        "de": "Ordner im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Ordner: file binder or folder.",
+        "de": "Ordner erkennen und verstehen: Behälter zum Ordnen von Dokumenten."
+      },
+      "objective": "Recognize the German noun Ordner (file binder or folder) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1721 (24aab7489353488b13f725621187589ffae6fe95577f4f4f34a0756c4a6a0497), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0134-L1721-v1",
+          "contextKey": "legacy-0134-L1721-context-1",
+          "transferKey": "legacy-0134-L1721-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013410",
+            "type": "gap_choice",
+            "prompt": "Die unterschriebenen Verträge liegen im blauen ___ im Regal.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Documents are stored together for filing.",
+              "de": "Die Unterlagen werden geordnet aufbewahrt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ordner"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kühlschrank"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Drucker"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mülleimer"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ordner is a binder for documents.",
+              "de": "Ein Ordner dient zum Aufbewahren und Sortieren von Unterlagen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die unterschriebenen Verträge liegen im blauen Ordner im Regal.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Ordner). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Refrigerator, printer and waste bin are not the intended filing binder for signed contracts. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0134-L1721-v2",
+          "contextKey": "legacy-0134-L1721-context-2",
+          "transferKey": "legacy-0134-L1721-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013410",
+            "type": "choice",
+            "prompt": "Die Sachbearbeiterin legt die Unterlagen alphabetisch in einen Ordner. Was benutzt sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The object holds paperwork.",
+              "de": "Der Gegenstand hilft beim Ordnen von Unterlagen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einen Hefter zum Sortieren von Dokumenten"
+              },
+              {
+                "id": "1",
+                "text": "Eine Maschine zum Waschen von Kleidung"
+              },
+              {
+                "id": "2",
+                "text": "Ein Gerät zum Kochen"
+              },
+              {
+                "id": "3",
+                "text": "Eine Tasche für Lebensmittel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "She uses a document binder.",
+              "de": "Sie benutzt einen Ordner für Dokumente."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sachbearbeiterin sortiert die Unterlagen in einen Ordner.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Einen Hefter zum Sortieren von Dokumenten). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Washing machine, cooker and grocery bag are not document filing binders. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013411",
+      "title": {
+        "en": "Using Organigramm in context",
+        "de": "Organigramm im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Organigramm: organizational chart.",
+        "de": "Organigramm erkennen und verstehen: grafische Darstellung einer Organisationsstruktur."
+      },
+      "objective": "Recognize the German noun Organigramm (organizational chart) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1723 (02e64492ad40ce3b6f88a23451b78e9c8dca365c272aac51ae842c19a112b7ea), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0134-L1723-v1",
+          "contextKey": "legacy-0134-L1723-context-1",
+          "transferKey": "legacy-0134-L1723-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013411",
+            "type": "gap_choice",
+            "prompt": "Das ___ zeigt, welche Abteilungen der Geschäftsführung unterstellt sind.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The document shows the reporting structure.",
+              "de": "Es zeigt den Aufbau der Organisation."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Organigramm"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kassenbon"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Stundenplan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferschein"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Organigramm is an organizational chart.",
+              "de": "Ein Organigramm stellt die Struktur einer Organisation dar."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Organigramm zeigt, welche Abteilungen der Geschäftsführung unterstellt sind.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Organigramm). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Receipt, timetable and delivery note do not diagram company reporting relationships. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0134-L1723-v2",
+          "contextKey": "legacy-0134-L1723-context-2",
+          "transferKey": "legacy-0134-L1723-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013411",
+            "type": "choice",
+            "prompt": "Im Organigramm stehen Kästchen für Teams und Linien für ihre Beziehungen. Was wird dargestellt?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "Boxes and connecting lines represent hierarchy.",
+              "de": "Kästchen und Linien zeigen Zuständigkeiten und Beziehungen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Die Struktur der Organisation"
+              },
+              {
+                "id": "1",
+                "text": "Die Preise der Produkte"
+              },
+              {
+                "id": "2",
+                "text": "Die Fahrzeiten der Busse"
+              },
+              {
+                "id": "3",
+                "text": "Die Zutaten einer Mahlzeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It shows an organization chart.",
+              "de": "Es zeigt den Aufbau einer Organisation."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Organigramm zeigt Teams und ihre Beziehungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Die Struktur der Organisation). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Prices, bus times and recipe ingredients are not the structure depicted by the chart. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013412",
+      "title": {
+        "en": "Using Organisation in context",
+        "de": "Organisation im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Organisation: organization as a group or institution.",
+        "de": "Organisation erkennen und verstehen: Zusammenschluss von Menschen mit gemeinsamen Zielen."
+      },
+      "objective": "Recognize the German noun Organisation (organization as a group or institution) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1724 (aa36130456559bebdabadca0251b3fcaf5d007b80a8f7f15df29fb95cf1d54d0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0134-L1724-v1",
+          "contextKey": "legacy-0134-L1724-context-1",
+          "transferKey": "legacy-0134-L1724-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013412",
+            "type": "gap_choice",
+            "prompt": "Die gemeinnützige ___ sammelt Spenden für Bildungsprojekte.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A group works toward a charitable goal.",
+              "de": "Eine Gruppe sammelt Geld für Bildungsprojekte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Organisation"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Miete"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Organisation means an organized group.",
+              "de": "Eine Organisation ist ein Zusammenschluss mit gemeinsamen Zielen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die gemeinnützige Organisation sammelt Spenden für Bildungsprojekte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Organisation). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Delivery, rent and work shift are not charitable groups collecting donations. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0134-L1724-v2",
+          "contextKey": "legacy-0134-L1724-context-2",
+          "transferKey": "legacy-0134-L1724-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013412",
+            "type": "choice",
+            "prompt": "Die Organisation hat Mitglieder und einen gewählten Vorstand. Was ist hier gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The group has members and leadership.",
+              "de": "Es gibt Mitglieder und eine Leitung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ein Zusammenschluss von Menschen"
+              },
+              {
+                "id": "1",
+                "text": "Ein einzelnes Bürogerät"
+              },
+              {
+                "id": "2",
+                "text": "Eine einmalige Paketlieferung"
+              },
+              {
+                "id": "3",
+                "text": "Ein technischer Defekt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is an institution or association.",
+              "de": "Hier bezeichnet Organisation einen Zusammenschluss von Menschen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Organisation besteht aus Mitgliedern und hat einen Vorstand.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Ein Zusammenschluss von Menschen). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Device, parcel delivery and technical fault do not have members and an elected board. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013416",
+      "title": {
+        "en": "Using Pädagogik in context",
+        "de": "Pädagogik im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Pädagogik: pedagogy, study of education.",
+        "de": "Pädagogik erkennen und verstehen: Wissenschaft von Bildung und Erziehung."
+      },
+      "objective": "Recognize the German noun Pädagogik (pedagogy, study of education) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1731 (52334b4741e765290e70ebeaf9a51576f72ee538a22330fdeb03e6d7f103450c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0134-L1731-v1",
+          "contextKey": "legacy-0134-L1731-context-1",
+          "transferKey": "legacy-0134-L1731-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013416",
+            "type": "gap_choice",
+            "prompt": "Im Studium der ___ beschäftigen sich die Studierenden mit Lernen und Erziehung.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The degree focuses on education and learning.",
+              "de": "Im Studium geht es um Bildung und Erziehung."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pädagogik"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Mechanik"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Logistik"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Pädagogik studies education.",
+              "de": "Pädagogik beschäftigt sich mit Bildung und Erziehung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Studium der Pädagogik beschäftigen sich die Studierenden mit Lernen und Erziehung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Pädagogik). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Mechanics, accounting and logistics are not the educational discipline described. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0134-L1731-v2",
+          "contextKey": "legacy-0134-L1731-context-2",
+          "transferKey": "legacy-0134-L1731-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013416",
+            "type": "choice",
+            "prompt": "Pädagogik untersucht, wie Menschen lernen und wie Bildung gestaltet werden kann. Was ist das?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "It studies learning and teaching.",
+              "de": "Es geht um Lernen, Lehren und Erziehung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ein Fachgebiet über Lernen und Erziehung"
+              },
+              {
+                "id": "1",
+                "text": "Ein Verfahren zur Metallbearbeitung"
+              },
+              {
+                "id": "2",
+                "text": "Ein System zur Lagerverwaltung"
+              },
+              {
+                "id": "3",
+                "text": "Ein Beruf ausschließlich im Verkauf"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is the field of pedagogy.",
+              "de": "Pädagogik ist die Wissenschaft von Bildung und Erziehung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Pädagogik erforscht Bildung und Erziehung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Ein Fachgebiet über Lernen und Erziehung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Metalworking, inventory management and retail-only work are not pedagogy. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013417",
+      "title": {
+        "en": "Using Palette in context",
+        "de": "Palette im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Palette: transport pallet.",
+        "de": "Palette erkennen und verstehen: Ladungsträger für den Warentransport."
+      },
+      "objective": "Recognize the German noun Palette (transport pallet) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1733 (259ec14dd55d64d507de469e753f9ba5f30ae2a70d3f19b2bf6615dca472d432), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0134-L1733-v1",
+          "contextKey": "legacy-0134-L1733-context-1",
+          "transferKey": "legacy-0134-L1733-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013417",
+            "type": "gap_choice",
+            "prompt": "Der Gabelstapler hebt die schwere ___ mit Kartons auf die Ladefläche.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "Goods are stacked on a transport platform.",
+              "de": "Die Kartons stehen auf einem Ladungsträger."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Palette"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schublade"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Aktentasche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Mülltonne"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Palette is a transport pallet.",
+              "de": "Eine Palette ist ein Ladungsträger für Waren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Gabelstapler hebt die schwere Palette mit Kartons auf die Ladefläche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Palette). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Drawer, briefcase and rubbish bin are not the normal load platform lifted with stacked cartons by a forklift. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0134-L1733-v2",
+          "contextKey": "legacy-0134-L1733-context-2",
+          "transferKey": "legacy-0134-L1733-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013417",
+            "type": "choice",
+            "prompt": "Die Waren stehen auf einer Holzpalette, damit sie mit dem Gabelstapler transportiert werden können. Was ist gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "A forklift moves the stacked goods.",
+              "de": "Ein Gabelstapler transportiert Waren auf einem Ladungsträger."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine Plattform für den Warentransport"
+              },
+              {
+                "id": "1",
+                "text": "Ein Werkzeug zum Mischen von Farben"
+              },
+              {
+                "id": "2",
+                "text": "Ein Regal für Akten"
+              },
+              {
+                "id": "3",
+                "text": "Ein Wagen für Personen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is a wooden pallet.",
+              "de": "Die Holzpalette trägt die Waren beim Transport."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Waren stehen auf einem hölzernen Ladungsträger.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine Plattform für den Warentransport). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Painter's palette, file shelf and passenger cart are not the load platform used by a forklift. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013418",
+      "title": {
+        "en": "Using Pandemie in context",
+        "de": "Pandemie im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Pandemie: pandemic.",
+        "de": "Pandemie erkennen und verstehen: länderübergreifende weite Ausbreitung einer Infektionskrankheit."
+      },
+      "objective": "Recognize the German noun Pandemie (pandemic) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1734 (0fa2ec219e804a1e445a48c49e3c93cbfe0adcdcd97deab5d1e0e3d7eb0a639c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0134-L1734-v1",
+          "contextKey": "legacy-0134-L1734-context-1",
+          "transferKey": "legacy-0134-L1734-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013418",
+            "type": "gap_choice",
+            "prompt": "Während der ___ breitete sich die ansteckende Krankheit über viele Länder aus.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The infectious disease spread internationally.",
+              "de": "Die Krankheit verbreitete sich über Ländergrenzen hinweg."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Pandemie"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Inventur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Messe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Pandemie means a widespread infectious-disease outbreak.",
+              "de": "Eine Pandemie ist die weite, länderübergreifende Ausbreitung einer Infektionskrankheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während der Pandemie breitete sich die ansteckende Krankheit über viele Länder aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Pandemie). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Stocktaking, trade fair and job application are not widespread disease outbreaks. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0134-L1734-v2",
+          "contextKey": "legacy-0134-L1734-context-2",
+          "transferKey": "legacy-0134-L1734-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013418",
+            "type": "choice",
+            "prompt": "Eine Pandemie kann viele Länder gleichzeitig betreffen. Was kennzeichnet sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The disease crosses borders.",
+              "de": "Die Krankheit breitet sich über große Gebiete aus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine weitreichende Ausbreitung einer Infektionskrankheit"
+              },
+              {
+                "id": "1",
+                "text": "Eine einzelne kleine Firmenfeier"
+              },
+              {
+                "id": "2",
+                "text": "Eine technische Panne in einem Gebäude"
+              },
+              {
+                "id": "3",
+                "text": "Eine normale saisonale Inventur"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is an internationally widespread outbreak.",
+              "de": "Eine Pandemie betrifft eine großräumige Ausbreitung einer Infektionskrankheit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Infektionskrankheit breitet sich über viele Länder aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine weitreichende Ausbreitung einer Infektionskrankheit). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: A company party, technical fault and inventory are not international disease spread. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013419",
+      "title": {
+        "en": "Using Panne in context",
+        "de": "Panne im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Panne: technical breakdown or mishap.",
+        "de": "Panne erkennen und verstehen: unerwartete Störung oder technische Fehlfunktion."
+      },
+      "objective": "Recognize the German noun Panne (technical breakdown or mishap) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1735 (761d908e7c61ec1f7bdbd8b8185cd00b697cf2df760364b9504f524d2d74c601), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0134-L1735-v1",
+          "contextKey": "legacy-0134-L1735-context-1",
+          "transferKey": "legacy-0134-L1735-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013419",
+            "type": "gap_choice",
+            "prompt": "Auf der Autobahn blieb das Auto wegen einer technischen ___ stehen.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "A mechanical problem stopped the vehicle.",
+              "de": "Ein technischer Fehler führte zum Stillstand."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Panne"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bewerbung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Panne means a breakdown.",
+              "de": "Eine Panne ist eine unerwartete technische Störung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Autobahn blieb das Auto wegen einer technischen Panne stehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Panne). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Job application, delivery and work shift are not a technical fault stopping a car. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0134-L1735-v2",
+          "contextKey": "legacy-0134-L1735-context-2",
+          "transferKey": "legacy-0134-L1735-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001340191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013419",
+            "type": "choice",
+            "prompt": "Wegen einer Panne am Zug musste die Fahrt unterbrochen werden. Was ist passiert?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The train could not continue normally.",
+              "de": "Der Zug hatte ein technisches Problem."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine technische Störung hat die Fahrt gestoppt."
+              },
+              {
+                "id": "1",
+                "text": "Der Zug fuhr planmäßig schneller."
+              },
+              {
+                "id": "2",
+                "text": "Die Fahrgäste hatten alle reserviert."
+              },
+              {
+                "id": "3",
+                "text": "Der Fahrplan wurde nur neu gedruckt."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "There was a breakdown.",
+              "de": "Eine technische Panne unterbrach die Fahrt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zugfahrt wurde durch eine technische Störung unterbrochen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine technische Störung hat die Fahrt gestoppt.). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Faster travel, seat reservations and timetable reprinting are not a train breakdown. Human review pending."
+        }
+      ]
+    }
+  ]
+}
