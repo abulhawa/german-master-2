@@ -1,0 +1,1597 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000013201",
+      "title": {
+        "en": "Using Nebenkosten in context",
+        "de": "Nebenkosten im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Nebenkosten: additional rental costs.",
+        "de": "Nebenkosten erkennen und verstehen: zusätzliche Kosten neben der Grundmiete."
+      },
+      "objective": "Recognize the German noun Nebenkosten (additional rental costs) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1659 (986640c050acf8fbb8c7871d4dbf84c4c89871df4c74f0ba69320d408662734a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0132-L1659-v1",
+          "contextKey": "legacy-0132-L1659-context-1",
+          "transferKey": "legacy-0132-L1659-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013201",
+            "type": "gap_choice",
+            "prompt": "Neben der Kaltmiete zahlt die Mieterin monatliche ___ für Heizung und Wasser.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The payments cover utilities in addition to base rent.",
+              "de": "Zusätzlich zur Grundmiete werden Betriebskosten bezahlt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Nebenkosten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lohnsteuer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mietschulden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Kaufpreis"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Nebenkosten are additional rental charges.",
+              "de": "Nebenkosten sind zusätzliche Kosten neben der Kaltmiete."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Neben der Kaltmiete zahlt die Mieterin monatliche Nebenkosten für Heizung und Wasser.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Nebenkosten). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Payroll tax, overdue rent and purchase price are not monthly utility costs alongside base rent. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0132-L1659-v2",
+          "contextKey": "legacy-0132-L1659-context-2",
+          "transferKey": "legacy-0132-L1659-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013201",
+            "type": "choice",
+            "prompt": "In der Nebenkostenabrechnung stehen Ausgaben für Wasser und Heizung. Worum geht es?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "These are expenses besides base rent.",
+              "de": "Diese Ausgaben kommen zur Kaltmiete hinzu."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Zusätzliche Kosten der Wohnung"
+              },
+              {
+                "id": "1",
+                "text": "Den Kaufpreis des Hauses"
+              },
+              {
+                "id": "2",
+                "text": "Das Gehalt der Mieterin"
+              },
+              {
+                "id": "3",
+                "text": "Eine Strafe für Falschparken"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It lists additional rental costs.",
+              "de": "Die Abrechnung betrifft zusätzliche Wohnkosten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Abrechnung zeigt die Nebenkosten für Wasser und Heizung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Zusätzliche Kosten der Wohnung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: House purchase price, tenant salary and parking fine are not operating costs in the rental statement. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013202",
+      "title": {
+        "en": "Using Nebentätigkeit in context",
+        "de": "Nebentätigkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Nebentätigkeit: secondary job or activity.",
+        "de": "Nebentätigkeit erkennen und verstehen: zusätzliche berufliche Tätigkeit neben der Hauptarbeit."
+      },
+      "objective": "Recognize the German noun Nebentätigkeit (secondary job or activity) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1660 (7deefc3fed735fa9897c042f0add6dd57649fd0642f88ac8d43eae4232ccc621), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0132-L1660-v1",
+          "contextKey": "legacy-0132-L1660-context-1",
+          "transferKey": "legacy-0132-L1660-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013202",
+            "type": "gap_choice",
+            "prompt": "Neben ihrer Vollzeitstelle übt sie eine ___ als Übersetzerin aus.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She has an additional job.",
+              "de": "Sie arbeitet zusätzlich zu ihrer Hauptstelle."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Nebentätigkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Hauptwohnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Abmahnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Dienstreise"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Nebentätigkeit is secondary work.",
+              "de": "Eine Nebentätigkeit ist eine zusätzliche berufliche Tätigkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Neben ihrer Vollzeitstelle übt sie eine Nebentätigkeit als Übersetzerin aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Nebentätigkeit). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Main residence, warning and business trip are not an extra translating job. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0132-L1660-v2",
+          "contextKey": "legacy-0132-L1660-context-2",
+          "transferKey": "legacy-0132-L1660-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013202",
+            "type": "choice",
+            "prompt": "Er informiert seine Firma über die Nebentätigkeit am Wochenende. Was macht er zusätzlich?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The work takes place alongside his main job.",
+              "de": "Die Tätigkeit kommt zur Hauptarbeit hinzu."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Er übt neben seinem Hauptberuf eine weitere Tätigkeit aus."
+              },
+              {
+                "id": "1",
+                "text": "Er beendet seine einzige Arbeitsstelle."
+              },
+              {
+                "id": "2",
+                "text": "Er zieht in eine neue Wohnung."
+              },
+              {
+                "id": "3",
+                "text": "Er beantragt einen längeren Urlaub."
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "He does additional work.",
+              "de": "Er hat eine zusätzliche berufliche Tätigkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er arbeitet am Wochenende zusätzlich zu seinem Hauptberuf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Er übt neben seinem Hauptberuf eine weitere Tätigkeit aus.). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Quitting, moving house and requesting leave are not secondary employment. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013204",
+      "title": {
+        "en": "Using Neid in context",
+        "de": "Neid im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Neid: envy.",
+        "de": "Neid erkennen und verstehen: Missgunst gegenüber dem Vorteil anderer."
+      },
+      "objective": "Recognize the German noun Neid (envy) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1662 (b2394ba7f36a1edc51caaab9a511b92089ef413be11b1e0250080d4876874822), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0132-L1662-v1",
+          "contextKey": "legacy-0132-L1662-context-1",
+          "transferKey": "legacy-0132-L1662-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013204",
+            "type": "gap_choice",
+            "prompt": "Sein ___ auf den Erfolg der Kollegin belastete die Zusammenarbeit.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "He resented another person's success.",
+              "de": "Er gönnte der Kollegin ihren Erfolg nicht."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Neid"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Dank"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mut"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Respekt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Neid means envy.",
+              "de": "Neid ist Missgunst gegenüber dem Erfolg anderer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sein Neid auf den Erfolg der Kollegin belastete die Zusammenarbeit.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Neid). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Gratitude, courage and respect do not mean resenting a colleague's success. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0132-L1662-v2",
+          "contextKey": "legacy-0132-L1662-context-2",
+          "transferKey": "legacy-0132-L1662-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013204",
+            "type": "choice",
+            "prompt": "Sie empfand Neid, weil ihr Kollege befördert wurde und sie nicht. Was fühlte sie?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "She compares his promotion with her own situation.",
+              "de": "Sie vergleicht seinen Erfolg mit ihrer Lage."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Missgunst wegen seines Erfolgs"
+              },
+              {
+                "id": "1",
+                "text": "Freude über ihre eigene Beförderung"
+              },
+              {
+                "id": "2",
+                "text": "Gleichgültigkeit gegenüber der Arbeit"
+              },
+              {
+                "id": "3",
+                "text": "Dankbarkeit für seine Hilfe"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "She feels envy.",
+              "de": "Sie empfindet Neid auf seinen Erfolg."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie war neidisch auf die Beförderung des Kollegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Missgunst wegen seines Erfolgs). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Joy over her own promotion, indifference and gratitude do not express envy of another's advancement. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013206",
+      "title": {
+        "en": "Using Nettoeinkommen in context",
+        "de": "Nettoeinkommen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Nettoeinkommen: net income after deductions.",
+        "de": "Nettoeinkommen erkennen und verstehen: Einkommen nach Abzügen."
+      },
+      "objective": "Recognize the German noun Nettoeinkommen (net income after deductions) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1664 (ac9d41e574f5320c9984e52dd635f6956c25642c9829b772cb22755ee6014c78), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0132-L1664-v1",
+          "contextKey": "legacy-0132-L1664-context-1",
+          "transferKey": "legacy-0132-L1664-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013206",
+            "type": "gap_choice",
+            "prompt": "Nach Abzug der Steuern und Sozialabgaben bleibt das ___ übrig.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "This is the amount left after deductions.",
+              "de": "Es bleibt der Betrag nach den Abzügen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Nettoeinkommen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bruttoeinkommen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mietpreis"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Umsatz"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Nettoeinkommen is income after deductions.",
+              "de": "Das Nettoeinkommen ist das Einkommen nach Abzügen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach Abzug der Steuern und Sozialabgaben bleibt das Nettoeinkommen übrig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Nettoeinkommen). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Gross income is before deductions; rent and turnover are not take-home income. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0132-L1664-v2",
+          "contextKey": "legacy-0132-L1664-context-2",
+          "transferKey": "legacy-0132-L1664-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013206",
+            "type": "choice",
+            "prompt": "Für das Haushaltsbudget zählt das monatliche Nettoeinkommen, das auf dem Konto ankommt. Was ist gemeint?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The amount is actually paid out.",
+              "de": "Der Betrag wird nach den Abzügen ausgezahlt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Das Einkommen nach den Abzügen"
+              },
+              {
+                "id": "1",
+                "text": "Der Bruttobetrag vor Steuern"
+              },
+              {
+                "id": "2",
+                "text": "Der Umsatz eines Geschäfts"
+              },
+              {
+                "id": "3",
+                "text": "Der Kaufpreis einer Wohnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is take-home income.",
+              "de": "Gemeint ist das ausgezahlte Einkommen nach Abzügen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Nettoeinkommen ist der Betrag, der nach den Abzügen bleibt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Das Einkommen nach den Abzügen). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Gross amount, business revenue and apartment purchase price are not monthly net income. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013208",
+      "title": {
+        "en": "Using Netzwerk in context",
+        "de": "Netzwerk im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Netzwerk: professional network of contacts.",
+        "de": "Netzwerk erkennen und verstehen: Kreis beruflicher Kontakte."
+      },
+      "objective": "Recognize the German noun Netzwerk (professional network of contacts) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1666 (e6cae5b05433870a427f737a0afc989191140967f76dd0f5210374430f1db96a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0132-L1666-v1",
+          "contextKey": "legacy-0132-L1666-context-1",
+          "transferKey": "legacy-0132-L1666-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013208",
+            "type": "gap_choice",
+            "prompt": "Auf der Konferenz knüpfte sie Kontakte und erweiterte ihr berufliches ___.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She built relationships with other professionals.",
+              "de": "Sie lernte neue berufliche Kontakte kennen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Netzwerk"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Werkzeug"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lager"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gehalt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Netzwerk is a set of connected professional contacts.",
+              "de": "Ein berufliches Netzwerk besteht aus Kontakten und Beziehungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Konferenz knüpfte sie Kontakte und erweiterte ihr berufliches Netzwerk.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Netzwerk). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Tool, warehouse and salary are not the set of contacts expanded at a conference. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0132-L1666-v2",
+          "contextKey": "legacy-0132-L1666-context-2",
+          "transferKey": "legacy-0132-L1666-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013208",
+            "type": "choice",
+            "prompt": "Sein Netzwerk besteht aus ehemaligen Kollegen und Geschäftspartnern. Was hat er aufgebaut?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The people remain connected professionally.",
+              "de": "Es geht um Beziehungen zu Menschen aus dem Berufsleben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einen Kreis beruflicher Kontakte"
+              },
+              {
+                "id": "1",
+                "text": "Ein neues Computernetz im Büro"
+              },
+              {
+                "id": "2",
+                "text": "Eine Sammlung alter Rechnungen"
+              },
+              {
+                "id": "3",
+                "text": "Eine Liste von Ersatzteilen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "He has professional contacts.",
+              "de": "Er hat ein berufliches Netzwerk."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er pflegt Kontakte zu früheren Kollegen und Geschäftspartnern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Einen Kreis beruflicher Kontakte). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Computer infrastructure, invoices and spare parts are not the professional relationships described. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013209",
+      "title": {
+        "en": "Using Neuerscheinung in context",
+        "de": "Neuerscheinung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Neuerscheinung: newly published work or release.",
+        "de": "Neuerscheinung erkennen und verstehen: neu veröffentlichtes Werk."
+      },
+      "objective": "Recognize the German noun Neuerscheinung (newly published work or release) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1667 (c11a8bd6405fbd06766496ad85a40dee2a57950b9f105cc254da4a37e24c834b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0132-L1667-v1",
+          "contextKey": "legacy-0132-L1667-context-1",
+          "transferKey": "legacy-0132-L1667-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013209",
+            "type": "gap_choice",
+            "prompt": "Die Buchhandlung stellt eine literarische ___ vor, die erst letzte Woche veröffentlicht wurde.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The book has just been published.",
+              "de": "Das Buch ist gerade neu auf dem Markt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Neuerscheinung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Wiederholung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Reparatur"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Neuerscheinung means a newly released publication.",
+              "de": "Eine Neuerscheinung ist ein neu veröffentlichtes Werk."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Buchhandlung stellt eine literarische Neuerscheinung vor, die erst letzte Woche veröffentlicht wurde.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Neuerscheinung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Repetition, repair and application are not a newly published literary title. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0132-L1667-v2",
+          "contextKey": "legacy-0132-L1667-context-2",
+          "transferKey": "legacy-0132-L1667-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013209",
+            "type": "choice",
+            "prompt": "Die Neuerscheinung des Verlags kann ab heute gekauft werden. Was wird angeboten?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The publisher has released something new.",
+              "de": "Der Verlag hat ein neues Werk veröffentlicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ein gerade veröffentlichtes Buch"
+              },
+              {
+                "id": "1",
+                "text": "Eine seit Jahren ausverkaufte Ausgabe"
+              },
+              {
+                "id": "2",
+                "text": "Eine defekte Druckmaschine"
+              },
+              {
+                "id": "3",
+                "text": "Ein Vertrag mit der Druckerei"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is a new publication.",
+              "de": "Es handelt sich um eine neue Veröffentlichung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ab heute ist das neue Buch des Verlags erhältlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Ein gerade veröffentlichtes Buch). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: An old unavailable edition, broken press and printing contract are not a new release for sale. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013210",
+      "title": {
+        "en": "Using Neuigkeit in context",
+        "de": "Neuigkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Neuigkeit: piece of news or new information.",
+        "de": "Neuigkeit erkennen und verstehen: neue Information oder Nachricht."
+      },
+      "objective": "Recognize the German noun Neuigkeit (piece of news or new information) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1668 (b638378acefc134586a71fc0b4a27fa2b8f563f2ab4a7e430895901ec48bcf77), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0132-L1668-v1",
+          "contextKey": "legacy-0132-L1668-context-1",
+          "transferKey": "legacy-0132-L1668-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013210",
+            "type": "gap_choice",
+            "prompt": "Hast du eine ___ über den Stand des Projekts?",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The speaker asks for new information.",
+              "de": "Die Person möchte etwas Neues erfahren."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Neuigkeit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lieferung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Maschine"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Neuigkeit is a piece of news.",
+              "de": "Eine Neuigkeit ist eine neue Information."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Hast du eine Neuigkeit über den Stand des Projekts?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Neuigkeit). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Invoice, delivery and machine are not a new update about project progress. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0132-L1668-v2",
+          "contextKey": "legacy-0132-L1668-context-2",
+          "transferKey": "legacy-0132-L1668-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013210",
+            "type": "choice",
+            "prompt": "Sie erzählte uns eine Neuigkeit: Das Projekt wurde genehmigt. Was hat sie weitergegeben?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The approval is new to the listeners.",
+              "de": "Die Genehmigung war den anderen noch nicht bekannt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine neue Information"
+              },
+              {
+                "id": "1",
+                "text": "Eine bereits bezahlte Rechnung"
+              },
+              {
+                "id": "2",
+                "text": "Eine Bestellung für Material"
+              },
+              {
+                "id": "3",
+                "text": "Eine technische Zeichnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "She shared news.",
+              "de": "Sie teilte eine neue Information mit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie informierte die anderen über die Genehmigung des Projekts.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine neue Information). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Paid invoice, material order and technical drawing are not the reported new information. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013211",
+      "title": {
+        "en": "Using Neuorientierung in context",
+        "de": "Neuorientierung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Neuorientierung: change of direction, especially in career.",
+        "de": "Neuorientierung erkennen und verstehen: neue Ausrichtung im beruflichen Weg."
+      },
+      "objective": "Recognize the German noun Neuorientierung (change of direction, especially in career) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1669 (89dd204c1ace4405edb1f6b9dd9232fb5fc462f69312d2c906ade9a2300e48b7), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0132-L1669-v1",
+          "contextKey": "legacy-0132-L1669-context-1",
+          "transferKey": "legacy-0132-L1669-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013211",
+            "type": "gap_choice",
+            "prompt": "Nach der Schließung ihrer Firma plante sie eine berufliche ___.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "She needs to reconsider her career path.",
+              "de": "Sie möchte ihren beruflichen Weg neu ausrichten."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Neuorientierung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Inventur"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mietzahlung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lieferung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Neuorientierung is a change of direction.",
+              "de": "Eine berufliche Neuorientierung ist die Suche nach einer neuen beruflichen Richtung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Schließung ihrer Firma plante sie eine berufliche Neuorientierung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Neuorientierung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Stocktaking, rent payment and delivery are not rethinking a career after company closure. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0132-L1669-v2",
+          "contextKey": "legacy-0132-L1669-context-2",
+          "transferKey": "legacy-0132-L1669-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013211",
+            "type": "choice",
+            "prompt": "Die berufliche Neuorientierung führte ihn von der Gastronomie in die IT. Was hat er verändert?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "He moved into a different professional field.",
+              "de": "Er hat das Berufsfeld gewechselt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Seine berufliche Richtung"
+              },
+              {
+                "id": "1",
+                "text": "Seine Staatsangehörigkeit"
+              },
+              {
+                "id": "2",
+                "text": "Seine Körpergröße"
+              },
+              {
+                "id": "3",
+                "text": "Die Lage seines Wohnhauses"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "He changed career direction.",
+              "de": "Er hat sich beruflich neu ausgerichtet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er hat beruflich von der Gastronomie in die IT gewechselt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Seine berufliche Richtung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Citizenship, height and home location are not a change of career field. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013217",
+      "title": {
+        "en": "Using Niveau in context",
+        "de": "Niveau im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Niveau: level or standard.",
+        "de": "Niveau erkennen und verstehen: Grad der Schwierigkeit oder Qualität."
+      },
+      "objective": "Recognize the German noun Niveau (level or standard) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1675 (757f18066dae7e66d790fabc16dc82304906a926bfdbfa180c0891b126e4541a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0132-L1675-v1",
+          "contextKey": "legacy-0132-L1675-context-1",
+          "transferKey": "legacy-0132-L1675-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013217",
+            "type": "gap_choice",
+            "prompt": "Die Diskussion hatte ein hohes ___, weil alle ihre Argumente sorgfältig begründeten.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "The discussion had a high intellectual standard.",
+              "de": "Die Beiträge waren inhaltlich anspruchsvoll."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Niveau"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Gehalt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Gewicht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Tempo"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Niveau means standard or level.",
+              "de": "Niveau bezeichnet hier den Grad der Qualität."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Diskussion hatte ein hohes Niveau, weil alle ihre Argumente sorgfältig begründeten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Niveau). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Salary, weight and speed do not describe the intellectual quality of well-argued discussion. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0132-L1675-v2",
+          "contextKey": "legacy-0132-L1675-context-2",
+          "transferKey": "legacy-0132-L1675-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013217",
+            "type": "choice",
+            "prompt": "Das Niveau der Prüfung war höher als erwartet. Was war höher?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "The exam was more demanding.",
+              "de": "Die Prüfung war anspruchsvoller als gedacht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Der Schwierigkeitsgrad"
+              },
+              {
+                "id": "1",
+                "text": "Die Raumtemperatur"
+              },
+              {
+                "id": "2",
+                "text": "Die Zahl der Fenster"
+              },
+              {
+                "id": "3",
+                "text": "Der Preis des Schulgebäudes"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The difficulty level was higher.",
+              "de": "Das Niveau bezeichnet hier den Schwierigkeitsgrad."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Prüfung war schwieriger als erwartet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Der Schwierigkeitsgrad). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Temperature, windows and building price are not the exam's difficulty level. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000013218",
+      "title": {
+        "en": "Using Niveaustufe in context",
+        "de": "Niveaustufe im Kontext"
+      },
+      "description": {
+        "en": "Recognize and interpret Niveaustufe: classified proficiency level.",
+        "de": "Niveaustufe erkennen und verstehen: festgelegte Stufe innerhalb einer Einteilung."
+      },
+      "objective": "Recognize the German noun Niveaustufe (classified proficiency level) and choose its correct contextual use or interpretation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises from pinned lexical facts apps/web/data/pos/nouns.jsonl:L1676 (46603c96136f939636dcc1079a227ccce77f6ab7f9a742144d2115c1f567cf86), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report; human linguistic, CEFR and rights review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0132-L1676-v1",
+          "contextKey": "legacy-0132-L1676-context-1",
+          "transferKey": "legacy-0132-L1676-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013218",
+            "type": "gap_choice",
+            "prompt": "Der Sprachkurs richtet sich an Lernende der ___ B2.",
+            "instruction": {
+              "en": "Choose the expression that correctly completes the German sentence.",
+              "de": "Wähle den Ausdruck, der den deutschen Satz richtig ergänzt."
+            },
+            "hint": {
+              "en": "B2 labels a level in a language framework.",
+              "de": "B2 bezeichnet eine Stufe beim Sprachenlernen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen oder Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Niveaustufe"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lohnsteuer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Mietfläche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Schicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Niveaustufe is a classified level.",
+              "de": "Eine Niveaustufe ist eine festgelegte Stufe innerhalb einer Einteilung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Sprachkurs richtet sich an Lernende der Niveaustufe B2.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 1 as option 0 (Niveaustufe). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Payroll tax, rental area and work shift are not B2 language levels. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0132-L1676-v2",
+          "contextKey": "legacy-0132-L1676-context-2",
+          "transferKey": "legacy-0132-L1676-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000001320181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000013218",
+            "type": "choice",
+            "prompt": "Die Niveaustufe B1 beschreibt bestimmte sprachliche Anforderungen. Was bedeutet „Niveaustufe“?",
+            "instruction": {
+              "en": "Read the German context and choose the one accurate interpretation.",
+              "de": "Lies den deutschen Kontext und wähle die einzige zutreffende Bedeutung."
+            },
+            "hint": {
+              "en": "A level label describes requirements, not an individual result.",
+              "de": "Die Stufe beschreibt Anforderungen, nicht automatisch einen Prüfungserfolg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eine Stufe in einer festgelegten Einteilung"
+              },
+              {
+                "id": "1",
+                "text": "Eine Garantie für eine bestandene Prüfung"
+              },
+              {
+                "id": "2",
+                "text": "Eine monatliche Gehaltsklasse"
+              },
+              {
+                "id": "3",
+                "text": "Eine Art von Sprachlehrbuch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "It is a classification level.",
+              "de": "Eine Niveaustufe bezeichnet eine bestimmte Stufe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "B1 ist eine Niveaustufe im Sprachenlernen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: independently solved variant 2 as option 0 (Eine Stufe in einer festgelegten Einteilung). Reviewed entire German prompt/completed answer for naturalness, grammar, single defensible answer, bilingual instruction/hint/explanation. Each competing option checked: Passing guarantees, salary grades and textbook types are not the meaning of a language proficiency level. Human review pending."
+        }
+      ]
+    }
+  ]
+}
