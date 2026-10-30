@@ -1,5 +1,13 @@
 # Editorial review checkpoint, 30 October 2026
 
+## Latest continuation: legacy-0047 (30 October)
+
+Reviewed **28 exact variants** across 14 vocabulary nouns. Each real distractor and scored key was examined alongside German completion, grammatical form, the English and German feedback, target objective and source. The 'Besitz' exercise does not imply ownership or guilt from possession; the 'Beseitigung' item names mold-trace removal without certifying remediation; residence proof requirements vary by jurisdiction. These are scoped notes, no new inactive correction overlay was justified.
+
+**Current 47/49 first-queue batches; 1,470/1,536 reviewed initial; 1,470/5,682 full corpus; 4,212 remain (66 original, 4,146 extension). 168 inactive proposed corrections, 119 rechecked, 49 pending recheck. Next batch 0048.** Earlier checkpoints below historical; all content remains inactive.
+
+
+
 ## Latest continuation: legacy-0046 (30 October)
 
 Independently reviewed **30 questions** across 15 adjective targets, checking actual distractors, German answer sentences, EN/DE hints/explanations, morphology and both separate senses of polysemous adjectives (e.g. locker, mager, menschlich, mobil, massiv). No substantive wrong answer or misleading hint needing an inactive correction overlay was established. Optional context notes for L329-v1 (14 °C in January is climate-dependent), L331-v1 (Mittelstand not strictly determined by 80 employees), L328-v2 (triple entry might conceivably be valid if units are not specified). Existing source and app unchanged.
