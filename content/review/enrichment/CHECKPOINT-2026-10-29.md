@@ -1,5 +1,13 @@
 # Editorial review checkpoint, 30 October 2026
 
+## Latest continuation: legacy-0046 (30 October)
+
+Independently reviewed **30 questions** across 15 adjective targets, checking actual distractors, German answer sentences, EN/DE hints/explanations, morphology and both separate senses of polysemous adjectives (e.g. locker, mager, menschlich, mobil, massiv). No substantive wrong answer or misleading hint needing an inactive correction overlay was established. Optional context notes for L329-v1 (14 °C in January is climate-dependent), L331-v1 (Mittelstand not strictly determined by 80 employees), L328-v2 (triple entry might conceivably be valid if units are not specified). Existing source and app unchanged.
+
+**Latest 46/49 original batches; 1,442/1,536 reviewed initial; 1,442/5,682 whole corpus; 4,240 remaining (94 initial + 4,146 extended). 168 inactive corrections, 119 rechecked, 49 pending recheck. Next batch: 0047.** Earlier counts below are historical. All candidate and publication approvals remain false.
+
+
+
 ## Latest continuation: legacy-0045 (30 October)
 
 Completed 34 original German verb questions individually, assessing all alternatives, full German completions, selected key, prefix separation, modal/zu-infinitive, correct case and EN/DE hints. The item on the wardrobe occupying most of a wall (L310-v2) may benefit from specifying Wandfläche; the appointment of a school leader (L318-v1) depends on the real appointment authority, and is only a lexical scenario. No misleading key, serious competing answer or needed correction overlay found. Original sources and application untouched.
