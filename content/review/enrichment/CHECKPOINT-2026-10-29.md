@@ -1,5 +1,13 @@
 # Editorial review checkpoint, 30 October 2026
 
+## Latest continuation: completed frozen first49 (30 October)
+
+All **49 original frozen batches / 1,536 questions** now have question-level AI-assisted linguistic findings; this is NOT full-corpus review and is not human/CEFR certification. Batch 0049 contributed 30 variants. Two substantive inactive corrections were proposed: L350-v1 previously inferred **national** competition just from its German location, although an international competition can be hosted there; a correction explicitly restricts participants to German teams. L362-v2 previously implied every unsigned contract was invalid; a correction explicitly makes two signatures an agreed condition of this contract's effectiveness. Other advisory flags: original L360-v2 supplies no price data for comparative niedriger; L368-v1 capitalizes Offenbar after a semicolon; L343 and L372 use broad 'sustainable/ecological' wording from limited evidence. None of these has been silently approved or published.
+
+**First 49 queue complete: 1,536 / 1,536. Whole finished fixed corpus: 1,536 / 5,682 reviewed; 4,146 still require substantive review in 0050–0175.** There are **171 inactive correction proposals, 119 exact-hash-bound AI rechecks, 52 awaiting recheck**. Release/candidate approval false, no app/authoring/deployment edits. The original 49-entry validator is deliberately limited to the first snapshot; next step is to build a **separate strictly hash-bound review queue and validator for batches 0050–0175 against final snapshot b7a6507e135895b1ebb671b73538a9a6d3742304**, without modifying the original queue or counting later batches as reviewed.
+
+
+
 ## Latest continuation: legacy-0048 (30 October)
 
 Reviewed **36 exact verb variants**, solving each option, the German sentence and hint/explanation with the specific learning target. Serious new objective mismatch: in L323-v2, 'Der Vertrag tritt ... in Kraft' is grammatically correct but tests **treten**, not the specified separable verb **eintreten**. A proposed **inactive and not-yet-rechecked** overlay changes the sentence to 'Nach mehreren Tagen tritt die erhoffte Wirkung der neuen Maßnahme ein', preserves answer option ID 'tritt', and aligns EN/DE hint and explanation with the actual target. No original authoring changes. Optional feedback/generic distractor contrast findings noted for entdecken and entsprechen.
