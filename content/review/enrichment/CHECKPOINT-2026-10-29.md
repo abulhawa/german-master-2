@@ -1,4 +1,12 @@
-# Editorial review checkpoint, 29 October 2026
+# Editorial review checkpoint, 30 October 2026
+
+## Latest continuation: legacy-0044 (30 October)
+
+Completed independent AI-assisted four-option and full-answer assessment for all 32 questions in 0044. No new blocking correction proposal. Optional collocation/precision flags: Bejahung by the management in L289-v2 is formal compared with Zustimmung; Bürgerbüro Beratung in L300-v2 can be Auskunft; a Berufsgenossenschaft is not the carrier for every public-sector workplace accident (L308-v1). None establishes an incorrect accepted key or justifies immediate publication.
+
+Latest original frozen-queue coverage **44/49 batches, 1,378/1,536 questions**. Whole finished corpus **1,378/5,682 reviewed; 4,304 outstanding** (158 in batches 0045-0049; 4,146 in 0050-0175). There are still **168 inactive correction proposals, 119 recorded rechecks and 49 waiting for recheck**. Next batch **0045**. The earlier checkpoints below are historical. Nothing activated, merged, deployed or published.
+
+
 
 ## Latest continuation: legacy-0043
 
