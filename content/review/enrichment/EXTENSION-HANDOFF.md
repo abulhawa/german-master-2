@@ -22,3 +22,10 @@ The 0051-L364-v1 cold-exposure premise has one **inactive, un-rechecked** propos
 Review-only validator `validate-extension.py` and review CI step check exact source catalog/report hashes, option-by-option assessments, 126-batch coverage and inactive extension corrections. Original review and canonical validators remain unchanged. Check the newest GitHub Actions run, not the checkpoint, to know whether CI passed for the current head.
 
 Single active writer; fast-forward/expected-head commits only. No scheduled tasks created; no source/authoring, app, live DB, integration, main, deployment or publication changes. Content/candidate approvals remain false. **Next first incomplete: legacy-0055.**
+
+
+## Latest resume point: legacy-0056 (30 October 2026)
+
+Since the earlier checkpoint, independently reviewed and committed all 40 original variant/options in **legacy-0055**, with bilingual guidance, full German answers, source provenance, grammar and lexical meaning. Small nonblocking note: square tiles described solely as 20 cm long and wide are conventionally rectangular but strictly need right-angle information to prove mathematical square. No blocking answer/key defect identified, and no new proposal added.
+
+**Current: first49 1,536 reviewed + extension 224/4,146 reviewed (six batches 0050–0055) = 1,760/5,682 questions, 30.97% of complete corpus. Remaining 3,922 questions, 120 extension batches.** First incomplete **0056**, hash from extension-queue.json. Original queue 171 inactive correction proposals, 119 exact-hash rechecks and 52 pending; extension one inactive, unrechecked proposal; total 172 inactive corrections, 53 pending AI recheck. No change to source, app, canonical validators, main, release, candidate flags or database; review-only CI now validates source hashes and exact saved coverage of both queues. Continue one writer, expected-head fast-forward, per-question substantive assessment. This section supersedes earlier counts.
