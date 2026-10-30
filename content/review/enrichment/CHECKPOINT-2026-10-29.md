@@ -1,5 +1,13 @@
 # Editorial review checkpoint, 30 October 2026
 
+## Latest continuation: legacy-0045 (30 October)
+
+Completed 34 original German verb questions individually, assessing all alternatives, full German completions, selected key, prefix separation, modal/zu-infinitive, correct case and EN/DE hints. The item on the wardrobe occupying most of a wall (L310-v2) may benefit from specifying Wandfläche; the appointment of a school leader (L318-v1) depends on the real appointment authority, and is only a lexical scenario. No misleading key, serious competing answer or needed correction overlay found. Original sources and application untouched.
+
+**Latest totals: 45/49 original batches, 1,412/1,536 first queue; 1,412/5,682 overall; 4,270 remaining (124 first queue + 4,146 extension). 168 inactive proposals, 119 rechecked, 49 awaiting recheck. Next batch 0046.** Historical checkpoints follow.
+
+
+
 ## Latest continuation: legacy-0044 (30 October)
 
 Completed independent AI-assisted four-option and full-answer assessment for all 32 questions in 0044. No new blocking correction proposal. Optional collocation/precision flags: Bejahung by the management in L289-v2 is formal compared with Zustimmung; Bürgerbüro Beratung in L300-v2 can be Auskunft; a Berufsgenossenschaft is not the carrier for every public-sector workplace accident (L308-v1). None establishes an incorrect accepted key or justifies immediate publication.
