@@ -1,5 +1,13 @@
 # Editorial review checkpoint, 30 October 2026
 
+## Latest continuation: legacy-0048 (30 October)
+
+Reviewed **36 exact verb variants**, solving each option, the German sentence and hint/explanation with the specific learning target. Serious new objective mismatch: in L323-v2, 'Der Vertrag tritt ... in Kraft' is grammatically correct but tests **treten**, not the specified separable verb **eintreten**. A proposed **inactive and not-yet-rechecked** overlay changes the sentence to 'Nach mehreren Tagen tritt die erhoffte Wirkung der neuen Maßnahme ein', preserves answer option ID 'tritt', and aligns EN/DE hint and explanation with the actual target. No original authoring changes. Optional feedback/generic distractor contrast findings noted for entdecken and entsprechen.
+
+**Current 48/49 original batches, 1,506/1,536 reviewed first queue; 1,506/5,682 whole corpus; 4,176 pending (30 initial plus 4,146 extension). 169 inactive proposed corrections, 119 existing exact-hash rechecks, 50 awaiting recheck. Next batch 0049.** All older checkpoints below are historical, publication and approval remain false.
+
+
+
 ## Latest continuation: legacy-0047 (30 October)
 
 Reviewed **28 exact variants** across 14 vocabulary nouns. Each real distractor and scored key was examined alongside German completion, grammatical form, the English and German feedback, target objective and source. The 'Besitz' exercise does not imply ownership or guilt from possession; the 'Beseitigung' item names mold-trace removal without certifying remediation; residence proof requirements vary by jurisdiction. These are scoped notes, no new inactive correction overlay was justified.
