@@ -11,3 +11,14 @@ Resume at `legacy-0050` on `content/enrichment-review` after verifying single-wr
 ## Updated validation protocol (30 October 2026)
 
 `validate-extension.py` independently verifies the exact hashes of all 126 pinned author catalogs and reports, all 4,146 variant identities, exact option labels, each saved review and inactive correction's unchanged accepted option. Its GitHub Actions step is scoped to `content/enrichment-review` and cannot activate or publish content. Inactive extension corrections live in `extension-proposals/` to avoid mixing them with the first49 overlay validator. Current extension review is through 0052 (104 questions) and resumes at 0053. Verify the latest Actions conclusion before relying on this gate.
+
+
+## Continuation checkpoint: 30 October 2026
+
+At pinned final snapshot `b7a6507e135895b1ebb671b73538a9a6d3742304`, **five extension batches 0050–0054 are completed**, containing 24+40+40+40+40 = **184 independently assessed questions**. Total across both queues **1,536 + 184 = 1,720 / 5,682 (30.27%)**, with **3,962 questions pending** (121 extension batches, beginning with **0055**). This checkpoint is derived from the exact committed reviewed variant lists, not inferred from batch names alone.
+
+The 0051-L364-v1 cold-exposure premise has one **inactive, un-rechecked** proposed correction in `extension-proposals/legacy-0051.overlay.json` that retains the scored word `erkälten` and instead asks about close contact with sick people. Original frozen queue retains **171 inactive proposals, 119 rechecked, 52 pending recheck**. Extension proposal count is **1**, pending separate exact-hash recheck; hence grand total is **172 inactive proposals** and **53 needing recheck**. The other reviewed batches had no blocking answer errors. Minor nonblocking editorial notes are in each findings file.
+
+Review-only validator `validate-extension.py` and review CI step check exact source catalog/report hashes, option-by-option assessments, 126-batch coverage and inactive extension corrections. Original review and canonical validators remain unchanged. Check the newest GitHub Actions run, not the checkpoint, to know whether CI passed for the current head.
+
+Single active writer; fast-forward/expected-head commits only. No scheduled tasks created; no source/authoring, app, live DB, integration, main, deployment or publication changes. Content/candidate approvals remain false. **Next first incomplete: legacy-0055.**
