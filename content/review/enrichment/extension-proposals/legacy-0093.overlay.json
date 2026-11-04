@@ -1,0 +1,41 @@
+{
+  "snapshot": "b7a6507e135895b1ebb671b73538a9a6d3742304",
+  "batchId": "legacy-0093",
+  "catalogSha256": "462ff802cda135c86e04ec95de6d4ef720b837c61b2efd16ed567ea891e08170",
+  "active": false,
+  "candidateReady": false,
+  "patches": [
+    {
+      "variantKey": "legacy-0093-L786-v2",
+      "exerciseId": "81000000-0000-4000-8000-000000930061",
+      "expectedPrompt": "Nach dem Umzug erhielt sie einen Brief vom ___ über ihre Steuernummer.",
+      "proposedPrompt": "Nach dem Umzug erhielt sie einen Brief vom ___, in dem ihre Steuernummer stand.",
+      "proposedCompletedAnswer": "Nach dem Umzug erhielt sie einen Brief vom Finanzamt, in dem ihre Steuernummer stand.",
+      "status": "proposed-needs-recheck",
+      "proposedHint": {
+        "en": "The local tax office handles the Steuernummer; this is distinct from the national tax identification number (Steuer-ID).",
+        "de": "Das örtliche Finanzamt verwaltet die Steuernummer. Sie ist nicht dasselbe wie die Steueridentifikationsnummer (Steuer-ID)."
+      },
+      "proposedExplanation": {
+        "en": "Finanzamt is the tax office that handles tax returns and Steuernummer records. The Steuernummer is different from the nationwide tax identification number.",
+        "de": "Das Finanzamt ist die Steuerbehörde, die Steuererklärungen bearbeitet und Steuernummern verwaltet. Die Steuernummer unterscheidet sich von der Steueridentifikationsnummer."
+      }
+    },
+    {
+      "variantKey": "legacy-0093-L790-v2",
+      "exerciseId": "81000000-0000-4000-8000-000000930101",
+      "expectedPrompt": "Die Kinder zählten bis zehn an ihren ___.",
+      "proposedPrompt": "Die Kinder zählten bis zehn an ihren ___.",
+      "proposedCompletedAnswer": "Die Kinder zählten bis zehn an ihren Fingern.",
+      "status": "proposed-needs-recheck",
+      "proposedHint": {
+        "en": "They count using their fingers as digits of the hands.",
+        "de": "Sie benutzen ihre Finger zum Zählen."
+      },
+      "proposedExplanation": {
+        "en": "Fingern is dative plural of Finger after 'an ihren'. Children count to ten on their fingers, not on the separate finger joints.",
+        "de": "Fingern ist der Dativ Plural von Finger. Die Kinder zählen mit den Fingern bis zehn."
+      }
+    }
+  ]
+}

@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3112 of 5,682 questions (54.77%)** independently GPT-6 reviewed. Original first49 1,536 complete; extension 0050–0092 43/126 batches and 1576/4,146 complete. **2570 questions and 83 extension batches remain**, first incomplete **legacy-0093**.
+**3148 of 5,682 independent question-level AI reviews (55.40%).** Original 49 batches: 1,536 complete. Extension: 1612/4,146 questions, **44 of 126 batches complete (0050–0093)**. **2534 questions and 82 extension batches remain; next legacy-0094.**
 
-Batch 0092 reviewed all 38 verb questions and their four original choices, German completions, bilingual feedback, source/target, provisional level. No new blocking answer ambiguity or proposal identified; minor nuance recorded for claims about personal best time and 1000 emails. All 40 extension correction proposals remain inactive/unrechecked, original 171 inactive with 52 pending recheck; **211 total inactive / 92 pending recheck**. Verify exact commit's GitHub review validation before claiming success. No authoring, source, app, main, DB, deployment, candidate approval or publication changes. Source pinned at b7a6507e135895b1ebb671b73538a9a6d3742304, one writer and expected-head lease required.
+Batch 0093 added 36 question-level substantive noun reviews with assessments of all four choices, completed German, morphology/case, bilingual hints/explanations, source and tentative level. Two inactive correction proposals: 0093-L786-v2 distinguishes Steuernummer from Steueridentifikationsnummer in English/German feedback; 0093-L790-v2 removes imprecise description of fingers as Glieder. All source accepted options/identities unchanged. Extension has **42 inactive proposed corrections** pending recheck; original 171 inactive with 52 pending exact rechecks; **213 inactive total / 94 needing recheck**. Confirm latest GitHub Actions result at the new commit before claiming CI passed. All candidate/publication flags false, source pinned to b7a6507e135895b1ebb671b73538a9a6d3742304, review-only branch; no app, main, source, DB or deployment changes.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
