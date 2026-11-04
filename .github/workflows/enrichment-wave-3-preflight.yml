@@ -5,12 +5,14 @@ on:
     paths:
       - 'tools/enrichment-wave-3-preflight.mjs'
       - 'services/api/scripts/prepare-reviewed-wave-3.ts'
+      - 'services/api/scripts/verify-reviewed-wave-3.ts'
       - '.github/workflows/enrichment-wave-3-preflight.yml'
       - 'docs/operations/enrichment-wave-3-preflight.md'
   pull_request:
     paths:
       - 'tools/enrichment-wave-3-preflight.mjs'
       - 'services/api/scripts/prepare-reviewed-wave-3.ts'
+      - 'services/api/scripts/verify-reviewed-wave-3.ts'
       - '.github/workflows/enrichment-wave-3-preflight.yml'
       - 'docs/operations/enrichment-wave-3-preflight.md'
   workflow_dispatch:
@@ -45,6 +47,8 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Build inactive additive catalog and shared offline bundle
         run: node node_modules/tsx/dist/cli.mjs services/api/scripts/prepare-reviewed-wave-3.ts
+      - name: Verify additive import, safe replay, accepted answers and 125-question bounds
+        run: node node_modules/tsx/dist/cli.mjs services/api/scripts/verify-reviewed-wave-3.ts
       - name: Upload inactive wave 3 candidate files
         uses: actions/upload-artifact@v4
         with:
