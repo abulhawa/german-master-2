@@ -1,5 +1,12 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## Grouped editorial checkpoint, 4 November 2026: next legacy-0162
+
+Independent question-by-question GPT-6 review complete for legacy-0157–0161, **34+36+30+32+34 = 166 original questions and 664 individually assessed answers**, covering original scored answer, full German/grammar, each distractor and alternative interpretation, EN/DE instruction/hint/explanation, lexical identity, pinned provenance and tentative B1/B2 level. One new inactive and unrechecked proposed correction: legacy-0160-L2428-v1, because a tram can run through a city tunnel, so the existing stem doesn't uniquely identify the scored U-Bahn. Proposed revision describes an underground rapid-transit network and leaves the original key and authored data untouched. Minor stylistic notes on some completed German are nonblocking and captured in respective findings.
+
+**Overall 5234/5,682 (92.12%) reviewed, 448 questions remain across 14 extension batches. Next legacy-0162.** Original 1,536/1,536; extension 3698/4,146. Inactive correction proposals now 226 in total, with 107 requiring independent exact-hash recheck (extension 55). New grouped commit needs exact-head green GitHub Actions before another grouped push. No source authoring, graders/validators, app, main, DB, integration, publication, deployment or approval changes. Candidate/active/published flags remain false.
+
+
 ## Grouped editorial checkpoint, 4 November 2026: next legacy-0157
 
 Five further extension batches legacy-0152–0156 received independent GPT-6 question-by-question editorial review: **30+34+32+32+34 = 162 questions**, including **648 actual original answer-option assessments**, separate German semantics/grammar, full completed examples, scored IDs, EN/DE instructions, hints and explanations, CEFR/provenance. The original accepted keys for irregular forms like 'Spezialisten' and 'Studierenden' were inspected, as were terminology and financial/social-law contexts. No new blocking competing answer or correction patch was identified in these batches. All unchanged authoring inputs remain frozen; the earlier source-choice answer-leak issue 0147-L2064-v2 is independently flagged, and the 0147 Schreck gap has an inactive patch pending recheck.
