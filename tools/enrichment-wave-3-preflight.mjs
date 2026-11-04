@@ -64,7 +64,7 @@ function main(){
     for(const target of catalog.targets){
       let blocked=false;const questions=[];let corrections=0;
       assert(!seen.has(target.id),'Duplicate target '+target.id);seen.add(target.id);
-      const pos=target.provenance?.match(/apps\\/web\\/data\\/pos\\/([a-z]+)\\.jsonl:/)?.[1]??null;
+      const pos=target.provenance?.split('apps/web/data/pos/')[1]?.split('.jsonl:')[0]??null;
       assert(['nouns','verbs','adjectives','adverbs','conjunctions','prepositions','particles'].includes(pos),'Unsupported POS mapping '+target.id);
       const kind=target.category==='connectors'?'grammar':'lexical';
       const context=target.category==='work_vocabulary'?'work':'general';
