@@ -1,5 +1,12 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## Grouped editorial checkpoint, 4 November 2026: next legacy-0147
+
+Five consecutive batches 0142–0146 independently reviewed: **32+36+34+28+22 = 152 German questions and 608 original answer options**, with individualized rationale for each option, original scored answer and completed German, grammar/meaning, EN/DE instructions, hints and explanations, objective, tentative CEFR and immutable source identity. No new serious competing answer requiring an inactive correction was identified in this set. The existing inactive 224 correction proposals remain unactivated, with 105 rechecks outstanding.
+
+**Total reviewed 4756/5,682 (83.70%). 926 questions remain in 29 extension batches, starting legacy-0147.** Extension 3220/4,146, original first49 1,536/1,536. Grouped commit is not publication, deployment, app/database change, correction application or human certification. This exact commit needs green Enrichment Review GitHub Actions validation before next grouped push. All approval flags false.
+
+
 ## Grouped continuation, 4 November 2026: next legacy-0142
 
 Five consecutive extension batches legacy-0137–0141 received substantive independent GPT-6 AI review: 12+34+34+30+30 = **140 original questions and 560 actual answer options**, plus full German completions, key/grammar, bilingual instructional guidance, objectives, source and provisional CEFR. Two new **inactive, unrechecked** correction proposals: 0139-L1846-v1 (manufacturing origin not demonstrated by pre-delivery detection) and 0141-L1900-v1 (person walking a bicycle across a crossing also is a pedestrian). Original source catalogs, option identities and grader remain unchanged.
