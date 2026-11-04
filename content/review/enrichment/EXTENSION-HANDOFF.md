@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3614/5,682 questions (63.60%)** completed independent item-level AI editorial review. Original first 49 batches: 1,536 complete. Extension 2078/4,146 across **57/126 batches, 0050–0106**. **2068 questions and 69 extension batches remain. Next: legacy-0107.**
+**3646/5,682 questions (64.17%)** individually AI-editor-reviewed; 1,536 original (49 batches) complete, extension 2110/4,146 across **58/126 batches 0050–0107**. **2036 questions and 68 extension batches remain; next legacy-0108.**
 
-Batch 0106: 40 previously individually reviewed compound/separable verb questions and all original offered options have been verified against frozen catalog b7a6507e135895b1ebb671b73538a9a6d3742304. Evaluations include accepted key, complete German sentence, inflection, prepositional and dative construction, bilingual hints/explanations, tentative level and source identity. No additional inactive correction. Usage caveats regarding price zunehmen and administrative filing were noted. Original inactive proposals: 171, with 52 still awaiting rechecks. Extension inactive proposals: 49, all awaiting exact recheck. Total **220 inactive corrections, 101 pending rechecks**. Exact new commit CI must pass before marking this checkpoint validated or advancing to the next batch. No authoring inputs, app, main, DB, publication or deployment modified; all review candidate and publication flags remain false. Single writer guarded via expected SHA.
+Batch 0107: all 32 noun questions individually resolved and all four offered options evaluated, exact German grammatical completion, source key, EN/DE hints/explanations, source identity and tentative CEFR recorded. Contextual notes include Austrian/German trade terms, workplace exposure, official lawmaking and social vocabulary; no inactive correction proposal in this batch. Original 171 inactive corrections (52 pending rechecks); extension 49 inactive (49 pending), so **220 total inactive and 101 requiring exact recheck**. Check exact GitHub commit CI before claiming pass. No app/main/DB/authoring/deployment/publication changes. Frozen inputs b7a6507e135895b1ebb671b73538a9a6d3742304, single-writer fast-forward lease, all candidate and publication flags false.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
