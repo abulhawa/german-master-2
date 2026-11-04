@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**2972/5,682 questions (52.31%)** have independent question-level GPT-6 reviews, 1,536 first-49 and 1436/4,146 extension. Extension batches 0050 through 0088 are reviewed (39/126); **2710 questions / 87 batches remain; resume legacy-0089.**
+**3010 of 5,682 questions (52.97%)** independently reviewed: original first49 1,536; extension 1474/4,146 in **40/126 batches through legacy-0089**. **2672 questions and 86 extension batches remain**; next **legacy-0090**.
 
-Batch 0088 added 34 individual reviews and six inactive correction proposals: 747-v2 freezing-temperature ambiguity, 758-v2 jump-event ambiguity, 762-v1 possible runway taxi, 766-v2 colloquial mosquito bite, 771-v1 implied theft, 775-v2 missing outcome after checking. Exact answer identities retained; original authoring unchanged. Extension inactive proposals 25 awaiting recheck, plus 171 original of which 52 await recheck: **196 inactive total, 77 pending recheck**. All approval flags false. Check latest Actions on this exact commit before claiming pass. Branch `content/enrichment-review` only, pinned source b7a6507e135895b1ebb671b73538a9a6d3742304; no main/app/source/database/deployment modifications.
+Batch 0089 completed 38 question-level noun reviews and staged 10 inactive clarification proposals covering Fachbereichsleiter, Fachleute, Fachmann, Fachmesse, Fähigkeit, Fähre, Fahrzeug, Faktor, Fall and Fantasie. It also refined the inactive 0088-L775-v2 proposal to remove redundant phrasing, without altering its answer identity. Extension has 35 inactive proposed patches needing recheck, original 171 inactive with 52 pending rechecks: **206 inactive proposals, 87 requiring separate recheck**. These are not activated or candidate-ready. GitHub Actions must pass on this exact commit before confirming validation. No authored content, app, main, publication or deployment modifications. Source pinned to b7a6507e135895b1ebb671b73538a9a6d3742304, all publication and candidate flags false, single-writer expected-head protection.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
