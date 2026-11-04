@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3048 / 5,682 questions (53.64%)** with independent GPT-6 question-level AI editorial review. Frozen first 49: 1,536. Extension: 1512/4,146 across 41 complete batches 0050–0090. **2634 questions and 85 batches pending**, next **legacy-0091**.
+**3074/5,682 questions (54.10%)** independently GPT-6 editorial-reviewed. Frozen first 49 complete (1,536); extension 0050–0091 complete (42 of 126 batches, 1538/4,146 questions). **2608 questions, 84 extension batches remain**, beginning **legacy-0092**.
 
-Batch 0090: 38 original verb question assessments with all four options, German completions and bilingual feedback checked. Five inactive corrections staged: hiking fall ambiguity (785-v1), ads imply vs prove (787-v1/v2), invented truck hint (790-v2), rejected vs revised draft (813-v2). All original authored inputs and answer IDs unchanged; no proposal activated or rechecked. Extension 40 inactive proposals needing recheck; original queue 171 inactive, 52 still requiring recheck. **211 inactive total, 92 needing recheck.** No candidate/publication approval. Latest CI result must be checked against the new head. Source b7a6507e135895b1ebb671b73538a9a6d3742304; review branch only, no changes to app, main, DB or release.
+Batch 0091 completed 26 separately assessed noun exercises with all four original options, German completed keys, bilingual feedback, meaning and tentative CEFR/source. No new key, syntax or competitive-answer blocker identified and no new correction proposed. Caveats recorded for deleting private files (not automatically secure erase), extinguisher use (small safe-to-tackle fires) and fire-brigade pumping depending on emergency conditions. Extension still has 40 inactive proposals pending exact recheck, original 171 inactive with 52 pending recheck: **211 inactive total, 92 pending recheck**. CI must be verified for the exact commit. Source b7a6507e135895b1ebb671b73538a9a6d3742304; branch review-only, original input and all release/candidate flags unchanged.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
