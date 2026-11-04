@@ -1,27 +1,29 @@
 # German Master 2.0 current checkpoint
 
-## Low-typing conversion release 4 — 5 November 2026 (validated, not live)
+## Legacy typing conversion live — 5 November 2026
 
-Prepared new additive immutable release 9300 on
-`content/low-typing-legacy-conversion`. The checked generator replays the
-previous 9200 release (5,619 members; expected manifest
-`7822ff2ed502902d7e9a8c5788cbcffb9c493e40df709dd225dbc13ca10a8863`)
-in disposable PGlite. It adds 103 newer choice/gap-choice revisions and retains
-5,516 unaffected members; there are zero typed exercises in the new release.
-All 103 source conversions and accepted rubrics were checked, including three
-separately rechecked original starter exercises. New full member manifest:
-`2129c015b28f02333e2ee38dfc40006d17dde58ed8a01f829e2c6548aed39df2`.
-The existing old release, typed revisions and user history remain unchanged.
-The exact generated offline catalog is shared by web and native Android.
+**Completed and deployed.** PR [#33](https://github.com/abulhawa/german-master-2/pull/33)
+was merged as `ec6123d7644f3bae9440cf02112d3648853dcdf5`; all four
+required GitHub checks passed on the exact candidate head. The new immutable
+production release `93000000-0000-4000-8000-000000000001` has 5,619
+members: 103 low-typing choice/gap-choice revisions, 5,516 unchanged members,
+**zero** mandatory typed questions, and zero unapproved revisions.
+Runtime manifest `2129c015b28f02333e2ee38dfc40006d17dde58ed8a01f829e2c6548aed39df2`
+was reproduced in isolated PGlite and verified against the installed Supabase
+release. Previous 9200 release and its 103 typed historical revisions, old
+sessions, and learner data are preserved. No schema reset, historical revision
+updates or destructive migration occurred.
 
-The candidate generator plus the two focused tests passed in GitHub Actions
-run 41931705395. The owner requests completion through closure, but production
-import/merge/hosted browser confirmation remain separate required operations.
-Next: verify latest PR CI, insert checked 103 revisions and release membership
-into the same clean Supabase project with live preflight and exact manifest
-comparison; verify 0 typed in release 9300 and 103 typed still in 9200;
-merge only the matching approved checked PR head and verify Vercel READY and
-signed-out web practice with a converted question. Android Play stays held.
+Vercel production deployment `dpl_78x7ZUoukAK8oTexkobdWrEdgkbg` reached
+READY at the exact merge SHA; it was assigned `germanmaster.qortxai.com`.
+A fresh public page fetch resolved the production Home/practice landing page;
+a deployment-scoped error/fatal log query found no matching entries. Full
+authenticated live journey and physical Android acceptance were not repeated
+by this conversion. Native offline source is updated, but **Android Play
+publication remains on owner hold**. The final live receipt, exact head,
+validation, data-integrity results and evidence limitations are documented
+in the closing [PR #33 comment](https://github.com/abulhawa/german-master-2/pull/33).
+There is no remaining conversion task or separate publication approval gate.
 
 ## Reviewed dataset deployed — 4 November 2026
 
