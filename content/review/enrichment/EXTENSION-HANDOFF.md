@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3394/5,682 questions (59.73%)** independently reviewed. Original frozen first49: 1,536 complete. Extension 1858/4,146 across **51/126 batches 0050–0100 complete**. **2288 questions and 75 extension batches pending, next legacy-0101.**
+**3430/5,682 questions (60.37%)** independently GPT-6 question-level reviewed. Frozen first 49: 1,536; extension 1894/4,146 across **52/126 batches 0050–0101**. **2252 questions and 74 extension batches remain; next legacy-0102.**
 
-Batch 0100: 40 individually assessed verb exercises including all four real options, reconstructed German, bilingual hints/explanations, provisional level/identity/provenance. One inactive correction for 0100-L919-v1: the original asserted an examination is always required for prescription, which is too categorical. Proposed wording simply describes a doctor's decision after examination without making a universal requirement. Original answer identities unchanged. Original 171 inactive correction proposals with 52 needing recheck; extension **48 inactive**, pending recheck; **219 total inactive, 100 requiring independent recheck**. Check the latest GitHub Actions CI at this exact commit before claiming validation. Pinned source b7a6507e135895b1ebb671b73538a9a6d3742304, review branch only, one active writer, no app/main/authoring/DB/deployment changes and no approval flags.
+Batch 0101 completed 36 question-level assessments, each of the four source options, German full sentence/grammar, English and German hints/explanation, provisional B1/B2 level and pinned provenance. No blocking key or language issue or new proposed correction. Original 171 inactive proposals (52 require recheck); extension 48 inactive pending exact recheck; **219 inactive total / 100 requiring separate recheck**. Confirm new commit's GitHub review verification CI before stating PASS. Immutable authoring b7a6507e135895b1ebb671b73538a9a6d3742304, review-only branch, one writer; candidateReady and publicationApproved remain false, no main, app, authoring, DB, deployment or release changes.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
