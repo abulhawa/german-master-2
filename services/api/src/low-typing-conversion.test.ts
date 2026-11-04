@@ -77,7 +77,7 @@ it('keeps old revisions immutable and requires reviewed selectable revisions', (
       expect(entry.next.rubric).toEqual(variant.rubric);
       reused += 1;
     } else {
-      expect(entry.source.review.status).toBe('needs-final-editorial-recheck');
+      expect(entry.source.review.status).toBe('approved-ai');
       starter += 1;
     }
   }
