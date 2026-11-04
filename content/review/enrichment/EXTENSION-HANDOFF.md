@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3430/5,682 questions (60.37%)** independently GPT-6 question-level reviewed. Frozen first 49: 1,536; extension 1894/4,146 across **52/126 batches 0050–0101**. **2252 questions and 74 extension batches remain; next legacy-0102.**
+**3466/5,682 questions (61.00%)** independently question-level AI reviewed. Original first 49: 1,536 complete. Extension: 1930/4,146, **53/126 batches through legacy-0102**. **2216 questions and 73 extension batches remain; next legacy-0103.**
 
-Batch 0101 completed 36 question-level assessments, each of the four source options, German full sentence/grammar, English and German hints/explanation, provisional B1/B2 level and pinned provenance. No blocking key or language issue or new proposed correction. Original 171 inactive proposals (52 require recheck); extension 48 inactive pending exact recheck; **219 inactive total / 100 requiring separate recheck**. Confirm new commit's GitHub review verification CI before stating PASS. Immutable authoring b7a6507e135895b1ebb671b73538a9a6d3742304, review-only branch, one writer; candidateReady and publicationApproved remain false, no main, app, authoring, DB, deployment or release changes.
+Batch 0102 added 36 individually evaluated verb exercises with four actual-option assessments, full German reconstruction, bilingual hints/explanations, provisional level and pinned source. No new correction needed. Source language caution: royalty-free imagery still has terms for legal usage. Original 171 inactive proposals, 52 pending recheck; extension **48 inactive and pending recheck**, making **219 inactive / 100 pending recheck** total. Check CI at new GitHub head before claiming validation pass. Single writer, immutable authoring b7a6507e135895b1ebb671b73538a9a6d3742304, review-only branch, no main, app, DB, source edits, publication or deployment, candidate/release flags false.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
