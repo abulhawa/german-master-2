@@ -1,5 +1,12 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## Grouped editorial checkpoint, 4 November 2026: next legacy-0157
+
+Five further extension batches legacy-0152–0156 received independent GPT-6 question-by-question editorial review: **30+34+32+32+34 = 162 questions**, including **648 actual original answer-option assessments**, separate German semantics/grammar, full completed examples, scored IDs, EN/DE instructions, hints and explanations, CEFR/provenance. The original accepted keys for irregular forms like 'Spezialisten' and 'Studierenden' were inspected, as were terminology and financial/social-law contexts. No new blocking competing answer or correction patch was identified in these batches. All unchanged authoring inputs remain frozen; the earlier source-choice answer-leak issue 0147-L2064-v2 is independently flagged, and the 0147 Schreck gap has an inactive patch pending recheck.
+
+**Overall 5068/5,682 (89.19%) reviewed, 614 left across 19 extension batches, next legacy-0157.** Extension 3532/4,146; original first49 1,536/1,536. Inactive proposals 225 total and 106 outstanding independent rechecks (extension inactive proposals 54). One grouped commit; require exact-head CI success before next grouped update. No source modification, human CEFR approval, candidateReady, publicationApproved, app, main, validators, DB, publication, integration or deployment.
+
+
 ## Grouped editorial checkpoint, 4 November 2026: next legacy-0152
 
 Independent question-by-question GPT-6 editorial review completed across five batches **0147–0151**, covering **150 questions and 600 original option assessments** (32+26+32+32+28), including completed German, original correct answers, distractors, EN/DE hints, instructions, explanations, source and provisional CEFR. One new **inactive correction proposal requiring independent recheck** for legacy-0147-L2079-v1 repairs the nonidiomatic Schreck collocation. The legacy-0147-L2064-v2 multiple-choice question says 'Kunststoffschlauch' and unintentionally reveals the target answer 'Schlauch'. This is flagged in the finding as **needs-context-precision**; the review overlay format permits only one-gap prompt proposals, so no unsupported choice-question overlay is included. Original source and option keys are unchanged.
