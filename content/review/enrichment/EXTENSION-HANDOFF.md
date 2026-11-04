@@ -2,15 +2,11 @@
 
 ## Current authoritative status (4 November 2026)
 
-**Total: 2,858 of 5,682 independent question-level AI reviews (50.30%).** Original 49 batches: **1,536/1,536**, complete. Extension: **1,322/4,146 questions, 36/126 batches, legacy-0050 through legacy-0085 completed**. **90 extension batches and 2,824 questions remain**; next is **legacy-0086**.
+**Total: 2898 of 5,682 independent question-level AI reviews (51.00%).** Original 49 batches: **1,536/1,536**. Extension: **1362/4,146**, **37/126** batches through **legacy-0086**. **2784 questions and 89 batches remain**, next **legacy-0087**.
 
-Review branch `content/enrichment-review` only; authoring inputs pinned to `b7a6507e135895b1ebb671b73538a9a6d3742304`. Last batch 0085 commit `5d603fc0ce7e939b5e2178fe23b9a0dd7c01731d`; check the actual remote head and CI before beginning further work. State in extension queue/coverage and per-batch findings is canonical, and supersedes all historical numeric notes below.
+Batch 0086: independently examined 40 verb variants and all four choices per question. Six inactive proposals for 0086-L737-v2 (course timing), L742-v2 (verification vs ensuring operation), L743-v1/v2 (victory-result ambiguity) and L744-v1/v2 (formal address competing with greeting). Original source files and accepted option IDs unchanged. Extension inactive proposals: 18, all pending recheck; original 171 with 52 pending recheck. Combined 189 inactive proposals, 70 requiring recheck. **No candidate, publication, merger or deployment approval.** Check GitHub Actions for CI at this branch head.
 
-Most recent continuation assessed 270 questions in 0079 (40), 0080 (40), 0081 (40), 0082 (38), 0083 (36), 0084 (36), 0085 (40). Explicitly assessed all offered choices, exact German solution, morphology and syntax, bilingual hints and explanation, original objective/source and tentative CEFR. The most recent findings include an original ungrammatical missing 'Sie' in 0082-L688-v1 and legally overbroad consent prompts in 0079-L618, with inactive correction proposals only.
-
-Corrections remain **all inactive and not candidate-ready**: original 171 proposals (119 independently rechecked, 52 pending); extension 12 proposed patches, all needing recheck, across 0051, 0060, 0061, 0069, 0073, 0077, 0079, 0080, 0082 and 0083. Total 183 inactive proposals, 64 requiring recheck. None were applied to authored source. All batch candidate/publication flags remain false. Latest completed review CI for 0084 succeeded; CI for 0085 was in progress at checkpoint preparation; check current Actions.
-
-No authoring edits, changes to main/app/database/canonical validators, release or deployment, and no scheduler activation. Exactly one active writer, expected-head fast-forward protection, commit/validate per batch. The original source corpus, validators and original 49-batch queue remain untouched.
+Review branch `content/enrichment-review` only. Source pinned to `b7a6507e135895b1ebb671b73538a9a6d3742304`. Maintain one active writer, expected-head fast-forward protection and strict review-only validator. No app, main, authored content, live DB, or deployment changes.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
