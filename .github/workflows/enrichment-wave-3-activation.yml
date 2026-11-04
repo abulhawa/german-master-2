@@ -1,0 +1,46 @@
+name: Activate frozen wave 3 source on release branch
+on:
+  push:
+    branches: ['release/enrichment-wave-3-preflight-2026-11-04']
+    paths: ['.github/workflows/enrichment-wave-3-activation.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wave-3-activate-branch
+  cancel-in-progress: false
+
+jobs:
+  activate-source:
+    if: github.ref == 'refs/heads/release/enrichment-wave-3-preflight-2026-11-04'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Verify derived candidate is reproducible byte-for-byte
+        run: |
+          node node_modules/tsx/dist/cli.mjs services/api/scripts/prepare-reviewed-wave-3.ts
+          git diff --exit-code -- content/candidates/enrichment-wave-3/
+      - name: Activate exact frozen catalog and both-client source bundle on release branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(node -p "require('./content/candidates/enrichment-wave-3/catalog.json').releaseId")" = "92000000-0000-4000-8000-000000000001"
+          cp content/candidates/enrichment-wave-3/catalog.json content/production/catalog.json
+          cp content/candidates/enrichment-wave-3/offline.json content/guest/practice.json
+          git add -- content/production/catalog.json content/guest/practice.json
+          if git diff --cached --quiet; then echo 'Already activated in this branch'; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "feat(content): activate verified immutable wave 3 web/native catalog"
+          git push origin HEAD:refs/heads/release/enrichment-wave-3-preflight-2026-11-04
