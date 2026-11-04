@@ -1,0 +1,2869 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000007800",
+      "title": {
+        "en": "Using nachlesen in context",
+        "de": "nachlesen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nachlesen (consult written information) in two distinct contexts.",
+        "de": "nachlesen (Informationen in einem Text gezielt lesen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nachlesen meaning consult written information, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L605 (3f5ef6641c3b5b01ace6c5ab6bea4f18147d6d33fb459eb059856138b0d41f95), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L605-v1",
+          "contextKey": "legacy-0078-L605-context-1",
+          "transferKey": "legacy-0078-L605-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007800",
+            "type": "gap_choice",
+            "prompt": "Die genauen Regeln kannst du im Handbuch ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The information is already written in a reference text.",
+              "de": "Die Information steht bereits in einem Nachschlage- oder Informationstext."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "nachzahlen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "nachlesen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "nachliefern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "nachholen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nachlesen means consult written information. The information is already written in a reference text.",
+              "de": "nachlesen bedeutet Informationen in einem Text gezielt lesen. Die Information steht bereits in einem Nachschlage- oder Informationstext."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die genauen Regeln kannst du im Handbuch nachlesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die genauen Regeln kannst du im Handbuch nachlesen.\", verb form and construction, all four offered options (nachzahlen / nachlesen / nachliefern / nachholen), unique key \"nachlesen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L605-v2",
+          "contextKey": "legacy-0078-L605-context-2",
+          "transferKey": "legacy-0078-L605-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007800",
+            "type": "choice",
+            "prompt": "Wenn du die Uhrzeit vergessen hast, kannst du sie in der Einladung ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The invitation contains the details in writing.",
+              "de": "Die Einladung enthält die Angaben schriftlich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "nachlesen"
+              },
+              {
+                "id": "1",
+                "text": "nachsenden"
+              },
+              {
+                "id": "2",
+                "text": "nachfüllen"
+              },
+              {
+                "id": "3",
+                "text": "nachbessern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "nachlesen means consult written information. The invitation contains the details in writing.",
+              "de": "nachlesen bedeutet Informationen in einem Text gezielt lesen. Die Einladung enthält die Angaben schriftlich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wenn du die Uhrzeit vergessen hast, kannst du sie in der Einladung nachlesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Wenn du die Uhrzeit vergessen hast, kannst du sie in der Einladung nachlesen.\", verb form and construction, all four offered options (nachlesen / nachsenden / nachfüllen / nachbessern), unique key \"nachlesen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007801",
+      "title": {
+        "en": "Using nachliefern in context",
+        "de": "nachliefern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nachliefern (deliver missing goods later) in two distinct contexts.",
+        "de": "nachliefern (fehlende Waren später zusätzlich liefern) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nachliefern meaning deliver missing goods later, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L606 (7ac051867d519e4b2158f7551d36c8f3b35202cabfb7ac17755d40b3b9b51369), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L606-v1",
+          "contextKey": "legacy-0078-L606-context-1",
+          "transferKey": "legacy-0078-L606-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007801",
+            "type": "gap_choice",
+            "prompt": "Die Bestellung war unvollständig. Der Händler wird die fehlenden Teile kostenlos ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Some ordered items did not arrive in the first shipment.",
+              "de": "Ein Teil der bestellten Ware fehlte bei der ersten Lieferung."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "entsorgen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abbestellen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "nachliefern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zurückfordern"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nachliefern means deliver missing goods later. Some ordered items did not arrive in the first shipment.",
+              "de": "nachliefern bedeutet fehlende Waren später zusätzlich liefern. Ein Teil der bestellten Ware fehlte bei der ersten Lieferung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bestellung war unvollständig. Der Händler wird die fehlenden Teile kostenlos nachliefern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Bestellung war unvollständig. Der Händler wird die fehlenden Teile kostenlos nachliefern.\", verb form and construction, all four offered options (entsorgen / abbestellen / nachliefern / zurückfordern), unique key \"nachliefern\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L606-v2",
+          "contextKey": "legacy-0078-L606-context-2",
+          "transferKey": "legacy-0078-L606-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007801",
+            "type": "choice",
+            "prompt": "Das Ersatzteil war nicht auf Lager. Der Hersteller hat zugesagt, es nächste Woche ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A promised part will arrive after the original order.",
+              "de": "Ein zugesagtes Teil soll erst nach der ursprünglichen Bestellung eintreffen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "wegzuwerfen"
+              },
+              {
+                "id": "1",
+                "text": "nachzuliefern"
+              },
+              {
+                "id": "2",
+                "text": "abzuholen"
+              },
+              {
+                "id": "3",
+                "text": "zurückzugeben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "nachliefern means deliver missing goods later. A promised part will arrive after the original order.",
+              "de": "nachliefern bedeutet fehlende Waren später zusätzlich liefern. Ein zugesagtes Teil soll erst nach der ursprünglichen Bestellung eintreffen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Ersatzteil war nicht auf Lager. Der Hersteller hat zugesagt, es nächste Woche nachzuliefern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Ersatzteil war nicht auf Lager. Der Hersteller hat zugesagt, es nächste Woche nachzuliefern.\", verb form and construction, all four offered options (wegzuwerfen / nachzuliefern / abzuholen / zurückzugeben), unique key \"nachzuliefern\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007802",
+      "title": {
+        "en": "Using nachschauen in context",
+        "de": "nachschauen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nachschauen (check by looking or inspecting) in two distinct contexts.",
+        "de": "nachschauen (durch Nachsehen prüfen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nachschauen meaning check by looking or inspecting, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L607 (ddc3e1dcda6d4836065d275e087749025804e68a12a57e960382f33dbd8bebf2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L607-v1",
+          "contextKey": "legacy-0078-L607-context-1",
+          "transferKey": "legacy-0078-L607-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007802",
+            "type": "gap_choice",
+            "prompt": "Ich muss im Kalender ___, ob der Termin noch frei ist.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The speaker needs to check a schedule.",
+              "de": "Die Person möchte einen Terminplan prüfen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "nachliefern"
+                  },
+                  {
+                    "id": "1",
+                    "text": "nachzahlen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "nachholen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "nachschauen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nachschauen means check by looking or inspecting. The speaker needs to check a schedule.",
+              "de": "nachschauen bedeutet durch Nachsehen prüfen. Die Person möchte einen Terminplan prüfen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich muss im Kalender nachschauen, ob der Termin noch frei ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Ich muss im Kalender nachschauen, ob der Termin noch frei ist.\", verb form and construction, all four offered options (nachliefern / nachzahlen / nachholen / nachschauen), unique key \"nachschauen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L607-v2",
+          "contextKey": "legacy-0078-L607-context-2",
+          "transferKey": "legacy-0078-L607-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007802",
+            "type": "choice",
+            "prompt": "Sie hörte ein Geräusch und ging in den Keller, um ___, was passiert war.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She wants to inspect the situation directly.",
+              "de": "Sie will selbst prüfen, was im Keller geschehen ist."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "nachzuliefern"
+              },
+              {
+                "id": "1",
+                "text": "nachzuzahlen"
+              },
+              {
+                "id": "2",
+                "text": "nachzuschauen"
+              },
+              {
+                "id": "3",
+                "text": "nachzuholen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "nachschauen means check by looking or inspecting. She wants to inspect the situation directly.",
+              "de": "nachschauen bedeutet durch Nachsehen prüfen. Sie will selbst prüfen, was im Keller geschehen ist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hörte ein Geräusch und ging in den Keller, um nachzuschauen, was passiert war.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Sie hörte ein Geräusch und ging in den Keller, um nachzuschauen, was passiert war.\", verb form and construction, all four offered options (nachzuliefern / nachzuzahlen / nachzuschauen / nachzuholen), unique key \"nachzuschauen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007803",
+      "title": {
+        "en": "Using nachschlagen in context",
+        "de": "nachschlagen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nachschlagen (look up an entry in a reference) in two distinct contexts.",
+        "de": "nachschlagen (einen Begriff oder eine Angabe in einem Nachschlagewerk suchen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nachschlagen meaning look up an entry in a reference, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L608 (8f6452f94e59652701c15567d01b8aa31d5f58bf66fff3f7b4507100216d5376), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L608-v1",
+          "contextKey": "legacy-0078-L608-context-1",
+          "transferKey": "legacy-0078-L608-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007803",
+            "type": "gap_choice",
+            "prompt": "Das unbekannte Wort kannst du im Wörterbuch ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A dictionary helps locate the meaning of a specific word.",
+              "de": "Im Wörterbuch sucht man gezielt die Bedeutung eines Wortes."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "nachschlagen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "nachfüllen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "nachreichen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "nacherzählen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nachschlagen means look up an entry in a reference. A dictionary helps locate the meaning of a specific word.",
+              "de": "nachschlagen bedeutet einen Begriff oder eine Angabe in einem Nachschlagewerk suchen. Im Wörterbuch sucht man gezielt die Bedeutung eines Wortes."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das unbekannte Wort kannst du im Wörterbuch nachschlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das unbekannte Wort kannst du im Wörterbuch nachschlagen.\", verb form and construction, all four offered options (nachschlagen / nachfüllen / nachreichen / nacherzählen), unique key \"nachschlagen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L608-v2",
+          "contextKey": "legacy-0078-L608-context-2",
+          "transferKey": "legacy-0078-L608-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007803",
+            "type": "choice",
+            "prompt": "Bei einer unklaren Rechtsfrage sollte man den Paragrafen im Gesetz ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Find the exact provision in a reference source.",
+              "de": "Gesucht wird eine konkrete Vorschrift in einem Nachschlagewerk."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "nachsenden"
+              },
+              {
+                "id": "1",
+                "text": "nachfüllen"
+              },
+              {
+                "id": "2",
+                "text": "nachholen"
+              },
+              {
+                "id": "3",
+                "text": "nachschlagen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "nachschlagen means look up an entry in a reference. Find the exact provision in a reference source.",
+              "de": "nachschlagen bedeutet einen Begriff oder eine Angabe in einem Nachschlagewerk suchen. Gesucht wird eine konkrete Vorschrift in einem Nachschlagewerk."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei einer unklaren Rechtsfrage sollte man den Paragrafen im Gesetz nachschlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Bei einer unklaren Rechtsfrage sollte man den Paragrafen im Gesetz nachschlagen.\", verb form and construction, all four offered options (nachsenden / nachfüllen / nachholen / nachschlagen), unique key \"nachschlagen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007804",
+      "title": {
+        "en": "Using nachvollziehen in context",
+        "de": "nachvollziehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nachvollziehen (understand or retrace a reason or process) in two distinct contexts.",
+        "de": "nachvollziehen (Gedanken oder Abläufe verstehen und gedanklich verfolgen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nachvollziehen meaning understand or retrace a reason or process, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L609 (fbbd32c05faf04e0a664d81ebcefea32aeb16ecca1b76469f37bfafb4695e946), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L609-v1",
+          "contextKey": "legacy-0078-L609-context-1",
+          "transferKey": "legacy-0078-L609-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007804",
+            "type": "gap_choice",
+            "prompt": "Mit der ausführlichen Erklärung konnte ich die Entscheidung endlich ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The explanation made the reasoning understandable.",
+              "de": "Die Begründung machte die Entscheidung verständlich."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "durchsetzen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "nachvollziehen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zurückziehen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verschweigen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nachvollziehen means understand or retrace a reason or process. The explanation made the reasoning understandable.",
+              "de": "nachvollziehen bedeutet Gedanken oder Abläufe verstehen und gedanklich verfolgen. Die Begründung machte die Entscheidung verständlich."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit der ausführlichen Erklärung konnte ich die Entscheidung endlich nachvollziehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Mit der ausführlichen Erklärung konnte ich die Entscheidung endlich nachvollziehen.\", verb form and construction, all four offered options (durchsetzen / nachvollziehen / zurückziehen / verschweigen), unique key \"nachvollziehen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L609-v2",
+          "contextKey": "legacy-0078-L609-context-2",
+          "transferKey": "legacy-0078-L609-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007804",
+            "type": "choice",
+            "prompt": "Anhand der Logdateien lässt sich der Fehler Schritt für Schritt ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The records allow reconstruction of the error's sequence.",
+              "de": "Die Protokolle zeigen den Ablauf des Fehlers Schritt für Schritt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "nachvollziehen"
+              },
+              {
+                "id": "1",
+                "text": "übersehen"
+              },
+              {
+                "id": "2",
+                "text": "verschieben"
+              },
+              {
+                "id": "3",
+                "text": "beschleunigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "nachvollziehen means understand or retrace a reason or process. The records allow reconstruction of the error's sequence.",
+              "de": "nachvollziehen bedeutet Gedanken oder Abläufe verstehen und gedanklich verfolgen. Die Protokolle zeigen den Ablauf des Fehlers Schritt für Schritt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Anhand der Logdateien lässt sich der Fehler Schritt für Schritt nachvollziehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Anhand der Logdateien lässt sich der Fehler Schritt für Schritt nachvollziehen.\", verb form and construction, all four offered options (nachvollziehen / übersehen / verschieben / beschleunigen), unique key \"nachvollziehen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007805",
+      "title": {
+        "en": "Using nachweisen in context",
+        "de": "nachweisen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nachweisen (prove with evidence) in two distinct contexts.",
+        "de": "nachweisen (durch Belege oder Daten belegen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nachweisen meaning prove with evidence, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L610 (a9e2246738178a8f284c322b94871e2dbfc7295aa3915ff8834e21636f4def35), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L610-v1",
+          "contextKey": "legacy-0078-L610-context-1",
+          "transferKey": "legacy-0078-L610-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007805",
+            "type": "gap_choice",
+            "prompt": "Die Bewerberin muss ihre Qualifikation durch Zeugnisse ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Certificates provide documentary evidence.",
+              "de": "Zeugnisse dienen als Beleg für eine Qualifikation."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verheimlichen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abschaffen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "nachweisen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verschieben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nachweisen means prove with evidence. Certificates provide documentary evidence.",
+              "de": "nachweisen bedeutet durch Belege oder Daten belegen. Zeugnisse dienen als Beleg für eine Qualifikation."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bewerberin muss ihre Qualifikation durch Zeugnisse nachweisen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Bewerberin muss ihre Qualifikation durch Zeugnisse nachweisen.\", verb form and construction, all four offered options (verheimlichen / abschaffen / nachweisen / verschieben), unique key \"nachweisen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L610-v2",
+          "contextKey": "legacy-0078-L610-context-2",
+          "transferKey": "legacy-0078-L610-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007805",
+            "type": "choice",
+            "prompt": "Mit Messdaten konnten die Forschenden die Wirkung des Verfahrens ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The conclusion is supported by measured results.",
+              "de": "Die Wirkung wurde durch Messungen belegt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "bestreiten"
+              },
+              {
+                "id": "1",
+                "text": "nachweisen"
+              },
+              {
+                "id": "2",
+                "text": "ignorieren"
+              },
+              {
+                "id": "3",
+                "text": "verbergen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "nachweisen means prove with evidence. The conclusion is supported by measured results.",
+              "de": "nachweisen bedeutet durch Belege oder Daten belegen. Die Wirkung wurde durch Messungen belegt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit Messdaten konnten die Forschenden die Wirkung des Verfahrens nachweisen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Mit Messdaten konnten die Forschenden die Wirkung des Verfahrens nachweisen.\", verb form and construction, all four offered options (bestreiten / nachweisen / ignorieren / verbergen), unique key \"nachweisen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007806",
+      "title": {
+        "en": "Using nahelegen in context",
+        "de": "nahelegen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nahelegen (recommend or suggest without imposing) in two distinct contexts.",
+        "de": "nahelegen (empfehlen oder als wahrscheinlich erscheinen lassen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nahelegen meaning recommend or suggest without imposing, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L611 (3d25f64dc83b5c4e0bb71abd23f2c5d51711bf8b78bec1a2fb5fd5b80d68ba4b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L611-v1",
+          "contextKey": "legacy-0078-L611-context-1",
+          "transferKey": "legacy-0078-L611-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007806",
+            "type": "gap_choice",
+            "prompt": "Die Ärztin möchte dem Patienten ___, mehr Pausen einzulegen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She is offering a recommendation rather than an order.",
+              "de": "Sie gibt eine Empfehlung und kein ausdrückliches Verbot."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verbieten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "überlassen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "versprechen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "nahelegen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nahelegen means recommend or suggest without imposing. She is offering a recommendation rather than an order.",
+              "de": "nahelegen bedeutet empfehlen oder als wahrscheinlich erscheinen lassen. Sie gibt eine Empfehlung und kein ausdrückliches Verbot."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ärztin möchte dem Patienten nahelegen, mehr Pausen einzulegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Ärztin möchte dem Patienten nahelegen, mehr Pausen einzulegen.\", verb form and construction, all four offered options (verbieten / überlassen / versprechen / nahelegen), unique key \"nahelegen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L611-v2",
+          "contextKey": "legacy-0078-L611-context-2",
+          "transferKey": "legacy-0078-L611-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007806",
+            "type": "choice",
+            "prompt": "Die bisherigen Daten ___, dass die Nachfrage steigt; ein Beweis fehlt noch.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The evidence points in a direction but is not conclusive.",
+              "de": "Die Daten deuten auf etwas hin, beweisen es aber noch nicht."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "beweisen"
+              },
+              {
+                "id": "1",
+                "text": "widerlegen"
+              },
+              {
+                "id": "2",
+                "text": "legen nahe"
+              },
+              {
+                "id": "3",
+                "text": "verschweigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "nahelegen means recommend or suggest without imposing. The evidence points in a direction but is not conclusive.",
+              "de": "nahelegen bedeutet empfehlen oder als wahrscheinlich erscheinen lassen. Die Daten deuten auf etwas hin, beweisen es aber noch nicht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die bisherigen Daten legen nahe, dass die Nachfrage steigt; ein Beweis fehlt noch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die bisherigen Daten legen nahe, dass die Nachfrage steigt; ein Beweis fehlt noch.\", verb form and construction, all four offered options (beweisen / widerlegen / legen nahe / verschweigen), unique key \"legen nahe\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007807",
+      "title": {
+        "en": "Using nähen in context",
+        "de": "nähen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nähen (sew fabric with thread) in two distinct contexts.",
+        "de": "nähen (Stoff mit Nadel und Faden verbinden oder reparieren) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nähen meaning sew fabric with thread, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L612 (9262a242f7dac12422837212d485d665cac72326b90f0c12b022000e82265f62), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L612-v1",
+          "contextKey": "legacy-0078-L612-context-1",
+          "transferKey": "legacy-0078-L612-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007807",
+            "type": "gap_choice",
+            "prompt": "Das Loch in der Jacke kann sie mit Nadel und Faden ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The repair uses thread and a needle.",
+              "de": "Die Reparatur erfolgt mit Nadel und Faden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "nähen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "bohren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "streichen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "feilen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nähen means sew fabric with thread. The repair uses thread and a needle.",
+              "de": "nähen bedeutet Stoff mit Nadel und Faden verbinden oder reparieren. Die Reparatur erfolgt mit Nadel und Faden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Loch in der Jacke kann sie mit Nadel und Faden nähen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Loch in der Jacke kann sie mit Nadel und Faden nähen.\", verb form and construction, all four offered options (nähen / bohren / streichen / feilen), unique key \"nähen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L612-v2",
+          "contextKey": "legacy-0078-L612-context-2",
+          "transferKey": "legacy-0078-L612-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007807",
+            "type": "choice",
+            "prompt": "Für das Kostüm hat er die beiden Stoffteile sorgfältig ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Two pieces of cloth were joined by stitching.",
+              "de": "Zwei Stoffstücke wurden mit Stichen verbunden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "geschraubt"
+              },
+              {
+                "id": "1",
+                "text": "gegossen"
+              },
+              {
+                "id": "2",
+                "text": "gesägt"
+              },
+              {
+                "id": "3",
+                "text": "zusammengenäht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "nähen means sew fabric with thread. Two pieces of cloth were joined by stitching.",
+              "de": "nähen bedeutet Stoff mit Nadel und Faden verbinden oder reparieren. Zwei Stoffstücke wurden mit Stichen verbunden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für das Kostüm hat er die beiden Stoffteile sorgfältig zusammengenäht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Für das Kostüm hat er die beiden Stoffteile sorgfältig zusammengenäht.\", verb form and construction, all four offered options (geschraubt / gegossen / gesägt / zusammengenäht), unique key \"zusammengenäht\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007808",
+      "title": {
+        "en": "Using nähern in context",
+        "de": "nähern im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nähern (approach, usually with sich and dative) in two distinct contexts.",
+        "de": "nähern (sich einer Person oder Sache annähern) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nähern meaning approach, usually with sich and dative, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L613 (1321d3f36047d1b4f09f243c11a04ec243ba571e2b11ba1fc38a59115f99e1a3), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L613-v1",
+          "contextKey": "legacy-0078-L613-context-1",
+          "transferKey": "legacy-0078-L613-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007808",
+            "type": "gap_choice",
+            "prompt": "Wir sollten uns dem scheuen Tier langsam ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The reflexive verb describes moving closer to the animal.",
+              "de": "Die reflexive Form beschreibt das vorsichtige Näherkommen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "entfernen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "nähern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verstecken"
+                  },
+                  {
+                    "id": "3",
+                    "text": "begegnen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nähern means approach, usually with sich and dative. The reflexive verb describes moving closer to the animal.",
+              "de": "nähern bedeutet sich einer Person oder Sache annähern. Die reflexive Form beschreibt das vorsichtige Näherkommen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir sollten uns dem scheuen Tier langsam nähern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Wir sollten uns dem scheuen Tier langsam nähern.\", verb form and construction, all four offered options (entfernen / nähern / verstecken / begegnen), unique key \"nähern\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L613-v2",
+          "contextKey": "legacy-0078-L613-context-2",
+          "transferKey": "legacy-0078-L613-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007808",
+            "type": "choice",
+            "prompt": "Als sich das Gewitter ___, suchten alle Schutz.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The storm was coming closer.",
+              "de": "Das Gewitter kam immer näher."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "näherte"
+              },
+              {
+                "id": "1",
+                "text": "entfernte"
+              },
+              {
+                "id": "2",
+                "text": "änderte"
+              },
+              {
+                "id": "3",
+                "text": "verzögerte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "nähern means approach, usually with sich and dative. The storm was coming closer.",
+              "de": "nähern bedeutet sich einer Person oder Sache annähern. Das Gewitter kam immer näher."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Als sich das Gewitter näherte, suchten alle Schutz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Als sich das Gewitter näherte, suchten alle Schutz.\", verb form and construction, all four offered options (näherte / entfernte / änderte / verzögerte), unique key \"näherte\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007809",
+      "title": {
+        "en": "Using netzwerken in context",
+        "de": "netzwerken im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use netzwerken (build professional connections) in two distinct contexts.",
+        "de": "netzwerken (berufliche Kontakte knüpfen und pflegen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb netzwerken meaning build professional connections, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L616 (6c8ed1e885f8d3e6b935a9490e8ccd77484186758d60d650762e58e96bacd440), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L616-v1",
+          "contextKey": "legacy-0078-L616-context-1",
+          "transferKey": "legacy-0078-L616-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007809",
+            "type": "gap_choice",
+            "prompt": "Auf der Fachmesse wollte sie mit anderen Fachleuten ___, um berufliche Kontakte aufzubauen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The goal is to build professional relationships.",
+              "de": "Sie möchte berufliche Beziehungen aufbauen."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "netzwerken"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abrechnen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "kündigen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "archivieren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "netzwerken means build professional connections. The goal is to build professional relationships.",
+              "de": "netzwerken bedeutet berufliche Kontakte knüpfen und pflegen. Sie möchte berufliche Beziehungen aufbauen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Fachmesse wollte sie mit anderen Fachleuten netzwerken, um berufliche Kontakte aufzubauen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Auf der Fachmesse wollte sie mit anderen Fachleuten netzwerken, um berufliche Kontakte aufzubauen.\", verb form and construction, all four offered options (netzwerken / abrechnen / kündigen / archivieren), unique key \"netzwerken\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L616-v2",
+          "contextKey": "legacy-0078-L616-context-2",
+          "transferKey": "legacy-0078-L616-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007809",
+            "type": "choice",
+            "prompt": "Im beruflichen Onlineforum kann man mit Menschen aus der Branche ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The online space enables professional contacts.",
+              "de": "Das Forum dient dem Austausch mit Fachleuten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "entlassen"
+              },
+              {
+                "id": "1",
+                "text": "verrechnen"
+              },
+              {
+                "id": "2",
+                "text": "abreisen"
+              },
+              {
+                "id": "3",
+                "text": "netzwerken"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "netzwerken means build professional connections. The online space enables professional contacts.",
+              "de": "netzwerken bedeutet berufliche Kontakte knüpfen und pflegen. Das Forum dient dem Austausch mit Fachleuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im beruflichen Onlineforum kann man mit Menschen aus der Branche netzwerken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im beruflichen Onlineforum kann man mit Menschen aus der Branche netzwerken.\", verb form and construction, all four offered options (entlassen / verrechnen / abreisen / netzwerken), unique key \"netzwerken\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007810",
+      "title": {
+        "en": "Using nutzen in context",
+        "de": "nutzen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nutzen (use or take advantage of) in two distinct contexts.",
+        "de": "nutzen (etwas sinnvoll verwenden oder eine Gelegenheit ergreifen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nutzen meaning use or take advantage of, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L618 (39bbc82fa257436deb24895d01945020cdcfcaa118ba99249e01b835a4715f87), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L618-v1",
+          "contextKey": "legacy-0078-L618-context-1",
+          "transferKey": "legacy-0078-L618-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007810",
+            "type": "gap_choice",
+            "prompt": "Du solltest die Gelegenheit ___, um deine Fragen zu stellen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "An available opportunity should be taken.",
+              "de": "Eine vorhandene Gelegenheit soll wahrgenommen werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vermeiden"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verlieren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "nutzen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verschieben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nutzen means use or take advantage of. An available opportunity should be taken.",
+              "de": "nutzen bedeutet etwas sinnvoll verwenden oder eine Gelegenheit ergreifen. Eine vorhandene Gelegenheit soll wahrgenommen werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Du solltest die Gelegenheit nutzen, um deine Fragen zu stellen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Du solltest die Gelegenheit nutzen, um deine Fragen zu stellen.\", verb form and construction, all four offered options (vermeiden / verlieren / nutzen / verschieben), unique key \"nutzen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L618-v2",
+          "contextKey": "legacy-0078-L618-context-2",
+          "transferKey": "legacy-0078-L618-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007810",
+            "type": "choice",
+            "prompt": "Die Stadt will die leer stehenden Räume künftig als Lernzentrum ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The rooms will serve a new practical purpose.",
+              "de": "Die Räume sollen für einen bestimmten Zweck verwendet werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verkaufen"
+              },
+              {
+                "id": "1",
+                "text": "nutzen"
+              },
+              {
+                "id": "2",
+                "text": "verlassen"
+              },
+              {
+                "id": "3",
+                "text": "sperren"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "nutzen means use or take advantage of. The rooms will serve a new practical purpose.",
+              "de": "nutzen bedeutet etwas sinnvoll verwenden oder eine Gelegenheit ergreifen. Die Räume sollen für einen bestimmten Zweck verwendet werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stadt will die leer stehenden Räume künftig als Lernzentrum nutzen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Stadt will die leer stehenden Räume künftig als Lernzentrum nutzen.\", verb form and construction, all four offered options (verkaufen / nutzen / verlassen / sperren), unique key \"nutzen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007811",
+      "title": {
+        "en": "Using nützen in context",
+        "de": "nützen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use nützen (be useful or beneficial) in two distinct contexts.",
+        "de": "nützen (jemandem oder etwas von Nutzen sein) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb nützen meaning be useful or beneficial, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L619 (58b5b5444e116805276ad258126b72bf001146e0fa4bc62e4dd6ef67efaa7051), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L619-v1",
+          "contextKey": "legacy-0078-L619-context-1",
+          "transferKey": "legacy-0078-L619-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007811",
+            "type": "gap_choice",
+            "prompt": "Dank des Rats fand ich die Lösung. Der Hinweis hat mir sehr ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The advice helped the speaker solve the problem.",
+              "de": "Der Rat half der Person bei der Lösung."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "geschadet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gefehlt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gedroht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "genützt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "nützen means be useful or beneficial. The advice helped the speaker solve the problem.",
+              "de": "nützen bedeutet jemandem oder etwas von Nutzen sein. Der Rat half der Person bei der Lösung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Dank des Rats fand ich die Lösung. Der Hinweis hat mir sehr genützt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Dank des Rats fand ich die Lösung. Der Hinweis hat mir sehr genützt.\", verb form and construction, all four offered options (geschadet / gefehlt / gedroht / genützt), unique key \"genützt\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L619-v2",
+          "contextKey": "legacy-0078-L619-context-2",
+          "transferKey": "legacy-0078-L619-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007811",
+            "type": "choice",
+            "prompt": "Was ___ die beste Planung, wenn niemand sie umsetzt?",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The question asks what benefit an unused plan provides.",
+              "de": "Gefragt ist, welchen Nutzen eine nicht umgesetzte Planung hat."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "kostet"
+              },
+              {
+                "id": "1",
+                "text": "fehlt"
+              },
+              {
+                "id": "2",
+                "text": "nützt"
+              },
+              {
+                "id": "3",
+                "text": "stört"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "nützen means be useful or beneficial. The question asks what benefit an unused plan provides.",
+              "de": "nützen bedeutet jemandem oder etwas von Nutzen sein. Gefragt ist, welchen Nutzen eine nicht umgesetzte Planung hat."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Was nützt die beste Planung, wenn niemand sie umsetzt?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Was nützt die beste Planung, wenn niemand sie umsetzt?\", verb form and construction, all four offered options (kostet / fehlt / nützt / stört), unique key \"nützt\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007812",
+      "title": {
+        "en": "Using operieren in context",
+        "de": "operieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use operieren (perform a surgical operation) in two distinct contexts.",
+        "de": "operieren (einen chirurgischen Eingriff durchführen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb operieren meaning perform a surgical operation, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L621 (60a44fe616055b6adf538c0b663097e2ef1ff92e77701518ef953631a0e6beaf), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L621-v1",
+          "contextKey": "legacy-0078-L621-context-1",
+          "transferKey": "legacy-0078-L621-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007812",
+            "type": "gap_choice",
+            "prompt": "Um den entzündeten Blinddarm zu entfernen, musste der Chirurg sofort ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Removing an inflamed appendix requires surgery.",
+              "de": "Die Entfernung des Blinddarms erfordert einen chirurgischen Eingriff."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "beraten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "operieren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "entlassen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "untersuchen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "operieren means perform a surgical operation. Removing an inflamed appendix requires surgery.",
+              "de": "operieren bedeutet einen chirurgischen Eingriff durchführen. Die Entfernung des Blinddarms erfordert einen chirurgischen Eingriff."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Um den entzündeten Blinddarm zu entfernen, musste der Chirurg sofort operieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Um den entzündeten Blinddarm zu entfernen, musste der Chirurg sofort operieren.\", verb form and construction, all four offered options (beraten / operieren / entlassen / untersuchen), unique key \"operieren\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L621-v2",
+          "contextKey": "legacy-0078-L621-context-2",
+          "transferKey": "legacy-0078-L621-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007812",
+            "type": "choice",
+            "prompt": "Nach dem Kreuzbandriss wurde die Patientin am Knie ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The patient underwent a surgical procedure on the knee.",
+              "de": "Am Knie wurde ein chirurgischer Eingriff durchgeführt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "operiert"
+              },
+              {
+                "id": "1",
+                "text": "trainiert"
+              },
+              {
+                "id": "2",
+                "text": "geputzt"
+              },
+              {
+                "id": "3",
+                "text": "gemessen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "operieren means perform a surgical operation. The patient underwent a surgical procedure on the knee.",
+              "de": "operieren bedeutet einen chirurgischen Eingriff durchführen. Am Knie wurde ein chirurgischer Eingriff durchgeführt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Kreuzbandriss wurde die Patientin am Knie operiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach dem Kreuzbandriss wurde die Patientin am Knie operiert.\", verb form and construction, all four offered options (operiert / trainiert / geputzt / gemessen), unique key \"operiert\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007813",
+      "title": {
+        "en": "Using optimieren in context",
+        "de": "optimieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use optimieren (improve efficiency or performance) in two distinct contexts.",
+        "de": "optimieren (Abläufe oder Leistungen gezielt verbessern) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb optimieren meaning improve efficiency or performance, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L622 (5ff5c0375602509ae790334be3a869c106b1e06497d65d7763cc33f4b5cbf4de), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L622-v1",
+          "contextKey": "legacy-0078-L622-context-1",
+          "transferKey": "legacy-0078-L622-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007813",
+            "type": "gap_choice",
+            "prompt": "Mit dem neuen System wollen wir unsere internen Abläufe ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The goal is to make processes more efficient.",
+              "de": "Die Abläufe sollen effizienter werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "verschleppen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verwerfen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "optimieren"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verbieten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "optimieren means improve efficiency or performance. The goal is to make processes more efficient.",
+              "de": "optimieren bedeutet Abläufe oder Leistungen gezielt verbessern. Die Abläufe sollen effizienter werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit dem neuen System wollen wir unsere internen Abläufe optimieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Mit dem neuen System wollen wir unsere internen Abläufe optimieren.\", verb form and construction, all four offered options (verschleppen / verwerfen / optimieren / verbieten), unique key \"optimieren\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L622-v2",
+          "contextKey": "legacy-0078-L622-context-2",
+          "transferKey": "legacy-0078-L622-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007813",
+            "type": "choice",
+            "prompt": "Das Team analysiert die Ladezeiten, um die Leistung der App zu ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Measurements are used to improve technical performance.",
+              "de": "Die Messungen sollen helfen, die technische Leistung zu verbessern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verschlechtern"
+              },
+              {
+                "id": "1",
+                "text": "optimieren"
+              },
+              {
+                "id": "2",
+                "text": "blockieren"
+              },
+              {
+                "id": "3",
+                "text": "ignorieren"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "optimieren means improve efficiency or performance. Measurements are used to improve technical performance.",
+              "de": "optimieren bedeutet Abläufe oder Leistungen gezielt verbessern. Die Messungen sollen helfen, die technische Leistung zu verbessern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Team analysiert die Ladezeiten, um die Leistung der App zu optimieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Das Team analysiert die Ladezeiten, um die Leistung der App zu optimieren.\", verb form and construction, all four offered options (verschlechtern / optimieren / blockieren / ignorieren), unique key \"optimieren\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007814",
+      "title": {
+        "en": "Using ordnen in context",
+        "de": "ordnen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use ordnen (arrange systematically) in two distinct contexts.",
+        "de": "ordnen (nach einem bestimmten Prinzip sortieren) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb ordnen meaning arrange systematically, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L623 (23d945c12b5a0c354d73b9d48479a704f0df43d47806401b64b1cd2cd4a0bea8), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L623-v1",
+          "contextKey": "legacy-0078-L623-context-1",
+          "transferKey": "legacy-0078-L623-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007814",
+            "type": "gap_choice",
+            "prompt": "Bitte ___ Sie die Rechnungen nach Datum.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The documents should follow a chronological system.",
+              "de": "Die Unterlagen sollen in eine zeitliche Reihenfolge gebracht werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "löschen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "schicken"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bezahlen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "ordnen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "ordnen means arrange systematically. The documents should follow a chronological system.",
+              "de": "ordnen bedeutet nach einem bestimmten Prinzip sortieren. Die Unterlagen sollen in eine zeitliche Reihenfolge gebracht werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte ordnen Sie die Rechnungen nach Datum.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Bitte ordnen Sie die Rechnungen nach Datum.\", verb form and construction, all four offered options (löschen / schicken / bezahlen / ordnen), unique key \"ordnen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L623-v2",
+          "contextKey": "legacy-0078-L623-context-2",
+          "transferKey": "legacy-0078-L623-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007814",
+            "type": "choice",
+            "prompt": "Nach dem Umzug mussten wir die Bücher alphabetisch ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The books are sorted according to their titles or authors.",
+              "de": "Die Bücher werden nach dem Alphabet sortiert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verkaufen"
+              },
+              {
+                "id": "1",
+                "text": "verschenken"
+              },
+              {
+                "id": "2",
+                "text": "ordnen"
+              },
+              {
+                "id": "3",
+                "text": "ausleihen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "ordnen means arrange systematically. The books are sorted according to their titles or authors.",
+              "de": "ordnen bedeutet nach einem bestimmten Prinzip sortieren. Die Bücher werden nach dem Alphabet sortiert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Umzug mussten wir die Bücher alphabetisch ordnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach dem Umzug mussten wir die Bücher alphabetisch ordnen.\", verb form and construction, all four offered options (verkaufen / verschenken / ordnen / ausleihen), unique key \"ordnen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007816",
+      "title": {
+        "en": "Using pausieren in context",
+        "de": "pausieren im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use pausieren (pause an activity temporarily) in two distinct contexts.",
+        "de": "pausieren (eine Tätigkeit oder Wiedergabe vorübergehend unterbrechen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb pausieren meaning pause an activity temporarily, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L630 (c13251e592506a2a346269f4d3df3cf0ea853bc01b5e47b5b51ef66d016fef32), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L630-v1",
+          "contextKey": "legacy-0078-L630-context-1",
+          "transferKey": "legacy-0078-L630-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007816",
+            "type": "gap_choice",
+            "prompt": "Nach zwei Stunden konzentrierter Arbeit sollten wir kurz ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A short break is needed before continuing.",
+              "de": "Es geht um eine kurze Unterbrechung vor dem Weiterarbeiten."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "kündigen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abgeben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "pausieren"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abschließen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "pausieren means pause an activity temporarily. A short break is needed before continuing.",
+              "de": "pausieren bedeutet eine Tätigkeit oder Wiedergabe vorübergehend unterbrechen. Es geht um eine kurze Unterbrechung vor dem Weiterarbeiten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach zwei Stunden konzentrierter Arbeit sollten wir kurz pausieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Nach zwei Stunden konzentrierter Arbeit sollten wir kurz pausieren.\", verb form and construction, all four offered options (kündigen / abgeben / pausieren / abschließen), unique key \"pausieren\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L630-v2",
+          "contextKey": "legacy-0078-L630-context-2",
+          "transferKey": "legacy-0078-L630-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007816",
+            "type": "choice",
+            "prompt": "Die Wiedergabe lässt sich mit dieser Taste ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The video should stop temporarily, not be deleted.",
+              "de": "Die Wiedergabe soll nur vorübergehend angehalten werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "löschen"
+              },
+              {
+                "id": "1",
+                "text": "pausieren"
+              },
+              {
+                "id": "2",
+                "text": "speichern"
+              },
+              {
+                "id": "3",
+                "text": "herunterladen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "pausieren means pause an activity temporarily. The video should stop temporarily, not be deleted.",
+              "de": "pausieren bedeutet eine Tätigkeit oder Wiedergabe vorübergehend unterbrechen. Die Wiedergabe soll nur vorübergehend angehalten werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Wiedergabe lässt sich mit dieser Taste pausieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Wiedergabe lässt sich mit dieser Taste pausieren.\", verb form and construction, all four offered options (löschen / pausieren / speichern / herunterladen), unique key \"pausieren\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007818",
+      "title": {
+        "en": "Using pflanzen in context",
+        "de": "pflanzen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use pflanzen (plant in soil) in two distinct contexts.",
+        "de": "pflanzen (Pflanzen in die Erde setzen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb pflanzen meaning plant in soil, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L632 (aa6f0cd209f516796c4b4e46d60bb6e71a8df98b496616e371a9262938e9e8ef), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L632-v1",
+          "contextKey": "legacy-0078-L632-context-1",
+          "transferKey": "legacy-0078-L632-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007818",
+            "type": "gap_choice",
+            "prompt": "Im Frühling wollen wir neue Obstbäume ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Young trees are being put into the ground.",
+              "de": "Junge Bäume sollen in die Erde gesetzt werden."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "pflanzen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ernten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "schneiden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "fällen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "pflanzen means plant in soil. Young trees are being put into the ground.",
+              "de": "pflanzen bedeutet Pflanzen in die Erde setzen. Junge Bäume sollen in die Erde gesetzt werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Frühling wollen wir neue Obstbäume pflanzen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Frühling wollen wir neue Obstbäume pflanzen.\", verb form and construction, all four offered options (pflanzen / ernten / schneiden / fällen), unique key \"pflanzen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L632-v2",
+          "contextKey": "legacy-0078-L632-context-2",
+          "transferKey": "legacy-0078-L632-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007818",
+            "type": "choice",
+            "prompt": "Die Kinder haben Blumen in die Beete ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The flowers were placed into the flowerbeds.",
+              "de": "Die Blumen wurden in die Beete eingesetzt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gegossen"
+              },
+              {
+                "id": "1",
+                "text": "gemalt"
+              },
+              {
+                "id": "2",
+                "text": "geputzt"
+              },
+              {
+                "id": "3",
+                "text": "gepflanzt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "pflanzen means plant in soil. The flowers were placed into the flowerbeds.",
+              "de": "pflanzen bedeutet Pflanzen in die Erde setzen. Die Blumen wurden in die Beete eingesetzt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kinder haben Blumen in die Beete gepflanzt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Die Kinder haben Blumen in die Beete gepflanzt.\", verb form and construction, all four offered options (gegossen / gemalt / geputzt / gepflanzt), unique key \"gepflanzt\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007819",
+      "title": {
+        "en": "Using pflegen in context",
+        "de": "pflegen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and use pflegen (care for a person or maintain something) in two distinct contexts.",
+        "de": "pflegen (Menschen betreuen oder etwas sorgfältig versorgen) in zwei unterschiedlichen Situationen erkennen und verwenden."
+      },
+      "objective": "Recognize and use the verb pflegen meaning care for a person or maintain something, including appropriate forms and collocations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L633 (dd77444d70bfc459463ca491f53035978e5bbf052c4d66d313e9c4b46d146f3c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0078-L633-v1",
+          "contextKey": "legacy-0078-L633-context-1",
+          "transferKey": "legacy-0078-L633-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007819",
+            "type": "gap_choice",
+            "prompt": "Im Pflegeheim ___ Fachkräfte ältere Menschen.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The workers provide care to residents.",
+              "de": "Die Beschäftigten betreuen die Bewohnerinnen und Bewohner."
+            },
+            "slots": [
+              {
+                "id": "verb",
+                "label": "Verb oder Verbform",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "entlassen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "pflegen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bewerben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "verkaufen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "verb",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "pflegen means care for a person or maintain something. The workers provide care to residents.",
+              "de": "pflegen bedeutet Menschen betreuen oder etwas sorgfältig versorgen. Die Beschäftigten betreuen die Bewohnerinnen und Bewohner."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Pflegeheim pflegen Fachkräfte ältere Menschen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Im Pflegeheim pflegen Fachkräfte ältere Menschen.\", verb form and construction, all four offered options (entlassen / pflegen / bewerben / verkaufen), unique key \"pflegen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        },
+        {
+          "variantKey": "legacy-0078-L633-v2",
+          "contextKey": "legacy-0078-L633-context-2",
+          "transferKey": "legacy-0078-L633-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000780191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007819",
+            "type": "choice",
+            "prompt": "Damit die Haut nicht austrocknet, solltest du sie regelmäßig ___.",
+            "instruction": {
+              "en": "Choose the verb or verb form that best completes the German sentence.",
+              "de": "Wähle das Verb oder die Verbform, die den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The goal is to keep skin healthy and moisturized.",
+              "de": "Die Haut soll gesund bleiben und vor Austrocknung geschützt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "pflegen"
+              },
+              {
+                "id": "1",
+                "text": "schneiden"
+              },
+              {
+                "id": "2",
+                "text": "färben"
+              },
+              {
+                "id": "3",
+                "text": "rasieren"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "pflegen means care for a person or maintain something. The goal is to keep skin healthy and moisturized.",
+              "de": "pflegen bedeutet Menschen betreuen oder etwas sorgfältig versorgen. Die Haut soll gesund bleiben und vor Austrocknung geschützt werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Damit die Haut nicht austrocknet, solltest du sie regelmäßig pflegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass 2026-10-29: checked full sentence \"Damit die Haut nicht austrocknet, solltest du sie regelmäßig pflegen.\", verb form and construction, all four offered options (pflegen / schneiden / färben / rasieren), unique key \"pflegen\", bilingual hint/explanation and different sibling context. Human linguistic/CEFR review pending."
+        }
+      ]
+    }
+  ]
+}

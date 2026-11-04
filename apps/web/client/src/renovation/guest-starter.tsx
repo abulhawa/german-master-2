@@ -34,6 +34,7 @@ export const GUEST_ATTACHED_KEY = "german-master-v2:guest-attached-v1";
 export const GUEST_DEVICE_KEY = "german-master-v2:guest-device-v1";
 
 import practiceBundle from '../../../../../content/guest/practice.json';
+import {selectGuestQuestions} from './guest-selection';
 import { releaseCapabilities } from './release-capabilities';
 
 export const TEMPORARY_KEY='german-master-v2:temporary-practice';
@@ -615,7 +616,7 @@ export function GuestStarterJourney({
     }
   }
 
-  function begin() {
+  function begin(reviewCurrent=false) {
     if (damaged) return;
     const next = {
       ...state,
@@ -625,9 +626,10 @@ export function GuestStarterJourney({
 
         const available=packs.filter(p=>!topic||p.topicId===topic);
 
-        const questions=available.flatMap(p=>p.session.questions);
-
-        for(let i=questions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[questions[i],questions[j]]=[questions[j],questions[i]];}
+        const eligible=available.flatMap(p=>p.session.questions);
+        const keys=new Set(eligible.map(q=>`${q.exercise.id}@${q.exercise.revision}`));
+        const frozen=reviewCurrent&&state.session?.questions.every(q=>keys.has(`${q.exercise.id}@${q.exercise.revision}`))?state.session.questions:null;
+        const questions=selectGuestQuestions<{id:string;exercise:unknown}>(frozen??eligible);
 
         if(!questions.length)throw Error('No practice available');
 
@@ -729,7 +731,7 @@ export function GuestStarterJourney({
 
           <h2>{c.build}</h2>
           <p className="gm-meta">{c.sessionBody}</p>
-          <FoundationButton className="gm-start-action" disabled={storageError} onClick={() => active ? setView("practice") : begin()}>{active ? c.continueSession : state.session ? c.restart : c.start}<ArrowRight aria-hidden="true"/></FoundationButton>
+          <FoundationButton className="gm-start-action" disabled={storageError} onClick={() => active ? setView("practice") : begin(!!state.session)}>{active ? c.continueSession : state.session ? c.restart : c.start}<ArrowRight aria-hidden="true"/></FoundationButton>
 
           <p className="gm-meta">{state.locale==='de'?'Ohne Konto geht deine Übung beim Verlassen verloren.':'Without an account, leaving practice or closing the app loses your work.'}</p>
 
@@ -739,9 +741,9 @@ export function GuestStarterJourney({
 
         <div className="gm-page-heading"><h1>{c.topics}</h1><p>{state.level} · {learningContext==='work'?(state.locale==='de'?'Deutsch im Beruf':'German for work'):(state.locale==='de'?'Allgemeines Deutsch':'General German')}</p></div>
 
-        {packs.map(pack=><PracticeCard key={pack.topicId}><h2>{pack.title[state.locale]}</h2><FoundationButton onClick={()=>{setTopic(pack.topicId);}} aria-pressed={topic===pack.topicId}>{state.locale==='de'?'Thema auswählen':'Select topic'}</FoundationButton></PracticeCard>)}
+        {Array.from(new Map(packs.map(pack=>[pack.topicId,pack])).values()).map(pack=><PracticeCard key={pack.topicId}><h2>{pack.title[state.locale]}</h2><FoundationButton onClick={()=>{setTopic(pack.topicId);}} aria-pressed={topic===pack.topicId}>{state.locale==='de'?'Thema auswählen':'Select topic'}</FoundationButton></PracticeCard>)}
 
-        <FoundationButton onClick={begin}>{c.start}</FoundationButton>
+        <FoundationButton onClick={()=>begin()}>{c.start}</FoundationButton>
 
       </> : <>
         <div className="gm-page-heading"><h1>{view === 'account' ? c.settings : c[view]}</h1></div>

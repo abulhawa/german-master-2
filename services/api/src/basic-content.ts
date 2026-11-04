@@ -38,7 +38,7 @@ function insert(table:string,columns:string[],values:unknown[]) {
 
 /** Builds an additive draft or content-authorized release, with no connection side effects.
  * Existing revisions and release membership are referenced, never replaced. */
-export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, previousMembers:RuntimeMember[], publication?:BasicPublicationAuthorization, options?: {releaseId:string; prefix:string; topics:typeof topics; topicForTarget:(targetId:string)=>number; learningContext:'work'|'general'; includeTarget?:(targetId:string)=>boolean; kindForTarget?:(targetId:string)=>'lexical'|'grammar'}) {
+export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, previousMembers:RuntimeMember[], publication?:BasicPublicationAuthorization, options?: {releaseId:string; prefix:string; topics:typeof topics; topicForTarget:(targetId:string)=>number; learningContext:'work'|'general'; learningContextForTarget?:(targetId:string)=>'general'|'work'; includeTarget?:(targetId:string)=>boolean; kindForTarget?:(targetId:string)=>'lexical'|'grammar'}) {
   const topicDefs=options?.topics ?? topics;
   const candidateId=options ? (n:number)=>`${options.prefix}-0000-4000-8000-${String(n).padStart(12,'0')}` : id;
   const candidateRelease=options?.releaseId ?? releaseId;
@@ -68,7 +68,7 @@ export function buildBasicCandidate(input:unknown, previous:RuntimeCatalog, prev
     if(!Number.isInteger(topic)||!topicDefs[topic]) throw Error('Invalid explicit topic mapping');
     const kind=options?.kindForTarget?.(target.id) ?? (target.category==='plural'||target.category==='work_vocabulary'?'lexical':'grammar');
     if(target.category==='vocabulary'&&!options?.kindForTarget) throw Error('Vocabulary requires explicit lexical kind');
-    targets.push({id:target.id,topicId,title:target.title,description:target.description,level:target.level,...(options?{learningContext:options.learningContext}:{})});
+    targets.push({id:target.id,topicId,title:target.title,description:target.description,level:target.level,...(options?{learningContext:options.learningContextForTarget?.(target.id)??options.learningContext}:{})});
     sql.push(insert('skill',['id','topic_id','title','parent_id'],[skillId,topicId,target.objective,null]),
       insert('learning_target',['id','skill_id','kind','level','objective','status'],[target.id,skillId,
         kind,target.level,target.objective,targetStatus]));

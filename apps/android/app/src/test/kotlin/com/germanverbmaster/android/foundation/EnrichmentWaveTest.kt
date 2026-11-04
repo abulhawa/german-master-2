@@ -3,6 +3,7 @@ package com.germanverbmaster.android.foundation
 import com.germanverbmaster.android.foundation.contract.*
 import com.germanverbmaster.android.learner.NativeGuestBundle
 import com.germanverbmaster.android.learner.NativeGuestState
+import com.germanverbmaster.android.learner.selectNativeGuestQuestions
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.encodeToJsonElement
 import org.junit.Assert.*
@@ -10,6 +11,17 @@ import org.junit.Test
 
 /** Uses the exact generated shared candidate, without activating production assets. */
 class EnrichmentWaveTest {
+    @Test fun largerLibrarySelectsAtMost125WithoutMutatingTheEligiblePool() {
+        val original=bundle().packs.flatMap {it.session.questions}
+        val eligible=List(400) {original[it % original.size].copy(id=java.util.UUID.randomUUID().toString())}
+        val before=eligible.toList()
+        val selected=selectNativeGuestQuestions(eligible)
+        assertEquals(125,selected.size)
+        assertEquals(125,selected.map {it.id}.toSet().size)
+        assertEquals(before,eligible)
+        assertEquals(77,selectNativeGuestQuestions(eligible.take(77)).size)
+        assertTrue(selectNativeGuestQuestions(emptyList()).isEmpty())
+    }
     private fun bundle() = ContractReader.json.decodeFromString<NativeGuestBundle>(
         requireNotNull(javaClass.classLoader?.getResource("enrichment-wave-1.json")).readText())
 

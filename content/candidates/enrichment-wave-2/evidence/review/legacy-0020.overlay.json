@@ -1,0 +1,93 @@
+{
+  "snapshot": "671e9d19f4f5a61d7916ed96b3b41433b768fd39",
+  "batchId": "legacy-0020",
+  "catalogSha256": "cfd4c0b4d18562a0ab2edd436d95ba70f2fcab47ad35b6ad86e9aac2749cfcba",
+  "active": false,
+  "candidateReady": false,
+  "patches": [
+    {
+      "variantKey": "legacy-0020-L125-v1",
+      "exerciseId": "81000000-0000-4000-8000-000000200140",
+      "expectedPrompt": "Vom Bruttogehalt wurden Steuern und Beiträge abgezogen. Übrig bleiben 2.100 Euro ___.",
+      "proposedPrompt": "Vom Bruttogehalt wurden Steuern und Beiträge abgezogen. Übrig bleiben 2.100 Euro ___.",
+      "proposedCompletedAnswer": "Vom Bruttogehalt wurden Steuern und Beiträge abgezogen. Übrig bleiben 2.100 Euro netto.",
+      "status": "proposed-needs-recheck",
+      "proposedHint": {
+        "en": "For wages, the deductions have already been subtracted. For a price, VAT is not included.",
+        "de": "Beim Lohn sind die Abzüge bereits abgezogen. Bei einem Preis ist die Umsatzsteuer nicht enthalten."
+      }
+    },
+    {
+      "variantKey": "legacy-0020-L125-v2",
+      "exerciseId": "81000000-0000-4000-8000-000000200141",
+      "expectedPrompt": "Auf dem Kassenzettel stehen 50 Euro vor Umsatzsteuer und 59,50 Euro inklusive Steuer. Der Preis von 50 Euro ist ___.",
+      "proposedPrompt": "Auf dem Kassenzettel stehen 50 Euro vor Umsatzsteuer und 59,50 Euro inklusive Steuer. Der Preis von 50 Euro ist ___.",
+      "proposedCompletedAnswer": "Auf dem Kassenzettel stehen 50 Euro vor Umsatzsteuer und 59,50 Euro inklusive Steuer. Der Preis von 50 Euro ist netto.",
+      "status": "proposed-needs-recheck",
+      "proposedHint": {
+        "en": "For wages, the deductions have already been subtracted. For a price, VAT is not included.",
+        "de": "Beim Lohn sind die Abzüge bereits abgezogen. Bei einem Preis ist die Umsatzsteuer nicht enthalten."
+      }
+    },
+    {
+      "variantKey": "legacy-0020-L134-v1",
+      "exerciseId": "81000000-0000-4000-8000-000000200190",
+      "expectedPrompt": "Am Ende des offiziellen Schreibens bedankt sich die Vorsitzende ___ für die Unterstützung.",
+      "proposedPrompt": "Zu Beginn des offiziellen Schreibens hat sich die Vorsitzende bereits bedankt. Am Ende bedankt sie sich ___ für die Unterstützung.",
+      "proposedCompletedAnswer": "Zu Beginn des offiziellen Schreibens hat sich die Vorsitzende bereits bedankt. Am Ende bedankt sie sich nochmals für die Unterstützung.",
+      "status": "proposed-needs-recheck"
+    },
+    {
+      "variantKey": "legacy-0020-L119-v1",
+      "exerciseId": "81000000-0000-4000-8000-000000200100",
+      "expectedPrompt": "Noch ist unklar, ob wir den Anschluss schaffen. ___ verpassen wir den nächsten Zug.",
+      "proposedPrompt": "Noch ist unklar, ob wir den Anschluss schaffen. ___ verpassen wir den nächsten Zug.",
+      "proposedCompletedAnswer": "Noch ist unklar, ob wir den Anschluss schaffen. Möglicherweise verpassen wir den nächsten Zug.",
+      "status": "proposed-needs-recheck",
+      "proposedOptions": [
+        {
+          "id": "0",
+          "text": "Sicher"
+        },
+        {
+          "id": "1",
+          "text": "Garantiert"
+        },
+        {
+          "id": "2",
+          "text": "Möglicherweise"
+        },
+        {
+          "id": "3",
+          "text": "Unmöglich"
+        }
+      ]
+    },
+    {
+      "variantKey": "legacy-0020-L119-v2",
+      "exerciseId": "81000000-0000-4000-8000-000000200101",
+      "expectedPrompt": "Die Ursache ist noch nicht bestätigt. ___ war ein Softwarefehler verantwortlich.",
+      "proposedPrompt": "Die Ursache ist noch nicht bestätigt. ___ war ein Softwarefehler verantwortlich.",
+      "proposedCompletedAnswer": "Die Ursache ist noch nicht bestätigt. Möglicherweise war ein Softwarefehler verantwortlich.",
+      "status": "proposed-needs-recheck",
+      "proposedOptions": [
+        {
+          "id": "0",
+          "text": "Nachweislich"
+        },
+        {
+          "id": "1",
+          "text": "Zweifellos"
+        },
+        {
+          "id": "2",
+          "text": "Definitiv"
+        },
+        {
+          "id": "3",
+          "text": "Möglicherweise"
+        }
+      ]
+    }
+  ]
+}

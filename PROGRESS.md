@@ -1,5 +1,51 @@
 # German Master 2.0 current checkpoint
 
+## Full reviewed dataset activation — 4 November 2026 (in progress)
+
+The expansion accounts for all 2,588 reviewed questions: 22 already live, 2,466
+additional eligible questions, 100 excluded in 50 whole targets with unresolved
+material defects. Applies 91 exact semantic-rechecked corrections, retains optional
+suggestions as reviewed and freezes all 78 source/findings sets without touching
+the independent review branch. Explicit Work remains 54 gated questions; other
+General pools have 1,283 B1 / 1,276 B2 questions. POS supplies topics, lexical
+kind is explicit and three connectors grammar objectives retain grammar kind.
+
+Both clients select at most 125 from the whole eligible library and preserve the
+frozen set for explicit review. Pack pages are bounded separately and topic lists
+deduplicate pages. The contract bound is unchanged; source authoring flags and
+exercise identities remain frozen. Shared catalog/bundle select the new 2,613-
+member release locally. Full candidate database/manifest/grade/adoption acceptance
+passed; type/generated checks and browser cold-start fixture passed. Larger product
+asset is precached under an explicit 12 MiB asset limit (not a session limit).
+Full local/native/hosted checks and live import/deployment are in progress.
+
+Next: finish checks, commit/push expansion PR; after green checks, import the
+additive immutable content while old selection stays live, verify every actual
+runtime row/digest, merge the exact checked activation, observe Vercel READY and
+test new production topic/125-item rounds, offline reload, grade and continuation.
+No staging, service pause, billing, archive deletion or Play release. The earlier
+22-question wave remains the current live selection until this expansion deploys.
+
+## First enrichment wave live; expanding reviewed pool — 4 November 2026
+
+PR #30 is merged at main `14b2ae0b`; Vercel production
+`dpl_CMUP8gvk3MJ3rwaTZGEC6jvTsJud` is READY. Atomic additive import on clean
+project `sqgjsmiaprsuilcjmaav` verified all 147 expected rows and preserved all
+old members before commit. New B1/B2 guest topic, draft/feedback reload, grading,
+Continue and API 401 protection passed on the actual production domain in fresh
+contexts. See `docs/operations/enrichment-wave-1-production-2026-11-04.md` for the
+exact evidence/limits and rollback target. No other service, billing, learner
+data, existing revision, schema or Play operation was changed.
+
+Owner challenges the small wave: 2,588 reviewed questions must not be confused
+with 22 shipped. The 125 bound is per saved round, not per library. Follow-up
+branch `release/enrichment-reviewed-expansion-2026-11-04` adds equivalent shuffled
+selection of at most 125 questions on web/native, retaining full eligible pools
+and frozen round state. Next prepare the larger hash-bound reviewed subset,
+apply only exact rechecked material corrections and exclude unresolved defects;
+map lexical POS/topics and context explicitly, and release after checks under
+the direct-production authorization. Keep the independent reviewer untouched.
+
 ## Direct production enrichment activation — 4 November 2026 (in progress)
 
 Owner explicitly supersedes staging: "no staging, directly to production".

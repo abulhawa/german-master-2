@@ -9,7 +9,7 @@ export default defineConfig({
   root:fromHere('./learner-product'),base:'/',publicDir:fromHere('./learner-product/public'),
   plugins:[react(),VitePWA({scope:'/',registerType:'prompt',injectRegister:false,manifest:false,
     strategies:'injectManifest',srcDir:'.',filename:'sw.ts',
-    injectManifest:{globPatterns:['**/*.{js,css,html,svg,png,webmanifest}']}})],
+    injectManifest:{globPatterns:['**/*.{js,css,html,svg,png,webmanifest}'],maximumFileSizeToCacheInBytes:12*1024*1024}})],
   resolve:{alias:{'@':fromHere('./client/src')}},
   build:{outDir:fromHere('./dist/learner-product'),emptyOutDir:true},
   preview:{host:'127.0.0.1',port:5012,strictPort:true},

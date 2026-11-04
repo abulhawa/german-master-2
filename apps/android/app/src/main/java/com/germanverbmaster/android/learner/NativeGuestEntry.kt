@@ -28,6 +28,13 @@ data class GuestStarterContent(val session:Session,val suggestions:Map<String,Ma
 data class NativeGuestPack(val level:String,val learningContext:String,val topicId:String,val title:LocalizedText,val session:Session,val rubrics:List<OfflineRubric>,val suggestions:Map<String,Map<String,List<String>>>)
 @Serializable
 data class NativeGuestBundle(val packs:List<NativeGuestPack>)
+
+/** One saved round is bounded; the eligible published library may be much larger. */
+internal fun selectNativeGuestQuestions(eligible:List<Question>,review:List<Question>?=null):List<Question> {
+    val keys=eligible.map {it.exercise.id to it.exercise.revision}.toSet()
+    val source=review?.takeIf {round -> round.all {(it.exercise.id to it.exercise.revision) in keys}} ?: eligible
+    return source.shuffled().take(125).map {it.copy(id=UUID.randomUUID().toString())}
+}
 @Serializable
 data class NativeGuestState(val version:Int=1,val started:Boolean=false,val index:Int=0,val draft:Answer?=null,val order:List<String> = emptyList(),
     val feedback:Evaluation?=null,val graded:Int=0,val correct:Int=0,val assisted:Boolean=false,
@@ -92,11 +99,11 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
     }
     val active=state.started && state.index<content.session.questions.size
     val focused=screen=="practice"
-    fun start() {
+    fun start(reviewCurrent:Boolean=false) {
         if(loaded.isFailure)return
         if(active) { screen="practice";closing=false;return }
         val available=packs.filter {selectedTopic==null || it.topicId==selectedTopic}
-        val questions=available.flatMap {it.session.questions}.shuffled().map {it.copy(id=UUID.randomUUID().toString())}
+        val questions=selectNativeGuestQuestions(available.flatMap {it.session.questions},if(reviewCurrent)state.session?.questions else null)
         if(questions.isNotEmpty() && commit(NativeGuestState(started=true,session=available.first().session.copy(id=UUID.randomUUID().toString(),questions=questions)))) {closing=false;screen="practice"}
     }
     val startLabel=when {
@@ -146,7 +153,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                         StudyEyebrow(level+text(" · "," · ")+if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch"))
                         Text(text("Build your foundations","Festige deine Grundlagen"),style=MaterialTheme.typography.titleLarge)
                         Text(text("Articles, plurals and the patterns that hold a sentence together.","Artikel, Pluralformen und die Muster, die einen Satz zusammenhalten."),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
-                        primary(startLabel,loaded.isSuccess){start()}
+                        primary(startLabel,loaded.isSuccess){start(state.started)}
                         Text(text("Without an account, leaving practice or closing the app loses your work.","Ohne Konto geht deine Übung beim Verlassen oder Schließen der App verloren."),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                     Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
@@ -157,7 +164,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                 }
                 "topics" -> {
                     StudyPageTitle(text("Topics","Themen"))
-                    packs.forEach {pack -> OutlinedButton(onClick={selectedTopic=pack.topicId}){Text((if(selectedTopic==pack.topicId)"* " else "")+(if(german)pack.title.de else pack.title.en))} }
+                    packs.distinctBy {it.topicId}.forEach {pack -> OutlinedButton(onClick={selectedTopic=pack.topicId}){Text((if(selectedTopic==pack.topicId)"* " else "")+(if(german)pack.title.de else pack.title.en))} }
                     primary(text("Start practice","Übung starten"),loaded.isSuccess){start()}
                 }
                 "progress","account","downloads" -> {

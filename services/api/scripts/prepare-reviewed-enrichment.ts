@@ -85,10 +85,8 @@ export async function prepareReviewedEnrichment() {
   const previousMembers=await runtimeMembers(db,previous.releaseId);
   const candidate=buildBasicCandidate(input,previous,previousMembers,{contentHash:basicContentHash(input,previous),authorizedBy:'Owner direction 2026-11-04',authorizedAt:'2026-11-04T11:00:00Z',authorization:'Reviewed = editorially approved; incremental release subject to technical gates. See enrichment-reviewed-release.md.',independentReview:'pending'},
    {releaseId:'90000000-0000-4000-8000-000000000001',prefix:'90000000',learningContext:'general',topics:[{key:'everyday-vocabulary',title:{en:'Everyday vocabulary',de:'Wortschatz im Alltag'}}],topicForTarget:()=>0,kindForTarget:()=> 'lexical',includeTarget:id=>selectedIds.has(id)});
-  const bundle=local('content/guest/practice.json');
-  // Regenerate identically before and after activation; reject an unrelated base.
-  bundle.packs=bundle.packs.filter((p:any)=>p.topicId!=='90000000-0000-4000-8000-000000000600');
-  for(const pack of bundle.packs)if(pack.learningContext==='general')pack.session.contentReleaseId=previous.releaseId;
+  // Independent of later active bundles; retain this exact pre-wave input forever.
+  const bundle=local('content/candidates/enrichment-wave-1/previous-offline.json');
   require(sha(JSON.stringify(bundle,null,2)+'\n')==='058254350463ab99270884335cd93a59e2782ff5d43100c0fb6292734bbab9c1','Offline base changed since this wave was prepared');
   for(const level of ['B1','B2']){
    const rows=candidate.members.filter(m=>selectedIds.has(m.target_id)&&m.level===level);

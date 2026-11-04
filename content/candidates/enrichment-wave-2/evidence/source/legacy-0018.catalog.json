@@ -1,0 +1,2551 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000001800",
+      "title": {
+        "en": "Begin a new position",
+        "de": "Eine Stelle antreten"
+      },
+      "description": {
+        "en": "Antreten can mean formally starting a position or duty.",
+        "de": "Antreten bedeutet hier, eine neue Stelle oder einen Dienst zu beginnen."
+      },
+      "objective": "Recognize eine Stelle oder einen Dienst antreten as starting an agreed job or duty.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L76 (738625930fca55ff51ec50eac3f362fa059566fdfe35fe2773630428f9c303bd), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L76-v1",
+          "contextKey": "legacy-0018-L76-context-1",
+          "transferKey": "legacy-0018-L76-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001800",
+            "type": "choice",
+            "prompt": "Nach der Vertragsunterzeichnung wird Farah am 1. November ihre neue Stelle ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is starting the job after signing the contract.",
+              "de": "Die Person beginnt die vereinbarte Arbeit nach Vertragsabschluss."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "antreten"
+              },
+              {
+                "id": "1",
+                "text": "absagen"
+              },
+              {
+                "id": "2",
+                "text": "bewerben"
+              },
+              {
+                "id": "3",
+                "text": "kündigen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Eine Stelle antreten means to start a position; seinen Dienst antreten means to report for duty.",
+              "de": "Eine Stelle antreten bedeutet, eine Beschäftigung zu beginnen; den Dienst antreten heißt, den Dienst aufzunehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Vertragsunterzeichnung wird Farah am 1. November ihre neue Stelle antreten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (absagen, bewerben, kündigen). Only antreten expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L76-v2",
+          "contextKey": "legacy-0018-L76-context-2",
+          "transferKey": "legacy-0018-L76-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001800",
+            "type": "gap_choice",
+            "prompt": "Der Vertrag ist unterschrieben. Am Montag ___ Lukas seinen Dienst in der Klinik an.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is starting the job after signing the contract.",
+              "de": "Die Person beginnt die vereinbarte Arbeit nach Vertragsabschluss."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "stellt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gibt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "tritt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zieht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eine Stelle antreten means to start a position; seinen Dienst antreten means to report for duty.",
+              "de": "Eine Stelle antreten bedeutet, eine Beschäftigung zu beginnen; den Dienst antreten heißt, den Dienst aufzunehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Vertrag ist unterschrieben. Am Montag tritt Lukas seinen Dienst in der Klinik an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (stellt, gibt, zieht). Only tritt expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001801",
+      "title": {
+        "en": "Apply a method",
+        "de": "Eine Methode anwenden"
+      },
+      "description": {
+        "en": "Anwenden means to apply an established procedure or method.",
+        "de": "Anwenden bedeutet, ein Verfahren oder eine Methode praktisch einzusetzen."
+      },
+      "objective": "Use anwenden for putting a method, rule or procedure into practice.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L78 (f8c286d0592ba80a480c834ee2725c7f4f346fcf3860184f5e823eead2ac35a9), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L78-v1",
+          "contextKey": "legacy-0018-L78-context-1",
+          "transferKey": "legacy-0018-L78-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001801",
+            "type": "choice",
+            "prompt": "Das Labor hat ein neues Prüfverfahren entwickelt. Ab morgen wird es diese Methode ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The procedure is being used in practice, not invented.",
+              "de": "Das Verfahren wird praktisch eingesetzt und nicht erst erfunden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "erfinden"
+              },
+              {
+                "id": "1",
+                "text": "anwenden"
+              },
+              {
+                "id": "2",
+                "text": "ablehnen"
+              },
+              {
+                "id": "3",
+                "text": "verlieren"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Anwenden means to apply a method; in a main clause the prefix an separates.",
+              "de": "Anwenden heißt, eine Methode einzusetzen; im Hauptsatz steht an am Satzende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Labor hat ein neues Prüfverfahren entwickelt. Ab morgen wird es diese Methode anwenden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (erfinden, ablehnen, verlieren). Only anwenden expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L78-v2",
+          "contextKey": "legacy-0018-L78-context-2",
+          "transferKey": "legacy-0018-L78-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001801",
+            "type": "gap_choice",
+            "prompt": "Bei der Auswertung ___ die Forschenden dieselbe Formel auf alle Messreihen an.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The procedure is being used in practice, not invented.",
+              "de": "Das Verfahren wird praktisch eingesetzt und nicht erst erfunden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "geben"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wenden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "stellen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "sehen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anwenden means to apply a method; in a main clause the prefix an separates.",
+              "de": "Anwenden heißt, eine Methode einzusetzen; im Hauptsatz steht an am Satzende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Auswertung wenden die Forschenden dieselbe Formel auf alle Messreihen an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (geben, stellen, sehen). Only wenden expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001802",
+      "title": {
+        "en": "Display a measured value",
+        "de": "Anzeigen: Messwerte darstellen"
+      },
+      "description": {
+        "en": "Anzeigen can mean showing a measured value on a device or screen.",
+        "de": "Anzeigen kann bedeuten, einen Messwert oder eine Information auf einem Display darzustellen."
+      },
+      "objective": "Recognize anzeigen as showing a value or information on a display.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L79 (e741292f5fe328ec306ae6c7cbb96b5d4a66820854da0ce0505584e84159df5f), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L79-v1",
+          "contextKey": "legacy-0018-L79-context-1",
+          "transferKey": "legacy-0018-L79-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001802",
+            "type": "choice",
+            "prompt": "Das Thermometer ___ 22 Grad an.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The device shows a measurement or a value on screen.",
+              "de": "Das Gerät stellt einen Messwert auf dem Bildschirm dar."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "fragt"
+              },
+              {
+                "id": "1",
+                "text": "zeigt"
+              },
+              {
+                "id": "2",
+                "text": "stellt"
+              },
+              {
+                "id": "3",
+                "text": "holt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Anzeigen means display here; the verb can also mean report to authorities in a different context.",
+              "de": "Anzeigen bedeutet hier darstellen; in anderem Kontext kann es auch melden oder zur Anzeige bringen heißen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Thermometer zeigt 22 Grad an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (fragt, stellt, holt). Only zeigt expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L79-v2",
+          "contextKey": "legacy-0018-L79-context-2",
+          "transferKey": "legacy-0018-L79-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001802",
+            "type": "gap_choice",
+            "prompt": "Auf dem Bildschirm wird die verbleibende Ladezeit ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The device shows a measurement or a value on screen.",
+              "de": "Das Gerät stellt einen Messwert auf dem Bildschirm dar."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "beantragt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abgeholt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "angezeigt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufgehoben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anzeigen means display here; the verb can also mean report to authorities in a different context.",
+              "de": "Anzeigen bedeutet hier darstellen; in anderem Kontext kann es auch melden oder zur Anzeige bringen heißen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Bildschirm wird die verbleibende Ladezeit angezeigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (beantragt, abgeholt, aufgehoben). Only angezeigt expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001804",
+      "title": {
+        "en": "Build a network",
+        "de": "Ein Netzwerk aufbauen"
+      },
+      "description": {
+        "en": "Aufbauen means to create and develop something over time.",
+        "de": "Aufbauen bedeutet, etwas schrittweise zu schaffen und weiterzuentwickeln."
+      },
+      "objective": "Use aufbauen for gradually establishing a network, relationship or structure.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L85 (fab85c15709777ca743fecc37be69e83dc3bd4c44134c73e68724dd7d6bc2b76), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L85-v1",
+          "contextKey": "legacy-0018-L85-context-1",
+          "transferKey": "legacy-0018-L85-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001804",
+            "type": "choice",
+            "prompt": "Das Start-up möchte langfristige Beziehungen zu Lieferanten ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The aim is to create and strengthen something over time.",
+              "de": "Es soll etwas entstehen und langfristig wachsen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abbauen"
+              },
+              {
+                "id": "1",
+                "text": "kündigen"
+              },
+              {
+                "id": "2",
+                "text": "aufbauen"
+              },
+              {
+                "id": "3",
+                "text": "verpassen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Aufbauen describes establishing or developing a network or relationships.",
+              "de": "Aufbauen bezeichnet das Errichten oder Entwickeln eines Netzwerks oder von Beziehungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Start-up möchte langfristige Beziehungen zu Lieferanten aufbauen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (abbauen, kündigen, verpassen). Only aufbauen expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L85-v2",
+          "contextKey": "legacy-0018-L85-context-2",
+          "transferKey": "legacy-0018-L85-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001804",
+            "type": "gap_choice",
+            "prompt": "Die Gemeinde ___ in den nächsten Jahren ein Netzwerk freiwilliger Helfer auf.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The aim is to create and strengthen something over time.",
+              "de": "Es soll etwas entstehen und langfristig wachsen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "räumt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "baut"
+                  },
+                  {
+                    "id": "2",
+                    "text": "nimmt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zieht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aufbauen describes establishing or developing a network or relationships.",
+              "de": "Aufbauen bezeichnet das Errichten oder Entwickeln eines Netzwerks oder von Beziehungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gemeinde baut in den nächsten Jahren ein Netzwerk freiwilliger Helfer auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (räumt, nimmt, zieht). Only baut expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001805",
+      "title": {
+        "en": "Become noticeable",
+        "de": "Auffallen: bemerkt werden"
+      },
+      "description": {
+        "en": "Auffallen means to attract attention or be noticeable.",
+        "de": "Auffallen bedeutet, Aufmerksamkeit zu erregen oder bemerkt zu werden."
+      },
+      "objective": "Recognize auffallen as being conspicuous or noticed.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L86 (1e6034c0538b87310f0a8de0c8a7978de824daed7616a30dd0fc011ff8c62ddd), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L86-v1",
+          "contextKey": "legacy-0018-L86-context-1",
+          "transferKey": "legacy-0018-L86-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001805",
+            "type": "choice",
+            "prompt": "Alle Berichte haben dieselbe Schriftart. Nur der letzte ist knallrot und ___ sofort auf.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something is unusually noticeable compared with the others.",
+              "de": "Etwas wird wegen eines Unterschieds besonders bemerkt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "stellt"
+              },
+              {
+                "id": "1",
+                "text": "hört"
+              },
+              {
+                "id": "2",
+                "text": "fällt"
+              },
+              {
+                "id": "3",
+                "text": "hält"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Auffallen means to stand out; the perfect tense uses ist aufgefallen.",
+              "de": "Auffallen heißt, bemerkt zu werden; das Perfekt lautet ist aufgefallen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Alle Berichte haben dieselbe Schriftart. Nur der letzte ist knallrot und fällt sofort auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (stellt, hört, hält). Only fällt expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L86-v2",
+          "contextKey": "legacy-0018-L86-context-2",
+          "transferKey": "legacy-0018-L86-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001805",
+            "type": "gap_choice",
+            "prompt": "Die ungewöhnlich hohe Rechnung ist der Buchhalterin sofort ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something is unusually noticeable compared with the others.",
+              "de": "Etwas wird wegen eines Unterschieds besonders bemerkt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aufgestanden"
+                  },
+                  {
+                    "id": "1",
+                    "text": "aufgebaut"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufgelistet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufgefallen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Auffallen means to stand out; the perfect tense uses ist aufgefallen.",
+              "de": "Auffallen heißt, bemerkt zu werden; das Perfekt lautet ist aufgefallen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die ungewöhnlich hohe Rechnung ist der Buchhalterin sofort aufgefallen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufgestanden, aufgebaut, aufgelistet). Only aufgefallen expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001806",
+      "title": {
+        "en": "Request an action formally",
+        "de": "Zu etwas auffordern"
+      },
+      "description": {
+        "en": "Auffordern asks or instructs someone to perform a specific action.",
+        "de": "Auffordern bedeutet, jemanden ausdrücklich zu einer Handlung zu bewegen."
+      },
+      "objective": "Use jemanden auffordern, etwas zu tun for a direct request or instruction to act.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L87 (1e9a6ecab2a3ecb7301fc29bb17e7d37ca452069c68d78d5fc04bd632b907f2f), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L87-v1",
+          "contextKey": "legacy-0018-L87-context-1",
+          "transferKey": "legacy-0018-L87-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001806",
+            "type": "choice",
+            "prompt": "Die Behörde hat den Antragsteller schriftlich ___, die fehlenden Unterlagen nachzureichen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An authority or chairperson explicitly asks someone to act.",
+              "de": "Eine zuständige Person fordert eine bestimmte Handlung ausdrücklich."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufgehoben"
+              },
+              {
+                "id": "1",
+                "text": "aufgeführt"
+              },
+              {
+                "id": "2",
+                "text": "aufgefordert"
+              },
+              {
+                "id": "3",
+                "text": "aufgeladen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Auffordern is a direct request or instruction, often with an infinitive clause or dazu.",
+              "de": "Auffordern ist eine ausdrückliche Bitte oder Weisung, oft mit Infinitivgruppe oder dazu."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Behörde hat den Antragsteller schriftlich aufgefordert, die fehlenden Unterlagen nachzureichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufgehoben, aufgeführt, aufgeladen). Only aufgefordert expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L87-v2",
+          "contextKey": "legacy-0018-L87-context-2",
+          "transferKey": "legacy-0018-L87-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001806",
+            "type": "gap_choice",
+            "prompt": "Der Vorsitzende ___ die Teilnehmenden dazu auf, ihre Fragen bis Freitag einzureichen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An authority or chairperson explicitly asks someone to act.",
+              "de": "Eine zuständige Person fordert eine bestimmte Handlung ausdrücklich."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "stellt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "zieht"
+                  },
+                  {
+                    "id": "2",
+                    "text": "fordert"
+                  },
+                  {
+                    "id": "3",
+                    "text": "führt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Auffordern is a direct request or instruction, often with an infinitive clause or dazu.",
+              "de": "Auffordern ist eine ausdrückliche Bitte oder Weisung, oft mit Infinitivgruppe oder dazu."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Vorsitzende fordert die Teilnehmenden dazu auf, ihre Fragen bis Freitag einzureichen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (stellt, zieht, führt). Only fordert expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001807",
+      "title": {
+        "en": "Perform a stage work",
+        "de": "Ein Stück aufführen"
+      },
+      "description": {
+        "en": "Aufführen means presenting a performance before an audience.",
+        "de": "Aufführen bedeutet, ein Theaterstück oder Musikwerk vor Publikum darzubieten."
+      },
+      "objective": "Recognize aufführen as staging or performing a play or musical work.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L88 (8fb611ebb7159137b2478c08b85646b68c9c646e41dd76183c08e93f34758fec), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L88-v1",
+          "contextKey": "legacy-0018-L88-context-1",
+          "transferKey": "legacy-0018-L88-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001807",
+            "type": "choice",
+            "prompt": "Die Theatergruppe wird das neue Stück am Samstag ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A group presents an artistic work to an audience.",
+              "de": "Eine Gruppe bringt ein künstlerisches Werk vor Publikum auf die Bühne."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufheben"
+              },
+              {
+                "id": "1",
+                "text": "aufgeben"
+              },
+              {
+                "id": "2",
+                "text": "aufführen"
+              },
+              {
+                "id": "3",
+                "text": "aufhalten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Aufführen means to perform a work on stage; it can also mean list in other contexts.",
+              "de": "Aufführen bedeutet hier auf der Bühne darbieten; in anderem Kontext kann es auflisten heißen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Theatergruppe wird das neue Stück am Samstag aufführen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufheben, aufgeben, aufhalten). Only aufführen expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L88-v2",
+          "contextKey": "legacy-0018-L88-context-2",
+          "transferKey": "legacy-0018-L88-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001807",
+            "type": "gap_choice",
+            "prompt": "Zum Jubiläum ___ das Orchester eine Komposition der Gründerin auf.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A group presents an artistic work to an audience.",
+              "de": "Eine Gruppe bringt ein künstlerisches Werk vor Publikum auf die Bühne."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "stellt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "hebt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "führt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gibt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aufführen means to perform a work on stage; it can also mean list in other contexts.",
+              "de": "Aufführen bedeutet hier auf der Bühne darbieten; in anderem Kontext kann es auflisten heißen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zum Jubiläum führt das Orchester eine Komposition der Gründerin auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (stellt, hebt, gibt). Only führt expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001808",
+      "title": {
+        "en": "Stop trying",
+        "de": "Aufgeben: einen Versuch beenden"
+      },
+      "description": {
+        "en": "Aufgeben can mean giving up an attempt after difficulty.",
+        "de": "Aufgeben kann bedeuten, einen Versuch oder eine Bemühung nicht fortzusetzen."
+      },
+      "objective": "Recognize aufgeben as ceasing an attempt or abandoning an effort.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L89 (cddd2255d0a1e3d6a06a2602bc26911f35c2e3960c835d4fde594dc30d2e3e7c), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L89-v1",
+          "contextKey": "legacy-0018-L89-context-1",
+          "transferKey": "legacy-0018-L89-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001808",
+            "type": "choice",
+            "prompt": "Nach zehn Versuchen gelang die Reparatur immer noch nicht. Trotzdem wollte Nina nicht ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person stops or considers stopping an effort.",
+              "de": "Eine Person beendet oder erwägt, ihre Bemühungen zu beenden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufheben"
+              },
+              {
+                "id": "1",
+                "text": "aufbauen"
+              },
+              {
+                "id": "2",
+                "text": "aufhalten"
+              },
+              {
+                "id": "3",
+                "text": "aufgeben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Aufgeben means to give up an attempt; the past participle is aufgegeben.",
+              "de": "Aufgeben bedeutet hier, einen Versuch abzubrechen; das Partizip II ist aufgegeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach zehn Versuchen gelang die Reparatur immer noch nicht. Trotzdem wollte Nina nicht aufgeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufheben, aufbauen, aufhalten). Only aufgeben expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L89-v2",
+          "contextKey": "legacy-0018-L89-context-2",
+          "transferKey": "legacy-0018-L89-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001808",
+            "type": "gap_choice",
+            "prompt": "Er hat monatelang nach seiner Katze gesucht, aber schließlich die Suche ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person stops or considers stopping an effort.",
+              "de": "Eine Person beendet oder erwägt, ihre Bemühungen zu beenden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aufgebaut"
+                  },
+                  {
+                    "id": "1",
+                    "text": "aufgeladen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufgegeben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufgeführt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aufgeben means to give up an attempt; the past participle is aufgegeben.",
+              "de": "Aufgeben bedeutet hier, einen Versuch abzubrechen; das Partizip II ist aufgegeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er hat monatelang nach seiner Katze gesucht, aber schließlich die Suche aufgegeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufgebaut, aufgeladen, aufgeführt). Only aufgegeben expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001809",
+      "title": {
+        "en": "Cause a delay",
+        "de": "Aufhalten: verzögern"
+      },
+      "description": {
+        "en": "Aufhalten can mean making someone or something take longer.",
+        "de": "Aufhalten kann bedeuten, jemanden oder einen Ablauf zu verzögern."
+      },
+      "objective": "Recognize aufhalten as delaying a person or process.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L90 (e735606fc9931349da045efb5d751159f9ade6a5ffc4be153055a910b13c0c54), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L90-v1",
+          "contextKey": "legacy-0018-L90-context-1",
+          "transferKey": "legacy-0018-L90-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001809",
+            "type": "choice",
+            "prompt": "Ein Unfall auf der Autobahn hat uns zwei Stunden ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The event causes an unwanted delay.",
+              "de": "Ein Ereignis führt zu einer unerwünschten Verzögerung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufgeladen"
+              },
+              {
+                "id": "1",
+                "text": "aufgeführt"
+              },
+              {
+                "id": "2",
+                "text": "aufgehalten"
+              },
+              {
+                "id": "3",
+                "text": "aufgehoben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Aufhalten means delay or hold up in these contexts.",
+              "de": "Aufhalten bedeutet hier, jemanden oder einen Vorgang zu verzögern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Unfall auf der Autobahn hat uns zwei Stunden aufgehalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufgeladen, aufgeführt, aufgehoben). Only aufgehalten expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L90-v2",
+          "contextKey": "legacy-0018-L90-context-2",
+          "transferKey": "legacy-0018-L90-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001809",
+            "type": "gap_choice",
+            "prompt": "Die vielen Rückfragen haben die Fertigstellung des Berichts erheblich ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The event causes an unwanted delay.",
+              "de": "Ein Ereignis führt zu einer unerwünschten Verzögerung."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aufgebaut"
+                  },
+                  {
+                    "id": "1",
+                    "text": "aufgehalten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufgeladen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufgeführt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aufhalten means delay or hold up in these contexts.",
+              "de": "Aufhalten bedeutet hier, jemanden oder einen Vorgang zu verzögern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die vielen Rückfragen haben die Fertigstellung des Berichts erheblich aufgehalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufgebaut, aufgeladen, aufgeführt). Only aufgehalten expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001810",
+      "title": {
+        "en": "Pick something up",
+        "de": "Aufheben: vom Boden aufnehmen"
+      },
+      "description": {
+        "en": "Aufheben means lifting an object that has fallen or is lying on the ground.",
+        "de": "Aufheben bedeutet hier, einen Gegenstand vom Boden hochzunehmen."
+      },
+      "objective": "Use aufheben for picking an object up from the floor.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L91 (065dfdaffdfd37572952c494583c52861e4b9dbe665d3e5c3e74d64eb1c82cce), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L91-v1",
+          "contextKey": "legacy-0018-L91-context-1",
+          "transferKey": "legacy-0018-L91-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001810",
+            "type": "choice",
+            "prompt": "Die Schlüssel liegen auf dem Boden. Kannst du sie bitte ___?",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An object has fallen and needs to be lifted from the floor.",
+              "de": "Ein Gegenstand liegt auf dem Boden und soll hochgenommen werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufgeben"
+              },
+              {
+                "id": "1",
+                "text": "aufbauen"
+              },
+              {
+                "id": "2",
+                "text": "aufheben"
+              },
+              {
+                "id": "3",
+                "text": "auflösen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Aufheben means to pick up here; it has other senses such as keep or abolish.",
+              "de": "Aufheben bedeutet hier hochnehmen; es kann auch aufbewahren oder abschaffen bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schlüssel liegen auf dem Boden. Kannst du sie bitte aufheben?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufgeben, aufbauen, auflösen). Only aufheben expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L91-v2",
+          "contextKey": "legacy-0018-L91-context-2",
+          "transferKey": "legacy-0018-L91-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001810",
+            "type": "gap_choice",
+            "prompt": "Das Kind ließ den Stift fallen und ___ ihn sofort wieder auf.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An object has fallen and needs to be lifted from the floor.",
+              "de": "Ein Gegenstand liegt auf dem Boden und soll hochgenommen werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "fand"
+                  },
+                  {
+                    "id": "1",
+                    "text": "hob"
+                  },
+                  {
+                    "id": "2",
+                    "text": "fragte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "las"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aufheben means to pick up here; it has other senses such as keep or abolish.",
+              "de": "Aufheben bedeutet hier hochnehmen; es kann auch aufbewahren oder abschaffen bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Kind ließ den Stift fallen und hob ihn sofort wieder auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (fand, fragte, las). Only hob expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001811",
+      "title": {
+        "en": "Inform someone about risks",
+        "de": "Über Risiken aufklären"
+      },
+      "description": {
+        "en": "Aufklären can mean giving someone clear information about risks or facts.",
+        "de": "Aufklären bedeutet hier, jemanden verständlich über Tatsachen oder Risiken zu informieren."
+      },
+      "objective": "Use jemanden über etwas aufklären for explaining important facts or risks.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L93 (7f53f8d5a9c8a22425bd4a00d793917000e18a6e1a938d5c6d5d529d4c5b35ed), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L93-v1",
+          "contextKey": "legacy-0018-L93-context-1",
+          "transferKey": "legacy-0018-L93-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001811",
+            "type": "choice",
+            "prompt": "Vor dem Eingriff muss die Ärztin den Patienten über mögliche Risiken ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is given information needed to understand risks.",
+              "de": "Eine Person wird über wichtige Risiken und Tatsachen informiert."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufladen"
+              },
+              {
+                "id": "1",
+                "text": "aufhalten"
+              },
+              {
+                "id": "2",
+                "text": "aufbauen"
+              },
+              {
+                "id": "3",
+                "text": "aufklären"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Aufklären means inform or explain in this context, especially with über.",
+              "de": "Aufklären heißt hier informieren, häufig in der Verbindung jemanden über etwas aufklären."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Eingriff muss die Ärztin den Patienten über mögliche Risiken aufklären.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufladen, aufhalten, aufbauen). Only aufklären expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L93-v2",
+          "contextKey": "legacy-0018-L93-context-2",
+          "transferKey": "legacy-0018-L93-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001811",
+            "type": "gap_choice",
+            "prompt": "Die Beratungsstelle ___ Jugendliche über Betrugsmaschen im Internet auf.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person is given information needed to understand risks.",
+              "de": "Eine Person wird über wichtige Risiken und Tatsachen informiert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "lädt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "hält"
+                  },
+                  {
+                    "id": "2",
+                    "text": "klärt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "führt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aufklären means inform or explain in this context, especially with über.",
+              "de": "Aufklären heißt hier informieren, häufig in der Verbindung jemanden über etwas aufklären."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Beratungsstelle klärt Jugendliche über Betrugsmaschen im Internet auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (lädt, hält, führt). Only klärt expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001812",
+      "title": {
+        "en": "Charge a battery",
+        "de": "Einen Akku aufladen"
+      },
+      "description": {
+        "en": "Aufladen means restoring electrical energy to a battery.",
+        "de": "Aufladen bedeutet, einen Akku mit elektrischer Energie zu versorgen."
+      },
+      "objective": "Recognize aufladen as charging an electrical battery.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L94 (5d5bebeea8924fe564ba0812349d2b7999b1bca11eb3a7182cc6695ffd3691c2), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L94-v1",
+          "contextKey": "legacy-0018-L94-context-1",
+          "transferKey": "legacy-0018-L94-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001812",
+            "type": "choice",
+            "prompt": "Der Akku ist fast leer. Ich muss mein Telefon ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The device needs electrical energy before use.",
+              "de": "Das Gerät benötigt vor der Benutzung elektrische Energie."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufheben"
+              },
+              {
+                "id": "1",
+                "text": "aufhalten"
+              },
+              {
+                "id": "2",
+                "text": "aufladen"
+              },
+              {
+                "id": "3",
+                "text": "aufgeben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Aufladen means to charge a battery; in a main clause auf separates.",
+              "de": "Aufladen bedeutet einen Akku laden; im Hauptsatz steht auf getrennt am Ende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Akku ist fast leer. Ich muss mein Telefon aufladen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufheben, aufhalten, aufgeben). Only aufladen expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L94-v2",
+          "contextKey": "legacy-0018-L94-context-2",
+          "transferKey": "legacy-0018-L94-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001812",
+            "type": "gap_choice",
+            "prompt": "Bevor das Messgerät morgen benutzt wird, ___ die Technikerin seinen Akku vollständig auf.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The device needs electrical energy before use.",
+              "de": "Das Gerät benötigt vor der Benutzung elektrische Energie."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "hebt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "baut"
+                  },
+                  {
+                    "id": "2",
+                    "text": "lädt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "führt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aufladen means to charge a battery; in a main clause auf separates.",
+              "de": "Aufladen bedeutet einen Akku laden; im Hauptsatz steht auf getrennt am Ende."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bevor das Messgerät morgen benutzt wird, lädt die Technikerin seinen Akku vollständig auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (hebt, baut, führt). Only lädt expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001813",
+      "title": {
+        "en": "List items systematically",
+        "de": "Auflisten: einzeln nennen"
+      },
+      "description": {
+        "en": "Auflisten means writing or naming items one by one.",
+        "de": "Auflisten bedeutet, einzelne Punkte übersichtlich nacheinander zu nennen."
+      },
+      "objective": "Use auflisten for enumerating items clearly, often in a document.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L95 (867a46d4ec51a4683ce049c691816c2723e257db5bc7f7cdfceda3da547020cf), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L95-v1",
+          "contextKey": "legacy-0018-L95-context-1",
+          "transferKey": "legacy-0018-L95-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001813",
+            "type": "choice",
+            "prompt": "Für die Abrechnung müssen wir sämtliche Ausgaben einzeln ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The items must be named individually in an ordered list.",
+              "de": "Die einzelnen Punkte sollen übersichtlich aufgezählt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufheben"
+              },
+              {
+                "id": "1",
+                "text": "aufladen"
+              },
+              {
+                "id": "2",
+                "text": "auflisten"
+              },
+              {
+                "id": "3",
+                "text": "aufhalten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Auflisten means enumerate or list items; it differs from loading or lifting.",
+              "de": "Auflisten heißt, Punkte einzeln aufzuführen oder aufzuzählen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Abrechnung müssen wir sämtliche Ausgaben einzeln auflisten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufheben, aufladen, aufhalten). Only auflisten expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L95-v2",
+          "contextKey": "legacy-0018-L95-context-2",
+          "transferKey": "legacy-0018-L95-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001813",
+            "type": "gap_choice",
+            "prompt": "Im Bericht ___ die Autorin alle beteiligten Organisationen alphabetisch auf.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The items must be named individually in an ordered list.",
+              "de": "Die einzelnen Punkte sollen übersichtlich aufgezählt werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "trägt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "baut"
+                  },
+                  {
+                    "id": "2",
+                    "text": "listet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "lädt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Auflisten means enumerate or list items; it differs from loading or lifting.",
+              "de": "Auflisten heißt, Punkte einzeln aufzuführen oder aufzuzählen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Bericht listet die Autorin alle beteiligten Organisationen alphabetisch auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (trägt, baut, lädt). Only listet expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001814",
+      "title": {
+        "en": "Lighten the atmosphere",
+        "de": "Die Stimmung auflockern"
+      },
+      "description": {
+        "en": "Auflockern can mean making a serious or tense mood more relaxed.",
+        "de": "Auflockern bedeutet hier, eine ernste oder angespannte Stimmung zu entspannen."
+      },
+      "objective": "Recognize auflockern as making a tense atmosphere more relaxed.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L96 (04a0513785ea04b06537954d583c38b662fae2a61cff297384db3dd1278f875b), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L96-v1",
+          "contextKey": "legacy-0018-L96-context-1",
+          "transferKey": "legacy-0018-L96-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001814",
+            "type": "choice",
+            "prompt": "Nach zwei Stunden ernster Diskussion sollte ein kurzes Spiel die Stimmung ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The goal is to make people feel less tense.",
+              "de": "Die Menschen sollen sich weniger angespannt fühlen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufhalten"
+              },
+              {
+                "id": "1",
+                "text": "aufladen"
+              },
+              {
+                "id": "2",
+                "text": "aufheben"
+              },
+              {
+                "id": "3",
+                "text": "auflockern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Die Stimmung auflockern means to lighten the mood.",
+              "de": "Die Stimmung auflockern bedeutet, die Atmosphäre entspannter zu machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach zwei Stunden ernster Diskussion sollte ein kurzes Spiel die Stimmung auflockern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufhalten, aufladen, aufheben). Only auflockern expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L96-v2",
+          "contextKey": "legacy-0018-L96-context-2",
+          "transferKey": "legacy-0018-L96-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001814",
+            "type": "gap_choice",
+            "prompt": "Die Trainerin erzählte eine lustige Geschichte, um die angespannte Atmosphäre ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The goal is to make people feel less tense.",
+              "de": "Die Menschen sollen sich weniger angespannt fühlen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aufzulisten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "aufzugeben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufzulockern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufzuladen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Die Stimmung auflockern means to lighten the mood.",
+              "de": "Die Stimmung auflockern bedeutet, die Atmosphäre entspannter zu machen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Trainerin erzählte eine lustige Geschichte, um die angespannte Atmosphäre aufzulockern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufzulisten, aufzugeben, aufzuladen). Only aufzulockern expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001815",
+      "title": {
+        "en": "Dissolve an organization",
+        "de": "Eine Organisation auflösen"
+      },
+      "description": {
+        "en": "Auflösen can mean ending a group or organization so it no longer exists.",
+        "de": "Auflösen kann bedeuten, eine Gruppe oder Organisation offiziell zu beenden."
+      },
+      "objective": "Recognize auflösen as formally disbanding a group or organization.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L97 (3b4fa90ff8c289f475255d7e69fdca9cfdf5d4eb05481ebe2bd0638d3ea0327f), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L97-v1",
+          "contextKey": "legacy-0018-L97-context-1",
+          "transferKey": "legacy-0018-L97-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001815",
+            "type": "choice",
+            "prompt": "Nach der letzten Aufführung beschloss die Theatergruppe, sich endgültig ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The organization is being ended rather than established.",
+              "de": "Die Organisation wird beendet und nicht neu gegründet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufzuladen"
+              },
+              {
+                "id": "1",
+                "text": "aufzuführen"
+              },
+              {
+                "id": "2",
+                "text": "aufzulösen"
+              },
+              {
+                "id": "3",
+                "text": "aufzuhalten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Auflösen means disband or dissolve an organization in these contexts.",
+              "de": "Auflösen bezeichnet hier das Auflösen einer Gruppe oder Organisation."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der letzten Aufführung beschloss die Theatergruppe, sich endgültig aufzulösen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufzuladen, aufzuführen, aufzuhalten). Only aufzulösen expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L97-v2",
+          "contextKey": "legacy-0018-L97-context-2",
+          "transferKey": "legacy-0018-L97-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001815",
+            "type": "gap_choice",
+            "prompt": "Die Mitgliederversammlung hat beschlossen, den Verein zum Jahresende ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The organization is being ended rather than established.",
+              "de": "Die Organisation wird beendet und nicht neu gegründet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "aufzubauen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "aufzuladen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "aufzuführen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aufzulösen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Auflösen means disband or dissolve an organization in these contexts.",
+              "de": "Auflösen bezeichnet hier das Auflösen einer Gruppe oder Organisation."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Mitgliederversammlung hat beschlossen, den Verein zum Jahresende aufzulösen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufzubauen, aufzuladen, aufzuführen). Only aufzulösen expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000001818",
+      "title": {
+        "en": "Call someone forward",
+        "de": "Jemanden aufrufen"
+      },
+      "description": {
+        "en": "Aufrufen can mean calling a person by name for their turn.",
+        "de": "Aufrufen bedeutet hier, eine Person namentlich an die Reihe zu rufen."
+      },
+      "objective": "Recognize aufrufen as calling a person's name so they come forward or take a turn.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts from pinned source apps/web/data/pos/verbs.jsonl:L103 (721cfc7bb12faf2165f2fad7bc065cfe7e601457be652965f5275b3f8d34b5ad), 2026-10-28; no inherited example copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0018-L103-v1",
+          "contextKey": "legacy-0018-L103-context-1",
+          "transferKey": "legacy-0018-L103-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001818",
+            "type": "choice",
+            "prompt": "Im Wartezimmer nennt die Sprechstundenhilfe den nächsten Namen. Sie wird Frau Özdemir gleich ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A person is called by name to take their turn.",
+              "de": "Eine Person wird namentlich aufgerufen, weil sie an der Reihe ist."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "aufbauen"
+              },
+              {
+                "id": "1",
+                "text": "aufheben"
+              },
+              {
+                "id": "2",
+                "text": "aufrufen"
+              },
+              {
+                "id": "3",
+                "text": "aufladen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Aufrufen means to call someone forward or announce their turn.",
+              "de": "Aufrufen bedeutet, jemanden namentlich an die Reihe zu rufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Wartezimmer nennt die Sprechstundenhilfe den nächsten Namen. Sie wird Frau Özdemir gleich aufrufen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (aufbauen, aufheben, aufladen). Only aufrufen expresses the intended meaning and construction. Independent review pending."
+        },
+        {
+          "variantKey": "legacy-0018-L103-v2",
+          "contextKey": "legacy-0018-L103-context-2",
+          "transferKey": "legacy-0018-L103-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000180181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000001818",
+            "type": "gap_choice",
+            "prompt": "Der Vorsitzende ___ die nächste Person auf der Rednerliste auf.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A person is called by name to take their turn.",
+              "de": "Eine Person wird namentlich aufgerufen, weil sie an der Reihe ist."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "nimmt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "stellt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "ruft"
+                  },
+                  {
+                    "id": "3",
+                    "text": "hebt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aufrufen means to call someone forward or announce their turn.",
+              "de": "Aufrufen bedeutet, jemanden namentlich an die Reihe zu rufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Vorsitzende ruft die nächste Person auf der Rednerliste auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-28: complete German sentence, intended sense and all options checked (nimmt, stellt, hebt). Only ruft expresses the intended meaning and construction. Independent review pending."
+        }
+      ]
+    }
+  ]
+}

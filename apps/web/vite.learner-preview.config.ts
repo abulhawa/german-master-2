@@ -18,6 +18,7 @@ export default defineConfig({
     workbox: {
       cacheId: 'german-master-v2-local-shell',
       globPatterns: ['**/*.{js,css,html}'],
+      maximumFileSizeToCacheInBytes: 12 * 1024 * 1024,
       navigateFallback: '/learner-preview/index.html',
       navigateFallbackAllowlist: [/^\/learner-preview\/(?:index\.html|offline-acceptance\.html)?$/],
       // Workbox's incompatible-cache cleanup matches scope, not our namespace.
