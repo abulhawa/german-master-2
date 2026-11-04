@@ -1,5 +1,10 @@
 # Full eligible reviewed enrichment — wave 2
 
+**Published 4 November 2026** via PR #31, main `56e38fdb`. Production now has
+2,613 question revisions. See [live receipt](../../../docs/operations/enrichment-wave-2-production-2026-11-04.md)
+for verified database/deployment evidence and limits. Frozen files below remain
+the exact derivation inputs/outputs, not a mutable live-status manifest.
+
 Pinned review commit `71064b6bde57f1b2cf88d36885521545cd9f4003` covers all 78
 completed batches / 2,588 questions. Evidence exports bind original byte hashes,
 source commits, findings, overlays and rechecks without editing authoring or the

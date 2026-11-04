@@ -3,7 +3,7 @@
 ## Direct production authorization — 4 November 2026
 
 Owner explicitly instructs: "no staging, directly to production". This supersedes
-the staging requirement for the bounded 22-question wave 1 and cancels the pending
+the staging requirement for the reviewed enrichment rollout and cancels the pending
 proposal to pause another service. Use the existing clean production project and
 Vercel project only. Retain local/hosted checks, exact immutable-row import
 verification, production smoke and additive rollback preservation. No paid

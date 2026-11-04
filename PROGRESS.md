@@ -1,5 +1,33 @@
 # German Master 2.0 current checkpoint
 
+## Reviewed dataset deployed — 4 November 2026
+
+Completed direct-production rollout of PR #31: checked head `55d828eb`, merged
+main `56e38fdb`. Vercel `dpl_2qQWY8WbH5hXvLRdXDf5TzGo9Gq9` is READY on the
+existing production domains. Clean Supabase `sqgjsmiaprsuilcjmaav` now has exactly
+2,613 exercise revisions and 2,613 new release members. Twenty-five checked
+additive transactions plus final membership publication verified every new/old
+runtime row and preserved all previous releases and learner data.
+
+All 2,588 reviewed questions are accounted for: 2,466 new + 22 already live,
+100 excluded across 50 material-defect targets. Applies 91 additional exact
+semantic-rechecked corrections. Explicit Work remains gated (54 questions).
+General libraries are B1 1,283 / B2 1,276, with 125-question bounded saved rounds
+on both clients and frozen explicit review. No source authoring/review mutation.
+
+All hosted activation checks pass; local 201 backend, 466 client and 20 HTTP
+checks pass, as do native 15 candidate/access tests, lint and assembly. Actual
+production B1/B2 browser checks verify a 125-question set from larger topic pools,
+offline draft/feedback reload, correct grading, continuation and API 401 guards.
+No production page errors or matching error/fatal log groups were observed.
+See `docs/operations/enrichment-wave-2-production-2026-11-04.md` for exact hashes,
+deployment, evidence limits and non-destructive rollback.
+
+No staging, service pause, billing/project deletion, existing learner mutation,
+phone installation or Android Play release occurred. Next: continue the independent
+editorial review after 0078, or prepare exact validated corrections for the 50
+excluded targets. No further approval ceremony for already reviewed content.
+
 ## Full reviewed dataset activation — 4 November 2026 (in progress)
 
 The expansion accounts for all 2,588 reviewed questions: 22 already live, 2,466

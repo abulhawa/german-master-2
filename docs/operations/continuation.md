@@ -1,5 +1,14 @@
 # Continuing German Master recovery
 
+4 November completed: full eligible reviewed dataset is LIVE. PR #31 merged at
+`56e38fdb`; Vercel `dpl_2qQWY8WbH5hXvLRdXDf5TzGo9Gq9` READY. Supabase clean
+`sqgjsmiaprsuilcjmaav` has 2,613 exercise revisions: 125 previous + 2,488 reviewed
+(22 first wave, 2,466 expansion). One hundred reviewed questions remain excluded
+for material defects. All activation CI and production bounded/offline guest checks
+pass. Read newest PROGRESS and wave-2 production receipt before any continuation;
+the in-progress/staging prose below is historical. Keep review sole-writer and
+Play hold. Next review after 0078 or validated excluded-target corrections.
+
 4 November newest: first 22-question wave is live at main `14b2ae0b`, Vercel
 `dpl_CMUP8gvk3MJ3rwaTZGEC6jvTsJud`; see its production receipt. Expansion branch
 prepares 2,466 more eligible reviewed questions with 91 rechecked corrections;
