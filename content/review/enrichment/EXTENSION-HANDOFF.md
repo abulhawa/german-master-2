@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3010 of 5,682 questions (52.97%)** independently reviewed: original first49 1,536; extension 1474/4,146 in **40/126 batches through legacy-0089**. **2672 questions and 86 extension batches remain**; next **legacy-0090**.
+**3048 / 5,682 questions (53.64%)** with independent GPT-6 question-level AI editorial review. Frozen first 49: 1,536. Extension: 1512/4,146 across 41 complete batches 0050–0090. **2634 questions and 85 batches pending**, next **legacy-0091**.
 
-Batch 0089 completed 38 question-level noun reviews and staged 10 inactive clarification proposals covering Fachbereichsleiter, Fachleute, Fachmann, Fachmesse, Fähigkeit, Fähre, Fahrzeug, Faktor, Fall and Fantasie. It also refined the inactive 0088-L775-v2 proposal to remove redundant phrasing, without altering its answer identity. Extension has 35 inactive proposed patches needing recheck, original 171 inactive with 52 pending rechecks: **206 inactive proposals, 87 requiring separate recheck**. These are not activated or candidate-ready. GitHub Actions must pass on this exact commit before confirming validation. No authored content, app, main, publication or deployment modifications. Source pinned to b7a6507e135895b1ebb671b73538a9a6d3742304, all publication and candidate flags false, single-writer expected-head protection.
+Batch 0090: 38 original verb question assessments with all four options, German completions and bilingual feedback checked. Five inactive corrections staged: hiking fall ambiguity (785-v1), ads imply vs prove (787-v1/v2), invented truck hint (790-v2), rejected vs revised draft (813-v2). All original authored inputs and answer IDs unchanged; no proposal activated or rechecked. Extension 40 inactive proposals needing recheck; original queue 171 inactive, 52 still requiring recheck. **211 inactive total, 92 needing recheck.** No candidate/publication approval. Latest CI result must be checked against the new head. Source b7a6507e135895b1ebb671b73538a9a6d3742304; review branch only, no changes to app, main, DB or release.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
