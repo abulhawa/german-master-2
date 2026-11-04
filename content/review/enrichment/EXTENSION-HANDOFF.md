@@ -1,5 +1,10 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## Latest checkpoint: 4 November 2026, resume legacy-0137
+
+Editorially reviewed each of 18 variants in legacy-0136, all 72 alternatives, their full German, grammar, bilingual explanations and provisional context. No new proposed correction; earlier legacy-0135 ambiguity remains inactive and needs recheck. **Corpus now 4,464/5,682 (78.56%), extension 2,928/4,146, 1,218 questions in 39 batches remain, next legacy-0137.** Combined inactive correction proposals 222, pending exact-hash editorial rechecks 103. Prior batch 0135 CI was green before this commit. New batch 0136 needs a successful new-head GitHub Actions check before continuing. No approval, publication, integration, deployment, authoring, main or live DB modification.
+
+
 ## Latest authoritative checkpoint: 4 November 2026, resume legacy-0136
 
 After exact-head CI success on legacy-0134, independent GPT-6 question-level editorial review of all 18 variants in legacy-0135 is recorded, with 72 individually considered choices. All original accepted options, immutable authored catalogs and grading contracts are unchanged. A new inactive, not-yet-rechecked proposal for legacy-0135-L1764-v1 addresses the fact that the original hospital-night-shift prompt also accepts 'Material' as a grammatically reasonable nonstaff response; the revised prompt includes absent nurses to select 'Personal'.
