@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3254 / 5,682 questions (57.27%)** with independent original GPT-6 editorial assessment. First 49: 1,536 reviewed. Extension: 1718 / 4,146, **47/126 batches 0050–0096 reviewed**. **2428 questions and 79 batches pending, next legacy-0097.**
+**3284/5,682 questions (57.80%)** independently reviewed. First 49: 1,536 complete. Extension 1748/4,146 across **48/126 batches (0050–0097)**. **2398 questions and 78 extension batches remain; next legacy-0098.**
 
-Batch 0096 added 38 verb exercises reviewed individually across all original options, real German completions, EN/DE feedback, provisional levels and immutable source hashes. One inactive correction for legacy-0096-L883-v2: original ambiguous 'sie' singular versus plural with keyed 'vergnügten', revised to explicitly name 'die beiden Freundinnen'. Original source and accepted option not changed. Original 171 inactive corrections with 52 pending recheck, extension **44 inactive** pending recheck, total **215 inactive and 96 pending recheck**. CI validation to be checked at new GitHub head. One writer; authoring source b7a6507e135895b1ebb671b73538a9a6d3742304 immutable; no app, main, DB, release or publication changes, all candidate/publication flags false.
+Batch 0097 added 30 individualized noun reviews, four-choice assessments, completed German sentences, bilingual hints/explanations, tentative levels and source provenance. One inactive correction for 0097-L852-v1 clarifies that German is a *second* foreign language after English rather than merely not a native language. Exact source answer IDs and original catalogs unchanged. Original 171 inactive corrections with 52 pending rechecks; extension **45 inactive**, pending recheck; **216 inactive total / 97 pending recheck**. New CI must be verified against exact commit; original authoring b7a6507e135895b1ebb671b73538a9a6d3742304 remains immutable, review branch only, no app/main/DB/publishing/deployment changes and no candidate approval.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
