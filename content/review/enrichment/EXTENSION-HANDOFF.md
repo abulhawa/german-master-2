@@ -1,5 +1,10 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## Original correction rechecks: eight further independently supported, 4 November 2026
+
+After validated completion of 5,682/5,682 first-pass source question reviews, eight original inactive correction proposals were individually rechecked with the exact frozen source, option texts/keys, bilingual explanations, German morphology and intended task. Supported: two Anschlussflug variants from legacy-0017; six German separable-verb variants from legacy-0018 (anwenden 2, aufladen 2, aufheben 1, auflösen 1). Recheck evidence is exact SHA-256 bound to each *updated inactive* patch and recorded in correction-rechecks.json. All eight are **supported-within-stated-task**, not human or publication approval, and original accepted choices unchanged. Original rechecks now 127/171 (106 semantic + 21 orthography), **44 original proposals pending**. Extension inactive proposals 57 await independent rechecks. **Total pending correction rechecks 101**; first-pass review coverage still 5,682/5,682. CI must pass on this exact recheck commit; no authoring, app, main, grader, validator, database, activation, integration or deployment writes.
+
+
 ## All original question-level reviews complete, 4 November 2026: 5,682 / 5,682
 
 Independent GPT-6 editorial coverage finished the final four extension batches legacy-0172–0175: **28+28+32+30 = 118 individually assessed questions**, 472 distinct actual answer-option assessments, with source keys, full completed German, grammar/case, each distractor, original bilingual hints/instructions/explanations, source provenance, learning objective and provisional level. Original authoring batch count 175, review coverage **5,682 / 5,682 = 100.00%** (original first 49: 1,536; extension 0050–0175: 4,146). All 126 extension queue items and 126 coverage batch records are complete. Every existing candidate, active overlay, deployment and publication status remains false. The review is NOT content integration or publication.
