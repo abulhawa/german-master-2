@@ -1,5 +1,26 @@
 # German Master 2.0 current checkpoint
 
+## Legacy typing conversion staging — 4 November 2026
+
+Owner requested beginning the conversion of remaining required-typing exercises
+to the accepted low-typing practice formats. Separate branch
+`content/low-typing-legacy-conversion` stages 103 immutable replacement
+revisions in `content/candidates/low-typing-conversion/draft.json`, referencing
+the exact previous published IDs/revisions. Wave-1 offline bundle contains 103
+typed exercises inherited by the larger wave-3 corpus: 11 short-answer, 81 cloze
+and 11 multi-slot. All 103 proposed replacements use `choice` or
+`gap_choice`, with 100 reusing already AI-approved source drafts and three
+starter suggestions newly represented as selection revisions (editorial recheck
+still required). Every accepted selection has a rubric; no authoring history,
+review branch, production data or deployed runtime is edited.
+
+New backend test verifies the typed inventory in wave 1 and wave 3, exact IDs,
+authoring evidence, revision increments, accepted-answer grading and 103-format
+session parsing. Checks are pending hosted CI and separate client acceptance.
+Next: recheck starter and changed objectives, derive a new immutable release and
+shared offline bundle, verify previous-session replay and web/native parity,
+then seek promotion approval. This staging does not change live typing behavior.
+
 ## Reviewed dataset deployed — 4 November 2026
 
 Completed direct-production rollout of PR #31: checked head `55d828eb`, merged
