@@ -1,5 +1,12 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## Grouped editorial checkpoint, 4 November 2026: next legacy-0167
+
+Completed independent GPT-6 question-level review of five consecutive extension batches legacy-0162–0166: **34+30+34+34+34 = 166 questions**, 664 individually assessed actual alternatives, including original German/accepted key/grammar, EN/DE instruction, hints and explanations, objective/CEFR and original immutable provenance. Two additional inactive, not-yet-rechecked correction proposals: **legacy-0162-L2474-v1** replaces a self-referential interruption/pausing cause with a distinct technical fault, and **legacy-0165-L2550-v1** fixes an ambiguous chess-trophy stem (referee, coach and spectator also get no winner's trophy) by explicitly stating the person lost the match. No change to scored identities, original catalogs, app or publication.
+
+**Overall 5400/5,682 (95.04%) reviewed, 282 questions remain in nine batches, next legacy-0167.** Extension 3864/4,146; first 49 batches 1,536/1,536. Inactive proposals now 228 total, 109 pending independent exact-hash rechecks (extension proposal count 57). This grouped commit needs exact-head green GitHub Actions before any further push. No authoring/main/database/app change, validator weakening, content integration, candidateReady/publicationApproved, merge or deployment.
+
+
 ## Grouped editorial checkpoint, 4 November 2026: next legacy-0162
 
 Independent question-by-question GPT-6 review complete for legacy-0157–0161, **34+36+30+32+34 = 166 original questions and 664 individually assessed answers**, covering original scored answer, full German/grammar, each distractor and alternative interpretation, EN/DE instruction/hint/explanation, lexical identity, pinned provenance and tentative B1/B2 level. One new inactive and unrechecked proposed correction: legacy-0160-L2428-v1, because a tram can run through a city tunnel, so the existing stem doesn't uniquely identify the scored U-Bahn. Proposed revision describes an underground rapid-transit network and leaves the original key and authored data untouched. Minor stylistic notes on some completed German are nonblocking and captured in respective findings.
