@@ -57,9 +57,11 @@ function main(){
     const queued=new Set(entry.reviewedVariantKeys);
     assert(queued.size===sourceVariants.length&&sourceVariants.every(v=>queued.has(v.variantKey)),'Queue coverage mismatch '+entry.batchId);
     const overlayPath=entry.sourceSnapshot===SOURCE_ORIGINAL?entry.batchId+'.overlay.json':'extension-proposals/'+entry.batchId+'.overlay.json';
-    let overlay=null;
-    try{overlay=fromReview(overlayPath);}
-    catch(error){if(!String(error).includes('Pinned Git object unavailable'))throw error;}
+    const overlayExists=(()=>{
+      try{execFileSync('git',['cat-file','-e',REVIEW_COMMIT+':'+REVIEW_DIR+overlayPath],{stdio:'pipe'});return true;}
+      catch{return false;}
+    })();
+    const overlay=overlayExists?fromReview(overlayPath):null;
     if(overlay)assert(overlay.active===false&&overlay.snapshot===entry.sourceSnapshot&&overlay.catalogSha256===entry.catalogSha256,'Overlay binding mismatch '+entry.batchId);
     for(const target of catalog.targets){
       let blocked=false;const questions=[];let corrections=0;
@@ -110,7 +112,7 @@ function main(){
   const report={schemaVersion:1,mode:'read-only-preflight',reviewCommit:REVIEW_COMMIT,priorReleaseId:EXPECTED_PRIOR_RELEASE,reviewedQuestions:counted,alreadyPublishedQuestions:alreadyPublished,readyForCandidateQuestions:ready,excludedMaterialDefectQuestions:excluded,readyForCandidateTargets:decisions.filter(d=>d.decision==='ready-for-candidate').length,excludedMaterialDefectTargets:decisions.filter(d=>d.decision==='excluded-material-defect').length,semanticRecheckedCorrections:semanticCorrections,previouslyExcludedTargetsNowReady:previouslyExcludedReady,materialBlockingVariants:blocking.length,identityCollisionAdvisories:collisions.length,workQuestionsReady:decisions.filter(d=>d.decision==='ready-for-candidate'&&d.context==='work').reduce((n,d)=>n+d.questions.length,0),decisions,blocking,collisions,notes:['No actual corrections applied, no catalog/bundle/SQL generated, no production changes.','All material blockers must be excluded or resolved with exact-hash semantic rechecks before candidate generation.','Context and POS are preliminary mapping checks; preserve all existing released revisions and round limits.','A new immutable release ID and offline web/native release are still required.']};
   const outputArg=process.argv.indexOf('--report');
   if(outputArg>=0){const dest=process.argv[outputArg+1];assert(dest&&!dest.startsWith('-'),'--report requires a local path');writeFileSync(dest,JSON.stringify(report,null,2)+'\n');}
-  const summary={reviewCommit:REVIEW_COMMIT.slice(0,12),reviewed:counted,published:alreadyPublished,ready,excluded,readyTargets:report.readyForCandidateTargets,excludedTargets:report.excludedMaterialDefectTargets,materialBlockingVariants:blocking.length,exactSemanticCorrections:semanticCorrections,workReady:report.workQuestionsReady,collisions:collisions.length,previouslyExcludedTargetsNowReady};
+  const summary={reviewCommit:REVIEW_COMMIT.slice(0,12),reviewed:counted,published:alreadyPublished,ready,excluded,readyTargets:report.readyForCandidateTargets,excludedTargets:report.excludedMaterialDefectTargets,materialBlockingVariants:blocking.length,exactSemanticCorrections:semanticCorrections,workReady:report.workQuestionsReady,collisions:collisions.length,previouslyExcludedTargetsNowReady:previouslyExcludedReady};
   console.log(JSON.stringify(summary,null,2));
   if(process.env.GITHUB_STEP_SUMMARY)appendFileSync(process.env.GITHUB_STEP_SUMMARY,'## Wave 3 read-only preflight\n\n'+Object.entries(summary).map(([k,v])=>'- '+k+': **'+v+'**').join('\n')+'\n\nNo deployment or content activation occurred.\n');
 }
