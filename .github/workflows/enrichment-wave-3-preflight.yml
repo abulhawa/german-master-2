@@ -53,6 +53,16 @@ jobs:
         run: node node_modules/tsx/dist/cli.mjs services/api/scripts/prepare-reviewed-wave-3.ts
       - name: Verify additive import, safe replay, accepted answers and 125-question bounds
         run: node node_modules/tsx/dist/cli.mjs services/api/scripts/verify-reviewed-wave-3.ts
+      - name: Verify web product can precache full new offline bundle (CI only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          trap 'git restore -- content/production/catalog.json content/guest/practice.json' EXIT
+          cp content/candidates/enrichment-wave-3/catalog.json content/production/catalog.json
+          cp content/candidates/enrichment-wave-3/offline.json content/guest/practice.json
+          npm run check --workspace=apps/web
+          npm run build:learner-product
+          node -e "const fs=require('node:fs');const path='apps/web/dist/learner-product/assets';for(const f of fs.readdirSync(path)){if(f.endsWith('.js')){const sz=fs.statSync(path+'/'+f).size;console.log(f+': '+sz+' bytes');if(sz>12*1024*1024)process.exitCode=1}}"
       - name: Upload inactive wave 3 candidate files
         uses: actions/upload-artifact@v4
         with:
