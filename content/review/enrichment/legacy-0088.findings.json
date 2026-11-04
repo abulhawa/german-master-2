@@ -1,0 +1,553 @@
+{
+  "snapshot": "b7a6507e135895b1ebb671b73538a9a6d3742304",
+  "batchId": "legacy-0088",
+  "catalogSha256": "7d3ddee2038a84c5a1c553e714c8225a82aa2f0ed68183f8c3be0a37baf387a3",
+  "review": "Individual independent GPT-6 question and option pass: all 34 verb questions, four choices each, German completions and bilingual feedback reviewed; six ambiguous prompts proposed for inactive correction, pending separate recheck.",
+  "state": "complete",
+  "reviewed": [
+    {
+      "variantKey": "legacy-0088-L747-v1",
+      "targetId": "80000000-0000-4000-8000-000000008800",
+      "exerciseId": "81000000-0000-4000-8000-000000880000",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "steigt: steigt means rises, the opposite of the stated dry-weather decline.",
+        "schwimmt: schwimmt means swims; water level cannot swim.",
+        "wächst: wächst means grows and would mean higher, not lower.",
+        "sinkt: sinkt means falls, the level change intended by no rain. [Source key.]"
+      ],
+      "finding": "'Sinkt' is present singular of sinken and describes declining river levels during a dry spell.",
+      "rubricAndLanguage": "Independently reconstructed 'Nach Tagen ohne Regen sinkt der Wasserstand im Fluss deutlich.', original answer index 3 (sinkt); 'Sinkt' is present singular of sinken and describes declining river levels during a dry spell. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'Without rain, the water level drops.' / 'Ohne Regen nimmt der Wasserstand ab.', and explanations 'sinken means sink or decrease. Without rain, the water level drops.' / 'sinken bedeutet nach unten gehen oder geringer werden. Ohne Regen nimmt der Wasserstand ab.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L747 (d1a63f982841979f0c8166e7bab4e1bc982f6ab4e5baa9daaa84e23810fd1961), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L747-v1, target 80000000-0000-4000-8000-000000008800, exercise 81000000-0000-4000-8000-000000880000, context legacy-0088-L747-context-1, transfer legacy-0088-L747-transfer-1; objective 'Recognize and use the German expression sinken meaning sink or decrease, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L747-v2",
+      "targetId": "80000000-0000-4000-8000-000000008800",
+      "exerciseId": "81000000-0000-4000-8000-000000880001",
+      "disposition": "blocked-ambiguity",
+      "optionAssessments": [
+        "gestiegen: gestiegen (risen) can still end below zero if the starting value was lower, absent more detail.",
+        "geblieben: geblieben (remained) can truthfully describe temperatures still below freezing, and competes with gesunken.",
+        "gesunken: gesunken is scored as fell, but prior temperature is unspecified. [Source key.]",
+        "geschwommen: geschwommen means swum; temperatures do not swim."
+      ],
+      "finding": "'Sind ... gesunken' correctly describes a drop below freezing; however 'unter null Grad geblieben' is equally possible without a starting temperature. Clarify crossing from above zero.",
+      "rubricAndLanguage": "Independently reconstructed 'Die Temperaturen sind über Nacht unter null Grad gesunken.', original answer index 2 (gesunken); 'Sind ... gesunken' correctly describes a drop below freezing; however 'unter null Grad geblieben' is equally possible without a starting temperature. Clarify crossing from above zero. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The temperature dropped below freezing.' / 'Die Temperatur fiel unter den Gefrierpunkt.', and explanations 'sinken means sink or decrease. The temperature dropped below freezing.' / 'sinken bedeutet nach unten gehen oder geringer werden. Die Temperatur fiel unter den Gefrierpunkt.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L747 (d1a63f982841979f0c8166e7bab4e1bc982f6ab4e5baa9daaa84e23810fd1961), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L747-v2, target 80000000-0000-4000-8000-000000008800, exercise 81000000-0000-4000-8000-000000880001, context legacy-0088-L747-context-2, transfer legacy-0088-L747-transfer-2; objective 'Recognize and use the German expression sinken meaning sink or decrease, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L749-v1",
+      "targetId": "80000000-0000-4000-8000-000000008801",
+      "exerciseId": "81000000-0000-4000-8000-000000880010",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "obwohl: obwohl means although, allowing the journey despite weather rather than as a condition.",
+        "sofern: sofern means provided that and imposes the stated weather condition. [Source key.]",
+        "nachdem: nachdem means after, imposing chronology rather than a weather requirement.",
+        "während: während means while/whereas, not weather dependency."
+      ],
+      "finding": "'Sofern' conditions the trip on good weather and introduces the finite subordinate clause.",
+      "rubricAndLanguage": "Independently reconstructed 'Wir fahren morgen, sofern das Wetter gut bleibt.', original answer index 1 (sofern); 'Sofern' conditions the trip on good weather and introduces the finite subordinate clause. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The trip depends on favorable weather.' / 'Die Fahrt findet nur bei gutem Wetter statt.', and explanations 'sofern means provided that, on condition that. The trip depends on favorable weather.' / 'sofern bedeutet unter der Voraussetzung, dass. Die Fahrt findet nur bei gutem Wetter statt.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L749 (1e30c91b8669b25cf3936467589233b03466d85fd5083569e30477531425b92c), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L749-v1, target 80000000-0000-4000-8000-000000008801, exercise 81000000-0000-4000-8000-000000880010, context legacy-0088-L749-context-1, transfer legacy-0088-L749-transfer-1; objective 'Recognize and use the German expression sofern meaning provided that, on condition that, including appropriate forms and collocations.', provisional B2, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L749-v2",
+      "targetId": "80000000-0000-4000-8000-000000008801",
+      "exerciseId": "81000000-0000-4000-8000-000000880011",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "sofern: sofern correctly means provided that a valid receipt exists. [Source key.]",
+        "trotzdem: trotzdem is an adverb meaning nevertheless; cannot act as this subordinating conjunction here.",
+        "bevor: bevor means before, which only gives a time relation rather than proof requirement.",
+        "seitdem: seitdem means since then, a chronology not a condition for reimbursement."
+      ],
+      "finding": "A valid receipt is an eligibility condition for reimbursement, introduced by sofern.",
+      "rubricAndLanguage": "Independently reconstructed 'Die Kosten werden erstattet, sofern ein gültiger Beleg vorliegt.', original answer index 0 (sofern); A valid receipt is an eligibility condition for reimbursement, introduced by sofern. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'Reimbursement requires a valid receipt.' / 'Die Rückzahlung setzt einen gültigen Beleg voraus.', and explanations 'sofern means provided that, on condition that. Reimbursement requires a valid receipt.' / 'sofern bedeutet unter der Voraussetzung, dass. Die Rückzahlung setzt einen gültigen Beleg voraus.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L749 (1e30c91b8669b25cf3936467589233b03466d85fd5083569e30477531425b92c), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L749-v2, target 80000000-0000-4000-8000-000000008801, exercise 81000000-0000-4000-8000-000000880011, context legacy-0088-L749-context-2, transfer legacy-0088-L749-transfer-2; objective 'Recognize and use the German expression sofern meaning provided that, on condition that, including appropriate forms and collocations.', provisional B2, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L751-v1",
+      "targetId": "80000000-0000-4000-8000-000000008802",
+      "exerciseId": "81000000-0000-4000-8000-000000880020",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "wartet: wartet normally takes 'auf' for waiting; 'für die Mutter warten' can mean waiting on behalf of her, not caring for her.",
+        "fährt: fährt means drives; driving for one's mother is not ongoing care in this clause.",
+        "schreibt: schreibt means writes, not the described support.",
+        "sorgt: sorgt fits the caregiving of a dependent parent. [Source key.]"
+      ],
+      "finding": "'Für die Mutter sorgen' means care for someone and takes für + accusative.",
+      "rubricAndLanguage": "Independently reconstructed 'Sie sorgt für ihre pflegebedürftige Mutter.', original answer index 3 (sorgt); 'Für die Mutter sorgen' means care for someone and takes für + accusative. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'She provides care and support.' / 'Sie kümmert sich um die Versorgung ihrer Mutter.', and explanations 'sorgen means take care of something or someone. She provides care and support.' / 'sorgen bedeutet sich um etwas oder jemanden kümmern. Sie kümmert sich um die Versorgung ihrer Mutter.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L751 (ed2fdd8b96f79e8297bf290125bbf3eb466ddfed53adfa07cc76d1bbcea44b6f), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L751-v1, target 80000000-0000-4000-8000-000000008802, exercise 81000000-0000-4000-8000-000000880020, context legacy-0088-L751-context-1, transfer legacy-0088-L751-transfer-1; objective 'Recognize and use the German expression sorgen meaning take care of something or someone, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L751-v2",
+      "targetId": "80000000-0000-4000-8000-000000008802",
+      "exerciseId": "81000000-0000-4000-8000-000000880021",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "gewartet: gewartet means waited and typically takes auf, not arrangements for catering.",
+        "geklagt: geklagt means complained or sued, not supplied food.",
+        "gesorgt: gesorgt means ensured provision of food. [Source key.]",
+        "geschwiegen: geschwiegen means stayed silent and does not provide refreshments."
+      ],
+      "finding": "The association arranged catering; 'für die Verpflegung gesorgt' is correct perfect construction.",
+      "rubricAndLanguage": "Independently reconstructed 'Der Verein hat für die Verpflegung der Gäste gesorgt.', original answer index 2 (gesorgt); The association arranged catering; 'für die Verpflegung gesorgt' is correct perfect construction. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The association arranged food for visitors.' / 'Der Verein organisierte Essen für die Gäste.', and explanations 'sorgen means take care of something or someone. The association arranged food for visitors.' / 'sorgen bedeutet sich um etwas oder jemanden kümmern. Der Verein organisierte Essen für die Gäste.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L751 (ed2fdd8b96f79e8297bf290125bbf3eb466ddfed53adfa07cc76d1bbcea44b6f), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L751-v2, target 80000000-0000-4000-8000-000000008802, exercise 81000000-0000-4000-8000-000000880021, context legacy-0088-L751-context-2, transfer legacy-0088-L751-transfer-2; objective 'Recognize and use the German expression sorgen meaning take care of something or someone, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L754-v1",
+      "targetId": "80000000-0000-4000-8000-000000008803",
+      "exerciseId": "81000000-0000-4000-8000-000000880030",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "einkaufen gehen: einkaufen gehen means go shopping; a park stroll enjoying fresh air is different.",
+        "arbeiten gehen: arbeiten gehen means go to work, not leisure walking.",
+        "spazieren gehen: spazieren gehen is the two-verb expression for a walk. [Source key.]",
+        "schwimmen gehen: schwimmen gehen could happen in a park lake, but the given fresh-air walk hint clearly targets walking."
+      ],
+      "finding": "A relaxed outdoor stroll is 'spazieren gehen' after the modal möchten.",
+      "rubricAndLanguage": "Independently reconstructed 'Am Sonntag möchten wir im Park spazieren gehen und die frische Luft genießen.', original answer index 2 (spazieren gehen); A relaxed outdoor stroll is 'spazieren gehen' after the modal möchten. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The plan is a relaxed walk outdoors.' / 'Geplant ist ein gemütlicher Weg zu Fuß.', and explanations 'spazieren gehen means go for a walk. The plan is a relaxed walk outdoors.' / 'spazieren gehen bedeutet zu Fuß einen Spaziergang machen. Geplant ist ein gemütlicher Weg zu Fuß.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L754 (21ac2cbb617ac353d70bdf72212366562121829d42d270a677a5f183b066ba9f), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L754-v1, target 80000000-0000-4000-8000-000000008803, exercise 81000000-0000-4000-8000-000000880030, context legacy-0088-L754-context-1, transfer legacy-0088-L754-transfer-1; objective 'Recognize and use the German expression spazieren gehen meaning go for a walk, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L754-v2",
+      "targetId": "80000000-0000-4000-8000-000000008803",
+      "exerciseId": "81000000-0000-4000-8000-000000880031",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "einkaufen gegangen: einkaufen gegangen describes going shopping, not a waterside stroll.",
+        "spazieren gegangen: spazieren gegangen is the correct participle phrase for taking a walk. [Source key.]",
+        "arbeiten gegangen: arbeiten gegangen concerns going to work, not a casual riverside outing.",
+        "schwimmen gegangen: schwimmen gegangen means went swimming, not a walk along the bank."
+      ],
+      "finding": "Walking along a riverside is 'sind ... spazieren gegangen', using sein in perfect.",
+      "rubricAndLanguage": "Independently reconstructed 'Nach dem Abendessen sind wir am Flussufer entlang spazieren gegangen.', original answer index 1 (spazieren gegangen); Walking along a riverside is 'sind ... spazieren gegangen', using sein in perfect. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'They took a walk along the riverbank.' / 'Sie machten einen Spaziergang am Flussufer.', and explanations 'spazieren gehen means go for a walk. They took a walk along the riverbank.' / 'spazieren gehen bedeutet zu Fuß einen Spaziergang machen. Sie machten einen Spaziergang am Flussufer.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L754 (21ac2cbb617ac353d70bdf72212366562121829d42d270a677a5f183b066ba9f), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L754-v2, target 80000000-0000-4000-8000-000000008803, exercise 81000000-0000-4000-8000-000000880031, context legacy-0088-L754-context-2, transfer legacy-0088-L754-transfer-2; objective 'Recognize and use the German expression spazieren gehen meaning go for a walk, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L755-v1",
+      "targetId": "80000000-0000-4000-8000-000000008804",
+      "exerciseId": "81000000-0000-4000-8000-000000880040",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "öffnen: öffnen means open road, contrary to preventing traffic during an accident.",
+        "reinigen: reinigen means clean; accident cleanup may be relevant but doesn't mean block the road.",
+        "verbreitern: verbreitern means widen, not close access.",
+        "sperren: sperren means close access to vehicles. [Source key.]"
+      ],
+      "finding": "The accident prompted a road closure, correctly rendered 'Straße sperren'.",
+      "rubricAndLanguage": "Independently reconstructed 'Wegen eines Unfalls musste die Polizei die Straße sperren.', original answer index 3 (sperren); The accident prompted a road closure, correctly rendered 'Straße sperren'. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'Traffic was prevented from using the road.' / 'Die Straße durfte nicht mehr befahren werden.', and explanations 'sperren means block or close access. Traffic was prevented from using the road.' / 'sperren bedeutet den Zugang oder die Nutzung verhindern. Die Straße durfte nicht mehr befahren werden.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L755 (a1f835de9264b635db5444f17475772344b778c83dbe142e375c4b9e091b0b19), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L755-v1, target 80000000-0000-4000-8000-000000008804, exercise 81000000-0000-4000-8000-000000880040, context legacy-0088-L755-context-1, transfer legacy-0088-L755-transfer-1; objective 'Recognize and use the German expression sperren meaning block or close access, including appropriate forms and collocations.', provisional B2, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L755-v2",
+      "targetId": "80000000-0000-4000-8000-000000008804",
+      "exerciseId": "81000000-0000-4000-8000-000000880041",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "geöffnet: geöffnet means opened and does not denote security blocking.",
+        "bezahlt: bezahlt means paid; a card may be used to pay but is not 'paid' itself.",
+        "gesperrt: gesperrt is past participle for blocked card access. [Source key.]",
+        "verlängert: verlängert means extended/renewed, not security deactivation."
+      ],
+      "finding": "A bank card may be blocked after repeated wrong PINs; passive 'wurde ... gesperrt' is correct.",
+      "rubricAndLanguage": "Independently reconstructed 'Nach drei falschen PIN-Eingaben wurde die Karte gesperrt.', original answer index 2 (gesperrt); A bank card may be blocked after repeated wrong PINs; passive 'wurde ... gesperrt' is correct. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'Access to the card was blocked for security.' / 'Die Karte konnte aus Sicherheitsgründen nicht mehr genutzt werden.', and explanations 'sperren means block or close access. Access to the card was blocked for security.' / 'sperren bedeutet den Zugang oder die Nutzung verhindern. Die Karte konnte aus Sicherheitsgründen nicht mehr genutzt werden.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L755 (a1f835de9264b635db5444f17475772344b778c83dbe142e375c4b9e091b0b19), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L755-v2, target 80000000-0000-4000-8000-000000008804, exercise 81000000-0000-4000-8000-000000880041, context legacy-0088-L755-context-2, transfer legacy-0088-L755-transfer-2; objective 'Recognize and use the German expression sperren meaning block or close access, including appropriate forms and collocations.', provisional B2, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L758-v1",
+      "targetId": "80000000-0000-4000-8000-000000008805",
+      "exerciseId": "81000000-0000-4000-8000-000000880050",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "kriechen: kriechen means crawl, not leap across water.",
+        "schwimmen: schwimmen means swim, implausible in a small puddle.",
+        "springen: springen is jump and specifically clears the puddle. [Source key.]",
+        "sitzen: sitzen means sit, not move across it."
+      ],
+      "finding": "With a small puddle, clearing it in one jump is 'über ... springen'; infinitive after kann.",
+      "rubricAndLanguage": "Independently reconstructed 'Das Kind kann über die kleine Pfütze springen.', original answer index 2 (springen); With a small puddle, clearing it in one jump is 'über ... springen'; infinitive after kann. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The child can clear the puddle with a jump.' / 'Das Kind kann die Pfütze mit einem Sprung überwinden.', and explanations 'springen means jump or leap. The child can clear the puddle with a jump.' / 'springen bedeutet sich durch einen Sprung bewegen. Das Kind kann die Pfütze mit einem Sprung überwinden.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L758 (2214de35b13c726ebaaf3d84a89fbdee47da8ee73a19f916500e30272a068fed), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L758-v1, target 80000000-0000-4000-8000-000000008805, exercise 81000000-0000-4000-8000-000000880050, context legacy-0088-L758-context-1, transfer legacy-0088-L758-transfer-1; objective 'Recognize and use the German expression springen meaning jump or leap, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L758-v2",
+      "targetId": "80000000-0000-4000-8000-000000008805",
+      "exerciseId": "81000000-0000-4000-8000-000000880051",
+      "disposition": "needs-context-precision",
+      "optionAssessments": [
+        "geschwommen: geschwommen would indicate an athlete swam two metres; unlikely as full competitive distance, but grammatically possible without specifying discipline.",
+        "gesprungen: gesprungen is perfect participle of springen and the keyed athletic event. [Source key.]",
+        "geklettert: geklettert means climbed; can describe two metres upward, but 'weit' normally favors horizontal distance.",
+        "gerollt: gerollt is rolled; a sporting athlete might roll two metres, but it is not the targeted jump."
+      ],
+      "finding": "Two metres is a plausible jumping distance in a competition; yet 'geschwommen' and 'gerollt' are also grammatically possible because the prompt gives no event type. Add a jump event.",
+      "rubricAndLanguage": "Independently reconstructed 'Beim Wettkampf ist die Athletin zwei Meter weit gesprungen.', original answer index 1 (gesprungen); Two metres is a plausible jumping distance in a competition; yet 'geschwommen' and 'gerollt' are also grammatically possible because the prompt gives no event type. Add a jump event. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The athlete covered distance by jumping.' / 'Die Sportlerin überwand die Strecke mit einem Sprung.', and explanations 'springen means jump or leap. The athlete covered distance by jumping.' / 'springen bedeutet sich durch einen Sprung bewegen. Die Sportlerin überwand die Strecke mit einem Sprung.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L758 (2214de35b13c726ebaaf3d84a89fbdee47da8ee73a19f916500e30272a068fed), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L758-v2, target 80000000-0000-4000-8000-000000008805, exercise 81000000-0000-4000-8000-000000880051, context legacy-0088-L758-context-2, transfer legacy-0088-L758-transfer-2; objective 'Recognize and use the German expression springen meaning jump or leap, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L759-v1",
+      "targetId": "80000000-0000-4000-8000-000000008806",
+      "exerciseId": "81000000-0000-4000-8000-000000880060",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "zerbrechen: zerbrechen means break the bottles, not rinse them.",
+        "verstecken: verstecken means hide, unrelated to washing.",
+        "bemalen: bemalen means paint, not remove residues.",
+        "spülen: spülen means wash out briefly with water. [Source key.]"
+      ],
+      "finding": "Rinsing bottles before processing is a natural use of 'spülen'; this is a sentence meaning check, not advice that all recycling authorities require rinsing.",
+      "rubricAndLanguage": "Independently reconstructed 'Vor dem Recycling sollst du die leeren Flaschen kurz spülen.', original answer index 3 (spülen); Rinsing bottles before processing is a natural use of 'spülen'; this is a sentence meaning check, not advice that all recycling authorities require rinsing. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The containers should be rinsed.' / 'Die Behälter sollen mit Wasser ausgespült werden.', and explanations 'spülen means rinse or wash with water. The containers should be rinsed.' / 'spülen bedeutet mit Wasser auswaschen. Die Behälter sollen mit Wasser ausgespült werden.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L759 (965b35f129d866fbbd70ffe0de367b0ad809551b4b875d6d40d119effa401061), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L759-v1, target 80000000-0000-4000-8000-000000008806, exercise 81000000-0000-4000-8000-000000880060, context legacy-0088-L759-context-1, transfer legacy-0088-L759-transfer-1; objective 'Recognize and use the German expression spülen meaning rinse or wash with water, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L759-v2",
+      "targetId": "80000000-0000-4000-8000-000000008806",
+      "exerciseId": "81000000-0000-4000-8000-000000880061",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "getrocknet: getrocknet means dried; warm water is used for washing, not drying.",
+        "sortiert: sortiert means sorted; water is unnecessary to categorize dishes.",
+        "gespült: gespült is the washing/rinsing action described. [Source key.]",
+        "gestapelt: gestapelt means stacked, not cleaned."
+      ],
+      "finding": "'Geschirr mit warmem Wasser gespült' is a correct perfect-tense account of washing dishes.",
+      "rubricAndLanguage": "Independently reconstructed 'Nach dem Essen hat er das Geschirr mit warmem Wasser gespült.', original answer index 2 (gespült); 'Geschirr mit warmem Wasser gespült' is a correct perfect-tense account of washing dishes. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The dishes were washed in water.' / 'Das Geschirr wurde mit Wasser gereinigt.', and explanations 'spülen means rinse or wash with water. The dishes were washed in water.' / 'spülen bedeutet mit Wasser auswaschen. Das Geschirr wurde mit Wasser gereinigt.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L759 (965b35f129d866fbbd70ffe0de367b0ad809551b4b875d6d40d119effa401061), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L759-v2, target 80000000-0000-4000-8000-000000008806, exercise 81000000-0000-4000-8000-000000880061, context legacy-0088-L759-context-2, transfer legacy-0088-L759-transfer-2; objective 'Recognize and use the German expression spülen meaning rinse or wash with water, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L760-v1",
+      "targetId": "80000000-0000-4000-8000-000000008807",
+      "exerciseId": "81000000-0000-4000-8000-000000880070",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "spüren: spüren is physically sense the cold wind. [Source key.]",
+        "zählen: zählen is count and needs countable items.",
+        "lesen: lesen means read, not feel air on the skin.",
+        "hören: hören is hearing wind; one might hear wind too, but the phrase 'im Gesicht' and skin hint indicate tactile sensing."
+      ],
+      "finding": "Cold wind felt on the face is sensory 'spüren', rather than reading or counting it.",
+      "rubricAndLanguage": "Independently reconstructed 'Beim Laufen konnte er den kalten Wind im Gesicht spüren.', original answer index 0 (spüren); Cold wind felt on the face is sensory 'spüren', rather than reading or counting it. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The wind is physically felt on the skin.' / 'Der Wind wird auf der Haut wahrgenommen.', and explanations 'spüren means feel or sense. The wind is physically felt on the skin.' / 'spüren bedeutet körperlich oder innerlich wahrnehmen. Der Wind wird auf der Haut wahrgenommen.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L760 (9687ffd8398cdceb9d717d9a5218d923997adbae8df32852994ddbfcb4fa9317), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L760-v1, target 80000000-0000-4000-8000-000000008807, exercise 81000000-0000-4000-8000-000000880070, context legacy-0088-L760-context-1, transfer legacy-0088-L760-transfer-1; objective 'Recognize and use the German expression spüren meaning feel or sense, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L760-v2",
+      "targetId": "80000000-0000-4000-8000-000000008807",
+      "exerciseId": "81000000-0000-4000-8000-000000880071",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "bewiesen: bewiesen means proved; the sentence stresses intuition, not evidence.",
+        "vergessen: vergessen means forgotten, incompatible with immediate sensing.",
+        "bezahlt: bezahlt means paid, unrelated to detecting a problem.",
+        "gespürt: gespürt means sensed internally and correctly takes a dass-clause. [Source key.]"
+      ],
+      "finding": "'Gespürt, dass etwas nicht stimmte' is an idiom for sensing something was wrong without an explanation.",
+      "rubricAndLanguage": "Independently reconstructed 'Sie hat sofort gespürt, dass etwas nicht stimmte, ohne es erklären zu können.', original answer index 3 (gespürt); 'Gespürt, dass etwas nicht stimmte' is an idiom for sensing something was wrong without an explanation. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'She sensed something intuitively.' / 'Sie nahm etwas gefühlsmäßig wahr.', and explanations 'spüren means feel or sense. She sensed something intuitively.' / 'spüren bedeutet körperlich oder innerlich wahrnehmen. Sie nahm etwas gefühlsmäßig wahr.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L760 (9687ffd8398cdceb9d717d9a5218d923997adbae8df32852994ddbfcb4fa9317), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L760-v2, target 80000000-0000-4000-8000-000000008807, exercise 81000000-0000-4000-8000-000000880071, context legacy-0088-L760-context-2, transfer legacy-0088-L760-transfer-2; objective 'Recognize and use the German expression spüren meaning feel or sense, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L761-v1",
+      "targetId": "80000000-0000-4000-8000-000000008808",
+      "exerciseId": "81000000-0000-4000-8000-000000880080",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "wohnt: wohnt aus Portugal is ungrammatical; residence is 'wohnt in'.",
+        "stammt: stammt aus identifies geographical origin. [Source key.]",
+        "arbeitet: arbeitet aus Portugal is not the usual form for place of origin; remote work would be a different interpretation.",
+        "fährt: fährt aus Portugal means travels out of Portugal, not originally comes from it."
+      ],
+      "finding": "The artist's geographical origin is 'stammt ursprünglich aus Portugal'.",
+      "rubricAndLanguage": "Independently reconstructed 'Die Künstlerin stammt ursprünglich aus Portugal.', original answer index 1 (stammt); The artist's geographical origin is 'stammt ursprünglich aus Portugal'. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The sentence states her place of origin.' / 'Es geht um die Herkunft der Person.', and explanations 'stammen means originate from a place or source. The sentence states her place of origin.' / 'stammen bedeutet aus einem Ort oder einer Quelle kommen. Es geht um die Herkunft der Person.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L761 (d84e9678b32f691519138b7de144a168a407868d45bfa53149630696cd22dc0a), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L761-v1, target 80000000-0000-4000-8000-000000008808, exercise 81000000-0000-4000-8000-000000880080, context legacy-0088-L761-context-1, transfer legacy-0088-L761-transfer-1; objective 'Recognize and use the German expression stammen meaning originate from a place or source, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L761-v2",
+      "targetId": "80000000-0000-4000-8000-000000008808",
+      "exerciseId": "81000000-0000-4000-8000-000000880081",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "stammt: stammt aus identifies a production/source origin. [Source key.]",
+        "lebt: lebt means lives; wood itself is not a living agent here.",
+        "fliegt: fliegt means flies, impossible as origin relationship for wood.",
+        "läuft: läuft means runs, not sourced from sustainable forestry."
+      ],
+      "finding": "The source of raw timber is 'stammt aus nachhaltiger Forstwirtschaft'.",
+      "rubricAndLanguage": "Independently reconstructed 'Das Holz für den Tisch stammt aus nachhaltiger Forstwirtschaft.', original answer index 0 (stammt); The source of raw timber is 'stammt aus nachhaltiger Forstwirtschaft'. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The material has a particular source.' / 'Das Material kommt aus einer bestimmten Quelle.', and explanations 'stammen means originate from a place or source. The material has a particular source.' / 'stammen bedeutet aus einem Ort oder einer Quelle kommen. Das Material kommt aus einer bestimmten Quelle.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L761 (d84e9678b32f691519138b7de144a168a407868d45bfa53149630696cd22dc0a), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L761-v2, target 80000000-0000-4000-8000-000000008808, exercise 81000000-0000-4000-8000-000000880081, context legacy-0088-L761-context-2, transfer legacy-0088-L761-transfer-2; objective 'Recognize and use the German expression stammen meaning originate from a place or source, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L762-v1",
+      "targetId": "80000000-0000-4000-8000-000000008809",
+      "exerciseId": "81000000-0000-4000-8000-000000880090",
+      "disposition": "needs-context-precision",
+      "optionAssessments": [
+        "landen: landen means land; a plane already on the departure runway is not performing a landing.",
+        "warten: warten means wait; the plane could wait on the runway, but 'in wenigen Minuten' with departure hint favors takeoff.",
+        "starten: starten means take off, the intended result on a runway. [Source key.]",
+        "rollen: rollen means taxi or roll; this is a genuine event before aircraft takeoff and can fit the original sentence."
+      ],
+      "finding": "Plane on runway and imminently taking off supports 'starten', though 'rollen' is a plausible preparatory movement on a runway. Add an airborne clue for unique answer.",
+      "rubricAndLanguage": "Independently reconstructed 'Das Flugzeug steht auf der Startbahn und wird in wenigen Minuten starten.', original answer index 2 (starten); Plane on runway and imminently taking off supports 'starten', though 'rollen' is a plausible preparatory movement on a runway. Add an airborne clue for unique answer. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The plane is about to take off.' / 'Das Flugzeug wird gleich abheben.', and explanations 'starten means start a journey or project. The plane is about to take off.' / 'starten bedeutet einen Flug oder ein Vorhaben beginnen. Das Flugzeug wird gleich abheben.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L762 (06bd109fb5dfd94203bf807cfb42959efb6fd6bd1235b384596024405ddb7c55), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L762-v1, target 80000000-0000-4000-8000-000000008809, exercise 81000000-0000-4000-8000-000000880090, context legacy-0088-L762-context-1, transfer legacy-0088-L762-transfer-1; objective 'Recognize and use the German expression starten meaning start a journey or project, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L762-v2",
+      "targetId": "80000000-0000-4000-8000-000000008809",
+      "exerciseId": "81000000-0000-4000-8000-000000880091",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "beendet: beendet means finished, opposite of beginning.",
+        "gestartet: gestartet means launched and agrees with the official start. [Source key.]",
+        "verschoben: verschoben means postponed, not commenced.",
+        "gestrichen: gestrichen means canceled, not launched."
+      ],
+      "finding": "After project approval, the official beginning is 'hat ... gestartet'.",
+      "rubricAndLanguage": "Independently reconstructed 'Nach der Freigabe hat das Team das neue Projekt offiziell gestartet.', original answer index 1 (gestartet); After project approval, the official beginning is 'hat ... gestartet'. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The team began work after approval.' / 'Nach der Genehmigung begann das Vorhaben.', and explanations 'starten means start a journey or project. The team began work after approval.' / 'starten bedeutet einen Flug oder ein Vorhaben beginnen. Nach der Genehmigung begann das Vorhaben.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L762 (06bd109fb5dfd94203bf807cfb42959efb6fd6bd1235b384596024405ddb7c55), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L762-v2, target 80000000-0000-4000-8000-000000008809, exercise 81000000-0000-4000-8000-000000880091, context legacy-0088-L762-context-2, transfer legacy-0088-L762-transfer-2; objective 'Recognize and use the German expression starten meaning start a journey or project, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L766-v1",
+      "targetId": "80000000-0000-4000-8000-000000008812",
+      "exerciseId": "81000000-0000-4000-8000-000000880120",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "geschnitten: geschnitten means cut; a sewing needle typically pricks rather than cuts.",
+        "verbrannt: verbrannt means burned, which a needle does not normally cause.",
+        "gestochen: gestochen is correct past participle for pricking oneself with a needle. [Source key.]",
+        "gewaschen: gewaschen means washed, not injured by a point."
+      ],
+      "finding": "'Sich mit der Nadel in den Finger stechen' is a standard small puncture.",
+      "rubricAndLanguage": "Independently reconstructed 'Beim Nähen hat sie sich mit der Nadel in den Finger gestochen.', original answer index 2 (gestochen); 'Sich mit der Nadel in den Finger stechen' is a standard small puncture. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'A needle caused a small puncture.' / 'Die Nadel verursachte einen Stich.', and explanations 'stechen means prick or sting. A needle caused a small puncture.' / 'stechen bedeutet mit etwas Spitzem verletzen. Die Nadel verursachte einen Stich.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L766 (b4ba0d04bbc8584ba34af8d69e71627588f55ae3b4ad10b305eefa38b293a7f0), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L766-v1, target 80000000-0000-4000-8000-000000008812, exercise 81000000-0000-4000-8000-000000880120, context legacy-0088-L766-context-1, transfer legacy-0088-L766-transfer-1; objective 'Recognize and use the German expression stechen meaning prick or sting, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L766-v2",
+      "targetId": "80000000-0000-4000-8000-000000008812",
+      "exerciseId": "81000000-0000-4000-8000-000000880121",
+      "disposition": "blocked-ambiguity",
+      "optionAssessments": [
+        "gebissen: gebissen is colloquially used of mosquito bites and is a plausible second answer, despite the anatomical distinction.",
+        "gestochen: gestochen precisely describes how the mosquito punctures skin, matching the scientific hint. [Source key.]",
+        "gekratzt: gekratzt means scratched; that is more likely a person's reaction than the mosquito's own action.",
+        "geschlagen: geschlagen means struck, not a mosquito's feeding mechanism."
+      ],
+      "finding": "A mosquito stings with its proboscis, but 'Mückenbiss' and 'von einer Mücke gebissen' are common colloquial usage; the prompt alone does not exclude 'gebissen'.",
+      "rubricAndLanguage": "Independently reconstructed 'Die Mücke hat ihn in den Arm gestochen.', original answer index 1 (gestochen); A mosquito stings with its proboscis, but 'Mückenbiss' and 'von einer Mücke gebissen' are common colloquial usage; the prompt alone does not exclude 'gebissen'. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'Mosquitoes puncture skin with their mouthparts.' / 'Mücken stechen mit ihrem Stechrüssel.', and explanations 'stechen means prick or sting. Mosquitoes puncture skin with their mouthparts.' / 'stechen bedeutet mit etwas Spitzem verletzen. Mücken stechen mit ihrem Stechrüssel.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L766 (b4ba0d04bbc8584ba34af8d69e71627588f55ae3b4ad10b305eefa38b293a7f0), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L766-v2, target 80000000-0000-4000-8000-000000008812, exercise 81000000-0000-4000-8000-000000880121, context legacy-0088-L766-context-2, transfer legacy-0088-L766-transfer-2; objective 'Recognize and use the German expression stechen meaning prick or sting, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L767-v1",
+      "targetId": "80000000-0000-4000-8000-000000008813",
+      "exerciseId": "81000000-0000-4000-8000-000000880130",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "werfen: werfen means throw the card into the reader, not insert it in a slot.",
+        "kleben: kleben means glue/attach, not insert for reading.",
+        "legen: legen means place; one can place a card in some readers, but an insertion slot as hinted calls for stecken.",
+        "stecken: stecken means insert into the reader slot and matches Sie imperative. [Source key.]"
+      ],
+      "finding": "Polite imperative uses 'Bitte stecken Sie' and in + accusative 'in das Lesegerät' for inserting a card.",
+      "rubricAndLanguage": "Independently reconstructed 'Bitte stecken Sie die Karte in das Lesegerät.', original answer index 3 (stecken); Polite imperative uses 'Bitte stecken Sie' and in + accusative 'in das Lesegerät' for inserting a card. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The card must be inserted into a slot.' / 'Die Karte wird in eine Öffnung eingeführt.', and explanations 'stecken means insert or be stuck somewhere. The card must be inserted into a slot.' / 'stecken bedeutet etwas hineinstecken oder feststecken. Die Karte wird in eine Öffnung eingeführt.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L767 (4beda11e344e306f3364ac3f53e9c167cae6b9c7ad721450a3050141e9eecb90), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L767-v1, target 80000000-0000-4000-8000-000000008813, exercise 81000000-0000-4000-8000-000000880130, context legacy-0088-L767-context-1, transfer legacy-0088-L767-transfer-1; objective 'Recognize and use the German expression stecken meaning insert or be stuck somewhere, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L767-v2",
+      "targetId": "80000000-0000-4000-8000-000000008813",
+      "exerciseId": "81000000-0000-4000-8000-000000880131",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "liegt: liegt means lies/rests and is less natural for a key still inserted in its lock.",
+        "fällt: fällt means falls, incompatible with stationary noch im Schloss.",
+        "steckt: steckt means remains inserted or lodged. [Source key.]",
+        "rollt: rollt means rolls, not a key in the keyhole."
+      ],
+      "finding": "'Der Schlüssel steckt noch im Schloss' locates an inserted key in the lock.",
+      "rubricAndLanguage": "Independently reconstructed 'Der Schlüssel steckt noch im Schloss.', original answer index 2 (steckt); 'Der Schlüssel steckt noch im Schloss' locates an inserted key in the lock. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The key remains inserted in the lock.' / 'Der Schlüssel befindet sich noch im Schlüsselloch.', and explanations 'stecken means insert or be stuck somewhere. The key remains inserted in the lock.' / 'stecken bedeutet etwas hineinstecken oder feststecken. Der Schlüssel befindet sich noch im Schlüsselloch.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L767 (4beda11e344e306f3364ac3f53e9c167cae6b9c7ad721450a3050141e9eecb90), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L767-v2, target 80000000-0000-4000-8000-000000008813, exercise 81000000-0000-4000-8000-000000880131, context legacy-0088-L767-context-2, transfer legacy-0088-L767-transfer-2; objective 'Recognize and use the German expression stecken meaning insert or be stuck somewhere, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L769-v1",
+      "targetId": "80000000-0000-4000-8000-000000008814",
+      "exerciseId": "81000000-0000-4000-8000-000000880140",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "weiterfahren: weiterfahren means keep going despite red, contrary to traffic rule.",
+        "stehen bleiben: stehen bleiben expresses halting movement. [Source key.]",
+        "abbiegen: abbiegen means turning; at a red light that may be prohibited and doesn't replace stopping.",
+        "beschleunigen: beschleunigen means accelerate, opposite of stopping."
+      ],
+      "finding": "When traffic signal turns red, a car must stop; 'stehen bleiben' is idiomatic.",
+      "rubricAndLanguage": "Independently reconstructed 'Als die Ampel rot wurde, musste das Auto stehen bleiben.', original answer index 1 (stehen bleiben); When traffic signal turns red, a car must stop; 'stehen bleiben' is idiomatic. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'A red light requires the car to stop.' / 'Bei Rot muss das Auto anhalten.', and explanations 'stehen bleiben means stop moving. A red light requires the car to stop.' / 'stehen bleiben bedeutet die Bewegung anhalten. Bei Rot muss das Auto anhalten.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L769 (36af75f98f256978d549992929c8ce7e379b8045a4df3b62a5fdf81fac110551), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L769-v1, target 80000000-0000-4000-8000-000000008814, exercise 81000000-0000-4000-8000-000000880140, context legacy-0088-L769-context-1, transfer legacy-0088-L769-transfer-1; objective 'Recognize and use the German expression stehen bleiben meaning stop moving, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L769-v2",
+      "targetId": "80000000-0000-4000-8000-000000008814",
+      "exerciseId": "81000000-0000-4000-8000-000000880141",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "stehen geblieben: stehen geblieben is correct for stopping briefly. [Source key.]",
+        "weitergefahren: weitergefahren means continued driving, not stopping to look.",
+        "losgerannt: losgerannt means broke into a run, contrary to pausing for view.",
+        "weggegangen: weggegangen means left rather than stayed looking at the building."
+      ],
+      "finding": "Stopping to view a façade fits 'vor dem Museum stehen geblieben', with sein in perfect.",
+      "rubricAndLanguage": "Independently reconstructed 'Vor dem Museum sind wir kurz stehen geblieben, um die Fassade anzusehen.', original answer index 0 (stehen geblieben); Stopping to view a façade fits 'vor dem Museum stehen geblieben', with sein in perfect. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'They paused their movement to look.' / 'Sie hielten kurz an, um etwas anzuschauen.', and explanations 'stehen bleiben means stop moving. They paused their movement to look.' / 'stehen bleiben bedeutet die Bewegung anhalten. Sie hielten kurz an, um etwas anzuschauen.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L769 (36af75f98f256978d549992929c8ce7e379b8045a4df3b62a5fdf81fac110551), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L769-v2, target 80000000-0000-4000-8000-000000008814, exercise 81000000-0000-4000-8000-000000880141, context legacy-0088-L769-context-2, transfer legacy-0088-L769-transfer-2; objective 'Recognize and use the German expression stehen bleiben meaning stop moving, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L771-v1",
+      "targetId": "80000000-0000-4000-8000-000000008816",
+      "exerciseId": "81000000-0000-4000-8000-000000880160",
+      "disposition": "needs-context-precision",
+      "optionAssessments": [
+        "repariert: repariert means repaired; possible for a person to repair a parked bicycle but uncommon without authorization.",
+        "verkauft: verkauft means sold; a person could sell a bike, but no permission or ownership cues support a sale.",
+        "geputzt: geputzt means cleaned, not necessarily disappearance or theft.",
+        "gestohlen: gestohlen is theft, the target meaning implied by a locked bike at a station; provide explicit lack-of-permission clue. [Source key.]"
+      ],
+      "finding": "A locked bicycle disappearing from outside a station is likely stolen, but the source sentence has no explicit 'ohne Erlaubnis' cue; the theft hint carries that information.",
+      "rubricAndLanguage": "Independently reconstructed 'Jemand hat mein abgeschlossenes Fahrrad vor dem Bahnhof gestohlen.', original answer index 3 (gestohlen); A locked bicycle disappearing from outside a station is likely stolen, but the source sentence has no explicit 'ohne Erlaubnis' cue; the theft hint carries that information. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The bike was taken without permission.' / 'Das Fahrrad wurde unerlaubt weggenommen.', and explanations 'stehlen means take something without permission. The bike was taken without permission.' / 'stehlen bedeutet fremdes Eigentum unerlaubt wegnehmen. Das Fahrrad wurde unerlaubt weggenommen.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L771 (80f9365851ac81c6a4430d8c68c60567627a6b149bcfcab49f99332bac67468c), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L771-v1, target 80000000-0000-4000-8000-000000008816, exercise 81000000-0000-4000-8000-000000880160, context legacy-0088-L771-context-1, transfer legacy-0088-L771-transfer-1; objective 'Recognize and use the German expression stehlen meaning take something without permission, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L771-v2",
+      "targetId": "80000000-0000-4000-8000-000000008816",
+      "exerciseId": "81000000-0000-4000-8000-000000880161",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "zählen: zählen means count money; a Täter in a larger scene could count it, but the target intent is taking it without permission.",
+        "wechseln: wechseln means change money, a cashier function rather than theft.",
+        "stehlen: stehlen is take cash unlawfully, as indicated by Täter. [Source key.]",
+        "einzahlen: einzahlen means deposit money, contrary to taking it."
+      ],
+      "finding": "'Der Täter ... aus der Kasse stehlen' expresses intent to steal cash.",
+      "rubricAndLanguage": "Independently reconstructed 'Der Täter versuchte, Geld aus der Kasse zu stehlen.', original answer index 2 (stehlen); 'Der Täter ... aus der Kasse stehlen' expresses intent to steal cash. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The person attempted theft.' / 'Die Person wollte fremdes Geld unerlaubt nehmen.', and explanations 'stehlen means take something without permission. The person attempted theft.' / 'stehlen bedeutet fremdes Eigentum unerlaubt wegnehmen. Die Person wollte fremdes Geld unerlaubt nehmen.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L771 (80f9365851ac81c6a4430d8c68c60567627a6b149bcfcab49f99332bac67468c), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L771-v2, target 80000000-0000-4000-8000-000000008816, exercise 81000000-0000-4000-8000-000000880161, context legacy-0088-L771-context-2, transfer legacy-0088-L771-transfer-2; objective 'Recognize and use the German expression stehlen meaning take something without permission, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L772-v1",
+      "targetId": "80000000-0000-4000-8000-000000008817",
+      "exerciseId": "81000000-0000-4000-8000-000000880170",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "steigen: steigen an means increase, fitting electricity prices growing over months. [Source key.]",
+        "sinken: sinken an is not a valid separable construction and means falling.",
+        "bleiben: bleiben an is non-idiomatic in this context; unchanged prices would not ansteigen.",
+        "schwimmen: schwimmen an is unrelated to prices and ungrammatical here."
+      ],
+      "finding": "'Preise steigen seit Monaten kontinuierlich an' is the separable verb ansteigen, third person plural.",
+      "rubricAndLanguage": "Independently reconstructed 'Die Preise für Strom steigen seit Monaten kontinuierlich an.', original answer index 0 (steigen); 'Preise steigen seit Monaten kontinuierlich an' is the separable verb ansteigen, third person plural. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The costs have been increasing.' / 'Die Kosten werden immer höher.', and explanations 'steigen means rise or increase. The costs have been increasing.' / 'steigen bedeutet nach oben gehen oder größer werden. Die Kosten werden immer höher.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L772 (0b9cc8593dc15f97e4e7a9de0a0564d56d76833e7ed3333ba1d9d865db577b23), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L772-v1, target 80000000-0000-4000-8000-000000008817, exercise 81000000-0000-4000-8000-000000880170, context legacy-0088-L772-context-1, transfer legacy-0088-L772-transfer-1; objective 'Recognize and use the German expression steigen meaning rise or increase, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L772-v2",
+      "targetId": "80000000-0000-4000-8000-000000008817",
+      "exerciseId": "81000000-0000-4000-8000-000000880171",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "gefallen: gefallen means fallen, opposite of immediate exertion effect.",
+        "geblieben: geblieben means stayed, contradictory to the specified increase.",
+        "geschwommen: geschwommen means swam, not movement of pulse.",
+        "gestiegen: gestiegen is the participle for rate increase. [Source key.]"
+      ],
+      "finding": "Heart rate increases following exertion; present perfect 'ist ... gestiegen' uses sein.",
+      "rubricAndLanguage": "Independently reconstructed 'Direkt nach der intensiven Belastung ist ihr Puls deutlich gestiegen.', original answer index 3 (gestiegen); Heart rate increases following exertion; present perfect 'ist ... gestiegen' uses sein. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'Exertion made the heart rate increase.' / 'Die Belastung ließ den Puls ansteigen.', and explanations 'steigen means rise or increase. Exertion made the heart rate increase.' / 'steigen bedeutet nach oben gehen oder größer werden. Die Belastung ließ den Puls ansteigen.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L772 (0b9cc8593dc15f97e4e7a9de0a0564d56d76833e7ed3333ba1d9d865db577b23), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L772-v2, target 80000000-0000-4000-8000-000000008817, exercise 81000000-0000-4000-8000-000000880171, context legacy-0088-L772-context-2, transfer legacy-0088-L772-transfer-2; objective 'Recognize and use the German expression steigen meaning rise or increase, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L775-v1",
+      "targetId": "80000000-0000-4000-8000-000000008818",
+      "exerciseId": "81000000-0000-4000-8000-000000880180",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "fehlt: fehlt nicht would say the sum itself is not missing, which does not explain two omitted positions.",
+        "steigt: steigt nicht says sum does not rise, but invoice positions missing means calculation wrong rather than not growing.",
+        "sinkt: sinkt nicht means does not fall, unrelated to incorrect total.",
+        "stimmt: stimmt nicht means is inaccurate, directly explained by missing items. [Source key.]"
+      ],
+      "finding": "Missing invoice items make the invoice sum incorrect: 'Summe ... stimmt nicht'.",
+      "rubricAndLanguage": "Independently reconstructed 'Die Summe auf der Rechnung stimmt nicht; zwei Posten fehlen.', original answer index 3 (stimmt); Missing invoice items make the invoice sum incorrect: 'Summe ... stimmt nicht'. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The calculation contains an error.' / 'Die Berechnung ist nicht richtig.', and explanations 'stimmen means be correct or accurate. The calculation contains an error.' / 'stimmen bedeutet richtig sein. Die Berechnung ist nicht richtig.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L775 (7e31a29bbb2d4cd8ac571bbab3c14b933f39a1775b1afd8f7d3d61011600b804), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L775-v1, target 80000000-0000-4000-8000-000000008818, exercise 81000000-0000-4000-8000-000000880180, context legacy-0088-L775-context-1, transfer legacy-0088-L775-transfer-1; objective 'Recognize and use the German expression stimmen meaning be correct or accurate, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L775-v2",
+      "targetId": "80000000-0000-4000-8000-000000008818",
+      "exerciseId": "81000000-0000-4000-8000-000000880181",
+      "disposition": "blocked-ambiguity",
+      "optionAssessments": [
+        "fehlten: fehlten means all entries were missing, a possible outcome of a control and not excluded by the original text.",
+        "täuschten: täuschten is awkward with Angaben as subject: information itself does not normally deceive.",
+        "stimmten: stimmten means all details were correct, as the hint reveals but the prompt does not. [Source key.]",
+        "irrten: irrten is generally used of mistaken people, not statements, so unnatural here."
+      ],
+      "finding": "The sentence only says a review took place; it does not explicitly say the details proved correct. 'Alle Angaben fehlten' may be grammatical and possible. Add outcome to prompt.",
+      "rubricAndLanguage": "Independently reconstructed 'Nach der Kontrolle zeigte sich: Alle Angaben stimmten.', original answer index 2 (stimmten); The sentence only says a review took place; it does not explicitly say the details proved correct. 'Alle Angaben fehlten' may be grammatical and possible. Add outcome to prompt. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The information was verified as correct.' / 'Die Angaben erwiesen sich als richtig.', and explanations 'stimmen means be correct or accurate. The information was verified as correct.' / 'stimmen bedeutet richtig sein. Die Angaben erwiesen sich als richtig.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L775 (7e31a29bbb2d4cd8ac571bbab3c14b933f39a1775b1afd8f7d3d61011600b804), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L775-v2, target 80000000-0000-4000-8000-000000008818, exercise 81000000-0000-4000-8000-000000880181, context legacy-0088-L775-context-2, transfer legacy-0088-L775-transfer-2; objective 'Recognize and use the German expression stimmen meaning be correct or accurate, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L776-v1",
+      "targetId": "80000000-0000-4000-8000-000000008819",
+      "exerciseId": "81000000-0000-4000-8000-000000880190",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "stinkt: stinkt means smells foul and matches the context. [Source key.]",
+        "duftet: duftet means smells pleasant, opposite of rotten garbage.",
+        "glänzt: glänzt means shines, unrelated to the odour clue.",
+        "trocknet: trocknet means dries, a possible effect of sunshine but not the intended smell."
+      ],
+      "finding": "Sun-heated garbage that has sat for days can develop bad odour: 'stinkt stark'.",
+      "rubricAndLanguage": "Independently reconstructed 'Der Müll steht seit Tagen in der Sonne und stinkt stark.', original answer index 0 (stinkt); Sun-heated garbage that has sat for days can develop bad odour: 'stinkt stark'. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The waste gives off a bad smell.' / 'Der Müll riecht unangenehm.', and explanations 'stinken means smell very unpleasant. The waste gives off a bad smell.' / 'stinken bedeutet unangenehm riechen. Der Müll riecht unangenehm.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L776 (61ae3411a50a7d3afdc4d299b9037fb1554b56d63dad6c3b7c680ec45daf90c8), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L776-v1, target 80000000-0000-4000-8000-000000008819, exercise 81000000-0000-4000-8000-000000880190, context legacy-0088-L776-context-1, transfer legacy-0088-L776-transfer-1; objective 'Recognize and use the German expression stinken meaning smell very unpleasant, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    },
+    {
+      "variantKey": "legacy-0088-L776-v2",
+      "targetId": "80000000-0000-4000-8000-000000008819",
+      "exerciseId": "81000000-0000-4000-8000-000000880191",
+      "disposition": "no-blocker-found",
+      "optionAssessments": [
+        "geschmeckt: geschmeckt means tasted; phrase 'beim Öffnen' indicates smell noticed without drinking it.",
+        "gekühlt: gekühlt means cooled and does not explain the bad odour.",
+        "gefroren: gefroren means frozen, also does not mean stank.",
+        "gestunken: gestunken is past participle for giving off an unpleasant smell. [Source key.]"
+      ],
+      "finding": "Spoiled milk smelled foul on opening: 'hat ... gestunken' is correct perfect participle.",
+      "rubricAndLanguage": "Independently reconstructed 'Die verdorbene Milch hat schon beim Öffnen der Packung unangenehm gestunken.', original answer index 3 (gestunken); Spoiled milk smelled foul on opening: 'hat ... gestunken' is correct perfect participle. Checked German form, constituent syntax and tense, target meaning, bilingual instruction and hint 'The bad odor was noticeable immediately.' / 'Der schlechte Geruch war sofort bemerkbar.', and explanations 'stinken means smell very unpleasant. The bad odor was noticeable immediately.' / 'stinken bedeutet unangenehm riechen. Der schlechte Geruch war sofort bemerkbar.'.",
+      "provenance": "Pinned original authoring b7a6507e135895b1ebb671b73538a9a6d3742304; Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/verbs.jsonl:L776 (61ae3411a50a7d3afdc4d299b9037fb1554b56d63dad6c3b7c680ec45daf90c8), 2026-10-29. Inherited examples not copied. AI editorial pass only, not human or legal signoff.",
+      "levelAndIdentity": "legacy-0088-L776-v2, target 80000000-0000-4000-8000-000000008819, exercise 81000000-0000-4000-8000-000000880191, context legacy-0088-L776-context-2, transfer legacy-0088-L776-transfer-2; objective 'Recognize and use the German expression stinken meaning smell very unpleasant, including appropriate forms and collocations.', provisional B1, candidate/publication=false."
+    }
+  ]
+}

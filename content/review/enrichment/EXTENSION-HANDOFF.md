@@ -2,11 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**Total: 2,938 of 5,682 independently reviewed questions (51.71%).** Original first 49 batches: 1,536 complete. Extension: **1,402/4,146** questions, **38/126 batches** 0050–0087 complete. **2,744 questions across 88 extension batches remain**; resume **legacy-0088**.
+**2972/5,682 questions (52.31%)** have independent question-level GPT-6 reviews, 1,536 first-49 and 1436/4,146 extension. Extension batches 0050 through 0088 are reviewed (39/126); **2710 questions / 87 batches remain; resume legacy-0089.**
 
-Batch 0087 added 40 question-level assessments and one inactive correction proposal to replace the overbroad claim that an employed person's income necessarily covers their whole livelihood. Its 4 options per item and bilingual content were examined; none of the authored answers or ids were changed. Extension has 19 inactive proposals pending recheck, in addition to 171 original proposals of which 52 need recheck: **190 inactive total, 71 needing recheck.** Original and extension candidate/publication approvals are false.
-
-Branch `content/enrichment-review` only, source snapshot `b7a6507e135895b1ebb671b73538a9a6d3742304`; preserve one writer and expected-head fast-forward, and verify Actions CI for this commit before claiming pass. No authoring, app, main, DB or deployment changes.
+Batch 0088 added 34 individual reviews and six inactive correction proposals: 747-v2 freezing-temperature ambiguity, 758-v2 jump-event ambiguity, 762-v1 possible runway taxi, 766-v2 colloquial mosquito bite, 771-v1 implied theft, 775-v2 missing outcome after checking. Exact answer identities retained; original authoring unchanged. Extension inactive proposals 25 awaiting recheck, plus 171 original of which 52 await recheck: **196 inactive total, 77 pending recheck**. All approval flags false. Check latest Actions on this exact commit before claiming pass. Branch `content/enrichment-review` only, pinned source b7a6507e135895b1ebb671b73538a9a6d3742304; no main/app/source/database/deployment modifications.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
