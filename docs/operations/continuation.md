@@ -1,5 +1,15 @@
 # Continuing German Master recovery
 
+4 November continuation: stale browser acceptance has been repaired using an
+explicit local-only OfflineDesk test page plus actual Settings assertions that
+retired controls stay absent. Cold restart/draft/feedback/late-sync/cache checks
+pass locally; production artifact excludes the fixture. Two native tests pass on
+the exact shared candidate (22 answers, saved-state serialization and pool bounds),
+without changing shipped content. See newest PROGRESS and PR #30 for hosted and
+native build outcomes. Free Supabase has both active slots occupied. Await the
+pending owner answer before interrupting `Ali's Project` to resume old GM2 for
+staging; no paid upgrade or unrelated project pause is authorized by silence.
+
 4 November: PR #30 has an inactive 22-question / 11-target reviewed enrichment
 candidate and the narrow repository-scan false-positive fix. Read the newest
 PROGRESS entry and `content/candidates/enrichment-wave-1/README.md`. Reviewed is

@@ -45,6 +45,18 @@ require bounded selection on both clients.
 
 ## Remaining release gates
 
+Continuation: the stale browser script is repaired. Current Settings smoke checks
+that retired controls remain absent; the retained engine's complete cold-start,
+draft/feedback, completion/late-sync and cache checks run on a dedicated local
+preview page. This is not a production/native journey claim. Local browser check
+passes. Two native tests grade all 22 candidate questions and verify saved-state
+serialization and pool/header bounds using test-only resources. Active web/native
+content remains unchanged. Check PR #30 for hosted results of this repair.
+
+The organization is Free and already has two active projects, so resuming the old
+target needs a free slot. Owner approval to interrupt the unrelated `Ali's Project`
+has been requested; do not act on an unanswered question. No upgrade is authorized.
+
 Hosted safety, accessibility, dependency and backend checks pass at `e7cff367`.
 The hosted browser job fails at `verify-offline-shell.mjs:61`, waiting for the
 retired `Offline practice` Settings summary. This script is unchanged from main;

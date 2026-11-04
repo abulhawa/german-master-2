@@ -19,7 +19,7 @@ export default defineConfig({
       cacheId: 'german-master-v2-local-shell',
       globPatterns: ['**/*.{js,css,html}'],
       navigateFallback: '/learner-preview/index.html',
-      navigateFallbackAllowlist: [/^\/learner-preview\/(?:index\.html)?$/],
+      navigateFallbackAllowlist: [/^\/learner-preview\/(?:index\.html|offline-acceptance\.html)?$/],
       // Workbox's incompatible-cache cleanup matches scope, not our namespace.
       // Normal precache activation already prunes obsolete entries in our cache.
       cleanupOutdatedCaches: false,
@@ -30,7 +30,12 @@ export default defineConfig({
     },
   })],
   resolve: { alias: { '@': fromHere('./client/src') } },
-  build: { outDir: fromHere('./dist/learner-preview'), emptyOutDir: true },
+  build: { outDir: fromHere('./dist/learner-preview'), emptyOutDir: true,
+    rollupOptions: { input: {
+      learner: fromHere('./learner-preview/index.html'),
+      offlineAcceptance: fromHere('./learner-preview/offline-acceptance.html'),
+    } },
+  },
   preview: {
     host: '127.0.0.1', port: 5010, strictPort: true,
     proxy: { '/v2': { target: 'http://127.0.0.1:5011' } },

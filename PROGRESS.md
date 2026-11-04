@@ -1,5 +1,40 @@
 # German Master 2.0 current checkpoint
 
+## Enrichment acceptance continuation — 4 November 2026
+
+Repaired the stale hosted-browser scenario without restoring retired learner
+controls. The actual learner Settings smoke asserts that download/manual-sync
+controls are absent. A separate explicit local-preview-only acceptance page
+mounts the retained OfflineDesk engine; all prior browser cold-restart,
+assisted-draft, feedback-on-reload, offline completion/late-sync, waiting-worker,
+cache ownership and 320px assertions remain. The test reports this scope honestly:
+it is not proof of production account or native device lifecycle. The production
+build excludes the acceptance HTML and component. Product flow is unchanged.
+
+Local root checks and all tests pass again: 200 backend, 465 web, 20 HTTP.
+Preview build and repaired Chromium 151.0.7922.34 acceptance pass. Production
+web/API build passes and contains no acceptance fixture. Native tests consume the
+exact generated candidate only as a unit-test resource, never shipped assets:
+both tests pass, covering all 22 accepted answers in the native grader, native
+saved-state serialization, B1 77 / B2 70 pool/header identities, and rejection of
+126 questions. Native lint/debug-assembly and hosted outcomes are checked before
+handoff and reported on PR #30; no device/Play acceptance is implied.
+
+Live staging constraint is now verified: the organization is Free, with both
+active project slots occupied by clean GM2 production and the unrelated
+`Ali's Project`; old GM2 is INACTIVE. Current Supabase billing documentation
+confirms two active free projects, excluding paused projects. Resuming old GM2
+therefore needs a slot freed. A specific owner question is pending about
+temporarily pausing `Ali's Project` for staging. Do not pause another service,
+upgrade, create/restore a project or change billing without the corresponding
+answer/authorization. Preserve old account history. No live mutation or
+production activation occurred. Independent editorial review remains untouched.
+
+Next: confirm hosted browser check on this repair, then, if the owner authorizes
+the other service interruption, resume old GM2 and inspect its actual baseline,
+catalog and account isolation before any additive staging import. Prove live
+web/native lifecycle and rollback before activating the 22-question wave.
+
 ## Reviewed enrichment wave 1 — 4 November 2026
 
 ### Verification follow-up
