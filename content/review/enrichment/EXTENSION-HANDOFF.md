@@ -1,6 +1,6 @@
 # German Master 2.0 editorial review: live checkpoint
 
-4 November 2026: **4340/5,682 (76.38%)** independently GPT-6 question-level reviewed, original 1,536 and extension 2804/4,146 through **81/126 completed extension batches 0050–0130**. **1342 questions and 45 extension batches remain; next legacy-0131.** Batch 0130: 16 individually assessed original questions, all offered choices, full German, bilingual hint/explanation, grammar and source/CEFR. No new correction. **221 inactive proposals, 102 pending exact rechecks**. CI on exact new commit must pass before continuing. Authoring inputs, app/main, database, publication and deployment unchanged; approval flags false and single-writer expected head.
+4 November 2026: **4360/5,682 (76.73%)** independently reviewed at original GPT-6 question level; 1,536 original and 2824/4,146 extension, **82 of 126 extension batches complete through legacy-0131**. **1322 questions, 44 extension batches remain; next legacy-0132.** Batch 0131 assessed 20 source questions, all offered alternatives, exact gap and reading meanings, German completions, bilingual hints/feedback, level and provenance. No new corrections; **221 inactive proposals, 102 pending exact rechecks**. Verify latest commit CI against exact SHA. One expected-head writer, all authoring inputs/app/main/DB/publication/deployment untouched, candidateReady/publicationApproved false.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
