@@ -1,25 +1,27 @@
 # German Master 2.0 current checkpoint
 
-## Legacy typing conversion staging — 4 November 2026
+## Low-typing conversion release 4 — 5 November 2026 (validated, not live)
 
-Owner requested beginning the conversion of remaining required-typing exercises
-to the accepted low-typing practice formats. Separate branch
-`content/low-typing-legacy-conversion` stages 103 immutable replacement
-revisions in `content/candidates/low-typing-conversion/draft.json`, referencing
-the exact previous published IDs/revisions. Wave-1 offline bundle contains 103
-typed exercises inherited by the larger wave-3 corpus: 11 short-answer, 81 cloze
-and 11 multi-slot. All 103 proposed replacements use `choice` or
-`gap_choice`, with 100 reusing already AI-approved source drafts and three
-starter suggestions newly represented as selection revisions (editorial recheck
-still required). Every accepted selection has a rubric; no authoring history,
-review branch, production data or deployed runtime is edited.
+Prepared new additive immutable release 9300 on
+`content/low-typing-legacy-conversion`. The checked generator replays the
+previous 9200 release (5,619 members; expected manifest
+`7822ff2ed502902d7e9a8c5788cbcffb9c493e40df709dd225dbc13ca10a8863`)
+in disposable PGlite. It adds 103 newer choice/gap-choice revisions and retains
+5,516 unaffected members; there are zero typed exercises in the new release.
+All 103 source conversions and accepted rubrics were checked, including three
+separately rechecked original starter exercises. New full member manifest:
+`2129c015b28f02333e2ee38dfc40006d17dde58ed8a01f829e2c6548aed39df2`.
+The existing old release, typed revisions and user history remain unchanged.
+The exact generated offline catalog is shared by web and native Android.
 
-New backend test verifies the typed inventory in wave 1 and wave 3, exact IDs,
-authoring evidence, revision increments, accepted-answer grading and 103-format
-session parsing. Checks are pending hosted CI and separate client acceptance.
-Next: recheck starter and changed objectives, derive a new immutable release and
-shared offline bundle, verify previous-session replay and web/native parity,
-then seek promotion approval. This staging does not change live typing behavior.
+The candidate generator plus the two focused tests passed in GitHub Actions
+run 41931705395. The owner requests completion through closure, but production
+import/merge/hosted browser confirmation remain separate required operations.
+Next: verify latest PR CI, insert checked 103 revisions and release membership
+into the same clean Supabase project with live preflight and exact manifest
+comparison; verify 0 typed in release 9300 and 103 typed still in 9200;
+merge only the matching approved checked PR head and verify Vercel READY and
+signed-out web practice with a converted question. Android Play stays held.
 
 ## Reviewed dataset deployed — 4 November 2026
 
