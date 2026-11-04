@@ -1,0 +1,40 @@
+name: Enrichment wave 3 candidate preflight
+on:
+  push:
+    branches: ['release/enrichment-wave-3-preflight-*']
+    paths:
+      - 'tools/enrichment-wave-3-preflight.mjs'
+      - '.github/workflows/enrichment-wave-3-preflight.yml'
+      - 'docs/operations/enrichment-wave-3-preflight.md'
+  pull_request:
+    paths:
+      - 'tools/enrichment-wave-3-preflight.mjs'
+      - '.github/workflows/enrichment-wave-3-preflight.yml'
+      - 'docs/operations/enrichment-wave-3-preflight.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  plan-reviewed-corpus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Verify frozen review commit is accessible
+        run: git cat-file -e 0f8d39ef501c10062b574a9d5c1483f75b3b04b3^{commit}
+      - name: Inventory eligible reviewed content without activation
+        run: node tools/enrichment-wave-3-preflight.mjs --report "$RUNNER_TEMP/enrichment-wave-3-readiness.json"
+      - name: Preserve detailed readiness report for integration
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrichment-wave-3-readiness
+          path: ${{ runner.temp }}/enrichment-wave-3-readiness.json
+          retention-days: 14
