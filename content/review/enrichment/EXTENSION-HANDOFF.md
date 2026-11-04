@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3284/5,682 questions (57.80%)** independently reviewed. First 49: 1,536 complete. Extension 1748/4,146 across **48/126 batches (0050–0097)**. **2398 questions and 78 extension batches remain; next legacy-0098.**
+**3324/5,682 questions (58.50%)** independently GPT-6 editorial-reviewed. First49 1,536; extension 1788/4,146 across **49/126 batches 0050–0098**. **2358 questions and 77 extension batches remain; next legacy-0099.**
 
-Batch 0097 added 30 individualized noun reviews, four-choice assessments, completed German sentences, bilingual hints/explanations, tentative levels and source provenance. One inactive correction for 0097-L852-v1 clarifies that German is a *second* foreign language after English rather than merely not a native language. Exact source answer IDs and original catalogs unchanged. Original 171 inactive corrections with 52 pending rechecks; extension **45 inactive**, pending recheck; **216 inactive total / 97 pending recheck**. New CI must be verified against exact commit; original authoring b7a6507e135895b1ebb671b73538a9a6d3742304 remains immutable, review branch only, no app/main/DB/publishing/deployment changes and no candidate approval.
+Batch 0098 completed 40 original verb questions individually reviewed across every offered option, complete German, bilingual hints/explanations, exact keys, provisional level and pinned provenance. Two INACTIVE correction proposals: L889-v1 safety nets normally prevent injuries rather than prevent the fall itself, L893-v1 generic 'Ausweis verlängern' misleading for German ID cards, revised to Parkausweis. No original authored source or answer ID changed. Original 171 inactive proposals (52 still requiring recheck), extension **47 inactive** awaiting recheck; **218 inactive total / 99 requiring separate recheck**. GitHub CI validation pending for new commit; do not claim passing until verified. One writer, review branch only, pinned source b7a6507e135895b1ebb671b73538a9a6d3742304, all publication and candidate flags false, no app/main/DB/deployment modifications.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
