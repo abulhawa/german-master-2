@@ -55,6 +55,8 @@ it('installs/replays a hash-bound safe wave, grades/saves and rolls back configu
    expect(adopted.session.questions).toHaveLength(questions.length);
    expect(adopted.draft).toEqual(draft);
    expect(await store.adoptGuestRound(owner,adoption)).toEqual(adopted);
+   // Restoring the old runtime selector must still read the new pinned round.
+   expect(await oldStore.adoptGuestRound(owner,adoption)).toEqual(adopted);
    expect(offline.questions.length).toBeLessThanOrEqual(125);
    expect(()=>SessionSchema.parse({...offline,questions:Array.from({length:126},(_,i)=>({...offline.questions[0],id:randomUUID()}))})).toThrow();
   }

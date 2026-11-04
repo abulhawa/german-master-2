@@ -1,5 +1,31 @@
 # German Master 2.0 current checkpoint
 
+## Direct production enrichment activation — 4 November 2026 (in progress)
+
+Owner explicitly supersedes staging: "no staging, directly to production".
+The pending unrelated-project pause proposal is cancelled. Activate only the
+reviewed wave 1 (11 targets / 22 questions) on existing clean production and
+existing Vercel project; keep Android Play held and independent review untouched.
+Active runtime catalog and shared web/native bundle now select the generated
+147-member additive release and bounded B1 77 / B2 70 General pools. Generator
+pins its original basics/catalog and hash-checks the recovered previous offline
+base, so regeneration remains identical after activation rather than appending
+the wave twice. Focused acceptance and root type/generated checks pass.
+
+Live preflight confirms the previous 125-member manifest exactly matches the
+candidate base. Previous Vercel production deployment is
+`dpl_BqZFcnYf9dic4biNaVPeDMN48wcG` at `27fdd13f`. Production import must compare
+all expected old/new immutable member rows inside the transaction before commit.
+No learner writes, old revision updates or release deletion. Retain both releases
+on rollback. Prefer restoring the previous runtime selector while retaining the
+new bundle/revisions, allowing new pinned rounds to remain readable; a full old
+asset rollback is not claimed safe for temporary new-question guest rounds.
+
+At this source checkpoint no database import/merge/production activation has
+occurred. Finish full local/hosted checks, execute/verify the exact additive import,
+merge the checked activation, observe production READY and check actual guest
+question grading and API access. Record the final deployment/receipt afterward.
+
 ## Enrichment acceptance continuation — 4 November 2026
 
 Repaired the stale hosted-browser scenario without restoring retired learner

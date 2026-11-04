@@ -1,5 +1,11 @@
 # Continuing German Master recovery
 
+4 November latest: owner explicitly says "no staging, directly to production".
+This supersedes the staging/other-project-pause wording below. Activation of the
+reviewed 22-question wave is in progress on PR #30; use newest PROGRESS for the
+exact import/deployment checkpoint. Preserve old releases, account data, the
+independent review branch and Android Play hold. No service pause or billing change.
+
 4 November continuation: stale browser acceptance has been repaired using an
 explicit local-only OfflineDesk test page plus actual Settings assertions that
 retired controls stay absent. Cold restart/draft/feedback/late-sync/cache checks

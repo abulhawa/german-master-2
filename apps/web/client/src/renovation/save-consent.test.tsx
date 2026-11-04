@@ -42,16 +42,16 @@ it('installs an unanswered draft durably, never rewinds replay or overwrites ano
  expect(readJourney(storage).practice!.session!.id).toBe(saved.session.id);
 });
 
-it('installs and reloads a full 65-question adopted pool with its exact frozen allocation and draft',()=>{
+it('installs and reloads a full 77-question adopted pool with its exact frozen allocation and draft',()=>{
  const guest=start();
- expect(guest.session.questions).toHaveLength(65);
+ expect(guest.session.questions).toHaveLength(77);
  const questions=guest.session.questions;
  const saved={apiVersion:'v2' as const,session:guest.session,index:12,draft:{type:'short_answer' as const,text:'Entwurf'},assisted:false,confirmedCount:12,correctCount:7,skippedCount:0};
  saveJourney(localStorage,emptyJourney());
  installAdoptedRound(localStorage,saved);
  const restored=readJourney(localStorage).practice!;
- expect(restored.request.questionCount).toBe(65);
- expect(restored.session?.questions).toHaveLength(65);
+ expect(restored.request.questionCount).toBe(77);
+ expect(restored.session?.questions).toHaveLength(77);
  expect(restored).toMatchObject({index:12,draft:saved.draft});
  expect(restored.session?.questions).toEqual(questions);
  expect(SessionRequestSchema.parse({...restored.request,questionCount:125}).questionCount).toBe(125);
