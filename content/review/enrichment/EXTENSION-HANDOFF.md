@@ -1,5 +1,12 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## Grouped editorial checkpoint, 4 November 2026: next legacy-0152
+
+Independent per-question GPT-6 review completed across five batches **0147–0151**, covering **150 questions and 600 original answer alternatives** (32+26+32+32+28). Every source answer key, completed German, competing option, grammar/meaning, EN/DE instruction, hint and explanation, provenance, objective and provisional level was considered. New inactive exact-source-bound proposals in 0147: **L2079-v1** (correct nonidiomatic 'Schreck' construction) and **L2064-v2** (remove target answer inadvertently given in word Kunststoffschlauch). Both original accepted options retained; no authoring inputs or grading modified. Two new proposed corrections need independent recheck, alongside earlier proposals.
+
+**Full review 4906/5,682 (86.34%), 776 questions remain in 24 extension batches; next legacy-0152.** Extension 3370/4,146; original first 49 batches 1,536/1,536. Inactive proposals now 226 total, including extension 55, with 107 outstanding independent proposal rechecks. One grouped commit, exact-head GitHub Actions must pass before another grouped review push. All candidate/publication/active flags false. No app, authoring source, main, validation logic, live DB, integration or deployment changes.
+
+
 ## Grouped editorial checkpoint, 4 November 2026: next legacy-0147
 
 Five consecutive batches 0142–0146 independently reviewed: **32+36+34+28+22 = 152 German questions and 608 original answer options**, with individualized rationale for each option, original scored answer and completed German, grammar/meaning, EN/DE instructions, hints and explanations, objective, tentative CEFR and immutable source identity. No new serious competing answer requiring an inactive correction was identified in this set. The existing inactive 224 correction proposals remain unactivated, with 105 rechecks outstanding.
