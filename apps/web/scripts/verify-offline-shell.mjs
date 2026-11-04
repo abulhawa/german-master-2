@@ -12,6 +12,7 @@ import { preview } from 'vite';
 const { chromium } = await import(process.env.GM_PLAYWRIGHT_MODULE
   ? pathToFileURL(process.env.GM_PLAYWRIGHT_MODULE).href : 'playwright');
 const url = 'http://127.0.0.1:5010/learner-preview/';
+const engineUrl = `${url}offline-acceptance.html`;
 const profile = await mkdtemp(join(tmpdir(), 'gm-v2-shell-'));
 const errors = [];
 let context;
@@ -41,24 +42,31 @@ async function startServers() {
   if (!ready) throw Error('Fresh fixture API startup timed out');
   previewServer = await preview({ configFile: fileURLToPath(new URL('../vite.learner-preview.config.ts', import.meta.url)) });
 }
-async function launch(offline) {
+async function launch(offline, target = engineUrl) {
   context = await chromium.launchPersistentContext(profile, { headless: true,
     executablePath: process.env.GM_CHROMIUM_EXECUTABLE, viewport: { width: 320, height: 800 } });
   await context.setOffline(offline);
   const page = context.pages()[0];
   page.on('pageerror', error => errors.push(error.message));
-  await page.goto(url);
+  await page.goto(target);
   return page;
 }
 const button = (page, name) => page.getByRole('button', { name, exact: true });
 try {
   if (!process.argv.includes('--existing-servers')) await startServers();
-  let page = await launch(false);
+  let page = await launch(false, url);
   await page.getByText('Local preview saved for offline launch.', { exact: true }).waitFor();
   await button(page, 'Save preferences').click();
   await page.getByRole('heading', {name:'A little practice. Lasting progress.', exact:true}).waitFor();
   await button(page, 'Settings').click();
-  await page.locator('summary').filter({hasText:'Offline practice'}).click();
+  await page.getByRole('heading', {name:'Settings',exact:true}).waitFor();
+  assert.equal(await page.getByText('Offline practice', {exact:true}).count(), 0);
+  assert.equal(await button(page, 'Download two sessions').count(), 0);
+  assert.equal(await page.getByRole('button', {name:/^Sync saved work/}).count(), 0);
+  // Retained offline engine uses a dedicated local-only page. The production
+  // Settings no longer exposes download/sync controls; do not reintroduce them.
+  await page.goto(engineUrl);
+  await page.getByRole('heading', {name:'Isolated offline-engine acceptance'}).waitFor();
   await button(page, 'Download two sessions').click();
   await page.getByText(/^Sessions available to start\s*:\s*2$/).waitFor();
   await page.evaluate(async () => {
@@ -72,8 +80,6 @@ try {
   // Entire browser closes before going offline: no live document/module cache.
   await context.close();
   page = await launch(true);
-  await button(page, 'Settings').click();
-  await page.locator('summary').filter({hasText:'Offline practice'}).click();
   await page.getByText(/^Sessions available to start\s*:\s*2$/).waitFor();
   await button(page, 'Start downloaded practice').click();
   await button(page, 'Hint').click();
@@ -94,16 +100,12 @@ try {
   });
   await context.close();
   page = await launch(true);
-  await button(page, 'Settings').click();
-  await page.locator('summary').filter({hasText:'Offline practice'}).click();
   await button(page, 'Open saved session 1').click();
   await page.locator('.gm-offline-answer input').first().waitFor();
   assert.equal(await page.locator('.gm-offline-answer input').first().inputValue(), 'Berufe');
   await button(page, 'Check answer').click();
   await button(page, 'Continue').waitFor();
   await page.reload();
-  await button(page, 'Settings').click();
-  await page.locator('summary').filter({hasText:'Offline practice'}).click();
   await button(page, 'Open saved session 1').click();
   await button(page, 'Continue').click();
   for (let i = 0; i < 4; i++) {
@@ -121,8 +123,6 @@ try {
   await button(page, 'Sync saved work (6)').waitFor();
   await context.close();
   page = await launch(true);
-  await button(page, 'Settings').click();
-  await page.locator('summary').filter({hasText:'Offline practice'}).click();
   await button(page, 'Open saved session 1').click();
   await button(page, 'Sync saved work (6)').waitFor();
   const before = await page.evaluate(async () => {
@@ -152,7 +152,8 @@ try {
   await button(page, 'Sync saved work (0)').waitFor();
   assert.deepEqual(errors, []);
   console.log(JSON.stringify({ result: 'passed', browser: await context.browser().version(),
-    evidence: ['browser restart offline', 'assisted draft retained', 'feedback retained on reload',
+    acceptanceScope: 'Current learner Settings smoke plus isolated retained offline engine; not production account/native acceptance',
+    evidence: ['retired controls absent from learner Settings', 'browser restart offline', 'assisted draft retained', 'feedback retained on reload',
       'offline completion and late sync', 'waiting update without reload', 'scoped asset-only cache',
       'unrelated precache/storage retained across activation', '320px reflow'], ...before }, null, 2));
 } finally {

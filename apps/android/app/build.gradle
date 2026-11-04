@@ -268,4 +268,17 @@ def foundationAssets = tasks.register("prepareFoundationAssets", Sync) {
 }
 android.sourceSets.main.assets.srcDir(layout.buildDirectory.dir("generated/foundationAssets").get().asFile)
 android.sourceSets.test.resources.srcDir(rootProject.file("../../contracts/v2/examples"))
+// Candidate content is a test resource only; never add it to shipped assets.
+def enrichmentTestResources = tasks.register("prepareEnrichmentTestResources", Sync) {
+    from(rootProject.file("../../content/candidates/enrichment-wave-1")) {
+        include("offline.json")
+        rename("offline.json", "enrichment-wave-1.json")
+    }
+    into(layout.buildDirectory.dir("generated/enrichmentTestResources"))
+}
+android.sourceSets.test.resources.srcDir(layout.buildDirectory.dir("generated/enrichmentTestResources").get().asFile)
+tasks.withType(Test).configureEach { dependsOn(enrichmentTestResources) }
+tasks.matching { it.name.startsWith("process") && it.name.endsWith("UnitTestJavaRes") }.configureEach {
+    dependsOn(enrichmentTestResources)
+}
 tasks.named("preBuild").configure { dependsOn(foundationAssets) }

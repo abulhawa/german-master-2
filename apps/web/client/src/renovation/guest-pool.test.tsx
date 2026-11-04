@@ -13,14 +13,14 @@ it("continues through the finite B1 pool and offers a topic change after every i
   render(<GuestStarterJourney onAuth={() => undefined} />);
   fireEvent.click(screen.getByRole("button", { name: "Start practice" }));
   const started = JSON.parse(sessionStorage.getItem(TEMPORARY_KEY)!);
-  expect(started.session.questions).toHaveLength(65);
-  expect(new Set(started.session.questions.map((question: { id: string }) => question.id)).size).toBe(65);
+  expect(started.session.questions).toHaveLength(77);
+  expect(new Set(started.session.questions.map((question: { id: string }) => question.id)).size).toBe(77);
   expect(screen.getByText("Question 1")).toBeInTheDocument();
   expect(screen.queryByText(/of 5/)).not.toBeInTheDocument();
 
-  for (let index = 0; index < 65; index++) {
+  for (let index = 0; index < 77; index++) {
     fireEvent.click(screen.getByRole("button", { name: "Skip" }));
-    if (index < 64) expect(screen.getByText(`Question ${index + 2}`)).toBeInTheDocument();
+    if (index < 76) expect(screen.getByText(`Question ${index + 2}`)).toBeInTheDocument();
   }
   expect(screen.getByRole("heading", { name: "You've practised the available questions" })).toBeInTheDocument();
   expect(screen.getByRole("button", { name: "Choose another topic" })).toBeEnabled();

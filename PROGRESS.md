@@ -1,5 +1,140 @@
 # German Master 2.0 current checkpoint
 
+## Direct production enrichment activation — 4 November 2026 (in progress)
+
+Owner explicitly supersedes staging: "no staging, directly to production".
+The pending unrelated-project pause proposal is cancelled. Activate only the
+reviewed wave 1 (11 targets / 22 questions) on existing clean production and
+existing Vercel project; keep Android Play held and independent review untouched.
+Active runtime catalog and shared web/native bundle now select the generated
+147-member additive release and bounded B1 77 / B2 70 General pools. Generator
+pins its original basics/catalog and hash-checks the recovered previous offline
+base, so regeneration remains identical after activation rather than appending
+the wave twice. Focused acceptance and root type/generated checks pass.
+
+Live preflight confirms the previous 125-member manifest exactly matches the
+candidate base. Previous Vercel production deployment is
+`dpl_BqZFcnYf9dic4biNaVPeDMN48wcG` at `27fdd13f`. Production import must compare
+all expected old/new immutable member rows inside the transaction before commit.
+No learner writes, old revision updates or release deletion. Retain both releases
+on rollback. Prefer restoring the previous runtime selector while retaining the
+new bundle/revisions, allowing new pinned rounds to remain readable; a full old
+asset rollback is not claimed safe for temporary new-question guest rounds.
+
+At this source checkpoint no database import/merge/production activation has
+occurred. Finish full local/hosted checks, execute/verify the exact additive import,
+merge the checked activation, observe production READY and check actual guest
+question grading and API access. Record the final deployment/receipt afterward.
+
+## Enrichment acceptance continuation — 4 November 2026
+
+Repaired the stale hosted-browser scenario without restoring retired learner
+controls. The actual learner Settings smoke asserts that download/manual-sync
+controls are absent. A separate explicit local-preview-only acceptance page
+mounts the retained OfflineDesk engine; all prior browser cold-restart,
+assisted-draft, feedback-on-reload, offline completion/late-sync, waiting-worker,
+cache ownership and 320px assertions remain. The test reports this scope honestly:
+it is not proof of production account or native device lifecycle. The production
+build excludes the acceptance HTML and component. Product flow is unchanged.
+
+Local root checks and all tests pass again: 200 backend, 465 web, 20 HTTP.
+Preview build and repaired Chromium 151.0.7922.34 acceptance pass. Production
+web/API build passes and contains no acceptance fixture. Native tests consume the
+exact generated candidate only as a unit-test resource, never shipped assets:
+both tests pass, covering all 22 accepted answers in the native grader, native
+saved-state serialization, B1 77 / B2 70 pool/header identities, and rejection of
+126 questions. Native lint/debug-assembly and hosted outcomes are checked before
+handoff and reported on PR #30; no device/Play acceptance is implied.
+
+Live staging constraint is now verified: the organization is Free, with both
+active project slots occupied by clean GM2 production and the unrelated
+`Ali's Project`; old GM2 is INACTIVE. Current Supabase billing documentation
+confirms two active free projects, excluding paused projects. Resuming old GM2
+therefore needs a slot freed. A specific owner question is pending about
+temporarily pausing `Ali's Project` for staging. Do not pause another service,
+upgrade, create/restore a project or change billing without the corresponding
+answer/authorization. Preserve old account history. No live mutation or
+production activation occurred. Independent editorial review remains untouched.
+
+Next: confirm hosted browser check on this repair, then, if the owner authorizes
+the other service interruption, resume old GM2 and inspect its actual baseline,
+catalog and account isolation before any additive staging import. Prove live
+web/native lifecycle and rollback before activating the 22-question wave.
+
+## Reviewed enrichment wave 1 — 4 November 2026
+
+### Verification follow-up
+
+Implementation commit `e7cff367` is pushed to draft PR #30. Local root test run
+finished successfully: 200 backend + 465 web + 20 HTTP tests. Hosted repository
+safety run 41822455602 passes with 1,435 commits scanned and no findings;
+accessibility acceptance, dependency verification and backend tests/typecheck
+also pass. Hosted web builds complete, but browser/offline acceptance in run
+41822455555 fails at `apps/web/scripts/verify-offline-shell.mjs:61`: it waits for
+the retired Settings `Offline practice` summary (30-second selector timeout).
+That script and active client sources are unchanged from main in this PR. This
+is an unresolved acceptance-script/product-flow mismatch, not a passed offline
+journey. Do not restore retired controls or bypass the browser gate. Align this
+test with the already approved current flow and preserve its offline/draft/late-
+sync assertions before release; no broad UI work was started in this time box.
+
+A read-only production query confirms exactly two published releases: original
+five-revision starter and current 125-revision basics, whose manifest matches
+the candidate's pinned previous manifest. The new wave release is absent. No
+production writes or environment changes occurred. In addition to isolated live
+staging/native acceptance, the failing hosted browser gate blocks activation.
+
+Owner authorizes incremental integration/deployment: reviewed = editorially
+approved, without another human editorial gate. Production still requires the
+technical release gates. PR #30 now contains a hash-bound inactive candidate,
+not just policy. Independent review branch is untouched; its pinned head is
+`71064b6bde57f1b2cf88d36885521545cd9f4003`. Saved review validators pass: 1,536
+questions in initial 49 batches, plus 1,052 in extension 0050–0078.
+
+Wave 1 selects 11 everyday noun targets / 22 questions from batch 0001: 17
+unchanged, five exact-proposal-hash-bound semantically rechecked corrections.
+Frozen source/evidence exports preserve pending source review flags and immutable
+identities. The derived manifest records owner-approved AI editorial decisions,
+source/review/validator/output hashes, exclusions and a distinct release ID.
+The unchanged canonical validator validates with existing initial-30 context;
+only selected new targets are imported. Runtime metadata explicitly maps them to
+lexical / Everyday vocabulary / General German. Previous 125 release members
+remain unchanged. Generated SQL and shared offline bundle are inactive under
+`content/candidates/enrichment-wave-1/`.
+
+Whole General sessions are bounded at B1 77 / B2 70, avoiding paging redesign in
+this wave. Every General pack header pins the new additive release, so both
+clients' existing concatenation saves old and new questions against the correct
+membership. Larger waves still need bounded selection on both clients.
+
+Local checks: root `npm ci` offline (724 packages, zero reported vulnerabilities),
+root `npm run check`, 200 backend tests, 465 web unit tests, unchanged original
+49-batch and extension review validators, normal and production builds pass.
+Focused enrichment acceptance also passes after the final bundle/header changes:
+transactional manifest verification/rollback on mismatch, exact import replay,
+collision refusal, all new accepted answers grade correct, saved-answer replay,
+old-session/configuration rollback preservation, immutable revision refusal,
+whole B1/B2 guest-round adoption with draft/replay, and 126-question rejection.
+HTTP and hosted CI outcomes are recorded in the subsequent verification entry.
+No native runtime/device acceptance is claimed for this inactive bundle.
+
+Repository safety: reproduced all 8,072 findings as 8,004 variant keys and 68
+context keys, all public enrichment identities from generic-api-key. Added a
+default-inheriting rule-specific AND exception for exact identity lines only in
+enrichment JSON/evidence paths. History scan then reports zero findings; dummy
+credential probes in the same allowed path still produce two detections. Scanner,
+workflow, history scope and all other rules remain unchanged. See
+`docs/operations/enrichment-safety-scan-2026-11-04.md`.
+
+Release blocker: connector reports old GM2 project `zgmyrpzwgtydwlzponih` INACTIVE;
+the clean replacement `sqgjsmiaprsuilcjmaav` is ACTIVE_HEALTHY and serves production.
+There is no separate active staging target. No project reactivation/creation,
+billing change, live import, active catalog/bundle replacement, merge, production
+deployment or Android upload occurred. Next: establish an isolated existing
+staging target, verify baseline/prior manifest and run live web/native saving,
+offline/grade/replay and rollback acceptance, then activate this candidate only
+after all gates pass. Preserve the Android Play owner hold.
+
 ## Android learner-text encoding correction — 28 October 2026
 
 Owner reported a garbled Loading label and explicitly requested correction and

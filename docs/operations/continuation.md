@@ -1,5 +1,37 @@
 # Continuing German Master recovery
 
+4 November latest: owner explicitly says "no staging, directly to production".
+This supersedes the staging/other-project-pause wording below. Activation of the
+reviewed 22-question wave is in progress on PR #30; use newest PROGRESS for the
+exact import/deployment checkpoint. Preserve old releases, account data, the
+independent review branch and Android Play hold. No service pause or billing change.
+
+4 November continuation: stale browser acceptance has been repaired using an
+explicit local-only OfflineDesk test page plus actual Settings assertions that
+retired controls stay absent. Cold restart/draft/feedback/late-sync/cache checks
+pass locally; production artifact excludes the fixture. Two native tests pass on
+the exact shared candidate (22 answers, saved-state serialization and pool bounds),
+without changing shipped content. See newest PROGRESS and PR #30 for hosted and
+native build outcomes. Free Supabase has both active slots occupied. Await the
+pending owner answer before interrupting `Ali's Project` to resume old GM2 for
+staging; no paid upgrade or unrelated project pause is authorized by silence.
+
+4 November: PR #30 has an inactive 22-question / 11-target reviewed enrichment
+candidate and the narrow repository-scan false-positive fix. Read the newest
+PROGRESS entry and `content/candidates/enrichment-wave-1/README.md`. Reviewed is
+editorially approved by owner policy; no further human editorial ceremony.
+Independent `content/enrichment-review` remains single-writer and untouched.
+Local content/import/save/grade/rollback checks pass; the existing old GM2 target
+is INACTIVE and the clean replacement serves production, so isolated live staging
+acceptance is blocked. Do not import/deploy merely because offline checks pass.
+Next establish isolated existing staging, prove web/native lifecycle and rollback,
+then activate catalog and shared offline bundle together. No Play release.
+
+Hosted safety (zero findings), accessibility, dependency and backend checks pass.
+Hosted browser acceptance fails on the unchanged stale test selector for the
+retired Settings `Offline practice` summary. Align that test with the current
+approved flow, retaining offline/draft/late-sync assertions; do not bypass it.
+
 28 October: owner reported Android Loading mojibake and requested fix/deploy to
 phone and web. Unicode copy is corrected; native shell tests, lint and debug
 assembly pass. See newest PROGRESS for configured-preview installation and
