@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3184 / 5,682 questions (56.04%)** independently AI reviewed. Original first49 1,536 complete, extension 0050–0094 45/126 batches, 1648/4,146 complete. **2498 questions and 81 extension batches remain**, next **legacy-0095**.
+**3216 / 5,682 questions (56.60%)** independently GPT-6 question-level reviewed. First49 1,536 complete; extension 1680/4,146 across **46/126 batches through legacy-0095**. **2466 questions, 80 extension batches remain; next legacy-0096.**
 
-Batch 0094 completed 36 original verb question reviews with all four options per item, complete German answer and relevant morphology/case, bilingual instructions/hints/explanations, provenance and tentative level examined. No new blocking issue or inactive correction proposal. Original 171 correction proposals with 52 pending rechecks, extension 42 needing rechecks, total **213 inactive and 94 needing recheck**. Verify newest CI against branch head. Preserve immutable authoring b7a6507e135895b1ebb671b73538a9a6d3742304, review-only branch and candidate/publication false. No app, main, authoring, DB, live deployment or release changes.
+Batch 0095 added 32 noun variants with specific individual assessments of all four choices, completed German answers, morphology, bilingual hints/explanations, source and tentative levels. One inactive correction proposal for legacy-0095-L811-v1: distinguish a marked Fluchtweg (escape route) from Notausgang (exit). No input or accepted key changed. Original correction corpus: 171 inactive proposals with 52 pending recheck; extension: **43 inactive**, all pending recheck; **214 total inactive / 95 requiring recheck**. New CI must be confirmed for exact head commit; no unverified pass claimed. Original authoring b7a6507e135895b1ebb671b73538a9a6d3742304 immutable; review branch only; no main, app, DB, canonical validator, publication or deployment changes, all candidate/approval false.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
