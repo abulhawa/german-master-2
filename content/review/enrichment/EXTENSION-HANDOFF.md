@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3074/5,682 questions (54.10%)** independently GPT-6 editorial-reviewed. Frozen first 49 complete (1,536); extension 0050–0091 complete (42 of 126 batches, 1538/4,146 questions). **2608 questions, 84 extension batches remain**, beginning **legacy-0092**.
+**3112 of 5,682 questions (54.77%)** independently GPT-6 reviewed. Original first49 1,536 complete; extension 0050–0092 43/126 batches and 1576/4,146 complete. **2570 questions and 83 extension batches remain**, first incomplete **legacy-0093**.
 
-Batch 0091 completed 26 separately assessed noun exercises with all four original options, German completed keys, bilingual feedback, meaning and tentative CEFR/source. No new key, syntax or competitive-answer blocker identified and no new correction proposed. Caveats recorded for deleting private files (not automatically secure erase), extinguisher use (small safe-to-tackle fires) and fire-brigade pumping depending on emergency conditions. Extension still has 40 inactive proposals pending exact recheck, original 171 inactive with 52 pending recheck: **211 inactive total, 92 pending recheck**. CI must be verified for the exact commit. Source b7a6507e135895b1ebb671b73538a9a6d3742304; branch review-only, original input and all release/candidate flags unchanged.
+Batch 0092 reviewed all 38 verb questions and their four original choices, German completions, bilingual feedback, source/target, provisional level. No new blocking answer ambiguity or proposal identified; minor nuance recorded for claims about personal best time and 1000 emails. All 40 extension correction proposals remain inactive/unrechecked, original 171 inactive with 52 pending recheck; **211 total inactive / 92 pending recheck**. Verify exact commit's GitHub review validation before claiming success. No authoring, source, app, main, DB, deployment, candidate approval or publication changes. Source pinned at b7a6507e135895b1ebb671b73538a9a6d3742304, one writer and expected-head lease required.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
