@@ -11,6 +11,11 @@ acceptance is blocked. Do not import/deploy merely because offline checks pass.
 Next establish isolated existing staging, prove web/native lifecycle and rollback,
 then activate catalog and shared offline bundle together. No Play release.
 
+Hosted safety (zero findings), accessibility, dependency and backend checks pass.
+Hosted browser acceptance fails on the unchanged stale test selector for the
+retired Settings `Offline practice` summary. Align that test with the current
+approved flow, retaining offline/draft/late-sync assertions; do not bypass it.
+
 28 October: owner reported Android Loading mojibake and requested fix/deploy to
 phone and web. Unicode copy is corrected; native shell tests, lint and debug
 assembly pass. See newest PROGRESS for configured-preview installation and

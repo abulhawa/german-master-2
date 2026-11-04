@@ -2,6 +2,27 @@
 
 ## Reviewed enrichment wave 1 — 4 November 2026
 
+### Verification follow-up
+
+Implementation commit `e7cff367` is pushed to draft PR #30. Local root test run
+finished successfully: 200 backend + 465 web + 20 HTTP tests. Hosted repository
+safety run 41822455602 passes with 1,435 commits scanned and no findings;
+accessibility acceptance, dependency verification and backend tests/typecheck
+also pass. Hosted web builds complete, but browser/offline acceptance in run
+41822455555 fails at `apps/web/scripts/verify-offline-shell.mjs:61`: it waits for
+the retired Settings `Offline practice` summary (30-second selector timeout).
+That script and active client sources are unchanged from main in this PR. This
+is an unresolved acceptance-script/product-flow mismatch, not a passed offline
+journey. Do not restore retired controls or bypass the browser gate. Align this
+test with the already approved current flow and preserve its offline/draft/late-
+sync assertions before release; no broad UI work was started in this time box.
+
+A read-only production query confirms exactly two published releases: original
+five-revision starter and current 125-revision basics, whose manifest matches
+the candidate's pinned previous manifest. The new wave release is absent. No
+production writes or environment changes occurred. In addition to isolated live
+staging/native acceptance, the failing hosted browser gate blocks activation.
+
 Owner authorizes incremental integration/deployment: reviewed = editorially
 approved, without another human editorial gate. Production still requires the
 technical release gates. PR #30 now contains a hash-bound inactive candidate,

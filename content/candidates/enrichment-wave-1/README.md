@@ -45,6 +45,12 @@ require bounded selection on both clients.
 
 ## Remaining release gates
 
+Hosted safety, accessibility, dependency and backend checks pass at `e7cff367`.
+The hosted browser job fails at `verify-offline-shell.mjs:61`, waiting for the
+retired `Offline practice` Settings summary. This script is unchanged from main;
+align it with the current approved flow while retaining offline/draft/late-sync
+assertions. It remains a release blocker; no gate was removed or bypassed.
+
 No production database import, active catalog/bundle replacement, deployment or
 Android upload occurred. On 4 November the connector reports the old GM2 target
 `zgmyrpzwgtydwlzponih` INACTIVE and clean production replacement
