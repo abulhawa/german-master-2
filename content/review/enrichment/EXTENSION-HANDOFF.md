@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3354/5,682 questions (59.03%)** with independent GPT-6 item-level editorial review. Original first49: 1,536 complete. Extension: 1818/4,146 reviewed, **50/126 batches 0050–0099 complete**. **2328 questions and 76 extension batches remain, next legacy-0100.**
+**3394/5,682 questions (59.73%)** independently reviewed. Original frozen first49: 1,536 complete. Extension 1858/4,146 across **51/126 batches 0050–0100 complete**. **2288 questions and 75 extension batches pending, next legacy-0101.**
 
-Batch 0099: 30 individually reviewed noun questions with four-option semantic and grammar reasoning, German sentence completion, bilingual hints/explanations, provisional levels and source binding. No key or language blocker requiring an inactive revision found. Scope notes: antifreeze concentrates may require dilution; pedestrian streets can have vehicle exemptions. Original 171 correction proposals (52 pending rechecks), extension 47 proposed inactive pending recheck, **218 total inactive and 99 needing recheck**. Verify new CI at exact GitHub commit before claiming validation pass. Source b7a6507e135895b1ebb671b73538a9a6d3742304 pinned, one writer, review branch only, original authored input and all candidate/publication flags unchanged; no app, main, live database, publication or deployment modifications.
+Batch 0100: 40 individually assessed verb exercises including all four real options, reconstructed German, bilingual hints/explanations, provisional level/identity/provenance. One inactive correction for 0100-L919-v1: the original asserted an examination is always required for prescription, which is too categorical. Proposed wording simply describes a doctor's decision after examination without making a universal requirement. Original answer identities unchanged. Original 171 inactive correction proposals with 52 needing recheck; extension **48 inactive**, pending recheck; **219 total inactive, 100 requiring independent recheck**. Check the latest GitHub Actions CI at this exact commit before claiming validation. Pinned source b7a6507e135895b1ebb671b73538a9a6d3742304, review branch only, one active writer, no app/main/authoring/DB/deployment changes and no approval flags.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
