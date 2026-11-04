@@ -103,3 +103,30 @@ rollback retention. Hold back the 188 excluded questions until rechecked.
 
 Never reuse the wave-2 release ID for changed membership, change previously
 published exercise payloads, or treat an unrechecked material correction as approved.
+
+## Verified production database import, 4 November 2026
+
+Owner explicitly requested merging this content to production. Before the
+runtime switch, the existing clean Supabase production project
+`sqgjsmiaprsuilcjmaav` was verified healthy and still running the previous
+wave-2 release. The pinned wave-3 SQL SHA-256 was
+`54b583641243d862f45c9156485972df39e6770e6ace548d855ff4788256b937`.
+It was split by complete statement boundaries into 36 ordered, bounded,
+transactional SQL parts, with advisory transaction locks and a check of the exact
+previous production release hash and membership in *every* part. All 36 parts
+returned their matching success markers. No UPDATE, DELETE, schema migration,
+learner-data write or unrelated service operation was included.
+
+Read-only live post-import SQL verifies:
+
+| Release | Status | Members | Manifest SHA-256 |
+|---|---|---:|---|
+| Previous wave 2 `91000000-0000-4000-8000-000000000001` | published | 2,613 | `e1a05398d099fcd0f7a5a2ebaa73bf8bc7e554cebfc0e16e2b84a1ca7b467722` |
+| New wave 3 `92000000-0000-4000-8000-000000000001` | published | 5,619 | `7822ff2ed502902d7e9a8c5788cbcffb9c493e40df709dd225dbc13ca10a8863` |
+
+Actual `gm.exercise_revision` total is **5,619**. These are live DB facts,
+not proof of a completed Vercel deployment. The two active source selectors
+(`content/production/catalog.json` and `content/guest/practice.json`) are
+changed on this PR branch only; production Vercel remains on wave 2 until the
+exact checked activation commit is merged and Vercel reports READY. Preserve
+both releases and keep Android Play on hold.
