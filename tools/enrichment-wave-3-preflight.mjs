@@ -24,10 +24,17 @@ const isSafe=(s)=>s==='no-blocker-found'||s.startsWith('optional-')||
 
 function main(){
   const previous=JSON.parse(readFileSync('content/candidates/enrichment-wave-2/manifest.json','utf8'));
-  const published=JSON.parse(readFileSync('content/production/catalog.json','utf8'));
+  // Baseline identities are always the immutable wave-2 library, even after the
+  // wave-3 source selector is prepared on an isolated release branch.
+  const published=JSON.parse(readFileSync('content/candidates/enrichment-wave-2/catalog.json','utf8'));
+  const runtime=JSON.parse(readFileSync('content/production/catalog.json','utf8'));
+  const candidate=JSON.parse(readFileSync('content/candidates/enrichment-wave-3/catalog.json','utf8'));
   assert(previous.releaseId===EXPECTED_PRIOR_RELEASE,'Unexpected previous release ID');
   assert(previous.reviewedQuestions===2588,'Previous reviewed tally differs');
-  assert(published.releaseId===EXPECTED_PRIOR_RELEASE,'Production source selector not at wave 2');
+  assert(published.releaseId===EXPECTED_PRIOR_RELEASE&&published.manifestHash===previous.manifestHash,'Previous wave-2 baseline changed');
+  assert((runtime.releaseId===EXPECTED_PRIOR_RELEASE&&JSON.stringify(runtime)===JSON.stringify(published))||
+         (runtime.releaseId===candidate.releaseId&&JSON.stringify(runtime)===JSON.stringify(candidate)),
+         'Runtime selector must match an exact frozen release');
   const publishedTargets=new Set(published.targets.map(t=>t.id));
   assert(publishedTargets.size===published.targets.length,'Duplicate previously published target IDs');
   const oldDecisions=new Map(previous.decisions.map(d=>[d.targetId,d]));
