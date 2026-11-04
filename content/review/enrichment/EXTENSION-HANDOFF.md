@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3324/5,682 questions (58.50%)** independently GPT-6 editorial-reviewed. First49 1,536; extension 1788/4,146 across **49/126 batches 0050–0098**. **2358 questions and 77 extension batches remain; next legacy-0099.**
+**3354/5,682 questions (59.03%)** with independent GPT-6 item-level editorial review. Original first49: 1,536 complete. Extension: 1818/4,146 reviewed, **50/126 batches 0050–0099 complete**. **2328 questions and 76 extension batches remain, next legacy-0100.**
 
-Batch 0098 completed 40 original verb questions individually reviewed across every offered option, complete German, bilingual hints/explanations, exact keys, provisional level and pinned provenance. Two INACTIVE correction proposals: L889-v1 safety nets normally prevent injuries rather than prevent the fall itself, L893-v1 generic 'Ausweis verlängern' misleading for German ID cards, revised to Parkausweis. No original authored source or answer ID changed. Original 171 inactive proposals (52 still requiring recheck), extension **47 inactive** awaiting recheck; **218 inactive total / 99 requiring separate recheck**. GitHub CI validation pending for new commit; do not claim passing until verified. One writer, review branch only, pinned source b7a6507e135895b1ebb671b73538a9a6d3742304, all publication and candidate flags false, no app/main/DB/deployment modifications.
+Batch 0099: 30 individually reviewed noun questions with four-option semantic and grammar reasoning, German sentence completion, bilingual hints/explanations, provisional levels and source binding. No key or language blocker requiring an inactive revision found. Scope notes: antifreeze concentrates may require dilution; pedestrian streets can have vehicle exemptions. Original 171 correction proposals (52 pending rechecks), extension 47 proposed inactive pending recheck, **218 total inactive and 99 needing recheck**. Verify new CI at exact GitHub commit before claiming validation pass. Source b7a6507e135895b1ebb671b73538a9a6d3742304 pinned, one writer, review branch only, original authored input and all candidate/publication flags unchanged; no app, main, live database, publication or deployment modifications.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
