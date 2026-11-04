@@ -626,7 +626,9 @@ export function GuestStarterJourney({
 
         const available=packs.filter(p=>!topic||p.topicId===topic);
 
-        const eligible=available.flatMap(p=>p.session.questions);
+        // The generated JSON contains thousands of heterogeneous question literals.
+        // Its packs are schema-validated during release generation; avoid inferring one enormous TS union.
+        const eligible = (available as unknown as Array<{session:{questions:Array<{id:string;exercise:Exercise}>}}>).flatMap(p=>p.session.questions);
         const keys=new Set(eligible.map(q=>`${q.exercise.id}@${q.exercise.revision}`));
         const frozen=reviewCurrent&&state.session?.questions.every(q=>keys.has(`${q.exercise.id}@${q.exercise.revision}`))?state.session.questions:null;
         const questions=selectGuestQuestions<{id:string;exercise:unknown}>(frozen??eligible);
