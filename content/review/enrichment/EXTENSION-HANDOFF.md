@@ -1,5 +1,12 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## Latest authoritative checkpoint: 4 November 2026, resume legacy-0136
+
+After exact-head CI success on legacy-0134, independent GPT-6 question-level editorial review of all 18 variants in legacy-0135 is recorded, with 72 individually considered choices. All original accepted options, immutable authored catalogs and grading contracts are unchanged. A new inactive, not-yet-rechecked proposal for legacy-0135-L1764-v1 addresses the fact that the original hospital-night-shift prompt also accepts 'Material' as a grammatically reasonable nonstaff response; the revised prompt includes absent nurses to select 'Personal'.
+
+**Full corpus: 4,446 / 5,682 reviewed (78.25%). Remaining: 1,236 variants in 40 extension batches, starting legacy-0136.** Extension: 2,910 / 4,146 through 0135; original first49 remains 1,536 / 1,536. Combined proposals are 222 inactive, 103 pending exact recheck (previously 221 and 102). Candidate/publication approval remains false; no content integration, main changes or deployment. Exactly one review writer, expected-head lease. This new checkpoint requires GitHub Actions 'Enrichment review verification' green on the new commit before the next batch may proceed.
+
+
 4 November 2026: **4428/5,682 (77.93%)** independently GPT-6 question-level reviewed, including 1,536 original and extension 2892/4,146 across **85/126 extension batches 0050–0134**. **1254 questions and 41 extension batches remain; next legacy-0135.** Batch 0134 added 20 original question-level reviews of all four options, correct German gap or semantic meaning, bilingual hints/feedback, provisional level and source. No new correction, **221 inactive proposals and 102 awaiting exact recheck.** New CI needs successful conclusion on exact new commit before advancing. No authoring/app/main/database/deployment/publication changes; all approval flags false, one writer with expected-head Git lock.
 
 ---
