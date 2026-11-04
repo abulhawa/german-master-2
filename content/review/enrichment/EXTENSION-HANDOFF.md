@@ -1,5 +1,12 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## All original question-level reviews complete, 4 November 2026: 5,682 / 5,682
+
+Independent GPT-6 editorial coverage finished the final four extension batches legacy-0172–0175: **28+28+32+30 = 118 individually assessed questions**, 472 distinct actual answer-option assessments, with source keys, full completed German, grammar/case, each distractor, original bilingual hints/instructions/explanations, source provenance, learning objective and provisional level. Original authoring batch count 175, review coverage **5,682 / 5,682 = 100.00%** (original first 49: 1,536; extension 0050–0175: 4,146). All 126 extension queue items and 126 coverage batch records are complete. Every existing candidate, active overlay, deployment and publication status remains false. The review is NOT content integration or publication.
+
+**Next required work, separately from completed first-pass coverage:** 109 independent exact-source-hash correction rechecks and their decisions, including 228 currently inactive proposals across review corpus (extension inactive 57). Some known choice-question authoring defects, such as legacy-0147-L2064-v2 with target word leaked in question, are only flagged and cannot use the gap-only inactive proposal overlay schema. Validate and resolve any historical correction issues; only then consider candidate manifest, explicit owner-authorized approval, integration, app acceptance, controlled production deployment. **This exact grouped head must pass green GitHub Actions before describing full corpus review as validated.** No source, app, main, canonical validator, database, integration or release changed.
+
+
 ## Grouped editorial checkpoint, 4 November 2026: next legacy-0172
 
 Five more batches **0167–0171** individually evaluated by independent GPT-6 against immutable source: 34+30+34+32+34 = **164 questions and 656 actual original answer choices**, including German sentence/option semantics, complete answer text, grammar, all alternatives, EN/DE hint, instruction, explanation, objective/provisional CEFR and original provenance. No serious new competing answers were found in this group. Minor wording/collocation notes on original full German retained as review findings, with zero new overlay proposals. All prior inactive corrections remain inactive and unrechecked.
