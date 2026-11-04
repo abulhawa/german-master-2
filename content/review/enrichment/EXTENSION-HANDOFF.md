@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3540 / 5,682 questions (62.30%)** independently GPT-6 question-level reviewed. Frozen 49: 1,536 complete; extension 2004/4,146 across **55/126 batches through legacy-0104**. **2142 questions and 71 extension batches remain; next legacy-0105.**
+**3574/5,682 questions (62.90%)** with independent original GPT-6 question-level review. Frozen first49 1,536 complete; extension 2038/4,146 across **56/126 batches 0050–0105**. **2108 questions, 70 extension batches remain, next legacy-0106.**
 
-Batch 0104 reviewed all 36 verb questions one by one, the four original offered options each, exact German completion, conjugation, EN/DE hints/explanations, target provenance/identity and provisional CEFR. No new blocker requiring an inactive correction. Original 171 inactive proposals with 52 pending recheck, extension 48 inactive pending exact recheck: **219 inactive total / 100 requiring recheck**. GitHub review CI must be checked at exact new commit. Review branch and one-writer expected-head protection; immutable source b7a6507e135895b1ebb671b73538a9a6d3742304, all candidate/publication flags false; no app/main/source/DB/deployment edits.
+Batch 0105 added 34 individual noun exercises and four-option semantic/grammar assessments, completed German, bilingual hint/explanation and provisional source/level identity. One inactive patch for 0105-L957-v2: use Gesamtfläche for renovation planning instead of implying rent calculations simply use every room's unweighted total area. The source remains untouched and answer identity preserved. Austrian term Gehsteig and permit-dependent contexts noted. Original 171 inactive corrections, 52 awaiting recheck; extension **49 inactive corrections**, each awaiting recheck; **220 inactive total, 101 pending recheck**. CI must pass at the new commit before declaring validation. Branch review-only, pinned source b7a6507e135895b1ebb671b73538a9a6d3742304; candidate/publication false and no authoring, app, main, DB or deployment changes.
 
 ---
 # Remaining enrichment corpus: historical review continuation index

@@ -1,0 +1,25 @@
+{
+  "snapshot": "b7a6507e135895b1ebb671b73538a9a6d3742304",
+  "batchId": "legacy-0105",
+  "catalogSha256": "9d90b14a77be376330043fbdb909b6f16f5538caa3a1857c371a44c21e811851",
+  "active": false,
+  "candidateReady": false,
+  "patches": [
+    {
+      "variantKey": "legacy-0105-L957-v2",
+      "exerciseId": "81000000-0000-4000-8000-000001050161",
+      "expectedPrompt": "Für die Berechnung der Miete wurde die ___ aller Räume ermittelt.",
+      "proposedPrompt": "Für die Planung der Renovierung wurde die ___ aller Räume ermittelt.",
+      "proposedCompletedAnswer": "Für die Planung der Renovierung wurde die Gesamtfläche aller Räume ermittelt.",
+      "status": "proposed-needs-recheck",
+      "proposedHint": {
+        "en": "The combined area of all rooms was measured for renovation planning.",
+        "de": "Für die Renovierungsplanung wurde die gesamte Fläche aller Räume berechnet."
+      },
+      "proposedExplanation": {
+        "en": "Gesamtfläche is the combined area of all rooms. For rent calculations in Germany, the legally relevant Wohnfläche may differ from the simple sum of room areas.",
+        "de": "Gesamtfläche bezeichnet die Summe der Flächen aller Räume. Für Mietberechnungen kann die rechtlich maßgebliche Wohnfläche anders ermittelt werden als die einfache Gesamtfläche."
+      }
+    }
+  ]
+}
