@@ -1,0 +1,29 @@
+name: Materialize bounded wave 3 SQL transfer parts
+on:
+  push:
+    branches: ['ops/wave3-import-parts-2026-11-04']
+    paths: ['.github/workflows/wave3-sql-parts.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  produce:
+    if: github.ref == 'refs/heads/ops/wave3-import-parts-2026-11-04'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node tools/split-wave-3-sql.mjs
+      - name: Preserve hash-bound bounded SQL parts on isolated ops branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ops/wave-3-sql-parts
+          git commit -m "chore(ops): export bounded append-only wave 3 SQL chunks"
+          git push origin HEAD:refs/heads/ops/wave3-import-parts-2026-11-04
