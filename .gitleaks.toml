@@ -1,0 +1,12 @@
+title = "German Master: retain default rules with exact content identity exceptions"
+[extend]
+useDefault = true
+
+[[rules]]
+id = "generic-api-key"
+  [[rules.allowlists]]
+  description = "Public immutable enrichment variant/context identities, not API credentials"
+  condition = "AND"
+  paths = ['''^content/(enrichment/batches|review/enrichment)/.*\.json$''', '''^content/candidates/enrichment-wave-1/(evidence/[^/]+|manifest)\.json$''']
+  regexTarget = "line"
+  regexes = ['''^\s*"variantKey":\s*"legacy-[0-9]{4}-L[0-9]+-v[12]",?\s*$''', '''^\s*"contextKey":\s*"legacy-[0-9]{4}-L[0-9]+-scenario-[12]",?\s*$''']

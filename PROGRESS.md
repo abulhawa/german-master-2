@@ -1,5 +1,58 @@
 # German Master 2.0 current checkpoint
 
+## Reviewed enrichment wave 1 — 4 November 2026
+
+Owner authorizes incremental integration/deployment: reviewed = editorially
+approved, without another human editorial gate. Production still requires the
+technical release gates. PR #30 now contains a hash-bound inactive candidate,
+not just policy. Independent review branch is untouched; its pinned head is
+`71064b6bde57f1b2cf88d36885521545cd9f4003`. Saved review validators pass: 1,536
+questions in initial 49 batches, plus 1,052 in extension 0050–0078.
+
+Wave 1 selects 11 everyday noun targets / 22 questions from batch 0001: 17
+unchanged, five exact-proposal-hash-bound semantically rechecked corrections.
+Frozen source/evidence exports preserve pending source review flags and immutable
+identities. The derived manifest records owner-approved AI editorial decisions,
+source/review/validator/output hashes, exclusions and a distinct release ID.
+The unchanged canonical validator validates with existing initial-30 context;
+only selected new targets are imported. Runtime metadata explicitly maps them to
+lexical / Everyday vocabulary / General German. Previous 125 release members
+remain unchanged. Generated SQL and shared offline bundle are inactive under
+`content/candidates/enrichment-wave-1/`.
+
+Whole General sessions are bounded at B1 77 / B2 70, avoiding paging redesign in
+this wave. Every General pack header pins the new additive release, so both
+clients' existing concatenation saves old and new questions against the correct
+membership. Larger waves still need bounded selection on both clients.
+
+Local checks: root `npm ci` offline (724 packages, zero reported vulnerabilities),
+root `npm run check`, 200 backend tests, 465 web unit tests, unchanged original
+49-batch and extension review validators, normal and production builds pass.
+Focused enrichment acceptance also passes after the final bundle/header changes:
+transactional manifest verification/rollback on mismatch, exact import replay,
+collision refusal, all new accepted answers grade correct, saved-answer replay,
+old-session/configuration rollback preservation, immutable revision refusal,
+whole B1/B2 guest-round adoption with draft/replay, and 126-question rejection.
+HTTP and hosted CI outcomes are recorded in the subsequent verification entry.
+No native runtime/device acceptance is claimed for this inactive bundle.
+
+Repository safety: reproduced all 8,072 findings as 8,004 variant keys and 68
+context keys, all public enrichment identities from generic-api-key. Added a
+default-inheriting rule-specific AND exception for exact identity lines only in
+enrichment JSON/evidence paths. History scan then reports zero findings; dummy
+credential probes in the same allowed path still produce two detections. Scanner,
+workflow, history scope and all other rules remain unchanged. See
+`docs/operations/enrichment-safety-scan-2026-11-04.md`.
+
+Release blocker: connector reports old GM2 project `zgmyrpzwgtydwlzponih` INACTIVE;
+the clean replacement `sqgjsmiaprsuilcjmaav` is ACTIVE_HEALTHY and serves production.
+There is no separate active staging target. No project reactivation/creation,
+billing change, live import, active catalog/bundle replacement, merge, production
+deployment or Android upload occurred. Next: establish an isolated existing
+staging target, verify baseline/prior manifest and run live web/native saving,
+offline/grade/replay and rollback acceptance, then activate this candidate only
+after all gates pass. Preserve the Android Play owner hold.
+
 ## Android learner-text encoding correction — 28 October 2026
 
 Owner reported a garbled Loading label and explicitly requested correction and

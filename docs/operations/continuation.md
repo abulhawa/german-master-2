@@ -1,5 +1,16 @@
 # Continuing German Master recovery
 
+4 November: PR #30 has an inactive 22-question / 11-target reviewed enrichment
+candidate and the narrow repository-scan false-positive fix. Read the newest
+PROGRESS entry and `content/candidates/enrichment-wave-1/README.md`. Reviewed is
+editorially approved by owner policy; no further human editorial ceremony.
+Independent `content/enrichment-review` remains single-writer and untouched.
+Local content/import/save/grade/rollback checks pass; the existing old GM2 target
+is INACTIVE and the clean replacement serves production, so isolated live staging
+acceptance is blocked. Do not import/deploy merely because offline checks pass.
+Next establish isolated existing staging, prove web/native lifecycle and rollback,
+then activate catalog and shared offline bundle together. No Play release.
+
 28 October: owner reported Android Loading mojibake and requested fix/deploy to
 phone and web. Unicode copy is corrected; native shell tests, lint and debug
 assembly pass. See newest PROGRESS for configured-preview installation and
