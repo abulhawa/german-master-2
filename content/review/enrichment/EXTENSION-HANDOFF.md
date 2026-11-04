@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3646/5,682 questions (64.17%)** individually AI-editor-reviewed; 1,536 original (49 batches) complete, extension 2110/4,146 across **58/126 batches 0050–0107**. **2036 questions and 68 extension batches remain; next legacy-0108.**
+**3678/5,682 questions (64.73%)** individually AI editorial reviewed. Original 1,536 / 49 batches complete; extension 2142/4,146 across **59/126 batches 0050–0108**. **2004 questions, 67 extension batches remain; next legacy-0109.**
 
-Batch 0107: all 32 noun questions individually resolved and all four offered options evaluated, exact German grammatical completion, source key, EN/DE hints/explanations, source identity and tentative CEFR recorded. Contextual notes include Austrian/German trade terms, workplace exposure, official lawmaking and social vocabulary; no inactive correction proposal in this batch. Original 171 inactive corrections (52 pending rechecks); extension 49 inactive (49 pending), so **220 total inactive and 101 requiring exact recheck**. Check exact GitHub commit CI before claiming pass. No app/main/DB/authoring/deployment/publication changes. Frozen inputs b7a6507e135895b1ebb671b73538a9a6d3742304, single-writer fast-forward lease, all candidate and publication flags false.
+Batch 0108: 32 individually resolved noun questions and their actual four options checked, complete German reconstruction, grammatical noun cases, both-language hints/explanations, provisional level, source identity. Semantic distinctions recorded for Gift (poison), Golf (gulf/sport), conscience and geology, technical use of gold, business vocabulary. No blocking key issue or new inactive proposal. Original 171 inactive corrections (52 pending recheck), extension 49 inactive pending recheck: **220 inactive total, 101 awaiting recheck**. New CI must be checked against exact commit before reporting PASS. Authoring snapshot b7a6507e135895b1ebb671b73538a9a6d3742304 remains unchanged, single-writer expected-head lease, candidate/publication flags false; no app, main, DB or deployment modifications.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
