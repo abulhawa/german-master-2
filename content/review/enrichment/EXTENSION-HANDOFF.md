@@ -1,5 +1,12 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## Grouped continuation, 4 November 2026: next legacy-0142
+
+Five consecutive extension batches legacy-0137–0141 received substantive independent GPT-6 AI review: 12+34+34+30+30 = **140 original questions and 560 actual answer options**, plus full German completions, key/grammar, bilingual instructional guidance, objectives, source and provisional CEFR. Two new **inactive, unrechecked** correction proposals: 0139-L1846-v1 (manufacturing origin not demonstrated by pre-delivery detection) and 0141-L1900-v1 (person walking a bicycle across a crossing also is a pedestrian). Original source catalogs, option identities and grader remain unchanged.
+
+**4604/5,682 questions reviewed (81.03%), 1078 remain across 34 extension batches. Next legacy-0142.** Extension 3068/4,146; first49 1,536/1,536. Inactive corrections 224 total, 105 awaiting exact independent rechecks; extension 53 inactive proposals. This grouped commit requires GitHub Actions verification to succeed on its exact SHA before any further grouped push. All approval flags remain false. No app, authoring, main, database, integration, publication or deployment change.
+
+
 ## Latest checkpoint: 4 November 2026, resume legacy-0137
 
 Editorially reviewed each of 18 variants in legacy-0136, all 72 alternatives, their full German, grammar, bilingual explanations and provisional context. No new proposed correction; earlier legacy-0135 ambiguity remains inactive and needs recheck. **Corpus now 4,464/5,682 (78.56%), extension 2,928/4,146, 1,218 questions in 39 batches remain, next legacy-0137.** Combined inactive correction proposals 222, pending exact-hash editorial rechecks 103. Prior batch 0135 CI was green before this commit. New batch 0136 needs a successful new-head GitHub Actions check before continuing. No approval, publication, integration, deployment, authoring, main or live DB modification.
