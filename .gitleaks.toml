@@ -7,6 +7,6 @@ id = "generic-api-key"
   [[rules.allowlists]]
   description = "Public immutable enrichment variant/context identities, not API credentials"
   condition = "AND"
-  paths = ['''^content/(enrichment/batches|review/enrichment)/.*\.json$''', '''^content/candidates/enrichment-wave-1/(evidence/[^/]+|manifest)\.json$''', '''^content/candidates/enrichment-wave-2/(evidence/(source|review)/.*|manifest)\.json$''']
+  paths = ['''^content/(enrichment/batches|review/enrichment)/.*\.json$''', '''^content/candidates/enrichment-wave-1/(evidence/[^/]+|manifest)\.json$''', '''^content/candidates/enrichment-wave-2/(evidence/(source|review)/.*|manifest)\.json$''', '''^content/candidates/enrichment-wave-3/(manifest|readiness)[.]json$''']
   regexTarget = "line"
   regexes = ['''^\s*"variantKey":\s*"legacy-[0-9]{4}-L[0-9]+-v[12]",?\s*$''', '''^\s*"contextKey":\s*"legacy-[0-9]{4}-L[0-9]+-scenario-[12]",?\s*$''']
