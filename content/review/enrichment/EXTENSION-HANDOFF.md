@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3148 of 5,682 independent question-level AI reviews (55.40%).** Original 49 batches: 1,536 complete. Extension: 1612/4,146 questions, **44 of 126 batches complete (0050–0093)**. **2534 questions and 82 extension batches remain; next legacy-0094.**
+**3184 / 5,682 questions (56.04%)** independently AI reviewed. Original first49 1,536 complete, extension 0050–0094 45/126 batches, 1648/4,146 complete. **2498 questions and 81 extension batches remain**, next **legacy-0095**.
 
-Batch 0093 added 36 question-level substantive noun reviews with assessments of all four choices, completed German, morphology/case, bilingual hints/explanations, source and tentative level. Two inactive correction proposals: 0093-L786-v2 distinguishes Steuernummer from Steueridentifikationsnummer in English/German feedback; 0093-L790-v2 removes imprecise description of fingers as Glieder. All source accepted options/identities unchanged. Extension has **42 inactive proposed corrections** pending recheck; original 171 inactive with 52 pending exact rechecks; **213 inactive total / 94 needing recheck**. Confirm latest GitHub Actions result at the new commit before claiming CI passed. All candidate/publication flags false, source pinned to b7a6507e135895b1ebb671b73538a9a6d3742304, review-only branch; no app, main, source, DB or deployment changes.
+Batch 0094 completed 36 original verb question reviews with all four options per item, complete German answer and relevant morphology/case, bilingual instructions/hints/explanations, provenance and tentative level examined. No new blocking issue or inactive correction proposal. Original 171 correction proposals with 52 pending rechecks, extension 42 needing rechecks, total **213 inactive and 94 needing recheck**. Verify newest CI against branch head. Preserve immutable authoring b7a6507e135895b1ebb671b73538a9a6d3742304, review-only branch and candidate/publication false. No app, main, authoring, DB, live deployment or release changes.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
