@@ -2,11 +2,11 @@
 
 ## Current authoritative status (4 November 2026)
 
-**Total: 2898 of 5,682 independent question-level AI reviews (51.00%).** Original 49 batches: **1,536/1,536**. Extension: **1362/4,146**, **37/126** batches through **legacy-0086**. **2784 questions and 89 batches remain**, next **legacy-0087**.
+**Total: 2,938 of 5,682 independently reviewed questions (51.71%).** Original first 49 batches: 1,536 complete. Extension: **1,402/4,146** questions, **38/126 batches** 0050–0087 complete. **2,744 questions across 88 extension batches remain**; resume **legacy-0088**.
 
-Batch 0086: independently examined 40 verb variants and all four choices per question. Six inactive proposals for 0086-L737-v2 (course timing), L742-v2 (verification vs ensuring operation), L743-v1/v2 (victory-result ambiguity) and L744-v1/v2 (formal address competing with greeting). Original source files and accepted option IDs unchanged. Extension inactive proposals: 18, all pending recheck; original 171 with 52 pending recheck. Combined 189 inactive proposals, 70 requiring recheck. **No candidate, publication, merger or deployment approval.** Check GitHub Actions for CI at this branch head.
+Batch 0087 added 40 question-level assessments and one inactive correction proposal to replace the overbroad claim that an employed person's income necessarily covers their whole livelihood. Its 4 options per item and bilingual content were examined; none of the authored answers or ids were changed. Extension has 19 inactive proposals pending recheck, in addition to 171 original proposals of which 52 need recheck: **190 inactive total, 71 needing recheck.** Original and extension candidate/publication approvals are false.
 
-Review branch `content/enrichment-review` only. Source pinned to `b7a6507e135895b1ebb671b73538a9a6d3742304`. Maintain one active writer, expected-head fast-forward protection and strict review-only validator. No app, main, authored content, live DB, or deployment changes.
+Branch `content/enrichment-review` only, source snapshot `b7a6507e135895b1ebb671b73538a9a6d3742304`; preserve one writer and expected-head fast-forward, and verify Actions CI for this commit before claiming pass. No authoring, app, main, DB or deployment changes.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
