@@ -1,10 +1,6 @@
 # German Master 2.0 editorial review: live checkpoint
 
-## Current authoritative status (4 November 2026)
-
-**3678/5,682 questions (64.73%)** individually AI editorial reviewed. Original 1,536 / 49 batches complete; extension 2142/4,146 across **59/126 batches 0050–0108**. **2004 questions, 67 extension batches remain; next legacy-0109.**
-
-Batch 0108: 32 individually resolved noun questions and their actual four options checked, complete German reconstruction, grammatical noun cases, both-language hints/explanations, provisional level, source identity. Semantic distinctions recorded for Gift (poison), Golf (gulf/sport), conscience and geology, technical use of gold, business vocabulary. No blocking key issue or new inactive proposal. Original 171 inactive corrections (52 pending recheck), extension 49 inactive pending recheck: **220 inactive total, 101 awaiting recheck**. New CI must be checked against exact commit before reporting PASS. Authoring snapshot b7a6507e135895b1ebb671b73538a9a6d3742304 remains unchanged, single-writer expected-head lease, candidate/publication flags false; no app, main, DB or deployment modifications.
+As of 4 November 2026: **3,712 / 5,682 (65.33%)** question-level reviewed, including 2,176 of 4,146 extension questions. **60 of 126 extension batches complete (0050–0109)**. **1,970 questions, 66 extension batches remain; next legacy-0110.** Batch 0109: 34 questions, all real choices reviewed; one inactive proposed correction to distinguish company founding from Handelsregister entry. **221 inactive corrections total, 102 pending exact rechecks.** Original input unchanged, candidateReady/publicationApproved false. Check CI for exact newly committed SHA before next batch. Branch review only, no app/main/DB/deployment/publication edits.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
