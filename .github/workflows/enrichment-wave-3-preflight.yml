@@ -1,0 +1,106 @@
+name: Enrichment wave 3 candidate preflight
+on:
+  push:
+    branches: ['release/enrichment-wave-3-preflight-*']
+    paths:
+      - 'tools/enrichment-wave-3-preflight.mjs'
+      - 'services/api/scripts/prepare-reviewed-wave-3.ts'
+      - 'services/api/scripts/verify-reviewed-wave-3.ts'
+      - '.github/workflows/enrichment-wave-3-preflight.yml'
+      - 'docs/operations/enrichment-wave-3-preflight.md'
+  pull_request:
+    paths:
+      - 'tools/enrichment-wave-3-preflight.mjs'
+      - 'services/api/scripts/prepare-reviewed-wave-3.ts'
+      - 'services/api/scripts/verify-reviewed-wave-3.ts'
+      - '.github/workflows/enrichment-wave-3-preflight.yml'
+      - 'docs/operations/enrichment-wave-3-preflight.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wave-3-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  plan-reviewed-corpus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Verify frozen review commit is accessible
+        run: git cat-file -e 0f8d39ef501c10062b574a9d5c1483f75b3b04b3^{commit}
+      - name: Inventory eligible reviewed content without activation
+        run: node tools/enrichment-wave-3-preflight.mjs --report "$RUNNER_TEMP/enrichment-wave-3-readiness.json"
+      - name: Preserve detailed readiness report for integration
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrichment-wave-3-readiness
+          path: ${{ runner.temp }}/enrichment-wave-3-readiness.json
+          retention-days: 14
+      - name: Install pinned workspace dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Build inactive additive catalog and shared offline bundle
+        run: node node_modules/tsx/dist/cli.mjs services/api/scripts/prepare-reviewed-wave-3.ts
+      - name: Verify additive import, safe replay, accepted answers and 125-question bounds
+        run: node node_modules/tsx/dist/cli.mjs services/api/scripts/verify-reviewed-wave-3.ts
+      - name: Verify web product can precache full new offline bundle (CI only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          trap 'git restore -- content/production/catalog.json content/guest/practice.json' EXIT
+          cp content/candidates/enrichment-wave-3/catalog.json content/production/catalog.json
+          cp content/candidates/enrichment-wave-3/offline.json content/guest/practice.json
+          npm run check --workspace=apps/web
+          npm run build:learner-product
+          node -e "const fs=require('node:fs');const path='apps/web/dist/learner-product/assets';for(const f of fs.readdirSync(path)){if(f.endsWith('.js')){const sz=fs.statSync(path+'/'+f).size;console.log(f+': '+sz+' bytes');if(sz>12*1024*1024)process.exitCode=1}}"
+      - name: Upload inactive wave 3 candidate files
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrichment-wave-3-inactive-candidate
+          path: |
+            content/candidates/enrichment-wave-3/catalog.json
+            content/candidates/enrichment-wave-3/offline.json
+            content/candidates/enrichment-wave-3/manifest.json
+            content/candidates/enrichment-wave-3/seed.sql
+            content/candidates/enrichment-wave-3/readiness.json
+          retention-days: 14
+
+  freeze-verified-candidate:
+    # Only commits into the owner's isolated release branch. Pull requests, main,
+    # review, and workflow_dispatch runs never receive write credentials.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/release/enrichment-wave-3-preflight-2026-11-04'
+    needs: plan-reviewed-corpus
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: enrichment-wave-3-inactive-candidate
+          path: content/candidates/enrichment-wave-3/
+      - name: Commit only validated inactive candidate files
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- content/candidates/enrichment-wave-3/catalog.json content/candidates/enrichment-wave-3/offline.json content/candidates/enrichment-wave-3/manifest.json content/candidates/enrichment-wave-3/seed.sql content/candidates/enrichment-wave-3/readiness.json
+          if git diff --cached --quiet; then
+            echo 'Candidate already frozen unchanged'
+            exit 0
+          fi
+          git commit -m "chore(content): freeze validated inactive wave 3 release candidate"
+          git push origin HEAD:refs/heads/release/enrichment-wave-3-preflight-2026-11-04
