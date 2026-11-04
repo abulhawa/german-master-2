@@ -4,11 +4,13 @@ on:
     branches: ['release/enrichment-wave-3-preflight-*']
     paths:
       - 'tools/enrichment-wave-3-preflight.mjs'
+      - 'services/api/scripts/prepare-reviewed-wave-3.ts'
       - '.github/workflows/enrichment-wave-3-preflight.yml'
       - 'docs/operations/enrichment-wave-3-preflight.md'
   pull_request:
     paths:
       - 'tools/enrichment-wave-3-preflight.mjs'
+      - 'services/api/scripts/prepare-reviewed-wave-3.ts'
       - '.github/workflows/enrichment-wave-3-preflight.yml'
       - 'docs/operations/enrichment-wave-3-preflight.md'
   workflow_dispatch:
@@ -19,7 +21,7 @@ permissions:
 jobs:
   plan-reviewed-corpus:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,6 +30,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+          cache: npm
       - name: Verify frozen review commit is accessible
         run: git cat-file -e 0f8d39ef501c10062b574a9d5c1483f75b3b04b3^{commit}
       - name: Inventory eligible reviewed content without activation
@@ -37,4 +40,19 @@ jobs:
         with:
           name: enrichment-wave-3-readiness
           path: ${{ runner.temp }}/enrichment-wave-3-readiness.json
+          retention-days: 14
+      - name: Install pinned workspace dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Build inactive additive catalog and shared offline bundle
+        run: node node_modules/tsx/dist/cli.mjs services/api/scripts/prepare-reviewed-wave-3.ts
+      - name: Upload inactive wave 3 candidate files
+        uses: actions/upload-artifact@v4
+        with:
+          name: enrichment-wave-3-inactive-candidate
+          path: |
+            content/candidates/enrichment-wave-3/catalog.json
+            content/candidates/enrichment-wave-3/offline.json
+            content/candidates/enrichment-wave-3/manifest.json
+            content/candidates/enrichment-wave-3/seed.sql
+            content/candidates/enrichment-wave-3/readiness.json
           retention-days: 14
