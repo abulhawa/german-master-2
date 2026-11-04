@@ -1,5 +1,12 @@
 # German Master 2.0 editorial review: live checkpoint
 
+## Grouped editorial checkpoint, 4 November 2026: next legacy-0172
+
+Five more batches **0167–0171** individually evaluated by independent GPT-6 against immutable source: 34+30+34+32+34 = **164 questions and 656 actual original answer choices**, including German sentence/option semantics, complete answer text, grammar, all alternatives, EN/DE hint, instruction, explanation, objective/provisional CEFR and original provenance. No serious new competing answers were found in this group. Minor wording/collocation notes on original full German retained as review findings, with zero new overlay proposals. All prior inactive corrections remain inactive and unrechecked.
+
+**Total 5564/5,682 (97.92%) reviewed. Only 118 original questions remain across four extension batches 0172–0175, next legacy-0172.** Extension 4028/4,146, original 1,536/1,536; inactive proposals 228 total and 109 independent exact-hash rechecks pending, extension proposals 57. This single grouped commit requires green exact-head CI prior to further pushing. No source, app, validators, main, live DB, candidateReady, publication, integration, or deployment changes.
+
+
 ## Grouped editorial checkpoint, 4 November 2026: next legacy-0167
 
 Completed independent GPT-6 question-level review of five consecutive extension batches legacy-0162–0166: **34+30+34+34+34 = 166 questions**, 664 individually assessed actual alternatives, including original German/accepted key/grammar, EN/DE instruction, hints and explanations, objective/CEFR and original immutable provenance. Two additional inactive, not-yet-rechecked correction proposals: **legacy-0162-L2474-v1** replaces a self-referential interruption/pausing cause with a distinct technical fault, and **legacy-0165-L2550-v1** fixes an ambiguous chess-trophy stem (referee, coach and spectator also get no winner's trophy) by explicitly stating the person lost the match. No change to scored identities, original catalogs, app or publication.
