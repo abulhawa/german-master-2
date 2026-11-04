@@ -2,9 +2,9 @@
 
 ## Current authoritative status (4 November 2026)
 
-**3216 / 5,682 questions (56.60%)** independently GPT-6 question-level reviewed. First49 1,536 complete; extension 1680/4,146 across **46/126 batches through legacy-0095**. **2466 questions, 80 extension batches remain; next legacy-0096.**
+**3254 / 5,682 questions (57.27%)** with independent original GPT-6 editorial assessment. First 49: 1,536 reviewed. Extension: 1718 / 4,146, **47/126 batches 0050–0096 reviewed**. **2428 questions and 79 batches pending, next legacy-0097.**
 
-Batch 0095 added 32 noun variants with specific individual assessments of all four choices, completed German answers, morphology, bilingual hints/explanations, source and tentative levels. One inactive correction proposal for legacy-0095-L811-v1: distinguish a marked Fluchtweg (escape route) from Notausgang (exit). No input or accepted key changed. Original correction corpus: 171 inactive proposals with 52 pending recheck; extension: **43 inactive**, all pending recheck; **214 total inactive / 95 requiring recheck**. New CI must be confirmed for exact head commit; no unverified pass claimed. Original authoring b7a6507e135895b1ebb671b73538a9a6d3742304 immutable; review branch only; no main, app, DB, canonical validator, publication or deployment changes, all candidate/approval false.
+Batch 0096 added 38 verb exercises reviewed individually across all original options, real German completions, EN/DE feedback, provisional levels and immutable source hashes. One inactive correction for legacy-0096-L883-v2: original ambiguous 'sie' singular versus plural with keyed 'vergnügten', revised to explicitly name 'die beiden Freundinnen'. Original source and accepted option not changed. Original 171 inactive corrections with 52 pending recheck, extension **44 inactive** pending recheck, total **215 inactive and 96 pending recheck**. CI validation to be checked at new GitHub head. One writer; authoring source b7a6507e135895b1ebb671b73538a9a6d3742304 immutable; no app, main, DB, release or publication changes, all candidate/publication flags false.
 
 ---
 # Remaining enrichment corpus: historical review continuation index
