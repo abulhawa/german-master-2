@@ -1,0 +1,3028 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000006300",
+      "title": {
+        "en": "Using genügen in context",
+        "de": "genügen im Kontext"
+      },
+      "description": {
+        "en": "Recognize be sufficient in two situations.",
+        "de": "Die Verwendung „genügen; ausreichen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize genügen when something is enough.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L449 (131960ae37c1ae09141178d1ea555c8b2a969213bfbf68ee0dc6827e560fbce8), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L449-v1",
+          "contextKey": "legacy-0063-L449-context-1",
+          "transferKey": "legacy-0063-L449-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006300",
+            "type": "choice",
+            "prompt": "Für den Eintritt ___ ein gültiger Ausweis.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "One valid ID is sufficient.",
+              "de": "Ein gültiger Ausweis reicht aus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "genügt"
+              },
+              {
+                "id": "1",
+                "text": "fehlt"
+              },
+              {
+                "id": "2",
+                "text": "kostet"
+              },
+              {
+                "id": "3",
+                "text": "beginnt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "One valid ID is sufficient. Here \"genügt\" expresses be sufficient.",
+              "de": "Ein gültiger Ausweis reicht aus. „genügt“ bedeutet hier „genügen; ausreichen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Eintritt genügt ein gültiger Ausweis.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (genügt / fehlt / kostet / beginnt), unique answer \"genügt\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L449-v2",
+          "contextKey": "legacy-0063-L449-context-2",
+          "transferKey": "legacy-0063-L449-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006300",
+            "type": "gap_choice",
+            "prompt": "Zwei Stunden ___ nicht, um den ganzen Bericht zu lesen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Two hours are insufficient.",
+              "de": "Die Zeit reicht nicht aus."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "fehlen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "dauern"
+                  },
+                  {
+                    "id": "2",
+                    "text": "genügen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "beginnen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Two hours are insufficient. Here \"genügen\" expresses be sufficient.",
+              "de": "Die Zeit reicht nicht aus. „genügen“ bedeutet hier „genügen; ausreichen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zwei Stunden genügen nicht, um den ganzen Bericht zu lesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (fehlen / dauern / genügen / beginnen), unique answer \"genügen\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006301",
+      "title": {
+        "en": "Using geschehen in context",
+        "de": "geschehen im Kontext"
+      },
+      "description": {
+        "en": "Recognize happen or occur in two situations.",
+        "de": "Die Verwendung „geschehen; passieren“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize geschehen for an event occurring.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L450 (54e1697dafbbe3af20d1188d9053d99786feb158e8e2a475edba356ec32c2cb7), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L450-v1",
+          "contextKey": "legacy-0063-L450-context-1",
+          "transferKey": "legacy-0063-L450-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006301",
+            "type": "choice",
+            "prompt": "Niemand weiß, was in der Nacht ___ ist.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The question concerns what happened.",
+              "de": "Niemand weiß, was passiert ist."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gestaltet"
+              },
+              {
+                "id": "1",
+                "text": "geschehen"
+              },
+              {
+                "id": "2",
+                "text": "gegründet"
+              },
+              {
+                "id": "3",
+                "text": "gegrüßt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The question concerns what happened. Here \"geschehen\" expresses happen or occur.",
+              "de": "Niemand weiß, was passiert ist. „geschehen“ bedeutet hier „geschehen; passieren“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Niemand weiß, was in der Nacht geschehen ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gestaltet / geschehen / gegründet / gegrüßt), unique answer \"geschehen\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L450-v2",
+          "contextKey": "legacy-0063-L450-context-2",
+          "transferKey": "legacy-0063-L450-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006301",
+            "type": "gap_choice",
+            "prompt": "Wie konnte dieser Fehler ___?",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The speaker asks how an error occurred.",
+              "de": "Es wird gefragt, wie der Fehler passieren konnte."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gründen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "grüßen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "heizen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "geschehen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The speaker asks how an error occurred. Here \"geschehen\" expresses happen or occur.",
+              "de": "Es wird gefragt, wie der Fehler passieren konnte. „geschehen“ bedeutet hier „geschehen; passieren“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wie konnte dieser Fehler geschehen?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gründen / grüßen / heizen / geschehen), unique answer \"geschehen\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006302",
+      "title": {
+        "en": "Using gestalten in context",
+        "de": "gestalten im Kontext"
+      },
+      "description": {
+        "en": "Recognize design or shape something in two situations.",
+        "de": "Die Verwendung „etwas gestalten; entwerfen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize gestalten for design and creative arrangement.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L451 (7fd54e23f911374f747aea26bdc426416d4be7304b95bb873bf3987469b155c6), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L451-v1",
+          "contextKey": "legacy-0063-L451-context-1",
+          "transferKey": "legacy-0063-L451-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006302",
+            "type": "choice",
+            "prompt": "Die Designerin soll die Startseite übersichtlicher ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The webpage should be redesigned.",
+              "de": "Die Startseite soll neu gestaltet werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gestalten"
+              },
+              {
+                "id": "1",
+                "text": "gestatten"
+              },
+              {
+                "id": "2",
+                "text": "gewähren"
+              },
+              {
+                "id": "3",
+                "text": "genügen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The webpage should be redesigned. Here \"gestalten\" expresses design or shape something.",
+              "de": "Die Startseite soll neu gestaltet werden. „gestalten“ bedeutet hier „etwas gestalten; entwerfen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Designerin soll die Startseite übersichtlicher gestalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gestalten / gestatten / gewähren / genügen), unique answer \"gestalten\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L451-v2",
+          "contextKey": "legacy-0063-L451-context-2",
+          "transferKey": "legacy-0063-L451-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006302",
+            "type": "gap_choice",
+            "prompt": "Die Kinder haben die Plakate für das Fest bunt ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The children designed colorful posters.",
+              "de": "Die Plakate wurden bunt entworfen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gewährt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gegrüßt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gestaltet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gehoben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The children designed colorful posters. Here \"gestaltet\" expresses design or shape something.",
+              "de": "Die Plakate wurden bunt entworfen. „gestaltet“ bedeutet hier „etwas gestalten; entwerfen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kinder haben die Plakate für das Fest bunt gestaltet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gewährt / gegrüßt / gestaltet / gehoben), unique answer \"gestaltet\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006303",
+      "title": {
+        "en": "Using gestatten in context",
+        "de": "gestatten im Kontext"
+      },
+      "description": {
+        "en": "Recognize permit or allow formally in two situations.",
+        "de": "Die Verwendung „etwas gestatten; erlauben“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize gestatten for formal permission.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L452 (d726ec9b26f07ba5e2b247294af79d34722c4902f826f068233eb4db56eea4dd), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L452-v1",
+          "contextKey": "legacy-0063-L452-context-1",
+          "transferKey": "legacy-0063-L452-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006303",
+            "type": "choice",
+            "prompt": "Das Museum ___ keine Fotos mit Blitz.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Flash photography is not permitted.",
+              "de": "Fotos mit Blitz sind nicht erlaubt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewährleistet"
+              },
+              {
+                "id": "1",
+                "text": "gestattet"
+              },
+              {
+                "id": "2",
+                "text": "gliedert"
+              },
+              {
+                "id": "3",
+                "text": "grüßt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Flash photography is not permitted. Here \"gestattet\" expresses permit or allow formally.",
+              "de": "Fotos mit Blitz sind nicht erlaubt. „gestattet“ bedeutet hier „etwas gestatten; erlauben“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Museum gestattet keine Fotos mit Blitz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gewährleistet / gestattet / gliedert / grüßt), unique answer \"gestattet\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L452-v2",
+          "contextKey": "legacy-0063-L452-context-2",
+          "transferKey": "legacy-0063-L452-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006303",
+            "type": "gap_choice",
+            "prompt": "Die Lehrerin hat den Schülern erlaubt, früher zu gehen; sie hat es ihnen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The teacher granted permission.",
+              "de": "Die Lehrerin hat das frühe Gehen erlaubt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gegliedert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gegossen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gegründet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gestattet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The teacher granted permission. Here \"gestattet\" expresses permit or allow formally.",
+              "de": "Die Lehrerin hat das frühe Gehen erlaubt. „gestattet“ bedeutet hier „etwas gestatten; erlauben“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehrerin hat den Schülern erlaubt, früher zu gehen; sie hat es ihnen gestattet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gegliedert / gegossen / gegründet / gestattet), unique answer \"gestattet\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006304",
+      "title": {
+        "en": "Using gewähren in context",
+        "de": "gewähren im Kontext"
+      },
+      "description": {
+        "en": "Recognize grant a loan or benefit in two situations.",
+        "de": "Die Verwendung „etwas gewähren; bewilligen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize gewähren for granting money or a concession.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L453 (247f79f9ba3f56e3e954d280e229373025e48c375b09c980523bc25440b7fb3e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L453-v1",
+          "contextKey": "legacy-0063-L453-context-1",
+          "transferKey": "legacy-0063-L453-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006304",
+            "type": "choice",
+            "prompt": "Die Bank hat dem Paar einen Kredit ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The bank granted the loan.",
+              "de": "Die Bank hat den Kredit bewilligt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewährt"
+              },
+              {
+                "id": "1",
+                "text": "gewährleistet"
+              },
+              {
+                "id": "2",
+                "text": "gestaltet"
+              },
+              {
+                "id": "3",
+                "text": "gegossen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The bank granted the loan. Here \"gewährt\" expresses grant a loan or benefit.",
+              "de": "Die Bank hat den Kredit bewilligt. „gewährt“ bedeutet hier „etwas gewähren; bewilligen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bank hat dem Paar einen Kredit gewährt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gewährt / gewährleistet / gestaltet / gegossen), unique answer \"gewährt\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L453-v2",
+          "contextKey": "legacy-0063-L453-context-2",
+          "transferKey": "legacy-0063-L453-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006304",
+            "type": "gap_choice",
+            "prompt": "Der Verein möchte Mitgliedern einen Rabatt ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Members may receive a discount.",
+              "de": "Der Verein will einen Preisnachlass geben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gründen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "greifen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gewähren"
+                  },
+                  {
+                    "id": "3",
+                    "text": "heizen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Members may receive a discount. Here \"gewähren\" expresses grant a loan or benefit.",
+              "de": "Der Verein will einen Preisnachlass geben. „gewähren“ bedeutet hier „etwas gewähren; bewilligen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Verein möchte Mitgliedern einen Rabatt gewähren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gründen / greifen / gewähren / heizen), unique answer \"gewähren\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006305",
+      "title": {
+        "en": "Using gewährleisten in context",
+        "de": "gewährleisten im Kontext"
+      },
+      "description": {
+        "en": "Recognize ensure a requirement is met in two situations.",
+        "de": "Die Verwendung „etwas gewährleisten; sicherstellen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize gewährleisten for ensuring safety and operation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L454 (2d59ff23a7f09561ab3de146f8486ab4b76b2ae5bc4626dbffed15eda4074850), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L454-v1",
+          "contextKey": "legacy-0063-L454-context-1",
+          "transferKey": "legacy-0063-L454-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006305",
+            "type": "choice",
+            "prompt": "Die Kontrolle soll ___, dass alle Maschinen sicher funktionieren.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Checks ensure safe operation.",
+              "de": "Die Kontrolle soll Sicherheit sicherstellen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewähren"
+              },
+              {
+                "id": "1",
+                "text": "gewährleisten"
+              },
+              {
+                "id": "2",
+                "text": "gestalten"
+              },
+              {
+                "id": "3",
+                "text": "genießen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Checks ensure safe operation. Here \"gewährleisten\" expresses ensure a requirement is met.",
+              "de": "Die Kontrolle soll Sicherheit sicherstellen. „gewährleisten“ bedeutet hier „etwas gewährleisten; sicherstellen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kontrolle soll gewährleisten, dass alle Maschinen sicher funktionieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gewähren / gewährleisten / gestalten / genießen), unique answer \"gewährleisten\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L454-v2",
+          "contextKey": "legacy-0063-L454-context-2",
+          "transferKey": "legacy-0063-L454-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006305",
+            "type": "gap_choice",
+            "prompt": "Regelmäßige Wartung hilft, einen sicheren Betrieb zu ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Maintenance supports reliable operation.",
+              "de": "Die Wartung soll den sicheren Betrieb sichern."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gestatten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gründen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "grüßen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gewährleisten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Maintenance supports reliable operation. Here \"gewährleisten\" expresses ensure a requirement is met.",
+              "de": "Die Wartung soll den sicheren Betrieb sichern. „gewährleisten“ bedeutet hier „etwas gewährleisten; sicherstellen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Regelmäßige Wartung hilft, einen sicheren Betrieb zu gewährleisten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gestatten / gründen / grüßen / gewährleisten), unique answer \"gewährleisten\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006306",
+      "title": {
+        "en": "Using gewöhnen in context",
+        "de": "gewöhnen im Kontext"
+      },
+      "description": {
+        "en": "Recognize get used to something in two situations.",
+        "de": "Die Verwendung „sich an etwas gewöhnen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize reflexive sich gewöhnen an with the accusative.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L456 (5e7ecb45c5d1d41975ccf935ffb6ed6fe5c58e2a63535691cbec30721190935f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L456-v1",
+          "contextKey": "legacy-0063-L456-context-1",
+          "transferKey": "legacy-0063-L456-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006306",
+            "type": "choice",
+            "prompt": "Nach dem Umzug musste sie sich erst an den Lärm ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She needed time to adjust.",
+              "de": "Sie musste sich an den Lärm anpassen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gewöhnen"
+              },
+              {
+                "id": "1",
+                "text": "gründen"
+              },
+              {
+                "id": "2",
+                "text": "genießen"
+              },
+              {
+                "id": "3",
+                "text": "genügen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "She needed time to adjust. Here \"gewöhnen\" expresses get used to something.",
+              "de": "Sie musste sich an den Lärm anpassen. „gewöhnen“ bedeutet hier „sich an etwas gewöhnen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Umzug musste sie sich erst an den Lärm gewöhnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gewöhnen / gründen / genießen / genügen), unique answer \"gewöhnen\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L456-v2",
+          "contextKey": "legacy-0063-L456-context-2",
+          "transferKey": "legacy-0063-L456-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006306",
+            "type": "gap_choice",
+            "prompt": "Die Kinder haben sich schnell an den neuen Schulweg ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The children adapted to the route.",
+              "de": "Der neue Weg wurde ihnen vertraut."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gewährt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gegründet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gewöhnt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gegossen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The children adapted to the route. Here \"gewöhnt\" expresses get used to something.",
+              "de": "Der neue Weg wurde ihnen vertraut. „gewöhnt“ bedeutet hier „sich an etwas gewöhnen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kinder haben sich schnell an den neuen Schulweg gewöhnt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gewährt / gegründet / gewöhnt / gegossen), unique answer \"gewöhnt\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006307",
+      "title": {
+        "en": "Using gießen in context",
+        "de": "gießen im Kontext"
+      },
+      "description": {
+        "en": "Recognize pour or water plants in two situations.",
+        "de": "Die Verwendung „etwas gießen; Flüssigkeit ausgießen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize gießen for watering plants and pouring liquids.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L457 (fabd64ff6503942d646231d088978332d6b17be24fa513cae81aed48faea4e78), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L457-v1",
+          "contextKey": "legacy-0063-L457-context-1",
+          "transferKey": "legacy-0063-L457-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006307",
+            "type": "choice",
+            "prompt": "Bitte ___ die Blumen, bevor du in den Urlaub fährst.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The plants need water.",
+              "de": "Die Blumen sollen Wasser bekommen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "greife"
+              },
+              {
+                "id": "1",
+                "text": "gieße"
+              },
+              {
+                "id": "2",
+                "text": "grüße"
+              },
+              {
+                "id": "3",
+                "text": "gliedere"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The plants need water. Here \"gieße\" expresses pour or water plants.",
+              "de": "Die Blumen sollen Wasser bekommen. „gieße“ bedeutet hier „etwas gießen; Flüssigkeit ausgießen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte gieße die Blumen, bevor du in den Urlaub fährst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (greife / gieße / grüße / gliedere), unique answer \"gieße\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L457-v2",
+          "contextKey": "legacy-0063-L457-context-2",
+          "transferKey": "legacy-0063-L457-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006307",
+            "type": "gap_choice",
+            "prompt": "Er hat den Saft vorsichtig in die Gläser ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The juice was poured into glasses.",
+              "de": "Der Saft wurde in die Gläser gefüllt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gegriffen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gegliedert"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gegrüßt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gegossen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The juice was poured into glasses. Here \"gegossen\" expresses pour or water plants.",
+              "de": "Der Saft wurde in die Gläser gefüllt. „gegossen“ bedeutet hier „etwas gießen; Flüssigkeit ausgießen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er hat den Saft vorsichtig in die Gläser gegossen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gegriffen / gegliedert / gegrüßt / gegossen), unique answer \"gegossen\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006308",
+      "title": {
+        "en": "Using gliedern in context",
+        "de": "gliedern im Kontext"
+      },
+      "description": {
+        "en": "Recognize divide into clear sections in two situations.",
+        "de": "Die Verwendung „etwas gliedern; strukturieren“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize gliedern for organizing a report or presentation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L459 (abc006a18accd0a3f62564ba911dcd682418a6d7426bc58e678e5731d9705989), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L459-v1",
+          "contextKey": "legacy-0063-L459-context-1",
+          "transferKey": "legacy-0063-L459-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006308",
+            "type": "choice",
+            "prompt": "Der Bericht soll in drei klare Abschnitte ___ werden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The report needs a clear structure.",
+              "de": "Der Bericht wird in Abschnitte unterteilt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gegliedert"
+              },
+              {
+                "id": "1",
+                "text": "gegründet"
+              },
+              {
+                "id": "2",
+                "text": "gegrüßt"
+              },
+              {
+                "id": "3",
+                "text": "gegossen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The report needs a clear structure. Here \"gegliedert\" expresses divide into clear sections.",
+              "de": "Der Bericht wird in Abschnitte unterteilt. „gegliedert“ bedeutet hier „etwas gliedern; strukturieren“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bericht soll in drei klare Abschnitte gegliedert werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gegliedert / gegründet / gegrüßt / gegossen), unique answer \"gegliedert\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L459-v2",
+          "contextKey": "legacy-0063-L459-context-2",
+          "transferKey": "legacy-0063-L459-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006308",
+            "type": "gap_choice",
+            "prompt": "Wir müssen den Vortrag in Einleitung, Hauptteil und Schluss ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The presentation has three sections.",
+              "de": "Der Vortrag wird in drei Teile gegliedert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "greifen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "grüßen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gliedern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "genügen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The presentation has three sections. Here \"gliedern\" expresses divide into clear sections.",
+              "de": "Der Vortrag wird in drei Teile gegliedert. „gliedern“ bedeutet hier „etwas gliedern; strukturieren“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir müssen den Vortrag in Einleitung, Hauptteil und Schluss gliedern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (greifen / grüßen / gliedern / genügen), unique answer \"gliedern\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006309",
+      "title": {
+        "en": "Using greifen in context",
+        "de": "greifen im Kontext"
+      },
+      "description": {
+        "en": "Recognize grab or reach for something in two situations.",
+        "de": "Die Verwendung „nach etwas greifen; fassen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize greifen for reaching and grabbing.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L461 (2831624c96312822a28fc71c643ebeff89a30ac5ebf1036d8b0de435202be00c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L461-v1",
+          "contextKey": "legacy-0063-L461-context-1",
+          "transferKey": "legacy-0063-L461-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006309",
+            "type": "choice",
+            "prompt": "Das Kind wollte nach dem Ball ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The child reached for the ball.",
+              "de": "Das Kind wollte den Ball greifen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gründen"
+              },
+              {
+                "id": "1",
+                "text": "greifen"
+              },
+              {
+                "id": "2",
+                "text": "grüßen"
+              },
+              {
+                "id": "3",
+                "text": "gießen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The child reached for the ball. Here \"greifen\" expresses grab or reach for something.",
+              "de": "Das Kind wollte den Ball greifen. „greifen“ bedeutet hier „nach etwas greifen; fassen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Kind wollte nach dem Ball greifen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gründen / greifen / grüßen / gießen), unique answer \"greifen\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L461-v2",
+          "contextKey": "legacy-0063-L461-context-2",
+          "transferKey": "legacy-0063-L461-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006309",
+            "type": "gap_choice",
+            "prompt": "Sie hat sofort nach dem Seil ___, als sie ausrutschte.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She grabbed the rope.",
+              "de": "Sie fasste nach dem Seil."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gegossen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gegründet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gegrüßt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gegriffen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "She grabbed the rope. Here \"gegriffen\" expresses grab or reach for something.",
+              "de": "Sie fasste nach dem Seil. „gegriffen“ bedeutet hier „nach etwas greifen; fassen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat sofort nach dem Seil gegriffen, als sie ausrutschte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gegossen / gegründet / gegrüßt / gegriffen), unique answer \"gegriffen\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006311",
+      "title": {
+        "en": "Using gründen in context",
+        "de": "gründen im Kontext"
+      },
+      "description": {
+        "en": "Recognize found an organization in two situations.",
+        "de": "Die Verwendung „eine Organisation gründen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize gründen for establishing a company or association.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L464 (08823718bf036f4b160bcff34137f38996cc45680f5b9b3efe68e01a5e745f2b), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L464-v1",
+          "contextKey": "legacy-0063-L464-context-1",
+          "transferKey": "legacy-0063-L464-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006311",
+            "type": "choice",
+            "prompt": "Die beiden Entwickler wollen gemeinsam ein Unternehmen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They want to establish a company.",
+              "de": "Sie möchten eine Firma aufbauen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gründen"
+              },
+              {
+                "id": "1",
+                "text": "gliedern"
+              },
+              {
+                "id": "2",
+                "text": "grüßen"
+              },
+              {
+                "id": "3",
+                "text": "greifen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "They want to establish a company. Here \"gründen\" expresses found an organization.",
+              "de": "Sie möchten eine Firma aufbauen. „gründen“ bedeutet hier „eine Organisation gründen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die beiden Entwickler wollen gemeinsam ein Unternehmen gründen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gründen / gliedern / grüßen / greifen), unique answer \"gründen\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L464-v2",
+          "contextKey": "legacy-0063-L464-context-2",
+          "transferKey": "legacy-0063-L464-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006311",
+            "type": "gap_choice",
+            "prompt": "Nach ihrem Studium haben sie einen Verein ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They founded an association.",
+              "de": "Sie haben einen Verein ins Leben gerufen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gegrüßt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gegossen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gegründet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gehoben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "They founded an association. Here \"gegründet\" expresses found an organization.",
+              "de": "Sie haben einen Verein ins Leben gerufen. „gegründet“ bedeutet hier „eine Organisation gründen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach ihrem Studium haben sie einen Verein gegründet.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gegrüßt / gegossen / gegründet / gehoben), unique answer \"gegründet\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006312",
+      "title": {
+        "en": "Using grüßen in context",
+        "de": "grüßen im Kontext"
+      },
+      "description": {
+        "en": "Recognize greet someone in two situations.",
+        "de": "Die Verwendung „jemanden grüßen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize grüßen for friendly greetings.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L465 (376e11b326a810fb37dce0a1a75967d8ef8c4df94c00daf68952406196c7da10), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L465-v1",
+          "contextKey": "legacy-0063-L465-context-1",
+          "transferKey": "legacy-0063-L465-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006312",
+            "type": "choice",
+            "prompt": "Wenn du die Nachbarin siehst, solltest du sie freundlich ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The neighbor should be greeted.",
+              "de": "Du solltest freundlich Hallo sagen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gründen"
+              },
+              {
+                "id": "1",
+                "text": "grüßen"
+              },
+              {
+                "id": "2",
+                "text": "greifen"
+              },
+              {
+                "id": "3",
+                "text": "gießen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The neighbor should be greeted. Here \"grüßen\" expresses greet someone.",
+              "de": "Du solltest freundlich Hallo sagen. „grüßen“ bedeutet hier „jemanden grüßen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wenn du die Nachbarin siehst, solltest du sie freundlich grüßen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gründen / grüßen / greifen / gießen), unique answer \"grüßen\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L465-v2",
+          "contextKey": "legacy-0063-L465-context-2",
+          "transferKey": "legacy-0063-L465-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006312",
+            "type": "gap_choice",
+            "prompt": "Am Eingang hat der Direktor alle Gäste persönlich ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The director welcomed the guests.",
+              "de": "Der Direktor sagte allen Gästen persönlich guten Tag."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gegründet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gegossen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gehoben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gegrüßt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The director welcomed the guests. Here \"gegrüßt\" expresses greet someone.",
+              "de": "Der Direktor sagte allen Gästen persönlich guten Tag. „gegrüßt“ bedeutet hier „jemanden grüßen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Eingang hat der Direktor alle Gäste persönlich gegrüßt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gegründet / gegossen / gehoben / gegrüßt), unique answer \"gegrüßt\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006313",
+      "title": {
+        "en": "Using gucken in context",
+        "de": "gucken im Kontext"
+      },
+      "description": {
+        "en": "Recognize look or check (colloquial) in two situations.",
+        "de": "Die Verwendung „gucken; schauen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize colloquial gucken for looking or checking.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L466 (236957e72e41f8b36a07f7987c091be9951aed6976e5e96ddf7a124d96a0a465), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L466-v1",
+          "contextKey": "legacy-0063-L466-context-1",
+          "transferKey": "legacy-0063-L466-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006313",
+            "type": "choice",
+            "prompt": "Kannst du kurz ___, ob das Fenster geschlossen ist?",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The speaker asks someone to check.",
+              "de": "Die Person soll kurz nachsehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gucken"
+              },
+              {
+                "id": "1",
+                "text": "gründen"
+              },
+              {
+                "id": "2",
+                "text": "gliedern"
+              },
+              {
+                "id": "3",
+                "text": "genügen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The speaker asks someone to check. Here \"gucken\" expresses look or check (colloquial).",
+              "de": "Die Person soll kurz nachsehen. „gucken“ bedeutet hier „gucken; schauen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kannst du kurz gucken, ob das Fenster geschlossen ist?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gucken / gründen / gliedern / genügen), unique answer \"gucken\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L466-v2",
+          "contextKey": "legacy-0063-L466-context-2",
+          "transferKey": "legacy-0063-L466-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006313",
+            "type": "gap_choice",
+            "prompt": "Die Kinder haben aus dem Fenster ___, als der Zug losfuhr.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They looked out the window.",
+              "de": "Die Kinder schauten aus dem Fenster."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gegossen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gegründet"
+                  },
+                  {
+                    "id": "2",
+                    "text": "geguckt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gegrüßt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "They looked out the window. Here \"geguckt\" expresses look or check (colloquial).",
+              "de": "Die Kinder schauten aus dem Fenster. „geguckt“ bedeutet hier „gucken; schauen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kinder haben aus dem Fenster geguckt, als der Zug losfuhr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gegossen / gegründet / geguckt / gegrüßt), unique answer \"geguckt\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006314",
+      "title": {
+        "en": "Using hageln in context",
+        "de": "hageln im Kontext"
+      },
+      "description": {
+        "en": "Recognize hail as weather in two situations.",
+        "de": "Die Verwendung „hageln; Hagel fallen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize hageln for ice pellets falling from the sky.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L468 (d9e6e4dc512b4802b641dfb079dd31ca76fd234db771f4149c98d8a87500c280), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L468-v1",
+          "contextKey": "legacy-0063-L468-context-1",
+          "transferKey": "legacy-0063-L468-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006314",
+            "type": "choice",
+            "prompt": "Am Nachmittag begann es plötzlich zu ___, und kleine Eiskörner fielen vom Himmel.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Ice pellets fell from the sky.",
+              "de": "Es fiel Hagel."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "heizen"
+              },
+              {
+                "id": "1",
+                "text": "hageln"
+              },
+              {
+                "id": "2",
+                "text": "heben"
+              },
+              {
+                "id": "3",
+                "text": "handeln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Ice pellets fell from the sky. Here \"hageln\" expresses hail as weather.",
+              "de": "Es fiel Hagel. „hageln“ bedeutet hier „hageln; Hagel fallen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Nachmittag begann es plötzlich zu hageln, und kleine Eiskörner fielen vom Himmel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (heizen / hageln / heben / handeln), unique answer \"hageln\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L468-v2",
+          "contextKey": "legacy-0063-L468-context-2",
+          "transferKey": "legacy-0063-L468-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006314",
+            "type": "gap_choice",
+            "prompt": "Gestern hat es so stark ___, dass die Autos kleine Dellen bekamen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Heavy hail damaged cars.",
+              "de": "Der starke Hagel hinterließ Dellen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "geheizt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gehoben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gehandelt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gehagelt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Heavy hail damaged cars. Here \"gehagelt\" expresses hail as weather.",
+              "de": "Der starke Hagel hinterließ Dellen. „gehagelt“ bedeutet hier „hageln; Hagel fallen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Gestern hat es so stark gehagelt, dass die Autos kleine Dellen bekamen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (geheizt / gehoben / gehandelt / gehagelt), unique answer \"gehagelt\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006315",
+      "title": {
+        "en": "Using handeln in context",
+        "de": "handeln im Kontext"
+      },
+      "description": {
+        "en": "Recognize take action in two situations.",
+        "de": "Die Verwendung „handeln; aktiv werden“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize handeln for responding to emergencies.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L470 (3a701f9cdfc66bfe7fefe494fcc48f919e3b10fb60fad547c5cc350dc09e731d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L470-v1",
+          "contextKey": "legacy-0063-L470-context-1",
+          "transferKey": "legacy-0063-L470-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006315",
+            "type": "choice",
+            "prompt": "Bei einem Notfall muss man schnell ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A quick response is needed.",
+              "de": "Man muss sofort aktiv werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "handeln"
+              },
+              {
+                "id": "1",
+                "text": "heizen"
+              },
+              {
+                "id": "2",
+                "text": "hassen"
+              },
+              {
+                "id": "3",
+                "text": "heben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A quick response is needed. Here \"handeln\" expresses take action.",
+              "de": "Man muss sofort aktiv werden. „handeln“ bedeutet hier „handeln; aktiv werden“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei einem Notfall muss man schnell handeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (handeln / heizen / hassen / heben), unique answer \"handeln\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L470-v2",
+          "contextKey": "legacy-0063-L470-context-2",
+          "transferKey": "legacy-0063-L470-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006315",
+            "type": "gap_choice",
+            "prompt": "Die Leitung hat sofort ___ und den Raum evakuiert.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Management acted immediately.",
+              "de": "Die Leitung reagierte sofort."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "geheizt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gehasst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gehandelt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gehoben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Management acted immediately. Here \"gehandelt\" expresses take action.",
+              "de": "Die Leitung reagierte sofort. „gehandelt“ bedeutet hier „handeln; aktiv werden“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Leitung hat sofort gehandelt und den Raum evakuiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (geheizt / gehasst / gehandelt / gehoben), unique answer \"gehandelt\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006316",
+      "title": {
+        "en": "Using hassen in context",
+        "de": "hassen im Kontext"
+      },
+      "description": {
+        "en": "Recognize hate or strongly dislike in two situations.",
+        "de": "Die Verwendung „etwas hassen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize hassen for intense dislike.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L472 (82aa040319e40bea8851ffd845fd509374c976f35d419506037984e632f9acef), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L472-v1",
+          "contextKey": "legacy-0063-L472-context-1",
+          "transferKey": "legacy-0063-L472-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006316",
+            "type": "choice",
+            "prompt": "Er ___ es, wenn jemand absichtlich zu spät kommt.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He strongly dislikes deliberate lateness.",
+              "de": "Er kann absichtliche Verspätung nicht ausstehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "handelt"
+              },
+              {
+                "id": "1",
+                "text": "hasst"
+              },
+              {
+                "id": "2",
+                "text": "heizt"
+              },
+              {
+                "id": "3",
+                "text": "hebt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "He strongly dislikes deliberate lateness. Here \"hasst\" expresses hate or strongly dislike.",
+              "de": "Er kann absichtliche Verspätung nicht ausstehen. „hasst“ bedeutet hier „etwas hassen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er hasst es, wenn jemand absichtlich zu spät kommt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (handelt / hasst / heizt / hebt), unique answer \"hasst\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L472-v2",
+          "contextKey": "legacy-0063-L472-context-2",
+          "transferKey": "legacy-0063-L472-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006316",
+            "type": "gap_choice",
+            "prompt": "Sie hat früher das Aufstehen um fünf Uhr ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She strongly disliked early rising.",
+              "de": "Frühes Aufstehen war ihr sehr unangenehm."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gehandelt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "geheizt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gehoben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gehasst"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "She strongly disliked early rising. Here \"gehasst\" expresses hate or strongly dislike.",
+              "de": "Frühes Aufstehen war ihr sehr unangenehm. „gehasst“ bedeutet hier „etwas hassen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat früher das Aufstehen um fünf Uhr gehasst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gehandelt / geheizt / gehoben / gehasst), unique answer \"gehasst\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006317",
+      "title": {
+        "en": "Using heben in context",
+        "de": "heben im Kontext"
+      },
+      "description": {
+        "en": "Recognize lift or raise an object in two situations.",
+        "de": "Die Verwendung „etwas heben; hochheben“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize heben for lifting boxes and heavy objects.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L473 (1faf46d5d631e6b78dfa5ebf426ff96aa09a5bd8d81af3764cfb325cf9d1071f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L473-v1",
+          "contextKey": "legacy-0063-L473-context-1",
+          "transferKey": "legacy-0063-L473-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006317",
+            "type": "choice",
+            "prompt": "Bitte ___ den Karton mit beiden Händen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The box should be lifted.",
+              "de": "Der Karton soll hochgehoben werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "hebe"
+              },
+              {
+                "id": "1",
+                "text": "heize"
+              },
+              {
+                "id": "2",
+                "text": "hasse"
+              },
+              {
+                "id": "3",
+                "text": "handle"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The box should be lifted. Here \"hebe\" expresses lift or raise an object.",
+              "de": "Der Karton soll hochgehoben werden. „hebe“ bedeutet hier „etwas heben; hochheben“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte hebe den Karton mit beiden Händen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (hebe / heize / hasse / handle), unique answer \"hebe\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L473-v2",
+          "contextKey": "legacy-0063-L473-context-2",
+          "transferKey": "legacy-0063-L473-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006317",
+            "type": "gap_choice",
+            "prompt": "Die Arbeiter haben die schweren Kisten mit einem Kran ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The crane raised the boxes.",
+              "de": "Die Kisten wurden angehoben."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "geheizt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gehasst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gehoben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gehandelt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The crane raised the boxes. Here \"gehoben\" expresses lift or raise an object.",
+              "de": "Die Kisten wurden angehoben. „gehoben“ bedeutet hier „etwas heben; hochheben“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Arbeiter haben die schweren Kisten mit einem Kran gehoben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (geheizt / gehasst / gehoben / gehandelt), unique answer \"gehoben\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006318",
+      "title": {
+        "en": "Using heizen in context",
+        "de": "heizen im Kontext"
+      },
+      "description": {
+        "en": "Recognize heat a building in two situations.",
+        "de": "Die Verwendung „ein Gebäude heizen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize heizen for warming rooms or buildings.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L476 (053f359e54c289d5fb3a1d124d4c1eea9c876f9569149df84cfde322d8f4b635), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L476-v1",
+          "contextKey": "legacy-0063-L476-context-1",
+          "transferKey": "legacy-0063-L476-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006318",
+            "type": "choice",
+            "prompt": "Im Winter müssen wir die Wohnung regelmäßig ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The home needs heating.",
+              "de": "Die Wohnung muss warm gehalten werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "heben"
+              },
+              {
+                "id": "1",
+                "text": "heizen"
+              },
+              {
+                "id": "2",
+                "text": "hassen"
+              },
+              {
+                "id": "3",
+                "text": "handeln"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The home needs heating. Here \"heizen\" expresses heat a building.",
+              "de": "Die Wohnung muss warm gehalten werden. „heizen“ bedeutet hier „ein Gebäude heizen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Winter müssen wir die Wohnung regelmäßig heizen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (heben / heizen / hassen / handeln), unique answer \"heizen\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L476-v2",
+          "contextKey": "legacy-0063-L476-context-2",
+          "transferKey": "legacy-0063-L476-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006318",
+            "type": "gap_choice",
+            "prompt": "Das Haus wird mit einer Wärmepumpe ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A heat pump warms the building.",
+              "de": "Die Wärmepumpe erwärmt das Haus."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gehoben"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gehasst"
+                  },
+                  {
+                    "id": "2",
+                    "text": "gehandelt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "geheizt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A heat pump warms the building. Here \"geheizt\" expresses heat a building.",
+              "de": "Die Wärmepumpe erwärmt das Haus. „geheizt“ bedeutet hier „ein Gebäude heizen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Haus wird mit einer Wärmepumpe geheizt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gehoben / gehasst / gehandelt / geheizt), unique answer \"geheizt\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006319",
+      "title": {
+        "en": "Using heranlassen in context",
+        "de": "heranlassen im Kontext"
+      },
+      "description": {
+        "en": "Recognize allow someone to approach in two situations.",
+        "de": "Die Verwendung „jemanden heranlassen; näherkommen lassen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize separable heranlassen for allowing proximity.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/verbs.jsonl:L478 (356abd5125d1213875ee5358e4632d4bcd5d19a4f40b250bf8a4aa7ca167b069), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0063-L478-v1",
+          "contextKey": "legacy-0063-L478-context-1",
+          "transferKey": "legacy-0063-L478-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006319",
+            "type": "choice",
+            "prompt": "Der Wachhund will fremde Menschen nicht an das Tor ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The dog keeps strangers away.",
+              "de": "Der Hund lässt Fremde nicht näherkommen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "heranlassen"
+              },
+              {
+                "id": "1",
+                "text": "gründen"
+              },
+              {
+                "id": "2",
+                "text": "heizen"
+              },
+              {
+                "id": "3",
+                "text": "gliedern"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The dog keeps strangers away. Here \"heranlassen\" expresses allow someone to approach.",
+              "de": "Der Hund lässt Fremde nicht näherkommen. „heranlassen“ bedeutet hier „jemanden heranlassen; näherkommen lassen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Wachhund will fremde Menschen nicht an das Tor heranlassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (heranlassen / gründen / heizen / gliedern), unique answer \"heranlassen\", verb form, bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0063-L478-v2",
+          "contextKey": "legacy-0063-L478-context-2",
+          "transferKey": "legacy-0063-L478-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000630191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006319",
+            "type": "gap_choice",
+            "prompt": "Sie hat die Reporter nicht an ihre Familie ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She did not let reporters approach her family.",
+              "de": "Die Reporter durften nicht in die Nähe ihrer Familie."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gegründet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gegossen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "herangelassen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gehoben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "She did not let reporters approach her family. Here \"herangelassen\" expresses allow someone to approach.",
+              "de": "Die Reporter durften nicht in die Nähe ihrer Familie. „herangelassen“ bedeutet hier „jemanden heranlassen; näherkommen lassen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat die Reporter nicht an ihre Familie herangelassen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (gegründet / gegossen / herangelassen / gehoben), unique answer \"herangelassen\", verb form, bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    }
+  ]
+}

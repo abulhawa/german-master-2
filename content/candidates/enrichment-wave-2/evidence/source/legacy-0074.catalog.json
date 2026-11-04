@@ -1,0 +1,3028 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000007400",
+      "title": {
+        "en": "Using Dunstabzugshaube in context",
+        "de": "Dunstabzugshaube im Kontext"
+      },
+      "description": {
+        "en": "Recognize Dunstabzugshaube (extractor hood above a cooker) in two different situations.",
+        "de": "Dunstabzugshaube (Abzug für Kochdampf über dem Herd) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Dunstabzugshaube as extractor hood above a cooker with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L548 (f5cf2d5a7239192c9f50fdf954fa53ed96dea87726b30a02f1ef48f55e370dcf), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L548-v1",
+          "contextKey": "legacy-0074-L548-context-1",
+          "transferKey": "legacy-0074-L548-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007400",
+            "type": "choice",
+            "prompt": "Beim Braten entsteht viel Dampf. Schalte bitte die ___ über dem Herd ein.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The appliance removes steam and cooking odors.",
+              "de": "Das Gerät saugt Dampf und Kochgerüche ab."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mikrowelle"
+              },
+              {
+                "id": "1",
+                "text": "Dunstabzugshaube"
+              },
+              {
+                "id": "2",
+                "text": "Kaffeemaschine"
+              },
+              {
+                "id": "3",
+                "text": "Spülmaschine"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Dunstabzugshaube is the appliance that extracts cooking fumes.",
+              "de": "Die Dunstabzugshaube saugt Kochdampf und Gerüche ab."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Braten entsteht viel Dampf. Schalte bitte die Dunstabzugshaube über dem Herd ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Beim Braten entsteht viel Dampf. Schalte bitte die Dunstabzugshaube über dem Herd ein.\", article/case/collocation, and every option (Mikrowelle / Dunstabzugshaube / Kaffeemaschine / Spülmaschine). The intended answer \"Dunstabzugshaube\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L548-v2",
+          "contextKey": "legacy-0074-L548-context-2",
+          "transferKey": "legacy-0074-L548-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007400",
+            "type": "gap_choice",
+            "prompt": "Der Filter der ___ muss gereinigt werden, weil sie Küchengerüche nicht mehr absaugt.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Its filter belongs to the extractor above the stove.",
+              "de": "Der Filter gehört zum Abzug über dem Herd."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Waschmaschine"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Heizung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Dunstabzugshaube"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Spülmaschine"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The extractor hood needs a clean filter to remove kitchen odors.",
+              "de": "Die Dunstabzugshaube braucht einen sauberen Filter zum Absaugen von Gerüchen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Filter der Dunstabzugshaube muss gereinigt werden, weil sie Küchengerüche nicht mehr absaugt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Der Filter der Dunstabzugshaube muss gereinigt werden, weil sie Küchengerüche nicht mehr absaugt.\", article/case/collocation, and every option (Waschmaschine / Heizung / Dunstabzugshaube / Spülmaschine). The intended answer \"Dunstabzugshaube\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007401",
+      "title": {
+        "en": "Using Durchführung in context",
+        "de": "Durchführung im Kontext"
+      },
+      "description": {
+        "en": "Recognize Durchführung (carrying out a planned activity) in two different situations.",
+        "de": "Durchführung (Umsetzung oder Ausführung einer geplanten Maßnahme) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Durchführung as carrying out a planned activity with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L549 (bd0c695c8857bfecd558221fc91d44319730c304529d710edbb6fd4f3d071351), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L549-v1",
+          "contextKey": "legacy-0074-L549-context-1",
+          "transferKey": "legacy-0074-L549-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007401",
+            "type": "choice",
+            "prompt": "Für die ___ der Schulung brauchen wir einen geeigneten Raum.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The training is to take place, not be canceled.",
+              "de": "Die Schulung soll stattfinden, nicht abgesagt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Absage"
+              },
+              {
+                "id": "1",
+                "text": "Durchführung"
+              },
+              {
+                "id": "2",
+                "text": "Verschiebung"
+              },
+              {
+                "id": "3",
+                "text": "Bewertung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Durchführung refers to carrying out the training.",
+              "de": "Durchführung bezeichnet die praktische Umsetzung der Schulung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Durchführung der Schulung brauchen wir einen geeigneten Raum.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Für die Durchführung der Schulung brauchen wir einen geeigneten Raum.\", article/case/collocation, and every option (Absage / Durchführung / Verschiebung / Bewertung). The intended answer \"Durchführung\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L549-v2",
+          "contextKey": "legacy-0074-L549-context-2",
+          "transferKey": "legacy-0074-L549-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007401",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Bauprojekts verzögerte sich wegen fehlender Genehmigungen.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The planned construction work could not proceed on time.",
+              "de": "Die geplanten Bauarbeiten konnten nicht rechtzeitig umgesetzt werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Durchführung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ankündigung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ablehnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Beschreibung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Durchführung means implementation of the project.",
+              "de": "Durchführung bedeutet hier die Umsetzung des Projekts."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Durchführung des Bauprojekts verzögerte sich wegen fehlender Genehmigungen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Die Durchführung des Bauprojekts verzögerte sich wegen fehlender Genehmigungen.\", article/case/collocation, and every option (Durchführung / Ankündigung / Ablehnung / Beschreibung). The intended answer \"Durchführung\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007402",
+      "title": {
+        "en": "Using Durchschnitt in context",
+        "de": "Durchschnitt im Kontext"
+      },
+      "description": {
+        "en": "Recognize Durchschnitt (arithmetic average or typical level) in two different situations.",
+        "de": "Durchschnitt (rechnerischer Mittelwert oder üblicher Wert) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Durchschnitt as arithmetic average or typical level with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L551 (c5ac87359bc3b3cc3df457054899f584b18712ab59bd8a9abe7a74e3392867fe), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L551-v1",
+          "contextKey": "legacy-0074-L551-context-1",
+          "transferKey": "legacy-0074-L551-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007402",
+            "type": "choice",
+            "prompt": "Die Klasse erreichte im ___ 78 Punkte pro Test.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The figure summarizes scores across the class.",
+              "de": "Die Zahl fasst die Ergebnisse der Klasse zusammen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einzelfall"
+              },
+              {
+                "id": "1",
+                "text": "Durchschnitt"
+              },
+              {
+                "id": "2",
+                "text": "Höchstwert"
+              },
+              {
+                "id": "3",
+                "text": "Ausnahmefall"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Im Durchschnitt states the average across all tests.",
+              "de": "Im Durchschnitt gibt den Mittelwert aller Ergebnisse an."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Klasse erreichte im Durchschnitt 78 Punkte pro Test.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Die Klasse erreichte im Durchschnitt 78 Punkte pro Test.\", article/case/collocation, and every option (Einzelfall / Durchschnitt / Höchstwert / Ausnahmefall). The intended answer \"Durchschnitt\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L551-v2",
+          "contextKey": "legacy-0074-L551-context-2",
+          "transferKey": "legacy-0074-L551-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007402",
+            "type": "gap_choice",
+            "prompt": "Die Miete liegt deutlich über dem ___ der Stadt.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The rent is compared with the city's typical level.",
+              "de": "Die Miete wird mit dem üblichen Niveau der Stadt verglichen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Mindestlohn"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Durchschnitt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einzelfall"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vertrag"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Über dem Durchschnitt means higher than the average.",
+              "de": "Über dem Durchschnitt bedeutet höher als der Mittelwert."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Miete liegt deutlich über dem Durchschnitt der Stadt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Die Miete liegt deutlich über dem Durchschnitt der Stadt.\", article/case/collocation, and every option (Mindestlohn / Durchschnitt / Einzelfall / Vertrag). The intended answer \"Durchschnitt\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007403",
+      "title": {
+        "en": "Using Durchsetzung in context",
+        "de": "Durchsetzung im Kontext"
+      },
+      "description": {
+        "en": "Recognize Durchsetzung (enforcement of a rule or decision) in two different situations.",
+        "de": "Durchsetzung (Durchführung und Erzwingung einer Regel) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Durchsetzung as enforcement of a rule or decision with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L552 (b5f368a465240f818ee0883c0ae07ade3404b4448ee7195977e54a5d3526b11d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L552-v1",
+          "contextKey": "legacy-0074-L552-context-1",
+          "transferKey": "legacy-0074-L552-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007403",
+            "type": "choice",
+            "prompt": "Die ___ der Sicherheitsvorschriften wird regelmäßig kontrolliert.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The rules must actually be followed and enforced.",
+              "de": "Die Regeln müssen tatsächlich eingehalten und durchgesetzt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abschaffung"
+              },
+              {
+                "id": "1",
+                "text": "Durchsetzung"
+              },
+              {
+                "id": "2",
+                "text": "Veröffentlichung"
+              },
+              {
+                "id": "3",
+                "text": "Übersetzung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Durchsetzung refers to ensuring that rules are enforced.",
+              "de": "Durchsetzung bedeutet, die Einhaltung von Regeln sicherzustellen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Durchsetzung der Sicherheitsvorschriften wird regelmäßig kontrolliert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Die Durchsetzung der Sicherheitsvorschriften wird regelmäßig kontrolliert.\", article/case/collocation, and every option (Abschaffung / Durchsetzung / Veröffentlichung / Übersetzung). The intended answer \"Durchsetzung\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L552-v2",
+          "contextKey": "legacy-0074-L552-context-2",
+          "transferKey": "legacy-0074-L552-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007403",
+            "type": "gap_choice",
+            "prompt": "Ohne Kontrollen bleibt die ___ des Verbots schwierig.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The problem is making people comply with the ban.",
+              "de": "Schwierig ist, dass sich alle an das Verbot halten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Durchsetzung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Formulierung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bekanntgabe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Begründung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Durchsetzung is enforcement, not merely announcing a ban.",
+              "de": "Durchsetzung ist die tatsächliche Geltendmachung eines Verbots, nicht nur seine Bekanntgabe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne Kontrollen bleibt die Durchsetzung des Verbots schwierig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Ohne Kontrollen bleibt die Durchsetzung des Verbots schwierig.\", article/case/collocation, and every option (Durchsetzung / Formulierung / Bekanntgabe / Begründung). The intended answer \"Durchsetzung\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007404",
+      "title": {
+        "en": "Using Durchsetzungskraft in context",
+        "de": "Durchsetzungskraft im Kontext"
+      },
+      "description": {
+        "en": "Recognize Durchsetzungskraft (ability to assert and implement decisions) in two different situations.",
+        "de": "Durchsetzungskraft (Fähigkeit, Entscheidungen trotz Widerstand umzusetzen) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Durchsetzungskraft as ability to assert and implement decisions with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L553 (5e62a89793c7ad0105e0352f6b96ac6681cc956036262a6c1e039a3d4da71cce), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L553-v1",
+          "contextKey": "legacy-0074-L553-context-1",
+          "transferKey": "legacy-0074-L553-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007404",
+            "type": "choice",
+            "prompt": "Eine Teamleiterin braucht ___, um Entscheidungen auch bei Widerstand umzusetzen.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She must stand by decisions when others resist.",
+              "de": "Sie muss Entscheidungen auch gegen Widerstand vertreten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Vergesslichkeit"
+              },
+              {
+                "id": "1",
+                "text": "Durchsetzungskraft"
+              },
+              {
+                "id": "2",
+                "text": "Unentschlossenheit"
+              },
+              {
+                "id": "3",
+                "text": "Gleichgültigkeit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Durchsetzungskraft is the ability to assert oneself effectively.",
+              "de": "Durchsetzungskraft ist die Fähigkeit, sich wirksam zu behaupten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Eine Teamleiterin braucht Durchsetzungskraft, um Entscheidungen auch bei Widerstand umzusetzen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Eine Teamleiterin braucht Durchsetzungskraft, um Entscheidungen auch bei Widerstand umzusetzen.\", article/case/collocation, and every option (Vergesslichkeit / Durchsetzungskraft / Unentschlossenheit / Gleichgültigkeit). The intended answer \"Durchsetzungskraft\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L553-v2",
+          "contextKey": "legacy-0074-L553-context-2",
+          "transferKey": "legacy-0074-L553-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007404",
+            "type": "gap_choice",
+            "prompt": "Trotz heftiger Kritik setzte er seine Vorschläge um. Seine ___ beeindruckte das Team.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He managed to carry out plans despite opposition.",
+              "de": "Er konnte seine Pläne trotz Widerstands umsetzen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Unsicherheit"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zurückhaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Durchsetzungskraft"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Nachlässigkeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "His Durchsetzungskraft helped him put proposals into practice.",
+              "de": "Seine Durchsetzungskraft half ihm, Vorschläge durchzusetzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Trotz heftiger Kritik setzte er seine Vorschläge um. Seine Durchsetzungskraft beeindruckte das Team.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Trotz heftiger Kritik setzte er seine Vorschläge um. Seine Durchsetzungskraft beeindruckte das Team.\", article/case/collocation, and every option (Unsicherheit / Zurückhaltung / Durchsetzungskraft / Nachlässigkeit). The intended answer \"Durchsetzungskraft\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007405",
+      "title": {
+        "en": "Using Durchwahl in context",
+        "de": "Durchwahl im Kontext"
+      },
+      "description": {
+        "en": "Recognize Durchwahl (direct telephone extension) in two different situations.",
+        "de": "Durchwahl (direkte Telefon-Nebenstellennummer) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Durchwahl as direct telephone extension with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L554 (aa30462dccc8ae70755334dc441b68c80ea93df2d743c124624a1257bfdabe45), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L554-v1",
+          "contextKey": "legacy-0074-L554-context-1",
+          "transferKey": "legacy-0074-L554-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007405",
+            "type": "choice",
+            "prompt": "Wählen Sie nach der Zentrale bitte die ___ 245.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The number connects to an internal telephone extension.",
+              "de": "Die Nummer verbindet mit einer internen Telefon-Nebenstelle."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Postleitzahl"
+              },
+              {
+                "id": "1",
+                "text": "Durchwahl"
+              },
+              {
+                "id": "2",
+                "text": "Hausnummer"
+              },
+              {
+                "id": "3",
+                "text": "Kontonummer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Durchwahl is a direct telephone extension.",
+              "de": "Durchwahl bezeichnet eine direkte Nebenstellennummer."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wählen Sie nach der Zentrale bitte die Durchwahl 245.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Wählen Sie nach der Zentrale bitte die Durchwahl 245.\", article/case/collocation, and every option (Postleitzahl / Durchwahl / Hausnummer / Kontonummer). The intended answer \"Durchwahl\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L554-v2",
+          "contextKey": "legacy-0074-L554-context-2",
+          "transferKey": "legacy-0074-L554-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007405",
+            "type": "gap_choice",
+            "prompt": "Unter welcher ___ erreiche ich Sie ohne Vermittlung?",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The caller wants a direct telephone number.",
+              "de": "Die anrufende Person möchte eine direkte Telefonnummer."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Abteilung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Durchwahl"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Adresse"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A Durchwahl lets callers reach someone without the switchboard.",
+              "de": "Mit einer Durchwahl erreicht man jemanden ohne Vermittlung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Unter welcher Durchwahl erreiche ich Sie ohne Vermittlung?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Unter welcher Durchwahl erreiche ich Sie ohne Vermittlung?\", article/case/collocation, and every option (Rechnung / Abteilung / Durchwahl / Adresse). The intended answer \"Durchwahl\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007406",
+      "title": {
+        "en": "Using Ebene in context",
+        "de": "Ebene im Kontext"
+      },
+      "description": {
+        "en": "Recognize Ebene (level in an organization or physical structure) in two different situations.",
+        "de": "Ebene (Stufe einer Organisation oder räumliche Ebene) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Ebene as level in an organization or physical structure with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L559 (3914d291c7145c08297c5472a4cc12095adc15ce1048d82f39ba2309e6f3b0e2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L559-v1",
+          "contextKey": "legacy-0074-L559-context-1",
+          "transferKey": "legacy-0074-L559-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007406",
+            "type": "choice",
+            "prompt": "Die Entscheidung wurde auf politischer ___ getroffen.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This refers to a level of decision-making.",
+              "de": "Gemeint ist eine Stufe der politischen Entscheidungsfindung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kante"
+              },
+              {
+                "id": "1",
+                "text": "Ebene"
+              },
+              {
+                "id": "2",
+                "text": "Treppe"
+              },
+              {
+                "id": "3",
+                "text": "Etage"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Ebene can describe an organizational or political level.",
+              "de": "Ebene kann eine politische oder organisatorische Stufe bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Entscheidung wurde auf politischer Ebene getroffen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Die Entscheidung wurde auf politischer Ebene getroffen.\", article/case/collocation, and every option (Kante / Ebene / Treppe / Etage). The intended answer \"Ebene\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L559-v2",
+          "contextKey": "legacy-0074-L559-context-2",
+          "transferKey": "legacy-0074-L559-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007406",
+            "type": "gap_choice",
+            "prompt": "Auf der oberen ___ des Parkhauses sind noch Stellplätze frei.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The parking garage has several vertical levels.",
+              "de": "Das Parkhaus hat mehrere übereinanderliegende Bereiche."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ebene"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kreuzung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kurve"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Straße"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ebene also refers to a physical level in a building.",
+              "de": "Ebene bezeichnet auch einen räumlichen Bereich auf einer bestimmten Höhe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der oberen Ebene des Parkhauses sind noch Stellplätze frei.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Auf der oberen Ebene des Parkhauses sind noch Stellplätze frei.\", article/case/collocation, and every option (Ebene / Kreuzung / Kurve / Straße). The intended answer \"Ebene\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007407",
+      "title": {
+        "en": "Using EC-Karte in context",
+        "de": "EC-Karte im Kontext"
+      },
+      "description": {
+        "en": "Recognize EC-Karte (colloquial name for a German debit card) in two different situations.",
+        "de": "EC-Karte (umgangssprachliche Bezeichnung für eine Girokarte) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use EC-Karte as colloquial name for a German debit card with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L560 (911a2c7706a16ed6b3399ea9483080b241ff43c1f95d711607ae9aea4cff35ea), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L560-v1",
+          "contextKey": "legacy-0074-L560-context-1",
+          "transferKey": "legacy-0074-L560-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007407",
+            "type": "choice",
+            "prompt": "An der Kasse zahlte sie mit ihrer ___ und gab die PIN ein.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The card debits money from a bank account.",
+              "de": "Die Karte belastet das Girokonto."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eintrittskarte"
+              },
+              {
+                "id": "1",
+                "text": "EC-Karte"
+              },
+              {
+                "id": "2",
+                "text": "Versichertenkarte"
+              },
+              {
+                "id": "3",
+                "text": "Kundenkarte"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "EC-Karte is a familiar older name for a girocard used to pay.",
+              "de": "EC-Karte ist eine verbreitete ältere Bezeichnung für die Girokarte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "An der Kasse zahlte sie mit ihrer EC-Karte und gab die PIN ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"An der Kasse zahlte sie mit ihrer EC-Karte und gab die PIN ein.\", article/case/collocation, and every option (Eintrittskarte / EC-Karte / Versichertenkarte / Kundenkarte). The intended answer \"EC-Karte\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L560-v2",
+          "contextKey": "legacy-0074-L560-context-2",
+          "transferKey": "legacy-0074-L560-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007407",
+            "type": "gap_choice",
+            "prompt": "Nach dem Verlust ließ er seine ___ sperren, damit niemand vom Girokonto bezahlen kann.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The lost payment card needs blocking.",
+              "de": "Die verlorene Zahlungskarte muss gesperrt werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Visitenkarte"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bonuskarte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "EC-Karte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Fahrkarte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Blocking the EC-Karte prevents unauthorized debit-card payments.",
+              "de": "Die Sperrung der EC-Karte verhindert unberechtigte Kartenzahlungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Verlust ließ er seine EC-Karte sperren, damit niemand vom Girokonto bezahlen kann.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Nach dem Verlust ließ er seine EC-Karte sperren, damit niemand vom Girokonto bezahlen kann.\", article/case/collocation, and every option (Visitenkarte / Bonuskarte / EC-Karte / Fahrkarte). The intended answer \"EC-Karte\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007409",
+      "title": {
+        "en": "Using Edelstahl in context",
+        "de": "Edelstahl im Kontext"
+      },
+      "description": {
+        "en": "Recognize Edelstahl (high-grade steel, often stainless in household contexts) in two different situations.",
+        "de": "Edelstahl (hochwertiger Stahl, im Haushalt oft rostfrei) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Edelstahl as high-grade steel, often stainless in household contexts with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L563 (e9f1bcd5fd59be60f8b46a17885cf970e4b4875ceecb1f578a6592e9ae920e3a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L563-v1",
+          "contextKey": "legacy-0074-L563-context-1",
+          "transferKey": "legacy-0074-L563-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007409",
+            "type": "choice",
+            "prompt": "Für die Großküche wurden Arbeitsflächen aus rostfreiem ___ bestellt.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The worktops need durable, corrosion-resistant metal.",
+              "de": "Die Arbeitsflächen brauchen beständiges, rostfreies Metall."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Papier"
+              },
+              {
+                "id": "1",
+                "text": "Edelstahl"
+              },
+              {
+                "id": "2",
+                "text": "Karton"
+              },
+              {
+                "id": "3",
+                "text": "Holz"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Rostfreier Edelstahl is stainless steel used for durable surfaces.",
+              "de": "Rostfreier Edelstahl ist korrosionsbeständiger Stahl für robuste Oberflächen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Großküche wurden Arbeitsflächen aus rostfreiem Edelstahl bestellt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Für die Großküche wurden Arbeitsflächen aus rostfreiem Edelstahl bestellt.\", article/case/collocation, and every option (Papier / Edelstahl / Karton / Holz). The intended answer \"Edelstahl\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L563-v2",
+          "contextKey": "legacy-0074-L563-context-2",
+          "transferKey": "legacy-0074-L563-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007409",
+            "type": "gap_choice",
+            "prompt": "Der neue Handlauf besteht aus gebürstetem ___ und lässt sich leicht reinigen.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The handrail is made of brushed metal.",
+              "de": "Der Handlauf besteht aus gebürstetem Metall."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Schaumstoff"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Karton"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Edelstahl"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Stoff"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Gebürsteter Edelstahl is a common material for handrails.",
+              "de": "Gebürsteter Edelstahl wird häufig für Handläufe verwendet."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der neue Handlauf besteht aus gebürstetem Edelstahl und lässt sich leicht reinigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Der neue Handlauf besteht aus gebürstetem Edelstahl und lässt sich leicht reinigen.\", article/case/collocation, and every option (Schaumstoff / Karton / Edelstahl / Stoff). The intended answer \"Edelstahl\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007410",
+      "title": {
+        "en": "Using EDV in context",
+        "de": "EDV im Kontext"
+      },
+      "description": {
+        "en": "Recognize EDV (electronic data processing and computer systems) in two different situations.",
+        "de": "EDV (elektronische Datenverarbeitung und Computersysteme) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use EDV as electronic data processing and computer systems with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L564 (c36c8eca7ccac91a9b3590aa33c2439c4a1562ab08cba5dfe752cbe73a2a4688), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L564-v1",
+          "contextKey": "legacy-0074-L564-context-1",
+          "transferKey": "legacy-0074-L564-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007410",
+            "type": "choice",
+            "prompt": "In der Stellenanzeige werden gute ___-Kenntnisse verlangt, etwa Tabellenkalkulation und Textverarbeitung.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The job requires computer software skills.",
+              "de": "Die Stelle verlangt Kenntnisse in Computerprogrammen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sport"
+              },
+              {
+                "id": "1",
+                "text": "EDV"
+              },
+              {
+                "id": "2",
+                "text": "Koch"
+              },
+              {
+                "id": "3",
+                "text": "Fahr"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "EDV-Kenntnisse is a traditional term for computer skills.",
+              "de": "EDV-Kenntnisse ist eine ältere Bezeichnung für Computerkenntnisse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In der Stellenanzeige werden gute EDV-Kenntnisse verlangt, etwa Tabellenkalkulation und Textverarbeitung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"In der Stellenanzeige werden gute EDV-Kenntnisse verlangt, etwa Tabellenkalkulation und Textverarbeitung.\", article/case/collocation, and every option (Sport / EDV / Koch / Fahr). The intended answer \"EDV\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L564-v2",
+          "contextKey": "legacy-0074-L564-context-2",
+          "transferKey": "legacy-0074-L564-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007410",
+            "type": "gap_choice",
+            "prompt": "Die ___-Abteilung betreut die Rechner und das interne Netzwerk.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The department handles computers and network infrastructure.",
+              "de": "Die Abteilung betreut Rechner und Netzwerke."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Personal"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verkauf"
+                  },
+                  {
+                    "id": "2",
+                    "text": "EDV"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Empfang"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "EDV-Abteilung is an older term for the IT department.",
+              "de": "EDV-Abteilung ist eine ältere Bezeichnung für die IT-Abteilung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die EDV-Abteilung betreut die Rechner und das interne Netzwerk.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Die EDV-Abteilung betreut die Rechner und das interne Netzwerk.\", article/case/collocation, and every option (Personal / Verkauf / EDV / Empfang). The intended answer \"EDV\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007411",
+      "title": {
+        "en": "Using Ehe in context",
+        "de": "Ehe im Kontext"
+      },
+      "description": {
+        "en": "Recognize Ehe (marriage as a legal and personal relationship) in two different situations.",
+        "de": "Ehe (Ehe als rechtliche und persönliche Verbindung) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Ehe as marriage as a legal and personal relationship with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L565 (c5d452c3d7da78bd83ef08ecc6d85d91d96615c448d11a112376a1e3f4b9e674), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L565-v1",
+          "contextKey": "legacy-0074-L565-context-1",
+          "transferKey": "legacy-0074-L565-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007411",
+            "type": "choice",
+            "prompt": "Nach zwanzig Jahren ___ feierten sie ihren Hochzeitstag.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They are celebrating years of being married.",
+              "de": "Sie feiern die Jahre ihrer Ehe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schule"
+              },
+              {
+                "id": "1",
+                "text": "Ehe"
+              },
+              {
+                "id": "2",
+                "text": "Ausbildung"
+              },
+              {
+                "id": "3",
+                "text": "Miete"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Ehe is the state or relationship of being married.",
+              "de": "Ehe bezeichnet die rechtliche und persönliche Verbindung Verheirateter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach zwanzig Jahren Ehe feierten sie ihren Hochzeitstag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Nach zwanzig Jahren Ehe feierten sie ihren Hochzeitstag.\", article/case/collocation, and every option (Schule / Ehe / Ausbildung / Miete). The intended answer \"Ehe\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L565-v2",
+          "contextKey": "legacy-0074-L565-context-2",
+          "transferKey": "legacy-0074-L565-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007411",
+            "type": "gap_choice",
+            "prompt": "Sie wollten eine ___ eingehen und meldeten sich beim Standesamt an.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The civil registry office handles marriage ceremonies.",
+              "de": "Das Standesamt ist für Eheschließungen zuständig."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Freundschaft"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verlobung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ehe"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bekanntschaft"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eine Ehe eingehen means to marry.",
+              "de": "Eine Ehe eingehen bedeutet heiraten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie wollten eine Ehe eingehen und meldeten sich beim Standesamt an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Sie wollten eine Ehe eingehen und meldeten sich beim Standesamt an.\", article/case/collocation, and every option (Freundschaft / Verlobung / Ehe / Bekanntschaft). The intended answer \"Ehe\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007412",
+      "title": {
+        "en": "Using Ehepaar in context",
+        "de": "Ehepaar im Kontext"
+      },
+      "description": {
+        "en": "Recognize Ehepaar (two people married to each other) in two different situations.",
+        "de": "Ehepaar (zwei miteinander verheiratete Personen) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Ehepaar as two people married to each other with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L568 (f8627d2c83c406fc77866aad42660c4ab87b83170b72a6562974ad31a490d683), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L568-v1",
+          "contextKey": "legacy-0074-L568-context-1",
+          "transferKey": "legacy-0074-L568-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007412",
+            "type": "choice",
+            "prompt": "Das ___ zog nach der Hochzeit in eine gemeinsame Wohnung.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The two people have just married.",
+              "de": "Die beiden Personen haben gerade geheiratet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Geschwisterpaar"
+              },
+              {
+                "id": "1",
+                "text": "Ehepaar"
+              },
+              {
+                "id": "2",
+                "text": "Kollegium"
+              },
+              {
+                "id": "3",
+                "text": "Publikum"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Ehepaar refers to two spouses together.",
+              "de": "Ehepaar bezeichnet zwei miteinander verheiratete Personen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Ehepaar zog nach der Hochzeit in eine gemeinsame Wohnung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Das Ehepaar zog nach der Hochzeit in eine gemeinsame Wohnung.\", article/case/collocation, and every option (Geschwisterpaar / Ehepaar / Kollegium / Publikum). The intended answer \"Ehepaar\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L568-v2",
+          "contextKey": "legacy-0074-L568-context-2",
+          "transferKey": "legacy-0074-L568-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007412",
+            "type": "gap_choice",
+            "prompt": "Die Nachbarn sind seit vierzig Jahren verheiratet. Das ___ reist jedes Jahr zusammen.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The couple has been married for decades.",
+              "de": "Das Paar ist seit Jahrzehnten verheiratet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Team"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Publikum"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ehepaar"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Komitee"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Das Ehepaar refers back to the married neighbors.",
+              "de": "Das Ehepaar bezieht sich auf die verheirateten Nachbarn."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Nachbarn sind seit vierzig Jahren verheiratet. Das Ehepaar reist jedes Jahr zusammen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Die Nachbarn sind seit vierzig Jahren verheiratet. Das Ehepaar reist jedes Jahr zusammen.\", article/case/collocation, and every option (Team / Publikum / Ehepaar / Komitee). The intended answer \"Ehepaar\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007413",
+      "title": {
+        "en": "Using Ehrlichkeit in context",
+        "de": "Ehrlichkeit im Kontext"
+      },
+      "description": {
+        "en": "Recognize Ehrlichkeit (honesty and truthful behavior) in two different situations.",
+        "de": "Ehrlichkeit (Wahrhaftigkeit und Offenheit) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Ehrlichkeit as honesty and truthful behavior with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L570 (7c347ca11485141f7d0478ee72fb2c026359830979a17b84f913ad082f5c0ddc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L570-v1",
+          "contextKey": "legacy-0074-L570-context-1",
+          "transferKey": "legacy-0074-L570-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007413",
+            "type": "choice",
+            "prompt": "Sie gab ihren Fehler offen zu. Ihre ___ wurde geschätzt.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She admitted the truth rather than hiding it.",
+              "de": "Sie sagte die Wahrheit, statt den Fehler zu verbergen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Pünktlichkeit"
+              },
+              {
+                "id": "1",
+                "text": "Ehrlichkeit"
+              },
+              {
+                "id": "2",
+                "text": "Vergesslichkeit"
+              },
+              {
+                "id": "3",
+                "text": "Ungeduld"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Ehrlichkeit is honesty in acknowledging a mistake.",
+              "de": "Ehrlichkeit ist die Offenheit, einen Fehler wahrheitsgemäß zuzugeben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie gab ihren Fehler offen zu. Ihre Ehrlichkeit wurde geschätzt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Sie gab ihren Fehler offen zu. Ihre Ehrlichkeit wurde geschätzt.\", article/case/collocation, and every option (Pünktlichkeit / Ehrlichkeit / Vergesslichkeit / Ungeduld). The intended answer \"Ehrlichkeit\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L570-v2",
+          "contextKey": "legacy-0074-L570-context-2",
+          "transferKey": "legacy-0074-L570-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007413",
+            "type": "gap_choice",
+            "prompt": "In einer Bewerbung ist ___ wichtig; falsche Angaben können Folgen haben.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Applicants should give truthful information.",
+              "de": "Bewerbende sollen wahrheitsgemäße Angaben machen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geheimhaltung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Übertreibung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ehrlichkeit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Eile"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Ehrlichkeit means telling the truth in an application.",
+              "de": "Ehrlichkeit bedeutet, in der Bewerbung bei der Wahrheit zu bleiben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In einer Bewerbung ist Ehrlichkeit wichtig; falsche Angaben können Folgen haben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"In einer Bewerbung ist Ehrlichkeit wichtig; falsche Angaben können Folgen haben.\", article/case/collocation, and every option (Geheimhaltung / Übertreibung / Ehrlichkeit / Eile). The intended answer \"Ehrlichkeit\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007414",
+      "title": {
+        "en": "Using Eigenkapital in context",
+        "de": "Eigenkapital im Kontext"
+      },
+      "description": {
+        "en": "Recognize Eigenkapital (own capital rather than borrowed funds) in two different situations.",
+        "de": "Eigenkapital (eigene Mittel statt geliehenem Geld) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Eigenkapital as own capital rather than borrowed funds with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L572 (5ee5ad4fe90d28c6823e5a3d0c7e656de52d230b9f0a50481c62208cec74261a), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L572-v1",
+          "contextKey": "legacy-0074-L572-context-1",
+          "transferKey": "legacy-0074-L572-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007414",
+            "type": "choice",
+            "prompt": "Für den Hauskredit verlangt die Bank einen Teil des Kaufpreises als ___.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The buyer must contribute money of their own.",
+              "de": "Die Käufer müssen eigene finanzielle Mittel einbringen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mietvertrag"
+              },
+              {
+                "id": "1",
+                "text": "Eigenkapital"
+              },
+              {
+                "id": "2",
+                "text": "Zinszahlung"
+              },
+              {
+                "id": "3",
+                "text": "Versicherung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Eigenkapital is money contributed from one's own resources.",
+              "de": "Eigenkapital sind eigene Mittel, die man in die Finanzierung einbringt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Hauskredit verlangt die Bank einen Teil des Kaufpreises als Eigenkapital.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Für den Hauskredit verlangt die Bank einen Teil des Kaufpreises als Eigenkapital.\", article/case/collocation, and every option (Mietvertrag / Eigenkapital / Zinszahlung / Versicherung). The intended answer \"Eigenkapital\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L572-v2",
+          "contextKey": "legacy-0074-L572-context-2",
+          "transferKey": "legacy-0074-L572-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007414",
+            "type": "gap_choice",
+            "prompt": "Das Unternehmen finanzierte die Erweiterung aus ___ statt mit neuen Schulden.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The financing came from the firm's own capital.",
+              "de": "Die Finanzierung stammte aus eigenen Mitteln."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fremdkapital"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kredit"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Eigenkapital"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Leasing"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eigenkapital contrasts with borrowed capital or new debt.",
+              "de": "Eigenkapital steht im Gegensatz zu Fremdkapital oder neuen Schulden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen finanzierte die Erweiterung aus Eigenkapital statt mit neuen Schulden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Das Unternehmen finanzierte die Erweiterung aus Eigenkapital statt mit neuen Schulden.\", article/case/collocation, and every option (Fremdkapital / Kredit / Eigenkapital / Leasing). The intended answer \"Eigenkapital\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007415",
+      "title": {
+        "en": "Using Eigenschaft in context",
+        "de": "Eigenschaft im Kontext"
+      },
+      "description": {
+        "en": "Recognize Eigenschaft (quality or characteristic of something) in two different situations.",
+        "de": "Eigenschaft (Merkmal oder charakteristische Eigenschaft) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Eigenschaft as quality or characteristic of something with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L573 (8985226fba8e5eb53bc74f81e5eab14dfa50c072a0ef9ed27dc6085765638f1f), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L573-v1",
+          "contextKey": "legacy-0074-L573-context-1",
+          "transferKey": "legacy-0074-L573-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007415",
+            "type": "choice",
+            "prompt": "Geduld ist eine wichtige ___ für die Arbeit mit Kindern.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Patience is a personal quality.",
+              "de": "Geduld ist ein persönliches Merkmal."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Anweisung"
+              },
+              {
+                "id": "1",
+                "text": "Eigenschaft"
+              },
+              {
+                "id": "2",
+                "text": "Abteilung"
+              },
+              {
+                "id": "3",
+                "text": "Veranstaltung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Eigenschaft means a characteristic or personal quality.",
+              "de": "Eigenschaft bedeutet ein Merkmal oder eine persönliche Qualität."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Geduld ist eine wichtige Eigenschaft für die Arbeit mit Kindern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Geduld ist eine wichtige Eigenschaft für die Arbeit mit Kindern.\", article/case/collocation, and every option (Anweisung / Eigenschaft / Abteilung / Veranstaltung). The intended answer \"Eigenschaft\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L573-v2",
+          "contextKey": "legacy-0074-L573-context-2",
+          "transferKey": "legacy-0074-L573-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007415",
+            "type": "gap_choice",
+            "prompt": "Die Wasserfestigkeit ist eine ___ dieses Materials.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The sentence describes a property of the material.",
+              "de": "Der Satz beschreibt ein Merkmal des Materials."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Rechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bedingung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Eigenschaft"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Verpflichtung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eigenschaft can also mean a material's property.",
+              "de": "Eigenschaft kann auch ein Merkmal eines Materials bezeichnen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Wasserfestigkeit ist eine Eigenschaft dieses Materials.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Die Wasserfestigkeit ist eine Eigenschaft dieses Materials.\", article/case/collocation, and every option (Rechnung / Bedingung / Eigenschaft / Verpflichtung). The intended answer \"Eigenschaft\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007416",
+      "title": {
+        "en": "Using Eigentümer in context",
+        "de": "Eigentümer im Kontext"
+      },
+      "description": {
+        "en": "Recognize Eigentümer (legal owner of property) in two different situations.",
+        "de": "Eigentümer (rechtmäßiger Besitzer im Eigentumsrecht) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Eigentümer as legal owner of property with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L574 (8477e1848b29f20ef88640554b41df8aae71a17cf5e517f019e7aa31fe62a4ef), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L574-v1",
+          "contextKey": "legacy-0074-L574-context-1",
+          "transferKey": "legacy-0074-L574-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007416",
+            "type": "choice",
+            "prompt": "Der ___ der Wohnung darf über ihren Verkauf entscheiden.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The person legally owns the apartment.",
+              "de": "Die Person ist rechtlich Eigentümer der Wohnung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Mieter"
+              },
+              {
+                "id": "1",
+                "text": "Eigentümer"
+              },
+              {
+                "id": "2",
+                "text": "Nachbar"
+              },
+              {
+                "id": "3",
+                "text": "Hausmeister"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Eigentümer means the legal owner, not the tenant.",
+              "de": "Eigentümer bezeichnet den rechtlichen Eigentümer, nicht den Mieter."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Eigentümer der Wohnung darf über ihren Verkauf entscheiden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Der Eigentümer der Wohnung darf über ihren Verkauf entscheiden.\", article/case/collocation, and every option (Mieter / Eigentümer / Nachbar / Hausmeister). The intended answer \"Eigentümer\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L574-v2",
+          "contextKey": "legacy-0074-L574-context-2",
+          "transferKey": "legacy-0074-L574-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007416",
+            "type": "gap_choice",
+            "prompt": "Die Polizei gab das gefundene Fahrrad seinem rechtmäßigen ___ zurück.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The bicycle is returned to the person who owns it.",
+              "de": "Das Fahrrad wird an die Person zurückgegeben, der es gehört."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fahrer"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verkäufer"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Eigentümer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Reparateur"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eigentümer is the dative form here after seinem.",
+              "de": "Eigentümer steht hier im Dativ nach seinem."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei gab das gefundene Fahrrad seinem rechtmäßigen Eigentümer zurück.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Die Polizei gab das gefundene Fahrrad seinem rechtmäßigen Eigentümer zurück.\", article/case/collocation, and every option (Fahrer / Verkäufer / Eigentümer / Reparateur). The intended answer \"Eigentümer\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007417",
+      "title": {
+        "en": "Using Eigenverantwortung in context",
+        "de": "Eigenverantwortung im Kontext"
+      },
+      "description": {
+        "en": "Recognize Eigenverantwortung (taking responsibility for one's own decisions) in two different situations.",
+        "de": "Eigenverantwortung (Verantwortung für eigene Entscheidungen übernehmen) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Eigenverantwortung as taking responsibility for one's own decisions with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L575 (ffa83f0f804163b29d9f3a914b219d972a3d57537d371d58f87a336d3f8cd93c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L575-v1",
+          "contextKey": "legacy-0074-L575-context-1",
+          "transferKey": "legacy-0074-L575-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007417",
+            "type": "choice",
+            "prompt": "Im Projekt dürfen die Mitarbeitenden vieles selbst entscheiden. Das stärkt ihre ___.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They are accountable for their own choices.",
+              "de": "Sie tragen Verantwortung für eigene Entscheidungen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abhängigkeit"
+              },
+              {
+                "id": "1",
+                "text": "Eigenverantwortung"
+              },
+              {
+                "id": "2",
+                "text": "Kontrolle"
+              },
+              {
+                "id": "3",
+                "text": "Unterordnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Eigenverantwortung means responsibility for one's own decisions.",
+              "de": "Eigenverantwortung bedeutet Verantwortung für eigene Entscheidungen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Projekt dürfen die Mitarbeitenden vieles selbst entscheiden. Das stärkt ihre Eigenverantwortung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Im Projekt dürfen die Mitarbeitenden vieles selbst entscheiden. Das stärkt ihre Eigenverantwortung.\", article/case/collocation, and every option (Abhängigkeit / Eigenverantwortung / Kontrolle / Unterordnung). The intended answer \"Eigenverantwortung\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L575-v2",
+          "contextKey": "legacy-0074-L575-context-2",
+          "transferKey": "legacy-0074-L575-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007417",
+            "type": "gap_choice",
+            "prompt": "Wer im Homeoffice arbeitet, braucht viel ___ bei der Planung des Tages.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The worker must organize tasks independently.",
+              "de": "Die Person muss ihre Aufgaben selbstständig organisieren."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Fremdbestimmung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kontrolle"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Eigenverantwortung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Anweisung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eigenverantwortung supports independent planning and accountability.",
+              "de": "Eigenverantwortung ermöglicht selbstständige Planung und Verantwortung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer im Homeoffice arbeitet, braucht viel Eigenverantwortung bei der Planung des Tages.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Wer im Homeoffice arbeitet, braucht viel Eigenverantwortung bei der Planung des Tages.\", article/case/collocation, and every option (Fremdbestimmung / Kontrolle / Eigenverantwortung / Anweisung). The intended answer \"Eigenverantwortung\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007418",
+      "title": {
+        "en": "Using Eile in context",
+        "de": "Eile im Kontext"
+      },
+      "description": {
+        "en": "Recognize Eile (hurry or urgency) in two different situations.",
+        "de": "Eile (Zeitdruck oder Hast) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Eile as hurry or urgency with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L576 (1b06e1dd230821817527fca638748df86ba425d2bb23170e7b0750066c052ddc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L576-v1",
+          "contextKey": "legacy-0074-L576-context-1",
+          "transferKey": "legacy-0074-L576-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007418",
+            "type": "choice",
+            "prompt": "Wir sind in großer ___, weil der Zug gleich abfährt.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "There is very little time before departure.",
+              "de": "Bis zur Abfahrt bleibt sehr wenig Zeit."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ruhe"
+              },
+              {
+                "id": "1",
+                "text": "Eile"
+              },
+              {
+                "id": "2",
+                "text": "Geduld"
+              },
+              {
+                "id": "3",
+                "text": "Pause"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "In großer Eile means being in a hurry.",
+              "de": "In großer Eile bedeutet unter starkem Zeitdruck."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir sind in großer Eile, weil der Zug gleich abfährt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Wir sind in großer Eile, weil der Zug gleich abfährt.\", article/case/collocation, and every option (Ruhe / Eile / Geduld / Pause). The intended answer \"Eile\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L576-v2",
+          "contextKey": "legacy-0074-L576-context-2",
+          "transferKey": "legacy-0074-L576-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007418",
+            "type": "gap_choice",
+            "prompt": "In ihrer ___ vergaß sie den Schlüssel auf dem Tisch.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She rushed and overlooked the key.",
+              "de": "Sie beeilte sich und übersah den Schlüssel."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Geduld"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ruhe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Eile"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Freizeit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "In ihrer Eile means because she was hurrying.",
+              "de": "In ihrer Eile bedeutet, dass sie wegen der Hast etwas vergaß."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In ihrer Eile vergaß sie den Schlüssel auf dem Tisch.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"In ihrer Eile vergaß sie den Schlüssel auf dem Tisch.\", article/case/collocation, and every option (Geduld / Ruhe / Eile / Freizeit). The intended answer \"Eile\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007419",
+      "title": {
+        "en": "Using Einarbeitung in context",
+        "de": "Einarbeitung im Kontext"
+      },
+      "description": {
+        "en": "Recognize Einarbeitung (onboarding or familiarization with a role or system) in two different situations.",
+        "de": "Einarbeitung (Einführung und Vertrautmachen mit einer Tätigkeit) in zwei unterschiedlichen Situationen erkennen."
+      },
+      "objective": "Recognize and use Einarbeitung as onboarding or familiarization with a role or system with appropriate context and noun forms.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based only on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L577 (195d40c0e1eb0653539cb26dd38335efc74e0f5e7b9db0aa1c93acac850e1d44), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review recorded in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0074-L577-v1",
+          "contextKey": "legacy-0074-L577-context-1",
+          "transferKey": "legacy-0074-L577-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007419",
+            "type": "choice",
+            "prompt": "Die ___ neuer Mitarbeitender dauert bei uns zwei Wochen.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "New employees learn their tasks and processes.",
+              "de": "Neue Beschäftigte lernen Aufgaben und Abläufe kennen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kündigung"
+              },
+              {
+                "id": "1",
+                "text": "Einarbeitung"
+              },
+              {
+                "id": "2",
+                "text": "Beförderung"
+              },
+              {
+                "id": "3",
+                "text": "Entlassung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einarbeitung is the initial familiarization of new staff.",
+              "de": "Einarbeitung ist die Einführung neuer Beschäftigter in ihre Aufgaben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Einarbeitung neuer Mitarbeitender dauert bei uns zwei Wochen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Die Einarbeitung neuer Mitarbeitender dauert bei uns zwei Wochen.\", article/case/collocation, and every option (Kündigung / Einarbeitung / Beförderung / Entlassung). The intended answer \"Einarbeitung\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0074-L577-v2",
+          "contextKey": "legacy-0074-L577-context-2",
+          "transferKey": "legacy-0074-L577-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000740191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007419",
+            "type": "gap_choice",
+            "prompt": "Während der ___ lernte sie die internen Abläufe und Systeme kennen.",
+            "instruction": {
+              "en": "Choose the word that best completes the German sentence.",
+              "de": "Wähle das Wort, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She is learning how the organization works.",
+              "de": "Sie lernt, wie die Organisation arbeitet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abrechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einarbeitung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bewerbung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Während der Einarbeitung means during the onboarding period.",
+              "de": "Während der Einarbeitung bedeutet während der Einführung in die Tätigkeit."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Während der Einarbeitung lernte sie die internen Abläufe und Systeme kennen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: reviewed full German sentence \"Während der Einarbeitung lernte sie die internen Abläufe und Systeme kennen.\", article/case/collocation, and every option (Abrechnung / Kündigung / Einarbeitung / Bewerbung). The intended answer \"Einarbeitung\" matches the bilingual contextual clue; competing options do not meet the specific meaning or grammar. Other variant uses a distinct situation or sense. Human review pending."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "snapshot": "671e9d19f4f5a61d7916ed96b3b41433b768fd39",
+  "batchId": "legacy-0043",
+  "catalogSha256": "5e45709ba5d70eda71a520248df0120a3ad7a735914f7353d899dff92ecea31c",
+  "active": false,
+  "candidateReady": false,
+  "patches": [
+    {
+      "variantKey": "legacy-0043-L288-v1",
+      "exerciseId": "81000000-0000-4000-8000-000000430040",
+      "expectedPrompt": "Mara besitzt eine Versichertenkarte und ihre Krankenkasse bezahlt die Arztkosten. Sie ist gesetzlich ___.",
+      "proposedPrompt": "Mara ist Mitglied einer gesetzlichen Krankenkasse; diese übernimmt ihre Arztkosten. Sie ist gesetzlich ___.",
+      "proposedCompletedAnswer": "Mara ist Mitglied einer gesetzlichen Krankenkasse; diese übernimmt ihre Arztkosten. Sie ist gesetzlich krankenversichert.",
+      "status": "proposed-needs-recheck",
+      "proposedHint": {
+        "en": "She belongs to Germany's statutory health-insurance system.",
+        "de": "Sie ist Mitglied der gesetzlichen Krankenversicherung und nicht privat versichert."
+      }
+    },
+    {
+      "variantKey": "legacy-0043-L296-v1",
+      "exerciseId": "81000000-0000-4000-8000-000000430100",
+      "expectedPrompt": "Die Blumen sehen echt aus, bestehen aber aus Kunststoff. Sie sind ___.",
+      "proposedPrompt": "Die Blumen sehen echt aus, bestehen aber aus Kunststoff. Sie sind ___.",
+      "proposedCompletedAnswer": "Die Blumen sehen echt aus, bestehen aber aus Kunststoff. Sie sind künstlich.",
+      "status": "proposed-needs-recheck",
+      "proposedHint": {
+        "en": "The flowers are manufactured plastic imitations, not living plants.",
+        "de": "Diese Blumen sind Nachbildungen aus Kunststoff und keine lebenden Pflanzen."
+      }
+    }
+  ]
+}

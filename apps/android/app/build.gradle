@@ -274,6 +274,10 @@ def enrichmentTestResources = tasks.register("prepareEnrichmentTestResources", S
         include("offline.json")
         rename("offline.json", "enrichment-wave-1.json")
     }
+    from(rootProject.file("../../content/candidates/enrichment-wave-2")) {
+        include("offline.json")
+        rename("offline.json", "enrichment-wave-2.json")
+    }
     into(layout.buildDirectory.dir("generated/enrichmentTestResources"))
 }
 android.sourceSets.test.resources.srcDir(layout.buildDirectory.dir("generated/enrichmentTestResources").get().asFile)

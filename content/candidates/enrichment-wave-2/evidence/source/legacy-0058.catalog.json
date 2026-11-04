@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000005800",
+      "title": {
+        "en": "Using schick in context",
+        "de": "schick im Kontext"
+      },
+      "description": {
+        "en": "Recognize elegant or stylish in two situations.",
+        "de": "Die Bedeutung „schick; elegant“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize schick for stylish clothing and interiors.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L431 (d81684ae892cb67f0e411a730f4ad35549452cafc10e4e8b3429ba203899ad84), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L431-v1",
+          "contextKey": "legacy-0058-L431-context-1",
+          "transferKey": "legacy-0058-L431-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005800",
+            "type": "choice",
+            "prompt": "Für die Feier hat er ein ___ Hemd angezogen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The clothing suits a festive occasion.",
+              "de": "Das Hemd sieht elegant aus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "schickes"
+              },
+              {
+                "id": "1",
+                "text": "schmutziges"
+              },
+              {
+                "id": "2",
+                "text": "zerrissenes"
+              },
+              {
+                "id": "3",
+                "text": "abgetragenes"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The clothing suits a festive occasion. Here \"schickes\" expresses elegant or stylish.",
+              "de": "Das Hemd sieht elegant aus. „schickes“ bedeutet hier „schick; elegant“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Feier hat er ein schickes Hemd angezogen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (schickes / schmutziges / zerrissenes / abgetragenes), single intended answer \"schickes\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L431-v2",
+          "contextKey": "legacy-0058-L431-context-2",
+          "transferKey": "legacy-0058-L431-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005800",
+            "type": "gap_choice",
+            "prompt": "Das neue Restaurant ist modern eingerichtet und wirkt sehr ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The restaurant has an elegant appearance.",
+              "de": "Die Einrichtung wirkt stilvoll."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ungepflegt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "heruntergekommen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "schick"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unordentlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The restaurant has an elegant appearance. Here \"schick\" expresses elegant or stylish.",
+              "de": "Die Einrichtung wirkt stilvoll. „schick“ bedeutet hier „schick; elegant“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das neue Restaurant ist modern eingerichtet und wirkt sehr schick.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (ungepflegt / heruntergekommen / schick / unordentlich), single intended answer \"schick\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005801",
+      "title": {
+        "en": "Using schief in context",
+        "de": "schief im Kontext"
+      },
+      "description": {
+        "en": "Recognize crooked or tilted in two situations.",
+        "de": "Die Bedeutung „schief; nicht gerade“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize schief for objects leaning or hanging unevenly.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L432 (1dcfaa2778600a7d7169f7eb3b93dbbda8082af8757f331e6bdde7b2d3e895ef), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L432-v1",
+          "contextKey": "legacy-0058-L432-context-1",
+          "transferKey": "legacy-0058-L432-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005801",
+            "type": "choice",
+            "prompt": "Das Bild hängt ___ an der Wand; eine Seite ist höher.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "One side is higher than the other.",
+              "de": "Das Bild hängt nicht gerade."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "gerade"
+              },
+              {
+                "id": "1",
+                "text": "schief"
+              },
+              {
+                "id": "2",
+                "text": "waagerecht"
+              },
+              {
+                "id": "3",
+                "text": "eben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "One side is higher than the other. Here \"schief\" expresses crooked or tilted.",
+              "de": "Das Bild hängt nicht gerade. „schief“ bedeutet hier „schief; nicht gerade“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Bild hängt schief an der Wand; eine Seite ist höher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (gerade / schief / waagerecht / eben), single intended answer \"schief\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L432-v2",
+          "contextKey": "legacy-0058-L432-context-2",
+          "transferKey": "legacy-0058-L432-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005801",
+            "type": "gap_choice",
+            "prompt": "Nach dem Sturm stand der Zaun ___ und musste neu ausgerichtet werden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The fence was leaning.",
+              "de": "Der Zaun war nicht mehr gerade."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gerade"
+                  },
+                  {
+                    "id": "1",
+                    "text": "stabil"
+                  },
+                  {
+                    "id": "2",
+                    "text": "senkrecht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "schief"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The fence was leaning. Here \"schief\" expresses crooked or tilted.",
+              "de": "Der Zaun war nicht mehr gerade. „schief“ bedeutet hier „schief; nicht gerade“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Sturm stand der Zaun schief und musste neu ausgerichtet werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (gerade / stabil / senkrecht / schief), single intended answer \"schief\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005802",
+      "title": {
+        "en": "Using schlank in context",
+        "de": "schlank im Kontext"
+      },
+      "description": {
+        "en": "Recognize slim or sleek in two situations.",
+        "de": "Die Bedeutung „schlank; schmal gebaut“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize schlank for a slim silhouette or streamlined device.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L433 (7a27309dfe35f3a545965468bb5a6f2fa501c8fbceec3f6653b84e8fd8f3d4dd), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L433-v1",
+          "contextKey": "legacy-0058-L433-context-1",
+          "transferKey": "legacy-0058-L433-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005802",
+            "type": "choice",
+            "prompt": "Die Jacke ist eng geschnitten und betont eine ___ Silhouette.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The design creates a slim outline.",
+              "de": "Die Jacke betont eine schmale Form."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "schlanke"
+              },
+              {
+                "id": "1",
+                "text": "breite"
+              },
+              {
+                "id": "2",
+                "text": "massige"
+              },
+              {
+                "id": "3",
+                "text": "schwere"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The design creates a slim outline. Here \"schlanke\" expresses slim or sleek.",
+              "de": "Die Jacke betont eine schmale Form. „schlanke“ bedeutet hier „schlank; schmal gebaut“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Jacke ist eng geschnitten und betont eine schlanke Silhouette.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (schlanke / breite / massige / schwere), single intended answer \"schlanke\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L433-v2",
+          "contextKey": "legacy-0058-L433-context-2",
+          "transferKey": "legacy-0058-L433-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005802",
+            "type": "gap_choice",
+            "prompt": "Das neue Notebook hat ein besonders ___ Gehäuse und passt leicht in die Tasche.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The device has a thin profile.",
+              "de": "Das Gehäuse ist dünn und kompakt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "klobiges"
+                  },
+                  {
+                    "id": "1",
+                    "text": "dickes"
+                  },
+                  {
+                    "id": "2",
+                    "text": "schlankes"
+                  },
+                  {
+                    "id": "3",
+                    "text": "sperriges"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The device has a thin profile. Here \"schlankes\" expresses slim or sleek.",
+              "de": "Das Gehäuse ist dünn und kompakt. „schlankes“ bedeutet hier „schlank; schmal gebaut“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das neue Notebook hat ein besonders schlankes Gehäuse und passt leicht in die Tasche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (klobiges / dickes / schlankes / sperriges), single intended answer \"schlankes\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005803",
+      "title": {
+        "en": "Using schmal in context",
+        "de": "schmal im Kontext"
+      },
+      "description": {
+        "en": "Recognize narrow in width in two situations.",
+        "de": "Die Bedeutung „schmal; nicht breit“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize schmal for narrow paths and openings.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L436 (6eaf31604ee1158d62ffc5d33505d6589c48bdd3d090a12c222cec85c837dce1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L436-v1",
+          "contextKey": "legacy-0058-L436-context-1",
+          "transferKey": "legacy-0058-L436-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005803",
+            "type": "choice",
+            "prompt": "Der Weg ist so ___, dass zwei Fahrräder nicht nebeneinander fahren können.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "There is little space across the path.",
+              "de": "Der Weg ist nicht breit genug."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "breit"
+              },
+              {
+                "id": "1",
+                "text": "schmal"
+              },
+              {
+                "id": "2",
+                "text": "riesig"
+              },
+              {
+                "id": "3",
+                "text": "weit"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "There is little space across the path. Here \"schmal\" expresses narrow in width.",
+              "de": "Der Weg ist nicht breit genug. „schmal“ bedeutet hier „schmal; nicht breit“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Weg ist so schmal, dass zwei Fahrräder nicht nebeneinander fahren können.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (breit / schmal / riesig / weit), single intended answer \"schmal\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L436-v2",
+          "contextKey": "legacy-0058-L436-context-2",
+          "transferKey": "legacy-0058-L436-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005803",
+            "type": "gap_choice",
+            "prompt": "Durch die ___ Tür passt das große Sofa nicht.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The doorway lacks width.",
+              "de": "Die Tür ist nicht breit genug."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "breite"
+                  },
+                  {
+                    "id": "1",
+                    "text": "hohe"
+                  },
+                  {
+                    "id": "2",
+                    "text": "offene"
+                  },
+                  {
+                    "id": "3",
+                    "text": "schmale"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The doorway lacks width. Here \"schmale\" expresses narrow in width.",
+              "de": "Die Tür ist nicht breit genug. „schmale“ bedeutet hier „schmal; nicht breit“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Durch die schmale Tür passt das große Sofa nicht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (breite / hohe / offene / schmale), single intended answer \"schmale\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005804",
+      "title": {
+        "en": "Using schuld in context",
+        "de": "schuld im Kontext"
+      },
+      "description": {
+        "en": "Recognize at fault or responsible in two situations.",
+        "de": "Die Bedeutung „schuld sein; verantwortlich sein“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize schuld in the construction 'schuld sein'.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L442 (beee6f6c9f7c2a6e3fe155ee1a2009c56e7585e7412969c53056b850b902a519), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L442-v1",
+          "contextKey": "legacy-0058-L442-context-1",
+          "transferKey": "legacy-0058-L442-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005804",
+            "type": "choice",
+            "prompt": "Ich habe den Fehler gemacht; du bist nicht ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The other person is not to blame.",
+              "de": "Die andere Person trägt keine Verantwortung für den Fehler."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "schuld"
+              },
+              {
+                "id": "1",
+                "text": "sicher"
+              },
+              {
+                "id": "2",
+                "text": "bereit"
+              },
+              {
+                "id": "3",
+                "text": "fertig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The other person is not to blame. Here \"schuld\" expresses at fault or responsible.",
+              "de": "Die andere Person trägt keine Verantwortung für den Fehler. „schuld“ bedeutet hier „schuld sein; verantwortlich sein“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich habe den Fehler gemacht; du bist nicht schuld.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (schuld / sicher / bereit / fertig), single intended answer \"schuld\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L442-v2",
+          "contextKey": "legacy-0058-L442-context-2",
+          "transferKey": "legacy-0058-L442-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005804",
+            "type": "gap_choice",
+            "prompt": "Wer ist ___ daran, dass die Vase zerbrochen ist?",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The question asks who caused the problem.",
+              "de": "Gesucht wird die verantwortliche Person."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "sicher"
+                  },
+                  {
+                    "id": "1",
+                    "text": "frei"
+                  },
+                  {
+                    "id": "2",
+                    "text": "schuld"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bereit"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The question asks who caused the problem. Here \"schuld\" expresses at fault or responsible.",
+              "de": "Gesucht wird die verantwortliche Person. „schuld“ bedeutet hier „schuld sein; verantwortlich sein“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wer ist schuld daran, dass die Vase zerbrochen ist?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (sicher / frei / schuld / bereit), single intended answer \"schuld\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005806",
+      "title": {
+        "en": "Using selbstverständlich in context",
+        "de": "selbstverständlich im Kontext"
+      },
+      "description": {
+        "en": "Recognize of course or taken for granted in two situations.",
+        "de": "Die Bedeutung „selbstverständlich; natürlich“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize selbstverständlich for willing agreement and normal expectations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L451 (6f42baabe36c6469cfbab5be98863b2befc61e6bc5596ed2542399af2cfee855), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L451-v1",
+          "contextKey": "legacy-0058-L451-context-1",
+          "transferKey": "legacy-0058-L451-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005806",
+            "type": "choice",
+            "prompt": "Kannst du mir kurz helfen? ___, ich habe Zeit!",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The reply expresses willing agreement.",
+              "de": "Die Person hilft gern."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Leider"
+              },
+              {
+                "id": "1",
+                "text": "Selbstverständlich"
+              },
+              {
+                "id": "2",
+                "text": "Vielleicht"
+              },
+              {
+                "id": "3",
+                "text": "Niemals"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The reply expresses willing agreement. Here \"Selbstverständlich\" expresses of course or taken for granted.",
+              "de": "Die Person hilft gern. „Selbstverständlich“ bedeutet hier „selbstverständlich; natürlich“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Kannst du mir kurz helfen? Selbstverständlich, ich habe Zeit!",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (Leider / Selbstverständlich / Vielleicht / Niemals), single intended answer \"Selbstverständlich\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L451-v2",
+          "contextKey": "legacy-0058-L451-context-2",
+          "transferKey": "legacy-0058-L451-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005806",
+            "type": "gap_choice",
+            "prompt": "Für das Team ist gegenseitige Unterstützung ___; alle helfen einander.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Helping each other is normal for the team.",
+              "de": "Gegenseitige Hilfe gehört für das Team dazu."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ungewöhnlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "selten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "überraschend"
+                  },
+                  {
+                    "id": "3",
+                    "text": "selbstverständlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Helping each other is normal for the team. Here \"selbstverständlich\" expresses of course or taken for granted.",
+              "de": "Gegenseitige Hilfe gehört für das Team dazu. „selbstverständlich“ bedeutet hier „selbstverständlich; natürlich“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für das Team ist gegenseitige Unterstützung selbstverständlich; alle helfen einander.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (ungewöhnlich / selten / überraschend / selbstverständlich), single intended answer \"selbstverständlich\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005807",
+      "title": {
+        "en": "Using selten in context",
+        "de": "selten im Kontext"
+      },
+      "description": {
+        "en": "Recognize rare or infrequent in two situations.",
+        "de": "Die Bedeutung „selten; nicht oft“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize selten for unusual events and infrequent visits.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L452 (fba5be67aabe8a79b95b214214cc3b0f1418bacb9303d0d694db7a4736680a60), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L452-v1",
+          "contextKey": "legacy-0058-L452-context-1",
+          "transferKey": "legacy-0058-L452-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005807",
+            "type": "choice",
+            "prompt": "In dieser Region schneit es nur einmal in zehn Jahren; Schnee ist hier ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Snow almost never occurs.",
+              "de": "Schnee kommt dort nur sehr selten vor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "selten"
+              },
+              {
+                "id": "1",
+                "text": "häufig"
+              },
+              {
+                "id": "2",
+                "text": "täglich"
+              },
+              {
+                "id": "3",
+                "text": "regelmäßig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Snow almost never occurs. Here \"selten\" expresses rare or infrequent.",
+              "de": "Schnee kommt dort nur sehr selten vor. „selten“ bedeutet hier „selten; nicht oft“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "In dieser Region schneit es nur einmal in zehn Jahren; Schnee ist hier selten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (selten / häufig / täglich / regelmäßig), single intended answer \"selten\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L452-v2",
+          "contextKey": "legacy-0058-L452-context-2",
+          "transferKey": "legacy-0058-L452-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005807",
+            "type": "gap_choice",
+            "prompt": "Sie besucht ihre alte Schule nur ___, höchstens einmal pro Jahr.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She visits infrequently.",
+              "de": "Sie kommt nur selten zurück."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "täglich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ständig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "selten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "wöchentlich"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "She visits infrequently. Here \"selten\" expresses rare or infrequent.",
+              "de": "Sie kommt nur selten zurück. „selten“ bedeutet hier „selten; nicht oft“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie besucht ihre alte Schule nur selten, höchstens einmal pro Jahr.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (täglich / ständig / selten / wöchentlich), single intended answer \"selten\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005808",
+      "title": {
+        "en": "Using seltsam in context",
+        "de": "seltsam im Kontext"
+      },
+      "description": {
+        "en": "Recognize strange or unusual in two situations.",
+        "de": "Die Bedeutung „seltsam; merkwürdig“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize seltsam for unusual observations.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L453 (d7f13d27c596edbcbb067f7acdb490b0d128e481da0ff5a2c174e3337d140002), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L453-v1",
+          "contextKey": "legacy-0058-L453-context-1",
+          "transferKey": "legacy-0058-L453-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005808",
+            "type": "choice",
+            "prompt": "Die Uhr läuft rückwärts; das ist wirklich ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A clock running backward is unusual.",
+              "de": "Die Uhr verhält sich merkwürdig."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "normal"
+              },
+              {
+                "id": "1",
+                "text": "seltsam"
+              },
+              {
+                "id": "2",
+                "text": "üblich"
+              },
+              {
+                "id": "3",
+                "text": "erwartbar"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A clock running backward is unusual. Here \"seltsam\" expresses strange or unusual.",
+              "de": "Die Uhr verhält sich merkwürdig. „seltsam“ bedeutet hier „seltsam; merkwürdig“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Uhr läuft rückwärts; das ist wirklich seltsam.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (normal / seltsam / üblich / erwartbar), single intended answer \"seltsam\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L453-v2",
+          "contextKey": "legacy-0058-L453-context-2",
+          "transferKey": "legacy-0058-L453-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005808",
+            "type": "gap_choice",
+            "prompt": "Im leeren Haus hörte sie ein ___ Geräusch, das sie nicht zuordnen konnte.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The sound was unfamiliar and puzzling.",
+              "de": "Das Geräusch war ungewöhnlich."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vertrautes"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gewöhnliches"
+                  },
+                  {
+                    "id": "2",
+                    "text": "bekanntes"
+                  },
+                  {
+                    "id": "3",
+                    "text": "seltsames"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The sound was unfamiliar and puzzling. Here \"seltsames\" expresses strange or unusual.",
+              "de": "Das Geräusch war ungewöhnlich. „seltsames“ bedeutet hier „seltsam; merkwürdig“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im leeren Haus hörte sie ein seltsames Geräusch, das sie nicht zuordnen konnte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (vertrautes / gewöhnliches / bekanntes / seltsames), single intended answer \"seltsames\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005809",
+      "title": {
+        "en": "Using senkrecht in context",
+        "de": "senkrecht im Kontext"
+      },
+      "description": {
+        "en": "Recognize vertical or perpendicular in two situations.",
+        "de": "Die Bedeutung „senkrecht; vertikal“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize senkrecht for vertical alignment.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L454 (9de97ff7c076c0d5a977dbd1f25f31183d1be77de86992fdc7150ac8bd0cd40c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L454-v1",
+          "contextKey": "legacy-0058-L454-context-1",
+          "transferKey": "legacy-0058-L454-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005809",
+            "type": "choice",
+            "prompt": "Die Fahnenstange steht ___ zum Boden, also im rechten Winkel.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The pole forms a right angle with the ground.",
+              "de": "Die Stange steht im rechten Winkel zum Boden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "senkrecht"
+              },
+              {
+                "id": "1",
+                "text": "waagerecht"
+              },
+              {
+                "id": "2",
+                "text": "schief"
+              },
+              {
+                "id": "3",
+                "text": "parallel"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The pole forms a right angle with the ground. Here \"senkrecht\" expresses vertical or perpendicular.",
+              "de": "Die Stange steht im rechten Winkel zum Boden. „senkrecht“ bedeutet hier „senkrecht; vertikal“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Fahnenstange steht senkrecht zum Boden, also im rechten Winkel.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (senkrecht / waagerecht / schief / parallel), single intended answer \"senkrecht\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L454-v2",
+          "contextKey": "legacy-0058-L454-context-2",
+          "transferKey": "legacy-0058-L454-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005809",
+            "type": "gap_choice",
+            "prompt": "Die Linie verläuft ___ von oben nach unten.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The line goes straight up and down.",
+              "de": "Die Linie ist vertikal."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "waagerecht"
+                  },
+                  {
+                    "id": "1",
+                    "text": "schräg"
+                  },
+                  {
+                    "id": "2",
+                    "text": "senkrecht"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gebogen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The line goes straight up and down. Here \"senkrecht\" expresses vertical or perpendicular.",
+              "de": "Die Linie ist vertikal. „senkrecht“ bedeutet hier „senkrecht; vertikal“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Linie verläuft senkrecht von oben nach unten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (waagerecht / schräg / senkrecht / gebogen), single intended answer \"senkrecht\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005810",
+      "title": {
+        "en": "Using separat in context",
+        "de": "separat im Kontext"
+      },
+      "description": {
+        "en": "Recognize separate rather than together in two situations.",
+        "de": "Die Bedeutung „separat; getrennt“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize separat for separate packaging and sending.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L455 (fb11609ca84ba17499fa1a4d32b2a9a9b5cf449e8f2eb3f76d04e810d1bd4830), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L455-v1",
+          "contextKey": "legacy-0058-L455-context-1",
+          "transferKey": "legacy-0058-L455-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005810",
+            "type": "choice",
+            "prompt": "Bitte verpacken Sie Glas und Metall ___, damit sie sich nicht berühren.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The materials should be kept apart.",
+              "de": "Die Materialien sollen getrennt verpackt werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "zusammen"
+              },
+              {
+                "id": "1",
+                "text": "separat"
+              },
+              {
+                "id": "2",
+                "text": "gemeinsam"
+              },
+              {
+                "id": "3",
+                "text": "vermischt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The materials should be kept apart. Here \"separat\" expresses separate rather than together.",
+              "de": "Die Materialien sollen getrennt verpackt werden. „separat“ bedeutet hier „separat; getrennt“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte verpacken Sie Glas und Metall separat, damit sie sich nicht berühren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (zusammen / separat / gemeinsam / vermischt), single intended answer \"separat\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L455-v2",
+          "contextKey": "legacy-0058-L455-context-2",
+          "transferKey": "legacy-0058-L455-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005810",
+            "type": "gap_choice",
+            "prompt": "Die beiden Rechnungen werden ___ verschickt, jede in einem eigenen Umschlag.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Each invoice gets its own envelope.",
+              "de": "Jede Rechnung wird einzeln verschickt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "gemeinsam"
+                  },
+                  {
+                    "id": "1",
+                    "text": "gebündelt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "zusammen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "separat"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Each invoice gets its own envelope. Here \"separat\" expresses separate rather than together.",
+              "de": "Jede Rechnung wird einzeln verschickt. „separat“ bedeutet hier „separat; getrennt“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die beiden Rechnungen werden separat verschickt, jede in einem eigenen Umschlag.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (gemeinsam / gebündelt / zusammen / separat), single intended answer \"separat\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005811",
+      "title": {
+        "en": "Using sicher in context",
+        "de": "sicher im Kontext"
+      },
+      "description": {
+        "en": "Recognize safe and not dangerous in two situations.",
+        "de": "Die Bedeutung „sicher; gefahrlos“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize sicher for safe access and protected storage.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L456 (247e525b6f39ca9909fefda2dd86d2d839b1a14e8463b2d76efc1150c2e9d21e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L456-v1",
+          "contextKey": "legacy-0058-L456-context-1",
+          "transferKey": "legacy-0058-L456-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005811",
+            "type": "choice",
+            "prompt": "Die Brücke wurde geprüft und ist jetzt wieder ___ begehbar.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The bridge can be crossed without danger.",
+              "de": "Die Brücke ist wieder gefahrlos nutzbar."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "sicher"
+              },
+              {
+                "id": "1",
+                "text": "gefährlich"
+              },
+              {
+                "id": "2",
+                "text": "riskant"
+              },
+              {
+                "id": "3",
+                "text": "instabil"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The bridge can be crossed without danger. Here \"sicher\" expresses safe and not dangerous.",
+              "de": "Die Brücke ist wieder gefahrlos nutzbar. „sicher“ bedeutet hier „sicher; gefahrlos“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Brücke wurde geprüft und ist jetzt wieder sicher begehbar.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (sicher / gefährlich / riskant / instabil), single intended answer \"sicher\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L456-v2",
+          "contextKey": "legacy-0058-L456-context-2",
+          "transferKey": "legacy-0058-L456-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005811",
+            "type": "gap_choice",
+            "prompt": "Bitte bewahre die Dokumente an einem ___ Ort auf, zu dem nur du Zugang hast.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The documents should be protected.",
+              "de": "Die Unterlagen sollen an einem geschützten Ort liegen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "öffentlichen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "ungeschützten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "sicheren"
+                  },
+                  {
+                    "id": "3",
+                    "text": "unsicheren"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The documents should be protected. Here \"sicheren\" expresses safe and not dangerous.",
+              "de": "Die Unterlagen sollen an einem geschützten Ort liegen. „sicheren“ bedeutet hier „sicher; gefahrlos“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte bewahre die Dokumente an einem sicheren Ort auf, zu dem nur du Zugang hast.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (öffentlichen / ungeschützten / sicheren / unsicheren), single intended answer \"sicheren\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005812",
+      "title": {
+        "en": "Using sichtbar in context",
+        "de": "sichtbar im Kontext"
+      },
+      "description": {
+        "en": "Recognize visible to the eye in two situations.",
+        "de": "Die Bedeutung „sichtbar; zu sehen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize sichtbar for something that can be seen.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L457 (1ae903e85f770ff6dba319124b414cb67dd3a4962a9b8ab1f7dccf073bd2f539), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L457-v1",
+          "contextKey": "legacy-0058-L457-context-1",
+          "transferKey": "legacy-0058-L457-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005812",
+            "type": "choice",
+            "prompt": "Bei klarem Wetter ist der Berg vom Dorf aus gut ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The mountain can be seen from the village.",
+              "de": "Der Berg ist vom Dorf aus zu sehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "unsichtbar"
+              },
+              {
+                "id": "1",
+                "text": "sichtbar"
+              },
+              {
+                "id": "2",
+                "text": "verborgen"
+              },
+              {
+                "id": "3",
+                "text": "verdeckt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The mountain can be seen from the village. Here \"sichtbar\" expresses visible to the eye.",
+              "de": "Der Berg ist vom Dorf aus zu sehen. „sichtbar“ bedeutet hier „sichtbar; zu sehen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei klarem Wetter ist der Berg vom Dorf aus gut sichtbar.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (unsichtbar / sichtbar / verborgen / verdeckt), single intended answer \"sichtbar\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L457-v2",
+          "contextKey": "legacy-0058-L457-context-2",
+          "transferKey": "legacy-0058-L457-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005812",
+            "type": "gap_choice",
+            "prompt": "Der Kratzer ist auch aus zwei Metern Entfernung deutlich ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The scratch can be seen clearly.",
+              "de": "Man kann den Kratzer deutlich erkennen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unsichtbar"
+                  },
+                  {
+                    "id": "1",
+                    "text": "verdeckt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verborgen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "sichtbar"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The scratch can be seen clearly. Here \"sichtbar\" expresses visible to the eye.",
+              "de": "Man kann den Kratzer deutlich erkennen. „sichtbar“ bedeutet hier „sichtbar; zu sehen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kratzer ist auch aus zwei Metern Entfernung deutlich sichtbar.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (unsichtbar / verdeckt / verborgen / sichtbar), single intended answer \"sichtbar\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005813",
+      "title": {
+        "en": "Using sinnlos in context",
+        "de": "sinnlos im Kontext"
+      },
+      "description": {
+        "en": "Recognize pointless or without useful purpose in two situations.",
+        "de": "Die Bedeutung „sinnlos; zwecklos“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize sinnlos for actions with no useful outcome.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L458 (1f51dfacb40820c72b14bc62bf4cd6c35e5ee91d2f95815012b311eef41d9425), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L458-v1",
+          "contextKey": "legacy-0058-L458-context-1",
+          "transferKey": "legacy-0058-L458-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005813",
+            "type": "choice",
+            "prompt": "Ohne Strom lässt sich der Drucker nicht einschalten; weitere Versuche sind ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Further attempts cannot work without power.",
+              "de": "Ohne Strom bringen weitere Versuche nichts."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "sinnlos"
+              },
+              {
+                "id": "1",
+                "text": "sinnvoll"
+              },
+              {
+                "id": "2",
+                "text": "hilfreich"
+              },
+              {
+                "id": "3",
+                "text": "notwendig"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Further attempts cannot work without power. Here \"sinnlos\" expresses pointless or without useful purpose.",
+              "de": "Ohne Strom bringen weitere Versuche nichts. „sinnlos“ bedeutet hier „sinnlos; zwecklos“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ohne Strom lässt sich der Drucker nicht einschalten; weitere Versuche sind sinnlos.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (sinnlos / sinnvoll / hilfreich / notwendig), single intended answer \"sinnlos\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L458-v2",
+          "contextKey": "legacy-0058-L458-context-2",
+          "transferKey": "legacy-0058-L458-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005813",
+            "type": "gap_choice",
+            "prompt": "Wenn niemand zuhört, ist es ___, dieselbe Erklärung immer wieder zu geben.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Repeating the explanation achieves nothing.",
+              "de": "Die Wiederholung hat keinen Nutzen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "nützlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "hilfreich"
+                  },
+                  {
+                    "id": "2",
+                    "text": "sinnlos"
+                  },
+                  {
+                    "id": "3",
+                    "text": "zweckmäßig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Repeating the explanation achieves nothing. Here \"sinnlos\" expresses pointless or without useful purpose.",
+              "de": "Die Wiederholung hat keinen Nutzen. „sinnlos“ bedeutet hier „sinnlos; zwecklos“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wenn niemand zuhört, ist es sinnlos, dieselbe Erklärung immer wieder zu geben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (nützlich / hilfreich / sinnlos / zweckmäßig), single intended answer \"sinnlos\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005814",
+      "title": {
+        "en": "Using sinnvoll in context",
+        "de": "sinnvoll im Kontext"
+      },
+      "description": {
+        "en": "Recognize sensible or useful in two situations.",
+        "de": "Die Bedeutung „sinnvoll; vernünftig“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize sinnvoll for helpful plans and precautions.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L459 (2246be3882b9d9215b58e9706b8e6cefd5e0fe6179d5657fd1f27e70a5b8d108), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L459-v1",
+          "contextKey": "legacy-0058-L459-context-1",
+          "transferKey": "legacy-0058-L459-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005814",
+            "type": "choice",
+            "prompt": "Es ist ___, vor der Prüfung einen Lernplan zu erstellen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Planning can help preparation.",
+              "de": "Ein Lernplan ist eine vernünftige Hilfe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "sinnlos"
+              },
+              {
+                "id": "1",
+                "text": "sinnvoll"
+              },
+              {
+                "id": "2",
+                "text": "überflüssig"
+              },
+              {
+                "id": "3",
+                "text": "schädlich"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Planning can help preparation. Here \"sinnvoll\" expresses sensible or useful.",
+              "de": "Ein Lernplan ist eine vernünftige Hilfe. „sinnvoll“ bedeutet hier „sinnvoll; vernünftig“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Es ist sinnvoll, vor der Prüfung einen Lernplan zu erstellen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (sinnlos / sinnvoll / überflüssig / schädlich), single intended answer \"sinnvoll\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L459-v2",
+          "contextKey": "legacy-0058-L459-context-2",
+          "transferKey": "legacy-0058-L459-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005814",
+            "type": "gap_choice",
+            "prompt": "Ein Helm ist beim Radfahren eine ___ Vorsichtsmaßnahme.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A helmet is a useful safety measure.",
+              "de": "Ein Helm schützt und ist daher vernünftig."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unnötige"
+                  },
+                  {
+                    "id": "1",
+                    "text": "schädliche"
+                  },
+                  {
+                    "id": "2",
+                    "text": "sinnlose"
+                  },
+                  {
+                    "id": "3",
+                    "text": "sinnvolle"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A helmet is a useful safety measure. Here \"sinnvolle\" expresses sensible or useful.",
+              "de": "Ein Helm schützt und ist daher vernünftig. „sinnvolle“ bedeutet hier „sinnvoll; vernünftig“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Helm ist beim Radfahren eine sinnvolle Vorsichtsmaßnahme.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (unnötige / schädliche / sinnlose / sinnvolle), single intended answer \"sinnvolle\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005816",
+      "title": {
+        "en": "Using sogenannt in context",
+        "de": "sogenannt im Kontext"
+      },
+      "description": {
+        "en": "Recognize so-called or described by a name in two situations.",
+        "de": "Die Bedeutung „sogenannt; als ... bezeichnet“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize sogenannt for a name or label used with qualification.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L461 (8a9201c8edffe9dd2bb3a647d148beb9281d4004812c39c3d8bc66896d8a1748), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L461-v1",
+          "contextKey": "legacy-0058-L461-context-1",
+          "transferKey": "legacy-0058-L461-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005816",
+            "type": "choice",
+            "prompt": "Die Zeitung spricht von ___ Experten, deren Fachwissen sie ausdrücklich bezweifelt.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The label is used skeptically.",
+              "de": "Die Zeitung zweifelt an der Bezeichnung als Experten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "sogenannten"
+              },
+              {
+                "id": "1",
+                "text": "erfahrenen"
+              },
+              {
+                "id": "2",
+                "text": "anerkannten"
+              },
+              {
+                "id": "3",
+                "text": "qualifizierten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The label is used skeptically. Here \"sogenannten\" expresses so-called or described by a name.",
+              "de": "Die Zeitung zweifelt an der Bezeichnung als Experten. „sogenannten“ bedeutet hier „sogenannt; als ... bezeichnet“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Zeitung spricht von sogenannten Experten, deren Fachwissen sie ausdrücklich bezweifelt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (sogenannten / erfahrenen / anerkannten / qualifizierten), single intended answer \"sogenannten\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L461-v2",
+          "contextKey": "legacy-0058-L461-context-2",
+          "transferKey": "legacy-0058-L461-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005816",
+            "type": "gap_choice",
+            "prompt": "Die Gruppe nennt sich „Zukunftsrat“, ist aber nicht offiziell anerkannt. Der ___ Zukunftsrat trifft sich monatlich.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The name is used without official recognition.",
+              "de": "Der Name wird nur als Bezeichnung verwendet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "offizielle"
+                  },
+                  {
+                    "id": "1",
+                    "text": "echte"
+                  },
+                  {
+                    "id": "2",
+                    "text": "sogenannte"
+                  },
+                  {
+                    "id": "3",
+                    "text": "anerkannte"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The name is used without official recognition. Here \"sogenannte\" expresses so-called or described by a name.",
+              "de": "Der Name wird nur als Bezeichnung verwendet. „sogenannte“ bedeutet hier „sogenannt; als ... bezeichnet“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gruppe nennt sich „Zukunftsrat“, ist aber nicht offiziell anerkannt. Der sogenannte Zukunftsrat trifft sich monatlich.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (offizielle / echte / sogenannte / anerkannte), single intended answer \"sogenannte\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005817",
+      "title": {
+        "en": "Using sorgfältig in context",
+        "de": "sorgfältig im Kontext"
+      },
+      "description": {
+        "en": "Recognize careful and meticulous in two situations.",
+        "de": "Die Bedeutung „sorgfältig; gewissenhaft“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize sorgfältig for thorough checking and documentation.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L463 (20fa9ae4d0e5d87add269216cd05b6631a3089dac70ebccf94d8a225a60145f1), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L463-v1",
+          "contextKey": "legacy-0058-L463-context-1",
+          "transferKey": "legacy-0058-L463-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005817",
+            "type": "choice",
+            "prompt": "Vor dem Versand kontrolliert sie jede Adresse ___, damit kein Paket verloren geht.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She checks each address thoroughly.",
+              "de": "Sie prüft die Adressen gewissenhaft."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "flüchtig"
+              },
+              {
+                "id": "1",
+                "text": "sorgfältig"
+              },
+              {
+                "id": "2",
+                "text": "nachlässig"
+              },
+              {
+                "id": "3",
+                "text": "ungenau"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "She checks each address thoroughly. Here \"sorgfältig\" expresses careful and meticulous.",
+              "de": "Sie prüft die Adressen gewissenhaft. „sorgfältig“ bedeutet hier „sorgfältig; gewissenhaft“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Versand kontrolliert sie jede Adresse sorgfältig, damit kein Paket verloren geht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (flüchtig / sorgfältig / nachlässig / ungenau), single intended answer \"sorgfältig\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L463-v2",
+          "contextKey": "legacy-0058-L463-context-2",
+          "transferKey": "legacy-0058-L463-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005817",
+            "type": "gap_choice",
+            "prompt": "Der Arzt dokumentierte die Untersuchung sehr ___ und ließ keine Angaben aus.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The documentation was complete and meticulous.",
+              "de": "Die Untersuchung wurde gründlich dokumentiert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "oberflächlich"
+                  },
+                  {
+                    "id": "1",
+                    "text": "hastig"
+                  },
+                  {
+                    "id": "2",
+                    "text": "unvollständig"
+                  },
+                  {
+                    "id": "3",
+                    "text": "sorgfältig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The documentation was complete and meticulous. Here \"sorgfältig\" expresses careful and meticulous.",
+              "de": "Die Untersuchung wurde gründlich dokumentiert. „sorgfältig“ bedeutet hier „sorgfältig; gewissenhaft“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Arzt dokumentierte die Untersuchung sehr sorgfältig und ließ keine Angaben aus.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (oberflächlich / hastig / unvollständig / sorgfältig), single intended answer \"sorgfältig\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000005818",
+      "title": {
+        "en": "Using sozial in context",
+        "de": "sozial im Kontext"
+      },
+      "description": {
+        "en": "Recognize socially supportive in two situations.",
+        "de": "Die Bedeutung „sozial; gemeinschaftsbezogen“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize sozial for community-support activities.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/adjectives.jsonl:L464 (0ea7466eeda5f9f0939c60fea3bfe87588189eac5c9e3e81db60d8f078444ffa), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass recorded in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0058-L464-v1",
+          "contextKey": "legacy-0058-L464-context-1",
+          "transferKey": "legacy-0058-L464-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005818",
+            "type": "choice",
+            "prompt": "Die Stadt plant ___ Projekte, die Menschen mit geringem Einkommen unterstützen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The projects aim to help disadvantaged people.",
+              "de": "Die Projekte unterstützen Menschen in schwierigen Situationen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "soziale"
+              },
+              {
+                "id": "1",
+                "text": "technische"
+              },
+              {
+                "id": "2",
+                "text": "sportliche"
+              },
+              {
+                "id": "3",
+                "text": "kommerzielle"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The projects aim to help disadvantaged people. Here \"soziale\" expresses socially supportive.",
+              "de": "Die Projekte unterstützen Menschen in schwierigen Situationen. „soziale“ bedeutet hier „sozial; gemeinschaftsbezogen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Stadt plant soziale Projekte, die Menschen mit geringem Einkommen unterstützen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (soziale / technische / sportliche / kommerzielle), single intended answer \"soziale\", bilingual feedback and distinct context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0058-L464-v2",
+          "contextKey": "legacy-0058-L464-context-2",
+          "transferKey": "legacy-0058-L464-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000580181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000005818",
+            "type": "gap_choice",
+            "prompt": "Das Unternehmen engagiert sich ___ und unterstützt eine lokale Suppenküche.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The company contributes to social welfare.",
+              "de": "Das Unternehmen hilft Menschen in der Gemeinschaft."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "unsolidarisch"
+                  },
+                  {
+                    "id": "1",
+                    "text": "egoistisch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "sozial"
+                  },
+                  {
+                    "id": "3",
+                    "text": "gleichgültig"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The company contributes to social welfare. Here \"sozial\" expresses socially supportive.",
+              "de": "Das Unternehmen hilft Menschen in der Gemeinschaft. „sozial“ bedeutet hier „sozial; gemeinschaftsbezogen“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Unternehmen engagiert sich sozial und unterstützt eine lokale Suppenküche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 separate AI editorial review 2026-10-29: checked full German sentence, inflection, all offered options (unsolidarisch / egoistisch / sozial / gleichgültig), single intended answer \"sozial\", bilingual feedback and distinct context. Human review pending."
+        }
+      ]
+    }
+  ]
+}

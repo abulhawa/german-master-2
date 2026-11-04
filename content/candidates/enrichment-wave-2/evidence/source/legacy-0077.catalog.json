@@ -1,0 +1,3187 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000007700",
+      "title": {
+        "en": "Using Einbahnstraße in context",
+        "de": "Einbahnstraße im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einbahnstraße (one-way street) in two distinct situations.",
+        "de": "Einbahnstraße (Straße mit nur einer erlaubten Fahrtrichtung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einbahnstraße meaning one-way street, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L578 (d0daf00386f5e4651e9693140a9b4935a74a969492178f6b5383b20dae8def60), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L578-v1",
+          "contextKey": "legacy-0077-L578-context-1",
+          "transferKey": "legacy-0077-L578-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007700",
+            "type": "gap_choice",
+            "prompt": "Die Straße ist nur in einer Fahrtrichtung freigegeben. Es handelt sich um eine ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Traffic is permitted in only one direction.",
+              "de": "Der Verkehr darf nur in eine Richtung fahren."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Sackgasse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einbahnstraße"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bundesstraße"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Spielstraße"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einbahnstraße means one-way street. Traffic is permitted in only one direction.",
+              "de": "Einbahnstraße bedeutet Straße mit nur einer erlaubten Fahrtrichtung. Der Verkehr darf nur in eine Richtung fahren."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Straße ist nur in einer Fahrtrichtung freigegeben. Es handelt sich um eine Einbahnstraße.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Straße ist nur in einer Fahrtrichtung freigegeben. Es handelt sich um eine Einbahnstraße.\", case/number, meaning, all offered options (Sackgasse / Einbahnstraße / Bundesstraße / Spielstraße), single accepted answer \"Einbahnstraße\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L578-v2",
+          "contextKey": "legacy-0077-L578-context-2",
+          "transferKey": "legacy-0077-L578-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007700",
+            "type": "choice",
+            "prompt": "Wir durften von dieser Seite nicht hineinfahren, weil es eine ___ ist.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Consider why approaching from the opposite end is forbidden.",
+              "de": "Überlege, warum die Zufahrt von der Gegenseite verboten ist."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Umgehungsstraße"
+              },
+              {
+                "id": "1",
+                "text": "Landstraße"
+              },
+              {
+                "id": "2",
+                "text": "Einbahnstraße"
+              },
+              {
+                "id": "3",
+                "text": "Nebenstraße"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Einbahnstraße means one-way street. Consider why approaching from the opposite end is forbidden.",
+              "de": "Einbahnstraße bedeutet Straße mit nur einer erlaubten Fahrtrichtung. Überlege, warum die Zufahrt von der Gegenseite verboten ist."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir durften von dieser Seite nicht hineinfahren, weil es eine Einbahnstraße ist.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Wir durften von dieser Seite nicht hineinfahren, weil es eine Einbahnstraße ist.\", case/number, meaning, all offered options (Umgehungsstraße / Landstraße / Einbahnstraße / Nebenstraße), single accepted answer \"Einbahnstraße\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007701",
+      "title": {
+        "en": "Using Einbauschrank in context",
+        "de": "Einbauschrank im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einbauschrank (built-in wardrobe or cabinet) in two distinct situations.",
+        "de": "Einbauschrank (fest in eine Nische eingebauter Schrank) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einbauschrank meaning built-in wardrobe or cabinet, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L579 (f49274bf5e592fa88e1481c7f4860132d9ae73310d25183c2d63128b146632cc), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L579-v1",
+          "contextKey": "legacy-0077-L579-context-1",
+          "transferKey": "legacy-0077-L579-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007701",
+            "type": "gap_choice",
+            "prompt": "Die Schrankfront ist bündig mit der Wand, weil der ___ genau in die Nische eingebaut wurde.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The piece of furniture is permanently fitted into a recess.",
+              "de": "Das Möbelstück ist fest in eine Wandnische eingepasst."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einbauschrank"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Schreibtisch"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Nachttisch"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Couchtisch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einbauschrank means built-in wardrobe or cabinet. The piece of furniture is permanently fitted into a recess.",
+              "de": "Einbauschrank bedeutet fest in eine Nische eingebauter Schrank. Das Möbelstück ist fest in eine Wandnische eingepasst."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schrankfront ist bündig mit der Wand, weil der Einbauschrank genau in die Nische eingebaut wurde.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Schrankfront ist bündig mit der Wand, weil der Einbauschrank genau in die Nische eingebaut wurde.\", case/number, meaning, all offered options (Einbauschrank / Schreibtisch / Nachttisch / Couchtisch), single accepted answer \"Einbauschrank\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L579-v2",
+          "contextKey": "legacy-0077-L579-context-2",
+          "transferKey": "legacy-0077-L579-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007701",
+            "type": "choice",
+            "prompt": "Die Tischlerei fertigte einen ___ nach Maß, der vom Boden bis zur Decke fest montiert wird.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Think of custom-fitted storage rather than movable furniture.",
+              "de": "Gesucht ist maßgefertigter Stauraum, kein beweglicher Tisch."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Schuhkarton"
+              },
+              {
+                "id": "1",
+                "text": "Einbauschrank"
+              },
+              {
+                "id": "2",
+                "text": "Küchentisch"
+              },
+              {
+                "id": "3",
+                "text": "Beistelltisch"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einbauschrank means built-in wardrobe or cabinet. Think of custom-fitted storage rather than movable furniture.",
+              "de": "Einbauschrank bedeutet fest in eine Nische eingebauter Schrank. Gesucht ist maßgefertigter Stauraum, kein beweglicher Tisch."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Tischlerei fertigte einen Einbauschrank nach Maß, der vom Boden bis zur Decke fest montiert wird.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Tischlerei fertigte einen Einbauschrank nach Maß, der vom Boden bis zur Decke fest montiert wird.\", case/number, meaning, all offered options (Schuhkarton / Einbauschrank / Küchentisch / Beistelltisch), single accepted answer \"Einbauschrank\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007702",
+      "title": {
+        "en": "Using Einbindung in context",
+        "de": "Einbindung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einbindung (involvement or technical integration) in two distinct situations.",
+        "de": "Einbindung (Beteiligung oder technische Integration) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einbindung meaning involvement or technical integration, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L580 (459f6b7f1c985540e8563f57858a612cac59bf1ee839ec44374f5e8ff208c343), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L580-v1",
+          "contextKey": "legacy-0077-L580-context-1",
+          "transferKey": "legacy-0077-L580-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007702",
+            "type": "gap_choice",
+            "prompt": "Die ___ der Belegschaft in die Planung erhöhte die Akzeptanz.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Employees participated in planning instead of being excluded.",
+              "de": "Die Beschäftigten wurden an der Planung beteiligt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Entlassung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Trennung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kündigung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einbindung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einbindung means involvement or technical integration. Employees participated in planning instead of being excluded.",
+              "de": "Einbindung bedeutet Beteiligung oder technische Integration. Die Beschäftigten wurden an der Planung beteiligt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Einbindung der Belegschaft in die Planung erhöhte die Akzeptanz.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Einbindung der Belegschaft in die Planung erhöhte die Akzeptanz.\", case/number, meaning, all offered options (Entlassung / Trennung / Kündigung / Einbindung), single accepted answer \"Einbindung\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L580-v2",
+          "contextKey": "legacy-0077-L580-context-2",
+          "transferKey": "legacy-0077-L580-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007702",
+            "type": "choice",
+            "prompt": "Bei der App-Entwicklung ist die ___ einer externen Schnittstelle vorgesehen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "An outside interface will become part of the system.",
+              "de": "Eine externe Schnittstelle soll Teil des Systems werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einbindung"
+              },
+              {
+                "id": "1",
+                "text": "Löschung"
+              },
+              {
+                "id": "2",
+                "text": "Sperrung"
+              },
+              {
+                "id": "3",
+                "text": "Abschaltung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Einbindung means involvement or technical integration. An outside interface will become part of the system.",
+              "de": "Einbindung bedeutet Beteiligung oder technische Integration. Eine externe Schnittstelle soll Teil des Systems werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der App-Entwicklung ist die Einbindung einer externen Schnittstelle vorgesehen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Bei der App-Entwicklung ist die Einbindung einer externen Schnittstelle vorgesehen.\", case/number, meaning, all offered options (Einbindung / Löschung / Sperrung / Abschaltung), single accepted answer \"Einbindung\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007703",
+      "title": {
+        "en": "Using Einblick in context",
+        "de": "Einblick im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einblick (insight into a process or activity) in two distinct situations.",
+        "de": "Einblick (Verständnis für einen bisher unbekannten Bereich) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einblick meaning insight into a process or activity, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L581 (5aafd24b8e545252544561856cee369eb87c3a8098e4609ecc983137c4eca456), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L581-v1",
+          "contextKey": "legacy-0077-L581-context-1",
+          "transferKey": "legacy-0077-L581-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007703",
+            "type": "gap_choice",
+            "prompt": "Das Praktikum gab ihr einen ___ in den Alltag einer Klinik.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The internship allowed her to see how the clinic operates.",
+              "de": "Das Praktikum zeigte ihr, wie der Klinikalltag abläuft."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Ausblick"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Rückblick"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einblick"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Eindruck"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einblick means insight into a process or activity. The internship allowed her to see how the clinic operates.",
+              "de": "Einblick bedeutet Verständnis für einen bisher unbekannten Bereich. Das Praktikum zeigte ihr, wie der Klinikalltag abläuft."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Praktikum gab ihr einen Einblick in den Alltag einer Klinik.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Das Praktikum gab ihr einen Einblick in den Alltag einer Klinik.\", case/number, meaning, all offered options (Ausblick / Rückblick / Einblick / Eindruck), single accepted answer \"Einblick\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L581-v2",
+          "contextKey": "legacy-0077-L581-context-2",
+          "transferKey": "legacy-0077-L581-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007703",
+            "type": "choice",
+            "prompt": "Nach der Besichtigung verstand er die Abläufe besser. Er hatte einen guten ___ gewonnen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He gained an understanding of the internal processes.",
+              "de": "Er hat die internen Abläufe besser verstanden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einfall"
+              },
+              {
+                "id": "1",
+                "text": "Eingriff"
+              },
+              {
+                "id": "2",
+                "text": "Einzug"
+              },
+              {
+                "id": "3",
+                "text": "Einblick"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Einblick means insight into a process or activity. He gained an understanding of the internal processes.",
+              "de": "Einblick bedeutet Verständnis für einen bisher unbekannten Bereich. Er hat die internen Abläufe besser verstanden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Besichtigung verstand er die Abläufe besser. Er hatte einen guten Einblick gewonnen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Nach der Besichtigung verstand er die Abläufe besser. Er hatte einen guten Einblick gewonnen.\", case/number, meaning, all offered options (Einfall / Eingriff / Einzug / Einblick), single accepted answer \"Einblick\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007704",
+      "title": {
+        "en": "Using Einbrecher in context",
+        "de": "Einbrecher im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einbrecher (burglar (masculine form)) in two distinct situations.",
+        "de": "Einbrecher (Person, die unbefugt einbricht (maskuline Form)) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einbrecher meaning burglar (masculine form), using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L582 (584b1099340df80bbf67966ad5e697326f114bca85ea44fbbd97459b95c74b08), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L582-v1",
+          "contextKey": "legacy-0077-L582-context-1",
+          "transferKey": "legacy-0077-L582-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007704",
+            "type": "gap_choice",
+            "prompt": "Der Mann hebelte nachts ein fremdes Fenster auf und stahl Schmuck. Er war ein ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He entered someone else's property by force to steal.",
+              "de": "Er drang gewaltsam in fremde Räume ein, um zu stehlen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Besucher"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einbrecher"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Hausmeister"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Vermieter"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einbrecher means burglar (masculine form). He entered someone else's property by force to steal.",
+              "de": "Einbrecher bedeutet Person, die unbefugt einbricht (maskuline Form). Er drang gewaltsam in fremde Räume ein, um zu stehlen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Mann hebelte nachts ein fremdes Fenster auf und stahl Schmuck. Er war ein Einbrecher.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Der Mann hebelte nachts ein fremdes Fenster auf und stahl Schmuck. Er war ein Einbrecher.\", case/number, meaning, all offered options (Besucher / Einbrecher / Hausmeister / Vermieter), single accepted answer \"Einbrecher\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L582-v2",
+          "contextKey": "legacy-0077-L582-context-2",
+          "transferKey": "legacy-0077-L582-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007704",
+            "type": "choice",
+            "prompt": "Die Polizei nahm den ___ fest, als er durch die aufgebrochene Hintertür mit gestohlenen Laptops das Büro verließ.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The person was caught leaving the scene with stolen items.",
+              "de": "Die Person verließ den Tatort mit gestohlenen Gegenständen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lieferanten"
+              },
+              {
+                "id": "1",
+                "text": "Handwerker"
+              },
+              {
+                "id": "2",
+                "text": "Einbrecher"
+              },
+              {
+                "id": "3",
+                "text": "Mieter"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Einbrecher means burglar (masculine form). The person was caught leaving the scene with stolen items.",
+              "de": "Einbrecher bedeutet Person, die unbefugt einbricht (maskuline Form). Die Person verließ den Tatort mit gestohlenen Gegenständen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei nahm den Einbrecher fest, als er durch die aufgebrochene Hintertür mit gestohlenen Laptops das Büro verließ.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Polizei nahm den Einbrecher fest, als er durch die aufgebrochene Hintertür mit gestohlenen Laptops das Büro verließ.\", case/number, meaning, all offered options (Lieferanten / Handwerker / Einbrecher / Mieter), single accepted answer \"Einbrecher\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007705",
+      "title": {
+        "en": "Using Einbrecherin in context",
+        "de": "Einbrecherin im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einbrecherin (burglar (feminine form)) in two distinct situations.",
+        "de": "Einbrecherin (Person, die unbefugt einbricht (feminine Form)) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einbrecherin meaning burglar (feminine form), using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L583 (e48f4f1c115708f646a6960ec8d9ee402bb5a52e3c58e0cc7fe6b256a0a4ba29), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L583-v1",
+          "contextKey": "legacy-0077-L583-context-1",
+          "transferKey": "legacy-0077-L583-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007705",
+            "type": "gap_choice",
+            "prompt": "Die Frau brach das Schloss auf und stahl Geld. Die Polizei sucht die ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The woman forced entry and stole something.",
+              "de": "Die Frau drang gewaltsam ein und stahl etwas."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einbrecherin"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Verkäuferin"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Nachbarin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Hausmeisterin"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einbrecherin means burglar (feminine form). The woman forced entry and stole something.",
+              "de": "Einbrecherin bedeutet Person, die unbefugt einbricht (feminine Form). Die Frau drang gewaltsam ein und stahl etwas."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Frau brach das Schloss auf und stahl Geld. Die Polizei sucht die Einbrecherin.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Frau brach das Schloss auf und stahl Geld. Die Polizei sucht die Einbrecherin.\", case/number, meaning, all offered options (Einbrecherin / Verkäuferin / Nachbarin / Hausmeisterin), single accepted answer \"Einbrecherin\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L583-v2",
+          "contextKey": "legacy-0077-L583-context-2",
+          "transferKey": "legacy-0077-L583-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007705",
+            "type": "choice",
+            "prompt": "Auf dem Video ist zu sehen, wie die ___ nachts durch das aufgebrochene Fenster steigt.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The footage shows unlawful entry through a broken window.",
+              "de": "Das Video zeigt das unbefugte Eindringen durch ein aufgebrochenes Fenster."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Kundin"
+              },
+              {
+                "id": "1",
+                "text": "Einbrecherin"
+              },
+              {
+                "id": "2",
+                "text": "Passantin"
+              },
+              {
+                "id": "3",
+                "text": "Vermieterin"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einbrecherin means burglar (feminine form). The footage shows unlawful entry through a broken window.",
+              "de": "Einbrecherin bedeutet Person, die unbefugt einbricht (feminine Form). Das Video zeigt das unbefugte Eindringen durch ein aufgebrochenes Fenster."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Video ist zu sehen, wie die Einbrecherin nachts durch das aufgebrochene Fenster steigt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Auf dem Video ist zu sehen, wie die Einbrecherin nachts durch das aufgebrochene Fenster steigt.\", case/number, meaning, all offered options (Kundin / Einbrecherin / Passantin / Vermieterin), single accepted answer \"Einbrecherin\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007706",
+      "title": {
+        "en": "Using Einbruch in context",
+        "de": "Einbruch im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einbruch (burglary or break-in) in two distinct situations.",
+        "de": "Einbruch (unbefugtes gewaltsames Eindringen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einbruch meaning burglary or break-in, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L584 (667be85d46011ff76f07058e992906510d97227ad93af8fd3c988074401c988f), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L584-v1",
+          "contextKey": "legacy-0077-L584-context-1",
+          "transferKey": "legacy-0077-L584-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007706",
+            "type": "gap_choice",
+            "prompt": "Die Tür war aufgebrochen worden. Nach dem ___ fehlten mehrere Computer aus dem Büro.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Property disappeared from a locked office after forced entry.",
+              "de": "Aus einem verschlossenen Büro wurden Gegenstände gestohlen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Umzug"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einkauf"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausflug"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einbruch"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einbruch means burglary or break-in. Property disappeared from a locked office after forced entry.",
+              "de": "Einbruch bedeutet unbefugtes gewaltsames Eindringen. Aus einem verschlossenen Büro wurden Gegenstände gestohlen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Tür war aufgebrochen worden. Nach dem Einbruch fehlten mehrere Computer aus dem Büro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Tür war aufgebrochen worden. Nach dem Einbruch fehlten mehrere Computer aus dem Büro.\", case/number, meaning, all offered options (Umzug / Einkauf / Ausflug / Einbruch), single accepted answer \"Einbruch\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L584-v2",
+          "contextKey": "legacy-0077-L584-context-2",
+          "transferKey": "legacy-0077-L584-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007706",
+            "type": "choice",
+            "prompt": "Die Polizei untersucht einen ___ in eine leer stehende Villa; ein Fenster wurde eingeschlagen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A window was smashed to enter the building.",
+              "de": "Zum Eindringen wurde ein Fenster eingeschlagen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einbruch"
+              },
+              {
+                "id": "1",
+                "text": "Einzug"
+              },
+              {
+                "id": "2",
+                "text": "Einblick"
+              },
+              {
+                "id": "3",
+                "text": "Einfall"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Einbruch means burglary or break-in. A window was smashed to enter the building.",
+              "de": "Einbruch bedeutet unbefugtes gewaltsames Eindringen. Zum Eindringen wurde ein Fenster eingeschlagen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Polizei untersucht einen Einbruch in eine leer stehende Villa; ein Fenster wurde eingeschlagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Polizei untersucht einen Einbruch in eine leer stehende Villa; ein Fenster wurde eingeschlagen.\", case/number, meaning, all offered options (Einbruch / Einzug / Einblick / Einfall), single accepted answer \"Einbruch\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007707",
+      "title": {
+        "en": "Using Einbuße in context",
+        "de": "Einbuße im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einbuße (loss or reduction, often financial) in two distinct situations.",
+        "de": "Einbuße (Verlust oder Verringerung, oft finanziell) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einbuße meaning loss or reduction, often financial, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L585 (088c29079cb20a15d2af055b42df519766ee27a405ceaf0b85f36bc19c1f3be4), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L585-v1",
+          "contextKey": "legacy-0077-L585-context-1",
+          "transferKey": "legacy-0077-L585-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007707",
+            "type": "gap_choice",
+            "prompt": "Wegen des Produktionsstopps musste die Firma hohe finanzielle ___ hinnehmen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The shutdown caused financial harm rather than a benefit.",
+              "de": "Der Produktionsstopp verursachte finanzielle Nachteile."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gewinne"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Zuschüsse"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einbußen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Prämien"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einbuße means loss or reduction, often financial. The shutdown caused financial harm rather than a benefit.",
+              "de": "Einbuße bedeutet Verlust oder Verringerung, oft finanziell. Der Produktionsstopp verursachte finanzielle Nachteile."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wegen des Produktionsstopps musste die Firma hohe finanzielle Einbußen hinnehmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Wegen des Produktionsstopps musste die Firma hohe finanzielle Einbußen hinnehmen.\", case/number, meaning, all offered options (Gewinne / Zuschüsse / Einbußen / Prämien), single accepted answer \"Einbußen\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L585-v2",
+          "contextKey": "legacy-0077-L585-context-2",
+          "transferKey": "legacy-0077-L585-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007707",
+            "type": "choice",
+            "prompt": "Die schlechte Ernte führte bei den Landwirten zu erheblichen ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A poor harvest reduces expected returns.",
+              "de": "Eine schlechte Ernte verringert den erwarteten Ertrag."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Überschüssen"
+              },
+              {
+                "id": "1",
+                "text": "Zuwächsen"
+              },
+              {
+                "id": "2",
+                "text": "Erfolgen"
+              },
+              {
+                "id": "3",
+                "text": "Einbußen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Einbuße means loss or reduction, often financial. A poor harvest reduces expected returns.",
+              "de": "Einbuße bedeutet Verlust oder Verringerung, oft finanziell. Eine schlechte Ernte verringert den erwarteten Ertrag."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die schlechte Ernte führte bei den Landwirten zu erheblichen Einbußen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die schlechte Ernte führte bei den Landwirten zu erheblichen Einbußen.\", case/number, meaning, all offered options (Überschüssen / Zuwächsen / Erfolgen / Einbußen), single accepted answer \"Einbußen\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007708",
+      "title": {
+        "en": "Using Eindruck in context",
+        "de": "Eindruck im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Eindruck (impression or subjective perception) in two distinct situations.",
+        "de": "Eindruck (subjektive Wahrnehmung oder Wirkung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Eindruck meaning impression or subjective perception, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L586 (4c9fee6e822301ed90a7c02bbbddce22c3733161024c32e927914d1f8d7b3d85), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L586-v1",
+          "contextKey": "legacy-0077-L586-context-1",
+          "transferKey": "legacy-0077-L586-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007708",
+            "type": "gap_choice",
+            "prompt": "Beim Gespräch hinterließ die Bewerberin einen professionellen ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The sentence describes how the applicant came across.",
+              "de": "Es geht darum, wie die Bewerberin auf andere wirkte."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einblick"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Eindruck"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einfall"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einfluss"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eindruck means impression or subjective perception. The sentence describes how the applicant came across.",
+              "de": "Eindruck bedeutet subjektive Wahrnehmung oder Wirkung. Es geht darum, wie die Bewerberin auf andere wirkte."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Gespräch hinterließ die Bewerberin einen professionellen Eindruck.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Beim Gespräch hinterließ die Bewerberin einen professionellen Eindruck.\", case/number, meaning, all offered options (Einblick / Eindruck / Einfall / Einfluss), single accepted answer \"Eindruck\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L586-v2",
+          "contextKey": "legacy-0077-L586-context-2",
+          "transferKey": "legacy-0077-L586-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007708",
+            "type": "choice",
+            "prompt": "Nach dem Treffen hatte ich den ___, dass wir uns gut verstehen werden.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This is a personal assessment after meeting someone.",
+              "de": "Gesucht ist eine persönliche Einschätzung nach dem Treffen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einbruch"
+              },
+              {
+                "id": "1",
+                "text": "Einzug"
+              },
+              {
+                "id": "2",
+                "text": "Eindruck"
+              },
+              {
+                "id": "3",
+                "text": "Eingriff"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Eindruck means impression or subjective perception. This is a personal assessment after meeting someone.",
+              "de": "Eindruck bedeutet subjektive Wahrnehmung oder Wirkung. Gesucht ist eine persönliche Einschätzung nach dem Treffen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Treffen hatte ich den Eindruck, dass wir uns gut verstehen werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Nach dem Treffen hatte ich den Eindruck, dass wir uns gut verstehen werden.\", case/number, meaning, all offered options (Einbruch / Einzug / Eindruck / Eingriff), single accepted answer \"Eindruck\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007709",
+      "title": {
+        "en": "Using Einfahrt in context",
+        "de": "Einfahrt im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einfahrt (driveway or vehicle entrance) in two distinct situations.",
+        "de": "Einfahrt (Zufahrt für Fahrzeuge) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einfahrt meaning driveway or vehicle entrance, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L587 (560dfb9a42901fcd23e730d8373013fdb16a590a2755b22c136db75c7c8fcff1), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L587-v1",
+          "contextKey": "legacy-0077-L587-context-1",
+          "transferKey": "legacy-0077-L587-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007709",
+            "type": "gap_choice",
+            "prompt": "Vor der ___ zur Tiefgarage darf niemand parken.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Cars need access to the underground garage.",
+              "de": "Fahrzeuge müssen in die Tiefgarage hineinfahren können."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einfahrt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Umleitung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Kreuzung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Abzweigung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einfahrt means driveway or vehicle entrance. Cars need access to the underground garage.",
+              "de": "Einfahrt bedeutet Zufahrt für Fahrzeuge. Fahrzeuge müssen in die Tiefgarage hineinfahren können."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Einfahrt zur Tiefgarage darf niemand parken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Vor der Einfahrt zur Tiefgarage darf niemand parken.\", case/number, meaning, all offered options (Einfahrt / Umleitung / Kreuzung / Abzweigung), single accepted answer \"Einfahrt\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L587-v2",
+          "contextKey": "legacy-0077-L587-context-2",
+          "transferKey": "legacy-0077-L587-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007709",
+            "type": "choice",
+            "prompt": "Der Lieferwagen versperrte die ___, sodass niemand mit dem Auto auf das Grundstück gelangen konnte.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The blocked route is used to drive onto the property.",
+              "de": "Blockiert ist der Weg, auf dem Autos auf das Grundstück gelangen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausfahrt"
+              },
+              {
+                "id": "1",
+                "text": "Einfahrt"
+              },
+              {
+                "id": "2",
+                "text": "Umleitung"
+              },
+              {
+                "id": "3",
+                "text": "Haltestelle"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einfahrt means driveway or vehicle entrance. The blocked route is used to drive onto the property.",
+              "de": "Einfahrt bedeutet Zufahrt für Fahrzeuge. Blockiert ist der Weg, auf dem Autos auf das Grundstück gelangen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lieferwagen versperrte die Einfahrt, sodass niemand mit dem Auto auf das Grundstück gelangen konnte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Der Lieferwagen versperrte die Einfahrt, sodass niemand mit dem Auto auf das Grundstück gelangen konnte.\", case/number, meaning, all offered options (Ausfahrt / Einfahrt / Umleitung / Haltestelle), single accepted answer \"Einfahrt\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007710",
+      "title": {
+        "en": "Using Einfall in context",
+        "de": "Einfall im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einfall (sudden idea) in two distinct situations.",
+        "de": "Einfall (plötzlicher Gedanke oder Idee) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einfall meaning sudden idea, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L588 (56c5466c6aaca1e23513687fc50325f98f7c5d59b705305c836b4fe93ffa23f7), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L588-v1",
+          "contextKey": "legacy-0077-L588-context-1",
+          "transferKey": "legacy-0077-L588-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007710",
+            "type": "gap_choice",
+            "prompt": "Beim Lösen der Aufgabe hatte sie plötzlich einen genialen ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A new idea occurred to her unexpectedly.",
+              "de": "Ihr kam unerwartet eine neue Idee."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Eindruck"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einblick"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einfluss"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einfall"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einfall means sudden idea. A new idea occurred to her unexpectedly.",
+              "de": "Einfall bedeutet plötzlicher Gedanke oder Idee. Ihr kam unerwartet eine neue Idee."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Lösen der Aufgabe hatte sie plötzlich einen genialen Einfall.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Beim Lösen der Aufgabe hatte sie plötzlich einen genialen Einfall.\", case/number, meaning, all offered options (Eindruck / Einblick / Einfluss / Einfall), single accepted answer \"Einfall\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L588-v2",
+          "contextKey": "legacy-0077-L588-context-2",
+          "transferKey": "legacy-0077-L588-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007710",
+            "type": "choice",
+            "prompt": "Beim Spaziergang kam ihm ein ___: Er wusste plötzlich, wie das neue Produkt heißen sollte.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "He spontaneously thought of a product name.",
+              "de": "Er dachte spontan an einen möglichen Produktnamen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einfall"
+              },
+              {
+                "id": "1",
+                "text": "Einbruch"
+              },
+              {
+                "id": "2",
+                "text": "Einzug"
+              },
+              {
+                "id": "3",
+                "text": "Eindruck"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Einfall means sudden idea. He spontaneously thought of a product name.",
+              "de": "Einfall bedeutet plötzlicher Gedanke oder Idee. Er dachte spontan an einen möglichen Produktnamen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Spaziergang kam ihm ein Einfall: Er wusste plötzlich, wie das neue Produkt heißen sollte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Beim Spaziergang kam ihm ein Einfall: Er wusste plötzlich, wie das neue Produkt heißen sollte.\", case/number, meaning, all offered options (Einfall / Einbruch / Einzug / Eindruck), single accepted answer \"Einfall\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007711",
+      "title": {
+        "en": "Using Einfluss in context",
+        "de": "Einfluss im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einfluss (influence or effect) in two distinct situations.",
+        "de": "Einfluss (Wirkung auf Personen, Vorgänge oder Entscheidungen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einfluss meaning influence or effect, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L589 (b2ca506a56341c39385650dcf6a1fbec5c0074b9daa10eacff6d1a3743ef1392), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L589-v1",
+          "contextKey": "legacy-0077-L589-context-1",
+          "transferKey": "legacy-0077-L589-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007711",
+            "type": "gap_choice",
+            "prompt": "Die Eltern haben großen ___ auf die Entscheidung ihrer Kinder.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Their opinions can affect the children's decision.",
+              "de": "Die Haltung der Eltern kann die Entscheidung verändern."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einblick"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Eindruck"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einfluss"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einfall"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einfluss means influence or effect. Their opinions can affect the children's decision.",
+              "de": "Einfluss bedeutet Wirkung auf Personen, Vorgänge oder Entscheidungen. Die Haltung der Eltern kann die Entscheidung verändern."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Eltern haben großen Einfluss auf die Entscheidung ihrer Kinder.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Eltern haben großen Einfluss auf die Entscheidung ihrer Kinder.\", case/number, meaning, all offered options (Einblick / Eindruck / Einfluss / Einfall), single accepted answer \"Einfluss\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L589-v2",
+          "contextKey": "legacy-0077-L589-context-2",
+          "transferKey": "legacy-0077-L589-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007711",
+            "type": "choice",
+            "prompt": "Wie stark ist der ___ der neuen Regel auf die tägliche Arbeit?",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The question concerns the rule's effect on work routines.",
+              "de": "Gefragt ist die Wirkung der Regel auf die Arbeitsabläufe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einzug"
+              },
+              {
+                "id": "1",
+                "text": "Einbruch"
+              },
+              {
+                "id": "2",
+                "text": "Einfall"
+              },
+              {
+                "id": "3",
+                "text": "Einfluss"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Einfluss means influence or effect. The question concerns the rule's effect on work routines.",
+              "de": "Einfluss bedeutet Wirkung auf Personen, Vorgänge oder Entscheidungen. Gefragt ist die Wirkung der Regel auf die Arbeitsabläufe."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wie stark ist der Einfluss der neuen Regel auf die tägliche Arbeit?",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Wie stark ist der Einfluss der neuen Regel auf die tägliche Arbeit?\", case/number, meaning, all offered options (Einzug / Einbruch / Einfall / Einfluss), single accepted answer \"Einfluss\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007712",
+      "title": {
+        "en": "Using Einführung in context",
+        "de": "Einführung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einführung (introduction or implementation of something new) in two distinct situations.",
+        "de": "Einführung (Einweisung oder erstmalige Umsetzung) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einführung meaning introduction or implementation of something new, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L590 (65849ea42f1d0173b0f2a901786ee26c4c22cd796f06bb16719e3fd328306ff0), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L590-v1",
+          "contextKey": "legacy-0077-L590-context-1",
+          "transferKey": "legacy-0077-L590-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007712",
+            "type": "gap_choice",
+            "prompt": "Neue Beschäftigte erhalten vor Arbeitsbeginn eine ___ in die Sicherheitsregeln.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "New staff are being familiarized with the rules.",
+              "de": "Neue Beschäftigte lernen die Regeln zunächst kennen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Entlassung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einführung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einladung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Entscheidung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einführung means introduction or implementation of something new. New staff are being familiarized with the rules.",
+              "de": "Einführung bedeutet Einweisung oder erstmalige Umsetzung. Neue Beschäftigte lernen die Regeln zunächst kennen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Neue Beschäftigte erhalten vor Arbeitsbeginn eine Einführung in die Sicherheitsregeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Neue Beschäftigte erhalten vor Arbeitsbeginn eine Einführung in die Sicherheitsregeln.\", case/number, meaning, all offered options (Entlassung / Einführung / Einladung / Entscheidung), single accepted answer \"Einführung\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L590-v2",
+          "contextKey": "legacy-0077-L590-context-2",
+          "transferKey": "legacy-0077-L590-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007712",
+            "type": "choice",
+            "prompt": "Die ___ des digitalen Ticketsystems ist für Januar geplant.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The system will be put into use for the first time.",
+              "de": "Das System soll erstmals in Betrieb genommen werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Abschaffung"
+              },
+              {
+                "id": "1",
+                "text": "Sperrung"
+              },
+              {
+                "id": "2",
+                "text": "Einführung"
+              },
+              {
+                "id": "3",
+                "text": "Kündigung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Einführung means introduction or implementation of something new. The system will be put into use for the first time.",
+              "de": "Einführung bedeutet Einweisung oder erstmalige Umsetzung. Das System soll erstmals in Betrieb genommen werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Einführung des digitalen Ticketsystems ist für Januar geplant.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Einführung des digitalen Ticketsystems ist für Januar geplant.\", case/number, meaning, all offered options (Abschaffung / Sperrung / Einführung / Kündigung), single accepted answer \"Einführung\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007713",
+      "title": {
+        "en": "Using Eingangsrechnung in context",
+        "de": "Eingangsrechnung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Eingangsrechnung (invoice received from a supplier) in two distinct situations.",
+        "de": "Eingangsrechnung (Rechnung, die ein Unternehmen von einem Lieferanten erhält) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Eingangsrechnung meaning invoice received from a supplier, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L592 (ca2976e50adcd979db372d04b5de22d085ee9321c8ada13ff6efdff209a05bf4), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L592-v1",
+          "contextKey": "legacy-0077-L592-context-1",
+          "transferKey": "legacy-0077-L592-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007713",
+            "type": "gap_choice",
+            "prompt": "Der Lieferant hat uns die Ware berechnet. Die Buchhaltung prüft nun die ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "This invoice came into the company from a supplier.",
+              "de": "Diese Rechnung ist vom Lieferanten im Unternehmen eingegangen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Eingangsrechnung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Ausgangsrechnung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Lohnabrechnung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Gutschrift"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eingangsrechnung means invoice received from a supplier. This invoice came into the company from a supplier.",
+              "de": "Eingangsrechnung bedeutet Rechnung, die ein Unternehmen von einem Lieferanten erhält. Diese Rechnung ist vom Lieferanten im Unternehmen eingegangen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Lieferant hat uns die Ware berechnet. Die Buchhaltung prüft nun die Eingangsrechnung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Der Lieferant hat uns die Ware berechnet. Die Buchhaltung prüft nun die Eingangsrechnung.\", case/number, meaning, all offered options (Eingangsrechnung / Ausgangsrechnung / Lohnabrechnung / Gutschrift), single accepted answer \"Eingangsrechnung\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L592-v2",
+          "contextKey": "legacy-0077-L592-context-2",
+          "transferKey": "legacy-0077-L592-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007713",
+            "type": "choice",
+            "prompt": "Bevor wir den Betrag an den Zulieferer überweisen, muss seine ___ freigegeben werden.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The company must pay a bill it received.",
+              "de": "Das Unternehmen muss eine erhaltene Lieferantenrechnung bezahlen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Ausgangsrechnung"
+              },
+              {
+                "id": "1",
+                "text": "Eingangsrechnung"
+              },
+              {
+                "id": "2",
+                "text": "Gehaltsabrechnung"
+              },
+              {
+                "id": "3",
+                "text": "Spesenabrechnung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Eingangsrechnung means invoice received from a supplier. The company must pay a bill it received.",
+              "de": "Eingangsrechnung bedeutet Rechnung, die ein Unternehmen von einem Lieferanten erhält. Das Unternehmen muss eine erhaltene Lieferantenrechnung bezahlen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bevor wir den Betrag an den Zulieferer überweisen, muss seine Eingangsrechnung freigegeben werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Bevor wir den Betrag an den Zulieferer überweisen, muss seine Eingangsrechnung freigegeben werden.\", case/number, meaning, all offered options (Ausgangsrechnung / Eingangsrechnung / Gehaltsabrechnung / Spesenabrechnung), single accepted answer \"Eingangsrechnung\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007714",
+      "title": {
+        "en": "Using Eingliederung in context",
+        "de": "Eingliederung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Eingliederung (integration or reintegration into work or society) in two distinct situations.",
+        "de": "Eingliederung ((Wieder-)Eingliederung in Beruf oder Gesellschaft) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Eingliederung meaning integration or reintegration into work or society, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L593 (4a73009fb8857c4b1afd535a7e4dc4734fc2bde5dd12f28f37d3a7b4dffa3276), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L593-v1",
+          "contextKey": "legacy-0077-L593-context-1",
+          "transferKey": "legacy-0077-L593-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007714",
+            "type": "gap_choice",
+            "prompt": "Nach sechs Monaten Krankheit erfolgt ihre stufenweise ___ in den Beruf.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She is gradually returning to working life.",
+              "de": "Sie kehrt schrittweise in den Beruf zurück."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Entlassung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Abmeldung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Ausgrenzung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Eingliederung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eingliederung means integration or reintegration into work or society. She is gradually returning to working life.",
+              "de": "Eingliederung bedeutet (Wieder-)Eingliederung in Beruf oder Gesellschaft. Sie kehrt schrittweise in den Beruf zurück."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach sechs Monaten Krankheit erfolgt ihre stufenweise Eingliederung in den Beruf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Nach sechs Monaten Krankheit erfolgt ihre stufenweise Eingliederung in den Beruf.\", case/number, meaning, all offered options (Entlassung / Abmeldung / Ausgrenzung / Eingliederung), single accepted answer \"Eingliederung\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L593-v2",
+          "contextKey": "legacy-0077-L593-context-2",
+          "transferKey": "legacy-0077-L593-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007714",
+            "type": "choice",
+            "prompt": "Das Förderprogramm hilft Langzeitarbeitslosen bei der beruflichen ___.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The program supports access to employment.",
+              "de": "Das Programm unterstützt den Einstieg in Beschäftigung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Eingliederung"
+              },
+              {
+                "id": "1",
+                "text": "Ausgrenzung"
+              },
+              {
+                "id": "2",
+                "text": "Kündigung"
+              },
+              {
+                "id": "3",
+                "text": "Trennung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Eingliederung means integration or reintegration into work or society. The program supports access to employment.",
+              "de": "Eingliederung bedeutet (Wieder-)Eingliederung in Beruf oder Gesellschaft. Das Programm unterstützt den Einstieg in Beschäftigung."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Förderprogramm hilft Langzeitarbeitslosen bei der beruflichen Eingliederung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Das Förderprogramm hilft Langzeitarbeitslosen bei der beruflichen Eingliederung.\", case/number, meaning, all offered options (Eingliederung / Ausgrenzung / Kündigung / Trennung), single accepted answer \"Eingliederung\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007715",
+      "title": {
+        "en": "Using Eingriff in context",
+        "de": "Eingriff im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Eingriff (intervention, including a surgical procedure) in two distinct situations.",
+        "de": "Eingriff (gezieltes Eingreifen, auch eine Operation) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Eingriff meaning intervention, including a surgical procedure, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L594 (d0a119d01972b2cca62ff52241a9bbdc8d83e51915b26b3227966e2af95dd56f), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L594-v1",
+          "contextKey": "legacy-0077-L594-context-1",
+          "transferKey": "legacy-0077-L594-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007715",
+            "type": "gap_choice",
+            "prompt": "Vor dem chirurgischen ___ erklärte die Ärztin alle Risiken.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The doctor explains risks before a medical procedure.",
+              "de": "Die Ärztin informiert vor einer medizinischen Maßnahme."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Eindruck"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einfall"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Eingriff"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einblick"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Eingriff means intervention, including a surgical procedure. The doctor explains risks before a medical procedure.",
+              "de": "Eingriff bedeutet gezieltes Eingreifen, auch eine Operation. Die Ärztin informiert vor einer medizinischen Maßnahme."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem chirurgischen Eingriff erklärte die Ärztin alle Risiken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Vor dem chirurgischen Eingriff erklärte die Ärztin alle Risiken.\", case/number, meaning, all offered options (Eindruck / Einfall / Eingriff / Einblick), single accepted answer \"Eingriff\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L594-v2",
+          "contextKey": "legacy-0077-L594-context-2",
+          "transferKey": "legacy-0077-L594-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007715",
+            "type": "choice",
+            "prompt": "Der geplante staatliche ___ in den Markt soll den Wettbewerb schützen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The state plans to actively intervene in market processes.",
+              "de": "Der Staat will aktiv in Marktprozesse eingreifen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einblick"
+              },
+              {
+                "id": "1",
+                "text": "Einzug"
+              },
+              {
+                "id": "2",
+                "text": "Einfall"
+              },
+              {
+                "id": "3",
+                "text": "Eingriff"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Eingriff means intervention, including a surgical procedure. The state plans to actively intervene in market processes.",
+              "de": "Eingriff bedeutet gezieltes Eingreifen, auch eine Operation. Der Staat will aktiv in Marktprozesse eingreifen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der geplante staatliche Eingriff in den Markt soll den Wettbewerb schützen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Der geplante staatliche Eingriff in den Markt soll den Wettbewerb schützen.\", case/number, meaning, all offered options (Einblick / Einzug / Einfall / Eingriff), single accepted answer \"Eingriff\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007716",
+      "title": {
+        "en": "Using Einhaltung in context",
+        "de": "Einhaltung im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einhaltung (compliance with a rule, agreement or deadline) in two distinct situations.",
+        "de": "Einhaltung (Befolgung von Regeln oder Vereinbarungen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einhaltung meaning compliance with a rule, agreement or deadline, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L595 (c0cd69cc3c9ff564b2f798ca8bf94b7b44d9d66c823490303af44a55476e6301), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L595-v1",
+          "contextKey": "legacy-0077-L595-context-1",
+          "transferKey": "legacy-0077-L595-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007716",
+            "type": "gap_choice",
+            "prompt": "Der Betrieb muss die ___ der Sicherheitsvorschriften nachweisen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The company must prove it follows the rules.",
+              "de": "Der Betrieb muss zeigen, dass er die Regeln befolgt."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Abschaffung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einhaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Verletzung"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Lockerung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einhaltung means compliance with a rule, agreement or deadline. The company must prove it follows the rules.",
+              "de": "Einhaltung bedeutet Befolgung von Regeln oder Vereinbarungen. Der Betrieb muss zeigen, dass er die Regeln befolgt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Betrieb muss die Einhaltung der Sicherheitsvorschriften nachweisen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Der Betrieb muss die Einhaltung der Sicherheitsvorschriften nachweisen.\", case/number, meaning, all offered options (Abschaffung / Einhaltung / Verletzung / Lockerung), single accepted answer \"Einhaltung\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L595-v2",
+          "contextKey": "legacy-0077-L595-context-2",
+          "transferKey": "legacy-0077-L595-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007716",
+            "type": "choice",
+            "prompt": "Die ___ des vereinbarten Liefertermins ist laut Vertrag verpflichtend.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The agreed date must be met.",
+              "de": "Der vereinbarte Termin muss eingehalten werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verschiebung"
+              },
+              {
+                "id": "1",
+                "text": "Streichung"
+              },
+              {
+                "id": "2",
+                "text": "Einhaltung"
+              },
+              {
+                "id": "3",
+                "text": "Änderung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Einhaltung means compliance with a rule, agreement or deadline. The agreed date must be met.",
+              "de": "Einhaltung bedeutet Befolgung von Regeln oder Vereinbarungen. Der vereinbarte Termin muss eingehalten werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Einhaltung des vereinbarten Liefertermins ist laut Vertrag verpflichtend.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Einhaltung des vereinbarten Liefertermins ist laut Vertrag verpflichtend.\", case/number, meaning, all offered options (Verschiebung / Streichung / Einhaltung / Änderung), single accepted answer \"Einhaltung\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007717",
+      "title": {
+        "en": "Using Einkauf in context",
+        "de": "Einkauf im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einkauf (shopping or purchasing) in two distinct situations.",
+        "de": "Einkauf (Kauf oder Beschaffung von Waren) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einkauf meaning shopping or purchasing, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L596 (ee7713175ecca317938d3a2b11af855457ebbd9b44343c51a97477a4f49c8c6f), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L596-v1",
+          "contextKey": "legacy-0077-L596-context-1",
+          "transferKey": "legacy-0077-L596-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007717",
+            "type": "gap_choice",
+            "prompt": "Am Samstag erledigen wir den ___ für die kommende Woche.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The family is buying supplies for several days.",
+              "de": "Die Familie besorgt Vorräte für mehrere Tage."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Einkauf"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Einzug"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einblick"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einfall"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einkauf means shopping or purchasing. The family is buying supplies for several days.",
+              "de": "Einkauf bedeutet Kauf oder Beschaffung von Waren. Die Familie besorgt Vorräte für mehrere Tage."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Am Samstag erledigen wir den Einkauf für die kommende Woche.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Am Samstag erledigen wir den Einkauf für die kommende Woche.\", case/number, meaning, all offered options (Einkauf / Einzug / Einblick / Einfall), single accepted answer \"Einkauf\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L596-v2",
+          "contextKey": "legacy-0077-L596-context-2",
+          "transferKey": "legacy-0077-L596-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007717",
+            "type": "choice",
+            "prompt": "Für den ___ von Ersatzteilen ist die Beschaffungsabteilung zuständig.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The department obtains materials for the company.",
+              "de": "Die Abteilung beschafft benötigte Teile für das Unternehmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Verkauf"
+              },
+              {
+                "id": "1",
+                "text": "Einkauf"
+              },
+              {
+                "id": "2",
+                "text": "Umzug"
+              },
+              {
+                "id": "3",
+                "text": "Rückzug"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Einkauf means shopping or purchasing. The department obtains materials for the company.",
+              "de": "Einkauf bedeutet Kauf oder Beschaffung von Waren. Die Abteilung beschafft benötigte Teile für das Unternehmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Einkauf von Ersatzteilen ist die Beschaffungsabteilung zuständig.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Für den Einkauf von Ersatzteilen ist die Beschaffungsabteilung zuständig.\", case/number, meaning, all offered options (Verkauf / Einkauf / Umzug / Rückzug), single accepted answer \"Einkauf\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007718",
+      "title": {
+        "en": "Using Einkommen in context",
+        "de": "Einkommen im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einkommen (income received over a period) in two distinct situations.",
+        "de": "Einkommen (regelmäßige Einnahmen aus Arbeit oder anderen Quellen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einkommen meaning income received over a period, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L598 (d2980942acbc0aa63a6089bfd39c3f1fcdf44c4f30d54765fed0e6d12c278a01), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L598-v1",
+          "contextKey": "legacy-0077-L598-context-1",
+          "transferKey": "legacy-0077-L598-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007718",
+            "type": "gap_choice",
+            "prompt": "Ihr monatliches ___ besteht aus Gehalt und Mieteinnahmen.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Salary and rent receipts are both money coming in.",
+              "de": "Gehalt und Mieteinnahmen sind regelmäßige Geldzuflüsse."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Eigentum"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Lebensalter"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Arbeitszimmer"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Einkommen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einkommen means income received over a period. Salary and rent receipts are both money coming in.",
+              "de": "Einkommen bedeutet regelmäßige Einnahmen aus Arbeit oder anderen Quellen. Gehalt und Mieteinnahmen sind regelmäßige Geldzuflüsse."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ihr monatliches Einkommen besteht aus Gehalt und Mieteinnahmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Ihr monatliches Einkommen besteht aus Gehalt und Mieteinnahmen.\", case/number, meaning, all offered options (Eigentum / Lebensalter / Arbeitszimmer / Einkommen), single accepted answer \"Einkommen\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L598-v2",
+          "contextKey": "legacy-0077-L598-context-2",
+          "transferKey": "legacy-0077-L598-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007718",
+            "type": "choice",
+            "prompt": "Für den Wohngeldantrag müssen Sie Ihr jährliches ___ angeben.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The application asks how much money you receive in a year.",
+              "de": "Gefragt ist die Höhe der Einnahmen innerhalb eines Jahres."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Einkommen"
+              },
+              {
+                "id": "1",
+                "text": "Arbeitszimmer"
+              },
+              {
+                "id": "2",
+                "text": "Geburtsdatum"
+              },
+              {
+                "id": "3",
+                "text": "Eigentum"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Einkommen means income received over a period. The application asks how much money you receive in a year.",
+              "de": "Einkommen bedeutet regelmäßige Einnahmen aus Arbeit oder anderen Quellen. Gefragt ist die Höhe der Einnahmen innerhalb eines Jahres."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Wohngeldantrag müssen Sie Ihr jährliches Einkommen angeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Für den Wohngeldantrag müssen Sie Ihr jährliches Einkommen angeben.\", case/number, meaning, all offered options (Einkommen / Arbeitszimmer / Geburtsdatum / Eigentum), single accepted answer \"Einkommen\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000007719",
+      "title": {
+        "en": "Using Einkommenseinbuße in context",
+        "de": "Einkommenseinbuße im Kontext"
+      },
+      "description": {
+        "en": "Recognize and apply Einkommenseinbuße (loss of income) in two distinct situations.",
+        "de": "Einkommenseinbuße (Verringerung der bisherigen Einnahmen) in zwei unterschiedlichen Situationen erkennen und anwenden."
+      },
+      "objective": "Recognize and apply the German noun Einkommenseinbuße meaning loss of income, using appropriate context and form.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical/grammar facts from pinned apps/web/data/pos/nouns.jsonl:L599 (68937142e74b63442e378244d20fea99430cca0f27b93ac380b49773e8c80f7b), 2026-10-29. No inherited example text copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report and variant notes; independent human review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0077-L599-v1",
+          "contextKey": "legacy-0077-L599-context-1",
+          "transferKey": "legacy-0077-L599-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007719",
+            "type": "gap_choice",
+            "prompt": "Nach der Reduzierung ihrer Arbeitszeit musste sie eine deutliche ___ verkraften.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Working fewer hours reduced her earnings.",
+              "de": "Durch weniger Arbeitsstunden sanken ihre Einnahmen."
+            },
+            "slots": [
+              {
+                "id": "noun",
+                "label": "Nomen",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Gehaltserhöhung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Beförderung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Einkommenseinbuße"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Prämienzahlung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "noun",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Einkommenseinbuße means loss of income. Working fewer hours reduced her earnings.",
+              "de": "Einkommenseinbuße bedeutet Verringerung der bisherigen Einnahmen. Durch weniger Arbeitsstunden sanken ihre Einnahmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Reduzierung ihrer Arbeitszeit musste sie eine deutliche Einkommenseinbuße verkraften.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Nach der Reduzierung ihrer Arbeitszeit musste sie eine deutliche Einkommenseinbuße verkraften.\", case/number, meaning, all offered options (Gehaltserhöhung / Beförderung / Einkommenseinbuße / Prämienzahlung), single accepted answer \"Einkommenseinbuße\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        },
+        {
+          "variantKey": "legacy-0077-L599-v2",
+          "contextKey": "legacy-0077-L599-context-2",
+          "transferKey": "legacy-0077-L599-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000770191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000007719",
+            "type": "choice",
+            "prompt": "Die Kurzarbeit führte bei ihm zu einer monatlichen ___ von 400 Euro.",
+            "instruction": {
+              "en": "Choose the noun that best completes the German sentence.",
+              "de": "Wähle das Nomen, das den deutschen Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The amount describes money no longer earned each month.",
+              "de": "Es geht um monatlich entgangene Einnahmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Lohnerhöhung"
+              },
+              {
+                "id": "1",
+                "text": "Sonderzahlung"
+              },
+              {
+                "id": "2",
+                "text": "Steuererstattung"
+              },
+              {
+                "id": "3",
+                "text": "Einkommenseinbuße"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Einkommenseinbuße means loss of income. The amount describes money no longer earned each month.",
+              "de": "Einkommenseinbuße bedeutet Verringerung der bisherigen Einnahmen. Es geht um monatlich entgangene Einnahmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kurzarbeit führte bei ihm zu einer monatlichen Einkommenseinbuße von 400 Euro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial pass, 2026-10-29: checked complete sentence \"Die Kurzarbeit führte bei ihm zu einer monatlichen Einkommenseinbuße von 400 Euro.\", case/number, meaning, all offered options (Lohnerhöhung / Sonderzahlung / Steuererstattung / Einkommenseinbuße), single accepted answer \"Einkommenseinbuße\", and bilingual hint/feedback. Distinct context from sibling variant; human review pending."
+        }
+      ]
+    }
+  ]
+}

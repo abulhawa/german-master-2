@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000006200",
+      "title": {
+        "en": "Using Büchse in context",
+        "de": "Büchse im Kontext"
+      },
+      "description": {
+        "en": "Recognize metal can or tin in two contexts.",
+        "de": "Die Bedeutung „Büchse; Dose“ in zwei Situationen erkennen."
+      },
+      "objective": "Identify Büchse for a metal container.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L437 (c0ab025731be0c370222776e3fa9921267b2ca02b4b418ced5043e90f213c8b0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L437-v1",
+          "contextKey": "legacy-0062-L437-context-1",
+          "transferKey": "legacy-0062-L437-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006200",
+            "type": "choice",
+            "prompt": "Die Kekse liegen in einer runden ___ aus Metall.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The biscuits are in a tin.",
+              "de": "Die Kekse liegen in einer Metalldose."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Büchse"
+              },
+              {
+                "id": "1",
+                "text": "Bühne"
+              },
+              {
+                "id": "2",
+                "text": "Bürste"
+              },
+              {
+                "id": "3",
+                "text": "Burg"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The biscuits are in a tin. Here \"Büchse\" means metal can or tin.",
+              "de": "Die Kekse liegen in einer Metalldose. „Büchse“ bedeutet hier „Büchse; Dose“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kekse liegen in einer runden Büchse aus Metall.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Büchse / Bühne / Bürste / Burg), unique intended answer \"Büchse\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L437-v2",
+          "contextKey": "legacy-0062-L437-context-2",
+          "transferKey": "legacy-0062-L437-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006200",
+            "type": "gap_choice",
+            "prompt": "Er öffnete die ___ mit dem Dosenöffner.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A can opener opens a can.",
+              "de": "Der Dosenöffner öffnet die Büchse."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bürste"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Büchse"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bühne"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A can opener opens a can. Here \"Büchse\" means metal can or tin.",
+              "de": "Der Dosenöffner öffnet die Büchse. „Büchse“ bedeutet hier „Büchse; Dose“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er öffnete die Büchse mit dem Dosenöffner.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Buchung / Bürste / Büchse / Bühne), unique intended answer \"Büchse\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006201",
+      "title": {
+        "en": "Using Buchung in context",
+        "de": "Buchung im Kontext"
+      },
+      "description": {
+        "en": "Recognize booking or reservation in two contexts.",
+        "de": "Die Bedeutung „Buchung; Reservierung“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Buchung for hotel reservations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L439 (4be50cc8b1535b4ecb925b24fbb9bdbb1711dd95b5f5a6927a92cff4748599d9), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L439-v1",
+          "contextKey": "legacy-0062-L439-context-1",
+          "transferKey": "legacy-0062-L439-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006201",
+            "type": "choice",
+            "prompt": "Nach der Online-Reservierung erhielt sie eine Bestätigung ihrer ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Her reservation was confirmed.",
+              "de": "Ihre Reservierung wurde bestätigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bildung"
+              },
+              {
+                "id": "1",
+                "text": "Buchung"
+              },
+              {
+                "id": "2",
+                "text": "Bürste"
+              },
+              {
+                "id": "3",
+                "text": "Bühne"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Her reservation was confirmed. Here \"Buchung\" means booking or reservation.",
+              "de": "Ihre Reservierung wurde bestätigt. „Buchung“ bedeutet hier „Buchung; Reservierung“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Online-Reservierung erhielt sie eine Bestätigung ihrer Buchung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Bildung / Buchung / Bürste / Bühne), unique intended answer \"Buchung\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L439-v2",
+          "contextKey": "legacy-0062-L439-context-2",
+          "transferKey": "legacy-0062-L439-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006201",
+            "type": "gap_choice",
+            "prompt": "Die ___ des Hotelzimmers kann bis morgen kostenlos storniert werden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The hotel reservation can be canceled.",
+              "de": "Die Zimmerreservierung lässt sich stornieren."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Büchse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Burg"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bürgerin"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Buchung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The hotel reservation can be canceled. Here \"Buchung\" means booking or reservation.",
+              "de": "Die Zimmerreservierung lässt sich stornieren. „Buchung“ bedeutet hier „Buchung; Reservierung“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Buchung des Hotelzimmers kann bis morgen kostenlos storniert werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Büchse / Burg / Bürgerin / Buchung), unique intended answer \"Buchung\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006203",
+      "title": {
+        "en": "Using Buffet in context",
+        "de": "Buffet im Kontext"
+      },
+      "description": {
+        "en": "Recognize self-service food selection in two contexts.",
+        "de": "Die Bedeutung „Buffet; Selbstbedienungsangebot“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Buffet for self-service food.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L441 (024aba3d44c2155c7f5090e55d901ea187b2dae991731ba92bae205af89d45d5), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L441-v1",
+          "contextKey": "legacy-0062-L441-context-1",
+          "transferKey": "legacy-0062-L441-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006203",
+            "type": "choice",
+            "prompt": "Beim Empfang konnten sich die Gäste am ___ selbst bedienen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Guests chose their food themselves.",
+              "de": "Die Gäste nahmen sich Speisen vom Buffet."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Buffet"
+              },
+              {
+                "id": "1",
+                "text": "Briefkasten"
+              },
+              {
+                "id": "2",
+                "text": "Businessplan"
+              },
+              {
+                "id": "3",
+                "text": "Bildschirm"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Guests chose their food themselves. Here \"Buffet\" means self-service food selection.",
+              "de": "Die Gäste nahmen sich Speisen vom Buffet. „Buffet“ bedeutet hier „Buffet; Selbstbedienungsangebot“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Empfang konnten sich die Gäste am Buffet selbst bedienen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Buffet / Briefkasten / Businessplan / Bildschirm), unique intended answer \"Buffet\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L441-v2",
+          "contextKey": "legacy-0062-L441-context-2",
+          "transferKey": "legacy-0062-L441-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006203",
+            "type": "gap_choice",
+            "prompt": "Zum Frühstück gibt es ein ___ mit Brot, Obst und Käse.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Breakfast offers several foods for self-service.",
+              "de": "Zum Frühstück gibt es ein Buffet."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Büchse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bürste"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Buffet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bühne"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Breakfast offers several foods for self-service. Here \"Buffet\" means self-service food selection.",
+              "de": "Zum Frühstück gibt es ein Buffet. „Buffet“ bedeutet hier „Buffet; Selbstbedienungsangebot“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zum Frühstück gibt es ein Buffet mit Brot, Obst und Käse.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Büchse / Bürste / Buffet / Bühne), unique intended answer \"Buffet\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006204",
+      "title": {
+        "en": "Using Bühne in context",
+        "de": "Bühne im Kontext"
+      },
+      "description": {
+        "en": "Recognize stage for a performance in two contexts.",
+        "de": "Die Bedeutung „Bühne; Aufführungsfläche“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Bühne for concerts and performances.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L442 (b64096c63a886354e58555223902612ad833137f0a31e6bdec5f774c66306ea0), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L442-v1",
+          "contextKey": "legacy-0062-L442-context-1",
+          "transferKey": "legacy-0062-L442-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006204",
+            "type": "choice",
+            "prompt": "Die Sängerin betrat die ___, als das Publikum applaudierte.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The singer stepped onto the stage.",
+              "de": "Die Sängerin ging auf die Aufführungsfläche."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Burg"
+              },
+              {
+                "id": "1",
+                "text": "Bühne"
+              },
+              {
+                "id": "2",
+                "text": "Börse"
+              },
+              {
+                "id": "3",
+                "text": "Büchse"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The singer stepped onto the stage. Here \"Bühne\" means stage for a performance.",
+              "de": "Die Sängerin ging auf die Aufführungsfläche. „Bühne“ bedeutet hier „Bühne; Aufführungsfläche“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Sängerin betrat die Bühne, als das Publikum applaudierte.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Burg / Bühne / Börse / Büchse), unique intended answer \"Bühne\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L442-v2",
+          "contextKey": "legacy-0062-L442-context-2",
+          "transferKey": "legacy-0062-L442-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006204",
+            "type": "gap_choice",
+            "prompt": "Vor dem Konzert bauten Techniker die ___ in der Halle auf.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The stage was assembled before the concert.",
+              "de": "Die Bühne wurde aufgebaut."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bürste"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Briefkasten"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bühne"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The stage was assembled before the concert. Here \"Bühne\" means stage for a performance.",
+              "de": "Die Bühne wurde aufgebaut. „Bühne“ bedeutet hier „Bühne; Aufführungsfläche“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Konzert bauten Techniker die Bühne in der Halle auf.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Bürste / Buchung / Briefkasten / Bühne), unique intended answer \"Bühne\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006205",
+      "title": {
+        "en": "Using Bundesagentur in context",
+        "de": "Bundesagentur im Kontext"
+      },
+      "description": {
+        "en": "Recognize German federal employment agency in two contexts.",
+        "de": "Die Bedeutung „Bundesagentur für Arbeit“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Bundesagentur in the official agency name.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L443 (b7beaae99ceb94f6e2c18bf9fe4bd4ee1a2f3f08546f5b94eba3351f43ad0937), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L443-v1",
+          "contextKey": "legacy-0062-L443-context-1",
+          "transferKey": "legacy-0062-L443-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006205",
+            "type": "choice",
+            "prompt": "Die ___ für Arbeit informiert über Stellenangebote und berufliche Förderung.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The agency provides job information.",
+              "de": "Die Bundesagentur für Arbeit informiert zur Jobsuche."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bundesagentur"
+              },
+              {
+                "id": "1",
+                "text": "Börse"
+              },
+              {
+                "id": "2",
+                "text": "Buchhaltung"
+              },
+              {
+                "id": "3",
+                "text": "Buchhandlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The agency provides job information. Here \"Bundesagentur\" means German federal employment agency.",
+              "de": "Die Bundesagentur für Arbeit informiert zur Jobsuche. „Bundesagentur“ bedeutet hier „Bundesagentur für Arbeit“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bundesagentur für Arbeit informiert über Stellenangebote und berufliche Förderung.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Bundesagentur / Börse / Buchhaltung / Buchhandlung), unique intended answer \"Bundesagentur\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L443-v2",
+          "contextKey": "legacy-0062-L443-context-2",
+          "transferKey": "legacy-0062-L443-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006205",
+            "type": "gap_choice",
+            "prompt": "Bei Fragen zur Arbeitsvermittlung kann man sich an die ___ für Arbeit wenden.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The agency handles employment services.",
+              "de": "Die Bundesagentur für Arbeit unterstützt bei der Jobsuche."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bundesbank"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bundesregierung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bundesagentur"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bundespolizei"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The agency handles employment services. Here \"Bundesagentur\" means German federal employment agency.",
+              "de": "Die Bundesagentur für Arbeit unterstützt bei der Jobsuche. „Bundesagentur“ bedeutet hier „Bundesagentur für Arbeit“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei Fragen zur Arbeitsvermittlung kann man sich an die Bundesagentur für Arbeit wenden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Bundesbank / Bundesregierung / Bundesagentur / Bundespolizei), unique intended answer \"Bundesagentur\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006206",
+      "title": {
+        "en": "Using Burg in context",
+        "de": "Burg im Kontext"
+      },
+      "description": {
+        "en": "Recognize fortified castle in two contexts.",
+        "de": "Die Bedeutung „Burg; Festung“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Burg for a historical fortified structure.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L444 (8a966de896c1de4301d14b75df6fdc6b55d4d004d70e2d4845c2ec2ea7fa434d), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L444-v1",
+          "contextKey": "legacy-0062-L444-context-1",
+          "transferKey": "legacy-0062-L444-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620060",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006206",
+            "type": "choice",
+            "prompt": "Auf dem Hügel steht eine alte ___ mit Türmen und Mauern.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The structure has towers and walls.",
+              "de": "Auf dem Hügel steht eine befestigte Burg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bühne"
+              },
+              {
+                "id": "1",
+                "text": "Burg"
+              },
+              {
+                "id": "2",
+                "text": "Büchse"
+              },
+              {
+                "id": "3",
+                "text": "Bürste"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The structure has towers and walls. Here \"Burg\" means fortified castle.",
+              "de": "Auf dem Hügel steht eine befestigte Burg. „Burg“ bedeutet hier „Burg; Festung“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf dem Hügel steht eine alte Burg mit Türmen und Mauern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Bühne / Burg / Büchse / Bürste), unique intended answer \"Burg\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L444-v2",
+          "contextKey": "legacy-0062-L444-context-2",
+          "transferKey": "legacy-0062-L444-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620061",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006206",
+            "type": "gap_choice",
+            "prompt": "Die Besucher gingen durch das Tor der mittelalterlichen ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "They entered a medieval castle.",
+              "de": "Die Besucher betraten die Burg."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Börse"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Branche"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Burg"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "They entered a medieval castle. Here \"Burg\" means fortified castle.",
+              "de": "Die Besucher betraten die Burg. „Burg“ bedeutet hier „Burg; Festung“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Besucher gingen durch das Tor der mittelalterlichen Burg.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Buchung / Börse / Branche / Burg), unique intended answer \"Burg\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006207",
+      "title": {
+        "en": "Using Bürger in context",
+        "de": "Bürger im Kontext"
+      },
+      "description": {
+        "en": "Recognize citizen or local resident in two contexts.",
+        "de": "Die Bedeutung „Bürger; Einwohner“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Bürger for members of a town's community.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L445 (1afae697bec981eb8241b5bd539fa51b3f8846af423cbfddb7438b6064567c00), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L445-v1",
+          "contextKey": "legacy-0062-L445-context-1",
+          "transferKey": "legacy-0062-L445-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006207",
+            "type": "choice",
+            "prompt": "Ein ___ der Stadt schrieb an das Rathaus, weil die Straße beschädigt war.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A resident contacted city hall.",
+              "de": "Ein Einwohner wandte sich an das Rathaus."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Bürger"
+              },
+              {
+                "id": "1",
+                "text": "Briefträger"
+              },
+              {
+                "id": "2",
+                "text": "Buchhalter"
+              },
+              {
+                "id": "3",
+                "text": "Besucher"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "A resident contacted city hall. Here \"Bürger\" means citizen or local resident.",
+              "de": "Ein Einwohner wandte sich an das Rathaus. „Bürger“ bedeutet hier „Bürger; Einwohner“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ein Bürger der Stadt schrieb an das Rathaus, weil die Straße beschädigt war.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Bürger / Briefträger / Buchhalter / Besucher), unique intended answer \"Bürger\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L445-v2",
+          "contextKey": "legacy-0062-L445-context-2",
+          "transferKey": "legacy-0062-L445-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006207",
+            "type": "gap_choice",
+            "prompt": "Die Gemeinde lädt ihre ___ zu einer öffentlichen Informationsveranstaltung ein.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The municipality invites its residents.",
+              "de": "Die Einwohner sind eingeladen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bewerber"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Briefträger"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bürger"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Besucher"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The municipality invites its residents. Here \"Bürger\" means citizen or local resident.",
+              "de": "Die Einwohner sind eingeladen. „Bürger“ bedeutet hier „Bürger; Einwohner“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gemeinde lädt ihre Bürger zu einer öffentlichen Informationsveranstaltung ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Bewerber / Briefträger / Bürger / Besucher), unique intended answer \"Bürger\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006210",
+      "title": {
+        "en": "Using Bürokaufmann in context",
+        "de": "Bürokaufmann im Kontext"
+      },
+      "description": {
+        "en": "Recognize male office administration worker in two contexts.",
+        "de": "Die Bedeutung „Bürokaufmann; Büroangestellter“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Bürokaufmann for office administration tasks.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L449 (d0aa7970cfb5c93e724e11203f9d51e63a008e184e4551e9b06c683c912d7e1c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L449-v1",
+          "contextKey": "legacy-0062-L449-context-1",
+          "transferKey": "legacy-0062-L449-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006210",
+            "type": "choice",
+            "prompt": "Der ___ organisiert Rechnungen, Termine und Schriftverkehr im Büro.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The job involves office administration.",
+              "de": "Die Person erledigt kaufmännische Büroaufgaben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Chemielaborant"
+              },
+              {
+                "id": "1",
+                "text": "Bürokaufmann"
+              },
+              {
+                "id": "2",
+                "text": "Briefträger"
+              },
+              {
+                "id": "3",
+                "text": "Busfahrer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "The job involves office administration. Here \"Bürokaufmann\" means male office administration worker.",
+              "de": "Die Person erledigt kaufmännische Büroaufgaben. „Bürokaufmann“ bedeutet hier „Bürokaufmann; Büroangestellter“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Bürokaufmann organisiert Rechnungen, Termine und Schriftverkehr im Büro.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Chemielaborant / Bürokaufmann / Briefträger / Busfahrer), unique intended answer \"Bürokaufmann\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L449-v2",
+          "contextKey": "legacy-0062-L449-context-2",
+          "transferKey": "legacy-0062-L449-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006210",
+            "type": "gap_choice",
+            "prompt": "Für die Büroverwaltung stellte die Firma einen ___ mit kaufmännischer Ausbildung ein.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The employee has commercial office training.",
+              "de": "Gesucht wurde ein kaufmännischer Büroangestellter."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bäcker"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Feuerwehrmann"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bauarbeiter"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bürokaufmann"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The employee has commercial office training. Here \"Bürokaufmann\" means male office administration worker.",
+              "de": "Gesucht wurde ein kaufmännischer Büroangestellter. „Bürokaufmann“ bedeutet hier „Bürokaufmann; Büroangestellter“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Büroverwaltung stellte die Firma einen Bürokaufmann mit kaufmännischer Ausbildung ein.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Bäcker / Feuerwehrmann / Bauarbeiter / Bürokaufmann), unique intended answer \"Bürokaufmann\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006211",
+      "title": {
+        "en": "Using Büromanagement in context",
+        "de": "Büromanagement im Kontext"
+      },
+      "description": {
+        "en": "Recognize office management in two contexts.",
+        "de": "Die Bedeutung „Büromanagement; Büroorganisation“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Büromanagement for organizing office processes.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L450 (7be0b55489e46de662bc6aba5dbab94c8a72818b906ada4b3432d10007ce9738), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L450-v1",
+          "contextKey": "legacy-0062-L450-context-1",
+          "transferKey": "legacy-0062-L450-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006211",
+            "type": "choice",
+            "prompt": "Zur Ausbildung im ___ gehören Terminplanung, Kommunikation und kaufmännische Abläufe.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The training covers office organization.",
+              "de": "Die Ausbildung behandelt Büroorganisation."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Büromanagement"
+              },
+              {
+                "id": "1",
+                "text": "Carsharing"
+              },
+              {
+                "id": "2",
+                "text": "Brandschutz"
+              },
+              {
+                "id": "3",
+                "text": "Chemielabor"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The training covers office organization. Here \"Büromanagement\" means office management.",
+              "de": "Die Ausbildung behandelt Büroorganisation. „Büromanagement“ bedeutet hier „Büromanagement; Büroorganisation“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Zur Ausbildung im Büromanagement gehören Terminplanung, Kommunikation und kaufmännische Abläufe.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Büromanagement / Carsharing / Brandschutz / Chemielabor), unique intended answer \"Büromanagement\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L450-v2",
+          "contextKey": "legacy-0062-L450-context-2",
+          "transferKey": "legacy-0062-L450-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006211",
+            "type": "gap_choice",
+            "prompt": "Das Team verbessert das ___, damit Besprechungen und Dokumente besser organisiert sind.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Office processes are being improved.",
+              "de": "Die Abläufe im Büro werden besser organisiert."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Bürgersteig"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Braten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Büromanagement"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Buchhandlung"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Office processes are being improved. Here \"Büromanagement\" means office management.",
+              "de": "Die Abläufe im Büro werden besser organisiert. „Büromanagement“ bedeutet hier „Büromanagement; Büroorganisation“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Team verbessert das Büromanagement, damit Besprechungen und Dokumente besser organisiert sind.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Bürgersteig / Braten / Büromanagement / Buchhandlung), unique intended answer \"Büromanagement\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006212",
+      "title": {
+        "en": "Using Bürste in context",
+        "de": "Bürste im Kontext"
+      },
+      "description": {
+        "en": "Recognize brush for cleaning in two contexts.",
+        "de": "Die Bedeutung „Bürste; Borstenwerkzeug“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Bürste for brushing shoes or surfaces.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L451 (5ac050394d44dd5954cdacd634ee8e0212f39f48052e661008cff6319cf95afe), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L451-v1",
+          "contextKey": "legacy-0062-L451-context-1",
+          "transferKey": "legacy-0062-L451-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006212",
+            "type": "choice",
+            "prompt": "Mit einer ___ entfernt sie den Staub von ihren Schuhen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A brush removes dust.",
+              "de": "Mit den Borsten wird Staub entfernt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Büchse"
+              },
+              {
+                "id": "1",
+                "text": "Bürste"
+              },
+              {
+                "id": "2",
+                "text": "Burg"
+              },
+              {
+                "id": "3",
+                "text": "Bühne"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "A brush removes dust. Here \"Bürste\" means brush for cleaning.",
+              "de": "Mit den Borsten wird Staub entfernt. „Bürste“ bedeutet hier „Bürste; Borstenwerkzeug“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit einer Bürste entfernt sie den Staub von ihren Schuhen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Büchse / Bürste / Burg / Bühne), unique intended answer \"Bürste\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L451-v2",
+          "contextKey": "legacy-0062-L451-context-2",
+          "transferKey": "legacy-0062-L451-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006212",
+            "type": "gap_choice",
+            "prompt": "Die ___ hat weiche Borsten und eignet sich für empfindliche Oberflächen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The tool has soft bristles.",
+              "de": "Die Bürste hat weiche Borsten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Brieftasche"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bühne"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bürste"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The tool has soft bristles. Here \"Bürste\" means brush for cleaning.",
+              "de": "Die Bürste hat weiche Borsten. „Bürste“ bedeutet hier „Bürste; Borstenwerkzeug“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Bürste hat weiche Borsten und eignet sich für empfindliche Oberflächen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Brieftasche / Buchung / Bühne / Bürste), unique intended answer \"Bürste\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006213",
+      "title": {
+        "en": "Using Businessplan in context",
+        "de": "Businessplan im Kontext"
+      },
+      "description": {
+        "en": "Recognize plan for a business in two contexts.",
+        "de": "Die Bedeutung „Businessplan; Geschäftsplan“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Businessplan for startup planning.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L453 (765acfd0bb4139baefc7c882a2eb1e2e068beff8620e94b30b5669a77e3bd725), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L453-v1",
+          "contextKey": "legacy-0062-L453-context-1",
+          "transferKey": "legacy-0062-L453-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006213",
+            "type": "choice",
+            "prompt": "Im ___ beschreibt das Gründerteam seine Geschäftsidee und erwarteten Kosten.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The founders describe the business plan.",
+              "de": "Der Geschäftsplan enthält Idee und Kosten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Businessplan"
+              },
+              {
+                "id": "1",
+                "text": "Briefumschlag"
+              },
+              {
+                "id": "2",
+                "text": "Bürgersteig"
+              },
+              {
+                "id": "3",
+                "text": "Brandmelder"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The founders describe the business plan. Here \"Businessplan\" means plan for a business.",
+              "de": "Der Geschäftsplan enthält Idee und Kosten. „Businessplan“ bedeutet hier „Businessplan; Geschäftsplan“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Businessplan beschreibt das Gründerteam seine Geschäftsidee und erwarteten Kosten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Businessplan / Briefumschlag / Bürgersteig / Brandmelder), unique intended answer \"Businessplan\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L453-v2",
+          "contextKey": "legacy-0062-L453-context-2",
+          "transferKey": "legacy-0062-L453-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006213",
+            "type": "gap_choice",
+            "prompt": "Vor dem Gespräch mit Investoren überarbeitete sie den ___ mit Umsatzprognosen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Investors want financial projections.",
+              "de": "Der Businessplan enthält Umsatzprognosen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhalter"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Businessplan"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Büfett"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Investors want financial projections. Here \"Businessplan\" means plan for a business.",
+              "de": "Der Businessplan enthält Umsatzprognosen. „Businessplan“ bedeutet hier „Businessplan; Geschäftsplan“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Gespräch mit Investoren überarbeitete sie den Businessplan mit Umsatzprognosen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Buchhalter / Buchung / Businessplan / Büfett), unique intended answer \"Businessplan\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006214",
+      "title": {
+        "en": "Using CAD-Programm in context",
+        "de": "CAD-Programm im Kontext"
+      },
+      "description": {
+        "en": "Recognize computer-aided design software in two contexts.",
+        "de": "Die Bedeutung „CAD-Programm; Konstruktionssoftware“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize CAD-Programm for technical drawings.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L455 (cbc29f5bc7ae04898b102343394942123b0eaff742f72e20cce0ca25544f1364), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L455-v1",
+          "contextKey": "legacy-0062-L455-context-1",
+          "transferKey": "legacy-0062-L455-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006214",
+            "type": "choice",
+            "prompt": "Die Ingenieurin zeichnet ein dreidimensionales Bauteil mit einem ___.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She uses design software.",
+              "de": "Sie verwendet ein Konstruktionsprogramm."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Texteditor"
+              },
+              {
+                "id": "1",
+                "text": "CAD-Programm"
+              },
+              {
+                "id": "2",
+                "text": "Taschenrechner"
+              },
+              {
+                "id": "3",
+                "text": "Briefkasten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "She uses design software. Here \"CAD-Programm\" means computer-aided design software.",
+              "de": "Sie verwendet ein Konstruktionsprogramm. „CAD-Programm“ bedeutet hier „CAD-Programm; Konstruktionssoftware“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Ingenieurin zeichnet ein dreidimensionales Bauteil mit einem CAD-Programm.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Texteditor / CAD-Programm / Taschenrechner / Briefkasten), unique intended answer \"CAD-Programm\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L455-v2",
+          "contextKey": "legacy-0062-L455-context-2",
+          "transferKey": "legacy-0062-L455-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006214",
+            "type": "gap_choice",
+            "prompt": "Für die technische Zeichnung öffnet er das ___ auf dem Computer.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The task needs CAD software.",
+              "de": "Er nutzt Software für technische Zeichnungen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Carsharing"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Chemielabor"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Büromanagement"
+                  },
+                  {
+                    "id": "3",
+                    "text": "CAD-Programm"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The task needs CAD software. Here \"CAD-Programm\" means computer-aided design software.",
+              "de": "Er nutzt Software für technische Zeichnungen. „CAD-Programm“ bedeutet hier „CAD-Programm; Konstruktionssoftware“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die technische Zeichnung öffnet er das CAD-Programm auf dem Computer.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Carsharing / Chemielabor / Büromanagement / CAD-Programm), unique intended answer \"CAD-Programm\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006215",
+      "title": {
+        "en": "Using Carsharing in context",
+        "de": "Carsharing im Kontext"
+      },
+      "description": {
+        "en": "Recognize shared car rental in two contexts.",
+        "de": "Die Bedeutung „Carsharing; gemeinschaftliche Autonutzung“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Carsharing as booking shared vehicles.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L458 (03292b5571ff76b5228f98e1f5899a077ded2a646b4fbafa02bd0630355954cc), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L458-v1",
+          "contextKey": "legacy-0062-L458-context-1",
+          "transferKey": "legacy-0062-L458-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006215",
+            "type": "choice",
+            "prompt": "Beim ___ nutzen mehrere Personen nacheinander dieselben Mietautos.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Different users book the same cars.",
+              "de": "Mehrere Personen nutzen dieselben Autos nacheinander."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Carsharing"
+              },
+              {
+                "id": "1",
+                "text": "Fahrgemeinschaft"
+              },
+              {
+                "id": "2",
+                "text": "Autokauf"
+              },
+              {
+                "id": "3",
+                "text": "Taxifahrt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Different users book the same cars. Here \"Carsharing\" means shared car rental.",
+              "de": "Mehrere Personen nutzen dieselben Autos nacheinander. „Carsharing“ bedeutet hier „Carsharing; gemeinschaftliche Autonutzung“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Carsharing nutzen mehrere Personen nacheinander dieselben Mietautos.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Carsharing / Fahrgemeinschaft / Autokauf / Taxifahrt), unique intended answer \"Carsharing\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L458-v2",
+          "contextKey": "legacy-0062-L458-context-2",
+          "transferKey": "legacy-0062-L458-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006215",
+            "type": "gap_choice",
+            "prompt": "Statt ein eigenes Auto zu kaufen, bucht sie gelegentlich ein Fahrzeug über einen ___-Dienst.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She rents shared cars when needed.",
+              "de": "Sie nutzt einen Carsharing-Dienst."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Brandschutz"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Carsharing"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Chemielabor"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "She rents shared cars when needed. Here \"Carsharing\" means shared car rental.",
+              "de": "Sie nutzt einen Carsharing-Dienst. „Carsharing“ bedeutet hier „Carsharing; gemeinschaftliche Autonutzung“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Statt ein eigenes Auto zu kaufen, bucht sie gelegentlich ein Fahrzeug über einen Carsharing-Dienst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Buchhaltung / Brandschutz / Carsharing / Chemielabor), unique intended answer \"Carsharing\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006216",
+      "title": {
+        "en": "Using Chance in context",
+        "de": "Chance im Kontext"
+      },
+      "description": {
+        "en": "Recognize opportunity or possibility in two contexts.",
+        "de": "Die Bedeutung „Chance; Gelegenheit“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Chance for opportunities to succeed.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L461 (6f041236e1919021448c631aca90cef2ff40f7780d2ab032abbc42247b0bbb4c), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L461-v1",
+          "contextKey": "legacy-0062-L461-context-1",
+          "transferKey": "legacy-0062-L461-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006216",
+            "type": "choice",
+            "prompt": "Sie hat gute ___, die Prüfung zu bestehen, weil sie gründlich gelernt hat.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Preparation improves her prospects.",
+              "de": "Sie hat gute Aussichten auf Erfolg."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Sorgen"
+              },
+              {
+                "id": "1",
+                "text": "Chancen"
+              },
+              {
+                "id": "2",
+                "text": "Fehler"
+              },
+              {
+                "id": "3",
+                "text": "Grenzen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Preparation improves her prospects. Here \"Chancen\" means opportunity or possibility.",
+              "de": "Sie hat gute Aussichten auf Erfolg. „Chancen“ bedeutet hier „Chance; Gelegenheit“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie hat gute Chancen, die Prüfung zu bestehen, weil sie gründlich gelernt hat.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Sorgen / Chancen / Fehler / Grenzen), unique intended answer \"Chancen\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L461-v2",
+          "contextKey": "legacy-0062-L461-context-2",
+          "transferKey": "legacy-0062-L461-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006216",
+            "type": "gap_choice",
+            "prompt": "Das Praktikum ist eine große ___, neue Erfahrungen zu sammeln.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The internship offers an opportunity.",
+              "de": "Das Praktikum bietet eine Gelegenheit."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Büchse"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bürste"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Burg"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Chance"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The internship offers an opportunity. Here \"Chance\" means opportunity or possibility.",
+              "de": "Das Praktikum bietet eine Gelegenheit. „Chance“ bedeutet hier „Chance; Gelegenheit“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Praktikum ist eine große Chance, neue Erfahrungen zu sammeln.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Büchse / Bürste / Burg / Chance), unique intended answer \"Chance\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006217",
+      "title": {
+        "en": "Using Chancengleichheit in context",
+        "de": "Chancengleichheit im Kontext"
+      },
+      "description": {
+        "en": "Recognize equal opportunities in two contexts.",
+        "de": "Die Bedeutung „Chancengleichheit; gleiche Möglichkeiten“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Chancengleichheit for fair access.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L462 (06f3c1fd49981d89df93a998572e1c5ca7ad55216a57c2da1874782b741417b2), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L462-v1",
+          "contextKey": "legacy-0062-L462-context-1",
+          "transferKey": "legacy-0062-L462-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006217",
+            "type": "choice",
+            "prompt": "Die Schule will ___ fördern, damit alle Kinder unabhängig vom Einkommen ähnliche Möglichkeiten haben.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "All children should have similar chances.",
+              "de": "Alle Kinder sollen vergleichbare Chancen haben."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Chancengleichheit"
+              },
+              {
+                "id": "1",
+                "text": "Buchhaltung"
+              },
+              {
+                "id": "2",
+                "text": "Buchung"
+              },
+              {
+                "id": "3",
+                "text": "Bezahlung"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "All children should have similar chances. Here \"Chancengleichheit\" means equal opportunities.",
+              "de": "Alle Kinder sollen vergleichbare Chancen haben. „Chancengleichheit“ bedeutet hier „Chancengleichheit; gleiche Möglichkeiten“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Schule will Chancengleichheit fördern, damit alle Kinder unabhängig vom Einkommen ähnliche Möglichkeiten haben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Chancengleichheit / Buchhaltung / Buchung / Bezahlung), unique intended answer \"Chancengleichheit\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L462-v2",
+          "contextKey": "legacy-0062-L462-context-2",
+          "transferKey": "legacy-0062-L462-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006217",
+            "type": "gap_choice",
+            "prompt": "Bei der Einstellung achtet die Firma auf ___ und bewertet alle Bewerbungen nach denselben Kriterien.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "Applicants are judged by the same criteria.",
+              "de": "Alle Bewerbenden werden fair behandelt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Brandschutz"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Chancengleichheit"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Carsharing"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Applicants are judged by the same criteria. Here \"Chancengleichheit\" means equal opportunities.",
+              "de": "Alle Bewerbenden werden fair behandelt. „Chancengleichheit“ bedeutet hier „Chancengleichheit; gleiche Möglichkeiten“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Einstellung achtet die Firma auf Chancengleichheit und bewertet alle Bewerbungen nach denselben Kriterien.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Brandschutz / Buchhaltung / Chancengleichheit / Carsharing), unique intended answer \"Chancengleichheit\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006218",
+      "title": {
+        "en": "Using Checkliste in context",
+        "de": "Checkliste im Kontext"
+      },
+      "description": {
+        "en": "Recognize checklist in two contexts.",
+        "de": "Die Bedeutung „Checkliste; Prüfliste“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Checkliste for steps to tick off.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L463 (a8620ead195304e2273e0ccbe0471170299399a0f3bfa51e87bc7801aedce28e), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L463-v1",
+          "contextKey": "legacy-0062-L463-context-1",
+          "transferKey": "legacy-0062-L463-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006218",
+            "type": "choice",
+            "prompt": "Vor der Reise geht sie ihre ___ durch, damit sie nichts vergisst.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "She checks each item.",
+              "de": "Sie geht die Liste Punkt für Punkt durch."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Buchung"
+              },
+              {
+                "id": "1",
+                "text": "Checkliste"
+              },
+              {
+                "id": "2",
+                "text": "Bürste"
+              },
+              {
+                "id": "3",
+                "text": "Büchse"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "She checks each item. Here \"Checkliste\" means checklist.",
+              "de": "Sie geht die Liste Punkt für Punkt durch. „Checkliste“ bedeutet hier „Checkliste; Prüfliste“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Reise geht sie ihre Checkliste durch, damit sie nichts vergisst.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Buchung / Checkliste / Bürste / Büchse), unique intended answer \"Checkliste\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L463-v2",
+          "contextKey": "legacy-0062-L463-context-2",
+          "transferKey": "legacy-0062-L463-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006218",
+            "type": "gap_choice",
+            "prompt": "Die ___ enthält alle Schritte zum Abhaken, die vor der Geräteprüfung erledigt werden müssen.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The list has tasks to check off.",
+              "de": "Die Liste enthält Prüfpunkte zum Abhaken."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhaltung"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Broschüre"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Bühne"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Checkliste"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "The list has tasks to check off. Here \"Checkliste\" means checklist.",
+              "de": "Die Liste enthält Prüfpunkte zum Abhaken. „Checkliste“ bedeutet hier „Checkliste; Prüfliste“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Checkliste enthält alle Schritte zum Abhaken, die vor der Geräteprüfung erledigt werden müssen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Buchhaltung / Broschüre / Bühne / Checkliste), unique intended answer \"Checkliste\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000006219",
+      "title": {
+        "en": "Using Chemielaborant in context",
+        "de": "Chemielaborant im Kontext"
+      },
+      "description": {
+        "en": "Recognize chemical laboratory technician in two contexts.",
+        "de": "Die Bedeutung „Chemielaborant; Fachkraft im Chemielabor“ in zwei Situationen erkennen."
+      },
+      "objective": "Recognize Chemielaborant for sample analysis.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 exercises based on lexical facts from pinned apps/web/data/pos/nouns.jsonl:L466 (de6d20174af718ab2bd952997131208e6434b05b4d2723d318cc6cd570d30744), 2026-10-29. Inherited examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial pass documented in report; human approval pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0062-L466-v1",
+          "contextKey": "legacy-0062-L466-context-1",
+          "transferKey": "legacy-0062-L466-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620190",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006219",
+            "type": "choice",
+            "prompt": "Der ___ analysiert Proben und arbeitet mit Laborgeräten.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "The profession involves laboratory analysis.",
+              "de": "Die Fachkraft untersucht Proben im Labor."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "Chemielaborant"
+              },
+              {
+                "id": "1",
+                "text": "Bürokaufmann"
+              },
+              {
+                "id": "2",
+                "text": "Briefträger"
+              },
+              {
+                "id": "3",
+                "text": "Busfahrer"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "The profession involves laboratory analysis. Here \"Chemielaborant\" means chemical laboratory technician.",
+              "de": "Die Fachkraft untersucht Proben im Labor. „Chemielaborant“ bedeutet hier „Chemielaborant; Fachkraft im Chemielabor“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Chemielaborant analysiert Proben und arbeitet mit Laborgeräten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Chemielaborant / Bürokaufmann / Briefträger / Busfahrer), unique intended answer \"Chemielaborant\", grammatical form, bilingual feedback and different context. Human review pending."
+        },
+        {
+          "variantKey": "legacy-0062-L466-v2",
+          "contextKey": "legacy-0062-L466-context-2",
+          "transferKey": "legacy-0062-L466-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000620191",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000006219",
+            "type": "gap_choice",
+            "prompt": "Für die Untersuchung der Wasserprobe wurde ein ___ im Labor eingesetzt.",
+            "instruction": {
+              "en": "Choose the expression that best completes the sentence.",
+              "de": "Wähle den Ausdruck, der den Satz am besten ergänzt."
+            },
+            "hint": {
+              "en": "A lab specialist analyzed the sample.",
+              "de": "Ein Fachmann im Chemielabor wurde eingesetzt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "Buchhändler"
+                  },
+                  {
+                    "id": "1",
+                    "text": "Bühnenarbeiter"
+                  },
+                  {
+                    "id": "2",
+                    "text": "Chemielaborant"
+                  },
+                  {
+                    "id": "3",
+                    "text": "Bürger"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "A lab specialist analyzed the sample. Here \"Chemielaborant\" means chemical laboratory technician.",
+              "de": "Ein Fachmann im Chemielabor wurde eingesetzt. „Chemielaborant“ bedeutet hier „Chemielaborant; Fachkraft im Chemielabor“. "
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für die Untersuchung der Wasserprobe wurde ein Chemielaborant im Labor eingesetzt.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 AI editorial review 2026-10-29: checked full German sentence, all options (Buchhändler / Bühnenarbeiter / Chemielaborant / Bürger), unique intended answer \"Chemielaborant\", grammatical form, bilingual feedback and different context. Human review pending."
+        }
+      ]
+    }
+  ]
+}

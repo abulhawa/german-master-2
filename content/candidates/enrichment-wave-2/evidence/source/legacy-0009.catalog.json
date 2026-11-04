@@ -1,0 +1,2869 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000000900",
+      "title": {
+        "en": "Retrieve stored information",
+        "de": "Daten abrufen"
+      },
+      "description": {
+        "en": "Identify retrieval of stored documents and records.",
+        "de": "Das Abrufen gespeicherter Dokumente und Daten erkennen."
+      },
+      "objective": "Recognize abrufen as retrieving information from a digital system.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L25 (9ad2d2b171f2cb6819ea62d31e9f6d7010803c130f8e6d72f8efbe9a249d7019), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L25-v1",
+          "contextKey": "legacy-0009-L25-context-1",
+          "transferKey": "legacy-0009-L25-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090000",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000900",
+            "type": "choice",
+            "prompt": "Im Online-Portal kann ich meinen gespeicherten Bescheid ___ und auf dem Bildschirm lesen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Information already exists in a system and is being accessed.",
+              "de": "Die Information ist bereits im System gespeichert und wird aufgerufen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abrufen"
+              },
+              {
+                "id": "1",
+                "text": "absagen"
+              },
+              {
+                "id": "2",
+                "text": "abgeben"
+              },
+              {
+                "id": "3",
+                "text": "anmelden"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Abrufen means retrieving or calling up stored information.",
+              "de": "Abrufen bedeutet, gespeicherte Informationen aus einem System aufzurufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Online-Portal kann ich meinen gespeicherten Bescheid abrufen und auf dem Bildschirm lesen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives absagen, abgeben, anmelden do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L25-v2",
+          "contextKey": "legacy-0009-L25-context-2",
+          "transferKey": "legacy-0009-L25-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090001",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000900",
+            "type": "gap_choice",
+            "prompt": "Der Kundendienst kann die Bestelldaten im System ___ und sofort anzeigen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Information already exists in a system and is being accessed.",
+              "de": "Die Information ist bereits im System gespeichert und wird aufgerufen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "ausfüllen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "erstatten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abrufen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "absagen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Abrufen means retrieving or calling up stored information.",
+              "de": "Abrufen bedeutet, gespeicherte Informationen aus einem System aufzurufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Kundendienst kann die Bestelldaten im System abrufen und sofort anzeigen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives ausfüllen, erstatten, absagen do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000901",
+      "title": {
+        "en": "Cancel an appointment or event",
+        "de": "Einen Termin absagen"
+      },
+      "description": {
+        "en": "Distinguish cancellation from rescheduling.",
+        "de": "Absagen von Verschieben unterscheiden."
+      },
+      "objective": "Recognize absagen as canceling an event or appointment rather than postponing it.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L26 (8e5a00ab9dcc4be939eb85f5421411d0fa0c280a81348964455fc5650f322f41), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L26-v1",
+          "contextKey": "legacy-0009-L26-context-1",
+          "transferKey": "legacy-0009-L26-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000901",
+            "type": "choice",
+            "prompt": "Das Konzert fällt ersatzlos aus. Der Veranstalter muss es ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The event will not take place and no replacement date is arranged.",
+              "de": "Die Veranstaltung findet nicht statt; ein neuer Termin ist nicht vorgesehen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "verschieben"
+              },
+              {
+                "id": "1",
+                "text": "ankündigen"
+              },
+              {
+                "id": "2",
+                "text": "verlängern"
+              },
+              {
+                "id": "3",
+                "text": "absagen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Absagen cancels a planned event; verschieben moves it to another date.",
+              "de": "Absagen bedeutet, dass ein Termin entfällt; verschieben bedeutet, ihn zu verlegen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Konzert fällt ersatzlos aus. Der Veranstalter muss es absagen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives verschieben, ankündigen, verlängern do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L26-v2",
+          "contextKey": "legacy-0009-L26-context-2",
+          "transferKey": "legacy-0009-L26-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000901",
+            "type": "gap_choice",
+            "prompt": "Ich kann morgen nicht kommen und möchte den Termin ganz ___, nicht auf einen anderen Tag verlegen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The event will not take place and no replacement date is arranged.",
+              "de": "Die Veranstaltung findet nicht statt; ein neuer Termin ist nicht vorgesehen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "vereinbaren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "absagen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "verschieben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "bestätigen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Absagen cancels a planned event; verschieben moves it to another date.",
+              "de": "Absagen bedeutet, dass ein Termin entfällt; verschieben bedeutet, ihn zu verlegen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Ich kann morgen nicht kommen und möchte den Termin ganz absagen, nicht auf einen anderen Tag verlegen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives vereinbaren, verschieben, bestätigen do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000902",
+      "title": {
+        "en": "Switch off or unwind",
+        "de": "Abschalten: Gerät und Gedanken"
+      },
+      "description": {
+        "en": "Identify the literal and figurative uses of abschalten.",
+        "de": "Die wörtliche und übertragene Bedeutung von abschalten erkennen."
+      },
+      "objective": "Recognize abschalten as switching off equipment or mentally disengaging to relax.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L27 (b1dbedefcf41457a0dd65e09fd7ff0107387edb43488b6ac3031322acd88e90a), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L27-v1",
+          "contextKey": "legacy-0009-L27-context-1",
+          "transferKey": "legacy-0009-L27-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090020",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000902",
+            "type": "choice",
+            "prompt": "Nach einer anstrengenden Schicht hilft mir ein Spaziergang, innerlich ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action either stops a device or helps a person stop thinking about work.",
+              "de": "Entweder wird ein Gerät ausgeschaltet oder jemand kommt gedanklich zur Ruhe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abzurechnen"
+              },
+              {
+                "id": "1",
+                "text": "anzufangen"
+              },
+              {
+                "id": "2",
+                "text": "abzuschalten"
+              },
+              {
+                "id": "3",
+                "text": "anzuschalten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Abschalten can mean switching off a device or unwinding mentally.",
+              "de": "Abschalten kann ein Gerät ausschalten oder geistig zur Ruhe kommen bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach einer anstrengenden Schicht hilft mir ein Spaziergang, innerlich abzuschalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abzurechnen, anzufangen, anzuschalten do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L27-v2",
+          "contextKey": "legacy-0009-L27-context-2",
+          "transferKey": "legacy-0009-L27-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090021",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000902",
+            "type": "gap_choice",
+            "prompt": "Vor dem Austausch der Sicherung muss man die Anlage komplett ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action either stops a device or helps a person stop thinking about work.",
+              "de": "Entweder wird ein Gerät ausgeschaltet oder jemand kommt gedanklich zur Ruhe."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abschalten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abstimmen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "absagen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abschreiben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Abschalten can mean switching off a device or unwinding mentally.",
+              "de": "Abschalten kann ein Gerät ausschalten oder geistig zur Ruhe kommen bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor dem Austausch der Sicherung muss man die Anlage komplett abschalten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abstimmen, absagen, abschreiben do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000903",
+      "title": {
+        "en": "Copy written text",
+        "de": "Einen Text abschreiben"
+      },
+      "description": {
+        "en": "Identify copying from a board or book.",
+        "de": "Das wortgetreue Abschreiben von Tafel oder Buch erkennen."
+      },
+      "objective": "Recognize abschreiben as copying existing written text word for word.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L29 (c9470b29f55670942104584011548570942eb9b98152717e31b0ee89e7b1f3d2), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L29-v1",
+          "contextKey": "legacy-0009-L29-context-1",
+          "transferKey": "legacy-0009-L29-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090030",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000903",
+            "type": "choice",
+            "prompt": "Die Lehrerin schreibt die Vokabeln an die Tafel. Die Schüler sollen sie in ihre Hefte ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The words already exist and are transferred into another written place.",
+              "de": "Der Text ist schon vorhanden und wird schriftlich übernommen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abgeben"
+              },
+              {
+                "id": "1",
+                "text": "abschreiben"
+              },
+              {
+                "id": "2",
+                "text": "abfragen"
+              },
+              {
+                "id": "3",
+                "text": "aussprechen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Abschreiben is copying existing writing, not translating or summarizing it.",
+              "de": "Abschreiben heißt, einen vorhandenen Text zu übernehmen, nicht ihn zu übersetzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehrerin schreibt die Vokabeln an die Tafel. Die Schüler sollen sie in ihre Hefte abschreiben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abgeben, abfragen, aussprechen do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L29-v2",
+          "contextKey": "legacy-0009-L29-context-2",
+          "transferKey": "legacy-0009-L29-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090031",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000903",
+            "type": "gap_choice",
+            "prompt": "Der Schüler übernimmt den Text Wort für Wort aus dem Buch, statt ihn selbst zu formulieren. Er will ihn ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The words already exist and are transferred into another written place.",
+              "de": "Der Text ist schon vorhanden und wird schriftlich übernommen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "auswerten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "korrigieren"
+                  },
+                  {
+                    "id": "2",
+                    "text": "übersetzen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abschreiben"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Abschreiben is copying existing writing, not translating or summarizing it.",
+              "de": "Abschreiben heißt, einen vorhandenen Text zu übernehmen, nicht ihn zu übersetzen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Schüler übernimmt den Text Wort für Wort aus dem Buch, statt ihn selbst zu formulieren. Er will ihn abschreiben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives auswerten, korrigieren, übersetzen do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000904",
+      "title": {
+        "en": "Secure against a risk",
+        "de": "Etwas absichern"
+      },
+      "description": {
+        "en": "Identify protective actions for premises and data.",
+        "de": "Schutzmaßnahmen für Gelände und Daten erkennen."
+      },
+      "objective": "Recognize absichern as protecting a place or data against a foreseeable risk.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L30 (6899767fcd6cd8bfe5c201a196d3cf2563036db98c636325c5ba63aff566284f), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L30-v1",
+          "contextKey": "legacy-0009-L30-context-1",
+          "transferKey": "legacy-0009-L30-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090040",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000904",
+            "type": "choice",
+            "prompt": "Das Baugelände wird mit einem Zaun ___, damit niemand unbefugt hineingeht.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something is protected against access, loss or damage.",
+              "de": "Etwas wird gegen Zutritt, Verlust oder Schaden geschützt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abgesichert"
+              },
+              {
+                "id": "1",
+                "text": "abgeschrieben"
+              },
+              {
+                "id": "2",
+                "text": "abgesagt"
+              },
+              {
+                "id": "3",
+                "text": "abgerufen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Absichern means taking protective precautions, for example with barriers or backups.",
+              "de": "Absichern bedeutet, durch Maßnahmen wie Absperrungen oder Backups Schutz herzustellen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Das Baugelände wird mit einem Zaun abgesichert, damit niemand unbefugt hineingeht.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abgeschrieben, abgesagt, abgerufen do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L30-v2",
+          "contextKey": "legacy-0009-L30-context-2",
+          "transferKey": "legacy-0009-L30-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090041",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000904",
+            "type": "gap_choice",
+            "prompt": "Bevor das Team die Datenbank ändert, will es die Dateien durch eine Sicherungskopie ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something is protected against access, loss or damage.",
+              "de": "Etwas wird gegen Zutritt, Verlust oder Schaden geschützt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "anmelden"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abschalten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "absichern"
+                  },
+                  {
+                    "id": "3",
+                    "text": "auswerten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Absichern means taking protective precautions, for example with barriers or backups.",
+              "de": "Absichern bedeutet, durch Maßnahmen wie Absperrungen oder Backups Schutz herzustellen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bevor das Team die Datenbank ändert, will es die Dateien durch eine Sicherungskopie absichern.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives anmelden, abschalten, auswerten do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000905",
+      "title": {
+        "en": "Complete formal training",
+        "de": "Eine Ausbildung absolvieren"
+      },
+      "description": {
+        "en": "Identify completion of internships and formal training.",
+        "de": "Den Abschluss von Praktika und Weiterbildungen erkennen."
+      },
+      "objective": "Recognize absolvieren as successfully completing a course, placement or training programme.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L31 (1e74fa3c0a40c758120b7d4d3892fa72f5e19df92a597c13def755c61db33308), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L31-v1",
+          "contextKey": "legacy-0009-L31-context-1",
+          "transferKey": "legacy-0009-L31-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090050",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000905",
+            "type": "choice",
+            "prompt": "Für den Beruf muss sie zunächst ein sechsmonatiges Praktikum ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The activity is a structured learning programme or placement.",
+              "de": "Es geht um eine geregelte Ausbildung, Weiterbildung oder ein Praktikum."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "absagen"
+              },
+              {
+                "id": "1",
+                "text": "abrufen"
+              },
+              {
+                "id": "2",
+                "text": "ablehnen"
+              },
+              {
+                "id": "3",
+                "text": "absolvieren"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Absolvieren means completing a structured programme or placement.",
+              "de": "Absolvieren bedeutet, eine Ausbildung, Weiterbildung oder ein Praktikum zu durchlaufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Beruf muss sie zunächst ein sechsmonatiges Praktikum absolvieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives absagen, abrufen, ablehnen do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L31-v2",
+          "contextKey": "legacy-0009-L31-context-2",
+          "transferKey": "legacy-0009-L31-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090051",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000905",
+            "type": "gap_choice",
+            "prompt": "Er hat die Weiterbildung erfolgreich ___ und ein Zertifikat bekommen.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The activity is a structured learning programme or placement.",
+              "de": "Es geht um eine geregelte Ausbildung, Weiterbildung oder ein Praktikum."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abgeschrieben"
+                  },
+                  {
+                    "id": "1",
+                    "text": "absolviert"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abgeschaltet"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abgesagt"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Absolvieren means completing a structured programme or placement.",
+              "de": "Absolvieren bedeutet, eine Ausbildung, Weiterbildung oder ein Praktikum zu durchlaufen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er hat die Weiterbildung erfolgreich absolviert und ein Zertifikat bekommen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abgeschrieben, abgeschaltet, abgesagt do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000907",
+      "title": {
+        "en": "Coordinate with others",
+        "de": "Sich abstimmen"
+      },
+      "description": {
+        "en": "Identify collaborative coordination rather than voting.",
+        "de": "Abstimmung im Sinn von Koordination statt Wahl erkennen."
+      },
+      "objective": "Recognize sich abstimmen as coordinating plans with other people or teams.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L33 (9f25f5323fafe919752d38e4b45ca3afdf69d8ca1135b24ca2b700581001af52), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L33-v1",
+          "contextKey": "legacy-0009-L33-context-1",
+          "transferKey": "legacy-0009-L33-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090070",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000907",
+            "type": "choice",
+            "prompt": "Bevor beide Teams starten, müssen sie ihre Zeitpläne aufeinander ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "People need to align their plans before proceeding.",
+              "de": "Mehrere Personen müssen ihre Pläne aufeinander abstimmen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abwaschen"
+              },
+              {
+                "id": "1",
+                "text": "abrufen"
+              },
+              {
+                "id": "2",
+                "text": "abstimmen"
+              },
+              {
+                "id": "3",
+                "text": "absagen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Sich abstimmen means coordinating with one another; abstimmen can also mean voting in a different context.",
+              "de": "Sich abstimmen bedeutet, sich abzusprechen; abstimmen kann in anderem Zusammenhang auch wählen bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bevor beide Teams starten, müssen sie ihre Zeitpläne aufeinander abstimmen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abwaschen, abrufen, absagen do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L33-v2",
+          "contextKey": "legacy-0009-L33-context-2",
+          "transferKey": "legacy-0009-L33-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090071",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000907",
+            "type": "gap_choice",
+            "prompt": "Wir sollten uns mit der Rechtsabteilung ___, bevor wir den Vertrag verschicken.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "People need to align their plans before proceeding.",
+              "de": "Mehrere Personen müssen ihre Pläne aufeinander abstimmen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abstimmen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abschalten"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abmelden"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abwägen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Sich abstimmen means coordinating with one another; abstimmen can also mean voting in a different context.",
+              "de": "Sich abstimmen bedeutet, sich abzusprechen; abstimmen kann in anderem Zusammenhang auch wählen bedeuten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Wir sollten uns mit der Rechtsabteilung abstimmen, bevor wir den Vertrag verschicken.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abschalten, abmelden, abwägen do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000908",
+      "title": {
+        "en": "Weigh alternatives",
+        "de": "Vor- und Nachteile abwägen"
+      },
+      "description": {
+        "en": "Identify balancing risks, benefits and costs before a decision.",
+        "de": "Das Abwägen von Risiken, Nutzen und Kosten erkennen."
+      },
+      "objective": "Recognize abwägen as carefully weighing advantages, disadvantages or competing considerations.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L34 (7faacf2cf323a189ee28f7107ca961cb2ee5d67313d8be6abd5347caac9ea80f), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L34-v1",
+          "contextKey": "legacy-0009-L34-context-1",
+          "transferKey": "legacy-0009-L34-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090080",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000908",
+            "type": "choice",
+            "prompt": "Vor der Entscheidung muss die Leitung Chancen und Risiken sorgfältig ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Different consequences are compared before choosing.",
+              "de": "Vor einer Entscheidung werden verschiedene Folgen verglichen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abmelden"
+              },
+              {
+                "id": "1",
+                "text": "abwägen"
+              },
+              {
+                "id": "2",
+                "text": "abrufen"
+              },
+              {
+                "id": "3",
+                "text": "abspülen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Abwägen means carefully considering competing factors before deciding.",
+              "de": "Abwägen heißt, unterschiedliche Gesichtspunkte vor einer Entscheidung gegeneinander zu prüfen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Vor der Entscheidung muss die Leitung Chancen und Risiken sorgfältig abwägen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abmelden, abrufen, abspülen do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L34-v2",
+          "contextKey": "legacy-0009-L34-context-2",
+          "transferKey": "legacy-0009-L34-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090081",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000908",
+            "type": "gap_choice",
+            "prompt": "Sie vergleicht mehrere Angebote und möchte Kosten und Nutzen gegeneinander ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Different consequences are compared before choosing.",
+              "de": "Vor einer Entscheidung werden verschiedene Folgen verglichen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "absagen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "anfallen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abschreiben"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abwägen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Abwägen means carefully considering competing factors before deciding.",
+              "de": "Abwägen heißt, unterschiedliche Gesichtspunkte vor einer Entscheidung gegeneinander zu prüfen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Sie vergleicht mehrere Angebote und möchte Kosten und Nutzen gegeneinander abwägen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives absagen, anfallen, abschreiben do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000909",
+      "title": {
+        "en": "Wash something off",
+        "de": "Etwas abwaschen"
+      },
+      "description": {
+        "en": "Identify washing dirty dishes and produce.",
+        "de": "Das Abwaschen von Geschirr und Lebensmitteln erkennen."
+      },
+      "objective": "Recognize abwaschen as cleaning dishes or food with water.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L35 (098f5906dcb313f42309e542ad597d0b0e7518c076762b5c4b3d9d3875811346), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L35-v1",
+          "contextKey": "legacy-0009-L35-context-1",
+          "transferKey": "legacy-0009-L35-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090090",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000909",
+            "type": "choice",
+            "prompt": "Nach dem Kochen muss ich die fettigen Teller gründlich ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Water removes dirt from the surface.",
+              "de": "Mit Wasser wird Schmutz von einer Oberfläche entfernt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abwaschen"
+              },
+              {
+                "id": "1",
+                "text": "abrufen"
+              },
+              {
+                "id": "2",
+                "text": "absagen"
+              },
+              {
+                "id": "3",
+                "text": "abschalten"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Abwaschen means washing something clean, such as dishes or fruit.",
+              "de": "Abwaschen bedeutet, etwas mit Wasser zu reinigen, etwa Geschirr oder Obst."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach dem Kochen muss ich die fettigen Teller gründlich abwaschen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abrufen, absagen, abschalten do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L35-v2",
+          "contextKey": "legacy-0009-L35-context-2",
+          "transferKey": "legacy-0009-L35-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090091",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000909",
+            "type": "gap_choice",
+            "prompt": "Die Erdbeeren sind sandig. Vor dem Essen solltest du sie unter fließendem Wasser ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Water removes dirt from the surface.",
+              "de": "Mit Wasser wird Schmutz von einer Oberfläche entfernt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abschreiben"
+                  },
+                  {
+                    "id": "1",
+                    "text": "anmelden"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abwaschen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abstimmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Abwaschen means washing something clean, such as dishes or fruit.",
+              "de": "Abwaschen bedeutet, etwas mit Wasser zu reinigen, etwa Geschirr oder Obst."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Erdbeeren sind sandig. Vor dem Essen solltest du sie unter fließendem Wasser abwaschen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abschreiben, anmelden, abstimmen do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000910",
+      "title": {
+        "en": "Aim at a goal",
+        "de": "Auf ein Ziel abzielen"
+      },
+      "description": {
+        "en": "Identify the aim of a campaign or programme.",
+        "de": "Die Zielrichtung einer Kampagne oder Maßnahme erkennen."
+      },
+      "objective": "Recognize abzielen auf as targeting an audience or intended outcome.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L36 (efb4ea1d0e6e0e299f67cb1182105707354b4404419a8caa058edcd0fcdce35b), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L36-v1",
+          "contextKey": "legacy-0009-L36-context-1",
+          "transferKey": "legacy-0009-L36-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090100",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000910",
+            "type": "choice",
+            "prompt": "Die Kampagne soll junge Eltern erreichen. Sie ___ auf diese Zielgruppe ab.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action has a particular target or intended effect.",
+              "de": "Die Maßnahme richtet sich auf ein bestimmtes Ziel oder eine Zielgruppe."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ruft"
+              },
+              {
+                "id": "1",
+                "text": "wägt"
+              },
+              {
+                "id": "2",
+                "text": "schreibt"
+              },
+              {
+                "id": "3",
+                "text": "zielt"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Auf etwas abzielen means aiming at a particular target or outcome.",
+              "de": "Auf etwas abzielen bedeutet, ein bestimmtes Ziel oder Ergebnis anzustreben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Kampagne soll junge Eltern erreichen. Sie zielt auf diese Zielgruppe ab.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives ruft, wägt, schreibt do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L36-v2",
+          "contextKey": "legacy-0009-L36-context-2",
+          "transferKey": "legacy-0009-L36-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090101",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000910",
+            "type": "gap_choice",
+            "prompt": "Mit dem neuen Programm wollen wir die Unfallzahlen senken. Es soll auf mehr Sicherheit ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The action has a particular target or intended effect.",
+              "de": "Die Maßnahme richtet sich auf ein bestimmtes Ziel oder eine Zielgruppe."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "absolvieren"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abzielen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abwaschen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abstimmen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Auf etwas abzielen means aiming at a particular target or outcome.",
+              "de": "Auf etwas abzielen bedeutet, ein bestimmtes Ziel oder Ergebnis anzustreben."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Mit dem neuen Programm wollen wir die Unfallzahlen senken. Es soll auf mehr Sicherheit abzielen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives absolvieren, abwaschen, abstimmen do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000911",
+      "title": {
+        "en": "Pay attention to",
+        "de": "Auf etwas achten"
+      },
+      "description": {
+        "en": "Identify attentiveness to safety signs and contract details.",
+        "de": "Aufmerksamkeit für Warnschilder und Vertragsdetails erkennen."
+      },
+      "objective": "Recognize auf etwas achten as paying attention to important details or warnings.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L37 (f651f8ad4339cd5a75c6a4a3158b9aeabd944ed9ee21f4bc92605978194c4060), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L37-v1",
+          "contextKey": "legacy-0009-L37-context-1",
+          "transferKey": "legacy-0009-L37-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090110",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000911",
+            "type": "choice",
+            "prompt": "Auf der Baustelle muss jeder ___ die Warnschilder achten.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An important detail must not be overlooked.",
+              "de": "Ein wichtiges Detail darf nicht übersehen werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "mit"
+              },
+              {
+                "id": "1",
+                "text": "über"
+              },
+              {
+                "id": "2",
+                "text": "auf"
+              },
+              {
+                "id": "3",
+                "text": "für"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Achten auf takes an accusative object and means paying attention to something.",
+              "de": "Achten auf steht mit Akkusativ und bedeutet, etwas aufmerksam zu beachten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Auf der Baustelle muss jeder auf die Warnschilder achten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives mit, über, für do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L37-v2",
+          "contextKey": "legacy-0009-L37-context-2",
+          "transferKey": "legacy-0009-L37-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090111",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000911",
+            "type": "gap_choice",
+            "prompt": "Beim Lesen des Vertrags sollte man besonders auf die Kündigungsfrist ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An important detail must not be overlooked.",
+              "de": "Ein wichtiges Detail darf nicht übersehen werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "achten"
+                  },
+                  {
+                    "id": "1",
+                    "text": "absagen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abwägen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abschalten"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Achten auf takes an accusative object and means paying attention to something.",
+              "de": "Achten auf steht mit Akkusativ und bedeutet, etwas aufmerksam zu beachten."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Beim Lesen des Vertrags sollte man besonders auf die Kündigungsfrist achten.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives absagen, abwägen, abschalten do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000912",
+      "title": {
+        "en": "Update information",
+        "de": "Daten aktualisieren"
+      },
+      "description": {
+        "en": "Identify updating records and website information.",
+        "de": "Das Aktualisieren von Kontaktdaten und Website-Angaben erkennen."
+      },
+      "objective": "Recognize aktualisieren as bringing stored information or published content up to date.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L38 (dd38d6fa37b5ade127e6d7c213703ad584a9b462a83f89a7db6da9d3aad4f993), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L38-v1",
+          "contextKey": "legacy-0009-L38-context-1",
+          "transferKey": "legacy-0009-L38-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090120",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000912",
+            "type": "choice",
+            "prompt": "Die Adresse ist veraltet. Bitte ___ Sie Ihre Kontaktdaten im Kundenkonto.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Old information must be replaced with the current version.",
+              "de": "Veraltete Angaben müssen auf den neuesten Stand gebracht werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "absolvieren"
+              },
+              {
+                "id": "1",
+                "text": "aktualisieren"
+              },
+              {
+                "id": "2",
+                "text": "analysieren"
+              },
+              {
+                "id": "3",
+                "text": "akzeptieren"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Aktualisieren means updating information so it reflects the current situation.",
+              "de": "Aktualisieren heißt, Informationen auf den neuesten Stand zu bringen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Adresse ist veraltet. Bitte aktualisieren Sie Ihre Kontaktdaten im Kundenkonto.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives absolvieren, analysieren, akzeptieren do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L38-v2",
+          "contextKey": "legacy-0009-L38-context-2",
+          "transferKey": "legacy-0009-L38-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090121",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000912",
+            "type": "gap_choice",
+            "prompt": "Nach der Änderung der Öffnungszeiten muss die Website ___ werden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Old information must be replaced with the current version.",
+              "de": "Veraltete Angaben müssen auf den neuesten Stand gebracht werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abgesagt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abgeschrieben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abgewogen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "aktualisiert"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Aktualisieren means updating information so it reflects the current situation.",
+              "de": "Aktualisieren heißt, Informationen auf den neuesten Stand zu bringen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Nach der Änderung der Öffnungszeiten muss die Website aktualisiert werden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abgesagt, abgeschrieben, abgewogen do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000913",
+      "title": {
+        "en": "Accept a proposal",
+        "de": "Einen Vorschlag akzeptieren"
+      },
+      "description": {
+        "en": "Identify acceptance of offers and apologies.",
+        "de": "Die Annahme von Angeboten und Entschuldigungen erkennen."
+      },
+      "objective": "Recognize akzeptieren as agreeing to a proposal or accepting an apology.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L39 (5b8fd16c8b6dc0855ca94c11d6a1eeef716179526f47c97e83fd933975e42834), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L39-v1",
+          "contextKey": "legacy-0009-L39-context-1",
+          "transferKey": "legacy-0009-L39-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090130",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000913",
+            "type": "choice",
+            "prompt": "Er stimmt dem Angebot zu und wird es ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person agrees instead of rejecting.",
+              "de": "Die Person stimmt zu, statt etwas abzulehnen."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "akzeptieren"
+              },
+              {
+                "id": "1",
+                "text": "analysieren"
+              },
+              {
+                "id": "2",
+                "text": "absagen"
+              },
+              {
+                "id": "3",
+                "text": "abwägen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Akzeptieren means accepting something or agreeing to it.",
+              "de": "Akzeptieren bedeutet, etwas anzunehmen oder ihm zuzustimmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Er stimmt dem Angebot zu und wird es akzeptieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives analysieren, absagen, abwägen do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L39-v2",
+          "contextKey": "legacy-0009-L39-context-2",
+          "transferKey": "legacy-0009-L39-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090131",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000913",
+            "type": "gap_choice",
+            "prompt": "Die Lehrerin entschuldigt sich für den Fehler. Der Schüler sagt, dass er die Entschuldigung ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "The person agrees instead of rejecting.",
+              "de": "Die Person stimmt zu, statt etwas abzulehnen."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "absagt"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abruft"
+                  },
+                  {
+                    "id": "2",
+                    "text": "akzeptiert"
+                  },
+                  {
+                    "id": "3",
+                    "text": "analysiert"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Akzeptieren means accepting something or agreeing to it.",
+              "de": "Akzeptieren bedeutet, etwas anzunehmen oder ihm zuzustimmen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Lehrerin entschuldigt sich für den Fehler. Der Schüler sagt, dass er die Entschuldigung akzeptiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives absagt, abruft, analysiert do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000914",
+      "title": {
+        "en": "Enjoy oneself",
+        "de": "Sich amüsieren"
+      },
+      "description": {
+        "en": "Identify enjoyment at celebrations and performances.",
+        "de": "Freude bei Feiern und Aufführungen erkennen."
+      },
+      "objective": "Recognize sich amüsieren as enjoying oneself or having fun.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L40 (790354666bbee4c099df7fa2540944038f0d603fead953d9255f52d121a376ba), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L40-v1",
+          "contextKey": "legacy-0009-L40-context-1",
+          "transferKey": "legacy-0009-L40-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090140",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000914",
+            "type": "choice",
+            "prompt": "Die Gäste lachen viel und ___ sich auf der Feier.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "People are entertained and having a good time.",
+              "de": "Die Menschen haben Spaß und fühlen sich gut unterhalten."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "ärgern"
+              },
+              {
+                "id": "1",
+                "text": "beschweren"
+              },
+              {
+                "id": "2",
+                "text": "beeilen"
+              },
+              {
+                "id": "3",
+                "text": "amüsieren"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Sich amüsieren means having fun; it is normally used reflexively in this sense.",
+              "de": "Sich amüsieren bedeutet Spaß haben; in dieser Bedeutung wird das Verb reflexiv gebraucht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Gäste lachen viel und amüsieren sich auf der Feier.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives ärgern, beschweren, beeilen do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L40-v2",
+          "contextKey": "legacy-0009-L40-context-2",
+          "transferKey": "legacy-0009-L40-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090141",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000914",
+            "type": "gap_choice",
+            "prompt": "Bei der Komödie hat sich das Publikum prächtig ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "People are entertained and having a good time.",
+              "de": "Die Menschen haben Spaß und fühlen sich gut unterhalten."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abgemeldet"
+                  },
+                  {
+                    "id": "1",
+                    "text": "amüsiert"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abgestimmt"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abgesichert"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Sich amüsieren means having fun; it is normally used reflexively in this sense.",
+              "de": "Sich amüsieren bedeutet Spaß haben; in dieser Bedeutung wird das Verb reflexiv gebraucht."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Komödie hat sich das Publikum prächtig amüsiert.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abgemeldet, abgestimmt, abgesichert do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000915",
+      "title": {
+        "en": "Analyze evidence",
+        "de": "Daten analysieren"
+      },
+      "description": {
+        "en": "Identify laboratory and data analysis.",
+        "de": "Systematische Untersuchung von Proben und Messdaten erkennen."
+      },
+      "objective": "Recognize analysieren as systematically examining samples or data to draw conclusions.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L41 (5dfcaa1ea2c2794daac5a2d69064cadb00aa95e4608afbf3fec55dde6074372f), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L41-v1",
+          "contextKey": "legacy-0009-L41-context-1",
+          "transferKey": "legacy-0009-L41-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090150",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000915",
+            "type": "choice",
+            "prompt": "Im Labor wollen wir die Wasserprobe auf Schadstoffe ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Information is examined to discover a pattern or cause.",
+              "de": "Informationen werden untersucht, um ein Muster oder eine Ursache zu finden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "absagen"
+              },
+              {
+                "id": "1",
+                "text": "abwaschen"
+              },
+              {
+                "id": "2",
+                "text": "analysieren"
+              },
+              {
+                "id": "3",
+                "text": "akzeptieren"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "2"
+              }
+            ],
+            "explanation": {
+              "en": "Analysieren means examining information systematically to understand it.",
+              "de": "Analysieren heißt, Informationen systematisch zu untersuchen und zu verstehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Im Labor wollen wir die Wasserprobe auf Schadstoffe analysieren.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives absagen, abwaschen, akzeptieren do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L41-v2",
+          "contextKey": "legacy-0009-L41-context-2",
+          "transferKey": "legacy-0009-L41-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090151",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000915",
+            "type": "gap_choice",
+            "prompt": "Die Forscherin hat die Messdaten ___, um den Fehler zu finden.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Information is examined to discover a pattern or cause.",
+              "de": "Informationen werden untersucht, um ein Muster oder eine Ursache zu finden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "analysiert"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abgesagt"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abgewaschen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abgeschaltet"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "0"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Analysieren means examining information systematically to understand it.",
+              "de": "Analysieren heißt, Informationen systematisch zu untersuchen und zu verstehen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Forscherin hat die Messdaten analysiert, um den Fehler zu finden.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abgesagt, abgewaschen, abgeschaltet do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000916",
+      "title": {
+        "en": "Recognize officially or acknowledge",
+        "de": "Eine Leistung anerkennen"
+      },
+      "description": {
+        "en": "Identify formal recognition and acknowledgement of achievement.",
+        "de": "Amtliche Anerkennung und Würdigung einer Leistung erkennen."
+      },
+      "objective": "Recognize anerkennen as formally recognizing a qualification or acknowledging someone's achievement.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L44 (44ef60f2d256b5c61f12c270419b0b7e6968ea92a25a03a47f309da3acfed5c9), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L44-v1",
+          "contextKey": "legacy-0009-L44-context-1",
+          "transferKey": "legacy-0009-L44-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090160",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000916",
+            "type": "choice",
+            "prompt": "Die Hochschule prüft, ob sie den ausländischen Abschluss offiziell ___ kann.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something is accepted as valid or given deserved credit.",
+              "de": "Etwas wird als gültig anerkannt oder eine Leistung gewürdigt."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "abschalten"
+              },
+              {
+                "id": "1",
+                "text": "anerkennen"
+              },
+              {
+                "id": "2",
+                "text": "abwaschen"
+              },
+              {
+                "id": "3",
+                "text": "abstimmen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "1"
+              }
+            ],
+            "explanation": {
+              "en": "Anerkennen can mean formally recognizing validity or acknowledging merit.",
+              "de": "Anerkennen kann bedeuten, Gültigkeit festzustellen oder eine Leistung zu würdigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Hochschule prüft, ob sie den ausländischen Abschluss offiziell anerkennen kann.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abschalten, abwaschen, abstimmen do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L44-v2",
+          "contextKey": "legacy-0009-L44-context-2",
+          "transferKey": "legacy-0009-L44-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090161",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000916",
+            "type": "gap_choice",
+            "prompt": "Die Chefin lobt die Arbeit ausdrücklich und möchte die Leistung des Teams ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "Something is accepted as valid or given deserved credit.",
+              "de": "Etwas wird als gültig anerkannt oder eine Leistung gewürdigt."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "absagen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "abspülen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "abrufen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "anerkennen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "3"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Anerkennen can mean formally recognizing validity or acknowledging merit.",
+              "de": "Anerkennen kann bedeuten, Gültigkeit festzustellen oder eine Leistung zu würdigen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Chefin lobt die Arbeit ausdrücklich und möchte die Leistung des Teams anerkennen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives absagen, abspülen, abrufen do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000917",
+      "title": {
+        "en": "Costs arise",
+        "de": "Kosten fallen an"
+      },
+      "description": {
+        "en": "Identify costs or fees that arise in a transaction.",
+        "de": "Entstehende Kosten und Gebühren erkennen."
+      },
+      "objective": "Recognize anfallen as being incurred or arising, especially for fees and expenses.",
+      "category": "vocabulary",
+      "level": "B2",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L45 (ab99405de060dcacc742448f96aa13cb8d96b85ffa2571807561baddaabf2a3a), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L45-v1",
+          "contextKey": "legacy-0009-L45-context-1",
+          "transferKey": "legacy-0009-L45-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090170",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000917",
+            "type": "choice",
+            "prompt": "Bei der Reparatur können zusätzliche Kosten ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An expense is generated, not necessarily paid yet.",
+              "de": "Eine Ausgabe entsteht, auch wenn sie noch nicht bezahlt wurde."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "anfallen"
+              },
+              {
+                "id": "1",
+                "text": "abschalten"
+              },
+              {
+                "id": "2",
+                "text": "abstimmen"
+              },
+              {
+                "id": "3",
+                "text": "abrufen"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Kosten fallen an means costs are incurred; Gebühren fallen an means fees apply.",
+              "de": "Kosten fallen an bedeutet, dass Kosten entstehen; Gebühren fallen an heißt, dass Gebühren erhoben werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Reparatur können zusätzliche Kosten anfallen.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abschalten, abstimmen, abrufen do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L45-v2",
+          "contextKey": "legacy-0009-L45-context-2",
+          "transferKey": "legacy-0009-L45-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090171",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000917",
+            "type": "gap_choice",
+            "prompt": "Für den Versand ___ keine Gebühren an; er ist kostenlos.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "An expense is generated, not necessarily paid yet.",
+              "de": "Eine Ausgabe entsteht, auch wenn sie noch nicht bezahlt wurde."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "sagen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "wiegen"
+                  },
+                  {
+                    "id": "2",
+                    "text": "fallen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "rufen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Kosten fallen an means costs are incurred; Gebühren fallen an means fees apply.",
+              "de": "Kosten fallen an bedeutet, dass Kosten entstehen; Gebühren fallen an heißt, dass Gebühren erhoben werden."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Für den Versand fallen keine Gebühren an; er ist kostenlos.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives sagen, wiegen, rufen do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    },
+    {
+      "id": "80000000-0000-4000-8000-000000000918",
+      "title": {
+        "en": "Specify required details",
+        "de": "Angaben machen"
+      },
+      "description": {
+        "en": "Identify providing required information in forms.",
+        "de": "Pflichtangaben in Formularen und Anmeldungen erkennen."
+      },
+      "objective": "Recognize angeben as stating or specifying requested personal or contact details.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 contexts based on pinned source apps/web/data/pos/verbs.jsonl:L47 (868b9f51bdbef15aa78621f47c21dabfb8065a7a5519b7f5c1be66a98be01bb8), 2026-10-28; source examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI editorial review in batch report; independent review pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0009-L47-v1",
+          "contextKey": "legacy-0009-L47-context-1",
+          "transferKey": "legacy-0009-L47-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090180",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000918",
+            "type": "choice",
+            "prompt": "Bitte ___ Sie im Formular Ihre aktuelle Adresse an.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A form asks the person to supply information.",
+              "de": "Ein Formular verlangt, dass Angaben eingetragen werden."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "rufen"
+              },
+              {
+                "id": "1",
+                "text": "wiegen"
+              },
+              {
+                "id": "2",
+                "text": "schalten"
+              },
+              {
+                "id": "3",
+                "text": "geben"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "3"
+              }
+            ],
+            "explanation": {
+              "en": "Angeben means specifying or stating information, often in forms.",
+              "de": "Angeben bedeutet, Informationen anzugeben oder zu nennen, häufig in Formularen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bitte geben Sie im Formular Ihre aktuelle Adresse an.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives rufen, wiegen, schalten do not express the intended action in this specified context. No independent human or transfer claim."
+        },
+        {
+          "variantKey": "legacy-0009-L47-v2",
+          "contextKey": "legacy-0009-L47-context-2",
+          "transferKey": "legacy-0009-L47-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000090181",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000918",
+            "type": "gap_choice",
+            "prompt": "Bei der Anmeldung muss man eine Telefonnummer ___.",
+            "instruction": {
+              "en": "Choose the expression that completes the sentence accurately.",
+              "de": "Wähle den Ausdruck, der den Satz inhaltlich richtig ergänzt."
+            },
+            "hint": {
+              "en": "A form asks the person to supply information.",
+              "de": "Ein Formular verlangt, dass Angaben eingetragen werden."
+            },
+            "slots": [
+              {
+                "id": "word",
+                "label": "Wort",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "abstimmen"
+                  },
+                  {
+                    "id": "1",
+                    "text": "angeben"
+                  },
+                  {
+                    "id": "2",
+                    "text": "absagen"
+                  },
+                  {
+                    "id": "3",
+                    "text": "abwaschen"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "word",
+                    "optionId": "1"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Angeben means specifying or stating information, often in forms.",
+              "de": "Angeben bedeutet, Informationen anzugeben oder zu nennen, häufig in Formularen."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Bei der Anmeldung muss man eine Telefonnummer angeben.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "GPT-6 editorial check 2026-10-28: reviewed complete German sentence and all four options; the alternatives abstimmen, absagen, abwaschen do not express the intended action in this specified context. No independent human or transfer claim."
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,14 @@
 # Continuing German Master recovery
 
+4 November newest: first 22-question wave is live at main `14b2ae0b`, Vercel
+`dpl_CMUP8gvk3MJ3rwaTZGEC6jvTsJud`; see its production receipt. Expansion branch
+prepares 2,466 more eligible reviewed questions with 91 rechecked corrections;
+100 reviewed questions remain explicitly excluded for material defects. Both
+clients now bound new saved rounds independently of library size. See newest
+PROGRESS and wave-2 README for exact counts, tests and live checkpoint. Owner says
+focus on dataset deployment, direct production without staging. Leave the old
+archive/other projects alone; Android Play remains held.
+
 4 November latest: owner explicitly says "no staging, directly to production".
 This supersedes the staging/other-project-pause wording below. Activation of the
 reviewed 22-question wave is in progress on PR #30; use newest PROGRESS for the

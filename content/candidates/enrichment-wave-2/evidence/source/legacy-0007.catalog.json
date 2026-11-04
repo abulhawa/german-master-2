@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "status": "agent-authored-draft",
+  "publicationApproved": false,
+  "targets": [
+    {
+      "id": "80000000-0000-4000-8000-000000000701",
+      "title": {
+        "en": "One more time",
+        "de": "Noch mal"
+      },
+      "description": {
+        "en": "Request repeating an already performed action.",
+        "de": "Um die Wiederholung einer bereits ausgeführten Handlung bitten."
+      },
+      "objective": "Use noch mal to request a repetition of something said or demonstrated.",
+      "category": "vocabulary",
+      "level": "B1",
+      "provenance": "Original GPT-6 sentences based only on pinned lemma apps/web/data/pos/particles.jsonl:L5 (50c28a380b11547d60242c3d3072a292efdfcf7294fc90beb6187543cac30add), 2026-10-28; legacy examples not copied.",
+      "review": {
+        "status": "pending",
+        "reviewer": null,
+        "date": null,
+        "notes": "AI source-row review recorded; publication pending.",
+        "reviewedHash": null
+      },
+      "variants": [
+        {
+          "variantKey": "legacy-0007-L5-v1",
+          "contextKey": "legacy-0007-L5-context-1",
+          "transferKey": "legacy-0007-L5-transfer-1",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000070010",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000701",
+            "type": "choice",
+            "prompt": "Die Hausnummer wurde eben zu schnell gesagt. Können Sie sie bitte ___ nennen? (gesucht: erneute Nennung)",
+            "instruction": {
+              "en": "Choose the expression requesting one more repetition.",
+              "de": "Wähle den Ausdruck, mit dem man um eine Wiederholung bittet."
+            },
+            "hint": {
+              "en": "The action has happened already and the speaker asks to hear or see it again.",
+              "de": "Die Handlung fand schon statt. Die Person bittet um eine Wiederholung."
+            },
+            "options": [
+              {
+                "id": "0",
+                "text": "noch mal"
+              },
+              {
+                "id": "1",
+                "text": "zum ersten Mal"
+              },
+              {
+                "id": "2",
+                "text": "nie wieder"
+              },
+              {
+                "id": "3",
+                "text": "gar nicht"
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "choice",
+                "optionId": "0"
+              }
+            ],
+            "explanation": {
+              "en": "Noch mal means 'one more time'. The spelling nochmal is also accepted.",
+              "de": "Noch mal bedeutet „noch einmal“. Auch die Schreibweise nochmal ist korrekt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Die Hausnummer wurde eben zu schnell gesagt. Können Sie sie bitte noch mal nennen? (gesucht: erneute Nennung)",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial check on 2026-10-28: all four offered choices examined in the context of requesting a repeated statement or demonstration. No competing appropriate offered answer. No CEFR or transfer claims."
+        },
+        {
+          "variantKey": "legacy-0007-L5-v2",
+          "contextKey": "legacy-0007-L5-context-2",
+          "transferKey": "legacy-0007-L5-transfer-2",
+          "exercise": {
+            "schemaVersion": 1,
+            "id": "81000000-0000-4000-8000-000000070011",
+            "revision": 1,
+            "targetId": "80000000-0000-4000-8000-000000000701",
+            "type": "gap_choice",
+            "prompt": "Der Techniker hat den Schritt schon gezeigt, aber ich habe ihn vergessen. Bitte zeigen Sie ihn mir ___.",
+            "instruction": {
+              "en": "Choose the expression requesting one more repetition.",
+              "de": "Wähle den Ausdruck, mit dem man um eine Wiederholung bittet."
+            },
+            "hint": {
+              "en": "The action has happened already and the speaker asks to hear or see it again.",
+              "de": "Die Handlung fand schon statt. Die Person bittet um eine Wiederholung."
+            },
+            "slots": [
+              {
+                "id": "expression",
+                "label": "Ausdruck",
+                "options": [
+                  {
+                    "id": "0",
+                    "text": "zum ersten Mal"
+                  },
+                  {
+                    "id": "1",
+                    "text": "nie wieder"
+                  },
+                  {
+                    "id": "2",
+                    "text": "noch mal"
+                  },
+                  {
+                    "id": "3",
+                    "text": "überhaupt nicht"
+                  }
+                ]
+              }
+            ]
+          },
+          "rubric": {
+            "normalizationVersion": "de-nfc-trim-v1",
+            "acceptedAnswers": [
+              {
+                "type": "gap_choice",
+                "selections": [
+                  {
+                    "slotId": "expression",
+                    "optionId": "2"
+                  }
+                ]
+              }
+            ],
+            "explanation": {
+              "en": "Noch mal means 'one more time'. The spelling nochmal is also accepted.",
+              "de": "Noch mal bedeutet „noch einmal“. Auch die Schreibweise nochmal ist korrekt."
+            },
+            "completedAnswer": {
+              "schemaVersion": 1,
+              "parts": [
+                {
+                  "text": "Der Techniker hat den Schritt schon gezeigt, aber ich habe ihn vergessen. Bitte zeigen Sie ihn mir noch mal.",
+                  "emphasis": false
+                }
+              ]
+            }
+          },
+          "ambiguityNotes": "AI editorial check on 2026-10-28: all four offered choices examined in the context of requesting a repeated statement or demonstration. No competing appropriate offered answer. No CEFR or transfer claims."
+        }
+      ]
+    }
+  ]
+}
