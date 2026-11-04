@@ -41,6 +41,50 @@ eligibility decisions are mechanically verified; it does **not** mean language
 correctness, licensing, new bundle identity, DB import, production rollout, or
 client lifecycle acceptance have been demonstrated.
 
+## Verified frozen candidate, 4 November 2026
+
+The exact pinned preflight and candidate generation completed in GitHub Actions
+run [41923258028](https://github.com/abulhawa/german-master-2/actions/runs/41923258028).
+The read-only preflight, pinned workspace install, candidate build, additive
+PGlite installation/replay, previous-release preservation, all newly accepted
+answer grading and bounded 125-question saved-round adoption passed. The
+workflows committed the generated output on this **release branch only**
+at `0ddb07fe70af3902949326d0ae6cff818c35957f`. It did not deploy.
+
+| Frozen result | Count |
+|---|---:|
+| Independently reviewed source questions | 5,682 |
+| Reviewed questions already published in wave 2 | 2,488 |
+| Newly eligible and generated | **3,006** (1,503 targets) |
+| Excluded for unresolved material defects | **188** (94 targets) |
+| Exact rechecked corrections applied in this new candidate | 8 |
+| Previously excluded targets now eligible | 5 |
+| Old release revisions preserved | 2,613 |
+| New release total revisions | **5,619** |
+| General B1 question pool | 2,721 |
+| General B2 question pool | 2,844 |
+| Maximum frozen saved round | 125 |
+
+Frozen inactive candidate identity:
+`92000000-0000-4000-8000-000000000001`.
+
+The 54 previously gated Work questions remain outside General practice. The
+candidate SQL was installed only in local PGlite as a test, not in Supabase.
+No new candidate is active in `content/production/catalog.json` or
+`content/guest/practice.json`, and no production deployment or Android Play
+publication has occurred.
+
+### Remaining deployment blockers
+
+The catalog and offline bundle are **prepared and mechanically verified**, but
+there is no production rollout authorization implicit in CI. The next slice
+must activate these exact frozen files in an integration commit, test actual
+web/native offline lifecycle (including larger asset size), validate native
+packaging, build and check a non-destructive import plan against the exact
+existing production membership and content digests, and then execute the
+owner-authorized direct production rollout with post-deploy smoke tests and
+rollback retention. Hold back the 188 excluded questions until rechecked.
+
 ## Next implementation gate
 
 1. Treat the generated report as the freeze input for a **new additive immutable
