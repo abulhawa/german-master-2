@@ -152,11 +152,17 @@ fun NativePracticeView(p: NativePractice, german: Boolean, busy: Boolean, action
             SuggestionChip(onClick = {}, enabled = false, label = { Text(if (german) title.de else title.en) },
                 colors = SuggestionChipDefaults.suggestionChipColors(disabledLabelColor = MaterialTheme.colorScheme.onSurfaceVariant))
         }
-        Text(if(german) exercise.instruction.de else exercise.instruction.en, style = MaterialTheme.typography.titleMedium)
-        PracticeHeading(exercise.prompt, p.question.id)
-        if (exercise is ExerciseChoice || exercise is ExerciseGapChoice || exercise is ExerciseWordOrder || exercise is ExerciseMatching) {
-            LowTypingInput(exercise, p.draft, p.order, german = german, readOnly = !p.editable || busy,
-                onDraft = { value -> edit { repository.draft(value) } }, onOrder = { value -> edit { repository.order(value) } })
+        // Legacy elevated practice card, with the v2 type-driven input renderer.
+        // No historical TaskCard or legacy answer submission is reinstated.
+        ElevatedCard(modifier = Modifier.fillMaxWidth(), elevation = CardDefaults.elevatedCardElevation(defaultElevation = 6.dp)) {
+            Column(Modifier.fillMaxWidth().padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                Text(if(german) exercise.instruction.de else exercise.instruction.en, style = MaterialTheme.typography.titleMedium)
+                PracticeHeading(exercise.prompt, p.question.id)
+                if (exercise is ExerciseChoice || exercise is ExerciseGapChoice || exercise is ExerciseWordOrder || exercise is ExerciseMatching) {
+                    LowTypingInput(exercise, p.draft, p.order, german = german, readOnly = !p.editable || busy,
+                        onDraft = { value -> edit { repository.draft(value) } }, onOrder = { value -> edit { repository.order(value) } })
+                }
+            }
         }
         if(p.editable && !busy) {
             fun draft(answer: Answer?) { edit { repository.draft(answer) } }

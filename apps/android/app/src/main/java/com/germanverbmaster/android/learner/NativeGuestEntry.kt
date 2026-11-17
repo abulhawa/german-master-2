@@ -95,7 +95,10 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
         StudyPrimary(label,enabled,action)
     }
     @Composable fun section(content:@Composable ColumnScope.()->Unit) {
-        StudyPanel(content)
+        // The imported Android UI used an elevated, padded practice card.
+        ElevatedCard(modifier=Modifier.fillMaxWidth(),elevation=CardDefaults.elevatedCardElevation(defaultElevation=6.dp)) {
+            Column(Modifier.fillMaxWidth().padding(24.dp),verticalArrangement=Arrangement.spacedBy(16.dp),content=content)
+        }
     }
     val active=state.started && state.index<content.session.questions.size
     val focused=screen=="practice"
@@ -146,21 +149,26 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
             if(focused) GrammarReferenceButton(german)
             when(screen) {
                 "home" -> {
-                    StudyEyebrow(text("YOUR PRACTICE","DEINE ÜBUNG"))
-                    StudyPageTitle(text("A little German.\nA little more confidence.","Ein wenig Deutsch.\nEin Stück sicherer."))
-                    Text(text("Make time for focused practice.","Nimm dir Zeit für gezieltes Üben."),color=MaterialTheme.colorScheme.onSurfaceVariant)
+                    StudyPageTitle(text("Practice","Üben"))
+                    if(state.started) {
+                        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+                            listOf(state.correct.toString() to text("Correct","Richtig"),state.graded.toString() to text("Answered","Beantwortet")).forEach { (value,caption) ->
+                                ElevatedCard(modifier=Modifier.weight(1f)) {
+                                    Column(Modifier.fillMaxWidth().padding(12.dp),horizontalAlignment=androidx.compose.ui.Alignment.CenterHorizontally) {
+                                        Text(value,style=MaterialTheme.typography.titleMedium)
+                                        Text(caption,style=MaterialTheme.typography.labelSmall)
+                                    }
+                                }
+                            }
+                        }
+                    }
                     section {
                         StudyEyebrow(level+text(" · "," · ")+if(learningContext=="work")text("German for work","Deutsch im Beruf")else text("General German","Allgemeines Deutsch"))
-                        Text(text("Build your foundations","Festige deine Grundlagen"),style=MaterialTheme.typography.titleLarge)
-                        Text(text("Articles, plurals and the patterns that hold a sentence together.","Artikel, Pluralformen und die Muster, die einen Satz zusammenhalten."),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
+                        Text(text("Your German practice","Deine Deutschübungen"),style=MaterialTheme.typography.titleLarge)
                         primary(startLabel,loaded.isSuccess){start(state.started)}
-                        Text(text("Without an account, leaving practice or closing the app loses your work.","Ohne Konto geht deine Übung beim Verlassen oder Schließen der App verloren."),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(text("Without an account, leaving practice loses unsaved work.","Ohne Konto gehen beim Verlassen nicht gespeicherte Übungen verloren."),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
                     }
-                    Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween,verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
-                        StudyEyebrow(text("IN THIS SESSION","IN DIESER ÜBUNG"))
-                        TextButton(onClick={screen="topics"}){Text(text("View topics","Themen ansehen"))}
-                    }
-                    Text(text("Noun plurals · Dative articles · Prepositions · Word order · Verb forms","Pluralformen · Dativartikel · Präpositionen · Wortstellung · Verbformen"),color=MaterialTheme.colorScheme.onSurfaceVariant,style=MaterialTheme.typography.bodyMedium)
+                    TextButton(onClick={screen="topics"}){Text(text("View topics","Themen ansehen"))}
                 }
                 "topics" -> {
                     StudyPageTitle(text("Topics","Themen"))
@@ -197,6 +205,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                         TextButton(onClick={destination="home";discard()}){Text(text("Finish","Abschließen"))}
                     }
                 } else if(loaded.isSuccess) {
+                section {
                 val exercise=content.session.questions[state.index].exercise
                 LinearProgressIndicator(progress={state.index.toFloat()/content.session.questions.size},modifier=Modifier.fillMaxWidth().height(4.dp),trackColor=MaterialTheme.colorScheme.outlineVariant)
                 PracticeHeading(exercise.prompt,exercise.id)
@@ -265,6 +274,7 @@ fun NativeGuestEntry(path:File,german:Boolean,language:()->Unit,account:(String)
                         commit(state.copy(index=state.index+1,draft=null,order=emptyList(),feedback=null,assisted=false))
                     }
                 }
+                } // legacy practice card
                 }
             }
             if(loaded.isFailure) Text(text("Saved practice could not be read. It has been preserved.","Gespeicherte Übungen konnten nicht gelesen werden und bleiben erhalten."),Modifier.semantics {liveRegion=LiveRegionMode.Polite})

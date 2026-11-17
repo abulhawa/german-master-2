@@ -53,9 +53,20 @@ internal fun StudyHome(cache: LearnerCache, german: Boolean, busy: Boolean, fres
     val needs = cache.targets.count { it.state == "needs_practice" }
     val due = cache.targets.count { it.isDue && it.state != "needs_practice" }
     val hasEvidence = cache.targets.any { it.lastSequence > 0 }
-    Text(c(R.string.study_tagline), style = MaterialTheme.typography.headlineLarge,
+    Text(c(R.string.study_practice), style = MaterialTheme.typography.titleLarge,
         modifier = Modifier.semantics { heading() })
-    Surface(color = colors.surface, contentColor = colors.onSurface, shape = RoundedCornerShape(20.dp), border = BorderStroke(1.dp, colors.outlineVariant)) {
+    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        listOf(needs.toString() to c(R.string.study_needs), due.toString() to c(R.string.study_retention)).forEach { (value, caption) ->
+            ElevatedCard(modifier = Modifier.weight(1f)) {
+                Column(Modifier.fillMaxWidth().padding(12.dp), horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally) {
+                    Text(value, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                    Text(caption, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+            }
+        }
+    }
+    TextButton(onClick = preferences, enabled = !busy) { Text(c(R.string.study_preferences)) }
+    ElevatedCard(modifier = Modifier.fillMaxWidth(), elevation = CardDefaults.elevatedCardElevation(defaultElevation = 6.dp)) {
         Column(Modifier.fillMaxWidth().padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
             Text("${c(R.string.study_practice)} · ${cache.profile?.preferences?.level ?: "B1"}", style = MaterialTheme.typography.labelLarge)
             Text(c(if (!hasEvidence) R.string.study_discover else if (needs + due == 0) R.string.study_quiet else R.string.study_attention),
