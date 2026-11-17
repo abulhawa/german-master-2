@@ -35,7 +35,6 @@ import com.germanverbmaster.android.foundation.contract.*
 fun FoundationTheme(content: @Composable () -> Unit) {
     val (appearance, _) = rememberAppearance()
     val dark = when(appearance) { "dark" -> true; "light" -> false; else -> isSystemInDarkTheme() }
-    val c = if (dark) FoundationTokens.dark else FoundationTokens.light
     val view = LocalView.current
     SideEffect {
         (view.context as? android.app.Activity)?.let { activity ->
@@ -45,28 +44,12 @@ fun FoundationTheme(content: @Composable () -> Unit) {
             }
         }
     }
+    // Restore the original Android visual theme without changing v2 Auth,
+    // content contracts, persistence, or exercise input components.
     CompositionLocalProvider(LocalFoundationDark provides dark) {
-    MaterialTheme(colorScheme = if (dark) darkColorScheme(
-        primary=c.primary, onPrimary=c.onPrimary, background=c.background,
-        surface=c.surface, onSurface=c.text, onBackground=c.text,
-        onSurfaceVariant=c.secondary, outline=c.controlBorder, outlineVariant=c.border, error=c.error
-    ) else lightColorScheme(
-        primary=c.primary, onPrimary=c.onPrimary, background=c.background,
-        surface=c.surface, onSurface=c.text, onBackground=c.text,
-        onSurfaceVariant=c.secondary, outline=c.controlBorder, outlineVariant=c.border, error=c.error
-    ), shapes = Shapes(small = RoundedCornerShape(8.dp), medium = RoundedCornerShape(12.dp), large = RoundedCornerShape(20.dp)),
-        typography = Typography(
-            headlineLarge = TextStyle(fontSize = 32.sp, lineHeight = 38.sp, letterSpacing = (-1).sp, fontWeight = FontWeight.SemiBold),
-            headlineMedium = TextStyle(fontSize = 28.sp, lineHeight = 34.sp, letterSpacing = (-0.7).sp, fontWeight = FontWeight.SemiBold),
-            headlineSmall = TextStyle(fontSize = 26.sp, lineHeight = 36.sp, letterSpacing = (-0.5).sp),
-            titleLarge = TextStyle(fontSize = 22.sp, lineHeight = 28.sp, letterSpacing = (-0.5).sp, fontWeight = FontWeight.SemiBold),
-            titleMedium = TextStyle(fontSize = 16.sp, lineHeight = 24.sp, fontWeight = FontWeight.Medium),
-            bodyLarge = TextStyle(fontSize = 16.sp, lineHeight = 25.sp),
-            bodyMedium = TextStyle(fontSize = 14.sp, lineHeight = 22.sp),
-            bodySmall = TextStyle(fontSize = 12.sp, lineHeight = 18.sp),
-            labelLarge = TextStyle(fontSize = 14.sp, lineHeight = 20.sp, fontWeight = FontWeight.Medium),
-            labelMedium = TextStyle(fontSize = 12.sp, lineHeight = 18.sp, letterSpacing = 1.sp, fontWeight = FontWeight.Medium)
-        ), content=content)
+        com.germanverbmaster.android.ui.theme.GermanVerbMasterTheme(darkTheme = dark) {
+            content()
+        }
     }
 }
 
